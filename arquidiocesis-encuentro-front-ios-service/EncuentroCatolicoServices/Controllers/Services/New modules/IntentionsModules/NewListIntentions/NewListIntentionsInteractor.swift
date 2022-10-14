@@ -25,7 +25,9 @@ class NewListIntentionsInteractor: NewListIntentionsInteractorProtocol {
         //request.setValue("Priest", forHTTPHeaderField: "X-Role")
         
         let work = URLSession.shared.dataTask(with: request) { data, response, error in
-            print("@$", response)
+            print("  -->>  data: ", data)
+            print("  -->>  response: ", response)
+            print("  -->>  error: ", error)
             do {
                 
                 if data != nil {

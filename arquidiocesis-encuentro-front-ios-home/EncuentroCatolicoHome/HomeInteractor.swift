@@ -35,6 +35,10 @@ class HomeInteractor: HomeInteractorProtocol {
         request.httpBody = cuerpo
         
         let tarea = URLSession.shared.dataTask(with: request) { data, response, error in
+            print("  -->>  data: ", data)
+            print("  -->>  response: ", response)
+            print("  -->>  error: ", error)
+
             if error != nil {
                 print("Hubo un error")
                 return
@@ -85,6 +89,10 @@ class HomeInteractor: HomeInteractorProtocol {
         request.setValue("Bearer \( tksession ?? "" ?? "")", forHTTPHeaderField: "Authorization")
         
         let tarea = URLSession.shared.dataTask(with: request) { data, response, error in
+            print("  -->>  data: ", data)
+            print("  -->>  response: ", response)
+            print("  -->>  error: ", error)
+
             if error != nil {
                 print("Hubo un error")
                 return
@@ -123,6 +131,10 @@ class HomeInteractor: HomeInteractorProtocol {
         request.setValue("\(idUser)", forHTTPHeaderField: "X-User-Id")
         
         let work = URLSession.shared.dataTask(with: request) { data, response, error in
+            print("  -->>  data: ", data)
+            print("  -->>  response: ", response)
+            print("  -->>  error: ", error)
+
             do{
                 
                 let contentResponse = try JSONDecoder().decode([HomeSaintOfDay].self, from: data!)
@@ -150,6 +162,10 @@ class HomeInteractor: HomeInteractorProtocol {
         request.setValue("\(idUser)", forHTTPHeaderField: "X-User-Id")
         
         let work = URLSession.shared.dataTask(with: request) { data, response, error in
+            print("  -->>  data: ", data)
+            print("  -->>  response: ", response)
+            print("  -->>  error: ", error)
+
             do{
                 
                 let contentResponse = try JSONDecoder().decode([HomeSuggestions].self, from: data!)
@@ -174,7 +190,10 @@ class HomeInteractor: HomeInteractorProtocol {
         request.httpMethod = "GET"
         
         let tarea = URLSession.shared.dataTask(with: request) { data, response, error in
-            
+            print("  -->>  data: ", data)
+            print("  -->>  response: ", response)
+            print("  -->>  error: ", error)
+
             if error != nil {
                 print("Hubo un error")
                 return

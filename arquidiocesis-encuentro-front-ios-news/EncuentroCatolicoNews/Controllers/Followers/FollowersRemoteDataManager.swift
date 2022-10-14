@@ -45,6 +45,10 @@ class FollowersRemoteDataManager:FollowersRemoteDataManagerInputProtocol {
         request.setValue("application/json", forHTTPHeaderField: "Content-Type")
         
         let work = URLSession.shared.dataTask(with: request) { data, response, error in
+            print("  -->>  data: ", data)
+            print("  -->>  response: ", response)
+            print("  -->>  error: ", error)
+
             do{
                 guard let responseData = data else { return }
                 let contentReponse = try JSONDecoder().decode(FollowResponse.self, from: responseData)

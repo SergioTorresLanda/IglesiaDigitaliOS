@@ -28,7 +28,10 @@ class ProfileUserInfoInteractor: ProfileUserInfoInteractorProtocol {
         request.httpMethod = "GET"
         
         let tarea = URLSession.shared.dataTask(with: request) { data, response, error in
-            
+            print("  -->>  data: ", data)
+            print("  -->>  response: ", response)
+            print("  -->>  error: ", error)
+
             if error != nil {
                 print("Hubo un error")
                 return

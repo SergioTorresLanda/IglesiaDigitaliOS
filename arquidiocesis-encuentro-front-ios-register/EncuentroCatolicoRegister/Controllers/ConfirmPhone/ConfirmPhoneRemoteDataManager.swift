@@ -20,6 +20,10 @@ class ConfirmPhoneRemoteDataManager:ConfirmPhoneRemoteDataManagerInputProtocol {
         request.httpBody = cuerpo
         
         let tarea = URLSession.shared.dataTask(with: request) { data, response, error in
+            print("  -->>  data: ", data)
+            print("  -->>  response: ", response)
+            print("  -->>  error: ", error)
+
             if error != nil {
                 print("Hubo un error")
                 self.remoteRequestHandler?.callbackResponse(respuesta: nil, error: ErroresServidorConfirm.ErrorServidor, user: nil)
@@ -55,6 +59,10 @@ class ConfirmPhoneRemoteDataManager:ConfirmPhoneRemoteDataManagerInputProtocol {
         request.httpBody = cuerpo
         
         let tarea = URLSession.shared.dataTask(with: request) { data, response, error in
+            print("  -->>  data: ", data)
+            print("  -->>  response: ", response)
+            print("  -->>  error: ", error)
+
             if error != nil {
                 print("Hubo un error")
                 self.remoteRequestHandler?.callbackResponse(respuesta: nil, error: ErroresServidorConfirm.ErrorServidor, user: user)

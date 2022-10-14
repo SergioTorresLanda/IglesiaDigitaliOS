@@ -26,6 +26,10 @@ class SearchSocialInteractor: SocialSearchInteractorProtocol {
         
         let work = URLSession.shared.dataTask(with: request) { data, response, error in
             print("%&/", response)
+            print("  -->>  data: ", data)
+            print("  -->>  response: ", response)
+            print("  -->>  error: ", error)
+
             do {
                 if (response as! HTTPURLResponse).statusCode == 401 {
                     print("Here token code")
@@ -74,6 +78,10 @@ class SearchSocialInteractor: SocialSearchInteractorProtocol {
         request.setValue("application/json", forHTTPHeaderField: "Content-Type")
         
         let work = URLSession.shared.dataTask(with: request) { data, response, error in
+            print("  -->>  data: ", data)
+            print("  -->>  response: ", response)
+            print("  -->>  error: ", error)
+
             do{
                 guard let responseData = data else { return }
                 let contentReponse = try JSONDecoder().decode(FollowResponse.self, from: responseData)

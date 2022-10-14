@@ -26,6 +26,10 @@ class CommentsInteractor: CommentsInteractorProtocol {
         request.setValue("\(idUser)", forHTTPHeaderField: "X-User-Id")
         
         URLSession.shared.dataTask(with: request) { data, response, error in
+            print("  -->>  data: ", data)
+            print("  -->>  response: ", response)
+            print("  -->>  error: ", error)
+
             do {
                 
                 if (response as! HTTPURLResponse).statusCode == 200 {
@@ -67,7 +71,10 @@ class CommentsInteractor: CommentsInteractorProtocol {
         request.setValue("Bearer \( tksession ?? "")", forHTTPHeaderField: "Authorization")
         
         URLSession.shared.dataTask(with: request) { data, response, error in
-            
+            print("  -->>  data: ", data)
+            print("  -->>  response: ", response)
+            print("  -->>  error: ", error)
+
             print(response)
             
             if (response as! HTTPURLResponse).statusCode == 200 || (response as! HTTPURLResponse).statusCode == 201 {
@@ -104,8 +111,11 @@ class CommentsInteractor: CommentsInteractorProtocol {
         request.setValue("Bearer \( tksession ?? "")", forHTTPHeaderField: "Authorization")
         
         URLSession.shared.dataTask(with: request) { data, response, error in
-            print(response)
             
+            print("  -->>  data: ", data)
+            print("  -->>  response: ", response)
+            print("  -->>  error: ", error)
+
             if (response as! HTTPURLResponse).statusCode == 200 {
                 self.presenter?.succesUpdateComment()
             }else{

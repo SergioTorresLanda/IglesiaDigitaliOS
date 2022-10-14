@@ -21,6 +21,10 @@ class CongregationsInteractor: CongregationsInteractorProtocol {
         request.setValue("Bearer \( tksession ?? "")", forHTTPHeaderField: "Authorization")
         
         URLSession.shared.dataTask(with: request) { data, response, error in
+            print("  -->>  data: ", data)
+            print("  -->>  response: ", response)
+            print("  -->>  error: ", error)
+
             do {
                 if (response as! HTTPURLResponse).statusCode == 200 {
                     let contentResponse = try JSONDecoder().decode(CongregationsList.self, from: data!)

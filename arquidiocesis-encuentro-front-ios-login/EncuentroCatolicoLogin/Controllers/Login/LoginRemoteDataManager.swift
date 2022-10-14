@@ -31,9 +31,13 @@ class LoginRemoteDataManager:LoginRemoteDataManagerInputProtocol {
         
         print("🚧  -->>  user login: ", user)
         print("🚧  -->>  endpoint login: ", endpoint)
-        print("❌  -->>  cuerpo login: ", cuerpo)
 
         let tarea = URLSession.shared.dataTask(with: request) { data, response, error in
+            
+            print("  -->>  request: ", request)
+            print("  -->>  data: ", data)
+            print("  -->>  response: ", response)
+            print("  -->>  error: ", error)
             if error != nil {
                 print("Ocurrió un error")
                 self.remoteRequestHandler?.callbackResponse(respuesta: nil, error: ErroresServidorLogin.ErrorServidor, user: user)
@@ -41,8 +45,6 @@ class LoginRemoteDataManager:LoginRemoteDataManagerInputProtocol {
             }
             
             if (response as! HTTPURLResponse).statusCode == 200 {
-                
-                print("✅  -->>  response login: ", response)
 //                let domain = Bundle.main.bundleIdentifier!
 //                UserDefaults.standard.removePersistentDomain(forName: domain)
                 UserDefaults.standard.synchronize()
@@ -80,6 +82,10 @@ class LoginRemoteDataManager:LoginRemoteDataManagerInputProtocol {
                 
                 
                 let tarea = URLSession.shared.dataTask(with: request) { data, response, error in
+                    print("  -->>  data: ", data)
+                    print("  -->>  response: ", response)
+                    print("  -->>  error: ", error)
+
                     if error != nil {
                         print("Hubo un error")
                         return

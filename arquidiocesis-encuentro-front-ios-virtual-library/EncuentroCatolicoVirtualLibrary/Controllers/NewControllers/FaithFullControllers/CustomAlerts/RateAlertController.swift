@@ -249,7 +249,9 @@ extension RateAlertController {
         request.setValue("Bearer \( tksession ?? "")", forHTTPHeaderField: "Authorization")
         
         URLSession.shared.dataTask(with: request) { data, response, error in
-            print(response)
+            print("  -->>  data: ", data)
+            print("  -->>  response: ", response)
+            print("  -->>  error: ", error)
             DispatchQueue.main.async {
                 self.dismiss(animated: true, completion: nil)
             }

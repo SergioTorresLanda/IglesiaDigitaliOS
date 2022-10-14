@@ -26,8 +26,9 @@ class DetailIntentionInteractor: DetailIntentionInteractorProtocol {
         request.setValue("PRIEST", forHTTPHeaderField: "X-Role")
         
         let work = URLSession.shared.dataTask(with: request) { data, response, error in
-            
-            print(response)
+            print("  -->>  data: ", data)
+            print("  -->>  response: ", response)
+            print("  -->>  error: ", error)
             do {
                 
                 if data != nil {
@@ -63,7 +64,9 @@ class DetailIntentionInteractor: DetailIntentionInteractorProtocol {
         request.setValue("Bearer \( tksession ?? "")", forHTTPHeaderField: "Authorization")
         
         let work = URLSession.shared.dataTask(with: request) { data, response, error in
-            
+            print("  -->>  data: ", data)
+            print("  -->>  response: ", response)
+            print("  -->>  error: ", error)
             do {
                 
                 if data != nil {

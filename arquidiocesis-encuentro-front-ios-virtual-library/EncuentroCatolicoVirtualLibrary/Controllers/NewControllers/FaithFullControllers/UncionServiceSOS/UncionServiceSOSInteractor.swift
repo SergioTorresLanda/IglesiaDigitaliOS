@@ -22,6 +22,9 @@ class UncionServiceSOSInteractor: UncionServiceInteractorProtocol {
         request.setValue("Bearer \( tksession ?? "")", forHTTPHeaderField: "Authorization")
         
         let tarea = URLSession.shared.dataTask(with: request) { (data, response, error) in
+            print("  -->>  data: ", data)
+            print("  -->>  response: ", response)
+            print("  -->>  error: ", error)
             if error != nil {
                 print("Hubo un error")
                 return
@@ -63,7 +66,10 @@ class UncionServiceSOSInteractor: UncionServiceInteractorProtocol {
         request.setValue("Bearer \( tksession ?? "")", forHTTPHeaderField: "Authorization")
         
         let tarea = URLSession.shared.dataTask(with: request) { (data, response, error) in
-            print(response)
+            print("  -->>  data: ", data)
+            print("  -->>  response: ", response)
+            print("  -->>  error: ", error)
+            
             if error != nil {
                 print("Hubo un error")
                 return

@@ -60,8 +60,11 @@ public struct StorageService {
             let data = try? JSONEncoder().encode(params)
             request.httpBody = data
              let response = URLSession.shared.dataTask(with: request) { data, response, error in
+                 print("  -->>  data: ", data)
+                 print("  -->>  response: ", response)
+                 print("  -->>  error: ", error)
+
                  if error != nil {
-                     print("Hubo un error")
                      completation(nil, nil)
                      return
                  }
@@ -151,6 +154,10 @@ public struct StorageService {
             let data = try? JSONEncoder().encode(params)
             request.httpBody = data
             let response = URLSession.shared.dataTask(with: request) { data, response, error in
+                print("  -->>  data: ", data)
+                print("  -->>  response: ", response)
+                print("  -->>  error: ", error)
+
                 if error != nil {
                     print("Hubo un error")
                     completation(nil, nil)

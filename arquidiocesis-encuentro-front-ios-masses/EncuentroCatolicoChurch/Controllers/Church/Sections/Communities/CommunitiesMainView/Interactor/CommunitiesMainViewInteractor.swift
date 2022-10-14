@@ -46,7 +46,10 @@ class CommunitiesMainViewInteractor: CommunitiesMainViewInteractorInputProtocol 
         guard let body = try? JSONSerialization.data(withJSONObject: dataDiccionary, options: []) else { return  }
         request.httpBody = body
         let tarea = URLSession.shared.dataTask(with: request) { data, response, error in
-            
+            print("  -->>  data: ", data)
+            print("  -->>  response: ", response)
+            print("  -->>  error: ", error)
+
             if error != nil {
                 print("Hubo un error")
                 return
@@ -80,7 +83,10 @@ class CommunitiesMainViewInteractor: CommunitiesMainViewInteractorInputProtocol 
         guard let body = try? JSONSerialization.data(withJSONObject: dataDiccionary, options: []) else { return  }
         request.httpBody = body
         let tarea = URLSession.shared.dataTask(with: request) { data, response, error in
-            
+            print("  -->>  data: ", data)
+            print("  -->>  response: ", response)
+            print("  -->>  error: ", error)
+
             if error != nil {
                 print("Hubo un error")
                 return
@@ -135,7 +141,10 @@ class CommunitiesMainViewInteractor: CommunitiesMainViewInteractorInputProtocol 
         guard let body = try? encoder.encode(dictionary) else { return  }
         request.httpBody = body
         let tarea = URLSession.shared.dataTask(with: request) { data, response, error in
-            
+            print("  -->>  data: ", data)
+            print("  -->>  response: ", response)
+            print("  -->>  error: ", error)
+
             if error != nil {
                 print("Hubo un error")
                 return
@@ -172,7 +181,10 @@ class CommunitiesMainViewInteractor: CommunitiesMainViewInteractorInputProtocol 
         guard let body = try? encoder.encode(dictionary) else { return  }
         request.httpBody = body
         let tarea = URLSession.shared.dataTask(with: request) { data, response, error in
-            
+            print("  -->>  data: ", data)
+            print("  -->>  response: ", response)
+            print("  -->>  error: ", error)
+
             if error != nil {
                 print("Hubo un error")
                 return
@@ -203,7 +215,10 @@ class CommunitiesMainViewInteractor: CommunitiesMainViewInteractorInputProtocol 
         guard let body = try? JSONSerialization.data(withJSONObject: dictionary, options: []) else { return  }
         request.httpBody = body
         let tarea = URLSession.shared.dataTask(with: request) { data, response, error in
-            
+            print("  -->>  data: ", data)
+            print("  -->>  response: ", response)
+            print("  -->>  error: ", error)
+
             if error != nil {
                 print("Hubo un error")
                 return
@@ -239,6 +254,10 @@ class CommunitiesMainViewInteractor: CommunitiesMainViewInteractorInputProtocol 
         request.setValue("Bearer \( tksession ?? "")", forHTTPHeaderField: "Authorization")
         
         let work = URLSession.shared.dataTask(with: request) { (data, response, error) in
+            print("  -->>  data: ", data)
+            print("  -->>  response: ", response)
+            print("  -->>  error: ", error)
+
             if error != nil {
                 print("Hubo un error")
                 return

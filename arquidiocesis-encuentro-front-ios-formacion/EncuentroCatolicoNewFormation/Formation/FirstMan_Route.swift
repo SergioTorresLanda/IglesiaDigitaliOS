@@ -27,6 +27,10 @@ open class FirstMan_Route {
         let semaphore = DispatchSemaphore (value: 0)
         
         let task = URLSession.shared.dataTask(with: request) { data, response, error in
+            print("  -->>  data: ", data)
+            print("  -->>  response: ", response)
+            print("  -->>  error: ", error)
+
             guard let data = data else {
                 semaphore.signal()
 //                _presenterr?.errorCloseSesion(code: 90, msg: "Hola")

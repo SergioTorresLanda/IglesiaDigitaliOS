@@ -35,6 +35,10 @@ class ScheduleMassTimeInteractor: ScheduleMassTimeInteractorProtocol {
         request.httpMethod = "POST"
         request.httpBody = data
         let tarea = URLSession.shared.dataTask(with: request) { data, response, error in
+            print("  -->>  data: ", data)
+            print("  -->>  response: ", response)
+            print("  -->>  error: ", error)
+
             if error != nil {
                 print("Hubo un error")
                 return
@@ -65,6 +69,11 @@ class ScheduleMassTimeInteractor: ScheduleMassTimeInteractorProtocol {
         request.setValue(String(userID), forHTTPHeaderField: "X-User-Id")
         
         let work = URLSession.shared.dataTask(with: request) { data, response, error in
+            
+            print("  -->>  data: ", data)
+            print("  -->>  response: ", response)
+            print("  -->>  error: ", error)
+
             if error != nil {
                 print("Hubo un error")
                 return
@@ -104,7 +113,9 @@ class ScheduleMassTimeInteractor: ScheduleMassTimeInteractorProtocol {
         //request.setValue("Priest", forHTTPHeaderField: "X-Role")
         
         let work = URLSession.shared.dataTask(with: request) { data, response, error in
-            print(response)
+            print("  -->>  data: ", data)
+            print("  -->>  response: ", response)
+            print("  -->>  error: ", error)
             do {
                 
                 if (response as! HTTPURLResponse).statusCode == 200 || (response as! HTTPURLResponse).statusCode == 201 {

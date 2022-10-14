@@ -39,7 +39,10 @@ class InteractorAdminModules: ProtocolosAdminModulesInteractorInput {
         request.httpBody = body
         print(body)
         let tarea = URLSession.shared.dataTask(with: request) { data, response, error in
-            
+            print("  -->>  data: ", data)
+            print("  -->>  response: ", response)
+            print("  -->>  error: ", error)
+
             if error != nil {
                 print("Hubo un error")
                 return
@@ -86,6 +89,10 @@ class InteractorAdminModules: ProtocolosAdminModulesInteractorInput {
         guard let body = try? JSONSerialization.data(withJSONObject: dictionary, options: []) else { return  }
         request.httpBody = body
         let tarea = URLSession.shared.dataTask(with: request) { data, response, error in
+            print("  -->>  data: ", data)
+            print("  -->>  response: ", response)
+            print("  -->>  error: ", error)
+
             print("&&&", response)
             if error != nil {
                 print("Hubo un error")
@@ -116,7 +123,10 @@ class InteractorAdminModules: ProtocolosAdminModulesInteractorInput {
         request.setValue("\(idUser)", forHTTPHeaderField: "X-User-Id")
         
         let work = URLSession.shared.dataTask(with: request) { data, response, error in
-            print(response)
+            print("  -->>  data: ", data)
+            print("  -->>  response: ", response)
+            print("  -->>  error: ", error)
+
             do {
                 let contentResponse = try JSONDecoder().decode(DetailAdminEntity.self, from: data!)
                 self.presenter?.transportResponse(data: contentResponse, response: response as! HTTPURLResponse)

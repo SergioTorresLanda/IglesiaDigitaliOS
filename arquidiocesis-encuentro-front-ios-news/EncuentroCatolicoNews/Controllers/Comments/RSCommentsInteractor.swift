@@ -38,7 +38,10 @@ public class RSCommentsInteractor: RSCommentInteractorProtocol{
         
         let work = URLSession.shared.dataTask(with: request) { data, response, error in
             
-            
+            print("  -->>  data: ", data)
+            print("  -->>  response: ", response)
+            print("  -->>  error: ", error)
+
             
             do{
                 if data != nil {
@@ -176,7 +179,11 @@ public class RSCommentsInteractor: RSCommentInteractorProtocol{
         request.setValue("Bearer \( tksession ?? "")", forHTTPHeaderField: "Authorization")
         
         let work = URLSession.shared.dataTask(with: request) { data, response, error in
-            print(response)
+           
+            print("  -->>  data: ", data)
+            print("  -->>  response: ", response)
+            print("  -->>  error: ", error)
+
             do{
                 guard let allData = data else { return }
                 let contentResponse = try JSONDecoder().decode(ResultEditComment.self, from: allData)
