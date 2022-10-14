@@ -22,7 +22,8 @@ public class APIType {
     func Auth()-> String{
         
         if staged == "Qa" {
-             API = "https://api.qa-iglesia-digital.com/arquidi%C3%B3cesis/gestion-usuarios/v1"
+         //TODO: NEW
+            API = "https://api.qa-iglesia-digital.com/arquidiocesis/gestion-usuarios/v1"
         }else if staged == "Prod" {
             API = "https://ppsjgdi0d9.execute-api.us-east-1.amazonaws.com/prod"
         }else {
@@ -48,7 +49,8 @@ public class APIType {
     func SN()-> String{
         
         if staged == "Qa" {
-             API = "https://api.qa-iglesia-digital.com/arquidi%C3%B3cesis/red-social/v1"
+            //MARK: NEW
+            API = "https://api.qa-iglesia-digital.com/arquidiocesis/red-social/v1"
         }else if staged == "Prod" {
             API = "https://os4jfceox2.execute-api.us-east-1.amazonaws.com/v1"
         }else {

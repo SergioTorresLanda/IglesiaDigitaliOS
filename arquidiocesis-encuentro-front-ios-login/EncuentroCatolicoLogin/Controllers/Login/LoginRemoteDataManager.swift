@@ -28,7 +28,10 @@ class LoginRemoteDataManager:LoginRemoteDataManagerInputProtocol {
         }
         
         request.httpBody = cuerpo
-        
+        print("🚧  -->>  user login: ", user)
+        print("🚧  -->>  request login: ", request)
+        print("❌  -->>  cuerpo login: ", cuerpo)
+
         let tarea = URLSession.shared.dataTask(with: request) { data, response, error in
             if error != nil {
                 print("Ocurrió un error")
@@ -38,6 +41,7 @@ class LoginRemoteDataManager:LoginRemoteDataManagerInputProtocol {
             
             if (response as! HTTPURLResponse).statusCode == 200 {
                 
+                print("✅  -->>  response login: ", response)
 //                let domain = Bundle.main.bundleIdentifier!
 //                UserDefaults.standard.removePersistentDomain(forName: domain)
                 UserDefaults.standard.synchronize()
