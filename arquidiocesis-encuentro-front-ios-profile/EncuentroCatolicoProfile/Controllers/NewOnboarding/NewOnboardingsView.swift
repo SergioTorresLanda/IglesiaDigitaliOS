@@ -49,7 +49,7 @@ class NewOnboardingsView: UIViewController, NewOnboardingViewProtocol {
             
             showViñetas = [false, false, false]
             titulosText = ["Bienvenido", "", ""]
-            normalText = ["A este espacio de Encuentro de la Arquiócesis de México, donde fieles sacerdotes, religiosos, comunidades en instituciones de inspiración católica tenemos unlugar especial.", "En la app encontrarás espacios de oración, formación, interacción e información reelvante de iglesias y comunidades que te ayudarán a vivir tu fe", "Te invitamos a completar tu registro para concerte mejor y darte acceso a las funciones que podrás utilizar según tu rol."]
+            normalText = ["A este espacio de Encuentro de la Arquidiócesis de México, donde fieles sacerdotes, religiosos, comunidades en instituciones de inspiración católica tenemos un lugar especial.", "En la app encontrarás espacios de oración, formación, interacción e información relevante de iglesias y comunidades que te ayudarán a vivir tu fe", "Te invitamos a completar tu registro para concerte mejor y darte acceso a las funciones que podrás utilizar según tu rol."]
             imgNames = ["FirstA", "FirstB", "FirstC"]
             
         case "PriestAdmin":
