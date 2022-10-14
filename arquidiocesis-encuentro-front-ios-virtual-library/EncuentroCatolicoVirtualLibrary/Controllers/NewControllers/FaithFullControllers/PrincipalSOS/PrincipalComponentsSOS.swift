@@ -26,13 +26,13 @@ extension PrincipalViewSOS: UITableViewDelegate, UITableViewDataSource {
         cell.cardView.backgroundColor = .white
         cell.circleFill.alpha = 0
         print("Este es el index: ", indexPath.row, indexCircle)
-        
+        cell.circleEmpty.image = UIImage(named: "dot", in: Bundle(for: PrincipalViewSOS.self), compatibleWith: nil)
         if cleanAll == false {
             if indexPath.row == indexCircle {
                 stateCell[indexPath.row] = true
                 cell.circleFill.alpha = 1
                 selctedCell = indexPath.row
-                
+                cell.circleFill.image = UIImage(named: "circleFillGolden", in: Bundle(for: PrincipalViewSOS.self), compatibleWith: nil)
             }
             
         }else{
