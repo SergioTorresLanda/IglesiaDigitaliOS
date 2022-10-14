@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<model type="com.apple.IDECoreDataModeler.DataModel" documentVersion="1.0" lastSavedToolsVersion="17709" systemVersion="20D75" minimumToolsVersion="Automatic" sourceLanguage="Swift" userDefinedModelVersionIdentifier="">
+    <entity name="Profile" representedClassName="Profile" syncable="YES">
+        <attribute name="avatar" optional="YES" attributeType="String"/>
+        <attribute name="email" optional="YES" attributeType="String"/>
+    </entity>
+    <entity name="Promisse" representedClassName="Promisse" syncable="YES">
+        <attribute name="dateEnd" optional="YES" attributeType="Date" usesScalarValueType="NO"/>
+        <attribute name="dateStarted" optional="YES" attributeType="Date" usesScalarValueType="NO"/>
+        <attribute name="flag" optional="YES" attributeType="Boolean" usesScalarValueType="YES"/>
+        <attribute name="imageSaint" optional="YES" attributeType="String"/>
+        <attribute name="periodInterval" optional="YES" attributeType="String"/>
+        <attribute name="profileID" optional="YES" attributeType="String"/>
+        <attribute name="promisseDescription" optional="YES" attributeType="String"/>
+        <attribute name="promisseTo" optional="YES" attributeType="String"/>
+        <attribute name="promisseToIdentifier" optional="YES" attributeType="Integer 32" defaultValueString="0" usesScalarValueType="YES"/>
+    </entity>
+    <elements>
+        <element name="Profile" positionX="-54" positionY="63" width="128" height="59"/>
+        <element name="Promisse" positionX="-63" positionY="-18" width="128" height="164"/>
+    </elements>
+</model>

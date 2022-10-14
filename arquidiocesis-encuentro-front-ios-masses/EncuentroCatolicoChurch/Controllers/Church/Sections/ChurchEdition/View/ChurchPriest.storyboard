@@ -1,0 +1,582 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="19529" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="9SQ-5u-JJW">
+    <device id="retina6_5" orientation="portrait" appearance="light"/>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="19519"/>
+        <capability name="Named colors" minToolsVersion="9.0"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="System colors in document resources" minToolsVersion="11.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <customFonts key="customFonts">
+        <array key="Roboto-Bold.ttf">
+            <string>Roboto-Bold</string>
+        </array>
+        <array key="Roboto-Light.ttf">
+            <string>Roboto-Light</string>
+        </array>
+        <array key="Roboto-Medium.ttf">
+            <string>Roboto-Medium</string>
+        </array>
+        <array key="Roboto-Regular.ttf">
+            <string>Roboto-Regular</string>
+        </array>
+    </customFonts>
+    <scenes>
+        <!--Church Priest View Controller-->
+        <scene sceneID="Spk-Xz-VZD">
+            <objects>
+                <viewController storyboardIdentifier="ChurchPriestViewController" automaticallyAdjustsScrollViewInsets="NO" id="9SQ-5u-JJW" customClass="ChurchPriestViewController" customModule="EncuentroCatolicoChurch" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="AMu-Yc-cKe">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" contentInsetAdjustmentBehavior="never" translatesAutoresizingMaskIntoConstraints="NO" id="eqQ-dT-y5J">
+                                <rect key="frame" x="0.0" y="72" width="414" height="824"/>
+                                <subviews>
+                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="vy5-mD-edG">
+                                        <rect key="frame" x="0.0" y="-70" width="414" height="1978.3333333333333"/>
+                                        <subviews>
+                                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="church-placeholder" translatesAutoresizingMaskIntoConstraints="NO" id="IIf-yF-6Hz">
+                                                <rect key="frame" x="0.0" y="0.0" width="414" height="190"/>
+                                                <constraints>
+                                                    <constraint firstAttribute="height" relation="lessThanOrEqual" constant="300" id="ne0-D5-Stg"/>
+                                                </constraints>
+                                            </imageView>
+                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="hI2-9E-GTS">
+                                                <rect key="frame" x="184.66666666666666" y="167.66666666666666" width="45" height="45"/>
+                                                <state key="normal" image="camaraNew"/>
+                                                <connections>
+                                                    <action selector="editPhotoAction" destination="9SQ-5u-JJW" eventType="touchUpInside" id="O80-sg-YY4"/>
+                                                </connections>
+                                            </button>
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="4vk-Si-0a1">
+                                                <rect key="frame" x="16" y="234.66666666666666" width="207" height="0.0"/>
+                                                <fontDescription key="fontDescription" name="Roboto-Bold" family="Roboto" pointSize="22"/>
+                                                <color key="textColor" name="eBlueNew"/>
+                                                <nil key="highlightedColor"/>
+                                            </label>
+                                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="14" translatesAutoresizingMaskIntoConstraints="NO" id="6DZ-a7-ECW">
+                                                <rect key="frame" x="16" y="242.66666666666663" width="382" height="1665.666666666667"/>
+                                                <subviews>
+                                                    <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="6" translatesAutoresizingMaskIntoConstraints="NO" id="CK0-if-oNw" userLabel="ChurchDescription">
+                                                        <rect key="frame" x="0.0" y="0.0" width="382" height="62.666666666666664"/>
+                                                        <subviews>
+                                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Agrega una descripción del templo" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="J1Q-Tf-eui">
+                                                                <rect key="frame" x="0.0" y="0.0" width="382" height="16.666666666666668"/>
+                                                                <fontDescription key="fontDescription" name="Roboto-Regular" family="Roboto" pointSize="14"/>
+                                                                <color key="textColor" name="eLightPinkishGray"/>
+                                                                <nil key="highlightedColor"/>
+                                                            </label>
+                                                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="Ej tradiciones, comunidades, historia" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="dEK-Pc-07T">
+                                                                <rect key="frame" x="0.0" y="22.666666666666657" width="382" height="40"/>
+                                                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                                <constraints>
+                                                                    <constraint firstAttribute="height" constant="40" id="qMe-Vs-dUe"/>
+                                                                </constraints>
+                                                                <color key="textColor" name="eBlack"/>
+                                                                <fontDescription key="fontDescription" name="Roboto-Light" family="Roboto" pointSize="15"/>
+                                                                <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
+                                                            </textField>
+                                                        </subviews>
+                                                    </stackView>
+                                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="4" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Oin-Tb-iOC">
+                                                        <rect key="frame" x="0.0" y="76.666666666666657" width="382" height="60"/>
+                                                        <string key="text">Bosques de la Reforma 486, Bosques de
+las Lomas, Miguel Hidalgo, 11700, Ciudad
+de México, CDMX</string>
+                                                        <fontDescription key="fontDescription" name="Roboto-Regular" family="Roboto" pointSize="17"/>
+                                                        <color key="textColor" white="0.66666666669999997" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                        <nil key="highlightedColor"/>
+                                                    </label>
+                                                    <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="Sacerdote responsable" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="wj6-yn-Yxn">
+                                                        <rect key="frame" x="0.0" y="150.66666666666666" width="382" height="40"/>
+                                                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                        <constraints>
+                                                            <constraint firstAttribute="height" constant="40" id="cEc-5L-IXa"/>
+                                                        </constraints>
+                                                        <color key="textColor" name="eBlack"/>
+                                                        <fontDescription key="fontDescription" name="Roboto-Light" family="Roboto" pointSize="17"/>
+                                                        <textInputTraits key="textInputTraits" autocapitalizationType="words"/>
+                                                    </textField>
+                                                    <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="4" translatesAutoresizingMaskIntoConstraints="NO" id="4e1-sh-8of">
+                                                        <rect key="frame" x="0.0" y="204.66666666666666" width="382" height="67.999999999999972"/>
+                                                        <subviews>
+                                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Horario" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="TzH-Y0-eC7">
+                                                                <rect key="frame" x="0.0" y="0.0" width="382" height="20"/>
+                                                                <fontDescription key="fontDescription" name="Roboto-Bold" family="Roboto" pointSize="17"/>
+                                                                <color key="textColor" name="eBlueNew"/>
+                                                                <nil key="highlightedColor"/>
+                                                            </label>
+                                                            <stackView opaque="NO" contentMode="scaleToFill" distribution="fillEqually" alignment="center" spacing="7" translatesAutoresizingMaskIntoConstraints="NO" id="gcY-or-0Hg">
+                                                                <rect key="frame" x="0.0" y="24" width="382" height="44"/>
+                                                                <subviews>
+                                                                    <stackView opaque="NO" contentMode="scaleToFill" alignment="center" translatesAutoresizingMaskIntoConstraints="NO" id="dqU-Qj-Ik8">
+                                                                        <rect key="frame" x="0.0" y="0.0" width="187.66666666666666" height="44"/>
+                                                                        <subviews>
+                                                                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="Roh-bW-aBk" customClass="DaysPickerTextField" customModule="EncuentroCatolicoChurch" customModuleProvider="target">
+                                                                                <rect key="frame" x="0.0" y="2" width="143.66666666666666" height="40"/>
+                                                                                <color key="backgroundColor" name="eBackgroundGray"/>
+                                                                                <constraints>
+                                                                                    <constraint firstAttribute="height" constant="40" id="C7c-Sr-jXf"/>
+                                                                                </constraints>
+                                                                                <color key="textColor" name="eBlack"/>
+                                                                                <fontDescription key="fontDescription" name="Roboto-Light" family="Roboto" pointSize="16"/>
+                                                                                <textInputTraits key="textInputTraits"/>
+                                                                            </textField>
+                                                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ENg-dP-H1S">
+                                                                                <rect key="frame" x="143.66666666666666" y="0.0" width="44" height="44"/>
+                                                                                <constraints>
+                                                                                    <constraint firstAttribute="width" constant="44" id="8fG-MM-1rq"/>
+                                                                                    <constraint firstAttribute="width" secondItem="ENg-dP-H1S" secondAttribute="height" multiplier="1:1" id="NcQ-NI-CCh"/>
+                                                                                </constraints>
+                                                                                <fontDescription key="fontDescription" type="system" pointSize="20"/>
+                                                                                <state key="normal" image="newCale"/>
+                                                                                <connections>
+                                                                                    <action selector="editDaysAction" destination="9SQ-5u-JJW" eventType="touchUpInside" id="c63-hQ-fnj"/>
+                                                                                </connections>
+                                                                            </button>
+                                                                        </subviews>
+                                                                    </stackView>
+                                                                    <stackView opaque="NO" contentMode="scaleToFill" alignment="center" translatesAutoresizingMaskIntoConstraints="NO" id="8U7-nb-zCS">
+                                                                        <rect key="frame" x="194.66666666666663" y="2" width="187.33333333333337" height="40"/>
+                                                                        <subviews>
+                                                                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="fcC-nd-H7i" customClass="HourPickerTextField" customModule="EncuentroCatolicoChurch" customModuleProvider="target">
+                                                                                <rect key="frame" x="0.0" y="0.0" width="143.33333333333334" height="40"/>
+                                                                                <color key="backgroundColor" name="eBackgroundGray"/>
+                                                                                <constraints>
+                                                                                    <constraint firstAttribute="height" constant="40" id="s8r-ks-yXP"/>
+                                                                                </constraints>
+                                                                                <color key="textColor" name="eBlack"/>
+                                                                                <fontDescription key="fontDescription" name="Roboto-Light" family="Roboto" pointSize="17"/>
+                                                                                <textInputTraits key="textInputTraits"/>
+                                                                            </textField>
+                                                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="IpU-Mk-OT0">
+                                                                                <rect key="frame" x="143.33333333333334" y="4" width="44" height="32"/>
+                                                                                <constraints>
+                                                                                    <constraint firstAttribute="width" secondItem="IpU-Mk-OT0" secondAttribute="height" multiplier="11:8" id="4fS-cA-6YW"/>
+                                                                                    <constraint firstAttribute="width" constant="44" id="4hk-Uf-PfX"/>
+                                                                                </constraints>
+                                                                                <fontDescription key="fontDescription" type="system" pointSize="20"/>
+                                                                                <state key="normal" image="reloj"/>
+                                                                                <connections>
+                                                                                    <action selector="editHoursAction" destination="9SQ-5u-JJW" eventType="touchUpInside" id="ZXg-Ui-ib1"/>
+                                                                                </connections>
+                                                                            </button>
+                                                                        </subviews>
+                                                                    </stackView>
+                                                                </subviews>
+                                                            </stackView>
+                                                        </subviews>
+                                                    </stackView>
+                                                    <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="4" translatesAutoresizingMaskIntoConstraints="NO" id="xTC-3a-3uV">
+                                                        <rect key="frame" x="0.0" y="286.66666666666674" width="382" height="69.333333333333314"/>
+                                                        <subviews>
+                                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Horario de Oficina" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="3f8-dO-Asg">
+                                                                <rect key="frame" x="0.0" y="0.0" width="382" height="21.333333333333332"/>
+                                                                <fontDescription key="fontDescription" name="Roboto-Bold" family="Roboto" pointSize="18"/>
+                                                                <color key="textColor" name="eBlueNew"/>
+                                                                <nil key="highlightedColor"/>
+                                                            </label>
+                                                            <stackView opaque="NO" contentMode="scaleToFill" distribution="fillEqually" alignment="center" spacing="7" translatesAutoresizingMaskIntoConstraints="NO" id="87i-da-G2d">
+                                                                <rect key="frame" x="0.0" y="25.333333333333258" width="382" height="44"/>
+                                                                <subviews>
+                                                                    <stackView opaque="NO" contentMode="scaleToFill" alignment="center" translatesAutoresizingMaskIntoConstraints="NO" id="i8s-gc-QPZ">
+                                                                        <rect key="frame" x="0.0" y="2" width="187.66666666666666" height="40"/>
+                                                                        <subviews>
+                                                                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="hhV-Vt-Kqf" customClass="DaysPickerTextField" customModule="EncuentroCatolicoChurch" customModuleProvider="target">
+                                                                                <rect key="frame" x="0.0" y="0.0" width="143.66666666666666" height="40"/>
+                                                                                <color key="backgroundColor" name="eBackgroundGray"/>
+                                                                                <constraints>
+                                                                                    <constraint firstAttribute="height" constant="40" id="WJz-Lk-2hi"/>
+                                                                                </constraints>
+                                                                                <color key="textColor" name="eBlack"/>
+                                                                                <fontDescription key="fontDescription" name="Roboto-Light" family="Roboto" pointSize="16"/>
+                                                                                <textInputTraits key="textInputTraits"/>
+                                                                            </textField>
+                                                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="sW5-nE-bcB">
+                                                                                <rect key="frame" x="143.66666666666666" y="2.3333333333333712" width="44" height="35"/>
+                                                                                <constraints>
+                                                                                    <constraint firstAttribute="width" secondItem="sW5-nE-bcB" secondAttribute="height" multiplier="44:35" id="h1M-Ql-sp8"/>
+                                                                                    <constraint firstAttribute="width" constant="44" id="sE8-Gu-Y5b"/>
+                                                                                </constraints>
+                                                                                <fontDescription key="fontDescription" type="system" pointSize="20"/>
+                                                                                <state key="normal" image="newCale"/>
+                                                                                <connections>
+                                                                                    <action selector="editOfficeDaysAction" destination="9SQ-5u-JJW" eventType="touchUpInside" id="udj-Td-VYj"/>
+                                                                                </connections>
+                                                                            </button>
+                                                                        </subviews>
+                                                                    </stackView>
+                                                                    <stackView opaque="NO" contentMode="scaleToFill" alignment="center" translatesAutoresizingMaskIntoConstraints="NO" id="bIj-ej-wsh">
+                                                                        <rect key="frame" x="194.66666666666663" y="0.0" width="187.33333333333337" height="44"/>
+                                                                        <subviews>
+                                                                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="TiQ-JM-AGZ" customClass="HourPickerTextField" customModule="EncuentroCatolicoChurch" customModuleProvider="target">
+                                                                                <rect key="frame" x="0.0" y="2" width="143.33333333333334" height="40"/>
+                                                                                <color key="backgroundColor" name="eBackgroundGray"/>
+                                                                                <constraints>
+                                                                                    <constraint firstAttribute="height" constant="40" id="xvi-Uv-v66"/>
+                                                                                </constraints>
+                                                                                <color key="textColor" name="eBlack"/>
+                                                                                <fontDescription key="fontDescription" name="Roboto-Light" family="Roboto" pointSize="17"/>
+                                                                                <textInputTraits key="textInputTraits"/>
+                                                                            </textField>
+                                                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ygI-Jd-LSb">
+                                                                                <rect key="frame" x="143.33333333333334" y="0.0" width="44" height="44"/>
+                                                                                <constraints>
+                                                                                    <constraint firstAttribute="width" constant="44" id="Ykj-Qt-HrC"/>
+                                                                                    <constraint firstAttribute="width" secondItem="ygI-Jd-LSb" secondAttribute="height" multiplier="1:1" id="jeX-ph-oen"/>
+                                                                                </constraints>
+                                                                                <fontDescription key="fontDescription" type="system" pointSize="20"/>
+                                                                                <state key="normal" image="reloj"/>
+                                                                                <connections>
+                                                                                    <action selector="editOfficeHoursAction" destination="9SQ-5u-JJW" eventType="touchUpInside" id="FJj-x2-UEP"/>
+                                                                                </connections>
+                                                                            </button>
+                                                                        </subviews>
+                                                                    </stackView>
+                                                                </subviews>
+                                                            </stackView>
+                                                        </subviews>
+                                                    </stackView>
+                                                    <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="5" translatesAutoresizingMaskIntoConstraints="NO" id="NqP-xE-55q">
+                                                        <rect key="frame" x="0.0" y="370" width="382" height="61.666666666666686"/>
+                                                        <subviews>
+                                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Email de contacto" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="U8u-zf-fbm">
+                                                                <rect key="frame" x="0.0" y="0.0" width="382" height="16.666666666666668"/>
+                                                                <fontDescription key="fontDescription" name="Roboto-Regular" family="Roboto" pointSize="14"/>
+                                                                <color key="textColor" name="eLightPinkishGray"/>
+                                                                <nil key="highlightedColor"/>
+                                                            </label>
+                                                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="5qi-Gp-1ak">
+                                                                <rect key="frame" x="0.0" y="21.666666666666742" width="382" height="40"/>
+                                                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                                <constraints>
+                                                                    <constraint firstAttribute="height" constant="40" id="0IF-Q0-XpI"/>
+                                                                </constraints>
+                                                                <color key="textColor" name="eBlack"/>
+                                                                <fontDescription key="fontDescription" name="Roboto-Light" family="Roboto" pointSize="15"/>
+                                                                <textInputTraits key="textInputTraits" keyboardType="emailAddress" textContentType="email"/>
+                                                            </textField>
+                                                        </subviews>
+                                                    </stackView>
+                                                    <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="Número de Contacto" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="hxf-aB-ocH">
+                                                        <rect key="frame" x="0.0" y="445.66666666666674" width="382" height="40"/>
+                                                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                        <constraints>
+                                                            <constraint firstAttribute="height" constant="40" id="X9L-Bz-xE8"/>
+                                                        </constraints>
+                                                        <color key="textColor" name="eBlack"/>
+                                                        <fontDescription key="fontDescription" name="Roboto-Light" family="Roboto" pointSize="16"/>
+                                                        <textInputTraits key="textInputTraits"/>
+                                                    </textField>
+                                                    <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Misas" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="api-NI-Goo" customClass="PickerViewTextField" customModule="EncuentroCatolicoChurch" customModuleProvider="target">
+                                                        <rect key="frame" x="0.0" y="499.66666666666674" width="382" height="40"/>
+                                                        <color key="backgroundColor" name="eBackgroundGray"/>
+                                                        <constraints>
+                                                            <constraint firstAttribute="height" constant="40" id="gKs-bZ-qvh"/>
+                                                        </constraints>
+                                                        <color key="textColor" name="eBlack"/>
+                                                        <fontDescription key="fontDescription" name="Roboto-Light" family="Roboto" pointSize="16"/>
+                                                        <textInputTraits key="textInputTraits"/>
+                                                    </textField>
+                                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Puedes agregar más de una misa" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="jNT-ao-Q3u">
+                                                        <rect key="frame" x="0.0" y="553.66666666666674" width="382" height="16.666666666666629"/>
+                                                        <fontDescription key="fontDescription" name="Roboto-Regular" family="Roboto" pointSize="14"/>
+                                                        <color key="textColor" name="eLightPinkishGray"/>
+                                                        <nil key="highlightedColor"/>
+                                                    </label>
+                                                    <collectionView multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="hFo-2G-thK">
+                                                        <rect key="frame" x="0.0" y="584.33333333333337" width="382" height="220"/>
+                                                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                                                        <constraints>
+                                                            <constraint firstAttribute="height" constant="220" id="zb3-RF-Yme"/>
+                                                        </constraints>
+                                                        <collectionViewFlowLayout key="collectionViewLayout" scrollDirection="horizontal" minimumLineSpacing="10" minimumInteritemSpacing="10" id="fQ3-zo-T67">
+                                                            <size key="itemSize" width="50" height="50"/>
+                                                            <size key="headerReferenceSize" width="0.0" height="0.0"/>
+                                                            <size key="footerReferenceSize" width="0.0" height="0.0"/>
+                                                            <inset key="sectionInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
+                                                        </collectionViewFlowLayout>
+                                                        <cells/>
+                                                    </collectionView>
+                                                    <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="14" translatesAutoresizingMaskIntoConstraints="NO" id="Mpg-pX-ncj">
+                                                        <rect key="frame" x="0.0" y="818.33333333333337" width="382" height="85"/>
+                                                        <subviews>
+                                                            <stackView opaque="NO" contentMode="scaleToFill" spacing="16" translatesAutoresizingMaskIntoConstraints="NO" id="8ZL-OK-5Sp">
+                                                                <rect key="frame" x="0.0" y="0.0" width="382" height="31"/>
+                                                                <subviews>
+                                                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Transmiciones en vivo" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="4Nd-9H-cCc">
+                                                                        <rect key="frame" x="0.0" y="0.0" width="317" height="31"/>
+                                                                        <fontDescription key="fontDescription" name="Roboto-Medium" family="Roboto" pointSize="18"/>
+                                                                        <color key="textColor" name="eBlueNew"/>
+                                                                        <nil key="highlightedColor"/>
+                                                                    </label>
+                                                                    <switch opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" contentHorizontalAlignment="center" contentVerticalAlignment="center" on="YES" translatesAutoresizingMaskIntoConstraints="NO" id="5E5-kn-WKl">
+                                                                        <rect key="frame" x="333" y="0.0" width="51" height="31"/>
+                                                                        <connections>
+                                                                            <action selector="changeLiveTransmissionSwitch:" destination="9SQ-5u-JJW" eventType="touchUpInside" id="Taf-5W-7cu"/>
+                                                                        </connections>
+                                                                    </switch>
+                                                                </subviews>
+                                                            </stackView>
+                                                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="URL del canal" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="HtH-HD-18m">
+                                                                <rect key="frame" x="0.0" y="45" width="382" height="40"/>
+                                                                <color key="backgroundColor" name="eBackgroundGray"/>
+                                                                <constraints>
+                                                                    <constraint firstAttribute="height" constant="40" id="Xcj-k2-EOk"/>
+                                                                </constraints>
+                                                                <color key="textColor" name="eBlack"/>
+                                                                <fontDescription key="fontDescription" name="Roboto-Light" family="Roboto" pointSize="16"/>
+                                                                <textInputTraits key="textInputTraits"/>
+                                                            </textField>
+                                                        </subviews>
+                                                    </stackView>
+                                                    <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Servicios" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="Gie-Yr-3ha" customClass="PickerViewTextField" customModule="EncuentroCatolicoChurch" customModuleProvider="target">
+                                                        <rect key="frame" x="0.0" y="917.33333333333337" width="382" height="40"/>
+                                                        <color key="backgroundColor" name="eBackgroundGray"/>
+                                                        <constraints>
+                                                            <constraint firstAttribute="height" constant="40" id="5VZ-QN-ADx"/>
+                                                        </constraints>
+                                                        <color key="textColor" name="eBlack"/>
+                                                        <fontDescription key="fontDescription" name="Roboto-Light" family="Roboto" pointSize="16"/>
+                                                        <textInputTraits key="textInputTraits"/>
+                                                    </textField>
+                                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Puedes agregar más de un servicio." textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="neD-Fj-3Lc">
+                                                        <rect key="frame" x="0.0" y="971.33333333333337" width="382" height="16.666666666666629"/>
+                                                        <fontDescription key="fontDescription" name="Roboto-Regular" family="Roboto" pointSize="14"/>
+                                                        <color key="textColor" name="eLightPinkishGray"/>
+                                                        <nil key="highlightedColor"/>
+                                                    </label>
+                                                    <collectionView multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="ZU1-7W-4Ah">
+                                                        <rect key="frame" x="0.0" y="1002" width="382" height="220"/>
+                                                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                                                        <constraints>
+                                                            <constraint firstAttribute="height" constant="220" id="54l-lq-lNF"/>
+                                                        </constraints>
+                                                        <collectionViewFlowLayout key="collectionViewLayout" scrollDirection="horizontal" minimumLineSpacing="10" minimumInteritemSpacing="10" id="0D7-Qg-M3n">
+                                                            <size key="itemSize" width="50" height="50"/>
+                                                            <size key="headerReferenceSize" width="0.0" height="0.0"/>
+                                                            <size key="footerReferenceSize" width="0.0" height="0.0"/>
+                                                            <inset key="sectionInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
+                                                        </collectionViewFlowLayout>
+                                                        <cells/>
+                                                    </collectionView>
+                                                    <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="14" translatesAutoresizingMaskIntoConstraints="NO" id="0Tu-DH-MkR">
+                                                        <rect key="frame" x="0.0" y="1236" width="382" height="319.66666666666674"/>
+                                                        <subviews>
+                                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Sacerdotes pertenecientes a la iglesia" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="E0E-vd-MaO">
+                                                                <rect key="frame" x="0.0" y="0.0" width="382" height="21.333333333333332"/>
+                                                                <fontDescription key="fontDescription" name="Roboto-Medium" family="Roboto" pointSize="18"/>
+                                                                <color key="textColor" name="eBlueNew"/>
+                                                                <nil key="highlightedColor"/>
+                                                            </label>
+                                                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="Nombre del Sacerdote" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="A1r-Md-hJW">
+                                                                <rect key="frame" x="0.0" y="35.333333333333258" width="382" height="40"/>
+                                                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                                <constraints>
+                                                                    <constraint firstAttribute="height" constant="40" id="218-Y3-QBc"/>
+                                                                </constraints>
+                                                                <color key="textColor" name="eBlack"/>
+                                                                <fontDescription key="fontDescription" name="Roboto-Light" family="Roboto" pointSize="16"/>
+                                                                <textInputTraits key="textInputTraits" autocapitalizationType="words"/>
+                                                            </textField>
+                                                            <stackView opaque="NO" contentMode="scaleToFill" alignment="center" spacing="9" translatesAutoresizingMaskIntoConstraints="NO" id="GFx-5h-t2E">
+                                                                <rect key="frame" x="0.0" y="89.333333333333258" width="382" height="83"/>
+                                                                <subviews>
+                                                                    <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="Número de cuenta" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="lyh-SW-eA6">
+                                                                        <rect key="frame" x="0.0" y="21.333333333333258" width="290" height="40"/>
+                                                                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                                        <constraints>
+                                                                            <constraint firstAttribute="height" constant="40" id="9WT-LR-jAa"/>
+                                                                        </constraints>
+                                                                        <color key="textColor" name="eBlack"/>
+                                                                        <fontDescription key="fontDescription" name="Roboto-Light" family="Roboto" pointSize="16"/>
+                                                                        <textInputTraits key="textInputTraits"/>
+                                                                    </textField>
+                                                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="S5z-xu-H1r">
+                                                                        <rect key="frame" x="299" y="0.0" width="83" height="83"/>
+                                                                        <constraints>
+                                                                            <constraint firstAttribute="width" secondItem="S5z-xu-H1r" secondAttribute="height" multiplier="1:1" id="A6I-SS-oMb"/>
+                                                                            <constraint firstAttribute="width" constant="83" id="W6S-bd-uK1"/>
+                                                                        </constraints>
+                                                                        <fontDescription key="fontDescription" type="system" pointSize="20"/>
+                                                                        <state key="normal" image="addNew"/>
+                                                                        <connections>
+                                                                            <action selector="addPriestAction" destination="9SQ-5u-JJW" eventType="touchUpInside" id="CQC-gb-sZS"/>
+                                                                        </connections>
+                                                                    </button>
+                                                                </subviews>
+                                                            </stackView>
+                                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Puedes agregar más de un Sacerdote." textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="MYo-q6-fOZ">
+                                                                <rect key="frame" x="0.0" y="186.33333333333326" width="382" height="19.333333333333343"/>
+                                                                <fontDescription key="fontDescription" type="system" pointSize="16"/>
+                                                                <color key="textColor" white="0.66666666669999997" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                                <nil key="highlightedColor"/>
+                                                            </label>
+                                                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="none" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="90i-AO-8Km">
+                                                                <rect key="frame" x="0.0" y="219.66666666666652" width="382" height="100"/>
+                                                                <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                                                                <constraints>
+                                                                    <constraint firstAttribute="height" constant="100" id="uhb-QW-J4b"/>
+                                                                </constraints>
+                                                            </tableView>
+                                                        </subviews>
+                                                    </stackView>
+                                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="TAI-5j-flV">
+                                                        <rect key="frame" x="0.0" y="1569.6666666666665" width="382" height="96"/>
+                                                        <subviews>
+                                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="LTT-CS-fBo">
+                                                                <rect key="frame" x="66" y="12" width="250" height="40"/>
+                                                                <color key="backgroundColor" name="eBlueNew"/>
+                                                                <constraints>
+                                                                    <constraint firstAttribute="height" constant="40" id="aoo-mg-QLx"/>
+                                                                    <constraint firstAttribute="width" constant="250" id="nIS-7W-svM"/>
+                                                                </constraints>
+                                                                <fontDescription key="fontDescription" name="Roboto-Bold" family="Roboto" pointSize="18"/>
+                                                                <state key="normal" title="Guardar">
+                                                                    <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                                </state>
+                                                                <userDefinedRuntimeAttributes>
+                                                                    <userDefinedRuntimeAttribute type="number" keyPath="radius">
+                                                                        <real key="value" value="20"/>
+                                                                    </userDefinedRuntimeAttribute>
+                                                                </userDefinedRuntimeAttributes>
+                                                                <connections>
+                                                                    <action selector="saveAction" destination="9SQ-5u-JJW" eventType="touchUpInside" id="ewf-MO-I8V"/>
+                                                                </connections>
+                                                            </button>
+                                                        </subviews>
+                                                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                        <constraints>
+                                                            <constraint firstItem="LTT-CS-fBo" firstAttribute="centerX" secondItem="TAI-5j-flV" secondAttribute="centerX" id="BoA-Tc-U2j"/>
+                                                            <constraint firstAttribute="bottom" secondItem="LTT-CS-fBo" secondAttribute="bottom" constant="44" id="Eqo-KD-7a2"/>
+                                                            <constraint firstItem="LTT-CS-fBo" firstAttribute="top" secondItem="TAI-5j-flV" secondAttribute="top" constant="12" id="iCU-eN-Ap8"/>
+                                                        </constraints>
+                                                    </view>
+                                                </subviews>
+                                            </stackView>
+                                        </subviews>
+                                        <constraints>
+                                            <constraint firstItem="hI2-9E-GTS" firstAttribute="centerY" secondItem="IIf-yF-6Hz" secondAttribute="centerY" multiplier="2" id="0we-HY-B3l"/>
+                                            <constraint firstItem="hI2-9E-GTS" firstAttribute="centerX" secondItem="IIf-yF-6Hz" secondAttribute="centerX" id="3Yl-8x-Des"/>
+                                            <constraint firstItem="4vk-Si-0a1" firstAttribute="leading" secondItem="vy5-mD-edG" secondAttribute="leading" constant="16" id="3lw-UG-GgZ"/>
+                                            <constraint firstItem="4vk-Si-0a1" firstAttribute="width" secondItem="vy5-mD-edG" secondAttribute="width" multiplier="0.5" id="Edj-HG-JNi"/>
+                                            <constraint firstItem="4vk-Si-0a1" firstAttribute="top" secondItem="hI2-9E-GTS" secondAttribute="bottom" constant="22" id="GmG-Qo-wpd"/>
+                                            <constraint firstItem="6DZ-a7-ECW" firstAttribute="leading" secondItem="vy5-mD-edG" secondAttribute="leading" constant="16" id="J01-7h-H3T"/>
+                                            <constraint firstAttribute="trailing" secondItem="6DZ-a7-ECW" secondAttribute="trailing" constant="16" id="KSS-9D-FTx"/>
+                                            <constraint firstItem="IIf-yF-6Hz" firstAttribute="trailing" secondItem="vy5-mD-edG" secondAttribute="trailing" id="Vsw-WH-ZgN"/>
+                                            <constraint firstItem="IIf-yF-6Hz" firstAttribute="top" secondItem="vy5-mD-edG" secondAttribute="top" id="bvT-Dn-7Da"/>
+                                            <constraint firstAttribute="bottom" secondItem="6DZ-a7-ECW" secondAttribute="bottom" constant="70" id="mbH-pg-cLf"/>
+                                            <constraint firstItem="IIf-yF-6Hz" firstAttribute="leading" secondItem="vy5-mD-edG" secondAttribute="leading" id="oyu-g9-NKE"/>
+                                            <constraint firstItem="6DZ-a7-ECW" firstAttribute="top" secondItem="4vk-Si-0a1" secondAttribute="bottom" constant="8" symbolic="YES" id="vGV-tf-tqJ"/>
+                                        </constraints>
+                                    </view>
+                                </subviews>
+                                <constraints>
+                                    <constraint firstItem="vy5-mD-edG" firstAttribute="bottom" secondItem="z2V-4j-3ah" secondAttribute="bottom" id="Buq-1r-9Aj"/>
+                                    <constraint firstItem="vy5-mD-edG" firstAttribute="width" secondItem="qDh-nl-MPH" secondAttribute="width" id="Ryo-z9-4x9"/>
+                                    <constraint firstItem="vy5-mD-edG" firstAttribute="trailing" secondItem="z2V-4j-3ah" secondAttribute="trailing" id="fwp-S5-uBg"/>
+                                    <constraint firstItem="vy5-mD-edG" firstAttribute="top" secondItem="z2V-4j-3ah" secondAttribute="top" constant="-70" id="iVy-W0-TAd"/>
+                                    <constraint firstItem="vy5-mD-edG" firstAttribute="leading" secondItem="z2V-4j-3ah" secondAttribute="leading" id="xjR-jq-BGw"/>
+                                </constraints>
+                                <viewLayoutGuide key="contentLayoutGuide" id="z2V-4j-3ah"/>
+                                <viewLayoutGuide key="frameLayoutGuide" id="qDh-nl-MPH"/>
+                            </scrollView>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="WyI-Ca-zoW">
+                                <rect key="frame" x="16" y="48" width="11" height="18"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="18" id="DSg-lW-RP5"/>
+                                    <constraint firstAttribute="width" constant="11" id="HoC-za-gZK"/>
+                                </constraints>
+                                <state key="normal" image="iconoAtrS"/>
+                                <connections>
+                                    <action selector="returnTo:" destination="9SQ-5u-JJW" eventType="touchUpInside" id="vbb-P8-yVQ"/>
+                                </connections>
+                            </button>
+                        </subviews>
+                        <viewLayoutGuide key="safeArea" id="Dvv-hx-zv2"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <constraints>
+                            <constraint firstAttribute="bottom" secondItem="eqQ-dT-y5J" secondAttribute="bottom" id="4R7-Lf-elZ"/>
+                            <constraint firstItem="WyI-Ca-zoW" firstAttribute="leading" secondItem="Dvv-hx-zv2" secondAttribute="leading" constant="16" id="VHz-16-QH7"/>
+                            <constraint firstItem="Dvv-hx-zv2" firstAttribute="leading" secondItem="eqQ-dT-y5J" secondAttribute="leading" id="g3E-W6-XW1"/>
+                            <constraint firstItem="eqQ-dT-y5J" firstAttribute="trailing" secondItem="Dvv-hx-zv2" secondAttribute="trailing" id="mek-Bh-GfL"/>
+                            <constraint firstItem="WyI-Ca-zoW" firstAttribute="top" secondItem="Dvv-hx-zv2" secondAttribute="top" constant="4" id="oHT-X4-n0Z"/>
+                            <constraint firstItem="eqQ-dT-y5J" firstAttribute="top" secondItem="AMu-Yc-cKe" secondAttribute="top" constant="72" id="ss7-bI-9tU"/>
+                        </constraints>
+                    </view>
+                    <connections>
+                        <outlet property="addressLabel" destination="Oin-Tb-iOC" id="tEf-pv-Q9A"/>
+                        <outlet property="churchImage" destination="IIf-yF-6Hz" id="jZs-UK-FhG"/>
+                        <outlet property="churchNameTextField" destination="4vk-Si-0a1" id="UF6-25-Bai"/>
+                        <outlet property="daysPickerTextField" destination="Roh-bW-aBk" id="ifh-zL-c3H"/>
+                        <outlet property="hoursPickerTextField" destination="fcC-nd-H7i" id="Bbu-Sb-nZ8"/>
+                        <outlet property="liveTransmissionUrlTextField" destination="HtH-HD-18m" id="Lhy-iK-NFY"/>
+                        <outlet property="massesCollectionView" destination="hFo-2G-thK" id="zii-6f-UQv"/>
+                        <outlet property="officeDaysPickerTextField" destination="hhV-Vt-Kqf" id="jJr-Hy-5SB"/>
+                        <outlet property="officeHoursPickerTextField" destination="TiQ-JM-AGZ" id="fHr-04-uZf"/>
+                        <outlet property="otherPriestTableView" destination="90i-AO-8Km" id="LE4-AT-bfJ"/>
+                        <outlet property="otherPriestTableViewHeightConstraint" destination="uhb-QW-J4b" id="Lxy-7t-GHC"/>
+                        <outlet property="pickerMisas" destination="api-NI-Goo" id="amM-xj-8Jc"/>
+                        <outlet property="pickerServicios" destination="Gie-Yr-3ha" id="WcO-NM-Vzo"/>
+                        <outlet property="servicesCollectionView" destination="ZU1-7W-4Ah" id="nfY-LH-2kI"/>
+                        <outlet property="switchEnVivo" destination="5E5-kn-WKl" id="AKI-qM-Eec"/>
+                        <outlet property="txtDescripcion" destination="dEK-Pc-07T" id="VIk-Zb-d5b"/>
+                        <outlet property="txtEmail" destination="5qi-Gp-1ak" id="Afd-X9-hfM"/>
+                        <outlet property="txtNombreSacerdote" destination="A1r-Md-hJW" id="rWh-Tv-hD1"/>
+                        <outlet property="txtNumeroContacto" destination="hxf-aB-ocH" id="NhL-3d-sYz"/>
+                        <outlet property="txtNumeroDeCuenta" destination="lyh-SW-eA6" id="MVl-nL-qpq"/>
+                        <outlet property="txtSacerdote" destination="wj6-yn-Yxn" id="OcO-uZ-cem"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="5xF-cf-xHD" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-2710.144927536232" y="-1177.2321428571429"/>
+        </scene>
+    </scenes>
+    <designables>
+        <designable name="Gie-Yr-3ha">
+            <size key="intrinsicContentSize" width="91.666666666666671" height="34"/>
+        </designable>
+        <designable name="Roh-bW-aBk">
+            <size key="intrinsicContentSize" width="32" height="34"/>
+        </designable>
+        <designable name="TiQ-JM-AGZ">
+            <size key="intrinsicContentSize" width="33" height="34"/>
+        </designable>
+        <designable name="api-NI-Goo">
+            <size key="intrinsicContentSize" width="70.666666666666671" height="34"/>
+        </designable>
+        <designable name="fcC-nd-H7i">
+            <size key="intrinsicContentSize" width="33" height="34"/>
+        </designable>
+        <designable name="hhV-Vt-Kqf">
+            <size key="intrinsicContentSize" width="32" height="34"/>
+        </designable>
+    </designables>
+    <resources>
+        <image name="addNew" width="83" height="20"/>
+        <image name="camaraNew" width="45" height="45"/>
+        <image name="church-placeholder" width="212" height="190"/>
+        <image name="iconoAtrS" width="11.333333015441895" height="18"/>
+        <image name="newCale" width="30" height="30"/>
+        <image name="reloj" width="32" height="32"/>
+        <namedColor name="eBackgroundGray">
+            <color red="0.96078431372549022" green="0.96078431372549022" blue="0.96078431372549022" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </namedColor>
+        <namedColor name="eBlack">
+            <color red="0.12156862745098039" green="0.12156862745098039" blue="0.12156862745098039" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </namedColor>
+        <namedColor name="eBlueNew">
+            <color red="0.15294117647058825" green="0.41176470588235292" blue="0.82352941176470584" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </namedColor>
+        <namedColor name="eLightPinkishGray">
+            <color red="0.72549019607843135" green="0.72549019607843135" blue="0.72549019607843135" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </namedColor>
+        <systemColor name="systemBackgroundColor">
+            <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+        </systemColor>
+    </resources>
+</document>

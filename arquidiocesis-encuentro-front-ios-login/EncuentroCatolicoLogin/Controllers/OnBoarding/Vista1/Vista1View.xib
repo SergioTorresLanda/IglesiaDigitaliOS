@@ -1,0 +1,101 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="17701" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+    <device id="retina3_5" orientation="portrait" appearance="light"/>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="17703"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="System colors in document resources" minToolsVersion="11.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="Vista1View" customModule="EncuentroCatolicoLogin" customModuleProvider="target">
+            <connections>
+                <outlet property="view" destination="iN0-l3-epB" id="HS0-WA-cig"/>
+            </connections>
+        </placeholder>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <view contentMode="scaleToFill" id="iN0-l3-epB">
+            <rect key="frame" x="0.0" y="0.0" width="375" height="677"/>
+            <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+            <subviews>
+                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="9PF-ni-fGz">
+                    <rect key="frame" x="313" y="20" width="42" height="30"/>
+                    <state key="normal" title="Omitir"/>
+                    <connections>
+                        <action selector="omitirAction:" destination="-1" eventType="touchUpInside" id="tHV-gU-BR8"/>
+                    </connections>
+                </button>
+                <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="onboard2" translatesAutoresizingMaskIntoConstraints="NO" id="Tku-7m-AOY">
+                    <rect key="frame" x="59" y="101" width="257" height="257"/>
+                    <constraints>
+                        <constraint firstAttribute="width" constant="257" id="IRm-2Z-MNF"/>
+                        <constraint firstAttribute="height" constant="257" id="lPA-AT-5rH"/>
+                    </constraints>
+                </imageView>
+                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Material exclusivo en nuestra biblioteca virtual" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="838-6g-eYu">
+                    <rect key="frame" x="20" y="378" width="335" height="67"/>
+                    <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="28"/>
+                    <color key="textColor" red="0.06847123057" green="0.1287259758" blue="0.5059124827" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                    <nil key="highlightedColor"/>
+                </label>
+                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Encuentra videos, canciones, documentos y material multimedia para profundizar en tu fe." textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="tzC-Xq-9LS">
+                    <rect key="frame" x="20" y="475" width="335" height="64.5"/>
+                    <fontDescription key="fontDescription" type="system" pointSize="18"/>
+                    <nil key="textColor"/>
+                    <nil key="highlightedColor"/>
+                </label>
+                <button opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="rar-74-gTI">
+                    <rect key="frame" x="107.5" y="602.5" width="160" height="48"/>
+                    <color key="backgroundColor" red="0.06847123057" green="0.1287259758" blue="0.5059124827" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                    <constraints>
+                        <constraint firstAttribute="width" constant="160" id="1fz-G4-xYM"/>
+                        <constraint firstAttribute="height" constant="48" id="wUT-I8-KdJ"/>
+                    </constraints>
+                    <state key="normal" title="Siguiente">
+                        <color key="titleColor" red="0.99999600649999998" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                    </state>
+                    <userDefinedRuntimeAttributes>
+                        <userDefinedRuntimeAttribute type="number" keyPath="layer.cornerRaius">
+                            <integer key="value" value="10"/>
+                        </userDefinedRuntimeAttribute>
+                    </userDefinedRuntimeAttributes>
+                    <connections>
+                        <action selector="siguienteAction:" destination="-1" eventType="touchUpInside" id="Xxk-9I-Bwh"/>
+                    </connections>
+                </button>
+                <pageControl opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" numberOfPages="2" translatesAutoresizingMaskIntoConstraints="NO" id="UXO-YR-mAk">
+                    <rect key="frame" x="136" y="564.5" width="103.5" height="28"/>
+                    <color key="pageIndicatorTintColor" white="0.66666666666666663" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                    <color key="currentPageIndicatorTintColor" white="0.33333333333333331" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                </pageControl>
+            </subviews>
+            <viewLayoutGuide key="safeArea" id="vUN-kp-3ea"/>
+            <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+            <constraints>
+                <constraint firstItem="rar-74-gTI" firstAttribute="centerX" secondItem="iN0-l3-epB" secondAttribute="centerX" id="1TI-BK-as1"/>
+                <constraint firstItem="Tku-7m-AOY" firstAttribute="centerX" secondItem="iN0-l3-epB" secondAttribute="centerX" id="2Vy-mJ-yCN"/>
+                <constraint firstItem="vUN-kp-3ea" firstAttribute="trailing" secondItem="9PF-ni-fGz" secondAttribute="trailing" constant="20" id="7sW-BX-IY7"/>
+                <constraint firstAttribute="trailing" secondItem="838-6g-eYu" secondAttribute="trailing" constant="20" id="8bL-Cm-2CE"/>
+                <constraint firstItem="tzC-Xq-9LS" firstAttribute="leading" secondItem="vUN-kp-3ea" secondAttribute="leading" constant="20" id="AT0-k9-PUr"/>
+                <constraint firstItem="838-6g-eYu" firstAttribute="top" secondItem="Tku-7m-AOY" secondAttribute="bottom" constant="20" id="F64-3i-QWH"/>
+                <constraint firstItem="UXO-YR-mAk" firstAttribute="top" secondItem="tzC-Xq-9LS" secondAttribute="bottom" constant="25" id="JDu-O9-KFw"/>
+                <constraint firstItem="838-6g-eYu" firstAttribute="leading" secondItem="vUN-kp-3ea" secondAttribute="leading" constant="20" id="RT1-XY-HkC"/>
+                <constraint firstItem="tzC-Xq-9LS" firstAttribute="top" secondItem="838-6g-eYu" secondAttribute="bottom" constant="30" id="V9M-5m-ID2"/>
+                <constraint firstItem="9PF-ni-fGz" firstAttribute="top" secondItem="vUN-kp-3ea" secondAttribute="top" constant="20" id="d03-4b-Umb"/>
+                <constraint firstAttribute="trailing" secondItem="tzC-Xq-9LS" secondAttribute="trailing" constant="20" id="gRF-lz-ixO"/>
+                <constraint firstItem="UXO-YR-mAk" firstAttribute="centerX" secondItem="iN0-l3-epB" secondAttribute="centerX" id="hU4-Wm-Dwy"/>
+                <constraint firstItem="rar-74-gTI" firstAttribute="top" secondItem="UXO-YR-mAk" secondAttribute="bottom" constant="10" id="lzu-iM-gsj"/>
+                <constraint firstItem="Tku-7m-AOY" firstAttribute="top" secondItem="vUN-kp-3ea" secondAttribute="top" constant="101" id="oO0-f9-gsg"/>
+            </constraints>
+            <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
+            <point key="canvasLocation" x="109.6875" y="174.375"/>
+        </view>
+    </objects>
+    <resources>
+        <image name="onboard2" width="259" height="259"/>
+        <systemColor name="systemBackgroundColor">
+            <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+        </systemColor>
+    </resources>
+</document>

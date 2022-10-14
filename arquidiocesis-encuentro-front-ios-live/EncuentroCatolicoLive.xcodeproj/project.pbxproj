@@ -1,0 +1,580 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 50;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		6DE2E361279B6EF3000ED1F0 /* APIType.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6DE2E360279B6EF3000ED1F0 /* APIType.swift */; };
+		6F299D582670083200A65B2C /* LiveModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6F299D572670083200A65B2C /* LiveModel.swift */; };
+		6F3022932746F2A300231B10 /* streamingCollectionCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6F3022912746F2A300231B10 /* streamingCollectionCell.swift */; };
+		6F3022942746F2A300231B10 /* streamingCollectionCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 6F3022922746F2A300231B10 /* streamingCollectionCell.xib */; };
+		9817615D25EFF4E3008E1018 /* EncuentroCatolicoMyChurch.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9817615C25EFF4E3008E1018 /* EncuentroCatolicoMyChurch.framework */; };
+		981F3C7625F6AEC70076FB29 /* EventsCVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 981F3C7425F6AEC70076FB29 /* EventsCVC.swift */; };
+		981F3C7725F6AEC70076FB29 /* EventsCVC.xib in Resources */ = {isa = PBXBuildFile; fileRef = 981F3C7525F6AEC70076FB29 /* EventsCVC.xib */; };
+		9837C1C625E80F05005A200F /* EncuentroCatolicoLive.h in Headers */ = {isa = PBXBuildFile; fileRef = 9837C1C425E80F05005A200F /* EncuentroCatolicoLive.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		9870A5ED25E97A1200878A30 /* FeedTVC.xib in Resources */ = {isa = PBXBuildFile; fileRef = 9870A5EB25E97A1200878A30 /* FeedTVC.xib */; };
+		9870A5EE25E97A1200878A30 /* FeedTVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9870A5EC25E97A1200878A30 /* FeedTVC.swift */; };
+		9870A5F725E97B5C00878A30 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 9870A5F625E97B5C00878A30 /* Assets.xcassets */; };
+		989120DF25E993D300D666F4 /* LiveComponents.swift in Sources */ = {isa = PBXBuildFile; fileRef = 989120DE25E993D300D666F4 /* LiveComponents.swift */; };
+		989120F625E9988600D666F4 /* String.swift in Sources */ = {isa = PBXBuildFile; fileRef = 989120F525E9988600D666F4 /* String.swift */; };
+		989120FC25E9989200D666F4 /* CustomLabelType.swift in Sources */ = {isa = PBXBuildFile; fileRef = 989120F825E9989200D666F4 /* CustomLabelType.swift */; };
+		989120FD25E9989200D666F4 /* CustomLabel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 989120F925E9989200D666F4 /* CustomLabel.swift */; };
+		989120FE25E9989200D666F4 /* RegexParser.swift in Sources */ = {isa = PBXBuildFile; fileRef = 989120FA25E9989200D666F4 /* RegexParser.swift */; };
+		989120FF25E9989200D666F4 /* CustomLabelBuilder.swift in Sources */ = {isa = PBXBuildFile; fileRef = 989120FB25E9989200D666F4 /* CustomLabelBuilder.swift */; };
+		98ABEB7025E8663B005725F3 /* Bundle.swift in Sources */ = {isa = PBXBuildFile; fileRef = 98ABEB6F25E8663B005725F3 /* Bundle.swift */; };
+		98ABEB7825E86649005725F3 /* LivePresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 98ABEB7225E86649005725F3 /* LivePresenter.swift */; };
+		98ABEB7925E86649005725F3 /* LiveRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 98ABEB7325E86649005725F3 /* LiveRouter.swift */; };
+		98ABEB7A25E86649005725F3 /* LiveViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 98ABEB7425E86649005725F3 /* LiveViewController.swift */; };
+		98ABEB7B25E86649005725F3 /* LiveProtocols.swift in Sources */ = {isa = PBXBuildFile; fileRef = 98ABEB7525E86649005725F3 /* LiveProtocols.swift */; };
+		98ABEB7C25E86649005725F3 /* LiveInteractor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 98ABEB7625E86649005725F3 /* LiveInteractor.swift */; };
+		98ABEB7D25E86649005725F3 /* LiveViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 98ABEB7725E86649005725F3 /* LiveViewController.xib */; };
+		E1DF672837CF748E28A1769A /* Pods_EncuentroCatolicoLive.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2B8F7EAE51F0A7FE6B33AE6E /* Pods_EncuentroCatolicoLive.framework */; };
+		EEA3F336265630E3007235FE /* BrowserViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = EEA3F334265630E3007235FE /* BrowserViewController.swift */; };
+		EEA3F337265630E3007235FE /* BrowserViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = EEA3F335265630E3007235FE /* BrowserViewController.xib */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXFileReference section */
+		2B8F7EAE51F0A7FE6B33AE6E /* Pods_EncuentroCatolicoLive.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_EncuentroCatolicoLive.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		6DA0EB5144D9ADAFDDC7BA2B /* Pods-EncuentroCatolicoLive.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-EncuentroCatolicoLive.debug.xcconfig"; path = "Target Support Files/Pods-EncuentroCatolicoLive/Pods-EncuentroCatolicoLive.debug.xcconfig"; sourceTree = "<group>"; };
+		6DE2E360279B6EF3000ED1F0 /* APIType.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = APIType.swift; sourceTree = "<group>"; };
+		6F299D572670083200A65B2C /* LiveModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LiveModel.swift; sourceTree = "<group>"; };
+		6F3022912746F2A300231B10 /* streamingCollectionCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = streamingCollectionCell.swift; sourceTree = "<group>"; };
+		6F3022922746F2A300231B10 /* streamingCollectionCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = streamingCollectionCell.xib; sourceTree = "<group>"; };
+		72D9DFC8FFFEAFE4B8C03B52 /* Pods-EncuentroCatolicoLive.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-EncuentroCatolicoLive.release.xcconfig"; path = "Target Support Files/Pods-EncuentroCatolicoLive/Pods-EncuentroCatolicoLive.release.xcconfig"; sourceTree = "<group>"; };
+		9817615725EFF442008E1018 /* EncuentroCatolicoChurch.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = EncuentroCatolicoChurch.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		9817615C25EFF4E3008E1018 /* EncuentroCatolicoMyChurch.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = EncuentroCatolicoMyChurch.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		981F3C7425F6AEC70076FB29 /* EventsCVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EventsCVC.swift; sourceTree = "<group>"; };
+		981F3C7525F6AEC70076FB29 /* EventsCVC.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = EventsCVC.xib; sourceTree = "<group>"; };
+		9837C1C125E80F05005A200F /* EncuentroCatolicoLive.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = EncuentroCatolicoLive.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		9837C1C425E80F05005A200F /* EncuentroCatolicoLive.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = EncuentroCatolicoLive.h; sourceTree = "<group>"; };
+		9837C1C525E80F05005A200F /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		9870A5EB25E97A1200878A30 /* FeedTVC.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = FeedTVC.xib; sourceTree = "<group>"; };
+		9870A5EC25E97A1200878A30 /* FeedTVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FeedTVC.swift; sourceTree = "<group>"; };
+		9870A5F625E97B5C00878A30 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		989120DE25E993D300D666F4 /* LiveComponents.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LiveComponents.swift; sourceTree = "<group>"; };
+		989120F525E9988600D666F4 /* String.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = String.swift; sourceTree = "<group>"; };
+		989120F825E9989200D666F4 /* CustomLabelType.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CustomLabelType.swift; sourceTree = "<group>"; };
+		989120F925E9989200D666F4 /* CustomLabel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CustomLabel.swift; sourceTree = "<group>"; };
+		989120FA25E9989200D666F4 /* RegexParser.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RegexParser.swift; sourceTree = "<group>"; };
+		989120FB25E9989200D666F4 /* CustomLabelBuilder.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CustomLabelBuilder.swift; sourceTree = "<group>"; };
+		98ABEB6F25E8663B005725F3 /* Bundle.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Bundle.swift; sourceTree = "<group>"; };
+		98ABEB7225E86649005725F3 /* LivePresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LivePresenter.swift; sourceTree = "<group>"; };
+		98ABEB7325E86649005725F3 /* LiveRouter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LiveRouter.swift; sourceTree = "<group>"; };
+		98ABEB7425E86649005725F3 /* LiveViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LiveViewController.swift; sourceTree = "<group>"; };
+		98ABEB7525E86649005725F3 /* LiveProtocols.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LiveProtocols.swift; sourceTree = "<group>"; };
+		98ABEB7625E86649005725F3 /* LiveInteractor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LiveInteractor.swift; sourceTree = "<group>"; };
+		98ABEB7725E86649005725F3 /* LiveViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = LiveViewController.xib; sourceTree = "<group>"; };
+		EEA3F334265630E3007235FE /* BrowserViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BrowserViewController.swift; sourceTree = "<group>"; };
+		EEA3F335265630E3007235FE /* BrowserViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = BrowserViewController.xib; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		9837C1BE25E80F05005A200F /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				E1DF672837CF748E28A1769A /* Pods_EncuentroCatolicoLive.framework in Frameworks */,
+				9817615D25EFF4E3008E1018 /* EncuentroCatolicoMyChurch.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		08AFA3F4DF28C46478CBC88C /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				9817615C25EFF4E3008E1018 /* EncuentroCatolicoMyChurch.framework */,
+				9817615725EFF442008E1018 /* EncuentroCatolicoChurch.framework */,
+				2B8F7EAE51F0A7FE6B33AE6E /* Pods_EncuentroCatolicoLive.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		16D847755CF0EE16FFCFF8E8 /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				6DA0EB5144D9ADAFDDC7BA2B /* Pods-EncuentroCatolicoLive.debug.xcconfig */,
+				72D9DFC8FFFEAFE4B8C03B52 /* Pods-EncuentroCatolicoLive.release.xcconfig */,
+			);
+			name = Pods;
+			path = ../Pods;
+			sourceTree = "<group>";
+		};
+		6F3022902746F23500231B10 /* Cells */ = {
+			isa = PBXGroup;
+			children = (
+				6F3022912746F2A300231B10 /* streamingCollectionCell.swift */,
+				6F3022922746F2A300231B10 /* streamingCollectionCell.xib */,
+			);
+			path = Cells;
+			sourceTree = "<group>";
+		};
+		981F3C7325F6AEAA0076FB29 /* EventsCVC */ = {
+			isa = PBXGroup;
+			children = (
+				981F3C7425F6AEC70076FB29 /* EventsCVC.swift */,
+				981F3C7525F6AEC70076FB29 /* EventsCVC.xib */,
+			);
+			path = EventsCVC;
+			sourceTree = "<group>";
+		};
+		9837C1B725E80F05005A200F = {
+			isa = PBXGroup;
+			children = (
+				9837C1C325E80F05005A200F /* EncuentroCatolicoLive */,
+				9837C1C225E80F05005A200F /* Products */,
+				16D847755CF0EE16FFCFF8E8 /* Pods */,
+				08AFA3F4DF28C46478CBC88C /* Frameworks */,
+			);
+			sourceTree = "<group>";
+		};
+		9837C1C225E80F05005A200F /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				9837C1C125E80F05005A200F /* EncuentroCatolicoLive.framework */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		9837C1C325E80F05005A200F /* EncuentroCatolicoLive */ = {
+			isa = PBXGroup;
+			children = (
+				9870A5F125E97B3500878A30 /* Resources */,
+				98ABEB9825E8700D005725F3 /* Cells */,
+				98ABEB6E25E8662F005725F3 /* Extensions */,
+				98ABEB6D25E86625005725F3 /* Controllers */,
+				9837C1C425E80F05005A200F /* EncuentroCatolicoLive.h */,
+				9837C1C525E80F05005A200F /* Info.plist */,
+			);
+			path = EncuentroCatolicoLive;
+			sourceTree = "<group>";
+		};
+		9870A5F125E97B3500878A30 /* Resources */ = {
+			isa = PBXGroup;
+			children = (
+				9870A5F625E97B5C00878A30 /* Assets.xcassets */,
+			);
+			path = Resources;
+			sourceTree = "<group>";
+		};
+		989120F325E9983D00D666F4 /* CustomLabel */ = {
+			isa = PBXGroup;
+			children = (
+				989120F925E9989200D666F4 /* CustomLabel.swift */,
+				989120FB25E9989200D666F4 /* CustomLabelBuilder.swift */,
+				989120F825E9989200D666F4 /* CustomLabelType.swift */,
+				989120FA25E9989200D666F4 /* RegexParser.swift */,
+			);
+			path = CustomLabel;
+			sourceTree = "<group>";
+		};
+		98ABEB6D25E86625005725F3 /* Controllers */ = {
+			isa = PBXGroup;
+			children = (
+				6F3022902746F23500231B10 /* Cells */,
+				98ABEB9325E8672F005725F3 /* Live */,
+			);
+			path = Controllers;
+			sourceTree = "<group>";
+		};
+		98ABEB6E25E8662F005725F3 /* Extensions */ = {
+			isa = PBXGroup;
+			children = (
+				6DE2E360279B6EF3000ED1F0 /* APIType.swift */,
+				989120F325E9983D00D666F4 /* CustomLabel */,
+				98ABEB6F25E8663B005725F3 /* Bundle.swift */,
+				989120F525E9988600D666F4 /* String.swift */,
+			);
+			path = Extensions;
+			sourceTree = "<group>";
+		};
+		98ABEB9325E8672F005725F3 /* Live */ = {
+			isa = PBXGroup;
+			children = (
+				EEA3F33326563059007235FE /* Broswer */,
+				98ABEB7225E86649005725F3 /* LivePresenter.swift */,
+				98ABEB7325E86649005725F3 /* LiveRouter.swift */,
+				98ABEB7425E86649005725F3 /* LiveViewController.swift */,
+				98ABEB7525E86649005725F3 /* LiveProtocols.swift */,
+				98ABEB7625E86649005725F3 /* LiveInteractor.swift */,
+				98ABEB7725E86649005725F3 /* LiveViewController.xib */,
+				989120DE25E993D300D666F4 /* LiveComponents.swift */,
+				6F299D572670083200A65B2C /* LiveModel.swift */,
+			);
+			path = Live;
+			sourceTree = "<group>";
+		};
+		98ABEB9825E8700D005725F3 /* Cells */ = {
+			isa = PBXGroup;
+			children = (
+				981F3C7325F6AEAA0076FB29 /* EventsCVC */,
+				98ABEB9925E87011005725F3 /* FeedTVC */,
+			);
+			path = Cells;
+			sourceTree = "<group>";
+		};
+		98ABEB9925E87011005725F3 /* FeedTVC */ = {
+			isa = PBXGroup;
+			children = (
+				9870A5EC25E97A1200878A30 /* FeedTVC.swift */,
+				9870A5EB25E97A1200878A30 /* FeedTVC.xib */,
+			);
+			path = FeedTVC;
+			sourceTree = "<group>";
+		};
+		EEA3F33326563059007235FE /* Broswer */ = {
+			isa = PBXGroup;
+			children = (
+				EEA3F334265630E3007235FE /* BrowserViewController.swift */,
+				EEA3F335265630E3007235FE /* BrowserViewController.xib */,
+			);
+			path = Broswer;
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXHeadersBuildPhase section */
+		9837C1BC25E80F05005A200F /* Headers */ = {
+			isa = PBXHeadersBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				9837C1C625E80F05005A200F /* EncuentroCatolicoLive.h in Headers */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXHeadersBuildPhase section */
+
+/* Begin PBXNativeTarget section */
+		9837C1C025E80F05005A200F /* EncuentroCatolicoLive */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 9837C1C925E80F05005A200F /* Build configuration list for PBXNativeTarget "EncuentroCatolicoLive" */;
+			buildPhases = (
+				9643ECF9CB556DA2E07BD3AE /* [CP] Check Pods Manifest.lock */,
+				9837C1BC25E80F05005A200F /* Headers */,
+				9837C1BD25E80F05005A200F /* Sources */,
+				9837C1BE25E80F05005A200F /* Frameworks */,
+				9837C1BF25E80F05005A200F /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = EncuentroCatolicoLive;
+			productName = EncuentroCatolicoLive;
+			productReference = 9837C1C125E80F05005A200F /* EncuentroCatolicoLive.framework */;
+			productType = "com.apple.product-type.framework";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		9837C1B825E80F05005A200F /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				LastUpgradeCheck = 1230;
+				TargetAttributes = {
+					9837C1C025E80F05005A200F = {
+						CreatedOnToolsVersion = 12.3;
+						LastSwiftMigration = 1230;
+					};
+				};
+			};
+			buildConfigurationList = 9837C1BB25E80F05005A200F /* Build configuration list for PBXProject "EncuentroCatolicoLive" */;
+			compatibilityVersion = "Xcode 9.3";
+			developmentRegion = en;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+				Base,
+			);
+			mainGroup = 9837C1B725E80F05005A200F;
+			productRefGroup = 9837C1C225E80F05005A200F /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				9837C1C025E80F05005A200F /* EncuentroCatolicoLive */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		9837C1BF25E80F05005A200F /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				98ABEB7D25E86649005725F3 /* LiveViewController.xib in Resources */,
+				9870A5F725E97B5C00878A30 /* Assets.xcassets in Resources */,
+				9870A5ED25E97A1200878A30 /* FeedTVC.xib in Resources */,
+				EEA3F337265630E3007235FE /* BrowserViewController.xib in Resources */,
+				6F3022942746F2A300231B10 /* streamingCollectionCell.xib in Resources */,
+				981F3C7725F6AEC70076FB29 /* EventsCVC.xib in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		9643ECF9CB556DA2E07BD3AE /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-EncuentroCatolicoLive-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		9837C1BD25E80F05005A200F /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				98ABEB7B25E86649005725F3 /* LiveProtocols.swift in Sources */,
+				6F3022932746F2A300231B10 /* streamingCollectionCell.swift in Sources */,
+				98ABEB7825E86649005725F3 /* LivePresenter.swift in Sources */,
+				989120FD25E9989200D666F4 /* CustomLabel.swift in Sources */,
+				98ABEB7025E8663B005725F3 /* Bundle.swift in Sources */,
+				EEA3F336265630E3007235FE /* BrowserViewController.swift in Sources */,
+				989120F625E9988600D666F4 /* String.swift in Sources */,
+				98ABEB7A25E86649005725F3 /* LiveViewController.swift in Sources */,
+				98ABEB7C25E86649005725F3 /* LiveInteractor.swift in Sources */,
+				989120DF25E993D300D666F4 /* LiveComponents.swift in Sources */,
+				989120FE25E9989200D666F4 /* RegexParser.swift in Sources */,
+				989120FF25E9989200D666F4 /* CustomLabelBuilder.swift in Sources */,
+				6F299D582670083200A65B2C /* LiveModel.swift in Sources */,
+				98ABEB7925E86649005725F3 /* LiveRouter.swift in Sources */,
+				9870A5EE25E97A1200878A30 /* FeedTVC.swift in Sources */,
+				989120FC25E9989200D666F4 /* CustomLabelType.swift in Sources */,
+				6DE2E361279B6EF3000ED1F0 /* APIType.swift in Sources */,
+				981F3C7625F6AEC70076FB29 /* EventsCVC.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin XCBuildConfiguration section */
+		9837C1C725E80F05005A200F /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = NO;
+				CURRENT_PROJECT_VERSION = 1;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 14.3;
+				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
+				MTL_FAST_MATH = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = iphoneos;
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = DEBUG;
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+				VERSIONING_SYSTEM = "apple-generic";
+				VERSION_INFO_PREFIX = "";
+			};
+			name = Debug;
+		};
+		9837C1C825E80F05005A200F /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = NO;
+				CURRENT_PROJECT_VERSION = 1;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 14.3;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				MTL_FAST_MATH = YES;
+				SDKROOT = iphoneos;
+				SWIFT_COMPILATION_MODE = wholemodule;
+				SWIFT_OPTIMIZATION_LEVEL = "-O";
+				VALIDATE_PRODUCT = YES;
+				VERSIONING_SYSTEM = "apple-generic";
+				VERSION_INFO_PREFIX = "";
+			};
+			name = Release;
+		};
+		9837C1CA25E80F05005A200F /* Debug */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 6DA0EB5144D9ADAFDDC7BA2B /* Pods-EncuentroCatolicoLive.debug.xcconfig */;
+			buildSettings = {
+				CLANG_ENABLE_MODULES = YES;
+				CODE_SIGN_IDENTITY = "Apple Development";
+				CODE_SIGN_STYLE = Manual;
+				DEFINES_MODULE = YES;
+				DEVELOPMENT_TEAM = "";
+				DYLIB_COMPATIBILITY_VERSION = 1;
+				DYLIB_CURRENT_VERSION = 1;
+				DYLIB_INSTALL_NAME_BASE = "@rpath";
+				INFOPLIST_FILE = EncuentroCatolicoLive/Info.plist;
+				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
+				IPHONEOS_DEPLOYMENT_TARGET = 12.0;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = mx.arquidiocesis.EncuentroCatolicoLive;
+				PRODUCT_NAME = "$(TARGET_NAME:c99extidentifier)";
+				PROVISIONING_PROFILE_SPECIFIER = "";
+				SKIP_INSTALL = YES;
+				SUPPORTS_MACCATALYST = NO;
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Debug;
+		};
+		9837C1CB25E80F05005A200F /* Release */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 72D9DFC8FFFEAFE4B8C03B52 /* Pods-EncuentroCatolicoLive.release.xcconfig */;
+			buildSettings = {
+				CLANG_ENABLE_MODULES = YES;
+				CODE_SIGN_IDENTITY = "Apple Development";
+				CODE_SIGN_STYLE = Manual;
+				DEFINES_MODULE = YES;
+				DEVELOPMENT_TEAM = "";
+				DYLIB_COMPATIBILITY_VERSION = 1;
+				DYLIB_CURRENT_VERSION = 1;
+				DYLIB_INSTALL_NAME_BASE = "@rpath";
+				INFOPLIST_FILE = EncuentroCatolicoLive/Info.plist;
+				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
+				IPHONEOS_DEPLOYMENT_TARGET = 12.0;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = mx.arquidiocesis.EncuentroCatolicoLive;
+				PRODUCT_NAME = "$(TARGET_NAME:c99extidentifier)";
+				PROVISIONING_PROFILE_SPECIFIER = "";
+				SKIP_INSTALL = YES;
+				SUPPORTS_MACCATALYST = NO;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		9837C1BB25E80F05005A200F /* Build configuration list for PBXProject "EncuentroCatolicoLive" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				9837C1C725E80F05005A200F /* Debug */,
+				9837C1C825E80F05005A200F /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		9837C1C925E80F05005A200F /* Build configuration list for PBXNativeTarget "EncuentroCatolicoLive" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				9837C1CA25E80F05005A200F /* Debug */,
+				9837C1CB25E80F05005A200F /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = 9837C1B825E80F05005A200F /* Project object */;
+}

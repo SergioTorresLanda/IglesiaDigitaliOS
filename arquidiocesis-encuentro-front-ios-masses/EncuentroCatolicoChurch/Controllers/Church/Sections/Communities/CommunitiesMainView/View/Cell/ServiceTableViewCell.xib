@@ -1,0 +1,202 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="18122" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+    <device id="retina6_1" orientation="portrait" appearance="light"/>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="18093"/>
+        <capability name="Named colors" minToolsVersion="9.0"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="System colors in document resources" minToolsVersion="11.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <tableViewCell contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" rowHeight="193" id="KGk-i7-Jjw" customClass="ServiceTableViewCell" customModule="EncuentroCatolicoChurch" customModuleProvider="target">
+            <rect key="frame" x="0.0" y="0.0" width="353" height="193"/>
+            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+            <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="KGk-i7-Jjw" id="H2p-sc-9uM">
+                <rect key="frame" x="0.0" y="0.0" width="353" height="193"/>
+                <autoresizingMask key="autoresizingMask"/>
+                <subviews>
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Clases de liturgia" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="L6f-ss-cag">
+                        <rect key="frame" x="10" y="8" width="126.5" height="18"/>
+                        <fontDescription key="fontDescription" type="boldSystem" pointSize="15"/>
+                        <color key="textColor" name="eMainBlue"/>
+                        <nil key="highlightedColor"/>
+                    </label>
+                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Heu-M5-ITK">
+                        <rect key="frame" x="10" y="40" width="330" height="133"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                    </view>
+                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="cic-EX-Bdk">
+                        <rect key="frame" x="10" y="40" width="333" height="133"/>
+                        <subviews>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="NOY-QH-l1o">
+                                <rect key="frame" x="0.0" y="0.0" width="333" height="55"/>
+                                <subviews>
+                                    <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="5" translatesAutoresizingMaskIntoConstraints="NO" id="lcg-53-bIw">
+                                        <rect key="frame" x="12" y="9" width="271" height="36.5"/>
+                                        <subviews>
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Lunes a Jueves" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="4bT-kW-kkO">
+                                                <rect key="frame" x="0.0" y="0.0" width="271" height="17"/>
+                                                <fontDescription key="fontDescription" type="boldSystem" pointSize="14"/>
+                                                <color key="textColor" red="0.45882352941176469" green="0.47058823529411764" blue="0.4823529411764706" alpha="1" colorSpace="calibratedRGB"/>
+                                                <nil key="highlightedColor"/>
+                                            </label>
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="14:00 pm a 15:00 pm" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="J7p-Lb-uRj">
+                                                <rect key="frame" x="0.0" y="22" width="271" height="14.5"/>
+                                                <fontDescription key="fontDescription" type="system" pointSize="12"/>
+                                                <color key="textColor" red="0.45882352939999999" green="0.47058823529999999" blue="0.4823529412" alpha="1" colorSpace="calibratedRGB"/>
+                                                <nil key="highlightedColor"/>
+                                            </label>
+                                        </subviews>
+                                    </stackView>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="uh2-gv-Vtf">
+                                        <rect key="frame" x="306" y="5" width="22" height="22"/>
+                                        <constraints>
+                                            <constraint firstAttribute="width" constant="22" id="Ka4-is-mc0"/>
+                                            <constraint firstAttribute="height" constant="22" id="uw8-mY-3mM"/>
+                                        </constraints>
+                                        <state key="normal" title="Button" image="removeButton"/>
+                                    </button>
+                                </subviews>
+                                <color key="backgroundColor" red="0.94509803921568625" green="0.94509803921568625" blue="0.94509803921568625" alpha="1" colorSpace="calibratedRGB"/>
+                                <constraints>
+                                    <constraint firstItem="uh2-gv-Vtf" firstAttribute="top" secondItem="NOY-QH-l1o" secondAttribute="top" constant="5" id="4Uz-p4-vE4"/>
+                                    <constraint firstItem="lcg-53-bIw" firstAttribute="leading" secondItem="NOY-QH-l1o" secondAttribute="leading" constant="12" id="6lw-w4-dhG"/>
+                                    <constraint firstAttribute="trailing" secondItem="uh2-gv-Vtf" secondAttribute="trailing" constant="5" id="8cG-Rr-CJl"/>
+                                    <constraint firstItem="lcg-53-bIw" firstAttribute="top" secondItem="NOY-QH-l1o" secondAttribute="top" constant="9" id="JpL-Dz-XuK"/>
+                                    <constraint firstAttribute="trailing" secondItem="lcg-53-bIw" secondAttribute="trailing" constant="50" id="rBx-ff-6CM"/>
+                                    <constraint firstAttribute="height" constant="55" id="tJ3-CP-m4R"/>
+                                </constraints>
+                            </view>
+                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="10" translatesAutoresizingMaskIntoConstraints="NO" id="B6N-XU-Owz">
+                                <rect key="frame" x="8" y="63" width="317" height="53.5"/>
+                                <subviews>
+                                    <label opaque="NO" userInteractionEnabled="NO" alpha="0.80000000000000004" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Para adultos" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="NNj-UP-gHJ">
+                                        <rect key="frame" x="0.0" y="0.0" width="317" height="14.5"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="12"/>
+                                        <color key="textColor" name="eBlack"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                    <label opaque="NO" userInteractionEnabled="NO" alpha="0.80000001192092896" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Son platicas motivacionales para acercarse más a Jesús." textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="igR-Qe-aKG">
+                                        <rect key="frame" x="0.0" y="24.5" width="317" height="29"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="12"/>
+                                        <color key="textColor" name="eBlack"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                </subviews>
+                            </stackView>
+                        </subviews>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <constraints>
+                            <constraint firstItem="B6N-XU-Owz" firstAttribute="top" secondItem="NOY-QH-l1o" secondAttribute="bottom" constant="8" symbolic="YES" id="Gu1-ef-Q0Q"/>
+                            <constraint firstAttribute="trailing" secondItem="B6N-XU-Owz" secondAttribute="trailing" constant="8" id="QoV-ql-pFf"/>
+                            <constraint firstAttribute="height" constant="133" id="duN-hA-HbW"/>
+                            <constraint firstItem="B6N-XU-Owz" firstAttribute="leading" secondItem="cic-EX-Bdk" secondAttribute="leading" constant="8" id="fjA-Ki-slg"/>
+                            <constraint firstItem="NOY-QH-l1o" firstAttribute="top" secondItem="cic-EX-Bdk" secondAttribute="top" id="jDM-Hk-WnB"/>
+                            <constraint firstItem="NOY-QH-l1o" firstAttribute="leading" secondItem="cic-EX-Bdk" secondAttribute="leading" id="sUe-Cu-h6Y"/>
+                            <constraint firstAttribute="trailing" secondItem="NOY-QH-l1o" secondAttribute="trailing" id="zk3-TP-C5M"/>
+                        </constraints>
+                    </view>
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Son platicas motivacionales para acercarse más a Jesús" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="N38-PF-w9A">
+                        <rect key="frame" x="16" y="34" width="312" height="12"/>
+                        <fontDescription key="fontDescription" type="system" pointSize="10"/>
+                        <nil key="textColor"/>
+                        <nil key="highlightedColor"/>
+                    </label>
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" text="Para adultos y jóvenes" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="8lA-CB-Sgr">
+                        <rect key="frame" x="20" y="55" width="304" height="28"/>
+                        <fontDescription key="fontDescription" type="system" pointSize="10"/>
+                        <nil key="textColor"/>
+                        <nil key="highlightedColor"/>
+                    </label>
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Lunes a Jueves" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="rPb-Gd-7YS">
+                        <rect key="frame" x="20" y="100" width="304" height="17"/>
+                        <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                        <color key="textColor" white="0.33333333329999998" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <nil key="highlightedColor"/>
+                    </label>
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="12:00 pm a 13:00 pm" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ylK-sL-nsP">
+                        <rect key="frame" x="20" y="125" width="304" height="12"/>
+                        <fontDescription key="fontDescription" type="system" pointSize="10"/>
+                        <nil key="textColor"/>
+                        <nil key="highlightedColor"/>
+                    </label>
+                </subviews>
+                <constraints>
+                    <constraint firstItem="rPb-Gd-7YS" firstAttribute="top" secondItem="8lA-CB-Sgr" secondAttribute="bottom" constant="17" id="1rv-ug-tRC"/>
+                    <constraint firstItem="rPb-Gd-7YS" firstAttribute="trailing" secondItem="H2p-sc-9uM" secondAttribute="trailingMargin" id="324-TO-cDI"/>
+                    <constraint firstAttribute="bottom" secondItem="cic-EX-Bdk" secondAttribute="bottom" constant="20" symbolic="YES" id="CeU-R1-Gvt"/>
+                    <constraint firstItem="8lA-CB-Sgr" firstAttribute="top" secondItem="N38-PF-w9A" secondAttribute="bottom" constant="9" id="ECs-3C-nKB"/>
+                    <constraint firstItem="8lA-CB-Sgr" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leadingMargin" id="EI6-3x-BsL"/>
+                    <constraint firstItem="cic-EX-Bdk" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" constant="10" id="Kmy-1u-8VS"/>
+                    <constraint firstAttribute="trailingMargin" secondItem="ylK-sL-nsP" secondAttribute="trailing" id="N2E-Iz-Vgz"/>
+                    <constraint firstItem="rPb-Gd-7YS" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leadingMargin" id="OqP-1W-bXe"/>
+                    <constraint firstItem="ylK-sL-nsP" firstAttribute="top" secondItem="rPb-Gd-7YS" secondAttribute="bottom" constant="8" symbolic="YES" id="Qga-zP-e1M"/>
+                    <constraint firstItem="L6f-ss-cag" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" constant="10" id="UJ5-cG-lUO"/>
+                    <constraint firstAttribute="trailing" secondItem="N38-PF-w9A" secondAttribute="trailing" constant="16" id="Um5-9f-eZL"/>
+                    <constraint firstItem="Heu-M5-ITK" firstAttribute="top" secondItem="L6f-ss-cag" secondAttribute="bottom" constant="14" id="V8K-QP-ShN"/>
+                    <constraint firstAttribute="trailing" secondItem="Heu-M5-ITK" secondAttribute="trailing" constant="13" id="VSW-3b-o5V"/>
+                    <constraint firstItem="Heu-M5-ITK" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" constant="10" id="WrA-Jr-MZl"/>
+                    <constraint firstItem="cic-EX-Bdk" firstAttribute="top" secondItem="L6f-ss-cag" secondAttribute="bottom" constant="14" id="Yoy-pS-CFl"/>
+                    <constraint firstItem="N38-PF-w9A" firstAttribute="top" secondItem="L6f-ss-cag" secondAttribute="bottom" constant="8" symbolic="YES" id="kTx-J0-lcz"/>
+                    <constraint firstItem="8lA-CB-Sgr" firstAttribute="trailing" secondItem="H2p-sc-9uM" secondAttribute="trailingMargin" id="oNU-Rx-KZo"/>
+                    <constraint firstItem="N38-PF-w9A" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" constant="16" id="q1T-7O-MA8"/>
+                    <constraint firstItem="ylK-sL-nsP" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leadingMargin" id="sIW-hE-apr"/>
+                    <constraint firstItem="ylK-sL-nsP" firstAttribute="bottom" secondItem="H2p-sc-9uM" secondAttribute="bottomMargin" id="taC-v5-RGD"/>
+                    <constraint firstAttribute="bottom" secondItem="Heu-M5-ITK" secondAttribute="bottom" constant="20" symbolic="YES" id="wP3-pj-fFZ"/>
+                    <constraint firstAttribute="trailing" secondItem="cic-EX-Bdk" secondAttribute="trailing" constant="10" id="yaj-NS-2nS"/>
+                    <constraint firstItem="L6f-ss-cag" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" constant="8" id="zzN-OX-Dlo"/>
+                </constraints>
+                <variation key="default">
+                    <mask key="subviews">
+                        <exclude reference="N38-PF-w9A"/>
+                        <exclude reference="8lA-CB-Sgr"/>
+                        <exclude reference="rPb-Gd-7YS"/>
+                        <exclude reference="ylK-sL-nsP"/>
+                    </mask>
+                </variation>
+            </tableViewCellContentView>
+            <viewLayoutGuide key="safeArea" id="njF-e1-oar"/>
+            <userDefinedRuntimeAttributes>
+                <userDefinedRuntimeAttribute type="number" keyPath="radius">
+                    <real key="value" value="6"/>
+                </userDefinedRuntimeAttribute>
+                <userDefinedRuntimeAttribute type="number" keyPath="borderWith">
+                    <real key="value" value="0.0"/>
+                </userDefinedRuntimeAttribute>
+            </userDefinedRuntimeAttributes>
+            <connections>
+                <outlet property="audienceLabel" destination="8lA-CB-Sgr" id="K3h-RF-B9u"/>
+                <outlet property="backCard" destination="Heu-M5-ITK" id="yiC-SA-arK"/>
+                <outlet property="btnDelete" destination="uh2-gv-Vtf" id="bFa-6J-K6N"/>
+                <outlet property="cardView" destination="cic-EX-Bdk" id="54p-wO-eoy"/>
+                <outlet property="dayLabel" destination="rPb-Gd-7YS" id="71E-J4-mZc"/>
+                <outlet property="deleteButton" destination="uh2-gv-Vtf" id="hfn-2g-V3N"/>
+                <outlet property="descriptionLabel" destination="N38-PF-w9A" id="KOR-ev-mS0"/>
+                <outlet property="firstLabel" destination="NNj-UP-gHJ" id="Gqi-94-dTc"/>
+                <outlet property="grayView" destination="NOY-QH-l1o" id="1qf-1W-nJF"/>
+                <outlet property="lblHour" destination="J7p-Lb-uRj" id="ILf-wn-xF5"/>
+                <outlet property="lblMainTitle" destination="4bT-kW-kkO" id="7hC-5Y-qfB"/>
+                <outlet property="lblSecond" destination="igR-Qe-aKG" id="uAh-s4-8RN"/>
+                <outlet property="timeLabel" destination="ylK-sL-nsP" id="qDv-e1-S0T"/>
+                <outlet property="titleLabel" destination="L6f-ss-cag" id="GBU-IR-wZg"/>
+            </connections>
+            <point key="canvasLocation" x="97.826086956521749" y="104.79910714285714"/>
+        </tableViewCell>
+    </objects>
+    <resources>
+        <image name="removeButton" width="20" height="20"/>
+        <namedColor name="eBlack">
+            <color red="0.12156862745098039" green="0.12156862745098039" blue="0.12156862745098039" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </namedColor>
+        <namedColor name="eMainBlue">
+            <color red="0.0039215686274509803" green="0.12549019607843137" blue="0.40784313725490196" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </namedColor>
+        <systemColor name="systemBackgroundColor">
+            <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+        </systemColor>
+    </resources>
+</document>

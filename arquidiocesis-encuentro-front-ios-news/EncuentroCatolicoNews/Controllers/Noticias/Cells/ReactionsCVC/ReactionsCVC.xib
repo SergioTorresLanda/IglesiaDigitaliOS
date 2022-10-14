@@ -1,0 +1,76 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="15705" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+    <device id="retina6_1" orientation="portrait" appearance="light"/>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="15706"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="ReactionsCVC" id="gTV-IL-0wX" customClass="ReactionsCVC" customModule="RedSocialFramework" customModuleProvider="target">
+            <rect key="frame" x="0.0" y="0.0" width="235" height="55"/>
+            <autoresizingMask key="autoresizingMask"/>
+            <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center">
+                <rect key="frame" x="0.0" y="0.0" width="235" height="55"/>
+                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                <subviews>
+                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="RSg-eq-NvQ">
+                        <rect key="frame" x="0.0" y="0.0" width="235" height="55"/>
+                        <subviews>
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="familiaUpax" translatesAutoresizingMaskIntoConstraints="NO" id="hhM-A4-dnr">
+                                <rect key="frame" x="15" y="7.5" width="40" height="40"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" secondItem="hhM-A4-dnr" secondAttribute="height" multiplier="1:1" id="FbC-YU-pJI"/>
+                                    <constraint firstAttribute="height" constant="40" id="NAO-6g-COy"/>
+                                </constraints>
+                            </imageView>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Feliz" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="dIh-lO-anq">
+                                <rect key="frame" x="70" y="17" width="150" height="21"/>
+                                <fontDescription key="fontDescription" name="Avenir-Book" family="Avenir" pointSize="15"/>
+                                <color key="textColor" red="0.51764705882352935" green="0.51764705882352935" blue="0.51764705882352935" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="ZDT-LE-KQQ">
+                                <rect key="frame" x="234.5" y="5" width="0.5" height="45"/>
+                                <color key="backgroundColor" red="0.51764705882352935" green="0.51764705882352935" blue="0.51764705882352935" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="0.5" id="wAT-ay-qM9"/>
+                                </constraints>
+                            </view>
+                        </subviews>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                        <constraints>
+                            <constraint firstAttribute="trailing" secondItem="dIh-lO-anq" secondAttribute="trailing" constant="15" id="0mi-he-TLS"/>
+                            <constraint firstItem="dIh-lO-anq" firstAttribute="centerY" secondItem="RSg-eq-NvQ" secondAttribute="centerY" id="SpP-jW-i9Z"/>
+                            <constraint firstItem="dIh-lO-anq" firstAttribute="leading" secondItem="hhM-A4-dnr" secondAttribute="trailing" constant="15" id="a25-eH-19I"/>
+                            <constraint firstAttribute="trailing" secondItem="ZDT-LE-KQQ" secondAttribute="trailing" id="ciM-vl-dFY"/>
+                            <constraint firstItem="hhM-A4-dnr" firstAttribute="leading" secondItem="RSg-eq-NvQ" secondAttribute="leading" constant="15" id="fjJ-hC-3K9"/>
+                            <constraint firstItem="ZDT-LE-KQQ" firstAttribute="top" secondItem="RSg-eq-NvQ" secondAttribute="top" constant="5" id="hhI-ow-e2x"/>
+                            <constraint firstItem="dIh-lO-anq" firstAttribute="centerY" secondItem="hhM-A4-dnr" secondAttribute="centerY" id="icb-8j-ruX"/>
+                            <constraint firstAttribute="bottom" secondItem="ZDT-LE-KQQ" secondAttribute="bottom" constant="5" id="yfF-q5-g6i"/>
+                        </constraints>
+                    </view>
+                </subviews>
+            </view>
+            <constraints>
+                <constraint firstAttribute="bottom" secondItem="RSg-eq-NvQ" secondAttribute="bottom" id="J9Z-vh-G5R"/>
+                <constraint firstAttribute="trailing" secondItem="RSg-eq-NvQ" secondAttribute="trailing" id="Sls-3g-8lu"/>
+                <constraint firstItem="RSg-eq-NvQ" firstAttribute="top" secondItem="gTV-IL-0wX" secondAttribute="top" id="U6r-5r-xUh"/>
+                <constraint firstItem="RSg-eq-NvQ" firstAttribute="leading" secondItem="gTV-IL-0wX" secondAttribute="leading" id="pi9-5S-cYR"/>
+            </constraints>
+            <viewLayoutGuide key="safeArea" id="ZTg-uK-7eu"/>
+            <connections>
+                <outlet property="reactionImage" destination="hhM-A4-dnr" id="fRb-Z8-c88"/>
+                <outlet property="reactionLabel" destination="dIh-lO-anq" id="38a-lu-N0B"/>
+                <outlet property="separator" destination="ZDT-LE-KQQ" id="AXN-Z3-u21"/>
+            </connections>
+            <point key="canvasLocation" x="136.95652173913044" y="122.54464285714285"/>
+        </collectionViewCell>
+    </objects>
+    <resources>
+        <image name="familiaUpax" width="91.5" height="91.5"/>
+    </resources>
+</document>

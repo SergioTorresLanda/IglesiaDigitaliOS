@@ -1,0 +1,114 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="18122" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+    <device id="retina4_7" orientation="portrait" appearance="light"/>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="18093"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="System colors in document resources" minToolsVersion="11.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="Vista2View" customModule="EncuentroCatolicoLogin" customModuleProvider="target">
+            <connections>
+                <outlet property="view" destination="4PG-Dq-Gfn" id="Jjp-9o-xAM"/>
+            </connections>
+        </placeholder>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <view contentMode="scaleToFill" id="4PG-Dq-Gfn">
+            <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+            <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+            <subviews>
+                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Qx0-Qi-KYf">
+                    <rect key="frame" x="313" y="20" width="42" height="30"/>
+                    <state key="normal" title="Omitir"/>
+                    <connections>
+                        <action selector="omitirAction:" destination="-1" eventType="touchUpInside" id="PIa-YN-RWw"/>
+                    </connections>
+                </button>
+                <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="onboard1" translatesAutoresizingMaskIntoConstraints="NO" id="m0h-83-a7k">
+                    <rect key="frame" x="59" y="101" width="257" height="257"/>
+                    <constraints>
+                        <constraint firstAttribute="height" constant="257" id="HFj-7q-UwN"/>
+                        <constraint firstAttribute="width" constant="257" id="NQn-2Y-zdC"/>
+                    </constraints>
+                </imageView>
+                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="La iglesia en tus manos" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Av5-Mq-gjm">
+                    <rect key="frame" x="20" y="378" width="335" height="33.5"/>
+                    <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="28"/>
+                    <color key="textColor" red="0.06847123057" green="0.1287259758" blue="0.5059124827" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                    <nil key="highlightedColor"/>
+                </label>
+                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Descubre en este punto de encuentro digital la riqueza que la Iglesia tiene para tí." textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="bwT-yt-idk">
+                    <rect key="frame" x="20" y="441.5" width="335" height="64.5"/>
+                    <fontDescription key="fontDescription" type="system" pointSize="18"/>
+                    <nil key="textColor"/>
+                    <nil key="highlightedColor"/>
+                </label>
+                <button opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="P22-DS-dna">
+                    <rect key="frame" x="107.5" y="568.5" width="160" height="48"/>
+                    <color key="backgroundColor" red="0.06847123057" green="0.1287259758" blue="0.5059124827" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                    <constraints>
+                        <constraint firstAttribute="width" constant="160" id="6Ni-li-AIp"/>
+                        <constraint firstAttribute="height" constant="48" id="qNm-LR-0yY"/>
+                    </constraints>
+                    <state key="normal" title="Siguiente">
+                        <color key="titleColor" red="0.99999600649999998" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                    </state>
+                    <userDefinedRuntimeAttributes>
+                        <userDefinedRuntimeAttribute type="number" keyPath="layer.cornerRaius">
+                            <integer key="value" value="10"/>
+                        </userDefinedRuntimeAttribute>
+                    </userDefinedRuntimeAttributes>
+                    <connections>
+                        <action selector="siguienteAction:" destination="-1" eventType="touchUpInside" id="UGX-1n-DbF"/>
+                    </connections>
+                </button>
+                <pageControl opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" numberOfPages="2" currentPage="1" translatesAutoresizingMaskIntoConstraints="NO" id="HSw-GS-5mF">
+                    <rect key="frame" x="136.5" y="531" width="102.5" height="27.5"/>
+                    <color key="pageIndicatorTintColor" white="0.66666666669999997" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                    <color key="currentPageIndicatorTintColor" white="0.33333333329999998" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                </pageControl>
+                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="6Ty-Sb-lNd">
+                    <rect key="frame" x="20" y="20" width="40" height="40"/>
+                    <constraints>
+                        <constraint firstAttribute="height" constant="40" id="Db7-Zv-NeG"/>
+                        <constraint firstAttribute="width" constant="40" id="eAZ-ua-3Qj"/>
+                    </constraints>
+                    <state key="normal" image="backLogin"/>
+                    <connections>
+                        <action selector="backAction:" destination="-1" eventType="touchUpInside" id="UIk-sW-mhg"/>
+                    </connections>
+                </button>
+            </subviews>
+            <viewLayoutGuide key="safeArea" id="9m1-gy-LlS"/>
+            <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+            <constraints>
+                <constraint firstItem="6Ty-Sb-lNd" firstAttribute="top" secondItem="9m1-gy-LlS" secondAttribute="top" constant="20" id="3ZP-Sy-wlm"/>
+                <constraint firstItem="HSw-GS-5mF" firstAttribute="top" secondItem="bwT-yt-idk" secondAttribute="bottom" constant="25" id="ACy-ee-bQA"/>
+                <constraint firstItem="P22-DS-dna" firstAttribute="centerX" secondItem="4PG-Dq-Gfn" secondAttribute="centerX" id="Df2-7c-h9x"/>
+                <constraint firstItem="Av5-Mq-gjm" firstAttribute="leading" secondItem="9m1-gy-LlS" secondAttribute="leading" constant="20" id="IJC-n6-ga4"/>
+                <constraint firstAttribute="trailing" secondItem="bwT-yt-idk" secondAttribute="trailing" constant="20" id="Lh8-WV-MiV"/>
+                <constraint firstItem="9m1-gy-LlS" firstAttribute="trailing" secondItem="Qx0-Qi-KYf" secondAttribute="trailing" constant="20" id="NWe-r4-tbk"/>
+                <constraint firstItem="P22-DS-dna" firstAttribute="top" secondItem="HSw-GS-5mF" secondAttribute="bottom" constant="10" id="Rps-Ws-P2e"/>
+                <constraint firstItem="6Ty-Sb-lNd" firstAttribute="leading" secondItem="9m1-gy-LlS" secondAttribute="leading" constant="20" id="XfK-My-bVM"/>
+                <constraint firstItem="bwT-yt-idk" firstAttribute="leading" secondItem="9m1-gy-LlS" secondAttribute="leading" constant="20" id="YU0-TZ-Mgr"/>
+                <constraint firstAttribute="trailing" secondItem="Av5-Mq-gjm" secondAttribute="trailing" constant="20" id="bBY-sW-Bfp"/>
+                <constraint firstItem="m0h-83-a7k" firstAttribute="centerX" secondItem="4PG-Dq-Gfn" secondAttribute="centerX" id="grk-RF-54T"/>
+                <constraint firstItem="HSw-GS-5mF" firstAttribute="centerX" secondItem="4PG-Dq-Gfn" secondAttribute="centerX" id="gvl-Do-BDY"/>
+                <constraint firstItem="Av5-Mq-gjm" firstAttribute="top" secondItem="m0h-83-a7k" secondAttribute="bottom" constant="20" id="mEu-pS-fnf"/>
+                <constraint firstItem="m0h-83-a7k" firstAttribute="top" secondItem="9m1-gy-LlS" secondAttribute="top" constant="101" id="q2X-P5-pxl"/>
+                <constraint firstItem="bwT-yt-idk" firstAttribute="top" secondItem="Av5-Mq-gjm" secondAttribute="bottom" constant="30" id="ulu-uE-Bn2"/>
+                <constraint firstItem="Qx0-Qi-KYf" firstAttribute="top" secondItem="9m1-gy-LlS" secondAttribute="top" constant="20" id="vBy-bx-TCg"/>
+            </constraints>
+            <point key="canvasLocation" x="138.40000000000001" y="86.806596701649184"/>
+        </view>
+    </objects>
+    <resources>
+        <image name="backLogin" width="114" height="124"/>
+        <image name="onboard1" width="261.5" height="262.5"/>
+        <systemColor name="systemBackgroundColor">
+            <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+        </systemColor>
+    </resources>
+</document>

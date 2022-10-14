@@ -1,0 +1,175 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="17701" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES">
+    <device id="retina4_7" orientation="portrait" appearance="light"/>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="17703"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="System colors in document resources" minToolsVersion="11.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="MassesInformationViewController" customModule="EncuentroCatolicoMasses" customModuleProvider="target">
+            <connections>
+                <outlet property="view" destination="ihv-YH-iXF" id="dPt-vB-aDF"/>
+            </connections>
+        </placeholder>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <view contentMode="scaleToFill" id="ihv-YH-iXF">
+            <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+            <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+            <subviews>
+                <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" ambiguous="YES" translatesAutoresizingMaskIntoConstraints="NO" id="e8S-lS-d3M">
+                    <rect key="frame" x="0.0" y="33" width="414" height="863"/>
+                    <subviews>
+                        <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="TVH-fU-Htt">
+                            <rect key="frame" x="0.0" y="0.0" width="987.5" height="280"/>
+                            <constraints>
+                                <constraint firstAttribute="height" constant="280" id="x19-6I-0SU"/>
+                            </constraints>
+                        </imageView>
+                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Parroquia del señor de la Resurrección" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="3" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="SBm-Ei-UwQ">
+                            <rect key="frame" x="20" y="300" width="225" height="55"/>
+                            <constraints>
+                                <constraint firstAttribute="width" constant="225" id="diA-ft-aCB"/>
+                            </constraints>
+                            <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="23"/>
+                            <color key="textColor" red="0.41960784309999999" green="0.1215686275" blue="0.62352941179999999" alpha="1" colorSpace="calibratedRGB"/>
+                            <nil key="highlightedColor"/>
+                        </label>
+                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="upf-oM-oFe">
+                            <rect key="frame" x="255" y="300" width="712.5" height="27"/>
+                            <state key="normal" image="masses-main"/>
+                        </button>
+                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="Bosques de la Reforma 486, Bosques de las Lomas, Miguel Hidalgo, 11700, Ciudad de México, CDMX" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="4" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="eag-Sw-wiS">
+                            <rect key="frame" x="19" y="365" width="225" height="67"/>
+                            <constraints>
+                                <constraint firstAttribute="width" constant="225" id="nOT-fb-qN5"/>
+                            </constraints>
+                            <fontDescription key="fontDescription" type="system" weight="light" pointSize="14"/>
+                            <color key="textColor" red="0.45882352939999999" green="0.47058823529999999" blue="0.4823529412" alpha="1" colorSpace="calibratedRGB"/>
+                            <nil key="highlightedColor"/>
+                        </label>
+                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Jpc-uB-X6z">
+                            <rect key="frame" x="845.5" y="372" width="107" height="39"/>
+                            <constraints>
+                                <constraint firstAttribute="height" constant="39" id="cC5-rF-Vwr"/>
+                                <constraint firstAttribute="width" constant="107" id="uBA-PR-kwJ"/>
+                            </constraints>
+                            <state key="normal" image="masses-togo"/>
+                        </button>
+                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Servicios" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Nd5-Gg-f4O">
+                            <rect key="frame" x="20" y="397" width="85" height="24"/>
+                            <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="20"/>
+                            <color key="textColor" red="0.019607843140000001" green="0.12941176469999999" blue="0.40000000000000002" alpha="1" colorSpace="calibratedRGB"/>
+                            <nil key="highlightedColor"/>
+                        </label>
+                        <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="none" translatesAutoresizingMaskIntoConstraints="NO" id="0aB-Ta-Ey6">
+                            <rect key="frame" x="0.0" y="431" width="987.5" height="150"/>
+                            <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                            <constraints>
+                                <constraint firstAttribute="height" constant="150" id="2tK-pp-ufO"/>
+                            </constraints>
+                            <collectionViewFlowLayout key="collectionViewLayout" minimumLineSpacing="10" minimumInteritemSpacing="10" id="SSM-OE-5VF">
+                                <size key="itemSize" width="128" height="128"/>
+                                <size key="headerReferenceSize" width="0.0" height="0.0"/>
+                                <size key="footerReferenceSize" width="0.0" height="0.0"/>
+                                <inset key="sectionInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
+                            </collectionViewFlowLayout>
+                        </collectionView>
+                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Historia" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="9hG-5d-0X1">
+                            <rect key="frame" x="20" y="596" width="72" height="24"/>
+                            <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="20"/>
+                            <color key="textColor" red="0.019607843140000001" green="0.12941176469999999" blue="0.40000000000000002" alpha="1" colorSpace="calibratedRGB"/>
+                            <nil key="highlightedColor"/>
+                        </label>
+                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="4" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="mdj-UG-05B">
+                            <rect key="frame" x="20" y="635" width="947.5" height="33.5"/>
+                            <string key="text">Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam.
+</string>
+                            <fontDescription key="fontDescription" type="system" weight="light" pointSize="14"/>
+                            <color key="textColor" red="0.45882352939999999" green="0.47058823529999999" blue="0.4823529412" alpha="1" colorSpace="calibratedRGB"/>
+                            <nil key="highlightedColor"/>
+                        </label>
+                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="YBd-zc-PQ0">
+                            <rect key="frame" x="379" y="678.5" width="230" height="43"/>
+                            <constraints>
+                                <constraint firstAttribute="width" constant="230" id="3pE-a2-xzG"/>
+                                <constraint firstAttribute="height" constant="43" id="znM-41-ES3"/>
+                            </constraints>
+                            <state key="normal" image="masses-donate"/>
+                        </button>
+                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="sVw-HS-nst">
+                            <rect key="frame" x="911.5" y="305" width="31" height="26"/>
+                            <constraints>
+                                <constraint firstAttribute="height" constant="26" id="Plh-Ws-GxR"/>
+                                <constraint firstAttribute="width" constant="31" id="Ww6-fs-BXX"/>
+                            </constraints>
+                            <state key="normal" image="icon-heart"/>
+                        </button>
+                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Mtl-uG-lnC">
+                            <rect key="frame" x="20" y="20" width="16" height="26"/>
+                            <constraints>
+                                <constraint firstAttribute="width" constant="16" id="2T7-vW-w24"/>
+                                <constraint firstAttribute="height" constant="26" id="hic-wg-6H0"/>
+                            </constraints>
+                            <state key="normal" image="icon-back"/>
+                        </button>
+                    </subviews>
+                    <constraints>
+                        <constraint firstItem="9hG-5d-0X1" firstAttribute="leading" secondItem="1Io-fT-bkL" secondAttribute="leading" constant="20" id="0Te-CZ-JHE"/>
+                        <constraint firstItem="TVH-fU-Htt" firstAttribute="trailing" secondItem="1Io-fT-bkL" secondAttribute="trailing" id="0kX-Zt-KFK"/>
+                        <constraint firstItem="upf-oM-oFe" firstAttribute="leading" secondItem="SBm-Ei-UwQ" secondAttribute="trailing" constant="10" id="5oP-9o-6cq"/>
+                        <constraint firstItem="Nd5-Gg-f4O" firstAttribute="leading" secondItem="1Io-fT-bkL" secondAttribute="leading" constant="20" id="8E4-MA-q0B"/>
+                        <constraint firstItem="YBd-zc-PQ0" firstAttribute="centerX" secondItem="e8S-lS-d3M" secondAttribute="centerX" id="8ZG-80-frn"/>
+                        <constraint firstItem="Mtl-uG-lnC" firstAttribute="leading" secondItem="1Io-fT-bkL" secondAttribute="leading" constant="20" id="98K-VI-Tpb"/>
+                        <constraint firstItem="SBm-Ei-UwQ" firstAttribute="leading" secondItem="1Io-fT-bkL" secondAttribute="leading" constant="20" id="Amh-Kw-ctK"/>
+                        <constraint firstItem="0aB-Ta-Ey6" firstAttribute="top" secondItem="Nd5-Gg-f4O" secondAttribute="bottom" constant="10" id="FzB-LP-Jfn"/>
+                        <constraint firstItem="YBd-zc-PQ0" firstAttribute="top" secondItem="mdj-UG-05B" secondAttribute="bottom" constant="10" id="G2d-gM-lbo"/>
+                        <constraint firstItem="eag-Sw-wiS" firstAttribute="leading" secondItem="1Io-fT-bkL" secondAttribute="leading" constant="20" id="GwH-mi-B1C"/>
+                        <constraint firstItem="Nd5-Gg-f4O" firstAttribute="top" secondItem="eag-Sw-wiS" secondAttribute="bottom" constant="15" id="HHH-Ci-yO0"/>
+                        <constraint firstItem="Mtl-uG-lnC" firstAttribute="top" secondItem="1Io-fT-bkL" secondAttribute="top" constant="20" id="HMc-yQ-scl"/>
+                        <constraint firstItem="0aB-Ta-Ey6" firstAttribute="trailing" secondItem="1Io-fT-bkL" secondAttribute="trailing" id="IiR-9m-UTc"/>
+                        <constraint firstItem="1Io-fT-bkL" firstAttribute="trailing" secondItem="mdj-UG-05B" secondAttribute="trailing" constant="20" id="Jd3-EV-P2L"/>
+                        <constraint firstItem="sVw-HS-nst" firstAttribute="top" secondItem="TVH-fU-Htt" secondAttribute="bottom" constant="25" id="KXP-vq-F0z"/>
+                        <constraint firstItem="upf-oM-oFe" firstAttribute="top" secondItem="TVH-fU-Htt" secondAttribute="bottom" constant="20" id="Kas-Kk-nZ8"/>
+                        <constraint firstItem="SBm-Ei-UwQ" firstAttribute="top" secondItem="TVH-fU-Htt" secondAttribute="bottom" constant="20" id="Ogk-Y4-8Nh"/>
+                        <constraint firstItem="1Io-fT-bkL" firstAttribute="trailing" secondItem="sVw-HS-nst" secondAttribute="trailing" constant="45" id="Rni-cl-L0l"/>
+                        <constraint firstItem="Jpc-uB-X6z" firstAttribute="top" secondItem="upf-oM-oFe" secondAttribute="bottom" constant="45" id="Tpn-2L-0XZ"/>
+                        <constraint firstItem="1Io-fT-bkL" firstAttribute="trailing" secondItem="upf-oM-oFe" secondAttribute="trailing" constant="20" id="W4d-FE-EqO"/>
+                        <constraint firstItem="mdj-UG-05B" firstAttribute="leading" secondItem="1Io-fT-bkL" secondAttribute="leading" constant="20" id="YNY-dS-u9K"/>
+                        <constraint firstItem="TVH-fU-Htt" firstAttribute="leading" secondItem="1Io-fT-bkL" secondAttribute="leading" id="Zfn-hu-mWK"/>
+                        <constraint firstItem="TVH-fU-Htt" firstAttribute="top" secondItem="1Io-fT-bkL" secondAttribute="top" id="a70-3b-JFF"/>
+                        <constraint firstItem="0aB-Ta-Ey6" firstAttribute="leading" secondItem="1Io-fT-bkL" secondAttribute="leading" id="cqY-3x-Utb"/>
+                        <constraint firstItem="9hG-5d-0X1" firstAttribute="top" secondItem="0aB-Ta-Ey6" secondAttribute="bottom" constant="15" id="h4a-oZ-YDK"/>
+                        <constraint firstItem="mdj-UG-05B" firstAttribute="top" secondItem="9hG-5d-0X1" secondAttribute="bottom" constant="15" id="sEr-xI-iWb"/>
+                        <constraint firstItem="Jpc-uB-X6z" firstAttribute="leading" secondItem="eag-Sw-wiS" secondAttribute="trailing" constant="27" id="tba-oi-hCw"/>
+                        <constraint firstItem="1Io-fT-bkL" firstAttribute="trailing" secondItem="Jpc-uB-X6z" secondAttribute="trailing" constant="35" id="xMt-cc-cd8"/>
+                        <constraint firstItem="eag-Sw-wiS" firstAttribute="top" secondItem="SBm-Ei-UwQ" secondAttribute="bottom" constant="10" id="yI5-5E-QFo"/>
+                    </constraints>
+                    <viewLayoutGuide key="contentLayoutGuide" id="AgV-US-KrF"/>
+                    <viewLayoutGuide key="frameLayoutGuide" id="1Io-fT-bkL"/>
+                </scrollView>
+            </subviews>
+            <viewLayoutGuide key="safeArea" id="mRW-ES-blF"/>
+            <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+            <constraints>
+                <constraint firstItem="e8S-lS-d3M" firstAttribute="leading" secondItem="mRW-ES-blF" secondAttribute="leading" id="1Fd-Vh-Pmy"/>
+                <constraint firstItem="e8S-lS-d3M" firstAttribute="trailing" secondItem="mRW-ES-blF" secondAttribute="trailing" id="M94-fD-ia8"/>
+                <constraint firstItem="e8S-lS-d3M" firstAttribute="top" secondItem="ihv-YH-iXF" secondAttribute="top" constant="33" id="PeI-ff-ZFa"/>
+                <constraint firstAttribute="bottom" secondItem="e8S-lS-d3M" secondAttribute="bottom" id="lPm-Pw-eGW"/>
+            </constraints>
+            <point key="canvasLocation" x="-197.10144927536234" y="87.723214285714278"/>
+        </view>
+    </objects>
+    <resources>
+        <image name="icon-back" width="23" height="36"/>
+        <image name="icon-heart" width="48" height="42"/>
+        <image name="masses-donate" width="500" height="80"/>
+        <image name="masses-main" width="128" height="27"/>
+        <image name="masses-togo" width="200" height="80"/>
+        <systemColor name="systemBackgroundColor">
+            <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+        </systemColor>
+    </resources>
+</document>

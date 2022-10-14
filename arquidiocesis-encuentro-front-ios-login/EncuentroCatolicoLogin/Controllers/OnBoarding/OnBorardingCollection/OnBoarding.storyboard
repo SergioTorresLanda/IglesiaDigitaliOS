@@ -1,0 +1,180 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="18122" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+    <device id="retina6_1" orientation="portrait" appearance="light"/>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="18093"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="System colors in document resources" minToolsVersion="11.0"/>
+        <capability name="collection view cell content view" minToolsVersion="11.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <scenes>
+        <!--On BoardingCC-->
+        <scene sceneID="VpB-YL-bt8">
+            <objects>
+                <viewController storyboardIdentifier="MainView" id="rgl-Q3-Ssa" customClass="OnBoardingCC" customModule="EncuentroCatolicoLogin" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="Jnz-Pa-g8v">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" pagingEnabled="YES" showsHorizontalScrollIndicator="NO" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="cHP-Me-Buo">
+                                <rect key="frame" x="0.0" y="44" width="414" height="668"/>
+                                <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                                <collectionViewFlowLayout key="collectionViewLayout" scrollDirection="horizontal" minimumLineSpacing="10" minimumInteritemSpacing="10" id="dPS-Qi-H9t">
+                                    <size key="itemSize" width="366" height="551"/>
+                                    <size key="headerReferenceSize" width="0.0" height="0.0"/>
+                                    <size key="footerReferenceSize" width="0.0" height="0.0"/>
+                                    <inset key="sectionInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
+                                </collectionViewFlowLayout>
+                                <cells>
+                                    <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="OBCELL" id="s7a-kC-LHA" customClass="Cell1OnBoarding" customModule="EncuentroCatolicoLogin" customModuleProvider="target">
+                                        <rect key="frame" x="0.0" y="58.5" width="366" height="551"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                        <collectionViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" id="JwU-VJ-S5i">
+                                            <rect key="frame" x="0.0" y="0.0" width="366" height="551"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                            <subviews>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Encuentra videos, canciones, documentos y material multimedia para profundizar en tu fe." textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="eY1-cZ-PNf">
+                                                    <rect key="frame" x="20" y="459.5" width="326" height="64.5"/>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="18"/>
+                                                    <nil key="textColor"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Material exclusivo en nuestra biblioteca virtual" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="oU7-tO-QcK">
+                                                    <rect key="frame" x="20" y="372.5" width="326" height="67"/>
+                                                    <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="28"/>
+                                                    <color key="textColor" red="0.06847123057" green="0.1287259758" blue="0.5059124827" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
+                                                <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="onboard1" translatesAutoresizingMaskIntoConstraints="NO" id="DRY-IX-Q02">
+                                                    <rect key="frame" x="31" y="90" width="304" height="262.5"/>
+                                                </imageView>
+                                            </subviews>
+                                            <constraints>
+                                                <constraint firstItem="eY1-cZ-PNf" firstAttribute="leading" secondItem="JwU-VJ-S5i" secondAttribute="leading" constant="20" id="F8Q-KN-Lwr"/>
+                                                <constraint firstItem="oU7-tO-QcK" firstAttribute="leading" secondItem="JwU-VJ-S5i" secondAttribute="leading" constant="20" id="K3F-d9-cVa"/>
+                                                <constraint firstItem="eY1-cZ-PNf" firstAttribute="top" secondItem="oU7-tO-QcK" secondAttribute="bottom" constant="20" id="KmK-1K-zXA"/>
+                                                <constraint firstAttribute="trailing" secondItem="DRY-IX-Q02" secondAttribute="trailing" constant="31" id="W7v-8s-DCJ"/>
+                                                <constraint firstItem="DRY-IX-Q02" firstAttribute="leading" secondItem="JwU-VJ-S5i" secondAttribute="leading" constant="31" id="dRN-Ez-YGE"/>
+                                                <constraint firstAttribute="trailing" secondItem="eY1-cZ-PNf" secondAttribute="trailing" constant="20" id="edX-HI-rWP"/>
+                                                <constraint firstItem="oU7-tO-QcK" firstAttribute="top" secondItem="DRY-IX-Q02" secondAttribute="bottom" constant="20" id="hJq-fc-jaY"/>
+                                                <constraint firstItem="DRY-IX-Q02" firstAttribute="top" secondItem="JwU-VJ-S5i" secondAttribute="top" constant="90" id="syV-Mb-ewl"/>
+                                                <constraint firstAttribute="bottom" secondItem="eY1-cZ-PNf" secondAttribute="bottom" constant="27" id="t80-tO-oiG"/>
+                                                <constraint firstAttribute="trailing" secondItem="oU7-tO-QcK" secondAttribute="trailing" constant="20" id="vXw-Vk-JLN"/>
+                                            </constraints>
+                                        </collectionViewCellContentView>
+                                        <size key="customSize" width="366" height="551"/>
+                                        <connections>
+                                            <outlet property="blueTitle" destination="oU7-tO-QcK" id="2Y4-M2-5yt"/>
+                                            <outlet property="obText" destination="eY1-cZ-PNf" id="jhd-gw-0T7"/>
+                                            <outlet property="onBoardingImg" destination="DRY-IX-Q02" id="CbJ-1a-jmO"/>
+                                        </connections>
+                                    </collectionViewCell>
+                                    <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" reuseIdentifier="OBCELL2" id="dyl-ge-TAG" customClass="Cell2OnBoarding" customModule="EncuentroCatolicoLogin" customModuleProvider="target">
+                                        <rect key="frame" x="376" y="58.5" width="366" height="551"/>
+                                        <autoresizingMask key="autoresizingMask"/>
+                                        <collectionViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" id="y1J-ca-0zT">
+                                            <rect key="frame" x="0.0" y="0.0" width="366" height="551"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                            <subviews>
+                                                <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="onboard2" translatesAutoresizingMaskIntoConstraints="NO" id="eSf-lL-vQw">
+                                                    <rect key="frame" x="31" y="124" width="304" height="259"/>
+                                                </imageView>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="La iglesia en tus manos" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Wk3-nA-H6s">
+                                                    <rect key="frame" x="20" y="403" width="326" height="33.5"/>
+                                                    <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="28"/>
+                                                    <color key="textColor" red="0.06847123057" green="0.1287259758" blue="0.5059124827" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Descubre en este punto de encuentro digital la riqueza que la Iglesia tiene para tí." textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="gW4-q0-r07">
+                                                    <rect key="frame" x="20" y="466.5" width="326" height="64.5"/>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="18"/>
+                                                    <nil key="textColor"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
+                                            </subviews>
+                                            <constraints>
+                                                <constraint firstAttribute="bottom" secondItem="gW4-q0-r07" secondAttribute="bottom" constant="20" id="4yx-Ho-Rzp"/>
+                                                <constraint firstItem="gW4-q0-r07" firstAttribute="top" secondItem="Wk3-nA-H6s" secondAttribute="bottom" constant="30" id="5Rl-XL-olu"/>
+                                                <constraint firstItem="Wk3-nA-H6s" firstAttribute="leading" secondItem="y1J-ca-0zT" secondAttribute="leading" constant="20" id="BDx-Oo-LJE"/>
+                                                <constraint firstItem="Wk3-nA-H6s" firstAttribute="top" secondItem="eSf-lL-vQw" secondAttribute="bottom" constant="20" id="BiY-KL-0Yr"/>
+                                                <constraint firstItem="eSf-lL-vQw" firstAttribute="top" secondItem="y1J-ca-0zT" secondAttribute="top" priority="250" constant="90" id="Cv9-RY-TJn"/>
+                                                <constraint firstAttribute="trailing" secondItem="Wk3-nA-H6s" secondAttribute="trailing" constant="20" id="IDf-PA-h36"/>
+                                                <constraint firstItem="gW4-q0-r07" firstAttribute="leading" secondItem="y1J-ca-0zT" secondAttribute="leading" constant="20" id="KGr-6Y-AQh"/>
+                                                <constraint firstAttribute="trailing" secondItem="eSf-lL-vQw" secondAttribute="trailing" constant="31" id="Xbf-rN-SZ6"/>
+                                                <constraint firstAttribute="trailing" secondItem="gW4-q0-r07" secondAttribute="trailing" constant="20" id="d1Y-7D-bqQ"/>
+                                                <constraint firstItem="eSf-lL-vQw" firstAttribute="leading" secondItem="y1J-ca-0zT" secondAttribute="leading" constant="31" id="zsI-sr-kaJ"/>
+                                            </constraints>
+                                        </collectionViewCellContentView>
+                                    </collectionViewCell>
+                                </cells>
+                            </collectionView>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="z3W-R8-k6k">
+                                <rect key="frame" x="352" y="64" width="42" height="30"/>
+                                <state key="normal" title="Omitir"/>
+                                <connections>
+                                    <action selector="omitirOnBoarding:" destination="rgl-Q3-Ssa" eventType="touchUpInside" id="P4T-oI-cnL"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="hnb-HR-sjP">
+                                <rect key="frame" x="127" y="759" width="160" height="48"/>
+                                <color key="backgroundColor" red="0.06847123057" green="0.1287259758" blue="0.5059124827" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" priority="250" constant="160" id="FWA-ML-Acf"/>
+                                    <constraint firstAttribute="height" constant="48" id="hRu-El-cBv"/>
+                                </constraints>
+                                <state key="normal" title="Siguiente">
+                                    <color key="titleColor" red="0.99999600649999998" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                </state>
+                                <userDefinedRuntimeAttributes>
+                                    <userDefinedRuntimeAttribute type="number" keyPath="layer.cornerRaius">
+                                        <integer key="value" value="10"/>
+                                    </userDefinedRuntimeAttribute>
+                                </userDefinedRuntimeAttributes>
+                                <connections>
+                                    <action selector="siguiente:" destination="rgl-Q3-Ssa" eventType="touchUpInside" id="y5J-ye-Fn0"/>
+                                </connections>
+                            </button>
+                            <pageControl opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" numberOfPages="2" translatesAutoresizingMaskIntoConstraints="NO" id="Khb-r9-Gwk">
+                                <rect key="frame" x="156" y="720" width="102.5" height="28"/>
+                                <color key="pageIndicatorTintColor" white="0.66666666669999997" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <color key="currentPageIndicatorTintColor" white="0.33333333329999998" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                            </pageControl>
+                        </subviews>
+                        <viewLayoutGuide key="safeArea" id="Ncd-Jd-Eh1"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <constraints>
+                            <constraint firstItem="hnb-HR-sjP" firstAttribute="leading" secondItem="Ncd-Jd-Eh1" secondAttribute="leading" constant="127" id="2DH-Xc-n3Q"/>
+                            <constraint firstItem="Khb-r9-Gwk" firstAttribute="centerX" secondItem="Jnz-Pa-g8v" secondAttribute="centerX" id="By6-ms-eac"/>
+                            <constraint firstItem="Khb-r9-Gwk" firstAttribute="top" secondItem="cHP-Me-Buo" secondAttribute="bottom" constant="8" id="Fjr-9b-SWb"/>
+                            <constraint firstItem="cHP-Me-Buo" firstAttribute="leading" secondItem="Ncd-Jd-Eh1" secondAttribute="leading" id="G0y-ij-sga"/>
+                            <constraint firstItem="Ncd-Jd-Eh1" firstAttribute="bottom" secondItem="cHP-Me-Buo" secondAttribute="bottom" constant="150" id="IeQ-pO-ifG"/>
+                            <constraint firstItem="cHP-Me-Buo" firstAttribute="top" secondItem="Ncd-Jd-Eh1" secondAttribute="top" id="NMP-pB-OMx"/>
+                            <constraint firstItem="Ncd-Jd-Eh1" firstAttribute="trailing" secondItem="hnb-HR-sjP" secondAttribute="trailing" constant="127" id="OL3-JR-OiR"/>
+                            <constraint firstItem="z3W-R8-k6k" firstAttribute="top" secondItem="Ncd-Jd-Eh1" secondAttribute="top" constant="20" id="RjX-tc-d3Q"/>
+                            <constraint firstItem="hnb-HR-sjP" firstAttribute="top" secondItem="Khb-r9-Gwk" secondAttribute="bottom" constant="11" id="fDL-JY-7sw"/>
+                            <constraint firstItem="Ncd-Jd-Eh1" firstAttribute="trailing" secondItem="z3W-R8-k6k" secondAttribute="trailing" constant="20" id="kW8-Xo-4Ny"/>
+                            <constraint firstItem="Ncd-Jd-Eh1" firstAttribute="trailing" secondItem="cHP-Me-Buo" secondAttribute="trailing" id="plr-L7-M3R"/>
+                        </constraints>
+                    </view>
+                    <connections>
+                        <outlet property="obPageControl" destination="Khb-r9-Gwk" id="Rkl-wD-Zf1"/>
+                        <outlet property="omitirOutlet" destination="z3W-R8-k6k" id="yfK-2j-Ko1"/>
+                        <outlet property="onBoardingCV" destination="cHP-Me-Buo" id="bqi-ah-fd2"/>
+                        <outlet property="siguienteOutlet" destination="hnb-HR-sjP" id="ZVG-vP-uBD"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="eLh-vg-Wjz" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="201.44927536231884" y="44.196428571428569"/>
+        </scene>
+    </scenes>
+    <resources>
+        <image name="onboard1" width="261.5" height="262.5"/>
+        <image name="onboard2" width="259" height="259"/>
+        <systemColor name="systemBackgroundColor">
+            <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+        </systemColor>
+    </resources>
+</document>

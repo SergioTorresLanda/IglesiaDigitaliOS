@@ -1,0 +1,168 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="19529" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+    <device id="retina6_1" orientation="portrait" appearance="light"/>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="19519"/>
+        <capability name="System colors in document resources" minToolsVersion="11.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" rowHeight="166" id="218-Sm-Jrr" customClass="CommentsCell" customModule="EncuentroCatolicoNews" customModuleProvider="target">
+            <rect key="frame" x="0.0" y="0.0" width="414" height="166"/>
+            <autoresizingMask key="autoresizingMask"/>
+            <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="218-Sm-Jrr" id="jiR-CS-iMd">
+                <rect key="frame" x="0.0" y="0.0" width="414" height="166"/>
+                <autoresizingMask key="autoresizingMask"/>
+                <subviews>
+                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="aFB-3k-RQb">
+                        <rect key="frame" x="4" y="0.0" width="410" height="166"/>
+                        <subviews>
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="profileDemoIcon" translatesAutoresizingMaskIntoConstraints="NO" id="Aph-9W-24t">
+                                <rect key="frame" x="0.0" y="0.0" width="40" height="40"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="40" id="8Sn-Xt-EKl"/>
+                                    <constraint firstAttribute="width" secondItem="Aph-9W-24t" secondAttribute="height" multiplier="1:1" id="GIM-fH-YBC"/>
+                                    <constraint firstAttribute="width" constant="40" id="ugo-sT-hpa"/>
+                                </constraints>
+                            </imageView>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="xiX-0q-uPT">
+                                <rect key="frame" x="48" y="0.0" width="330" height="25"/>
+                                <fontDescription key="fontDescription" name="Avenir-Black" family="Avenir" pointSize="18"/>
+                                <color key="textColor" red="0.098039215686274508" green="0.16470588235294117" blue="0.45098039215686275" alpha="1" colorSpace="calibratedRGB"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="justified" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="acM-ll-8Uc" customClass="CustomLabel" customModule="EncuentroCatolicoNews" customModuleProvider="target">
+                                <rect key="frame" x="0.0" y="56" width="410" height="69"/>
+                                <fontDescription key="fontDescription" name="Avenir-Book" family="Avenir" pointSize="12"/>
+                                <color key="textColor" red="0.21176470588235294" green="0.21176470588235294" blue="0.21176470588235294" alpha="1" colorSpace="calibratedRGB"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Zdx-EG-8bD">
+                                <rect key="frame" x="0.0" y="133" width="410" height="25"/>
+                                <subviews>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="k9O-um-pFG">
+                                        <rect key="frame" x="0.0" y="5.5" width="25" height="14"/>
+                                        <fontDescription key="fontDescription" name="Avenir-Book" family="Avenir" pointSize="10"/>
+                                        <color key="textColor" red="0.45882352939999999" green="0.47058823529999999" blue="0.4823529412" alpha="1" colorSpace="calibratedRGB"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="TC2-ab-aBy">
+                                        <rect key="frame" x="33" y="-2.5" width="44" height="30"/>
+                                        <state key="normal" title="Button"/>
+                                        <buttonConfiguration key="configuration" style="plain" image="iconOracion"/>
+                                        <connections>
+                                            <action selector="btnActionLike:" destination="218-Sm-Jrr" eventType="touchUpInside" id="9rc-OE-oOq"/>
+                                        </connections>
+                                    </button>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="0" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="bWj-rS-UwJ">
+                                        <rect key="frame" x="77" y="5.5" width="6" height="14"/>
+                                        <fontDescription key="fontDescription" name="Avenir-Book" family="Avenir" pointSize="10"/>
+                                        <color key="textColor" red="0.45882352939999999" green="0.47058823529999999" blue="0.4823529412" alpha="1" colorSpace="calibratedRGB"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="leading" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="oUv-HV-bOd">
+                                        <rect key="frame" x="91" y="-3" width="94" height="31"/>
+                                        <color key="tintColor" red="0.45882352939999999" green="0.47058823529999999" blue="0.4823529412" alpha="1" colorSpace="calibratedRGB"/>
+                                        <state key="normal" title="Button"/>
+                                        <buttonConfiguration key="configuration" style="plain" title="Responder"/>
+                                        <connections>
+                                            <action selector="btnActionResponder:" destination="218-Sm-Jrr" eventType="touchUpInside" id="Zbf-Je-KZU"/>
+                                        </connections>
+                                    </button>
+                                </subviews>
+                                <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                                <constraints>
+                                    <constraint firstItem="bWj-rS-UwJ" firstAttribute="leading" secondItem="TC2-ab-aBy" secondAttribute="trailing" id="4Io-kq-IH7"/>
+                                    <constraint firstItem="bWj-rS-UwJ" firstAttribute="centerY" secondItem="TC2-ab-aBy" secondAttribute="centerY" id="CGz-OW-Ioy"/>
+                                    <constraint firstItem="TC2-ab-aBy" firstAttribute="centerY" secondItem="k9O-um-pFG" secondAttribute="centerY" id="E49-e0-h6a"/>
+                                    <constraint firstItem="oUv-HV-bOd" firstAttribute="leading" secondItem="bWj-rS-UwJ" secondAttribute="trailing" constant="8" symbolic="YES" id="Uj5-AJ-MjM"/>
+                                    <constraint firstItem="k9O-um-pFG" firstAttribute="leading" secondItem="Zdx-EG-8bD" secondAttribute="leading" id="btA-Vd-9el"/>
+                                    <constraint firstAttribute="height" constant="25" id="gf8-9x-0pD"/>
+                                    <constraint firstItem="TC2-ab-aBy" firstAttribute="leading" secondItem="k9O-um-pFG" secondAttribute="trailing" constant="8" symbolic="YES" id="ilO-JE-iMA"/>
+                                    <constraint firstItem="oUv-HV-bOd" firstAttribute="centerY" secondItem="bWj-rS-UwJ" secondAttribute="centerY" id="jJH-PN-EyP"/>
+                                    <constraint firstItem="k9O-um-pFG" firstAttribute="centerY" secondItem="Zdx-EG-8bD" secondAttribute="centerY" id="sjM-dL-Tso"/>
+                                </constraints>
+                            </view>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Aya-YJ-twp">
+                                <rect key="frame" x="48" y="27" width="24.5" height="14"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="14" id="468-Uk-ydn"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" name="Avenir-Book" family="Avenir" pointSize="10"/>
+                                <color key="textColor" red="0.45882352941176469" green="0.47058823529411764" blue="0.4823529411764706" alpha="1" colorSpace="calibratedRGB"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="KNS-0M-1cs">
+                                <rect key="frame" x="386" y="2" width="16" height="25"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="25" id="aFF-l4-RHW"/>
+                                    <constraint firstAttribute="width" constant="16" id="cE4-wg-FWA"/>
+                                    <constraint firstAttribute="width" secondItem="KNS-0M-1cs" secondAttribute="height" multiplier="16:25" id="ycH-wE-58J"/>
+                                </constraints>
+                                <state key="normal" title="Button"/>
+                                <buttonConfiguration key="configuration" style="plain" image="threePointsV2" title=" "/>
+                                <connections>
+                                    <action selector="moreActions:" destination="218-Sm-Jrr" eventType="touchUpInside" id="K24-9l-0ZL"/>
+                                </connections>
+                            </button>
+                        </subviews>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <constraints>
+                            <constraint firstAttribute="trailing" secondItem="Zdx-EG-8bD" secondAttribute="trailing" id="CAG-VN-GoQ"/>
+                            <constraint firstAttribute="trailing" secondItem="acM-ll-8Uc" secondAttribute="trailing" id="I2W-7W-0A5"/>
+                            <constraint firstItem="acM-ll-8Uc" firstAttribute="leading" secondItem="aFB-3k-RQb" secondAttribute="leading" id="KVu-ml-hPc"/>
+                            <constraint firstItem="Aph-9W-24t" firstAttribute="top" secondItem="aFB-3k-RQb" secondAttribute="top" id="LmY-ZP-69z"/>
+                            <constraint firstAttribute="bottom" secondItem="Zdx-EG-8bD" secondAttribute="bottom" constant="8" id="Qjy-Ty-CQG"/>
+                            <constraint firstItem="xiX-0q-uPT" firstAttribute="leading" secondItem="Aph-9W-24t" secondAttribute="trailing" constant="8" symbolic="YES" id="TeT-7n-vWl"/>
+                            <constraint firstItem="Aya-YJ-twp" firstAttribute="leading" secondItem="xiX-0q-uPT" secondAttribute="leading" id="Y28-YN-vwW"/>
+                            <constraint firstItem="KNS-0M-1cs" firstAttribute="top" secondItem="aFB-3k-RQb" secondAttribute="top" constant="2" id="e7N-Y5-Mor"/>
+                            <constraint firstItem="xiX-0q-uPT" firstAttribute="top" secondItem="aFB-3k-RQb" secondAttribute="top" id="gVq-Zi-mRN"/>
+                            <constraint firstItem="Aph-9W-24t" firstAttribute="leading" secondItem="aFB-3k-RQb" secondAttribute="leading" id="i4b-Fa-VcV"/>
+                            <constraint firstItem="Zdx-EG-8bD" firstAttribute="top" secondItem="acM-ll-8Uc" secondAttribute="bottom" constant="8" symbolic="YES" id="jWK-9t-TS1"/>
+                            <constraint firstItem="KNS-0M-1cs" firstAttribute="leading" secondItem="xiX-0q-uPT" secondAttribute="trailing" constant="8" symbolic="YES" id="kzi-vI-Ucm"/>
+                            <constraint firstItem="Aya-YJ-twp" firstAttribute="top" secondItem="xiX-0q-uPT" secondAttribute="bottom" constant="2" id="mj9-y3-rK4"/>
+                            <constraint firstItem="acM-ll-8Uc" firstAttribute="top" secondItem="Aph-9W-24t" secondAttribute="bottom" constant="16" id="rJJ-Ik-Ic3"/>
+                            <constraint firstItem="Zdx-EG-8bD" firstAttribute="leading" secondItem="aFB-3k-RQb" secondAttribute="leading" id="uJS-fP-8TD"/>
+                            <constraint firstAttribute="trailing" secondItem="KNS-0M-1cs" secondAttribute="trailing" constant="8" id="vzT-1a-80o"/>
+                        </constraints>
+                    </view>
+                </subviews>
+                <constraints>
+                    <constraint firstItem="aFB-3k-RQb" firstAttribute="top" secondItem="jiR-CS-iMd" secondAttribute="top" id="7bo-Jj-zNW"/>
+                    <constraint firstAttribute="trailing" secondItem="aFB-3k-RQb" secondAttribute="trailing" id="Knx-fS-nSj"/>
+                    <constraint firstItem="aFB-3k-RQb" firstAttribute="leading" secondItem="jiR-CS-iMd" secondAttribute="leading" constant="4" id="gQG-YK-A29"/>
+                    <constraint firstAttribute="bottom" secondItem="aFB-3k-RQb" secondAttribute="bottom" id="jiu-YX-Xpr"/>
+                </constraints>
+            </tableViewCellContentView>
+            <connections>
+                <outlet property="btnMoreActions" destination="KNS-0M-1cs" id="NaY-hk-Wqi"/>
+                <outlet property="btnOracion" destination="TC2-ab-aBy" id="2iF-KL-Jhh"/>
+                <outlet property="btnResponder" destination="oUv-HV-bOd" id="vuV-RQ-4D0"/>
+                <outlet property="ctnView" destination="gQG-YK-A29" id="fbz-VN-NDp"/>
+                <outlet property="customLabel" destination="acM-ll-8Uc" id="MbJ-gX-66F"/>
+                <outlet property="imgvProfile" destination="Aph-9W-24t" id="Kyt-4R-04F"/>
+                <outlet property="lblDate" destination="Aya-YJ-twp" id="Wtp-Yo-9CY"/>
+                <outlet property="lblName" destination="xiX-0q-uPT" id="m0D-cY-nfU"/>
+                <outlet property="lblNumLikes" destination="bWj-rS-UwJ" id="Qft-2G-TSk"/>
+                <outlet property="lblSecondDate" destination="k9O-um-pFG" id="Boa-vf-ua2"/>
+            </connections>
+            <point key="canvasLocation" x="88.405797101449281" y="-31.473214285714285"/>
+        </tableViewCell>
+    </objects>
+    <designables>
+        <designable name="acM-ll-8Uc">
+            <size key="intrinsicContentSize" width="29.5" height="16.5"/>
+        </designable>
+    </designables>
+    <resources>
+        <image name="iconOracion" width="20" height="16"/>
+        <image name="profileDemoIcon" width="100" height="100"/>
+        <image name="threePointsV2" width="4" height="16"/>
+        <systemColor name="systemBackgroundColor">
+            <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+        </systemColor>
+    </resources>
+</document>

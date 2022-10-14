@@ -1,0 +1,126 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="15705" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+    <device id="retina6_1" orientation="portrait" appearance="light"/>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="15706"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <tableViewCell contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="PostDetailCommentTVC" rowHeight="120" id="KGk-i7-Jjw" customClass="PostDetailCommentTVC" customModule="RedSocialFramework" customModuleProvider="target">
+            <rect key="frame" x="0.0" y="0.0" width="373" height="120"/>
+            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+            <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="KGk-i7-Jjw" id="H2p-sc-9uM">
+                <rect key="frame" x="0.0" y="0.0" width="373" height="120"/>
+                <autoresizingMask key="autoresizingMask"/>
+                <subviews>
+                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="FvY-xk-mQg">
+                        <rect key="frame" x="5" y="5" width="363" height="75"/>
+                        <subviews>
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="profileDemoIcon" translatesAutoresizingMaskIntoConstraints="NO" id="NXJ-Ct-F8k">
+                                <rect key="frame" x="20" y="15" width="45" height="45"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" secondItem="NXJ-Ct-F8k" secondAttribute="height" multiplier="1:1" id="Yed-Bx-cJ3"/>
+                                    <constraint firstAttribute="height" constant="45" id="hDP-z5-Gy4"/>
+                                </constraints>
+                            </imageView>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" verticalHuggingPriority="252" verticalCompressionResistancePriority="751" text="Grupo Salinas" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="3D8-zP-nAM">
+                                <rect key="frame" x="85" y="10" width="258" height="20.5"/>
+                                <fontDescription key="fontDescription" name="Avenir-Black" family="Avenir" pointSize="15"/>
+                                <color key="textColor" red="0.1058823529" green="0.1058823529" blue="0.1058823529" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Jan-bu-YqQ" customClass="CustomLabel" customModule="RedSocialFramework" customModuleProvider="target">
+                                <rect key="frame" x="85" y="55.5" width="258" height="11.5"/>
+                                <fontDescription key="fontDescription" name="Avenir-Book" family="Avenir" pointSize="15"/>
+                                <color key="textColor" red="0.1058823529" green="0.1058823529" blue="0.1058823529" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <nil key="highlightedColor"/>
+                                <userDefinedRuntimeAttributes>
+                                    <userDefinedRuntimeAttribute type="number" keyPath="lineSpacing">
+                                        <integer key="value" value="2"/>
+                                    </userDefinedRuntimeAttribute>
+                                    <userDefinedRuntimeAttribute type="color" keyPath="URLColor">
+                                        <color key="value" red="1" green="0.62745098040000002" blue="0.2156862745" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                    </userDefinedRuntimeAttribute>
+                                    <userDefinedRuntimeAttribute type="color" keyPath="hashtagColor">
+                                        <color key="value" red="0.1058823529" green="0.1058823529" blue="0.1058823529" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                    </userDefinedRuntimeAttribute>
+                                </userDefinedRuntimeAttributes>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" verticalCompressionResistancePriority="751" text="Hace un momento" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="pTF-02-8xv">
+                                <rect key="frame" x="85" y="30.5" width="258" height="17"/>
+                                <fontDescription key="fontDescription" name="Avenir-Book" family="Avenir" pointSize="12"/>
+                                <color key="textColor" red="0.59607843140000005" green="0.59607843140000005" blue="0.59607843140000005" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                        </subviews>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                        <constraints>
+                            <constraint firstItem="3D8-zP-nAM" firstAttribute="top" secondItem="FvY-xk-mQg" secondAttribute="top" constant="10" id="7pQ-qb-YbC"/>
+                            <constraint firstItem="NXJ-Ct-F8k" firstAttribute="centerY" secondItem="FvY-xk-mQg" secondAttribute="centerY" id="FNv-3C-Jth"/>
+                            <constraint firstItem="Jan-bu-YqQ" firstAttribute="leading" secondItem="3D8-zP-nAM" secondAttribute="leading" id="KbM-4f-W12"/>
+                            <constraint firstItem="pTF-02-8xv" firstAttribute="leading" secondItem="3D8-zP-nAM" secondAttribute="leading" id="MZy-1s-J21"/>
+                            <constraint firstItem="pTF-02-8xv" firstAttribute="trailing" secondItem="3D8-zP-nAM" secondAttribute="trailing" id="OkT-7T-gZj"/>
+                            <constraint firstItem="Jan-bu-YqQ" firstAttribute="trailing" secondItem="3D8-zP-nAM" secondAttribute="trailing" id="W5a-nO-0YR"/>
+                            <constraint firstItem="3D8-zP-nAM" firstAttribute="leading" secondItem="NXJ-Ct-F8k" secondAttribute="trailing" constant="20" id="XsF-tF-DKb"/>
+                            <constraint firstItem="pTF-02-8xv" firstAttribute="top" secondItem="3D8-zP-nAM" secondAttribute="bottom" id="amb-ft-lp1"/>
+                            <constraint firstItem="Jan-bu-YqQ" firstAttribute="top" secondItem="pTF-02-8xv" secondAttribute="bottom" constant="8" id="gAE-3n-2dp"/>
+                            <constraint firstItem="NXJ-Ct-F8k" firstAttribute="leading" secondItem="FvY-xk-mQg" secondAttribute="leading" constant="20" id="h96-8h-use"/>
+                            <constraint firstAttribute="trailing" secondItem="3D8-zP-nAM" secondAttribute="trailing" constant="20" id="l9v-p8-L6h"/>
+                            <constraint firstAttribute="bottom" secondItem="Jan-bu-YqQ" secondAttribute="bottom" constant="8" id="ubt-Zd-Olv"/>
+                        </constraints>
+                    </view>
+                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="y6d-RO-Zdo">
+                        <rect key="frame" x="0.0" y="80" width="373" height="40"/>
+                        <subviews>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="5lG-vt-msM">
+                                <rect key="frame" x="185" y="0.0" width="188" height="40"/>
+                            </button>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Ver más comentarios ..." textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="de4-FG-FpJ">
+                                <rect key="frame" x="225" y="12" width="133" height="16.5"/>
+                                <fontDescription key="fontDescription" name="Avenir-Black" family="Avenir" pointSize="12"/>
+                                <color key="textColor" red="0.47843137250000001" green="0.56078431370000004" blue="0.65098039220000004" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                        </subviews>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                        <constraints>
+                            <constraint firstItem="de4-FG-FpJ" firstAttribute="centerY" secondItem="y6d-RO-Zdo" secondAttribute="centerY" id="5RX-56-5t2"/>
+                            <constraint firstItem="5lG-vt-msM" firstAttribute="leading" secondItem="de4-FG-FpJ" secondAttribute="leading" constant="-40" id="Kn6-1a-vMP"/>
+                            <constraint firstItem="5lG-vt-msM" firstAttribute="top" secondItem="y6d-RO-Zdo" secondAttribute="top" id="QaA-O2-Aqv"/>
+                            <constraint firstAttribute="bottom" secondItem="5lG-vt-msM" secondAttribute="bottom" id="Tav-1E-0eB"/>
+                            <constraint firstAttribute="trailing" secondItem="5lG-vt-msM" secondAttribute="trailing" id="a51-8Q-Y5t"/>
+                            <constraint firstAttribute="height" constant="40" id="lSL-qR-2DB"/>
+                            <constraint firstAttribute="trailing" secondItem="de4-FG-FpJ" secondAttribute="trailing" constant="15" id="oHU-Zg-bbc"/>
+                        </constraints>
+                    </view>
+                </subviews>
+                <constraints>
+                    <constraint firstAttribute="trailing" secondItem="FvY-xk-mQg" secondAttribute="trailing" constant="5" id="9nd-qW-CGq"/>
+                    <constraint firstItem="y6d-RO-Zdo" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" id="UnU-hV-Mvj"/>
+                    <constraint firstItem="FvY-xk-mQg" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" constant="5" id="Wox-kV-bon"/>
+                    <constraint firstItem="y6d-RO-Zdo" firstAttribute="top" secondItem="FvY-xk-mQg" secondAttribute="bottom" id="h0m-Z9-16c"/>
+                    <constraint firstAttribute="bottom" secondItem="y6d-RO-Zdo" secondAttribute="bottom" id="ne7-ay-XAd"/>
+                    <constraint firstAttribute="trailing" secondItem="y6d-RO-Zdo" secondAttribute="trailing" id="rpP-PR-jLq"/>
+                    <constraint firstItem="FvY-xk-mQg" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" constant="5" id="zdG-DW-7KP"/>
+                </constraints>
+            </tableViewCellContentView>
+            <viewLayoutGuide key="safeArea" id="njF-e1-oar"/>
+            <connections>
+                <outlet property="commentView" destination="FvY-xk-mQg" id="pVU-os-dUI"/>
+                <outlet property="contentLabel" destination="Jan-bu-YqQ" id="Nba-Nq-x0Q"/>
+                <outlet property="dateLabel" destination="pTF-02-8xv" id="G6I-uM-RNp"/>
+                <outlet property="lookMoreCommentsButton" destination="5lG-vt-msM" id="Tf2-yK-WmM"/>
+                <outlet property="nameLabel" destination="3D8-zP-nAM" id="g9t-Gs-w8b"/>
+                <outlet property="userImage" destination="NXJ-Ct-F8k" id="U0G-wz-ED6"/>
+            </connections>
+            <point key="canvasLocation" x="99.275362318840592" y="145.98214285714286"/>
+        </tableViewCell>
+    </objects>
+    <resources>
+        <image name="profileDemoIcon" width="100" height="100"/>
+    </resources>
+</document>

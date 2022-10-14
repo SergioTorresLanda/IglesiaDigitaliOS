@@ -1,0 +1,88 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="18122" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+    <device id="retina6_1" orientation="portrait" appearance="light"/>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="18093"/>
+        <capability name="Named colors" minToolsVersion="9.0"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="CELLCONTACT2" id="gTV-IL-0wX" customClass="ContactoCell" customModule="EncuentroCatolicoVirtualLibrary" customModuleProvider="target">
+            <rect key="frame" x="0.0" y="0.0" width="425" height="88"/>
+            <autoresizingMask key="autoresizingMask"/>
+            <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center">
+                <rect key="frame" x="0.0" y="0.0" width="425" height="88"/>
+                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                <subviews>
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Contacto ayuda" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="VlF-sr-Shb">
+                        <rect key="frame" x="23" y="16" width="95.5" height="16"/>
+                        <fontDescription key="fontDescription" type="system" pointSize="13"/>
+                        <color key="textColor" name="eMainBlue"/>
+                        <nil key="highlightedColor"/>
+                    </label>
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Fsw-Kj-Gut">
+                        <rect key="frame" x="23" y="47" width="210" height="21"/>
+                        <constraints>
+                            <constraint firstAttribute="width" constant="210" id="a4L-MJ-8oj"/>
+                        </constraints>
+                        <fontDescription key="fontDescription" type="system" weight="medium" pointSize="14"/>
+                        <color key="textColor" name="eBlack"/>
+                        <nil key="highlightedColor"/>
+                    </label>
+                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="headphones.circle.fill" catalog="system" translatesAutoresizingMaskIntoConstraints="NO" id="RGo-tD-N3W">
+                        <rect key="frame" x="367" y="20.5" width="48" height="47"/>
+                        <color key="tintColor" name="eMainGold"/>
+                        <constraints>
+                            <constraint firstAttribute="height" constant="48" id="37H-cN-yKh"/>
+                            <constraint firstAttribute="width" constant="48" id="Ms6-Z1-gJ2"/>
+                        </constraints>
+                    </imageView>
+                    <view alpha="0.29999999999999999" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="GtT-E2-3lg">
+                        <rect key="frame" x="15" y="86" width="395" height="1"/>
+                        <color key="backgroundColor" name="eBlack"/>
+                        <constraints>
+                            <constraint firstAttribute="height" constant="1" id="gcS-it-cEi"/>
+                        </constraints>
+                    </view>
+                </subviews>
+            </view>
+            <viewLayoutGuide key="safeArea" id="ZTg-uK-7eu"/>
+            <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+            <constraints>
+                <constraint firstAttribute="bottom" secondItem="GtT-E2-3lg" secondAttribute="bottom" constant="1" id="1NB-NH-AdW"/>
+                <constraint firstItem="RGo-tD-N3W" firstAttribute="centerY" secondItem="gTV-IL-0wX" secondAttribute="centerY" id="Ab5-r1-sOb"/>
+                <constraint firstItem="VlF-sr-Shb" firstAttribute="top" secondItem="gTV-IL-0wX" secondAttribute="top" constant="16" id="C8O-AC-d1A"/>
+                <constraint firstAttribute="trailing" secondItem="GtT-E2-3lg" secondAttribute="trailing" constant="15" id="G6E-jr-VxT"/>
+                <constraint firstAttribute="trailing" secondItem="RGo-tD-N3W" secondAttribute="trailing" constant="10" id="L5V-cc-vio"/>
+                <constraint firstItem="Fsw-Kj-Gut" firstAttribute="top" secondItem="gTV-IL-0wX" secondAttribute="top" constant="47" id="LeM-2W-a7A"/>
+                <constraint firstItem="GtT-E2-3lg" firstAttribute="leading" secondItem="gTV-IL-0wX" secondAttribute="leading" constant="15" id="S81-Ou-rWV"/>
+                <constraint firstItem="VlF-sr-Shb" firstAttribute="leading" secondItem="gTV-IL-0wX" secondAttribute="leading" constant="23" id="SHP-cG-tcH"/>
+                <constraint firstItem="Fsw-Kj-Gut" firstAttribute="leading" secondItem="gTV-IL-0wX" secondAttribute="leading" constant="23" id="cyr-nA-kPc"/>
+                <constraint firstAttribute="bottom" secondItem="Fsw-Kj-Gut" secondAttribute="bottom" constant="20" id="rIL-N4-WzD"/>
+            </constraints>
+            <size key="customSize" width="425" height="88"/>
+            <connections>
+                <outlet property="hedphoneIcon" destination="RGo-tD-N3W" id="n1A-Bf-cd2"/>
+                <outlet property="lblNameContact" destination="Fsw-Kj-Gut" id="nfV-Tn-S5o"/>
+                <outlet property="lblTitle" destination="VlF-sr-Shb" id="rx8-et-QAP"/>
+            </connections>
+            <point key="canvasLocation" x="163.04347826086959" y="70.3125"/>
+        </collectionViewCell>
+    </objects>
+    <resources>
+        <image name="headphones.circle.fill" catalog="system" width="128" height="121"/>
+        <namedColor name="eBlack">
+            <color red="0.12156862745098039" green="0.12156862745098039" blue="0.12156862745098039" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </namedColor>
+        <namedColor name="eMainBlue">
+            <color red="0.0039215686274509803" green="0.12549019607843137" blue="0.40784313725490196" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </namedColor>
+        <namedColor name="eMainGold">
+            <color red="0.792156862745098" green="0.6705882352941176" blue="0.46666666666666667" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </namedColor>
+    </resources>
+</document>

@@ -1,0 +1,82 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="17701" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+    <device id="retina6_1" orientation="portrait" appearance="light"/>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="17703"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="System colors in document resources" minToolsVersion="11.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="BrowserViewController" customModule="EncuentroCatolicoVirtualLibrary" customModuleProvider="target">
+            <connections>
+                <outlet property="view" destination="i5M-Pr-FkT" id="sfx-zR-JGt"/>
+                <outlet property="webView" destination="5H5-sO-PTI" id="Pvp-G4-dLO"/>
+            </connections>
+        </placeholder>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <view clearsContextBeforeDrawing="NO" contentMode="scaleToFill" id="i5M-Pr-FkT">
+            <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+            <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+            <subviews>
+                <wkWebView contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="5H5-sO-PTI">
+                    <rect key="frame" x="0.0" y="90" width="414" height="806"/>
+                    <color key="backgroundColor" red="0.36078431370000003" green="0.38823529410000002" blue="0.4039215686" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                    <wkWebViewConfiguration key="configuration">
+                        <audiovisualMediaTypes key="mediaTypesRequiringUserActionForPlayback" none="YES"/>
+                        <wkPreferences key="preferences"/>
+                    </wkWebViewConfiguration>
+                </wkWebView>
+                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="nzt-Gh-eVP">
+                    <rect key="frame" x="0.0" y="0.0" width="414" height="90"/>
+                    <subviews>
+                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Biblioteca y recursos" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumScaleFactor="0.5" adjustsFontForContentSizeCategory="YES" translatesAutoresizingMaskIntoConstraints="NO" id="eLF-V0-RpK">
+                            <rect key="frame" x="116.5" y="48.5" width="181" height="21.5"/>
+                            <fontDescription key="fontDescription" name="HelveticaNeue-Bold" family="Helvetica Neue" pointSize="18"/>
+                            <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                            <nil key="highlightedColor"/>
+                        </label>
+                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="g2K-qD-GEB">
+                            <rect key="frame" x="20" y="49" width="13" height="20"/>
+                            <constraints>
+                                <constraint firstAttribute="width" constant="13" id="KV9-Rz-UBW"/>
+                                <constraint firstAttribute="height" constant="20" id="pAV-sb-OdT"/>
+                            </constraints>
+                            <state key="normal" image="back"/>
+                            <connections>
+                                <action selector="close:" destination="-1" eventType="touchUpInside" id="RNH-bj-WDC"/>
+                            </connections>
+                        </button>
+                    </subviews>
+                    <color key="backgroundColor" red="0.095760412510000004" green="0.13526713849999999" blue="0.48630607129999998" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                    <constraints>
+                        <constraint firstItem="eLF-V0-RpK" firstAttribute="centerY" secondItem="nzt-Gh-eVP" secondAttribute="centerY" constant="14" id="BF2-aO-HOO"/>
+                        <constraint firstItem="g2K-qD-GEB" firstAttribute="leading" secondItem="nzt-Gh-eVP" secondAttribute="leading" constant="20" id="Ocg-FC-ftm"/>
+                        <constraint firstAttribute="height" constant="90" id="XgC-yb-Zu1"/>
+                        <constraint firstItem="g2K-qD-GEB" firstAttribute="centerY" secondItem="eLF-V0-RpK" secondAttribute="centerY" id="dcj-pw-yJO"/>
+                        <constraint firstItem="eLF-V0-RpK" firstAttribute="centerX" secondItem="nzt-Gh-eVP" secondAttribute="centerX" id="vLE-QQ-VSO"/>
+                    </constraints>
+                </view>
+            </subviews>
+            <viewLayoutGuide key="safeArea" id="fnl-2z-Ty3"/>
+            <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+            <constraints>
+                <constraint firstItem="5H5-sO-PTI" firstAttribute="top" secondItem="nzt-Gh-eVP" secondAttribute="bottom" id="5Dh-5r-JAS"/>
+                <constraint firstItem="fnl-2z-Ty3" firstAttribute="trailing" secondItem="5H5-sO-PTI" secondAttribute="trailing" id="AB0-KW-X7V"/>
+                <constraint firstItem="nzt-Gh-eVP" firstAttribute="top" secondItem="i5M-Pr-FkT" secondAttribute="top" id="ENW-qK-rsU"/>
+                <constraint firstItem="nzt-Gh-eVP" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" id="Fgi-lZ-MDm"/>
+                <constraint firstItem="5H5-sO-PTI" firstAttribute="leading" secondItem="fnl-2z-Ty3" secondAttribute="leading" id="GSX-Bc-7oS"/>
+                <constraint firstItem="fnl-2z-Ty3" firstAttribute="trailing" secondItem="nzt-Gh-eVP" secondAttribute="trailing" id="MG8-j4-89p"/>
+                <constraint firstAttribute="bottom" secondItem="5H5-sO-PTI" secondAttribute="bottom" id="VTT-76-I2a"/>
+            </constraints>
+            <point key="canvasLocation" x="114" y="51"/>
+        </view>
+    </objects>
+    <resources>
+        <image name="back" width="125" height="202"/>
+        <systemColor name="systemBackgroundColor">
+            <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+        </systemColor>
+    </resources>
+</document>

@@ -1,0 +1,100 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="17701" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+    <device id="retina4_7" orientation="portrait" appearance="light"/>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="17703"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="System colors in document resources" minToolsVersion="11.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="FeedViewController" customModule="RedSocialFramework" customModuleProvider="target">
+            <connections>
+                <outlet property="notificationImage" destination="h2V-Ua-Mw3" id="ksj-co-LNt"/>
+                <outlet property="notificationView" destination="Kac-Um-Pdf" id="lOV-Aq-iPG"/>
+                <outlet property="tableView" destination="HKr-RV-DnL" id="LzY-fk-DR2"/>
+                <outlet property="view" destination="i5M-Pr-FkT" id="sfx-zR-JGt"/>
+            </connections>
+        </placeholder>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <view clearsContextBeforeDrawing="NO" contentMode="scaleToFill" id="i5M-Pr-FkT">
+            <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+            <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+            <subviews>
+                <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" showsHorizontalScrollIndicator="NO" showsVerticalScrollIndicator="NO" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="HKr-RV-DnL">
+                    <rect key="frame" x="0.0" y="60" width="375" height="607"/>
+                    <color key="backgroundColor" red="0.94901960784313721" green="0.94901960784313721" blue="0.94901960784313721" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                </tableView>
+                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="1BY-lQ-kvD">
+                    <rect key="frame" x="0.0" y="0.0" width="375" height="60"/>
+                    <subviews>
+                        <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Kac-Um-Pdf">
+                            <rect key="frame" x="330" y="10" width="30" height="40"/>
+                            <subviews>
+                                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Crs-VA-KoM">
+                                    <rect key="frame" x="0.0" y="0.0" width="30" height="40"/>
+                                    <connections>
+                                        <action selector="showNotifications:" destination="-1" eventType="touchUpInside" id="mtX-hj-bAX"/>
+                                    </connections>
+                                </button>
+                                <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="Notification" translatesAutoresizingMaskIntoConstraints="NO" id="h2V-Ua-Mw3">
+                                    <rect key="frame" x="5" y="10" width="20" height="20"/>
+                                    <color key="tintColor" red="0.1058823529" green="0.1058823529" blue="0.1058823529" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                    <constraints>
+                                        <constraint firstAttribute="height" constant="20" id="uuE-Fe-2uN"/>
+                                    </constraints>
+                                </imageView>
+                            </subviews>
+                            <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                            <constraints>
+                                <constraint firstItem="h2V-Ua-Mw3" firstAttribute="centerY" secondItem="Kac-Um-Pdf" secondAttribute="centerY" id="8iR-hy-JtT"/>
+                                <constraint firstAttribute="height" constant="40" id="Hs5-Ye-hRz"/>
+                                <constraint firstItem="Crs-VA-KoM" firstAttribute="top" secondItem="Kac-Um-Pdf" secondAttribute="top" id="IfX-19-nqn"/>
+                                <constraint firstAttribute="bottom" secondItem="Crs-VA-KoM" secondAttribute="bottom" id="NB1-CW-lce"/>
+                                <constraint firstItem="h2V-Ua-Mw3" firstAttribute="width" secondItem="h2V-Ua-Mw3" secondAttribute="height" multiplier="1:1" id="Ppt-uz-WTm"/>
+                                <constraint firstItem="h2V-Ua-Mw3" firstAttribute="centerX" secondItem="Kac-Um-Pdf" secondAttribute="centerX" id="QLU-3K-JWA"/>
+                                <constraint firstItem="Crs-VA-KoM" firstAttribute="leading" secondItem="Kac-Um-Pdf" secondAttribute="leading" id="TGn-HA-ryY"/>
+                                <constraint firstAttribute="trailing" secondItem="Crs-VA-KoM" secondAttribute="trailing" id="iZ0-C7-cSY"/>
+                            </constraints>
+                        </view>
+                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Noticias" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Ol7-cb-0OW">
+                            <rect key="frame" x="20" y="10" width="78" height="40"/>
+                            <fontDescription key="fontDescription" name="Helvetica-Bold" family="Helvetica" pointSize="20"/>
+                            <color key="textColor" red="0.026250727469999999" green="0.1030014083" blue="0.34904325009999998" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                            <nil key="highlightedColor"/>
+                        </label>
+                    </subviews>
+                    <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                    <constraints>
+                        <constraint firstAttribute="bottom" secondItem="Kac-Um-Pdf" secondAttribute="bottom" constant="10" id="28P-F1-Xrq"/>
+                        <constraint firstAttribute="height" constant="60" id="Aq8-uI-Whs"/>
+                        <constraint firstAttribute="bottom" secondItem="Ol7-cb-0OW" secondAttribute="bottom" constant="10" id="FQY-QZ-V71"/>
+                        <constraint firstItem="Ol7-cb-0OW" firstAttribute="leading" secondItem="1BY-lQ-kvD" secondAttribute="leading" constant="20" id="Ouo-Vl-tlu"/>
+                        <constraint firstAttribute="trailing" secondItem="Kac-Um-Pdf" secondAttribute="trailing" constant="15" id="tbH-dN-My1"/>
+                        <constraint firstItem="Ol7-cb-0OW" firstAttribute="top" secondItem="1BY-lQ-kvD" secondAttribute="top" constant="10" id="zbr-iE-kb4"/>
+                    </constraints>
+                </view>
+            </subviews>
+            <viewLayoutGuide key="safeArea" id="y1Z-e5-Obm"/>
+            <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+            <constraints>
+                <constraint firstItem="HKr-RV-DnL" firstAttribute="trailing" secondItem="y1Z-e5-Obm" secondAttribute="trailing" id="4Yg-eS-bAF"/>
+                <constraint firstItem="1BY-lQ-kvD" firstAttribute="leading" secondItem="y1Z-e5-Obm" secondAttribute="leading" id="F9p-po-k26"/>
+                <constraint firstItem="HKr-RV-DnL" firstAttribute="leading" secondItem="y1Z-e5-Obm" secondAttribute="leading" id="WGq-eK-cPa"/>
+                <constraint firstItem="1BY-lQ-kvD" firstAttribute="trailing" secondItem="y1Z-e5-Obm" secondAttribute="trailing" id="eW9-bR-92k"/>
+                <constraint firstItem="y1Z-e5-Obm" firstAttribute="bottom" secondItem="HKr-RV-DnL" secondAttribute="bottom" id="how-Zd-sEi"/>
+                <constraint firstItem="HKr-RV-DnL" firstAttribute="top" secondItem="1BY-lQ-kvD" secondAttribute="bottom" id="jxa-uE-nB5"/>
+                <constraint firstItem="1BY-lQ-kvD" firstAttribute="top" secondItem="y1Z-e5-Obm" secondAttribute="top" id="rtM-KR-eRL"/>
+            </constraints>
+            <nil key="simulatedBottomBarMetrics"/>
+            <point key="canvasLocation" x="132" y="152.47376311844079"/>
+        </view>
+    </objects>
+    <resources>
+        <image name="Notification" width="311" height="362"/>
+        <systemColor name="systemBackgroundColor">
+            <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+        </systemColor>
+    </resources>
+</document>

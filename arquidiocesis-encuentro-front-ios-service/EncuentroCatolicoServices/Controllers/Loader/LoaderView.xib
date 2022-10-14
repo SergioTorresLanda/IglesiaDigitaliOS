@@ -1,0 +1,92 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="17701" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+    <device id="retina4_7" orientation="portrait" appearance="light"/>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="17703"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <customFonts key="customFonts">
+        <array key="Roboto-Regular.ttf">
+            <string>Roboto-Regular</string>
+        </array>
+    </customFonts>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <view contentMode="scaleToFill" id="iN0-l3-epB">
+            <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+            <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+            <subviews>
+                <view alpha="0.5" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="x6b-rP-Uzv">
+                    <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                    <color key="backgroundColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                </view>
+                <visualEffectView opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="L9d-qG-JrZ">
+                    <rect key="frame" x="63" y="301" width="249" height="65"/>
+                    <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" id="JoE-Nu-LVW">
+                        <rect key="frame" x="0.0" y="0.0" width="249" height="65"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <visualEffectView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Qcn-Qm-alr">
+                                <rect key="frame" x="0.0" y="0.0" width="249" height="65"/>
+                                <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" id="sNg-iZ-WQs">
+                                    <rect key="frame" x="0.0" y="0.0" width="249" height="65"/>
+                                    <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                                    <subviews>
+                                        <stackView opaque="NO" contentMode="scaleToFill" spacing="14" translatesAutoresizingMaskIntoConstraints="NO" id="c8r-um-8Yi">
+                                            <rect key="frame" x="20" y="14" width="208.5" height="37"/>
+                                            <subviews>
+                                                <activityIndicatorView opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" animating="YES" style="large" translatesAutoresizingMaskIntoConstraints="NO" id="jgy-bK-qXy">
+                                                    <rect key="frame" x="0.0" y="0.0" width="37" height="37"/>
+                                                    <color key="color" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                </activityIndicatorView>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Cargando datos..." textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="COn-zN-rd8">
+                                                    <rect key="frame" x="51" y="0.0" width="157.5" height="37"/>
+                                                    <fontDescription key="fontDescription" name="Roboto-Regular" family="Roboto" pointSize="20"/>
+                                                    <nil key="textColor"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
+                                            </subviews>
+                                        </stackView>
+                                    </subviews>
+                                    <constraints>
+                                        <constraint firstItem="c8r-um-8Yi" firstAttribute="leading" secondItem="sNg-iZ-WQs" secondAttribute="leading" constant="20" id="RPe-nA-cV4"/>
+                                        <constraint firstAttribute="bottom" secondItem="c8r-um-8Yi" secondAttribute="bottom" constant="14" id="nhk-we-6u2"/>
+                                        <constraint firstAttribute="trailing" secondItem="c8r-um-8Yi" secondAttribute="trailing" constant="20" id="oku-Bg-RsY"/>
+                                        <constraint firstItem="c8r-um-8Yi" firstAttribute="top" secondItem="sNg-iZ-WQs" secondAttribute="top" constant="14" id="u1p-hX-xde"/>
+                                    </constraints>
+                                </view>
+                                <vibrancyEffect>
+                                    <blurEffect style="regular"/>
+                                </vibrancyEffect>
+                            </visualEffectView>
+                        </subviews>
+                        <constraints>
+                            <constraint firstItem="Qcn-Qm-alr" firstAttribute="height" secondItem="JoE-Nu-LVW" secondAttribute="height" id="6y2-E2-MDS"/>
+                            <constraint firstItem="Qcn-Qm-alr" firstAttribute="centerY" secondItem="JoE-Nu-LVW" secondAttribute="centerY" id="X0h-q8-hvR"/>
+                            <constraint firstItem="Qcn-Qm-alr" firstAttribute="centerX" secondItem="JoE-Nu-LVW" secondAttribute="centerX" id="bJf-MW-TgG"/>
+                            <constraint firstItem="Qcn-Qm-alr" firstAttribute="width" secondItem="JoE-Nu-LVW" secondAttribute="width" id="yQ3-jr-0kJ"/>
+                        </constraints>
+                    </view>
+                    <blurEffect style="regular"/>
+                    <userDefinedRuntimeAttributes>
+                        <userDefinedRuntimeAttribute type="number" keyPath="layer.cornerRadius">
+                            <integer key="value" value="14"/>
+                        </userDefinedRuntimeAttribute>
+                    </userDefinedRuntimeAttributes>
+                </visualEffectView>
+            </subviews>
+            <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+            <constraints>
+                <constraint firstItem="x6b-rP-Uzv" firstAttribute="centerY" secondItem="iN0-l3-epB" secondAttribute="centerY" id="3WQ-rn-17j"/>
+                <constraint firstItem="x6b-rP-Uzv" firstAttribute="centerX" secondItem="iN0-l3-epB" secondAttribute="centerX" id="6kg-WF-IDX"/>
+                <constraint firstItem="x6b-rP-Uzv" firstAttribute="height" secondItem="iN0-l3-epB" secondAttribute="height" id="9fe-Ll-hkG"/>
+                <constraint firstItem="L9d-qG-JrZ" firstAttribute="centerX" secondItem="x6b-rP-Uzv" secondAttribute="centerX" id="TVD-mf-Q99"/>
+                <constraint firstItem="x6b-rP-Uzv" firstAttribute="width" secondItem="iN0-l3-epB" secondAttribute="width" id="muW-Yf-mmd"/>
+                <constraint firstItem="L9d-qG-JrZ" firstAttribute="centerY" secondItem="x6b-rP-Uzv" secondAttribute="centerY" id="psZ-BO-6z5"/>
+            </constraints>
+            <point key="canvasLocation" x="139" y="153"/>
+        </view>
+    </objects>
+</document>

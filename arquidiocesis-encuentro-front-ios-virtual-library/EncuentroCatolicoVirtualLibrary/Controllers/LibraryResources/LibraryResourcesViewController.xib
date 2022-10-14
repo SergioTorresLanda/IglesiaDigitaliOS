@@ -1,0 +1,107 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="17701" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES">
+    <device id="retina4_7" orientation="portrait" appearance="light"/>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="17703"/>
+        <capability name="System colors in document resources" minToolsVersion="11.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="LibraryResourcesViewController" customModule="EncuentroCatolicoVirtualLibrary" customModuleProvider="target">
+            <connections>
+                <outlet property="btnShowMore" destination="c19-8G-RDL" id="YCV-ay-zG3"/>
+                <outlet property="documentCollection" destination="JwV-Yb-RrE" id="8FA-uQ-Awl"/>
+                <outlet property="documentCollectionHeight" destination="ul8-f6-cGo" id="I4l-K2-Sqt"/>
+                <outlet property="lblDocument" destination="ILe-SP-31J" id="UT3-FU-tHy"/>
+                <outlet property="videosCollection" destination="xWf-WR-y62" id="VNT-1P-Xfb"/>
+                <outlet property="videosCollectionHeight" destination="ngm-mY-rU1" id="Wgp-tv-MU8"/>
+                <outlet property="videosTitleStack" destination="ytj-b9-EtP" id="HTy-Rs-DgY"/>
+                <outlet property="view" destination="i5M-Pr-FkT" id="sfx-zR-JGt"/>
+            </connections>
+        </placeholder>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <view clearsContextBeforeDrawing="NO" contentMode="scaleToFill" id="i5M-Pr-FkT">
+            <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+            <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+            <subviews>
+                <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="20" translatesAutoresizingMaskIntoConstraints="NO" id="XoB-eI-Ggy">
+                    <rect key="frame" x="15" y="10" width="345" height="598"/>
+                    <subviews>
+                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Documentos" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ILe-SP-31J">
+                            <rect key="frame" x="0.0" y="0.0" width="345" height="24"/>
+                            <constraints>
+                                <constraint firstAttribute="height" constant="24" id="s4e-ra-9fU"/>
+                            </constraints>
+                            <fontDescription key="fontDescription" name="HelveticaNeue-Bold" family="Helvetica Neue" pointSize="20"/>
+                            <color key="textColor" red="0.095016948879999993" green="0.122127004" blue="0.50591188669999998" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                            <nil key="highlightedColor"/>
+                        </label>
+                        <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="none" translatesAutoresizingMaskIntoConstraints="NO" id="JwV-Yb-RrE">
+                            <rect key="frame" x="0.0" y="44" width="345" height="300"/>
+                            <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                            <constraints>
+                                <constraint firstAttribute="height" constant="300" id="ul8-f6-cGo"/>
+                            </constraints>
+                            <collectionViewFlowLayout key="collectionViewLayout" minimumLineSpacing="10" minimumInteritemSpacing="10" id="hYJ-mP-AnX">
+                                <size key="itemSize" width="128" height="128"/>
+                                <size key="headerReferenceSize" width="0.0" height="0.0"/>
+                                <size key="footerReferenceSize" width="0.0" height="0.0"/>
+                                <inset key="sectionInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
+                            </collectionViewFlowLayout>
+                        </collectionView>
+                        <stackView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="ytj-b9-EtP">
+                            <rect key="frame" x="0.0" y="364" width="345" height="24"/>
+                            <subviews>
+                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Videos" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="aT2-aj-Yfc">
+                                    <rect key="frame" x="0.0" y="0.0" width="245" height="24"/>
+                                    <constraints>
+                                        <constraint firstAttribute="height" constant="24" id="Ytr-Qm-cdg"/>
+                                    </constraints>
+                                    <fontDescription key="fontDescription" name="HelveticaNeue-Bold" family="Helvetica Neue" pointSize="20"/>
+                                    <color key="textColor" red="0.095016948879999993" green="0.122127004" blue="0.50591188669999998" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                                    <nil key="highlightedColor"/>
+                                </label>
+                                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="c19-8G-RDL">
+                                    <rect key="frame" x="245" y="0.0" width="100" height="24"/>
+                                    <constraints>
+                                        <constraint firstAttribute="width" constant="100" id="Azv-WJ-caj"/>
+                                    </constraints>
+                                    <state key="normal" title="Ver todo"/>
+                                    <connections>
+                                        <action selector="viewAll:" destination="-1" eventType="touchUpInside" id="0yU-ia-c5f"/>
+                                    </connections>
+                                </button>
+                            </subviews>
+                        </stackView>
+                        <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="none" translatesAutoresizingMaskIntoConstraints="NO" id="xWf-WR-y62">
+                            <rect key="frame" x="0.0" y="408" width="345" height="190"/>
+                            <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                            <constraints>
+                                <constraint firstAttribute="height" constant="190" id="ngm-mY-rU1"/>
+                            </constraints>
+                            <collectionViewFlowLayout key="collectionViewLayout" scrollDirection="horizontal" minimumLineSpacing="10" minimumInteritemSpacing="10" id="xhQ-n6-L5L">
+                                <size key="itemSize" width="128" height="128"/>
+                                <size key="headerReferenceSize" width="0.0" height="0.0"/>
+                                <size key="footerReferenceSize" width="0.0" height="0.0"/>
+                                <inset key="sectionInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
+                            </collectionViewFlowLayout>
+                        </collectionView>
+                    </subviews>
+                </stackView>
+            </subviews>
+            <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+            <constraints>
+                <constraint firstAttribute="trailing" secondItem="XoB-eI-Ggy" secondAttribute="trailing" constant="15" id="YDd-rz-H5c"/>
+                <constraint firstItem="XoB-eI-Ggy" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" constant="15" id="aPj-1P-gpg"/>
+                <constraint firstItem="XoB-eI-Ggy" firstAttribute="top" secondItem="i5M-Pr-FkT" secondAttribute="top" constant="10" id="qKQ-ou-I2W"/>
+            </constraints>
+            <point key="canvasLocation" x="138" y="51"/>
+        </view>
+    </objects>
+    <resources>
+        <systemColor name="systemBackgroundColor">
+            <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+        </systemColor>
+    </resources>
+</document>

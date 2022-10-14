@@ -1,0 +1,70 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="18122" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+    <device id="retina6_1" orientation="portrait" appearance="light"/>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="18093"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="System colors in document resources" minToolsVersion="11.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" id="gTV-IL-0wX" customClass="FavoriteChurchCells" customModule="EncuentroCatolicoServices" customModuleProvider="target">
+            <rect key="frame" x="0.0" y="0.0" width="230" height="265"/>
+            <autoresizingMask key="autoresizingMask"/>
+            <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center">
+                <rect key="frame" x="0.0" y="0.0" width="230" height="265"/>
+                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                <subviews>
+                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="K3k-E2-v5H">
+                        <rect key="frame" x="0.0" y="0.0" width="230" height="265"/>
+                        <subviews>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Nuestra Señora de Covadonga" lineBreakMode="tailTruncation" numberOfLines="3" baselineAdjustment="alignBaselines" minimumScaleFactor="0.5" adjustsFontForContentSizeCategory="YES" translatesAutoresizingMaskIntoConstraints="NO" id="4P3-zg-6Yd">
+                                <rect key="frame" x="0.0" y="215" width="220" height="50"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="50" id="Ec9-CP-uLz"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" name="HelveticaNeue-Bold" family="Helvetica Neue" pointSize="16"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="KUN-NW-CIT">
+                                <rect key="frame" x="0.0" y="0.0" width="230" height="215"/>
+                            </imageView>
+                        </subviews>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <constraints>
+                            <constraint firstItem="KUN-NW-CIT" firstAttribute="leading" secondItem="K3k-E2-v5H" secondAttribute="leading" id="0Mr-0k-CjU"/>
+                            <constraint firstAttribute="bottom" secondItem="4P3-zg-6Yd" secondAttribute="bottom" id="5mP-iu-alp"/>
+                            <constraint firstAttribute="trailing" secondItem="KUN-NW-CIT" secondAttribute="trailing" id="LBz-0x-4OU"/>
+                            <constraint firstAttribute="trailing" secondItem="4P3-zg-6Yd" secondAttribute="trailing" constant="10" id="San-UY-mMa"/>
+                            <constraint firstItem="4P3-zg-6Yd" firstAttribute="leading" secondItem="K3k-E2-v5H" secondAttribute="leading" id="Ur4-Z2-4XR"/>
+                            <constraint firstItem="4P3-zg-6Yd" firstAttribute="top" secondItem="KUN-NW-CIT" secondAttribute="bottom" id="YB5-Az-8PI"/>
+                            <constraint firstItem="KUN-NW-CIT" firstAttribute="top" secondItem="K3k-E2-v5H" secondAttribute="top" id="unS-pQ-0yY"/>
+                        </constraints>
+                    </view>
+                </subviews>
+            </view>
+            <viewLayoutGuide key="safeArea" id="ZTg-uK-7eu"/>
+            <constraints>
+                <constraint firstItem="K3k-E2-v5H" firstAttribute="top" secondItem="gTV-IL-0wX" secondAttribute="top" id="J7e-pU-O8r"/>
+                <constraint firstAttribute="bottom" secondItem="K3k-E2-v5H" secondAttribute="bottom" id="hct-lj-HZY"/>
+                <constraint firstItem="K3k-E2-v5H" firstAttribute="leading" secondItem="gTV-IL-0wX" secondAttribute="leading" id="joP-aE-jlM"/>
+                <constraint firstAttribute="trailing" secondItem="K3k-E2-v5H" secondAttribute="trailing" id="ve7-Zh-nTu"/>
+            </constraints>
+            <size key="customSize" width="230" height="265"/>
+            <connections>
+                <outlet property="imgView" destination="KUN-NW-CIT" id="D2i-7B-SYG"/>
+                <outlet property="lblTitle" destination="4P3-zg-6Yd" id="axo-HB-S0J"/>
+            </connections>
+            <point key="canvasLocation" x="266.66666666666669" y="129.57589285714286"/>
+        </collectionViewCell>
+    </objects>
+    <resources>
+        <systemColor name="systemBackgroundColor">
+            <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+        </systemColor>
+    </resources>
+</document>

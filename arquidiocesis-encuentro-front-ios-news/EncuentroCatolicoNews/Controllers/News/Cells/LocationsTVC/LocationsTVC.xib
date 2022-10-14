@@ -1,0 +1,67 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="15705" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+    <device id="retina6_1" orientation="portrait" appearance="light"/>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="15706"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <tableViewCell contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="LocationsTVC" rowHeight="95" id="KGk-i7-Jjw" customClass="LocationsTVC" customModule="RedSocialFramework" customModuleProvider="target">
+            <rect key="frame" x="0.0" y="0.0" width="380" height="95"/>
+            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+            <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="KGk-i7-Jjw" id="H2p-sc-9uM">
+                <rect key="frame" x="0.0" y="0.0" width="380" height="95"/>
+                <autoresizingMask key="autoresizingMask"/>
+                <subviews>
+                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="locationIconTable" translatesAutoresizingMaskIntoConstraints="NO" id="a6N-Ze-Hjl">
+                        <rect key="frame" x="10" y="10" width="50" height="50"/>
+                        <constraints>
+                            <constraint firstAttribute="height" constant="50" id="gZs-bk-bPe"/>
+                            <constraint firstAttribute="width" secondItem="a6N-Ze-Hjl" secondAttribute="height" multiplier="1:1" id="l2A-Dz-LQt"/>
+                        </constraints>
+                    </imageView>
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Elektra Villa Olimpica" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="t28-8R-DJL">
+                        <rect key="frame" x="70" y="10" width="300" height="20.5"/>
+                        <fontDescription key="fontDescription" name="Avenir-Black" family="Avenir" pointSize="15"/>
+                        <color key="textColor" red="0.10588235294117647" green="0.10588235294117647" blue="0.10588235294117647" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <nil key="highlightedColor"/>
+                    </label>
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="fVB-IL-Q7m">
+                        <rect key="frame" x="70" y="35.5" width="300" height="33"/>
+                        <string key="text">Av. Insurgentes Sur 3681, Miguel Hidalgo 1ra Secc, 
+Tlalpan, 14250 Ciudad de México, CDMX</string>
+                        <fontDescription key="fontDescription" name="Avenir-Book" family="Avenir" pointSize="12"/>
+                        <color key="textColor" red="0.59607843137254901" green="0.59607843137254901" blue="0.59607843137254901" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <nil key="highlightedColor"/>
+                    </label>
+                </subviews>
+                <constraints>
+                    <constraint firstItem="fVB-IL-Q7m" firstAttribute="top" secondItem="t28-8R-DJL" secondAttribute="bottom" constant="5" id="0Vn-Pd-zts"/>
+                    <constraint firstAttribute="bottom" relation="greaterThanOrEqual" secondItem="a6N-Ze-Hjl" secondAttribute="bottom" constant="10" id="2P7-66-LfD"/>
+                    <constraint firstItem="a6N-Ze-Hjl" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" constant="10" id="7jf-6g-mbW"/>
+                    <constraint firstItem="fVB-IL-Q7m" firstAttribute="trailing" secondItem="t28-8R-DJL" secondAttribute="trailing" id="M7H-ID-Vej"/>
+                    <constraint firstItem="a6N-Ze-Hjl" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" constant="10" id="MHq-fS-r94"/>
+                    <constraint firstItem="t28-8R-DJL" firstAttribute="top" secondItem="a6N-Ze-Hjl" secondAttribute="top" id="Wfj-GT-cYE"/>
+                    <constraint firstItem="fVB-IL-Q7m" firstAttribute="leading" secondItem="t28-8R-DJL" secondAttribute="leading" id="uVx-n6-ib7"/>
+                    <constraint firstAttribute="trailing" secondItem="t28-8R-DJL" secondAttribute="trailing" constant="10" id="ubr-Xh-jnK"/>
+                    <constraint firstAttribute="bottom" relation="greaterThanOrEqual" secondItem="fVB-IL-Q7m" secondAttribute="bottom" constant="10" id="wQD-r9-Db0"/>
+                    <constraint firstItem="t28-8R-DJL" firstAttribute="leading" secondItem="a6N-Ze-Hjl" secondAttribute="trailing" constant="10" id="xuo-SS-Cip"/>
+                </constraints>
+            </tableViewCellContentView>
+            <viewLayoutGuide key="safeArea" id="njF-e1-oar"/>
+            <connections>
+                <outlet property="directionsLabel" destination="fVB-IL-Q7m" id="yeB-sj-j2A"/>
+                <outlet property="locationImage" destination="a6N-Ze-Hjl" id="Xc2-Ha-xw2"/>
+                <outlet property="nameLabel" destination="t28-8R-DJL" id="dgF-E0-a4g"/>
+            </connections>
+            <point key="canvasLocation" x="137.68115942028987" y="100.78125"/>
+        </tableViewCell>
+    </objects>
+    <resources>
+        <image name="locationIconTable" width="29.5" height="29.5"/>
+    </resources>
+</document>

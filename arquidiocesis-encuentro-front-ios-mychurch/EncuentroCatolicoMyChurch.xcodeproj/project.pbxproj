@@ -1,0 +1,728 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 50;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		0F4D894D2602CC6D0066BFA8 /* LoadingIndicatorView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0F4D894C2602CC6D0066BFA8 /* LoadingIndicatorView.swift */; };
+		0F84D64426027730007945B4 /* Church.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0F84D64326027730007945B4 /* Church.swift */; };
+		0F84D6492602777A007945B4 /* NetworkingApi.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0F84D6482602777A007945B4 /* NetworkingApi.swift */; };
+		0F84D64E2602779E007945B4 /* Throttle.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0F84D64D2602779E007945B4 /* Throttle.swift */; };
+		0F84D67E26027B6D007945B4 /* CancellableChurchsFetcher.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0F84D67D26027B6D007945B4 /* CancellableChurchsFetcher.swift */; };
+		0F84D68126027B7B007945B4 /* ChurchsInteractor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0F84D68026027B7B007945B4 /* ChurchsInteractor.swift */; };
+		0F84D68526027B93007945B4 /* ChurchsPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0F84D68426027B93007945B4 /* ChurchsPresenter.swift */; };
+		0F84D68826027BA6007945B4 /* ChurchsProtocols.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0F84D68726027BA6007945B4 /* ChurchsProtocols.swift */; };
+		0F84D68B26027BB8007945B4 /* ChurchsRemoteDataManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0F84D68A26027BB8007945B4 /* ChurchsRemoteDataManager.swift */; };
+		0F84D68E26027BC8007945B4 /* ChurchsWireframe.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0F84D68D26027BC8007945B4 /* ChurchsWireframe.swift */; };
+		0F84D69126027BDB007945B4 /* ThrottledTextFieldValidator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0F84D69026027BDB007945B4 /* ThrottledTextFieldValidator.swift */; };
+		0F84D69426027C30007945B4 /* ChurchsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0F84D69326027C30007945B4 /* ChurchsViewController.swift */; };
+		0FECB14F26031B4C0084EB6B /* UIView+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0FECB14E26031B4C0084EB6B /* UIView+Extensions.swift */; };
+		50CCAEE4F21EDFFD94919E03 /* Pods_EncuentroCatolicoMyChurch.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2CDEE18C05B66ACA8191076D /* Pods_EncuentroCatolicoMyChurch.framework */; };
+		8A31F91B25EF54AE00B52526 /* LanguageString.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8A31F8F925EF54AE00B52526 /* LanguageString.swift */; };
+		8A31F91C25EF54AE00B52526 /* UIColor+Utils.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8A31F8FA25EF54AE00B52526 /* UIColor+Utils.swift */; };
+		8A31F91D25EF54AE00B52526 /* UIFont+Utils.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8A31F8FB25EF54AE00B52526 /* UIFont+Utils.swift */; };
+		8A31F91E25EF54AE00B52526 /* UIImage+Utils.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8A31F8FC25EF54AE00B52526 /* UIImage+Utils.swift */; };
+		8A31F91F25EF54AE00B52526 /* Style.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8A31F8FD25EF54AE00B52526 /* Style.swift */; };
+		8A31F92025EF54AE00B52526 /* Montserrat Light.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 8A31F8FF25EF54AE00B52526 /* Montserrat Light.ttf */; };
+		8A31F92125EF54AE00B52526 /* Montserrat Bold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 8A31F90025EF54AE00B52526 /* Montserrat Bold.ttf */; };
+		8A31F92225EF54AE00B52526 /* Montserrat Regular.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 8A31F90125EF54AE00B52526 /* Montserrat Regular.ttf */; };
+		8A31F92325EF54AE00B52526 /* UIView+Utils.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8A31F90325EF54AE00B52526 /* UIView+Utils.swift */; };
+		8A31F92425EF54AE00B52526 /* Array+Utils.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8A31F90425EF54AE00B52526 /* Array+Utils.swift */; };
+		8A31F92525EF54AE00B52526 /* Optional+Utils.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8A31F90525EF54AE00B52526 /* Optional+Utils.swift */; };
+		8A31F92625EF54AE00B52526 /* ServicesDefinitions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8A31F90725EF54AE00B52526 /* ServicesDefinitions.swift */; };
+		8A31F92725EF54AE00B52526 /* Request.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8A31F90825EF54AE00B52526 /* Request.swift */; };
+		8A31F92A25EF54AE00B52526 /* ChurchViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8A31F91025EF54AE00B52526 /* ChurchViewController.swift */; };
+		8A31F92C25EF54AE00B52526 /* ChurchTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8A31F91225EF54AE00B52526 /* ChurchTableViewCell.swift */; };
+		98C46A6325EF125D00DE543B /* EncuentroCatolicoMyChurch.h in Headers */ = {isa = PBXBuildFile; fileRef = 98C46A6125EF125D00DE543B /* EncuentroCatolicoMyChurch.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		98C46A6D25EF128E00DE543B /* Bundle.swift in Sources */ = {isa = PBXBuildFile; fileRef = 98C46A6C25EF128E00DE543B /* Bundle.swift */; };
+		AA027F1C25EF1DF40008DD32 /* AssestsChurch.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = AA027F1B25EF1DF40008DD32 /* AssestsChurch.xcassets */; };
+		EEBE15FD2645AC68005E7B7B /* MassesListPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = EEBE15F72645AC68005E7B7B /* MassesListPresenter.swift */; };
+		EEBE15FE2645AC68005E7B7B /* MassesListRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = EEBE15F82645AC68005E7B7B /* MassesListRouter.swift */; };
+		EEBE15FF2645AC68005E7B7B /* MassesListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = EEBE15F92645AC68005E7B7B /* MassesListViewController.swift */; };
+		EEBE16002645AC68005E7B7B /* MassesListProtocols.swift in Sources */ = {isa = PBXBuildFile; fileRef = EEBE15FA2645AC68005E7B7B /* MassesListProtocols.swift */; };
+		EEBE16012645AC68005E7B7B /* MassesListInteractor.swift in Sources */ = {isa = PBXBuildFile; fileRef = EEBE15FB2645AC68005E7B7B /* MassesListInteractor.swift */; };
+		EEBE16022645AC68005E7B7B /* MassesListViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = EEBE15FC2645AC68005E7B7B /* MassesListViewController.xib */; };
+		EEBE160F2645B037005E7B7B /* MassesListEntity.swift in Sources */ = {isa = PBXBuildFile; fileRef = EEBE160E2645B037005E7B7B /* MassesListEntity.swift */; };
+		EEBE16152645B411005E7B7B /* ChurchCellCVCV.swift in Sources */ = {isa = PBXBuildFile; fileRef = EEBE16132645B411005E7B7B /* ChurchCellCVCV.swift */; };
+		EEBE16162645B411005E7B7B /* ChurchCellCVCV.xib in Resources */ = {isa = PBXBuildFile; fileRef = EEBE16142645B411005E7B7B /* ChurchCellCVCV.xib */; };
+		EEBE161D2645BE3E005E7B7B /* MiniChurchCellCVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = EEBE161B2645BE3E005E7B7B /* MiniChurchCellCVC.swift */; };
+		EEBE161E2645BE3E005E7B7B /* MiniChurchCellCVC.xib in Resources */ = {isa = PBXBuildFile; fileRef = EEBE161C2645BE3E005E7B7B /* MiniChurchCellCVC.xib */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXFileReference section */
+		0F4D894C2602CC6D0066BFA8 /* LoadingIndicatorView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoadingIndicatorView.swift; sourceTree = "<group>"; };
+		0F84D64326027730007945B4 /* Church.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Church.swift; sourceTree = "<group>"; };
+		0F84D6482602777A007945B4 /* NetworkingApi.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkingApi.swift; sourceTree = "<group>"; };
+		0F84D64D2602779E007945B4 /* Throttle.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Throttle.swift; sourceTree = "<group>"; };
+		0F84D67D26027B6D007945B4 /* CancellableChurchsFetcher.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CancellableChurchsFetcher.swift; sourceTree = "<group>"; };
+		0F84D68026027B7B007945B4 /* ChurchsInteractor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChurchsInteractor.swift; sourceTree = "<group>"; };
+		0F84D68426027B93007945B4 /* ChurchsPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChurchsPresenter.swift; sourceTree = "<group>"; };
+		0F84D68726027BA6007945B4 /* ChurchsProtocols.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChurchsProtocols.swift; sourceTree = "<group>"; };
+		0F84D68A26027BB8007945B4 /* ChurchsRemoteDataManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChurchsRemoteDataManager.swift; sourceTree = "<group>"; };
+		0F84D68D26027BC8007945B4 /* ChurchsWireframe.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChurchsWireframe.swift; sourceTree = "<group>"; };
+		0F84D69026027BDB007945B4 /* ThrottledTextFieldValidator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ThrottledTextFieldValidator.swift; sourceTree = "<group>"; };
+		0F84D69326027C30007945B4 /* ChurchsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChurchsViewController.swift; sourceTree = "<group>"; };
+		0FECB14E26031B4C0084EB6B /* UIView+Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIView+Extensions.swift"; sourceTree = "<group>"; };
+		187BEAA320FC647104FBF21F /* Pods-EncuentroCatolicoMyChurch.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-EncuentroCatolicoMyChurch.release.xcconfig"; path = "Target Support Files/Pods-EncuentroCatolicoMyChurch/Pods-EncuentroCatolicoMyChurch.release.xcconfig"; sourceTree = "<group>"; };
+		2CDEE18C05B66ACA8191076D /* Pods_EncuentroCatolicoMyChurch.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_EncuentroCatolicoMyChurch.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		75084FABDE904F053629F677 /* Pods-EncuentroCatolicoMyChurch.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-EncuentroCatolicoMyChurch.debug.xcconfig"; path = "Target Support Files/Pods-EncuentroCatolicoMyChurch/Pods-EncuentroCatolicoMyChurch.debug.xcconfig"; sourceTree = "<group>"; };
+		8A31F8F925EF54AE00B52526 /* LanguageString.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LanguageString.swift; sourceTree = "<group>"; };
+		8A31F8FA25EF54AE00B52526 /* UIColor+Utils.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UIColor+Utils.swift"; sourceTree = "<group>"; };
+		8A31F8FB25EF54AE00B52526 /* UIFont+Utils.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UIFont+Utils.swift"; sourceTree = "<group>"; };
+		8A31F8FC25EF54AE00B52526 /* UIImage+Utils.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UIImage+Utils.swift"; sourceTree = "<group>"; };
+		8A31F8FD25EF54AE00B52526 /* Style.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Style.swift; sourceTree = "<group>"; };
+		8A31F8FF25EF54AE00B52526 /* Montserrat Light.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Montserrat Light.ttf"; sourceTree = "<group>"; };
+		8A31F90025EF54AE00B52526 /* Montserrat Bold.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Montserrat Bold.ttf"; sourceTree = "<group>"; };
+		8A31F90125EF54AE00B52526 /* Montserrat Regular.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Montserrat Regular.ttf"; sourceTree = "<group>"; };
+		8A31F90325EF54AE00B52526 /* UIView+Utils.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UIView+Utils.swift"; sourceTree = "<group>"; };
+		8A31F90425EF54AE00B52526 /* Array+Utils.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Array+Utils.swift"; sourceTree = "<group>"; };
+		8A31F90525EF54AE00B52526 /* Optional+Utils.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Optional+Utils.swift"; sourceTree = "<group>"; };
+		8A31F90725EF54AE00B52526 /* ServicesDefinitions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ServicesDefinitions.swift; sourceTree = "<group>"; };
+		8A31F90825EF54AE00B52526 /* Request.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Request.swift; sourceTree = "<group>"; };
+		8A31F91025EF54AE00B52526 /* ChurchViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ChurchViewController.swift; sourceTree = "<group>"; };
+		8A31F91225EF54AE00B52526 /* ChurchTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ChurchTableViewCell.swift; sourceTree = "<group>"; };
+		98C46A5E25EF125D00DE543B /* EncuentroCatolicoMyChurch.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = EncuentroCatolicoMyChurch.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		98C46A6125EF125D00DE543B /* EncuentroCatolicoMyChurch.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = EncuentroCatolicoMyChurch.h; sourceTree = "<group>"; };
+		98C46A6225EF125D00DE543B /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		98C46A6C25EF128E00DE543B /* Bundle.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Bundle.swift; sourceTree = "<group>"; };
+		AA027F1B25EF1DF40008DD32 /* AssestsChurch.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = AssestsChurch.xcassets; sourceTree = "<group>"; };
+		EEBE15F72645AC68005E7B7B /* MassesListPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MassesListPresenter.swift; sourceTree = "<group>"; };
+		EEBE15F82645AC68005E7B7B /* MassesListRouter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MassesListRouter.swift; sourceTree = "<group>"; };
+		EEBE15F92645AC68005E7B7B /* MassesListViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MassesListViewController.swift; sourceTree = "<group>"; };
+		EEBE15FA2645AC68005E7B7B /* MassesListProtocols.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MassesListProtocols.swift; sourceTree = "<group>"; };
+		EEBE15FB2645AC68005E7B7B /* MassesListInteractor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MassesListInteractor.swift; sourceTree = "<group>"; };
+		EEBE15FC2645AC68005E7B7B /* MassesListViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = MassesListViewController.xib; sourceTree = "<group>"; };
+		EEBE160E2645B037005E7B7B /* MassesListEntity.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MassesListEntity.swift; sourceTree = "<group>"; };
+		EEBE16132645B411005E7B7B /* ChurchCellCVCV.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChurchCellCVCV.swift; sourceTree = "<group>"; };
+		EEBE16142645B411005E7B7B /* ChurchCellCVCV.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ChurchCellCVCV.xib; sourceTree = "<group>"; };
+		EEBE161B2645BE3E005E7B7B /* MiniChurchCellCVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MiniChurchCellCVC.swift; sourceTree = "<group>"; };
+		EEBE161C2645BE3E005E7B7B /* MiniChurchCellCVC.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = MiniChurchCellCVC.xib; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		98C46A5B25EF125D00DE543B /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				50CCAEE4F21EDFFD94919E03 /* Pods_EncuentroCatolicoMyChurch.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		0F4D891E2602C75C0066BFA8 /* Interactor */ = {
+			isa = PBXGroup;
+			children = (
+				0F84D68026027B7B007945B4 /* ChurchsInteractor.swift */,
+			);
+			path = Interactor;
+			sourceTree = "<group>";
+		};
+		0F4D891F2602C7640066BFA8 /* Presenter */ = {
+			isa = PBXGroup;
+			children = (
+				0F84D68426027B93007945B4 /* ChurchsPresenter.swift */,
+			);
+			path = Presenter;
+			sourceTree = "<group>";
+		};
+		0F4D89202602C7900066BFA8 /* WireFrame */ = {
+			isa = PBXGroup;
+			children = (
+				0F84D68D26027BC8007945B4 /* ChurchsWireframe.swift */,
+			);
+			path = WireFrame;
+			sourceTree = "<group>";
+		};
+		0F4D89212602C7A00066BFA8 /* DataManager */ = {
+			isa = PBXGroup;
+			children = (
+				0F84D67D26027B6D007945B4 /* CancellableChurchsFetcher.swift */,
+				0F84D69026027BDB007945B4 /* ThrottledTextFieldValidator.swift */,
+				0F84D68A26027BB8007945B4 /* ChurchsRemoteDataManager.swift */,
+			);
+			path = DataManager;
+			sourceTree = "<group>";
+		};
+		0F4D89222602C7CB0066BFA8 /* Protocols */ = {
+			isa = PBXGroup;
+			children = (
+				0F84D68726027BA6007945B4 /* ChurchsProtocols.swift */,
+			);
+			path = Protocols;
+			sourceTree = "<group>";
+		};
+		0F4D894F2602D39A0066BFA8 /* UI */ = {
+			isa = PBXGroup;
+			children = (
+				8A31F91225EF54AE00B52526 /* ChurchTableViewCell.swift */,
+				0F84D69326027C30007945B4 /* ChurchsViewController.swift */,
+				8A31F91025EF54AE00B52526 /* ChurchViewController.swift */,
+			);
+			path = UI;
+			sourceTree = "<group>";
+		};
+		0F84D64226027721007945B4 /* Entities */ = {
+			isa = PBXGroup;
+			children = (
+				0F84D64326027730007945B4 /* Church.swift */,
+			);
+			path = Entities;
+			sourceTree = "<group>";
+		};
+		0F84D6472602776D007945B4 /* Networking */ = {
+			isa = PBXGroup;
+			children = (
+				0F84D6482602777A007945B4 /* NetworkingApi.swift */,
+			);
+			path = Networking;
+			sourceTree = "<group>";
+		};
+		0F84D64C26027791007945B4 /* Utils */ = {
+			isa = PBXGroup;
+			children = (
+				0F84D64D2602779E007945B4 /* Throttle.swift */,
+			);
+			path = Utils;
+			sourceTree = "<group>";
+		};
+		8A31F8F625EF546500B52526 /* Sections */ = {
+			isa = PBXGroup;
+			children = (
+				EEBE15F62645AC4E005E7B7B /* Massess */,
+				8A31F90925EF54AE00B52526 /* Churchs */,
+			);
+			path = Sections;
+			sourceTree = "<group>";
+		};
+		8A31F8F725EF54AE00B52526 /* Framework */ = {
+			isa = PBXGroup;
+			children = (
+				8A31F90225EF54AE00B52526 /* Extensions */,
+				8A31F8F825EF54AE00B52526 /* GuideStyle */,
+				8A31F90625EF54AE00B52526 /* Request */,
+			);
+			path = Framework;
+			sourceTree = "<group>";
+		};
+		8A31F8F825EF54AE00B52526 /* GuideStyle */ = {
+			isa = PBXGroup;
+			children = (
+				8A31F8F925EF54AE00B52526 /* LanguageString.swift */,
+				8A31F8FA25EF54AE00B52526 /* UIColor+Utils.swift */,
+				8A31F8FB25EF54AE00B52526 /* UIFont+Utils.swift */,
+				8A31F8FC25EF54AE00B52526 /* UIImage+Utils.swift */,
+				8A31F8FD25EF54AE00B52526 /* Style.swift */,
+				8A31F8FE25EF54AE00B52526 /* Font */,
+			);
+			path = GuideStyle;
+			sourceTree = "<group>";
+		};
+		8A31F8FE25EF54AE00B52526 /* Font */ = {
+			isa = PBXGroup;
+			children = (
+				8A31F8FF25EF54AE00B52526 /* Montserrat Light.ttf */,
+				8A31F90025EF54AE00B52526 /* Montserrat Bold.ttf */,
+				8A31F90125EF54AE00B52526 /* Montserrat Regular.ttf */,
+			);
+			path = Font;
+			sourceTree = "<group>";
+		};
+		8A31F90225EF54AE00B52526 /* Extensions */ = {
+			isa = PBXGroup;
+			children = (
+				8A31F90325EF54AE00B52526 /* UIView+Utils.swift */,
+				8A31F90425EF54AE00B52526 /* Array+Utils.swift */,
+				8A31F90525EF54AE00B52526 /* Optional+Utils.swift */,
+			);
+			path = Extensions;
+			sourceTree = "<group>";
+		};
+		8A31F90625EF54AE00B52526 /* Request */ = {
+			isa = PBXGroup;
+			children = (
+				8A31F90725EF54AE00B52526 /* ServicesDefinitions.swift */,
+				8A31F90825EF54AE00B52526 /* Request.swift */,
+			);
+			path = Request;
+			sourceTree = "<group>";
+		};
+		8A31F90925EF54AE00B52526 /* Churchs */ = {
+			isa = PBXGroup;
+			children = (
+				0F4D89212602C7A00066BFA8 /* DataManager */,
+				0F84D64226027721007945B4 /* Entities */,
+				0F4D891E2602C75C0066BFA8 /* Interactor */,
+				0F84D6472602776D007945B4 /* Networking */,
+				0F4D891F2602C7640066BFA8 /* Presenter */,
+				0F4D89222602C7CB0066BFA8 /* Protocols */,
+				0F4D894F2602D39A0066BFA8 /* UI */,
+				0F84D64C26027791007945B4 /* Utils */,
+				0F4D89202602C7900066BFA8 /* WireFrame */,
+			);
+			path = Churchs;
+			sourceTree = "<group>";
+		};
+		98C46A5425EF125D00DE543B = {
+			isa = PBXGroup;
+			children = (
+				98C46A6025EF125D00DE543B /* EncuentroCatolicoMyChurch */,
+				98C46A5F25EF125D00DE543B /* Products */,
+				D8962F8E6B8CE6998A790512 /* Pods */,
+				B33914E918D0D48588001858 /* Frameworks */,
+			);
+			sourceTree = "<group>";
+		};
+		98C46A5F25EF125D00DE543B /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				98C46A5E25EF125D00DE543B /* EncuentroCatolicoMyChurch.framework */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		98C46A6025EF125D00DE543B /* EncuentroCatolicoMyChurch */ = {
+			isa = PBXGroup;
+			children = (
+				8A31F8F725EF54AE00B52526 /* Framework */,
+				8A31F8F625EF546500B52526 /* Sections */,
+				AA027F1A25EF1DD80008DD32 /* Resources */,
+				98C46A6B25EF127B00DE543B /* Extensions */,
+				98C46A6125EF125D00DE543B /* EncuentroCatolicoMyChurch.h */,
+				98C46A6225EF125D00DE543B /* Info.plist */,
+			);
+			path = EncuentroCatolicoMyChurch;
+			sourceTree = "<group>";
+		};
+		98C46A6B25EF127B00DE543B /* Extensions */ = {
+			isa = PBXGroup;
+			children = (
+				98C46A6C25EF128E00DE543B /* Bundle.swift */,
+				0F4D894C2602CC6D0066BFA8 /* LoadingIndicatorView.swift */,
+				0FECB14E26031B4C0084EB6B /* UIView+Extensions.swift */,
+			);
+			path = Extensions;
+			sourceTree = "<group>";
+		};
+		AA027F1A25EF1DD80008DD32 /* Resources */ = {
+			isa = PBXGroup;
+			children = (
+				AA027F1B25EF1DF40008DD32 /* AssestsChurch.xcassets */,
+			);
+			path = Resources;
+			sourceTree = "<group>";
+		};
+		B33914E918D0D48588001858 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				2CDEE18C05B66ACA8191076D /* Pods_EncuentroCatolicoMyChurch.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		D8962F8E6B8CE6998A790512 /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				75084FABDE904F053629F677 /* Pods-EncuentroCatolicoMyChurch.debug.xcconfig */,
+				187BEAA320FC647104FBF21F /* Pods-EncuentroCatolicoMyChurch.release.xcconfig */,
+			);
+			name = Pods;
+			path = ../Pods;
+			sourceTree = "<group>";
+		};
+		EEBE15F62645AC4E005E7B7B /* Massess */ = {
+			isa = PBXGroup;
+			children = (
+				EEBE16072645ADAA005E7B7B /* Cells */,
+				EEBE15F72645AC68005E7B7B /* MassesListPresenter.swift */,
+				EEBE160E2645B037005E7B7B /* MassesListEntity.swift */,
+				EEBE15F82645AC68005E7B7B /* MassesListRouter.swift */,
+				EEBE15F92645AC68005E7B7B /* MassesListViewController.swift */,
+				EEBE15FA2645AC68005E7B7B /* MassesListProtocols.swift */,
+				EEBE15FB2645AC68005E7B7B /* MassesListInteractor.swift */,
+				EEBE15FC2645AC68005E7B7B /* MassesListViewController.xib */,
+			);
+			path = Massess;
+			sourceTree = "<group>";
+		};
+		EEBE16072645ADAA005E7B7B /* Cells */ = {
+			isa = PBXGroup;
+			children = (
+				EEBE161A2645BE20005E7B7B /* MiniChurchCell */,
+				EEBE16132645B411005E7B7B /* ChurchCellCVCV.swift */,
+				EEBE16142645B411005E7B7B /* ChurchCellCVCV.xib */,
+			);
+			path = Cells;
+			sourceTree = "<group>";
+		};
+		EEBE161A2645BE20005E7B7B /* MiniChurchCell */ = {
+			isa = PBXGroup;
+			children = (
+				EEBE161B2645BE3E005E7B7B /* MiniChurchCellCVC.swift */,
+				EEBE161C2645BE3E005E7B7B /* MiniChurchCellCVC.xib */,
+			);
+			path = MiniChurchCell;
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXHeadersBuildPhase section */
+		98C46A5925EF125D00DE543B /* Headers */ = {
+			isa = PBXHeadersBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				98C46A6325EF125D00DE543B /* EncuentroCatolicoMyChurch.h in Headers */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXHeadersBuildPhase section */
+
+/* Begin PBXNativeTarget section */
+		98C46A5D25EF125D00DE543B /* EncuentroCatolicoMyChurch */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 98C46A6625EF125D00DE543B /* Build configuration list for PBXNativeTarget "EncuentroCatolicoMyChurch" */;
+			buildPhases = (
+				46CBE9970B61041987F3B255 /* [CP] Check Pods Manifest.lock */,
+				98C46A5925EF125D00DE543B /* Headers */,
+				98C46A5A25EF125D00DE543B /* Sources */,
+				98C46A5B25EF125D00DE543B /* Frameworks */,
+				98C46A5C25EF125D00DE543B /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = EncuentroCatolicoMyChurch;
+			productName = EncuentroCatolicoMyChurch;
+			productReference = 98C46A5E25EF125D00DE543B /* EncuentroCatolicoMyChurch.framework */;
+			productType = "com.apple.product-type.framework";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		98C46A5525EF125D00DE543B /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				LastUpgradeCheck = 1230;
+				TargetAttributes = {
+					98C46A5D25EF125D00DE543B = {
+						CreatedOnToolsVersion = 12.3;
+						LastSwiftMigration = 1230;
+					};
+				};
+			};
+			buildConfigurationList = 98C46A5825EF125D00DE543B /* Build configuration list for PBXProject "EncuentroCatolicoMyChurch" */;
+			compatibilityVersion = "Xcode 9.3";
+			developmentRegion = en;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+				Base,
+			);
+			mainGroup = 98C46A5425EF125D00DE543B;
+			productRefGroup = 98C46A5F25EF125D00DE543B /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				98C46A5D25EF125D00DE543B /* EncuentroCatolicoMyChurch */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		98C46A5C25EF125D00DE543B /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				8A31F92125EF54AE00B52526 /* Montserrat Bold.ttf in Resources */,
+				EEBE16022645AC68005E7B7B /* MassesListViewController.xib in Resources */,
+				AA027F1C25EF1DF40008DD32 /* AssestsChurch.xcassets in Resources */,
+				8A31F92025EF54AE00B52526 /* Montserrat Light.ttf in Resources */,
+				EEBE16162645B411005E7B7B /* ChurchCellCVCV.xib in Resources */,
+				EEBE161E2645BE3E005E7B7B /* MiniChurchCellCVC.xib in Resources */,
+				8A31F92225EF54AE00B52526 /* Montserrat Regular.ttf in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		46CBE9970B61041987F3B255 /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-EncuentroCatolicoMyChurch-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		98C46A5A25EF125D00DE543B /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				8A31F91C25EF54AE00B52526 /* UIColor+Utils.swift in Sources */,
+				0F84D68B26027BB8007945B4 /* ChurchsRemoteDataManager.swift in Sources */,
+				0F84D69126027BDB007945B4 /* ThrottledTextFieldValidator.swift in Sources */,
+				8A31F91F25EF54AE00B52526 /* Style.swift in Sources */,
+				EEBE16152645B411005E7B7B /* ChurchCellCVCV.swift in Sources */,
+				8A31F92325EF54AE00B52526 /* UIView+Utils.swift in Sources */,
+				8A31F92525EF54AE00B52526 /* Optional+Utils.swift in Sources */,
+				8A31F92725EF54AE00B52526 /* Request.swift in Sources */,
+				EEBE161D2645BE3E005E7B7B /* MiniChurchCellCVC.swift in Sources */,
+				8A31F92625EF54AE00B52526 /* ServicesDefinitions.swift in Sources */,
+				8A31F91B25EF54AE00B52526 /* LanguageString.swift in Sources */,
+				0F84D69426027C30007945B4 /* ChurchsViewController.swift in Sources */,
+				EEBE15FE2645AC68005E7B7B /* MassesListRouter.swift in Sources */,
+				0F84D6492602777A007945B4 /* NetworkingApi.swift in Sources */,
+				0F84D68126027B7B007945B4 /* ChurchsInteractor.swift in Sources */,
+				0F84D64E2602779E007945B4 /* Throttle.swift in Sources */,
+				8A31F91D25EF54AE00B52526 /* UIFont+Utils.swift in Sources */,
+				8A31F91E25EF54AE00B52526 /* UIImage+Utils.swift in Sources */,
+				0F84D67E26027B6D007945B4 /* CancellableChurchsFetcher.swift in Sources */,
+				0F84D68E26027BC8007945B4 /* ChurchsWireframe.swift in Sources */,
+				0F4D894D2602CC6D0066BFA8 /* LoadingIndicatorView.swift in Sources */,
+				EEBE15FD2645AC68005E7B7B /* MassesListPresenter.swift in Sources */,
+				0FECB14F26031B4C0084EB6B /* UIView+Extensions.swift in Sources */,
+				EEBE16002645AC68005E7B7B /* MassesListProtocols.swift in Sources */,
+				EEBE15FF2645AC68005E7B7B /* MassesListViewController.swift in Sources */,
+				8A31F92C25EF54AE00B52526 /* ChurchTableViewCell.swift in Sources */,
+				0F84D64426027730007945B4 /* Church.swift in Sources */,
+				0F84D68526027B93007945B4 /* ChurchsPresenter.swift in Sources */,
+				EEBE16012645AC68005E7B7B /* MassesListInteractor.swift in Sources */,
+				8A31F92A25EF54AE00B52526 /* ChurchViewController.swift in Sources */,
+				98C46A6D25EF128E00DE543B /* Bundle.swift in Sources */,
+				0F84D68826027BA6007945B4 /* ChurchsProtocols.swift in Sources */,
+				EEBE160F2645B037005E7B7B /* MassesListEntity.swift in Sources */,
+				8A31F92425EF54AE00B52526 /* Array+Utils.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin XCBuildConfiguration section */
+		98C46A6425EF125D00DE543B /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = NO;
+				CURRENT_PROJECT_VERSION = 1;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 14.3;
+				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
+				MTL_FAST_MATH = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = iphoneos;
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = DEBUG;
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+				VERSIONING_SYSTEM = "apple-generic";
+				VERSION_INFO_PREFIX = "";
+			};
+			name = Debug;
+		};
+		98C46A6525EF125D00DE543B /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = NO;
+				CURRENT_PROJECT_VERSION = 1;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 14.3;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				MTL_FAST_MATH = YES;
+				SDKROOT = iphoneos;
+				SWIFT_COMPILATION_MODE = wholemodule;
+				SWIFT_OPTIMIZATION_LEVEL = "-O";
+				VALIDATE_PRODUCT = YES;
+				VERSIONING_SYSTEM = "apple-generic";
+				VERSION_INFO_PREFIX = "";
+			};
+			name = Release;
+		};
+		98C46A6725EF125D00DE543B /* Debug */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 75084FABDE904F053629F677 /* Pods-EncuentroCatolicoMyChurch.debug.xcconfig */;
+			buildSettings = {
+				CLANG_ENABLE_MODULES = YES;
+				CODE_SIGN_STYLE = Manual;
+				DEFINES_MODULE = YES;
+				DEVELOPMENT_TEAM = "";
+				DYLIB_COMPATIBILITY_VERSION = 1;
+				DYLIB_CURRENT_VERSION = 1;
+				DYLIB_INSTALL_NAME_BASE = "@rpath";
+				INFOPLIST_FILE = EncuentroCatolicoMyChurch/Info.plist;
+				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
+				IPHONEOS_DEPLOYMENT_TARGET = 12.0;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = mx.arquidiocesis.EncuentroCatolicoMyChurch;
+				PRODUCT_NAME = "$(TARGET_NAME:c99extidentifier)";
+				PROVISIONING_PROFILE_SPECIFIER = "";
+				SKIP_INSTALL = YES;
+				SUPPORTS_MACCATALYST = NO;
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Debug;
+		};
+		98C46A6825EF125D00DE543B /* Release */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 187BEAA320FC647104FBF21F /* Pods-EncuentroCatolicoMyChurch.release.xcconfig */;
+			buildSettings = {
+				CLANG_ENABLE_MODULES = YES;
+				CODE_SIGN_STYLE = Manual;
+				DEFINES_MODULE = YES;
+				DEVELOPMENT_TEAM = "";
+				DYLIB_COMPATIBILITY_VERSION = 1;
+				DYLIB_CURRENT_VERSION = 1;
+				DYLIB_INSTALL_NAME_BASE = "@rpath";
+				INFOPLIST_FILE = EncuentroCatolicoMyChurch/Info.plist;
+				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
+				IPHONEOS_DEPLOYMENT_TARGET = 12.0;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = mx.arquidiocesis.EncuentroCatolicoMyChurch;
+				PRODUCT_NAME = "$(TARGET_NAME:c99extidentifier)";
+				PROVISIONING_PROFILE_SPECIFIER = "";
+				SKIP_INSTALL = YES;
+				SUPPORTS_MACCATALYST = NO;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		98C46A5825EF125D00DE543B /* Build configuration list for PBXProject "EncuentroCatolicoMyChurch" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				98C46A6425EF125D00DE543B /* Debug */,
+				98C46A6525EF125D00DE543B /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		98C46A6625EF125D00DE543B /* Build configuration list for PBXNativeTarget "EncuentroCatolicoMyChurch" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				98C46A6725EF125D00DE543B /* Debug */,
+				98C46A6825EF125D00DE543B /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = 98C46A5525EF125D00DE543B /* Project object */;
+}

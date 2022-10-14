@@ -1,0 +1,112 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="18122" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+    <device id="retina4_7" orientation="portrait" appearance="light"/>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="18093"/>
+        <capability name="Named colors" minToolsVersion="9.0"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="System colors in document resources" minToolsVersion="11.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <scenes>
+        <!--My Communities View Controller-->
+        <scene sceneID="s0d-6b-0kx">
+            <objects>
+                <viewController id="Y6W-OH-hqX" customClass="MyCommunitiesViewController" customModule="EncuentroCatolicoChurch" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="5EZ-qb-Rvc">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="bZc-Uy-eVh">
+                                <rect key="frame" x="0.0" y="0.0" width="375" height="108"/>
+                                <subviews>
+                                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="back" translatesAutoresizingMaskIntoConstraints="NO" id="bRM-DB-jcS">
+                                        <rect key="frame" x="22" y="66.5" width="11.5" height="22"/>
+                                        <constraints>
+                                            <constraint firstAttribute="width" constant="11.5" id="qhA-cs-3qL"/>
+                                        </constraints>
+                                    </imageView>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="fNL-hO-8r2">
+                                        <rect key="frame" x="0.0" y="46.5" width="53.5" height="62"/>
+                                    </button>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Mis Comunidades" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="RHT-FV-SAL">
+                                        <rect key="frame" x="61" y="65" width="289" height="23"/>
+                                        <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="18"/>
+                                        <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                </subviews>
+                                <color key="backgroundColor" red="0.074509803920000006" green="0.1529411765" blue="0.48627450979999998" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                                <constraints>
+                                    <constraint firstItem="fNL-hO-8r2" firstAttribute="centerY" secondItem="bRM-DB-jcS" secondAttribute="centerY" id="59b-A6-FW9"/>
+                                    <constraint firstAttribute="bottom" secondItem="RHT-FV-SAL" secondAttribute="bottom" constant="20" id="CAF-Ef-tmD"/>
+                                    <constraint firstItem="fNL-hO-8r2" firstAttribute="leading" secondItem="bZc-Uy-eVh" secondAttribute="leading" id="PYW-nJ-cwg"/>
+                                    <constraint firstItem="bRM-DB-jcS" firstAttribute="leading" secondItem="bZc-Uy-eVh" secondAttribute="leading" constant="22" id="UIV-AU-TNH"/>
+                                    <constraint firstAttribute="trailing" secondItem="RHT-FV-SAL" secondAttribute="trailing" constant="25" id="gH8-2l-IGh"/>
+                                    <constraint firstItem="bRM-DB-jcS" firstAttribute="top" secondItem="bZc-Uy-eVh" secondAttribute="top" constant="66.5" id="hrO-nI-i7V"/>
+                                    <constraint firstItem="RHT-FV-SAL" firstAttribute="top" secondItem="bZc-Uy-eVh" secondAttribute="top" constant="65" id="jxu-Ma-vKp"/>
+                                    <constraint firstItem="RHT-FV-SAL" firstAttribute="leading" secondItem="bRM-DB-jcS" secondAttribute="trailing" constant="27.5" id="oEm-Ef-vkr"/>
+                                    <constraint firstItem="fNL-hO-8r2" firstAttribute="top" secondItem="bZc-Uy-eVh" secondAttribute="top" constant="46.5" id="q3Z-Ed-Roc"/>
+                                    <constraint firstAttribute="bottom" secondItem="bRM-DB-jcS" secondAttribute="bottom" constant="19.5" id="tLE-NU-dFD"/>
+                                    <constraint firstItem="RHT-FV-SAL" firstAttribute="leading" secondItem="fNL-hO-8r2" secondAttribute="trailing" constant="7.5" id="xXY-7q-vGA"/>
+                                </constraints>
+                            </view>
+                            <searchBar contentMode="redraw" translatesAutoresizingMaskIntoConstraints="NO" id="G9n-60-tg9">
+                                <rect key="frame" x="16" y="120" width="343" height="44"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="44" id="FH9-xj-5L8"/>
+                                </constraints>
+                                <textInputTraits key="textInputTraits"/>
+                            </searchBar>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Mis Comunidades" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="YvZ-Qn-09b">
+                                <rect key="frame" x="16" y="206" width="343" height="21"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="21" id="OYc-0r-mmU"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="system" pointSize="20"/>
+                                <color key="textColor" name="eMainBlue"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="vSQ-qc-iL2">
+                                <rect key="frame" x="16" y="249" width="343" height="324"/>
+                                <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="324" id="3Rc-iK-oYC"/>
+                                </constraints>
+                            </tableView>
+                        </subviews>
+                        <viewLayoutGuide key="safeArea" id="vDu-zF-Fre"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <constraints>
+                            <constraint firstItem="G9n-60-tg9" firstAttribute="top" secondItem="bZc-Uy-eVh" secondAttribute="bottom" constant="12" id="2GH-h0-nI0"/>
+                            <constraint firstItem="vSQ-qc-iL2" firstAttribute="top" secondItem="YvZ-Qn-09b" secondAttribute="bottom" constant="22" id="5fi-m1-pT1"/>
+                            <constraint firstItem="G9n-60-tg9" firstAttribute="trailing" secondItem="5EZ-qb-Rvc" secondAttribute="trailingMargin" id="8m3-qC-gwg"/>
+                            <constraint firstItem="vDu-zF-Fre" firstAttribute="bottom" secondItem="vSQ-qc-iL2" secondAttribute="bottom" constant="94" id="BwJ-mX-Dqa"/>
+                            <constraint firstItem="G9n-60-tg9" firstAttribute="trailing" secondItem="YvZ-Qn-09b" secondAttribute="trailing" id="DHc-a6-YgM"/>
+                            <constraint firstItem="bZc-Uy-eVh" firstAttribute="top" secondItem="vDu-zF-Fre" secondAttribute="top" id="ILq-MA-KUG"/>
+                            <constraint firstItem="G9n-60-tg9" firstAttribute="leading" secondItem="YvZ-Qn-09b" secondAttribute="leading" id="YrW-CM-MIC"/>
+                            <constraint firstItem="YvZ-Qn-09b" firstAttribute="trailing" secondItem="vSQ-qc-iL2" secondAttribute="trailing" id="dm1-ns-Y1r"/>
+                            <constraint firstItem="bZc-Uy-eVh" firstAttribute="centerX" secondItem="G9n-60-tg9" secondAttribute="centerX" id="hwN-OV-JC4"/>
+                            <constraint firstItem="G9n-60-tg9" firstAttribute="leading" secondItem="5EZ-qb-Rvc" secondAttribute="leadingMargin" id="jnl-vl-VKc"/>
+                            <constraint firstItem="YvZ-Qn-09b" firstAttribute="top" secondItem="G9n-60-tg9" secondAttribute="bottom" constant="42" id="nwT-c6-Roz"/>
+                            <constraint firstItem="bZc-Uy-eVh" firstAttribute="leading" secondItem="vDu-zF-Fre" secondAttribute="leading" id="ptD-J7-a5E"/>
+                            <constraint firstItem="YvZ-Qn-09b" firstAttribute="leading" secondItem="vSQ-qc-iL2" secondAttribute="leading" id="xTm-KB-Of8"/>
+                        </constraints>
+                    </view>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="Ief-a0-LHa" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="112.8" y="76.911544227886068"/>
+        </scene>
+    </scenes>
+    <resources>
+        <image name="back" width="125" height="202"/>
+        <namedColor name="eMainBlue">
+            <color red="0.0039215686274509803" green="0.12549019607843137" blue="0.40784313725490196" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </namedColor>
+        <systemColor name="systemBackgroundColor">
+            <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+        </systemColor>
+    </resources>
+</document>

@@ -1,0 +1,102 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="18122" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+    <device id="retina6_1" orientation="portrait" appearance="light"/>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="18093"/>
+        <capability name="Named colors" minToolsVersion="9.0"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="System colors in document resources" minToolsVersion="11.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="CELLDIACANO" id="gTV-IL-0wX" customClass="ChurhesCardCellDiacono" customModule="EncuentroCatolicoProfile" customModuleProvider="target">
+            <rect key="frame" x="0.0" y="0.0" width="366" height="133"/>
+            <autoresizingMask key="autoresizingMask"/>
+            <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center">
+                <rect key="frame" x="0.0" y="0.0" width="366" height="133"/>
+                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                <subviews>
+                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Lrr-ry-pvX">
+                        <rect key="frame" x="20" y="22" width="326" height="89"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                    </view>
+                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="ydc-2Z-aTY">
+                        <rect key="frame" x="20" y="22" width="326" height="89"/>
+                        <subviews>
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="Captura de Pantalla 2021-05-31 a la(s) 9.42.26" translatesAutoresizingMaskIntoConstraints="NO" id="AdI-us-gmr">
+                                <rect key="frame" x="0.0" y="0.0" width="97" height="89"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="89" id="JU9-pB-tIf"/>
+                                    <constraint firstAttribute="width" constant="97" id="xp4-hK-l3c"/>
+                                </constraints>
+                            </imageView>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="3" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="dAQ-Bt-dUG">
+                                <rect key="frame" x="105" y="44.5" width="174" height="0.0"/>
+                                <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="17"/>
+                                <color key="textColor" name="eMainBlue"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="rOM-SX-YbB">
+                                <rect key="frame" x="300" y="5" width="21" height="22"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="22" id="iCa-c6-X6F"/>
+                                    <constraint firstAttribute="width" constant="21" id="xtN-YJ-U9O"/>
+                                </constraints>
+                                <color key="tintColor" systemColor="systemRedColor"/>
+                                <state key="normal" image="xmark" catalog="system">
+                                    <preferredSymbolConfiguration key="preferredSymbolConfiguration" scale="large"/>
+                                </state>
+                            </button>
+                        </subviews>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <constraints>
+                            <constraint firstItem="AdI-us-gmr" firstAttribute="top" secondItem="ydc-2Z-aTY" secondAttribute="top" id="6YG-3D-AaW"/>
+                            <constraint firstAttribute="trailing" secondItem="dAQ-Bt-dUG" secondAttribute="trailing" constant="47" id="9zj-p4-Yqi"/>
+                            <constraint firstAttribute="trailing" secondItem="rOM-SX-YbB" secondAttribute="trailing" constant="5" id="FXz-93-CmU"/>
+                            <constraint firstItem="rOM-SX-YbB" firstAttribute="top" secondItem="ydc-2Z-aTY" secondAttribute="top" constant="5" id="OGY-Df-h1p"/>
+                            <constraint firstItem="dAQ-Bt-dUG" firstAttribute="leading" secondItem="AdI-us-gmr" secondAttribute="trailing" constant="8" id="UYR-aa-OhN"/>
+                            <constraint firstItem="AdI-us-gmr" firstAttribute="leading" secondItem="ydc-2Z-aTY" secondAttribute="leading" id="ldB-82-HVL"/>
+                            <constraint firstItem="dAQ-Bt-dUG" firstAttribute="centerY" secondItem="ydc-2Z-aTY" secondAttribute="centerY" id="oMi-uj-GZD"/>
+                        </constraints>
+                    </view>
+                </subviews>
+            </view>
+            <viewLayoutGuide key="safeArea" id="ZTg-uK-7eu"/>
+            <constraints>
+                <constraint firstAttribute="trailing" secondItem="ydc-2Z-aTY" secondAttribute="trailing" constant="20" id="0TD-fZ-cJr"/>
+                <constraint firstAttribute="bottom" secondItem="Lrr-ry-pvX" secondAttribute="bottom" constant="22" id="5ze-NI-Kxo"/>
+                <constraint firstItem="Lrr-ry-pvX" firstAttribute="leading" secondItem="gTV-IL-0wX" secondAttribute="leading" constant="20" id="7jt-Hq-bt5"/>
+                <constraint firstAttribute="bottom" secondItem="ydc-2Z-aTY" secondAttribute="bottom" constant="22" id="HzP-Yl-Kna"/>
+                <constraint firstAttribute="trailing" secondItem="Lrr-ry-pvX" secondAttribute="trailing" constant="20" id="WiS-Ow-nOv"/>
+                <constraint firstItem="ydc-2Z-aTY" firstAttribute="top" secondItem="gTV-IL-0wX" secondAttribute="top" constant="22" id="Y54-Fu-Rxa"/>
+                <constraint firstItem="Lrr-ry-pvX" firstAttribute="top" secondItem="gTV-IL-0wX" secondAttribute="top" constant="22" id="gpH-GW-bTs"/>
+                <constraint firstItem="ydc-2Z-aTY" firstAttribute="leading" secondItem="gTV-IL-0wX" secondAttribute="leading" constant="20" id="w6O-38-3wj"/>
+            </constraints>
+            <size key="customSize" width="366" height="133"/>
+            <connections>
+                <outlet property="btnDeleteChurch" destination="rOM-SX-YbB" id="mZd-4M-7g1"/>
+                <outlet property="cardView" destination="ydc-2Z-aTY" id="1Qi-5t-ydG"/>
+                <outlet property="churchImg" destination="AdI-us-gmr" id="x8X-SU-ETq"/>
+                <outlet property="lblNameChurch" destination="dAQ-Bt-dUG" id="X11-cz-lip"/>
+                <outlet property="subCardView" destination="Lrr-ry-pvX" id="wqC-vo-lSa"/>
+            </connections>
+            <point key="canvasLocation" x="66.666666666666671" y="32.477678571428569"/>
+        </collectionViewCell>
+    </objects>
+    <resources>
+        <image name="Captura de Pantalla 2021-05-31 a la(s) 9.42.26" width="56" height="56"/>
+        <image name="xmark" catalog="system" width="128" height="113"/>
+        <namedColor name="eMainBlue">
+            <color red="0.0039215686274509803" green="0.12549019607843137" blue="0.40784313725490196" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </namedColor>
+        <systemColor name="systemBackgroundColor">
+            <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+        </systemColor>
+        <systemColor name="systemRedColor">
+            <color red="1" green="0.23137254901960785" blue="0.18823529411764706" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </systemColor>
+    </resources>
+</document>

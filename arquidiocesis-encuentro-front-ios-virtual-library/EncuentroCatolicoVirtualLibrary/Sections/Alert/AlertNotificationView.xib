@@ -1,0 +1,175 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="17701" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+    <device id="retina4_7" orientation="portrait" appearance="light"/>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="17703"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="System colors in document resources" minToolsVersion="11.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <customFonts key="customFonts">
+        <array key="Roboto-Bold.ttf">
+            <string>Roboto-Bold</string>
+        </array>
+        <array key="Roboto-Medium.ttf">
+            <string>Roboto-Medium</string>
+        </array>
+        <array key="Roboto-Regular.ttf">
+            <string>Roboto-Regular</string>
+        </array>
+    </customFonts>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <view contentMode="scaleToFill" restorationIdentifier="AlertNotificacionVIew" id="iN0-l3-epB" customClass="AlertNotificacionVIew" customModule="EncuentroCatolicoVirtualLibrary" customModuleProvider="target">
+            <rect key="frame" x="0.0" y="0.0" width="325" height="211"/>
+            <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+            <subviews>
+                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="qUa-dg-Myb">
+                    <rect key="frame" x="0.0" y="0.0" width="325" height="211"/>
+                    <subviews>
+                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="S.O.S" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="FOg-It-2pH">
+                            <rect key="frame" x="138" y="37" width="49" height="23.5"/>
+                            <fontDescription key="fontDescription" name="Roboto-Bold" family="Roboto" pointSize="20"/>
+                            <color key="textColor" red="0.098039215686274508" green="0.16470588235294117" blue="0.45098039215686275" alpha="1" colorSpace="calibratedRGB"/>
+                            <nil key="highlightedColor"/>
+                        </label>
+                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Tienes un solicitud" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="4" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="I9x-IV-R6b">
+                            <rect key="frame" x="87.5" y="70.5" width="150.5" height="21.5"/>
+                            <fontDescription key="fontDescription" name="Roboto-Regular" family="Roboto" pointSize="18"/>
+                            <color key="textColor" red="0.19215686274509802" green="0.19215686274509802" blue="0.19215686274509802" alpha="1" colorSpace="calibratedRGB"/>
+                            <nil key="highlightedColor"/>
+                        </label>
+                        <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" alignment="center" spacing="8" translatesAutoresizingMaskIntoConstraints="NO" id="1J5-tn-eEi">
+                            <rect key="frame" x="82.5" y="97" width="160" height="48"/>
+                            <subviews>
+                                <label hidden="YES" opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="UNCIÓN DE LOS ENFERMOS" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="M4l-jv-IGZ">
+                                    <rect key="frame" x="-34" y="0.0" width="228.5" height="0.0"/>
+                                    <fontDescription key="fontDescription" name="Roboto-Bold" family="Roboto" pointSize="18"/>
+                                    <color key="textColor" red="0.098039215690000001" green="0.1647058824" blue="0.45098039220000002" alpha="1" colorSpace="calibratedRGB"/>
+                                    <nil key="highlightedColor"/>
+                                </label>
+                                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="NfC-xz-iLY">
+                                    <rect key="frame" x="0.0" y="0.0" width="160" height="48"/>
+                                    <color key="backgroundColor" red="0.098039215690000001" green="0.1647058824" blue="0.45098039220000002" alpha="1" colorSpace="calibratedRGB"/>
+                                    <constraints>
+                                        <constraint firstAttribute="height" constant="48" id="eT5-xa-eHB"/>
+                                        <constraint firstAttribute="width" constant="160" id="uF9-xp-H0k"/>
+                                    </constraints>
+                                    <fontDescription key="fontDescription" name="Roboto-Medium" family="Roboto" pointSize="17"/>
+                                    <state key="normal" title="Aceptar">
+                                        <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                    </state>
+                                    <userDefinedRuntimeAttributes>
+                                        <userDefinedRuntimeAttribute type="number" keyPath="radius">
+                                            <real key="value" value="10"/>
+                                        </userDefinedRuntimeAttribute>
+                                    </userDefinedRuntimeAttributes>
+                                    <connections>
+                                        <action selector="aceptServiceButtonAction:" destination="iN0-l3-epB" eventType="touchUpInside" id="cEh-am-eSV"/>
+                                    </connections>
+                                </button>
+                            </subviews>
+                        </stackView>
+                        <stackView hidden="YES" opaque="NO" contentMode="scaleToFill" spacing="2" translatesAutoresizingMaskIntoConstraints="NO" id="85Z-HH-vX3">
+                            <rect key="frame" x="-1.5" y="188.5" width="328" height="48"/>
+                            <subviews>
+                                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="owT-ji-Wtg">
+                                    <rect key="frame" x="0.0" y="0.0" width="163" height="48"/>
+                                    <color key="backgroundColor" red="0.098039215690000001" green="0.1647058824" blue="0.45098039220000002" alpha="1" colorSpace="calibratedRGB"/>
+                                    <constraints>
+                                        <constraint firstAttribute="width" constant="163" id="MV0-3t-mCO"/>
+                                        <constraint firstAttribute="height" constant="48" id="Tuc-GE-aor"/>
+                                    </constraints>
+                                    <state key="normal" title="RECHAZAR">
+                                        <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                    </state>
+                                    <userDefinedRuntimeAttributes>
+                                        <userDefinedRuntimeAttribute type="number" keyPath="radius">
+                                            <real key="value" value="10"/>
+                                        </userDefinedRuntimeAttribute>
+                                    </userDefinedRuntimeAttributes>
+                                    <connections>
+                                        <action selector="refuseButtonAction:" destination="iN0-l3-epB" eventType="touchUpInside" id="CRa-ee-FRY"/>
+                                    </connections>
+                                </button>
+                                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="lKg-Ze-LBj">
+                                    <rect key="frame" x="165" y="0.0" width="163" height="48"/>
+                                    <color key="backgroundColor" red="0.098039215690000001" green="0.1647058824" blue="0.45098039220000002" alpha="1" colorSpace="calibratedRGB"/>
+                                    <constraints>
+                                        <constraint firstAttribute="height" constant="48" id="bvO-ED-ekh"/>
+                                        <constraint firstAttribute="width" constant="163" id="uzt-rk-zpe"/>
+                                    </constraints>
+                                    <state key="normal" title="AGENDAR">
+                                        <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                    </state>
+                                    <userDefinedRuntimeAttributes>
+                                        <userDefinedRuntimeAttribute type="number" keyPath="radius">
+                                            <real key="value" value="10"/>
+                                        </userDefinedRuntimeAttribute>
+                                    </userDefinedRuntimeAttributes>
+                                    <connections>
+                                        <action selector="scheduleButtonAction:" destination="iN0-l3-epB" eventType="touchUpInside" id="A5x-1C-hjP"/>
+                                    </connections>
+                                </button>
+                            </subviews>
+                        </stackView>
+                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Wnj-iw-Nrc">
+                            <rect key="frame" x="275" y="8" width="42" height="42"/>
+                            <state key="normal" image="closed"/>
+                            <connections>
+                                <action selector="closeButtonAction:" destination="iN0-l3-epB" eventType="touchUpInside" id="9tx-FM-Nzx"/>
+                            </connections>
+                        </button>
+                    </subviews>
+                    <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                    <constraints>
+                        <constraint firstAttribute="height" constant="211" id="8l3-3E-6Ay"/>
+                        <constraint firstItem="FOg-It-2pH" firstAttribute="top" secondItem="qUa-dg-Myb" secondAttribute="top" constant="37" id="BbZ-pc-yPu"/>
+                        <constraint firstItem="FOg-It-2pH" firstAttribute="centerX" secondItem="qUa-dg-Myb" secondAttribute="centerX" id="LLr-G4-ZDR"/>
+                        <constraint firstItem="1J5-tn-eEi" firstAttribute="top" secondItem="I9x-IV-R6b" secondAttribute="bottom" constant="5" id="QMc-d9-8zW"/>
+                        <constraint firstItem="I9x-IV-R6b" firstAttribute="top" secondItem="FOg-It-2pH" secondAttribute="bottom" constant="10" id="XLz-K3-It2"/>
+                        <constraint firstItem="Wnj-iw-Nrc" firstAttribute="top" secondItem="qUa-dg-Myb" secondAttribute="top" constant="8" id="YrY-94-eAq"/>
+                        <constraint firstItem="I9x-IV-R6b" firstAttribute="centerX" secondItem="qUa-dg-Myb" secondAttribute="centerX" id="jth-i8-pBl"/>
+                        <constraint firstItem="1J5-tn-eEi" firstAttribute="centerX" secondItem="qUa-dg-Myb" secondAttribute="centerX" id="n4B-88-7JY"/>
+                        <constraint firstItem="85Z-HH-vX3" firstAttribute="top" secondItem="1J5-tn-eEi" secondAttribute="bottom" constant="43.5" id="o5h-6e-UAw"/>
+                        <constraint firstAttribute="width" constant="325" id="q5e-qr-nVD"/>
+                        <constraint firstItem="85Z-HH-vX3" firstAttribute="centerX" secondItem="qUa-dg-Myb" secondAttribute="centerX" id="w6Q-Tn-epM"/>
+                        <constraint firstAttribute="trailing" secondItem="Wnj-iw-Nrc" secondAttribute="trailing" constant="8" id="ymr-M2-3mn"/>
+                    </constraints>
+                    <userDefinedRuntimeAttributes>
+                        <userDefinedRuntimeAttribute type="number" keyPath="radius">
+                            <real key="value" value="10"/>
+                        </userDefinedRuntimeAttribute>
+                    </userDefinedRuntimeAttributes>
+                </view>
+            </subviews>
+            <viewLayoutGuide key="safeArea" id="vUN-kp-3ea"/>
+            <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+            <constraints>
+                <constraint firstItem="qUa-dg-Myb" firstAttribute="bottom" secondItem="vUN-kp-3ea" secondAttribute="bottom" id="632-Os-9gO"/>
+                <constraint firstItem="qUa-dg-Myb" firstAttribute="top" secondItem="vUN-kp-3ea" secondAttribute="top" id="Nug-iT-BmT"/>
+                <constraint firstItem="qUa-dg-Myb" firstAttribute="trailing" secondItem="vUN-kp-3ea" secondAttribute="trailing" id="atR-q6-tMe"/>
+                <constraint firstItem="qUa-dg-Myb" firstAttribute="leading" secondItem="vUN-kp-3ea" secondAttribute="leading" id="i2U-fM-JAP"/>
+            </constraints>
+            <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
+            <connections>
+                <outlet property="aceptServiceButtonOutlet" destination="NfC-xz-iLY" id="667-YZ-XlJ"/>
+                <outlet property="closeButtonOutlet" destination="Wnj-iw-Nrc" id="SEg-oN-z5v"/>
+                <outlet property="stackViewButtonSOSOutlet" destination="85Z-HH-vX3" id="CaO-8J-PKR"/>
+                <outlet property="textBlueMain" destination="FOg-It-2pH" id="lXU-ZL-SdM"/>
+                <outlet property="textContentSOS" destination="M4l-jv-IGZ" id="9IG-s0-N3r"/>
+                <outlet property="textGrayMain" destination="I9x-IV-R6b" id="90Y-nc-JEm"/>
+                <outlet property="viewMain" destination="qUa-dg-Myb" id="BPL-ng-G7l"/>
+            </connections>
+            <point key="canvasLocation" x="-21.600000000000001" y="-137.18140929535232"/>
+        </view>
+    </objects>
+    <resources>
+        <image name="closed" width="42" height="42"/>
+        <systemColor name="systemBackgroundColor">
+            <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+        </systemColor>
+    </resources>
+</document>

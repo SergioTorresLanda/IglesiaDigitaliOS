@@ -1,0 +1,312 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="17701" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+    <device id="retina6_1" orientation="portrait" appearance="light"/>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="17703"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <customFonts key="customFonts">
+        <array key="Roboto-Regular.ttf">
+            <string>Roboto-Regular</string>
+        </array>
+    </customFonts>
+    <scenes>
+        <!--Alert Single View Controller-->
+        <scene sceneID="7Vp-UZ-39E">
+            <objects>
+                <viewController storyboardIdentifier="AlertSingleViewController" useStoryboardIdentifierAsRestorationIdentifier="YES" id="Yd2-xp-bCR" customClass="AlertSingleViewController" customModule="EncuentroCatolicoVirtualLibrary" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="45D-iC-tVt">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <view clipsSubviews="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="NTv-QC-cra">
+                                <rect key="frame" x="44.5" y="347.5" width="325" height="211"/>
+                                <subviews>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsLetterSpacingToFitWidth="YES" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ZQq-j4-UM6">
+                                        <rect key="frame" x="10" y="39.5" width="305" height="48"/>
+                                        <string key="text">Unción 
+de los enfermos </string>
+                                        <fontDescription key="fontDescription" type="boldSystem" pointSize="20"/>
+                                        <color key="textColor" red="0.098039215690000001" green="0.1647058824" blue="0.45098039220000002" alpha="1" colorSpace="calibratedRGB"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="tdQ-lZ-4n5">
+                                        <rect key="frame" x="273" y="2" width="42" height="42"/>
+                                        <state key="normal" image="closed"/>
+                                        <connections>
+                                            <action selector="closeAlert:" destination="Yd2-xp-bCR" eventType="touchUpInside" id="hNv-Cs-lQ2"/>
+                                        </connections>
+                                    </button>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" verticalCompressionResistancePriority="749" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="4" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="b3R-C1-B3a">
+                                        <rect key="frame" x="10" y="98.5" width="305" height="84.5"/>
+                                        <string key="text">“Sacramento que da la Iglesia para atraer la salud de alma, espíritu y cuerpo al cristiano en estado de enfermedad grave o vejez”</string>
+                                        <fontDescription key="fontDescription" name="Roboto-Regular" family="Roboto" pointSize="18"/>
+                                        <color key="textColor" red="0.19215686269999999" green="0.19215686269999999" blue="0.19215686269999999" alpha="1" colorSpace="calibratedRGB"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="Icono_encuentro" translatesAutoresizingMaskIntoConstraints="NO" id="X71-aj-YYe">
+                                        <rect key="frame" x="8" y="11" width="23" height="30"/>
+                                    </imageView>
+                                </subviews>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <constraints>
+                                    <constraint firstItem="b3R-C1-B3a" firstAttribute="leading" secondItem="NTv-QC-cra" secondAttribute="leading" constant="10" id="0Z0-4Y-dno"/>
+                                    <constraint firstAttribute="trailing" secondItem="ZQq-j4-UM6" secondAttribute="trailing" constant="10" id="AMG-QB-Ajl"/>
+                                    <constraint firstAttribute="trailing" secondItem="b3R-C1-B3a" secondAttribute="trailing" constant="10" id="DGH-bP-0tk"/>
+                                    <constraint firstItem="ZQq-j4-UM6" firstAttribute="leading" secondItem="NTv-QC-cra" secondAttribute="leading" constant="10" id="JDX-xJ-DSc"/>
+                                    <constraint firstAttribute="trailing" secondItem="tdQ-lZ-4n5" secondAttribute="trailing" constant="10" id="RLN-30-lNU"/>
+                                    <constraint firstItem="b3R-C1-B3a" firstAttribute="top" secondItem="ZQq-j4-UM6" secondAttribute="bottom" constant="11" id="RrT-Kb-Ddo"/>
+                                    <constraint firstItem="X71-aj-YYe" firstAttribute="leading" secondItem="NTv-QC-cra" secondAttribute="leading" constant="8" id="Vlc-50-3Al"/>
+                                    <constraint firstItem="X71-aj-YYe" firstAttribute="top" secondItem="NTv-QC-cra" secondAttribute="top" constant="11" id="Y58-8h-RdY"/>
+                                    <constraint firstItem="ZQq-j4-UM6" firstAttribute="top" secondItem="NTv-QC-cra" secondAttribute="top" constant="39.5" id="cU0-l8-60N"/>
+                                    <constraint firstAttribute="width" constant="325" id="eQB-Pm-MTW"/>
+                                    <constraint firstAttribute="bottom" secondItem="b3R-C1-B3a" secondAttribute="bottom" constant="28" id="fIc-Av-Z1e"/>
+                                    <constraint firstItem="tdQ-lZ-4n5" firstAttribute="top" secondItem="NTv-QC-cra" secondAttribute="top" constant="2" id="iLe-6N-NV1"/>
+                                    <constraint firstAttribute="height" constant="211" id="tew-Dd-RMX"/>
+                                </constraints>
+                                <userDefinedRuntimeAttributes>
+                                    <userDefinedRuntimeAttribute type="number" keyPath="radio">
+                                        <real key="value" value="10"/>
+                                    </userDefinedRuntimeAttribute>
+                                </userDefinedRuntimeAttributes>
+                            </view>
+                        </subviews>
+                        <viewLayoutGuide key="safeArea" id="XzA-wB-EpM"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <constraints>
+                            <constraint firstItem="NTv-QC-cra" firstAttribute="centerY" secondItem="XzA-wB-EpM" secondAttribute="centerY" id="DdM-VS-lS6"/>
+                            <constraint firstItem="NTv-QC-cra" firstAttribute="centerX" secondItem="XzA-wB-EpM" secondAttribute="centerX" id="cbC-pI-6Dr"/>
+                        </constraints>
+                    </view>
+                    <connections>
+                        <outlet property="textContentLabel" destination="b3R-C1-B3a" id="H8h-gI-OAb"/>
+                        <outlet property="textTitleLabel" destination="ZQq-j4-UM6" id="ogo-ex-DR1"/>
+                        <outlet property="viewMain" destination="NTv-QC-cra" id="bDK-ts-dYy"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="mdE-Cy-G31" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="124.6376811594203" y="-333.48214285714283"/>
+        </scene>
+        <!--Alert One Button View Controller-->
+        <scene sceneID="eeu-Th-vK3">
+            <objects>
+                <viewController storyboardIdentifier="AlertOneButtonViewController" useStoryboardIdentifierAsRestorationIdentifier="YES" id="h5V-JN-PCS" customClass="AlertOneButtonViewController" customModule="EncuentroCatolicoVirtualLibrary" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="EcA-Ao-zwW">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <view clipsSubviews="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="NeE-wU-G5Q">
+                                <rect key="frame" x="44.5" y="347.5" width="325" height="211"/>
+                                <subviews>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="CONCLUIR SERVICIO" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumScaleFactor="0.5" adjustsFontForContentSizeCategory="YES" translatesAutoresizingMaskIntoConstraints="NO" id="fr7-li-ggF">
+                                        <rect key="frame" x="50" y="10" width="225" height="24"/>
+                                        <fontDescription key="fontDescription" name="HelveticaNeue-Bold" family="Helvetica Neue" pointSize="20"/>
+                                        <color key="textColor" red="0.074509803920000006" green="0.1529411765" blue="0.48627450979999998" alpha="1" colorSpace="calibratedRGB"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalCompressionResistancePriority="749" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="7" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Pc7-v7-vUz">
+                                        <rect key="frame" x="10" y="42" width="305" height="103"/>
+                                        <string key="text">El servicio será concluido 
+y se notificará al fiel</string>
+                                        <fontDescription key="fontDescription" name="Roboto-Regular" family="Roboto" pointSize="16"/>
+                                        <color key="textColor" red="0.19215686269999999" green="0.19215686269999999" blue="0.19215686269999999" alpha="1" colorSpace="calibratedRGB"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="LFq-1J-1c2">
+                                        <rect key="frame" x="83" y="153" width="160" height="48"/>
+                                        <color key="backgroundColor" red="0.074509803920000006" green="0.1529411765" blue="0.48627450979999998" alpha="1" colorSpace="calibratedRGB"/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="48" id="CyV-tD-K5w"/>
+                                        </constraints>
+                                        <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="17"/>
+                                        <state key="normal" title="Aceptar">
+                                            <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                        </state>
+                                        <connections>
+                                            <action selector="acceptButtonAction:" destination="h5V-JN-PCS" eventType="touchUpInside" id="cYZ-qY-geD"/>
+                                        </connections>
+                                    </button>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="eZS-4t-2VY">
+                                        <rect key="frame" x="285" y="5" width="40" height="40"/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="40" id="Ogh-ea-wES"/>
+                                            <constraint firstAttribute="width" constant="40" id="pnM-xS-Vn1"/>
+                                        </constraints>
+                                        <state key="normal" image="closed"/>
+                                        <connections>
+                                            <action selector="closeAlert:" destination="Yd2-xp-bCR" eventType="touchUpInside" id="iUa-5y-Rem"/>
+                                            <action selector="closeButtonAction:" destination="h5V-JN-PCS" eventType="touchUpInside" id="4vL-M8-nQM"/>
+                                        </connections>
+                                    </button>
+                                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="Icono_encuentro" translatesAutoresizingMaskIntoConstraints="NO" id="yMP-OI-3ij">
+                                        <rect key="frame" x="8" y="11" width="23" height="30"/>
+                                    </imageView>
+                                </subviews>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <constraints>
+                                    <constraint firstItem="fr7-li-ggF" firstAttribute="top" secondItem="NeE-wU-G5Q" secondAttribute="top" constant="10" id="0C2-dD-zWI"/>
+                                    <constraint firstItem="Pc7-v7-vUz" firstAttribute="top" secondItem="fr7-li-ggF" secondAttribute="bottom" constant="8" id="58w-fc-dJg"/>
+                                    <constraint firstAttribute="trailing" secondItem="Pc7-v7-vUz" secondAttribute="trailing" constant="10" id="73u-Am-qTy"/>
+                                    <constraint firstAttribute="height" constant="211" id="AUt-up-jBT"/>
+                                    <constraint firstAttribute="trailing" secondItem="LFq-1J-1c2" secondAttribute="trailing" constant="82" id="DTd-Us-fES"/>
+                                    <constraint firstItem="eZS-4t-2VY" firstAttribute="centerY" secondItem="fr7-li-ggF" secondAttribute="centerY" constant="3" id="EhX-E8-j4E"/>
+                                    <constraint firstAttribute="trailing" secondItem="eZS-4t-2VY" secondAttribute="trailing" id="Hyc-8Y-vyQ"/>
+                                    <constraint firstAttribute="width" constant="325" id="NTp-zg-euW"/>
+                                    <constraint firstAttribute="bottom" secondItem="LFq-1J-1c2" secondAttribute="bottom" constant="10" id="QtE-5k-MrA"/>
+                                    <constraint firstItem="LFq-1J-1c2" firstAttribute="top" secondItem="Pc7-v7-vUz" secondAttribute="bottom" constant="8" id="Wwx-rt-ay8"/>
+                                    <constraint firstItem="eZS-4t-2VY" firstAttribute="leading" secondItem="fr7-li-ggF" secondAttribute="trailing" constant="10" id="b78-Ut-7CK"/>
+                                    <constraint firstItem="Pc7-v7-vUz" firstAttribute="leading" secondItem="NeE-wU-G5Q" secondAttribute="leading" constant="10" id="eme-Oc-DhC"/>
+                                    <constraint firstItem="yMP-OI-3ij" firstAttribute="leading" secondItem="NeE-wU-G5Q" secondAttribute="leading" constant="8" id="jHS-mS-Hk9"/>
+                                    <constraint firstItem="LFq-1J-1c2" firstAttribute="leading" secondItem="NeE-wU-G5Q" secondAttribute="leading" constant="83" id="kBS-Te-Qpp"/>
+                                    <constraint firstItem="fr7-li-ggF" firstAttribute="centerX" secondItem="NeE-wU-G5Q" secondAttribute="centerX" id="pcx-Oe-YPF"/>
+                                    <constraint firstItem="yMP-OI-3ij" firstAttribute="top" secondItem="NeE-wU-G5Q" secondAttribute="top" constant="11" id="rux-5P-me6"/>
+                                </constraints>
+                                <userDefinedRuntimeAttributes>
+                                    <userDefinedRuntimeAttribute type="number" keyPath="radio">
+                                        <real key="value" value="10"/>
+                                    </userDefinedRuntimeAttribute>
+                                </userDefinedRuntimeAttributes>
+                            </view>
+                        </subviews>
+                        <viewLayoutGuide key="safeArea" id="9PE-qB-iw6"/>
+                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <constraints>
+                            <constraint firstItem="NeE-wU-G5Q" firstAttribute="centerX" secondItem="9PE-qB-iw6" secondAttribute="centerX" id="Hpt-xC-s5s"/>
+                            <constraint firstItem="NeE-wU-G5Q" firstAttribute="centerY" secondItem="9PE-qB-iw6" secondAttribute="centerY" id="rQt-Hl-LQ7"/>
+                        </constraints>
+                    </view>
+                    <connections>
+                        <outlet property="acceptButtonOutlet" destination="LFq-1J-1c2" id="nnj-8H-h6t"/>
+                        <outlet property="closeButton" destination="eZS-4t-2VY" id="Xer-nQ-Jn2"/>
+                        <outlet property="textContentLabel" destination="Pc7-v7-vUz" id="g9M-gy-kTG"/>
+                        <outlet property="textTitleLabel" destination="fr7-li-ggF" id="55s-yF-FdV"/>
+                        <outlet property="viewMain" destination="NeE-wU-G5Q" id="mM8-Qp-7Do"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="bv1-Vo-bON" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="802.89855072463774" y="-333.48214285714283"/>
+        </scene>
+        <!--Alert Two Buttons View Controller-->
+        <scene sceneID="fT7-3U-dll">
+            <objects>
+                <viewController storyboardIdentifier="AlertTwoButtonsViewController" useStoryboardIdentifierAsRestorationIdentifier="YES" id="WGm-yu-jb0" customClass="AlertTwoButtonsViewController" customModule="EncuentroCatolicoVirtualLibrary" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="jNT-7X-6bK">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <view clipsSubviews="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="QMx-6w-rFy">
+                                <rect key="frame" x="44.5" y="347.5" width="325" height="211"/>
+                                <subviews>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="S.0.S." textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="WuG-4q-HAJ">
+                                        <rect key="frame" x="10" y="37" width="305" height="29"/>
+                                        <fontDescription key="fontDescription" type="boldSystem" pointSize="24"/>
+                                        <color key="textColor" red="0.074509803920000006" green="0.1529411765" blue="0.48627450979999998" alpha="1" colorSpace="calibratedRGB"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Tienes una solicitud" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="DgF-dz-FWl">
+                                        <rect key="frame" x="10" y="76" width="305" height="21.5"/>
+                                        <fontDescription key="fontDescription" name="Roboto-Regular" family="Roboto" pointSize="18"/>
+                                        <color key="textColor" red="0.19215686269999999" green="0.19215686269999999" blue="0.19215686269999999" alpha="1" colorSpace="calibratedRGB"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="UCIÓN DE LOS ENFERMOS" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="BX8-Cd-pK5">
+                                        <rect key="frame" x="10" y="102.5" width="305" height="21.5"/>
+                                        <fontDescription key="fontDescription" type="boldSystem" pointSize="18"/>
+                                        <color key="textColor" red="0.074509803920000006" green="0.1529411765" blue="0.48627450979999998" alpha="1" colorSpace="calibratedRGB"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                    <stackView opaque="NO" contentMode="scaleToFill" spacing="2" translatesAutoresizingMaskIntoConstraints="NO" id="13V-ny-MRe">
+                                        <rect key="frame" x="1.5" y="155" width="322" height="48"/>
+                                        <subviews>
+                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="oM7-qj-5sN">
+                                                <rect key="frame" x="0.0" y="0.0" width="160" height="48"/>
+                                                <color key="backgroundColor" red="0.074509803920000006" green="0.1529411765" blue="0.48627450979999998" alpha="1" colorSpace="calibratedRGB"/>
+                                                <constraints>
+                                                    <constraint firstAttribute="width" constant="160" id="1R6-Ma-3PI"/>
+                                                    <constraint firstAttribute="height" constant="48" id="zKe-Yc-FbR"/>
+                                                </constraints>
+                                                <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="17"/>
+                                                <state key="normal" title="Rechazar">
+                                                    <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                </state>
+                                                <connections>
+                                                    <action selector="rechazarButtonAction:" destination="WGm-yu-jb0" eventType="touchUpInside" id="xSn-dU-p3u"/>
+                                                </connections>
+                                            </button>
+                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="mbg-wJ-XGN">
+                                                <rect key="frame" x="162" y="0.0" width="160" height="48"/>
+                                                <color key="backgroundColor" red="0.074509803920000006" green="0.1529411765" blue="0.48627450979999998" alpha="1" colorSpace="calibratedRGB"/>
+                                                <constraints>
+                                                    <constraint firstAttribute="height" constant="48" id="Pej-WZ-2aQ"/>
+                                                    <constraint firstAttribute="width" constant="160" id="zPW-iP-yvJ"/>
+                                                </constraints>
+                                                <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="17"/>
+                                                <state key="normal" title="Agendar">
+                                                    <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                </state>
+                                                <connections>
+                                                    <action selector="agendarButtonAction:" destination="WGm-yu-jb0" eventType="touchUpInside" id="Oga-Bq-b7h"/>
+                                                </connections>
+                                            </button>
+                                        </subviews>
+                                    </stackView>
+                                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="Icono_encuentro" translatesAutoresizingMaskIntoConstraints="NO" id="2tN-Vr-OHr">
+                                        <rect key="frame" x="8" y="11" width="23" height="30"/>
+                                    </imageView>
+                                </subviews>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="325" id="6im-5x-NAJ"/>
+                                    <constraint firstItem="DgF-dz-FWl" firstAttribute="top" secondItem="WuG-4q-HAJ" secondAttribute="bottom" constant="10" id="8iQ-3F-hL5"/>
+                                    <constraint firstAttribute="trailing" secondItem="BX8-Cd-pK5" secondAttribute="trailing" constant="10" id="BMi-Wl-SPy"/>
+                                    <constraint firstItem="WuG-4q-HAJ" firstAttribute="top" secondItem="QMx-6w-rFy" secondAttribute="top" constant="37" id="Ci8-57-xei"/>
+                                    <constraint firstAttribute="height" constant="211" id="KT4-cd-S9p"/>
+                                    <constraint firstItem="13V-ny-MRe" firstAttribute="top" secondItem="BX8-Cd-pK5" secondAttribute="bottom" constant="31" id="KWd-oO-jSV"/>
+                                    <constraint firstItem="13V-ny-MRe" firstAttribute="centerX" secondItem="QMx-6w-rFy" secondAttribute="centerX" id="OsX-vc-GS2"/>
+                                    <constraint firstItem="BX8-Cd-pK5" firstAttribute="leading" secondItem="QMx-6w-rFy" secondAttribute="leading" constant="10" id="Oya-pd-IFI"/>
+                                    <constraint firstItem="BX8-Cd-pK5" firstAttribute="top" secondItem="DgF-dz-FWl" secondAttribute="bottom" constant="5" id="W7X-Ey-doC"/>
+                                    <constraint firstItem="2tN-Vr-OHr" firstAttribute="top" secondItem="QMx-6w-rFy" secondAttribute="top" constant="11" id="Z0t-Um-iEd"/>
+                                    <constraint firstItem="WuG-4q-HAJ" firstAttribute="leading" secondItem="QMx-6w-rFy" secondAttribute="leading" constant="10" id="c1X-Cf-U3U"/>
+                                    <constraint firstAttribute="bottom" secondItem="13V-ny-MRe" secondAttribute="bottom" constant="8" id="eRl-cm-BJ3"/>
+                                    <constraint firstItem="DgF-dz-FWl" firstAttribute="leading" secondItem="QMx-6w-rFy" secondAttribute="leading" constant="10" id="o2x-mn-nae"/>
+                                    <constraint firstAttribute="trailing" secondItem="DgF-dz-FWl" secondAttribute="trailing" constant="10" id="qzv-QN-ZGw"/>
+                                    <constraint firstAttribute="trailing" secondItem="WuG-4q-HAJ" secondAttribute="trailing" constant="10" id="sEJ-A4-iMp"/>
+                                    <constraint firstItem="2tN-Vr-OHr" firstAttribute="leading" secondItem="QMx-6w-rFy" secondAttribute="leading" constant="8" id="wE1-hG-bfh"/>
+                                </constraints>
+                                <userDefinedRuntimeAttributes>
+                                    <userDefinedRuntimeAttribute type="number" keyPath="radio">
+                                        <real key="value" value="10"/>
+                                    </userDefinedRuntimeAttribute>
+                                </userDefinedRuntimeAttributes>
+                            </view>
+                        </subviews>
+                        <viewLayoutGuide key="safeArea" id="eLg-ar-0k4"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <constraints>
+                            <constraint firstItem="QMx-6w-rFy" firstAttribute="centerY" secondItem="eLg-ar-0k4" secondAttribute="centerY" id="pzj-k9-B3s"/>
+                            <constraint firstItem="QMx-6w-rFy" firstAttribute="centerX" secondItem="eLg-ar-0k4" secondAttribute="centerX" id="q6B-BM-BBW"/>
+                        </constraints>
+                    </view>
+                    <connections>
+                        <outlet property="agendarButtonOutlet" destination="mbg-wJ-XGN" id="7te-1i-J3l"/>
+                        <outlet property="otherTextLabel" destination="BX8-Cd-pK5" id="rjF-9f-5Lb"/>
+                        <outlet property="rechazarButtonOutlet" destination="oM7-qj-5sN" id="XZc-gz-KIy"/>
+                        <outlet property="textContentLabel" destination="DgF-dz-FWl" id="RAd-xS-OzI"/>
+                        <outlet property="textTitleLabel" destination="WuG-4q-HAJ" id="nb8-7K-I29"/>
+                        <outlet property="viewMain" destination="QMx-6w-rFy" id="vgq-7V-SRG"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="G7k-uy-EpD" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1469.5652173913045" y="-333.48214285714283"/>
+        </scene>
+    </scenes>
+    <resources>
+        <image name="Icono_encuentro" width="23" height="30"/>
+        <image name="closed" width="42" height="42"/>
+    </resources>
+</document>

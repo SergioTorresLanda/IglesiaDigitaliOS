@@ -1,0 +1,66 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="15705" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+    <device id="retina6_1" orientation="portrait" appearance="light"/>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="15706"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="GroupsCVC" id="gTV-IL-0wX" customClass="GroupsCVC" customModule="RedSocialFramework" customModuleProvider="target">
+            <rect key="frame" x="0.0" y="0.0" width="66" height="100"/>
+            <autoresizingMask key="autoresizingMask"/>
+            <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center">
+                <rect key="frame" x="0.0" y="0.0" width="66" height="100"/>
+                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                <subviews>
+                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Z4I-cT-RkX">
+                        <rect key="frame" x="0.0" y="0.0" width="66" height="100"/>
+                        <subviews>
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="familiaUpax" translatesAutoresizingMaskIntoConstraints="NO" id="4Ur-ws-szg">
+                                <rect key="frame" x="8" y="5" width="50" height="50"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" secondItem="4Ur-ws-szg" secondAttribute="height" multiplier="1:1" id="kwW-JA-c16"/>
+                                </constraints>
+                            </imageView>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Familia UPAX" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="j9H-qJ-8Io">
+                                <rect key="frame" x="5" y="60" width="56" height="41"/>
+                                <fontDescription key="fontDescription" name="Avenir-Black" family="Avenir" pointSize="15"/>
+                                <color key="textColor" red="0.10588235294117647" green="0.10588235294117647" blue="0.10588235294117647" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                        </subviews>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                        <constraints>
+                            <constraint firstItem="j9H-qJ-8Io" firstAttribute="leading" secondItem="Z4I-cT-RkX" secondAttribute="leading" constant="5" id="5w9-kW-ibh"/>
+                            <constraint firstItem="4Ur-ws-szg" firstAttribute="top" secondItem="Z4I-cT-RkX" secondAttribute="top" constant="5" id="GCa-gV-Jk8"/>
+                            <constraint firstItem="j9H-qJ-8Io" firstAttribute="centerX" secondItem="4Ur-ws-szg" secondAttribute="centerX" id="OMW-00-XNP"/>
+                            <constraint firstItem="4Ur-ws-szg" firstAttribute="height" secondItem="Z4I-cT-RkX" secondAttribute="height" multiplier="0.5" id="b18-mf-XtC"/>
+                            <constraint firstAttribute="trailing" secondItem="j9H-qJ-8Io" secondAttribute="trailing" constant="5" id="jUu-8O-oKR"/>
+                            <constraint firstItem="j9H-qJ-8Io" firstAttribute="top" secondItem="4Ur-ws-szg" secondAttribute="bottom" constant="5" id="tD2-xB-sd8"/>
+                        </constraints>
+                    </view>
+                </subviews>
+            </view>
+            <constraints>
+                <constraint firstItem="Z4I-cT-RkX" firstAttribute="top" secondItem="gTV-IL-0wX" secondAttribute="top" id="C26-Qk-xWg"/>
+                <constraint firstAttribute="bottom" secondItem="Z4I-cT-RkX" secondAttribute="bottom" id="UKk-fr-XYg"/>
+                <constraint firstItem="Z4I-cT-RkX" firstAttribute="leading" secondItem="gTV-IL-0wX" secondAttribute="leading" id="V3j-IE-Fxj"/>
+                <constraint firstAttribute="trailing" secondItem="Z4I-cT-RkX" secondAttribute="trailing" id="jUM-IH-AYD"/>
+            </constraints>
+            <viewLayoutGuide key="safeArea" id="ZTg-uK-7eu"/>
+            <size key="customSize" width="66" height="112"/>
+            <connections>
+                <outlet property="infoImage" destination="4Ur-ws-szg" id="mfi-G9-GOh"/>
+                <outlet property="infoLabel" destination="j9H-qJ-8Io" id="4LA-Pu-HoJ"/>
+            </connections>
+            <point key="canvasLocation" x="149.27536231884059" y="116.51785714285714"/>
+        </collectionViewCell>
+    </objects>
+    <resources>
+        <image name="familiaUpax" width="91.5" height="91.5"/>
+    </resources>
+</document>

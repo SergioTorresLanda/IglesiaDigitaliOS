@@ -1,0 +1,276 @@
+import Foundation
+import UIKit
+import EncuentroCatolicoHome
+import EncuentroCatolicoProfile
+
+class LoginView: UIViewController {
+    
+    // MARK: Properties
+    var presenter: LoginPresenterProtocol?
+    
+    //MARK: Outlets
+    @IBOutlet weak var scrollView: UIScrollView!
+    @IBOutlet weak var btnLogin: UIButton!
+    @IBOutlet weak var txtUser: UITextField!
+    @IBOutlet weak var txtPassword: UITextField!
+    @IBOutlet weak var viewArriba: UIView!
+    @IBOutlet weak var btnRegistar: UIButton!
+    @IBOutlet weak var spinner: UIActivityIndicatorView!
+    @IBOutlet weak var btnTerms: UIButton!
+    @IBOutlet weak var btnPolicity: UIButton!
+    
+    @IBOutlet weak var btnForgot: UIButton!
+    @IBOutlet weak var btnEtich: UIButton!
+    
+    var colorBlue = UIColor(red: 28/255, green: 117/255, blue: 188/255, alpha: 1)
+    
+    let loadingAlert = UIAlertController(title: "", message: "\n \n \n \n \nCargando...", preferredStyle: .alert)
+ 
+//    // MARK: Lifecycle
+    override func viewDidLoad() {
+        super.viewDidLoad()
+        spinner.isHidden = true
+        setupView()
+        self.hideKeyboardWhenTappedAround()
+    }
+    
+    override func viewDidAppear(_ animated: Bool) {
+        let defaults = UserDefaults.standard
+        let newUser = defaults.bool(forKey: "isNewUser")
+        if newUser == true{
+            let email = defaults.string(forKey: "email") ?? ""
+            let password = defaults.string(forKey: "password") ?? ""
+            txtUser.text = email
+            txtPassword.text = password
+        }else{
+            txtUser.text = ""
+            txtPassword.text = ""
+        }
+        
+        self.btnRegistar.isEnabled = true
+        self.spinner.stopAnimating()
+        self.spinner.isHidden = true
+        
+        txtUser.addTarget(self, action: #selector(salta(sender:)), for: .editingDidEndOnExit)
+        txtPassword.addTarget(self, action: #selector(finaliza(sender:)), for: .editingDidEndOnExit)
+    }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+      //  configureKeyboardObservables()
+        let newUser = UserDefaults.standard.bool(forKey: "isNewUser")
+        if newUser == false {
+            validateFirstController()
+        }
+    }
+    
+    override func viewWillDisappear(_ animated: Bool) {
+        hideLoading()
+    }
+    
+    @objc private func salta(sender: UITextField) {
+        let nextField = sender.superview?.viewWithTag(sender.tag + 1)
+        nextField?.becomeFirstResponder()
+    }
+    
+    @objc private func finaliza(sender: UITextField) {
+        self.dismissKeyboard()
+    }
+    func validateFirstController() {
+        NotificationCenter.default.addObserver(self, selector: #selector(popViews), name: NSNotification.Name(rawValue: "newLogOut"), object: nil)
+        let defaults = UserDefaults.standard
+        let nombre = defaults.string(forKey: "nombre") ?? ""
+        if nombre != "" {
+            openHome()
+        }
+    }
+    func openHome(){
+        let instance = FirebaseManager.shared.getSNFirebaseInstance()
+        let view = SocialNetwork.openSocialNetowrk(firebaseApp: instance)
+        view.modalPresentationStyle = .fullScreen
+        self.present(view, animated: true)
+    }
+    
+    private func getInstalledVersion() -> String? {
+                if let info = Bundle.main.infoDictionary,
+                   let currentVersion = info["CFBundleShortVersionString"] as? String {
+                    return currentVersion
+                }
+                return nil
+        }
+    
+    func remoteConfig() {
+        
+           guard let url = URL(string: "https://arquidiocesis-public-files.s3.amazonaws.com/1_5066777712274702937.json"),
+                 let urlData = try? Data(contentsOf: url, options: .mappedIfSafe),
+                 let data = try? JSONDecoder().decode(ChurchRemoteInfo.self, from: urlData)  else {
+               return
+           }
+        if data.forceUpdateIOS {
+            if data.versionIOS > Double(getInstalledVersion() ?? "") ?? 0.0 {
+                
+                let alert = UIAlertController(title: "Aviso", message: "Actualiza tu aplicación", preferredStyle: .alert)
+                               let cancelAction = UIAlertAction(title: "Aceptar", style: .cancel){
+                                   [weak self] _ in
+                                   guard let self = self else {return}
+                                   if let url = URL(string: "itms-apps://itunes.apple.com/app/id1559605584"),
+                                                      UIApplication.shared.canOpenURL(url) {
+                                                       UIApplication.shared.open(url, options: [:], completionHandler: nil)
+                                                   }
+                                   }
+                               alert.addAction(cancelAction)
+                               
+                               self.present(alert, animated: true)
+                
+            }
+        }
+           
+   }
+    
+    @objc func popViews(){
+        for controller in self.navigationController!.viewControllers as Array {
+            if controller.isKind(of: LoginView.self) {
+                self.navigationController!.popToViewController(controller, animated: true)
+                break
+            }
+        }
+    }
+    private func setupView(){
+        btnLogin.layer.masksToBounds = true
+        btnLogin.setCorner(cornerRadius: 10)
+        viewArriba.layer.cornerRadius = 30
+        viewArriba.layer.shadowRadius = 5
+        viewArriba.layer.shadowOpacity = 0.5
+        viewArriba.layer.shadowColor = UIColor.black.cgColor
+        viewArriba.layer.maskedCorners = [.layerMinXMaxYCorner, .layerMaxXMaxYCorner]
+        
+        btnRegistar.layer.borderWidth = 1
+        btnRegistar.layer.borderColor = UIColor(red: 25/255, green: 42/255, blue: 115/255, alpha: 1).cgColor
+        
+        btnForgot.underlineButtonsWithFont(sizeFont: 13, textColor: colorBlue, text: "Olvide contraseña", font: "SEMI")
+        btnTerms.underlineButtons(sizeFont: 11, textColor: colorBlue, text: "Términos y condiciones")
+        btnPolicity.underlineButtons(sizeFont: 11, textColor: colorBlue, text: "Política de privacidad")
+        btnEtich.underlineButtons(sizeFont: 11, textColor: colorBlue, text: "Código de ética")
+        remoteConfig()
+        
+    }
+    
+    func showLoading(){
+        let imageView = UIImageView(frame: CGRect(x: 75, y: 25, width: 140, height: 60))
+        imageView.image = UIImage(named: "encuentro", in: Bundle(identifier: "mx.arquidiocesis.EncuentroCatolicoLogin"), compatibleWith: nil)
+        
+        loadingAlert.view.addSubview(imageView)
+        self.present(loadingAlert, animated: true, completion: nil)
+    }
+    
+    private func validatePhoneMail(toValidate: String)->String {
+        
+        if isValidPhone(phone: toValidate) {
+            return "+52\(toValidate)"
+        }else if isValidEmail(email: toValidate){
+            return toValidate
+        }
+        return toValidate
+    }
+    
+    //MARK: - Actions
+    @IBAction func olvidoPass(_ sender: Any) {
+        presenter?.olvidoPass(controlador: self)
+    }
+    
+    @IBAction func login(_ sender: Any) {
+        let validatedData = validatePhoneMail(toValidate: txtUser.text ?? "")
+        btnRegistar.isEnabled = false
+        spinner.isHidden = false
+        spinner.startAnimating()
+        showLoading()
+        presenter?.controla = self
+        presenter?.login(user: validatedData, password: txtPassword.text ?? "")
+    }
+    
+    @IBAction func loginInvitado(_ sender: Any) {
+        presenter?.loginInvitado(controller: self)
+    }
+    
+    @IBAction func crearCuenta(_ sender: Any) {
+        presenter?.crearCuenta(controlador: self)
+    }
+    
+    @IBAction func showPassword(_ sender: Any) {
+        txtPassword.isSecureTextEntry = !txtPassword.isSecureTextEntry
+    }
+    
+    @IBAction func termsAction(_ sender: Any) {
+        guard let url = URL(string: "https://arquidiocesismexico.org.mx/aviso-de-privacidad/") else { return }
+        UIApplication.shared.open(url)
+        print("tap terms")
+    }
+    
+    @IBAction func policityActions(_ sender: Any) {
+        guard let url = URL(string: "https://arquidiocesismexico.org.mx/aviso-de-privacidad/") else { return }
+        UIApplication.shared.open(url)
+        print("tap policity")
+    }
+    
+    @IBAction func eticButton(_ sender: Any) {
+        guard let url = URL(string: "https://arquidiocesismexico.org.mx/aviso-de-privacidad/") else { return }
+        UIApplication.shared.open(url)
+    }
+    
+    @objc private func keyboardWillShow(notification: NSNotification) {
+        scrollView.contentOffset.y = 185
+    }
+    
+    @objc private func keyboardDidHide(notification: NSNotification) {
+        scrollView.contentOffset.y = 0
+    }
+}
+
+
+extension UIViewController {
+    func hideKeyboardWhenTappedAround() {
+        let tap = UITapGestureRecognizer(target: self, action: #selector(UIViewController.dismissKeyboard))
+        tap.cancelsTouchesInView = false
+        view.addGestureRecognizer(tap)
+    }
+    
+    @objc func dismissKeyboard() {
+        view.endEditing(true)
+    }
+}
+
+
+extension LoginView: LoginViewProtocol {
+    // TODO: implement view output methods
+    func mostrarMSG(dtcAlerta: [String : String]) {
+        loadingAlert.dismiss(animated: true, completion: {
+            self.btnRegistar.isEnabled = true
+            self.spinner.stopAnimating()
+            self.spinner.isHidden = true
+            let alerta = UIAlertController(title: dtcAlerta["titulo"], message: dtcAlerta["cuerpo"], preferredStyle: .alert)
+            alerta.addAction(UIAlertAction(title: "Aceptar", style: .default, handler: nil))
+            self.present(alerta, animated: true, completion: nil)
+        })
+    }
+    
+    func hideLoading(){
+        loadingAlert.dismiss(animated: true, completion: nil)
+    }
+    
+}
+
+extension LoginView {
+
+    func isValidPhone(phone: String) -> Bool {
+            let phoneRegex = "^[0-9+]{0,1}+[0-9]{5,16}$"
+            let phoneTest = NSPredicate(format: "SELF MATCHES %@", phoneRegex)
+            return phoneTest.evaluate(with: phone)
+        }
+
+    func isValidEmail(email: String) -> Bool {
+            let emailRegEx = "[A-Z0-9a-z._%+-]+@[A-Za-z0-9.-]+\\.[A-Za-z]{2,64}"
+            let emailTest = NSPredicate(format:"SELF MATCHES %@", emailRegEx)
+            return emailTest.evaluate(with: email)
+        }
+
+}

@@ -1,0 +1,116 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="18122" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+    <device id="retina4_7" orientation="portrait" appearance="light"/>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="18093"/>
+        <capability name="Named colors" minToolsVersion="9.0"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="System colors in document resources" minToolsVersion="11.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="AdminListView" customModule="EncuentroCatolicoProfile" customModuleProvider="target">
+            <connections>
+                <outlet property="srcSearchBar" destination="TBQ-VV-gj2" id="bVa-Ct-4O2"/>
+                <outlet property="tableView" destination="jHr-IT-wQS" id="hHv-hl-cmL"/>
+                <outlet property="view" destination="i5M-Pr-FkT" id="sfx-zR-JGt"/>
+            </connections>
+        </placeholder>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <view clearsContextBeforeDrawing="NO" contentMode="scaleToFill" id="i5M-Pr-FkT">
+            <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+            <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+            <subviews>
+                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="RaE-Qk-95F">
+                    <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                    <subviews>
+                        <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" style="plain" separatorStyle="none" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="jHr-IT-wQS">
+                            <rect key="frame" x="18" y="164" width="338" height="419"/>
+                            <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                            <userDefinedRuntimeAttributes>
+                                <userDefinedRuntimeAttribute type="boolean" keyPath="shadow" value="NO"/>
+                                <userDefinedRuntimeAttribute type="color" keyPath="borderColor">
+                                    <color key="value" name="AccentColor"/>
+                                </userDefinedRuntimeAttribute>
+                            </userDefinedRuntimeAttributes>
+                        </tableView>
+                        <searchBar contentMode="redraw" searchBarStyle="minimal" placeholder="Buscar" translucent="NO" translatesAutoresizingMaskIntoConstraints="NO" id="TBQ-VV-gj2">
+                            <rect key="frame" x="18" y="113" width="338" height="51"/>
+                            <color key="backgroundColor" red="0.95686274509803915" green="0.95686274509803915" blue="0.95686274509803915" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                            <color key="tintColor" red="0.95686274509803915" green="0.95686274509803915" blue="0.95686274509803915" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                            <color key="barTintColor" red="0.95686274509803915" green="0.95686274509803915" blue="0.95686274509803915" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                            <textInputTraits key="textInputTraits"/>
+                        </searchBar>
+                    </subviews>
+                    <color key="backgroundColor" red="0.95686274509803915" green="0.95686274509803915" blue="0.95686274509803915" alpha="1" colorSpace="calibratedRGB"/>
+                    <constraints>
+                        <constraint firstItem="jHr-IT-wQS" firstAttribute="top" secondItem="TBQ-VV-gj2" secondAttribute="bottom" id="02R-zO-iLp"/>
+                        <constraint firstAttribute="trailing" secondItem="jHr-IT-wQS" secondAttribute="trailing" constant="19" id="457-1W-Xju"/>
+                        <constraint firstAttribute="trailing" secondItem="TBQ-VV-gj2" secondAttribute="trailing" constant="19" id="E3Q-dA-cBm"/>
+                        <constraint firstItem="TBQ-VV-gj2" firstAttribute="leading" secondItem="RaE-Qk-95F" secondAttribute="leading" constant="18" id="hlE-ua-yTf"/>
+                        <constraint firstItem="jHr-IT-wQS" firstAttribute="leading" secondItem="RaE-Qk-95F" secondAttribute="leading" constant="18" id="n1r-LB-kaJ"/>
+                        <constraint firstAttribute="bottom" secondItem="jHr-IT-wQS" secondAttribute="bottom" constant="84" id="vqZ-QC-x2e"/>
+                    </constraints>
+                </view>
+                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="LVS-0T-32V">
+                    <rect key="frame" x="0.0" y="0.0" width="375" height="108"/>
+                    <subviews>
+                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Nombrar administrador" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="7bh-dp-t1D">
+                            <rect key="frame" x="65" y="66" width="245" height="22"/>
+                            <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="18"/>
+                            <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                            <nil key="highlightedColor"/>
+                        </label>
+                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="XO5-xG-rcJ">
+                            <rect key="frame" x="8" y="47" width="40" height="60"/>
+                            <constraints>
+                                <constraint firstAttribute="width" constant="40" id="1nY-xg-0wF"/>
+                                <constraint firstAttribute="width" secondItem="XO5-xG-rcJ" secondAttribute="height" multiplier="2:3" id="C0Z-9F-L9g"/>
+                                <constraint firstAttribute="height" constant="60" id="V6P-Nn-SQw"/>
+                            </constraints>
+                            <color key="tintColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                            <state key="normal" image="iconoAtrSW"/>
+                            <connections>
+                                <action selector="returnTo:" destination="-1" eventType="touchUpInside" id="skd-iO-vU0"/>
+                            </connections>
+                        </button>
+                    </subviews>
+                    <color key="backgroundColor" red="0.074509803920000006" green="0.1529411765" blue="0.48627450979999998" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                    <constraints>
+                        <constraint firstItem="7bh-dp-t1D" firstAttribute="centerX" secondItem="LVS-0T-32V" secondAttribute="centerX" id="3bq-fi-9s2"/>
+                        <constraint firstItem="XO5-xG-rcJ" firstAttribute="top" secondItem="LVS-0T-32V" secondAttribute="top" constant="47" id="8mp-50-ZmD"/>
+                        <constraint firstAttribute="height" constant="108" id="IjY-vc-DJx"/>
+                        <constraint firstItem="7bh-dp-t1D" firstAttribute="leading" secondItem="XO5-xG-rcJ" secondAttribute="trailing" constant="17" id="XW0-iw-2qF"/>
+                        <constraint firstItem="XO5-xG-rcJ" firstAttribute="leading" secondItem="LVS-0T-32V" secondAttribute="leading" constant="8" id="bYv-ec-z7h"/>
+                        <constraint firstAttribute="bottom" secondItem="7bh-dp-t1D" secondAttribute="bottom" constant="20" id="mgV-VX-Zng"/>
+                    </constraints>
+                </view>
+            </subviews>
+            <viewLayoutGuide key="safeArea" id="fnl-2z-Ty3"/>
+            <color key="backgroundColor" red="0.95686274509803915" green="0.95686274509803915" blue="0.95686274509803915" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+            <constraints>
+                <constraint firstItem="RaE-Qk-95F" firstAttribute="trailing" secondItem="fnl-2z-Ty3" secondAttribute="trailing" id="15f-rp-YJP"/>
+                <constraint firstItem="RaE-Qk-95F" firstAttribute="leading" secondItem="fnl-2z-Ty3" secondAttribute="leading" id="Mpp-3N-Zcc"/>
+                <constraint firstItem="LVS-0T-32V" firstAttribute="leading" secondItem="fnl-2z-Ty3" secondAttribute="leading" id="Pjq-nb-evY"/>
+                <constraint firstItem="LVS-0T-32V" firstAttribute="trailing" secondItem="fnl-2z-Ty3" secondAttribute="trailing" id="dmV-kS-xft"/>
+                <constraint firstAttribute="bottom" secondItem="RaE-Qk-95F" secondAttribute="bottom" id="gDj-Rv-7hW"/>
+                <constraint firstItem="LVS-0T-32V" firstAttribute="leading" secondItem="RaE-Qk-95F" secondAttribute="leading" id="gT0-ZB-Wfg"/>
+                <constraint firstItem="RaE-Qk-95F" firstAttribute="top" secondItem="fnl-2z-Ty3" secondAttribute="top" id="kww-yC-Rsd"/>
+                <constraint firstItem="LVS-0T-32V" firstAttribute="trailing" secondItem="RaE-Qk-95F" secondAttribute="trailing" id="mcP-Ay-N4V"/>
+                <constraint firstItem="TBQ-VV-gj2" firstAttribute="top" secondItem="LVS-0T-32V" secondAttribute="bottom" constant="5" id="ns9-VB-5gd"/>
+                <constraint firstItem="LVS-0T-32V" firstAttribute="top" secondItem="i5M-Pr-FkT" secondAttribute="top" id="vfN-Bm-vnC"/>
+            </constraints>
+            <point key="canvasLocation" x="135.19999999999999" y="101.97044334975369"/>
+        </view>
+    </objects>
+    <resources>
+        <image name="iconoAtrSW" width="11.5" height="18"/>
+        <namedColor name="AccentColor">
+            <color red="0.0" green="0.46000000000000002" blue="0.89000000000000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </namedColor>
+        <systemColor name="systemBackgroundColor">
+            <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+        </systemColor>
+    </resources>
+</document>

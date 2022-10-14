@@ -1,0 +1,718 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 50;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		481A301A26B05E6B009C64FB /* FirebaseManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 481A301926B05E6B009C64FB /* FirebaseManager.swift */; };
+		481A301C26B05EA2009C64FB /* FirebaseInstanceHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 481A301B26B05EA2009C64FB /* FirebaseInstanceHelper.swift */; };
+		6D6A3A05278E27A00019E226 /* APIType.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6D6A3A04278E27A00019E226 /* APIType.swift */; };
+		6D754A6928F968D300226166 /* ChurchRemoteInfo.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6D754A6828F968D300226166 /* ChurchRemoteInfo.swift */; };
+		6F0E0FEE26698F75000C01EC /* Cell1OnBoarding.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6F0E0FEC26698F75000C01EC /* Cell1OnBoarding.swift */; };
+		6F25FC3B26696F6B00D1B44C /* OnBoardingCC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6F25FC3A26696F6B00D1B44C /* OnBoardingCC.swift */; };
+		6F25FC3E266970A000D1B44C /* OnBoardingCCPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6F25FC3D266970A000D1B44C /* OnBoardingCCPresenter.swift */; };
+		6F25FC41266970CB00D1B44C /* OnBoardingCCInteractor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6F25FC40266970CB00D1B44C /* OnBoardingCCInteractor.swift */; };
+		6F25FC44266970F300D1B44C /* OnBoardingCCWireFrame.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6F25FC43266970F300D1B44C /* OnBoardingCCWireFrame.swift */; };
+		6F25FC4B2669712B00D1B44C /* OnBoardingCCRemoteDataManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6F25FC4A2669712B00D1B44C /* OnBoardingCCRemoteDataManager.swift */; };
+		6F25FC552669766500D1B44C /* OnBoardingCCProtocols.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6F25FC542669766500D1B44C /* OnBoardingCCProtocols.swift */; };
+		6F25FC5926697D4000D1B44C /* OnBoardingCCComponents.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6F25FC5826697D4000D1B44C /* OnBoardingCCComponents.swift */; };
+		6F26AA0926811028002AB7BE /* ForgotPViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6F26AA0826811028002AB7BE /* ForgotPViewController.swift */; };
+		6F26AA0C26811060002AB7BE /* ForgotPInteractor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6F26AA0B26811060002AB7BE /* ForgotPInteractor.swift */; };
+		6F26AA0F26811075002AB7BE /* ForgotPPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6F26AA0E26811075002AB7BE /* ForgotPPresenter.swift */; };
+		6F26AA1226811085002AB7BE /* ForgotPEntity.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6F26AA1126811085002AB7BE /* ForgotPEntity.swift */; };
+		6F26AA1526811095002AB7BE /* ForgotPRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6F26AA1426811095002AB7BE /* ForgotPRouter.swift */; };
+		6F26AA18268110A4002AB7BE /* ForgotPProtocols.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6F26AA17268110A4002AB7BE /* ForgotPProtocols.swift */; };
+		6F29458A266FE425009657D4 /* Cell2OnBoarding.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6F294589266FE425009657D4 /* Cell2OnBoarding.swift */; };
+		6F3BC367268140A8001CEF0D /* ConfirmationCodeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6F3BC366268140A8001CEF0D /* ConfirmationCodeView.swift */; };
+		6F3BC36B26814109001CEF0D /* ConfirmationCodeInteractor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6F3BC36A26814109001CEF0D /* ConfirmationCodeInteractor.swift */; };
+		6F3BC36E26814122001CEF0D /* ConfirmationCodePresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6F3BC36D26814122001CEF0D /* ConfirmationCodePresenter.swift */; };
+		6F3BC37126814135001CEF0D /* ConfirmationCodeEntity.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6F3BC37026814135001CEF0D /* ConfirmationCodeEntity.swift */; };
+		6F3BC37426814147001CEF0D /* ConfirmationCodeRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6F3BC37326814147001CEF0D /* ConfirmationCodeRouter.swift */; };
+		6F3BC3772681415C001CEF0D /* ConfirmationCodeProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6F3BC3762681415C001CEF0D /* ConfirmationCodeProtocol.swift */; };
+		6FBF73A62669D02B006379AE /* OnBoarding.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 6FBF73A52669D02B006379AE /* OnBoarding.storyboard */; };
+		6FD5D5B4268100D600A700FE /* ForgotPassword.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 6FD5D5B3268100D600A700FE /* ForgotPassword.storyboard */; };
+		824796C725ED5E6100C0596D /* Pods_EncuentroCatolicoLogin.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8ADB345D2D5E4DC5E64DA86E /* Pods_EncuentroCatolicoLogin.framework */; };
+		826DC6DB25E855A900F51EB7 /* LoginPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 826DC6D425E855A900F51EB7 /* LoginPresenter.swift */; };
+		826DC6DC25E855A900F51EB7 /* LoginLocalDataManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 826DC6D525E855A900F51EB7 /* LoginLocalDataManager.swift */; };
+		826DC6DD25E855A900F51EB7 /* LoginProtocols.swift in Sources */ = {isa = PBXBuildFile; fileRef = 826DC6D625E855A900F51EB7 /* LoginProtocols.swift */; };
+		826DC6DE25E855A900F51EB7 /* LoginInteractor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 826DC6D725E855A900F51EB7 /* LoginInteractor.swift */; };
+		826DC6DF25E855A900F51EB7 /* LoginView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 826DC6D825E855A900F51EB7 /* LoginView.swift */; };
+		826DC6E025E855A900F51EB7 /* LoginRemoteDataManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 826DC6D925E855A900F51EB7 /* LoginRemoteDataManager.swift */; };
+		826DC6E125E855A900F51EB7 /* LoginWireFrame.swift in Sources */ = {isa = PBXBuildFile; fileRef = 826DC6DA25E855A900F51EB7 /* LoginWireFrame.swift */; };
+		826DC6FA25E85CD300F51EB7 /* LoginEntity.swift in Sources */ = {isa = PBXBuildFile; fileRef = 826DC6F925E85CD300F51EB7 /* LoginEntity.swift */; };
+		82C1594A25F6C038001CE1D3 /* Vista1Presenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 82C1594325F6C038001CE1D3 /* Vista1Presenter.swift */; };
+		82C1594C25F6C038001CE1D3 /* Vista1Protocols.swift in Sources */ = {isa = PBXBuildFile; fileRef = 82C1594525F6C038001CE1D3 /* Vista1Protocols.swift */; };
+		82C1594D25F6C038001CE1D3 /* Vista1Interactor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 82C1594625F6C038001CE1D3 /* Vista1Interactor.swift */; };
+		82C1594E25F6C038001CE1D3 /* Vista1View.swift in Sources */ = {isa = PBXBuildFile; fileRef = 82C1594725F6C038001CE1D3 /* Vista1View.swift */; };
+		82C1594F25F6C038001CE1D3 /* Vista1RemoteDataManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 82C1594825F6C038001CE1D3 /* Vista1RemoteDataManager.swift */; };
+		82C1595025F6C038001CE1D3 /* Vista1WireFrame.swift in Sources */ = {isa = PBXBuildFile; fileRef = 82C1594925F6C038001CE1D3 /* Vista1WireFrame.swift */; };
+		82C1595A25F6C05E001CE1D3 /* Vista2Presenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 82C1595325F6C05E001CE1D3 /* Vista2Presenter.swift */; };
+		82C1595C25F6C05E001CE1D3 /* Vista2Protocols.swift in Sources */ = {isa = PBXBuildFile; fileRef = 82C1595525F6C05E001CE1D3 /* Vista2Protocols.swift */; };
+		82C1595D25F6C05E001CE1D3 /* Vista2Interactor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 82C1595625F6C05E001CE1D3 /* Vista2Interactor.swift */; };
+		82C1595E25F6C05E001CE1D3 /* Vista2View.swift in Sources */ = {isa = PBXBuildFile; fileRef = 82C1595725F6C05E001CE1D3 /* Vista2View.swift */; };
+		82C1595F25F6C05E001CE1D3 /* Vista2RemoteDataManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 82C1595825F6C05E001CE1D3 /* Vista2RemoteDataManager.swift */; };
+		82C1596025F6C05E001CE1D3 /* Vista2WireFrame.swift in Sources */ = {isa = PBXBuildFile; fileRef = 82C1595925F6C05E001CE1D3 /* Vista2WireFrame.swift */; };
+		82C1596225F6C099001CE1D3 /* Vista1View.xib in Resources */ = {isa = PBXBuildFile; fileRef = 82C1596125F6C099001CE1D3 /* Vista1View.xib */; };
+		82C1596425F6C0AE001CE1D3 /* Vista2View.xib in Resources */ = {isa = PBXBuildFile; fileRef = 82C1596325F6C0AE001CE1D3 /* Vista2View.xib */; };
+		980E990025E48C69002C766D /* LoginView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 980E98FA25E48C69002C766D /* LoginView.xib */; };
+		9834785125E6B737005E9BDA /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 9834785025E6B737005E9BDA /* Assets.xcassets */; };
+		9834785825E6C5E4005E9BDA /* Design.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9834785725E6C5E4005E9BDA /* Design.swift */; };
+		98A60A9A25E47BAC009196FC /* EncuentroCatolicoLogin.h in Headers */ = {isa = PBXBuildFile; fileRef = 98A60A9825E47BAC009196FC /* EncuentroCatolicoLogin.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		9D2B45242752A9FD009C8E02 /* SN.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9D2B45232752A9FD009C8E02 /* SN.swift */; };
+		9D2B45262752AA1C009C8E02 /* ProfileMatchData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9D2B45252752AA1C009C8E02 /* ProfileMatchData.swift */; };
+		9DFA170B273F073D00319318 /* EncuentroCatolicoHome.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9DFA170A273F073D00319318 /* EncuentroCatolicoHome.framework */; };
+		9DFA1711273F2BB700319318 /* LocationUserPerm.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9DFA1710273F2BB700319318 /* LocationUserPerm.swift */; };
+		AA0DEA1425EEC73100DDB861 /* EncuentroCatolicoRegister.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = AA0DEA1325EEC73100DDB861 /* EncuentroCatolicoRegister.framework */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXFileReference section */
+		481A301926B05E6B009C64FB /* FirebaseManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FirebaseManager.swift; sourceTree = "<group>"; };
+		481A301B26B05EA2009C64FB /* FirebaseInstanceHelper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FirebaseInstanceHelper.swift; sourceTree = "<group>"; };
+		6D6A3A04278E27A00019E226 /* APIType.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = APIType.swift; sourceTree = "<group>"; };
+		6D754A6828F968D300226166 /* ChurchRemoteInfo.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ChurchRemoteInfo.swift; sourceTree = "<group>"; };
+		6F0E0FEC26698F75000C01EC /* Cell1OnBoarding.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Cell1OnBoarding.swift; sourceTree = "<group>"; };
+		6F25FC3A26696F6B00D1B44C /* OnBoardingCC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OnBoardingCC.swift; sourceTree = "<group>"; };
+		6F25FC3D266970A000D1B44C /* OnBoardingCCPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OnBoardingCCPresenter.swift; sourceTree = "<group>"; };
+		6F25FC40266970CB00D1B44C /* OnBoardingCCInteractor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OnBoardingCCInteractor.swift; sourceTree = "<group>"; };
+		6F25FC43266970F300D1B44C /* OnBoardingCCWireFrame.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OnBoardingCCWireFrame.swift; sourceTree = "<group>"; };
+		6F25FC4A2669712B00D1B44C /* OnBoardingCCRemoteDataManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OnBoardingCCRemoteDataManager.swift; sourceTree = "<group>"; };
+		6F25FC542669766500D1B44C /* OnBoardingCCProtocols.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OnBoardingCCProtocols.swift; sourceTree = "<group>"; };
+		6F25FC5826697D4000D1B44C /* OnBoardingCCComponents.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OnBoardingCCComponents.swift; sourceTree = "<group>"; };
+		6F26AA0826811028002AB7BE /* ForgotPViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ForgotPViewController.swift; sourceTree = "<group>"; };
+		6F26AA0B26811060002AB7BE /* ForgotPInteractor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ForgotPInteractor.swift; sourceTree = "<group>"; };
+		6F26AA0E26811075002AB7BE /* ForgotPPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ForgotPPresenter.swift; sourceTree = "<group>"; };
+		6F26AA1126811085002AB7BE /* ForgotPEntity.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ForgotPEntity.swift; sourceTree = "<group>"; };
+		6F26AA1426811095002AB7BE /* ForgotPRouter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ForgotPRouter.swift; sourceTree = "<group>"; };
+		6F26AA17268110A4002AB7BE /* ForgotPProtocols.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ForgotPProtocols.swift; sourceTree = "<group>"; };
+		6F294589266FE425009657D4 /* Cell2OnBoarding.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Cell2OnBoarding.swift; sourceTree = "<group>"; };
+		6F3BC366268140A8001CEF0D /* ConfirmationCodeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ConfirmationCodeView.swift; sourceTree = "<group>"; };
+		6F3BC36A26814109001CEF0D /* ConfirmationCodeInteractor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ConfirmationCodeInteractor.swift; sourceTree = "<group>"; };
+		6F3BC36D26814122001CEF0D /* ConfirmationCodePresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ConfirmationCodePresenter.swift; sourceTree = "<group>"; };
+		6F3BC37026814135001CEF0D /* ConfirmationCodeEntity.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ConfirmationCodeEntity.swift; sourceTree = "<group>"; };
+		6F3BC37326814147001CEF0D /* ConfirmationCodeRouter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ConfirmationCodeRouter.swift; sourceTree = "<group>"; };
+		6F3BC3762681415C001CEF0D /* ConfirmationCodeProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ConfirmationCodeProtocol.swift; sourceTree = "<group>"; };
+		6FBF73A52669D02B006379AE /* OnBoarding.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = OnBoarding.storyboard; sourceTree = "<group>"; };
+		6FD5D5B3268100D600A700FE /* ForgotPassword.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = ForgotPassword.storyboard; sourceTree = "<group>"; };
+		824796B325ED466C00C0596D /* EncuentroCatolicoRegister.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = EncuentroCatolicoRegister.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		824796C125ED4DEC00C0596D /* EncuentroCatolicoRegister.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = EncuentroCatolicoRegister.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		826DC6D425E855A900F51EB7 /* LoginPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginPresenter.swift; sourceTree = "<group>"; };
+		826DC6D525E855A900F51EB7 /* LoginLocalDataManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginLocalDataManager.swift; sourceTree = "<group>"; };
+		826DC6D625E855A900F51EB7 /* LoginProtocols.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginProtocols.swift; sourceTree = "<group>"; };
+		826DC6D725E855A900F51EB7 /* LoginInteractor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginInteractor.swift; sourceTree = "<group>"; };
+		826DC6D825E855A900F51EB7 /* LoginView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginView.swift; sourceTree = "<group>"; };
+		826DC6D925E855A900F51EB7 /* LoginRemoteDataManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginRemoteDataManager.swift; sourceTree = "<group>"; };
+		826DC6DA25E855A900F51EB7 /* LoginWireFrame.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginWireFrame.swift; sourceTree = "<group>"; };
+		826DC6F925E85CD300F51EB7 /* LoginEntity.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginEntity.swift; sourceTree = "<group>"; };
+		82C1594325F6C038001CE1D3 /* Vista1Presenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Vista1Presenter.swift; sourceTree = "<group>"; };
+		82C1594525F6C038001CE1D3 /* Vista1Protocols.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Vista1Protocols.swift; sourceTree = "<group>"; };
+		82C1594625F6C038001CE1D3 /* Vista1Interactor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Vista1Interactor.swift; sourceTree = "<group>"; };
+		82C1594725F6C038001CE1D3 /* Vista1View.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Vista1View.swift; sourceTree = "<group>"; };
+		82C1594825F6C038001CE1D3 /* Vista1RemoteDataManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Vista1RemoteDataManager.swift; sourceTree = "<group>"; };
+		82C1594925F6C038001CE1D3 /* Vista1WireFrame.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Vista1WireFrame.swift; sourceTree = "<group>"; };
+		82C1595325F6C05E001CE1D3 /* Vista2Presenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Vista2Presenter.swift; sourceTree = "<group>"; };
+		82C1595525F6C05E001CE1D3 /* Vista2Protocols.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Vista2Protocols.swift; sourceTree = "<group>"; };
+		82C1595625F6C05E001CE1D3 /* Vista2Interactor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Vista2Interactor.swift; sourceTree = "<group>"; };
+		82C1595725F6C05E001CE1D3 /* Vista2View.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Vista2View.swift; sourceTree = "<group>"; };
+		82C1595825F6C05E001CE1D3 /* Vista2RemoteDataManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Vista2RemoteDataManager.swift; sourceTree = "<group>"; };
+		82C1595925F6C05E001CE1D3 /* Vista2WireFrame.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Vista2WireFrame.swift; sourceTree = "<group>"; };
+		82C1596125F6C099001CE1D3 /* Vista1View.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = Vista1View.xib; sourceTree = "<group>"; };
+		82C1596325F6C0AE001CE1D3 /* Vista2View.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = Vista2View.xib; sourceTree = "<group>"; };
+		89E34F32F100EF21862E48E6 /* Pods-EncuentroCatolicoLogin.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-EncuentroCatolicoLogin.release.xcconfig"; path = "Target Support Files/Pods-EncuentroCatolicoLogin/Pods-EncuentroCatolicoLogin.release.xcconfig"; sourceTree = "<group>"; };
+		8ADB345D2D5E4DC5E64DA86E /* Pods_EncuentroCatolicoLogin.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_EncuentroCatolicoLogin.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		980E98FA25E48C69002C766D /* LoginView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = LoginView.xib; sourceTree = "<group>"; };
+		9834785025E6B737005E9BDA /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		9834785725E6C5E4005E9BDA /* Design.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Design.swift; sourceTree = "<group>"; };
+		98A60A9525E47BAC009196FC /* EncuentroCatolicoLogin.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = EncuentroCatolicoLogin.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		98A60A9825E47BAC009196FC /* EncuentroCatolicoLogin.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = EncuentroCatolicoLogin.h; sourceTree = "<group>"; };
+		98A60A9925E47BAC009196FC /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		9D2B45232752A9FD009C8E02 /* SN.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SN.swift; sourceTree = "<group>"; };
+		9D2B45252752AA1C009C8E02 /* ProfileMatchData.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ProfileMatchData.swift; sourceTree = "<group>"; };
+		9DFA170A273F073D00319318 /* EncuentroCatolicoHome.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = EncuentroCatolicoHome.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		9DFA1710273F2BB700319318 /* LocationUserPerm.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LocationUserPerm.swift; sourceTree = "<group>"; };
+		AA0DEA1325EEC73100DDB861 /* EncuentroCatolicoRegister.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = EncuentroCatolicoRegister.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		C9F71A9C03832321B05742BF /* Pods-EncuentroCatolicoLogin.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-EncuentroCatolicoLogin.debug.xcconfig"; path = "Target Support Files/Pods-EncuentroCatolicoLogin/Pods-EncuentroCatolicoLogin.debug.xcconfig"; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		98A60A9225E47BAC009196FC /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				9DFA170B273F073D00319318 /* EncuentroCatolicoHome.framework in Frameworks */,
+				824796C725ED5E6100C0596D /* Pods_EncuentroCatolicoLogin.framework in Frameworks */,
+				AA0DEA1425EEC73100DDB861 /* EncuentroCatolicoRegister.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		6F25FC352669633800D1B44C /* OnBorardingCollection */ = {
+			isa = PBXGroup;
+			children = (
+				6F25FC3A26696F6B00D1B44C /* OnBoardingCC.swift */,
+				6FBF73A52669D02B006379AE /* OnBoarding.storyboard */,
+				6F25FC3D266970A000D1B44C /* OnBoardingCCPresenter.swift */,
+				6F25FC542669766500D1B44C /* OnBoardingCCProtocols.swift */,
+				6F25FC40266970CB00D1B44C /* OnBoardingCCInteractor.swift */,
+				6F25FC4A2669712B00D1B44C /* OnBoardingCCRemoteDataManager.swift */,
+				6F25FC43266970F300D1B44C /* OnBoardingCCWireFrame.swift */,
+				6F25FC5826697D4000D1B44C /* OnBoardingCCComponents.swift */,
+			);
+			path = OnBorardingCollection;
+			sourceTree = "<group>";
+		};
+		6F25FC4D2669717000D1B44C /* Cells */ = {
+			isa = PBXGroup;
+			children = (
+				6F0E0FEC26698F75000C01EC /* Cell1OnBoarding.swift */,
+				6F294589266FE425009657D4 /* Cell2OnBoarding.swift */,
+			);
+			path = Cells;
+			sourceTree = "<group>";
+		};
+		6F3BC36426814068001CEF0D /* ConfirmationCode */ = {
+			isa = PBXGroup;
+			children = (
+				6F3BC366268140A8001CEF0D /* ConfirmationCodeView.swift */,
+				6F3BC36A26814109001CEF0D /* ConfirmationCodeInteractor.swift */,
+				6F3BC36D26814122001CEF0D /* ConfirmationCodePresenter.swift */,
+				6F3BC37026814135001CEF0D /* ConfirmationCodeEntity.swift */,
+				6F3BC37326814147001CEF0D /* ConfirmationCodeRouter.swift */,
+				6F3BC3762681415C001CEF0D /* ConfirmationCodeProtocol.swift */,
+			);
+			path = ConfirmationCode;
+			sourceTree = "<group>";
+		};
+		6FD5D5B22681008400A700FE /* Forgot */ = {
+			isa = PBXGroup;
+			children = (
+				6FD5D5B3268100D600A700FE /* ForgotPassword.storyboard */,
+				6F26AA0826811028002AB7BE /* ForgotPViewController.swift */,
+				6F26AA0B26811060002AB7BE /* ForgotPInteractor.swift */,
+				6F26AA0E26811075002AB7BE /* ForgotPPresenter.swift */,
+				6F26AA1126811085002AB7BE /* ForgotPEntity.swift */,
+				6F26AA1426811095002AB7BE /* ForgotPRouter.swift */,
+				6F26AA17268110A4002AB7BE /* ForgotPProtocols.swift */,
+			);
+			path = Forgot;
+			sourceTree = "<group>";
+		};
+		826DC6E525E8575D00F51EB7 /* Login */ = {
+			isa = PBXGroup;
+			children = (
+				6D754A6828F968D300226166 /* ChurchRemoteInfo.swift */,
+				980E98FA25E48C69002C766D /* LoginView.xib */,
+				9DFA1710273F2BB700319318 /* LocationUserPerm.swift */,
+				826DC6D825E855A900F51EB7 /* LoginView.swift */,
+				826DC6D425E855A900F51EB7 /* LoginPresenter.swift */,
+				826DC6D525E855A900F51EB7 /* LoginLocalDataManager.swift */,
+				826DC6D625E855A900F51EB7 /* LoginProtocols.swift */,
+				826DC6D725E855A900F51EB7 /* LoginInteractor.swift */,
+				826DC6D925E855A900F51EB7 /* LoginRemoteDataManager.swift */,
+				826DC6DA25E855A900F51EB7 /* LoginWireFrame.swift */,
+				826DC6F925E85CD300F51EB7 /* LoginEntity.swift */,
+				481A301926B05E6B009C64FB /* FirebaseManager.swift */,
+				481A301B26B05EA2009C64FB /* FirebaseInstanceHelper.swift */,
+				9D2B45232752A9FD009C8E02 /* SN.swift */,
+				9D2B45252752AA1C009C8E02 /* ProfileMatchData.swift */,
+			);
+			path = Login;
+			sourceTree = "<group>";
+		};
+		82C1594225F6BF46001CE1D3 /* OnBoarding */ = {
+			isa = PBXGroup;
+			children = (
+				6F25FC4D2669717000D1B44C /* Cells */,
+				6F25FC352669633800D1B44C /* OnBorardingCollection */,
+				82C1595225F6C04B001CE1D3 /* Vista2 */,
+				82C1595125F6C044001CE1D3 /* Vista1 */,
+			);
+			path = OnBoarding;
+			sourceTree = "<group>";
+		};
+		82C1595125F6C044001CE1D3 /* Vista1 */ = {
+			isa = PBXGroup;
+			children = (
+				82C1596125F6C099001CE1D3 /* Vista1View.xib */,
+				82C1594725F6C038001CE1D3 /* Vista1View.swift */,
+				82C1594325F6C038001CE1D3 /* Vista1Presenter.swift */,
+				82C1594525F6C038001CE1D3 /* Vista1Protocols.swift */,
+				82C1594625F6C038001CE1D3 /* Vista1Interactor.swift */,
+				82C1594825F6C038001CE1D3 /* Vista1RemoteDataManager.swift */,
+				82C1594925F6C038001CE1D3 /* Vista1WireFrame.swift */,
+			);
+			path = Vista1;
+			sourceTree = "<group>";
+		};
+		82C1595225F6C04B001CE1D3 /* Vista2 */ = {
+			isa = PBXGroup;
+			children = (
+				82C1596325F6C0AE001CE1D3 /* Vista2View.xib */,
+				82C1595725F6C05E001CE1D3 /* Vista2View.swift */,
+				82C1595325F6C05E001CE1D3 /* Vista2Presenter.swift */,
+				82C1595525F6C05E001CE1D3 /* Vista2Protocols.swift */,
+				82C1595625F6C05E001CE1D3 /* Vista2Interactor.swift */,
+				82C1595825F6C05E001CE1D3 /* Vista2RemoteDataManager.swift */,
+				82C1595925F6C05E001CE1D3 /* Vista2WireFrame.swift */,
+			);
+			path = Vista2;
+			sourceTree = "<group>";
+		};
+		980E98F425E48C5B002C766D /* Controllers */ = {
+			isa = PBXGroup;
+			children = (
+				6F3BC36426814068001CEF0D /* ConfirmationCode */,
+				6FD5D5B22681008400A700FE /* Forgot */,
+				82C1594225F6BF46001CE1D3 /* OnBoarding */,
+				826DC6E525E8575D00F51EB7 /* Login */,
+			);
+			path = Controllers;
+			sourceTree = "<group>";
+		};
+		9834785425E6B746005E9BDA /* Resources */ = {
+			isa = PBXGroup;
+			children = (
+				9834785025E6B737005E9BDA /* Assets.xcassets */,
+			);
+			path = Resources;
+			sourceTree = "<group>";
+		};
+		9834785625E6C5DA005E9BDA /* Extensions */ = {
+			isa = PBXGroup;
+			children = (
+				9834785725E6C5E4005E9BDA /* Design.swift */,
+				6D6A3A04278E27A00019E226 /* APIType.swift */,
+			);
+			path = Extensions;
+			sourceTree = "<group>";
+		};
+		98A60A8B25E47BAC009196FC = {
+			isa = PBXGroup;
+			children = (
+				98A60A9725E47BAC009196FC /* EncuentroCatolicoLogin */,
+				98A60A9625E47BAC009196FC /* Products */,
+				FF39159319F8009B42E75421 /* Pods */,
+				B08423FDE41087674FDCAD71 /* Frameworks */,
+			);
+			sourceTree = "<group>";
+		};
+		98A60A9625E47BAC009196FC /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				98A60A9525E47BAC009196FC /* EncuentroCatolicoLogin.framework */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		98A60A9725E47BAC009196FC /* EncuentroCatolicoLogin */ = {
+			isa = PBXGroup;
+			children = (
+				9834785625E6C5DA005E9BDA /* Extensions */,
+				9834785425E6B746005E9BDA /* Resources */,
+				980E98F425E48C5B002C766D /* Controllers */,
+				98A60A9825E47BAC009196FC /* EncuentroCatolicoLogin.h */,
+				98A60A9925E47BAC009196FC /* Info.plist */,
+			);
+			path = EncuentroCatolicoLogin;
+			sourceTree = "<group>";
+		};
+		B08423FDE41087674FDCAD71 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				9DFA170A273F073D00319318 /* EncuentroCatolicoHome.framework */,
+				AA0DEA1325EEC73100DDB861 /* EncuentroCatolicoRegister.framework */,
+				824796C125ED4DEC00C0596D /* EncuentroCatolicoRegister.framework */,
+				824796B325ED466C00C0596D /* EncuentroCatolicoRegister.framework */,
+				8ADB345D2D5E4DC5E64DA86E /* Pods_EncuentroCatolicoLogin.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		FF39159319F8009B42E75421 /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				C9F71A9C03832321B05742BF /* Pods-EncuentroCatolicoLogin.debug.xcconfig */,
+				89E34F32F100EF21862E48E6 /* Pods-EncuentroCatolicoLogin.release.xcconfig */,
+			);
+			name = Pods;
+			path = ../Pods;
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXHeadersBuildPhase section */
+		98A60A9025E47BAC009196FC /* Headers */ = {
+			isa = PBXHeadersBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				98A60A9A25E47BAC009196FC /* EncuentroCatolicoLogin.h in Headers */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXHeadersBuildPhase section */
+
+/* Begin PBXNativeTarget section */
+		98A60A9425E47BAC009196FC /* EncuentroCatolicoLogin */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 98A60A9D25E47BAC009196FC /* Build configuration list for PBXNativeTarget "EncuentroCatolicoLogin" */;
+			buildPhases = (
+				DAFE574BF0F333F2F27FF145 /* [CP] Check Pods Manifest.lock */,
+				98A60A9025E47BAC009196FC /* Headers */,
+				98A60A9125E47BAC009196FC /* Sources */,
+				98A60A9225E47BAC009196FC /* Frameworks */,
+				98A60A9325E47BAC009196FC /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = EncuentroCatolicoLogin;
+			productName = EncuentroCatolicoLogin;
+			productReference = 98A60A9525E47BAC009196FC /* EncuentroCatolicoLogin.framework */;
+			productType = "com.apple.product-type.framework";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		98A60A8C25E47BAC009196FC /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				LastUpgradeCheck = 1230;
+				TargetAttributes = {
+					98A60A9425E47BAC009196FC = {
+						CreatedOnToolsVersion = 12.3;
+						LastSwiftMigration = 1230;
+					};
+				};
+			};
+			buildConfigurationList = 98A60A8F25E47BAC009196FC /* Build configuration list for PBXProject "EncuentroCatolicoLogin" */;
+			compatibilityVersion = "Xcode 9.3";
+			developmentRegion = en;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+				Base,
+			);
+			mainGroup = 98A60A8B25E47BAC009196FC;
+			productRefGroup = 98A60A9625E47BAC009196FC /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				98A60A9425E47BAC009196FC /* EncuentroCatolicoLogin */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		98A60A9325E47BAC009196FC /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				9834785125E6B737005E9BDA /* Assets.xcassets in Resources */,
+				980E990025E48C69002C766D /* LoginView.xib in Resources */,
+				6FBF73A62669D02B006379AE /* OnBoarding.storyboard in Resources */,
+				82C1596225F6C099001CE1D3 /* Vista1View.xib in Resources */,
+				6FD5D5B4268100D600A700FE /* ForgotPassword.storyboard in Resources */,
+				82C1596425F6C0AE001CE1D3 /* Vista2View.xib in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		DAFE574BF0F333F2F27FF145 /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-EncuentroCatolicoLogin-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		98A60A9125E47BAC009196FC /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				6F25FC44266970F300D1B44C /* OnBoardingCCWireFrame.swift in Sources */,
+				6F25FC5926697D4000D1B44C /* OnBoardingCCComponents.swift in Sources */,
+				82C1594E25F6C038001CE1D3 /* Vista1View.swift in Sources */,
+				9DFA1711273F2BB700319318 /* LocationUserPerm.swift in Sources */,
+				6D6A3A05278E27A00019E226 /* APIType.swift in Sources */,
+				826DC6DD25E855A900F51EB7 /* LoginProtocols.swift in Sources */,
+				6F3BC36E26814122001CEF0D /* ConfirmationCodePresenter.swift in Sources */,
+				82C1594D25F6C038001CE1D3 /* Vista1Interactor.swift in Sources */,
+				82C1595C25F6C05E001CE1D3 /* Vista2Protocols.swift in Sources */,
+				826DC6E125E855A900F51EB7 /* LoginWireFrame.swift in Sources */,
+				6F26AA18268110A4002AB7BE /* ForgotPProtocols.swift in Sources */,
+				9D2B45242752A9FD009C8E02 /* SN.swift in Sources */,
+				6F26AA0926811028002AB7BE /* ForgotPViewController.swift in Sources */,
+				82C1594A25F6C038001CE1D3 /* Vista1Presenter.swift in Sources */,
+				826DC6DB25E855A900F51EB7 /* LoginPresenter.swift in Sources */,
+				826DC6E025E855A900F51EB7 /* LoginRemoteDataManager.swift in Sources */,
+				481A301C26B05EA2009C64FB /* FirebaseInstanceHelper.swift in Sources */,
+				82C1595D25F6C05E001CE1D3 /* Vista2Interactor.swift in Sources */,
+				82C1595F25F6C05E001CE1D3 /* Vista2RemoteDataManager.swift in Sources */,
+				6F25FC3B26696F6B00D1B44C /* OnBoardingCC.swift in Sources */,
+				6F3BC37126814135001CEF0D /* ConfirmationCodeEntity.swift in Sources */,
+				6F26AA0C26811060002AB7BE /* ForgotPInteractor.swift in Sources */,
+				6F25FC41266970CB00D1B44C /* OnBoardingCCInteractor.swift in Sources */,
+				6D754A6928F968D300226166 /* ChurchRemoteInfo.swift in Sources */,
+				82C1594C25F6C038001CE1D3 /* Vista1Protocols.swift in Sources */,
+				6F26AA1526811095002AB7BE /* ForgotPRouter.swift in Sources */,
+				6F29458A266FE425009657D4 /* Cell2OnBoarding.swift in Sources */,
+				6F25FC4B2669712B00D1B44C /* OnBoardingCCRemoteDataManager.swift in Sources */,
+				481A301A26B05E6B009C64FB /* FirebaseManager.swift in Sources */,
+				9834785825E6C5E4005E9BDA /* Design.swift in Sources */,
+				826DC6DF25E855A900F51EB7 /* LoginView.swift in Sources */,
+				82C1595025F6C038001CE1D3 /* Vista1WireFrame.swift in Sources */,
+				82C1594F25F6C038001CE1D3 /* Vista1RemoteDataManager.swift in Sources */,
+				6F3BC37426814147001CEF0D /* ConfirmationCodeRouter.swift in Sources */,
+				6F25FC552669766500D1B44C /* OnBoardingCCProtocols.swift in Sources */,
+				6F0E0FEE26698F75000C01EC /* Cell1OnBoarding.swift in Sources */,
+				826DC6DE25E855A900F51EB7 /* LoginInteractor.swift in Sources */,
+				6F26AA0F26811075002AB7BE /* ForgotPPresenter.swift in Sources */,
+				9D2B45262752AA1C009C8E02 /* ProfileMatchData.swift in Sources */,
+				6F3BC367268140A8001CEF0D /* ConfirmationCodeView.swift in Sources */,
+				6F3BC3772681415C001CEF0D /* ConfirmationCodeProtocol.swift in Sources */,
+				82C1596025F6C05E001CE1D3 /* Vista2WireFrame.swift in Sources */,
+				6F26AA1226811085002AB7BE /* ForgotPEntity.swift in Sources */,
+				826DC6DC25E855A900F51EB7 /* LoginLocalDataManager.swift in Sources */,
+				82C1595A25F6C05E001CE1D3 /* Vista2Presenter.swift in Sources */,
+				82C1595E25F6C05E001CE1D3 /* Vista2View.swift in Sources */,
+				826DC6FA25E85CD300F51EB7 /* LoginEntity.swift in Sources */,
+				6F3BC36B26814109001CEF0D /* ConfirmationCodeInteractor.swift in Sources */,
+				6F25FC3E266970A000D1B44C /* OnBoardingCCPresenter.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin XCBuildConfiguration section */
+		98A60A9B25E47BAC009196FC /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = NO;
+				CURRENT_PROJECT_VERSION = 1;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 14.3;
+				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
+				MTL_FAST_MATH = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = iphoneos;
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = DEBUG;
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+				VERSIONING_SYSTEM = "apple-generic";
+				VERSION_INFO_PREFIX = "";
+			};
+			name = Debug;
+		};
+		98A60A9C25E47BAC009196FC /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = NO;
+				CURRENT_PROJECT_VERSION = 1;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 14.3;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				MTL_FAST_MATH = YES;
+				SDKROOT = iphoneos;
+				SWIFT_COMPILATION_MODE = wholemodule;
+				SWIFT_OPTIMIZATION_LEVEL = "-O";
+				VALIDATE_PRODUCT = YES;
+				VERSIONING_SYSTEM = "apple-generic";
+				VERSION_INFO_PREFIX = "";
+			};
+			name = Release;
+		};
+		98A60A9E25E47BAC009196FC /* Debug */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = C9F71A9C03832321B05742BF /* Pods-EncuentroCatolicoLogin.debug.xcconfig */;
+			buildSettings = {
+				CLANG_ENABLE_MODULES = YES;
+				CODE_SIGN_IDENTITY = "Apple Development";
+				CODE_SIGN_STYLE = Manual;
+				DEFINES_MODULE = YES;
+				DEVELOPMENT_TEAM = "";
+				DYLIB_COMPATIBILITY_VERSION = 1;
+				DYLIB_CURRENT_VERSION = 1;
+				DYLIB_INSTALL_NAME_BASE = "@rpath";
+				INFOPLIST_FILE = EncuentroCatolicoLogin/Info.plist;
+				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
+				IPHONEOS_DEPLOYMENT_TARGET = 12.0;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = mx.arquidiocesis.EncuentroCatolicoLogin;
+				PRODUCT_NAME = "$(TARGET_NAME:c99extidentifier)";
+				PROVISIONING_PROFILE_SPECIFIER = "";
+				SKIP_INSTALL = YES;
+				SUPPORTS_MACCATALYST = NO;
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Debug;
+		};
+		98A60A9F25E47BAC009196FC /* Release */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 89E34F32F100EF21862E48E6 /* Pods-EncuentroCatolicoLogin.release.xcconfig */;
+			buildSettings = {
+				CLANG_ENABLE_MODULES = YES;
+				CODE_SIGN_IDENTITY = "Apple Development";
+				CODE_SIGN_STYLE = Manual;
+				DEFINES_MODULE = YES;
+				DEVELOPMENT_TEAM = "";
+				DYLIB_COMPATIBILITY_VERSION = 1;
+				DYLIB_CURRENT_VERSION = 1;
+				DYLIB_INSTALL_NAME_BASE = "@rpath";
+				INFOPLIST_FILE = EncuentroCatolicoLogin/Info.plist;
+				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
+				IPHONEOS_DEPLOYMENT_TARGET = 12.0;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = mx.arquidiocesis.EncuentroCatolicoLogin;
+				PRODUCT_NAME = "$(TARGET_NAME:c99extidentifier)";
+				PROVISIONING_PROFILE_SPECIFIER = "";
+				SKIP_INSTALL = YES;
+				SUPPORTS_MACCATALYST = NO;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		98A60A8F25E47BAC009196FC /* Build configuration list for PBXProject "EncuentroCatolicoLogin" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				98A60A9B25E47BAC009196FC /* Debug */,
+				98A60A9C25E47BAC009196FC /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		98A60A9D25E47BAC009196FC /* Build configuration list for PBXNativeTarget "EncuentroCatolicoLogin" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				98A60A9E25E47BAC009196FC /* Debug */,
+				98A60A9F25E47BAC009196FC /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = 98A60A8C25E47BAC009196FC /* Project object */;
+}

@@ -1,0 +1,2106 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 50;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		366DCAF726403AFB00C09902 /* MyChurchHeaderCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 366DCAF526403AFB00C09902 /* MyChurchHeaderCollectionViewCell.swift */; };
+		366DCAF826403AFB00C09902 /* MyChurchHeaderCollectionViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 366DCAF626403AFB00C09902 /* MyChurchHeaderCollectionViewCell.xib */; };
+		366DCAFC26403D8B00C09902 /* FavouriteChurchHeaderCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 366DCAFA26403D8B00C09902 /* FavouriteChurchHeaderCollectionViewCell.swift */; };
+		366DCAFD26403D8B00C09902 /* FavouriteChurchHeaderCollectionViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 366DCAFB26403D8B00C09902 /* FavouriteChurchHeaderCollectionViewCell.xib */; };
+		36BAB035263FCE090056274B /* MyChurchCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 36BAB033263FCE090056274B /* MyChurchCollectionViewCell.swift */; };
+		36BAB036263FCE090056274B /* MyChurchCollectionViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 36BAB034263FCE090056274B /* MyChurchCollectionViewCell.xib */; };
+		481A302526B0B9CD009C64FB /* CommunitiesProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 481A302426B0B9CC009C64FB /* CommunitiesProtocol.swift */; };
+		481A302726B0BA6E009C64FB /* CommunitiesFormularyWireFrame.swift in Sources */ = {isa = PBXBuildFile; fileRef = 481A302626B0BA6E009C64FB /* CommunitiesFormularyWireFrame.swift */; };
+		481A302926B0BC0F009C64FB /* CommunitiesFormularyInteractor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 481A302826B0BC0F009C64FB /* CommunitiesFormularyInteractor.swift */; };
+		481A302B26B0BC60009C64FB /* CommunitiesFormularyPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 481A302A26B0BC60009C64FB /* CommunitiesFormularyPresenter.swift */; };
+		481A302E26B0BE75009C64FB /* CommunitiesFormularyViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 481A302D26B0BE75009C64FB /* CommunitiesFormularyViewController.swift */; };
+		481A303026B0C436009C64FB /* CommunitiesFormularyStoryboard.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 481A302F26B0C436009C64FB /* CommunitiesFormularyStoryboard.storyboard */; };
+		48292A1B26B20B880042DFD0 /* CancelRegister.swift in Sources */ = {isa = PBXBuildFile; fileRef = 48292A1A26B20B880042DFD0 /* CancelRegister.swift */; };
+		48292A1D26B20BAC0042DFD0 /* CancelRegister.xib in Resources */ = {isa = PBXBuildFile; fileRef = 48292A1C26B20BAC0042DFD0 /* CancelRegister.xib */; };
+		48292A1F26B20BC30042DFD0 /* SuceesAllert.swift in Sources */ = {isa = PBXBuildFile; fileRef = 48292A1E26B20BC30042DFD0 /* SuceesAllert.swift */; };
+		48292A2126B20BD00042DFD0 /* SuceesAllert.xib in Resources */ = {isa = PBXBuildFile; fileRef = 48292A2026B20BD00042DFD0 /* SuceesAllert.xib */; };
+		48292A2926B343DF0042DFD0 /* AddCommunityProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 48292A2826B343DF0042DFD0 /* AddCommunityProtocol.swift */; };
+		48293A4D27036A2D00824EAD /* AddMasses.swift in Sources */ = {isa = PBXBuildFile; fileRef = 48293A4C27036A2D00824EAD /* AddMasses.swift */; };
+		48293A4F27036A3B00824EAD /* AddMasses.xib in Resources */ = {isa = PBXBuildFile; fileRef = 48293A4E27036A3B00824EAD /* AddMasses.xib */; };
+		482BC4E826C580160093E7A9 /* MyCommunitiesMainViewPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 482BC4E726C580160093E7A9 /* MyCommunitiesMainViewPresenter.swift */; };
+		482BC4EA26C580240093E7A9 /* MyCommunitiesMainViewInteractor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 482BC4E926C580240093E7A9 /* MyCommunitiesMainViewInteractor.swift */; };
+		482BC4EC26C580310093E7A9 /* MyCommunitiesMainViewProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 482BC4EB26C580310093E7A9 /* MyCommunitiesMainViewProtocol.swift */; };
+		482BC4EE26C5803D0093E7A9 /* MyCommunitiesMainViewWireFrame.swift in Sources */ = {isa = PBXBuildFile; fileRef = 482BC4ED26C5803D0093E7A9 /* MyCommunitiesMainViewWireFrame.swift */; };
+		482EE56926CADA8700D70CB8 /* AddCommunities.swift in Sources */ = {isa = PBXBuildFile; fileRef = 482EE56826CADA8700D70CB8 /* AddCommunities.swift */; };
+		482EE56B26CADA9300D70CB8 /* AddCommunities.xib in Resources */ = {isa = PBXBuildFile; fileRef = 482EE56A26CADA9300D70CB8 /* AddCommunities.xib */; };
+		48346F28267D126A003E154C /* Media.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 48346EFE267D1269003E154C /* Media.xcassets */; };
+		48346F2E267D126A003E154C /* Colors.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 48346F07267D1269003E154C /* Colors.xcassets */; };
+		48346F2F267D126A003E154C /* UserRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 48346F0A267D1269003E154C /* UserRouter.swift */; };
+		48346F30267D126A003E154C /* LocationRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 48346F0B267D1269003E154C /* LocationRouter.swift */; };
+		48346F36267D126A003E154C /* ChurchRegisterPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 48346F12267D1269003E154C /* ChurchRegisterPresenter.swift */; };
+		48346F37267D126A003E154C /* ChurchRegisterWireFrame.swift in Sources */ = {isa = PBXBuildFile; fileRef = 48346F14267D1269003E154C /* ChurchRegisterWireFrame.swift */; };
+		48346F38267D126A003E154C /* Church.swift in Sources */ = {isa = PBXBuildFile; fileRef = 48346F16267D1269003E154C /* Church.swift */; };
+		48346F39267D126A003E154C /* ChurchService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 48346F17267D1269003E154C /* ChurchService.swift */; };
+		48346F3A267D126A003E154C /* ChurchServiceSchedule.swift in Sources */ = {isa = PBXBuildFile; fileRef = 48346F18267D1269003E154C /* ChurchServiceSchedule.swift */; };
+		48346F3B267D126A003E154C /* ChurchDummyData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 48346F19267D1269003E154C /* ChurchDummyData.swift */; };
+		48346F3C267D126A003E154C /* ChurchCustomeAnotation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 48346F1B267D1269003E154C /* ChurchCustomeAnotation.swift */; };
+		48346F3D267D126A003E154C /* ChurchCustomeAnotation.xib in Resources */ = {isa = PBXBuildFile; fileRef = 48346F1C267D1269003E154C /* ChurchCustomeAnotation.xib */; };
+		48346F3E267D126A003E154C /* ChurchRegisterView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 48346F1D267D1269003E154C /* ChurchRegisterView.swift */; };
+		48346F3F267D126A003E154C /* AddressTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 48346F1F267D1269003E154C /* AddressTableViewCell.xib */; };
+		48346F40267D126A003E154C /* AddressTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 48346F20267D1269003E154C /* AddressTableViewCell.swift */; };
+		48346F41267D126A003E154C /* ChurchRegister.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 48346F21267D1269003E154C /* ChurchRegister.storyboard */; };
+		48346F42267D126A003E154C /* ChurchMark.swift in Sources */ = {isa = PBXBuildFile; fileRef = 48346F22267D1269003E154C /* ChurchMark.swift */; };
+		48346F43267D126A003E154C /* AnnotationView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 48346F23267D1269003E154C /* AnnotationView.swift */; };
+		48346F44267D126A003E154C /* ChurchRegisterProtocols.swift in Sources */ = {isa = PBXBuildFile; fileRef = 48346F25267D1269003E154C /* ChurchRegisterProtocols.swift */; };
+		48346F45267D126A003E154C /* ChurchRegisterInteractor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 48346F27267D1269003E154C /* ChurchRegisterInteractor.swift */; };
+		48553C3E26D0284600F702D5 /* RegisterFirmulary.xib in Resources */ = {isa = PBXBuildFile; fileRef = 48553C3D26D0284600F702D5 /* RegisterFirmulary.xib */; };
+		48553C4026D0286100F702D5 /* RegisterFirmulary.swift in Sources */ = {isa = PBXBuildFile; fileRef = 48553C3F26D0286100F702D5 /* RegisterFirmulary.swift */; };
+		48553C4526D04AC800F702D5 /* TimePicker.swift in Sources */ = {isa = PBXBuildFile; fileRef = 48553C4426D04AC800F702D5 /* TimePicker.swift */; };
+		48553C4726D051CB00F702D5 /* DayPicker.swift in Sources */ = {isa = PBXBuildFile; fileRef = 48553C4626D051CB00F702D5 /* DayPicker.swift */; };
+		48553C4926D468A000F702D5 /* CommunityDetailModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 48553C4826D468A000F702D5 /* CommunityDetailModel.swift */; };
+		486AB4152718876A008C16B8 /* CmmunityCommentsTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 486AB4142718876A008C16B8 /* CmmunityCommentsTableViewCell.swift */; };
+		488BF66526C19FB200974C25 /* CommunitiesMainViewPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 488BF66426C19FB200974C25 /* CommunitiesMainViewPresenter.swift */; };
+		488BF66726C19FE300974C25 /* CommunitiesMainViewInteractor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 488BF66626C19FE300974C25 /* CommunitiesMainViewInteractor.swift */; };
+		488BF66926C1A00000974C25 /* CommunitiesMainViewProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 488BF66826C1A00000974C25 /* CommunitiesMainViewProtocol.swift */; };
+		488BF66B26C1A01F00974C25 /* CommunitiesMainViewWireFrame.swift in Sources */ = {isa = PBXBuildFile; fileRef = 488BF66A26C1A01F00974C25 /* CommunitiesMainViewWireFrame.swift */; };
+		48906D4726D5AB6B00D0C0EA /* AddService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 48906D4626D5AB6B00D0C0EA /* AddService.swift */; };
+		48906D4926D5AB7A00D0C0EA /* AddService.xib in Resources */ = {isa = PBXBuildFile; fileRef = 48906D4826D5AB7A00D0C0EA /* AddService.xib */; };
+		48906D4C26D6A30000D0C0EA /* AddSocial.swift in Sources */ = {isa = PBXBuildFile; fileRef = 48906D4B26D6A30000D0C0EA /* AddSocial.swift */; };
+		48906D4E26D6A30D00D0C0EA /* AddSocial.xib in Resources */ = {isa = PBXBuildFile; fileRef = 48906D4D26D6A30D00D0C0EA /* AddSocial.xib */; };
+		48906D5026D7F13800D0C0EA /* CommunitiesGetActivitiesModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 48906D4F26D7F13800D0C0EA /* CommunitiesGetActivitiesModel.swift */; };
+		48906D5226D92DDE00D0C0EA /* CommunityEditProfileModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 48906D5126D92DDE00D0C0EA /* CommunityEditProfileModel.swift */; };
+		48906D5426D92EAD00D0C0EA /* CommunityFinishRegisterModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 48906D5326D92EAD00D0C0EA /* CommunityFinishRegisterModel.swift */; };
+		48906D5726D9300400D0C0EA /* CommunityTupeCatalog.swift in Sources */ = {isa = PBXBuildFile; fileRef = 48906D5626D9300400D0C0EA /* CommunityTupeCatalog.swift */; };
+		48906D5926D94DA400D0C0EA /* CommunityTypeModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 48906D5826D94DA400D0C0EA /* CommunityTypeModel.swift */; };
+		48A1B2FE26EE934C0000079F /* ChurchEditModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 48A1B2FD26EE934C0000079F /* ChurchEditModel.swift */; };
+		48AEF708270E0F020095EFD3 /* ServiceCatalogModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 48AEF707270E0F020095EFD3 /* ServiceCatalogModel.swift */; };
+		48B6AC2A26B8437200D219FC /* AddCommunitiesWireFrame.swift in Sources */ = {isa = PBXBuildFile; fileRef = 48B6AC2926B8437200D219FC /* AddCommunitiesWireFrame.swift */; };
+		48B6AC2C26B8438A00D219FC /* AddCommunitiesInteractor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 48B6AC2B26B8438A00D219FC /* AddCommunitiesInteractor.swift */; };
+		48B6AC2E26B8439B00D219FC /* AddCommunitiesPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 48B6AC2D26B8439B00D219FC /* AddCommunitiesPresenter.swift */; };
+		48B6AC3A26B84AF000D219FC /* MyCommunitiesProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 48B6AC3926B84AF000D219FC /* MyCommunitiesProtocol.swift */; };
+		48B6AC3C26B84B5E00D219FC /* MyCommunitiesWireFrame.swift in Sources */ = {isa = PBXBuildFile; fileRef = 48B6AC3B26B84B5E00D219FC /* MyCommunitiesWireFrame.swift */; };
+		48B6AC3E26B84B8B00D219FC /* MyCommunitiesInteractor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 48B6AC3D26B84B8B00D219FC /* MyCommunitiesInteractor.swift */; };
+		48B6AC4026B84BC800D219FC /* MyCommunitiesPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 48B6AC3F26B84BC800D219FC /* MyCommunitiesPresenter.swift */; };
+		48B6AC4226B84C2600D219FC /* MyCommunitiesViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 48B6AC4126B84C2600D219FC /* MyCommunitiesViewController.swift */; };
+		48B6AC4426B84CF500D219FC /* MyCommunitiesStoryboard.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 48B6AC4326B84CF500D219FC /* MyCommunitiesStoryboard.storyboard */; };
+		48B6AC4826B9ABB200D219FC /* MyCommunitiesTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 48B6AC4626B9ABB200D219FC /* MyCommunitiesTableViewCell.swift */; };
+		48B6AC4926B9ABB200D219FC /* MyCommunitiesTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 48B6AC4726B9ABB200D219FC /* MyCommunitiesTableViewCell.xib */; };
+		48B6AC5026B9BD3F00D219FC /* AnswerFoemularyProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 48B6AC4F26B9BD3F00D219FC /* AnswerFoemularyProtocol.swift */; };
+		48B6AC5226B9BD4D00D219FC /* AnswerFoemularyInteractor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 48B6AC5126B9BD4D00D219FC /* AnswerFoemularyInteractor.swift */; };
+		48B6AC5426B9BD5900D219FC /* AnswerFoemularyPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 48B6AC5326B9BD5900D219FC /* AnswerFoemularyPresenter.swift */; };
+		48B6AC5626B9BD8A00D219FC /* AnswerFoemularyViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 48B6AC5526B9BD8A00D219FC /* AnswerFoemularyViewController.swift */; };
+		48B6AC5826B9BD9800D219FC /* AnswerFoemularyStoryboard.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 48B6AC5726B9BD9800D219FC /* AnswerFoemularyStoryboard.storyboard */; };
+		48B6AC5B26B9C44600D219FC /* AnswerFoemularyWireFrame.swift in Sources */ = {isa = PBXBuildFile; fileRef = 48B6AC5A26B9C44600D219FC /* AnswerFoemularyWireFrame.swift */; };
+		48B6AC6326B9C5F700D219FC /* AnswerSellectorViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 48B6AC6226B9C5F700D219FC /* AnswerSellectorViewController.swift */; };
+		48B6AC6526B9C60B00D219FC /* AnswerSellectorStoryboard.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 48B6AC6426B9C60B00D219FC /* AnswerSellectorStoryboard.storyboard */; };
+		48DCCF6926C459DE00E5D5E9 /* EmptyTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 48DCCF6726C459DE00E5D5E9 /* EmptyTableViewCell.swift */; };
+		48DCCF6A26C459DE00E5D5E9 /* EmptyTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 48DCCF6826C459DE00E5D5E9 /* EmptyTableViewCell.xib */; };
+		48DCCF6D26C459FE00E5D5E9 /* CommunityTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 48DCCF6B26C459FE00E5D5E9 /* CommunityTableViewCell.swift */; };
+		48DCCF6E26C459FE00E5D5E9 /* CommunityTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 48DCCF6C26C459FE00E5D5E9 /* CommunityTableViewCell.xib */; };
+		48DCCF7026C45A2E00E5D5E9 /* MyCommunitiesMainViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 48DCCF6F26C45A2E00E5D5E9 /* MyCommunitiesMainViewController.swift */; };
+		48DCCF7226C45A4100E5D5E9 /* MyCommunitiesMainViewStoryboard.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 48DCCF7126C45A4100E5D5E9 /* MyCommunitiesMainViewStoryboard.storyboard */; };
+		48DCCF7526C45D7100E5D5E9 /* FavEmptyTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 48DCCF7326C45D7100E5D5E9 /* FavEmptyTableViewCell.swift */; };
+		48DCCF7626C45D7100E5D5E9 /* FavEmptyTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 48DCCF7426C45D7100E5D5E9 /* FavEmptyTableViewCell.xib */; };
+		48FF15A326DE7DF400CDECBD /* CommunityMainListModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 48FF15A226DE7DF400CDECBD /* CommunityMainListModel.swift */; };
+		48FF15A526DE8B5E00CDECBD /* CommunitySearchListModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 48FF15A426DE8B5E00CDECBD /* CommunitySearchListModel.swift */; };
+		48FF15A726DFE22A00CDECBD /* CommunityLocationListModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 48FF15A626DFE22A00CDECBD /* CommunityLocationListModel.swift */; };
+		48FF15A926E145F000CDECBD /* CommunityPostImage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 48FF15A826E145F000CDECBD /* CommunityPostImage.swift */; };
+		6DCF8F9826DEB1BC00C27B7F /* CollectionCellServicesH.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6DCF8F8B26DEB1BC00C27B7F /* CollectionCellServicesH.swift */; };
+		6DCF8F9926DEB1BC00C27B7F /* CollectionCellServicesH.xib in Resources */ = {isa = PBXBuildFile; fileRef = 6DCF8F8C26DEB1BC00C27B7F /* CollectionCellServicesH.xib */; };
+		6DCF8F9A26DEB1BC00C27B7F /* HorizontalServiceSection.xib in Resources */ = {isa = PBXBuildFile; fileRef = 6DCF8F8E26DEB1BC00C27B7F /* HorizontalServiceSection.xib */; };
+		6DCF8F9B26DEB1BC00C27B7F /* AddCommunitiesTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6DCF8F8F26DEB1BC00C27B7F /* AddCommunitiesTableViewCell.swift */; };
+		6DCF8F9C26DEB1BC00C27B7F /* ServiceTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6DCF8F9026DEB1BC00C27B7F /* ServiceTableViewCell.swift */; };
+		6DCF8F9D26DEB1BC00C27B7F /* ServiceTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 6DCF8F9126DEB1BC00C27B7F /* ServiceTableViewCell.xib */; };
+		6DCF8F9E26DEB1BC00C27B7F /* SocialTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6DCF8F9226DEB1BC00C27B7F /* SocialTableViewCell.swift */; };
+		6DCF8F9F26DEB1BC00C27B7F /* HorizontalServiceSection.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6DCF8F9326DEB1BC00C27B7F /* HorizontalServiceSection.swift */; };
+		6DCF8FA026DEB1BC00C27B7F /* SocialTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 6DCF8F9426DEB1BC00C27B7F /* SocialTableViewCell.xib */; };
+		6DCF8FA126DEB1BC00C27B7F /* AddCommunitiesTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 6DCF8F9526DEB1BC00C27B7F /* AddCommunitiesTableViewCell.xib */; };
+		6DCF8FA326DEB1BC00C27B7F /* CommunitiesMainViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6DCF8F9726DEB1BC00C27B7F /* CommunitiesMainViewController.swift */; };
+		6DCF8FAF26DEB1E200C27B7F /* CommentsRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6DCF8FA526DEB1E200C27B7F /* CommentsRouter.swift */; };
+		6DCF8FB026DEB1E200C27B7F /* CommentsStoryboard.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 6DCF8FA626DEB1E200C27B7F /* CommentsStoryboard.storyboard */; };
+		6DCF8FB126DEB1E200C27B7F /* CommentsInteractor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6DCF8FA726DEB1E200C27B7F /* CommentsInteractor.swift */; };
+		6DCF8FB226DEB1E200C27B7F /* CommentsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6DCF8FA826DEB1E200C27B7F /* CommentsViewController.swift */; };
+		6DCF8FB326DEB1E200C27B7F /* CommmentsProtocols.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6DCF8FA926DEB1E200C27B7F /* CommmentsProtocols.swift */; };
+		6DCF8FB426DEB1E200C27B7F /* CommentsEntity.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6DCF8FAA26DEB1E200C27B7F /* CommentsEntity.swift */; };
+		6DCF8FB526DEB1E200C27B7F /* CommentsCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6DCF8FAC26DEB1E200C27B7F /* CommentsCell.swift */; };
+		6DCF8FB626DEB1E200C27B7F /* CommentsComponents.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6DCF8FAD26DEB1E200C27B7F /* CommentsComponents.swift */; };
+		6DCF8FB726DEB1E200C27B7F /* CommentsPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6DCF8FAE26DEB1E200C27B7F /* CommentsPresenter.swift */; };
+		6DE2E363279B6F10000ED1F0 /* APIType.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6DE2E362279B6F10000ED1F0 /* APIType.swift */; };
+		6F5FAD5C26EBA9AA00381A9D /* NewEmptyCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6F5FAD5B26EBA9AA00381A9D /* NewEmptyCell.swift */; };
+		6F657ED526EBB079004DA173 /* EmptyFavComCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6F657ED426EBB079004DA173 /* EmptyFavComCell.swift */; };
+		6F901D9B26EBC02900881649 /* EmptyPrincipalChurch.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6F901D9926EBC02900881649 /* EmptyPrincipalChurch.swift */; };
+		6F901D9C26EBC02900881649 /* EmptyPrincipalChurch.xib in Resources */ = {isa = PBXBuildFile; fileRef = 6F901D9A26EBC02900881649 /* EmptyPrincipalChurch.xib */; };
+		6F9D668927161CC000667882 /* ChurchCommentCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6F9D668827161CC000667882 /* ChurchCommentCell.swift */; };
+		6FB5D28427E3D372005A505B /* StoryboardAddMasses.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 6FB5D28327E3D372005A505B /* StoryboardAddMasses.storyboard */; };
+		6FB5D28627E3D395005A505B /* NewAddMassesView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6FB5D28527E3D395005A505B /* NewAddMassesView.swift */; };
+		6FBAC38F2721F40900259277 /* CommunitiesMainStoryboard.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 6FBAC38E2721F40800259277 /* CommunitiesMainStoryboard.storyboard */; };
+		6FBEADB72710980200194907 /* NewServiceCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6FBEADB52710980200194907 /* NewServiceCell.swift */; };
+		6FBEADB82710980200194907 /* NewServiceCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 6FBEADB62710980200194907 /* NewServiceCell.xib */; };
+		6FCEDE5727ADAAD900E2B019 /* AddSocial.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 6FCEDE5627ADAAD900E2B019 /* AddSocial.storyboard */; };
+		6FCEDE5927ADAEC200E2B019 /* NewAddSocialController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6FCEDE5827ADAEC200E2B019 /* NewAddSocialController.swift */; };
+		6FE49AF82714E6EF002273D7 /* AlertComments.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6FE49AF72714E6EF002273D7 /* AlertComments.swift */; };
+		6FF2786E26EBCB7B0056E3BA /* EmptyFavChurch.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6FF2786C26EBCB7B0056E3BA /* EmptyFavChurch.swift */; };
+		6FF2786F26EBCB7B0056E3BA /* EmptyFavChurch.xib in Resources */ = {isa = PBXBuildFile; fileRef = 6FF2786D26EBCB7B0056E3BA /* EmptyFavChurch.xib */; };
+		6FF7918227486C10003F5600 /* alertModalCommController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6FF7918127486C10003F5600 /* alertModalCommController.swift */; };
+		6FF79184274897C6003F5600 /* AlertCommunity.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6FF79183274897C6003F5600 /* AlertCommunity.swift */; };
+		97A3352D612FE2ABD0A6C9A3 /* Pods_EncuentroCatolicoChurch.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6A71AE5E4FFA4F617D81F5A6 /* Pods_EncuentroCatolicoChurch.framework */; };
+		98C46A3425EF0E4A00DE543B /* EncuentroCatolicoChurch.h in Headers */ = {isa = PBXBuildFile; fileRef = 98C46A3225EF0E4A00DE543B /* EncuentroCatolicoChurch.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		98C46A4B25EF0E7300DE543B /* Bundle.swift in Sources */ = {isa = PBXBuildFile; fileRef = 98C46A4A25EF0E7300DE543B /* Bundle.swift */; };
+		9DA5CBA32748B80F00A40F7C /* EncuentroCatolicoProfile.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9DA5CBA22748B80E00A40F7C /* EncuentroCatolicoProfile.framework */; };
+		9DF55646271A35A100EA66C9 /* EncuentroCatolicoVirtualLibrary.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9DF55645271A35A000EA66C9 /* EncuentroCatolicoVirtualLibrary.framework */; };
+		DF3DFA9A2614F98800BB8DDE /* ServicesCallsDetailChurch.swift in Sources */ = {isa = PBXBuildFile; fileRef = DF3DFA992614F98800BB8DDE /* ServicesCallsDetailChurch.swift */; };
+		DF591EDF25FBDC9300E05CD6 /* ModelSeacrhChurch.swift in Sources */ = {isa = PBXBuildFile; fileRef = DF591EDE25FBDC9300E05CD6 /* ModelSeacrhChurch.swift */; };
+		DFED13EC25EF5F9600901D5D /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = DFED13EB25EF5F9600901D5D /* Assets.xcassets */; };
+		DFED13FF25EF5FAE00901D5D /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = DFED13EF25EF5FAE00901D5D /* Constants.swift */; };
+		DFED140025EF5FAE00901D5D /* Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = DFED13F025EF5FAE00901D5D /* Extension.swift */; };
+		DFED140125EF5FAE00901D5D /* BaseViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DFED13F225EF5FAE00901D5D /* BaseViewController.swift */; };
+		DFED140225EF5FAE00901D5D /* PickerViewTextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = DFED13F325EF5FAE00901D5D /* PickerViewTextField.swift */; };
+		DFED140325EF5FAE00901D5D /* PickerControllerDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = DFED13F525EF5FAE00901D5D /* PickerControllerDelegate.swift */; };
+		DFED140425EF5FAE00901D5D /* PickerTypes.swift in Sources */ = {isa = PBXBuildFile; fileRef = DFED13F625EF5FAE00901D5D /* PickerTypes.swift */; };
+		DFED140525EF5FAE00901D5D /* PickerController.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = DFED13F825EF5FAE00901D5D /* PickerController.storyboard */; };
+		DFED140625EF5FAE00901D5D /* PickerViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DFED13F925EF5FAE00901D5D /* PickerViewController.swift */; };
+		DFED140725EF5FAE00901D5D /* DatePickerViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DFED13FA25EF5FAE00901D5D /* DatePickerViewController.swift */; };
+		DFED140825EF5FAE00901D5D /* DatePickerTextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = DFED13FB25EF5FAE00901D5D /* DatePickerTextField.swift */; };
+		DFED140925EF5FAE00901D5D /* LoaderView.xib in Resources */ = {isa = PBXBuildFile; fileRef = DFED13FD25EF5FAE00901D5D /* LoaderView.xib */; };
+		DFED140A25EF5FAE00901D5D /* LoaderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DFED13FE25EF5FAE00901D5D /* LoaderView.swift */; };
+		DFED140F25EF5FB900901D5D /* PriestChurch.swift in Sources */ = {isa = PBXBuildFile; fileRef = DFED140D25EF5FB900901D5D /* PriestChurch.swift */; };
+		DFED141025EF5FB900901D5D /* ChurchDetail.swift in Sources */ = {isa = PBXBuildFile; fileRef = DFED140E25EF5FB900901D5D /* ChurchDetail.swift */; };
+		DFED142025EF5FC300901D5D /* RequestManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = DFED141325EF5FC300901D5D /* RequestManager.swift */; };
+		DFED142125EF5FC300901D5D /* ErrorEncuentro.swift in Sources */ = {isa = PBXBuildFile; fileRef = DFED141425EF5FC300901D5D /* ErrorEncuentro.swift */; };
+		DFED142225EF5FC300901D5D /* Endpoints.swift in Sources */ = {isa = PBXBuildFile; fileRef = DFED141625EF5FC300901D5D /* Endpoints.swift */; };
+		DFED142325EF5FC300901D5D /* EnumsNetworking.swift in Sources */ = {isa = PBXBuildFile; fileRef = DFED141725EF5FC300901D5D /* EnumsNetworking.swift */; };
+		DFED142425EF5FC300901D5D /* InternetConnection.swift in Sources */ = {isa = PBXBuildFile; fileRef = DFED141825EF5FC300901D5D /* InternetConnection.swift */; };
+		DFED142525EF5FC300901D5D /* ConnectionManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = DFED141925EF5FC300901D5D /* ConnectionManager.swift */; };
+		DFED142625EF5FC300901D5D /* ResponseDispatcher.swift in Sources */ = {isa = PBXBuildFile; fileRef = DFED141A25EF5FC300901D5D /* ResponseDispatcher.swift */; };
+		DFED142725EF5FC300901D5D /* RequestType.swift in Sources */ = {isa = PBXBuildFile; fileRef = DFED141B25EF5FC300901D5D /* RequestType.swift */; };
+		DFED142825EF5FC300901D5D /* BaseRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = DFED141C25EF5FC300901D5D /* BaseRouter.swift */; };
+		DFED142925EF5FC300901D5D /* API.swift in Sources */ = {isa = PBXBuildFile; fileRef = DFED141D25EF5FC300901D5D /* API.swift */; };
+		DFED142A25EF5FC300901D5D /* ChurchRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = DFED141F25EF5FC300901D5D /* ChurchRouter.swift */; };
+		DFED143E25EF5FCC00901D5D /* Colors.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = DFED142D25EF5FCC00901D5D /* Colors.xcassets */; };
+		DFED143F25EF5FCC00901D5D /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = DFED142E25EF5FCC00901D5D /* Images.xcassets */; };
+		DFED144025EF5FCC00901D5D /* Roboto-Medium.ttf in Resources */ = {isa = PBXBuildFile; fileRef = DFED143125EF5FCC00901D5D /* Roboto-Medium.ttf */; };
+		DFED144125EF5FCC00901D5D /* Roboto-Light.ttf in Resources */ = {isa = PBXBuildFile; fileRef = DFED143225EF5FCC00901D5D /* Roboto-Light.ttf */; };
+		DFED144225EF5FCC00901D5D /* Roboto-Regular.ttf in Resources */ = {isa = PBXBuildFile; fileRef = DFED143325EF5FCC00901D5D /* Roboto-Regular.ttf */; };
+		DFED144325EF5FCC00901D5D /* Roboto-MediumItalic.ttf in Resources */ = {isa = PBXBuildFile; fileRef = DFED143425EF5FCC00901D5D /* Roboto-MediumItalic.ttf */; };
+		DFED144425EF5FCC00901D5D /* Roboto-ThinItalic.ttf in Resources */ = {isa = PBXBuildFile; fileRef = DFED143525EF5FCC00901D5D /* Roboto-ThinItalic.ttf */; };
+		DFED144525EF5FCC00901D5D /* Roboto-BoldItalic.ttf in Resources */ = {isa = PBXBuildFile; fileRef = DFED143625EF5FCC00901D5D /* Roboto-BoldItalic.ttf */; };
+		DFED144625EF5FCC00901D5D /* Roboto-LightItalic.ttf in Resources */ = {isa = PBXBuildFile; fileRef = DFED143725EF5FCC00901D5D /* Roboto-LightItalic.ttf */; };
+		DFED144725EF5FCC00901D5D /* Roboto-Italic.ttf in Resources */ = {isa = PBXBuildFile; fileRef = DFED143825EF5FCC00901D5D /* Roboto-Italic.ttf */; };
+		DFED144825EF5FCC00901D5D /* LICENSE.txt in Resources */ = {isa = PBXBuildFile; fileRef = DFED143925EF5FCC00901D5D /* LICENSE.txt */; };
+		DFED144925EF5FCC00901D5D /* Roboto-BlackItalic.ttf in Resources */ = {isa = PBXBuildFile; fileRef = DFED143A25EF5FCC00901D5D /* Roboto-BlackItalic.ttf */; };
+		DFED144A25EF5FCC00901D5D /* Roboto-Bold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = DFED143B25EF5FCC00901D5D /* Roboto-Bold.ttf */; };
+		DFED144B25EF5FCD00901D5D /* Roboto-Thin.ttf in Resources */ = {isa = PBXBuildFile; fileRef = DFED143C25EF5FCC00901D5D /* Roboto-Thin.ttf */; };
+		DFED144C25EF5FCD00901D5D /* Roboto-Black.ttf in Resources */ = {isa = PBXBuildFile; fileRef = DFED143D25EF5FCC00901D5D /* Roboto-Black.ttf */; };
+		DFED147E25EF5FD500901D5D /* MyChurchesPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = DFED145125EF5FD500901D5D /* MyChurchesPresenter.swift */; };
+		DFED147F25EF5FD500901D5D /* MyChurchesWireFrame.swift in Sources */ = {isa = PBXBuildFile; fileRef = DFED145325EF5FD500901D5D /* MyChurchesWireFrame.swift */; };
+		DFED148025EF5FD500901D5D /* MyChurches.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = DFED145525EF5FD500901D5D /* MyChurches.storyboard */; };
+		DFED148125EF5FD500901D5D /* MyChurchesView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DFED145625EF5FD500901D5D /* MyChurchesView.swift */; };
+		DFED148225EF5FD500901D5D /* FavouriteChurchCollectionViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = DFED145825EF5FD500901D5D /* FavouriteChurchCollectionViewCell.xib */; };
+		DFED148325EF5FD500901D5D /* FavouriteChurchCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = DFED145925EF5FD500901D5D /* FavouriteChurchCollectionViewCell.swift */; };
+		DFED148425EF5FD500901D5D /* MyChurchesProtocols.swift in Sources */ = {isa = PBXBuildFile; fileRef = DFED145B25EF5FD500901D5D /* MyChurchesProtocols.swift */; };
+		DFED148525EF5FD500901D5D /* MyChurchesInteractor.swift in Sources */ = {isa = PBXBuildFile; fileRef = DFED145D25EF5FD500901D5D /* MyChurchesInteractor.swift */; };
+		DFED148625EF5FD500901D5D /* ChurchDetailPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = DFED146025EF5FD500901D5D /* ChurchDetailPresenter.swift */; };
+		DFED148725EF5FD500901D5D /* ChurchDetailWireFrame.swift in Sources */ = {isa = PBXBuildFile; fileRef = DFED146225EF5FD500901D5D /* ChurchDetailWireFrame.swift */; };
+		DFED148825EF5FD500901D5D /* ChurchDetailView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DFED146425EF5FD500901D5D /* ChurchDetailView.swift */; };
+		DFED148925EF5FD500901D5D /* ServiceCollectionViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = DFED146625EF5FD500901D5D /* ServiceCollectionViewCell.xib */; };
+		DFED148A25EF5FD500901D5D /* ServiceCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = DFED146725EF5FD500901D5D /* ServiceCollectionViewCell.swift */; };
+		DFED148B25EF5FD500901D5D /* ChurchDetail.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = DFED146825EF5FD500901D5D /* ChurchDetail.storyboard */; };
+		DFED148C25EF5FD500901D5D /* ChurchDetailProtocols.swift in Sources */ = {isa = PBXBuildFile; fileRef = DFED146A25EF5FD500901D5D /* ChurchDetailProtocols.swift */; };
+		DFED148D25EF5FD500901D5D /* ChurchDetailInteractor.swift in Sources */ = {isa = PBXBuildFile; fileRef = DFED146C25EF5FD500901D5D /* ChurchDetailInteractor.swift */; };
+		DFED148E25EF5FD500901D5D /* EntityChurchPriest.swift in Sources */ = {isa = PBXBuildFile; fileRef = DFED146F25EF5FD500901D5D /* EntityChurchPriest.swift */; };
+		DFED148F25EF5FD500901D5D /* ChurchPriestPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = DFED147125EF5FD500901D5D /* ChurchPriestPresenter.swift */; };
+		DFED149025EF5FD500901D5D /* PriestTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = DFED147425EF5FD500901D5D /* PriestTableViewCell.xib */; };
+		DFED149125EF5FD500901D5D /* PriestTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = DFED147525EF5FD500901D5D /* PriestTableViewCell.swift */; };
+		DFED149225EF5FD500901D5D /* ChurchPriest.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = DFED147625EF5FD500901D5D /* ChurchPriest.storyboard */; };
+		DFED149325EF5FD500901D5D /* ChurchPriestViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DFED147725EF5FD500901D5D /* ChurchPriestViewController.swift */; };
+		DFED149425EF5FD500901D5D /* Protocolos.swift in Sources */ = {isa = PBXBuildFile; fileRef = DFED147925EF5FD500901D5D /* Protocolos.swift */; };
+		DFED149525EF5FD500901D5D /* ChurchPriestInteractor.swift in Sources */ = {isa = PBXBuildFile; fileRef = DFED147B25EF5FD500901D5D /* ChurchPriestInteractor.swift */; };
+		DFED149625EF5FD500901D5D /* ChurchPriestRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = DFED147D25EF5FD500901D5D /* ChurchPriestRouter.swift */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXFileReference section */
+		02E0DB3ABB5DC9F1EFE60DC8 /* Pods-EncuentroCatolicoChurch.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-EncuentroCatolicoChurch.release.xcconfig"; path = "Target Support Files/Pods-EncuentroCatolicoChurch/Pods-EncuentroCatolicoChurch.release.xcconfig"; sourceTree = "<group>"; };
+		366DCAF526403AFB00C09902 /* MyChurchHeaderCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyChurchHeaderCollectionViewCell.swift; sourceTree = "<group>"; };
+		366DCAF626403AFB00C09902 /* MyChurchHeaderCollectionViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = MyChurchHeaderCollectionViewCell.xib; sourceTree = "<group>"; };
+		366DCAFA26403D8B00C09902 /* FavouriteChurchHeaderCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FavouriteChurchHeaderCollectionViewCell.swift; sourceTree = "<group>"; };
+		366DCAFB26403D8B00C09902 /* FavouriteChurchHeaderCollectionViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = FavouriteChurchHeaderCollectionViewCell.xib; sourceTree = "<group>"; };
+		36BAAD80263DA49D0056274B /* Alamofire.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = Alamofire.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		36BAAF96263DA74D0056274B /* IQKeyboardManagerSwift.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = IQKeyboardManagerSwift.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		36BAB033263FCE090056274B /* MyChurchCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyChurchCollectionViewCell.swift; sourceTree = "<group>"; };
+		36BAB034263FCE090056274B /* MyChurchCollectionViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = MyChurchCollectionViewCell.xib; sourceTree = "<group>"; };
+		481A302426B0B9CC009C64FB /* CommunitiesProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CommunitiesProtocol.swift; sourceTree = "<group>"; };
+		481A302626B0BA6E009C64FB /* CommunitiesFormularyWireFrame.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CommunitiesFormularyWireFrame.swift; sourceTree = "<group>"; };
+		481A302826B0BC0F009C64FB /* CommunitiesFormularyInteractor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CommunitiesFormularyInteractor.swift; sourceTree = "<group>"; };
+		481A302A26B0BC60009C64FB /* CommunitiesFormularyPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CommunitiesFormularyPresenter.swift; sourceTree = "<group>"; };
+		481A302D26B0BE75009C64FB /* CommunitiesFormularyViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CommunitiesFormularyViewController.swift; sourceTree = "<group>"; };
+		481A302F26B0C436009C64FB /* CommunitiesFormularyStoryboard.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = CommunitiesFormularyStoryboard.storyboard; sourceTree = "<group>"; };
+		48292A1A26B20B880042DFD0 /* CancelRegister.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CancelRegister.swift; sourceTree = "<group>"; };
+		48292A1C26B20BAC0042DFD0 /* CancelRegister.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = CancelRegister.xib; sourceTree = "<group>"; };
+		48292A1E26B20BC30042DFD0 /* SuceesAllert.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SuceesAllert.swift; sourceTree = "<group>"; };
+		48292A2026B20BD00042DFD0 /* SuceesAllert.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = SuceesAllert.xib; sourceTree = "<group>"; };
+		48292A2826B343DF0042DFD0 /* AddCommunityProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddCommunityProtocol.swift; sourceTree = "<group>"; };
+		48293A4C27036A2D00824EAD /* AddMasses.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddMasses.swift; sourceTree = "<group>"; };
+		48293A4E27036A3B00824EAD /* AddMasses.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = AddMasses.xib; sourceTree = "<group>"; };
+		482BC4E726C580160093E7A9 /* MyCommunitiesMainViewPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyCommunitiesMainViewPresenter.swift; sourceTree = "<group>"; };
+		482BC4E926C580240093E7A9 /* MyCommunitiesMainViewInteractor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyCommunitiesMainViewInteractor.swift; sourceTree = "<group>"; };
+		482BC4EB26C580310093E7A9 /* MyCommunitiesMainViewProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyCommunitiesMainViewProtocol.swift; sourceTree = "<group>"; };
+		482BC4ED26C5803D0093E7A9 /* MyCommunitiesMainViewWireFrame.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyCommunitiesMainViewWireFrame.swift; sourceTree = "<group>"; };
+		482EE56826CADA8700D70CB8 /* AddCommunities.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddCommunities.swift; sourceTree = "<group>"; };
+		482EE56A26CADA9300D70CB8 /* AddCommunities.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = AddCommunities.xib; sourceTree = "<group>"; };
+		48346EFE267D1269003E154C /* Media.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Media.xcassets; sourceTree = "<group>"; };
+		48346F07267D1269003E154C /* Colors.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Colors.xcassets; sourceTree = "<group>"; };
+		48346F0A267D1269003E154C /* UserRouter.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UserRouter.swift; sourceTree = "<group>"; };
+		48346F0B267D1269003E154C /* LocationRouter.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LocationRouter.swift; sourceTree = "<group>"; };
+		48346F12267D1269003E154C /* ChurchRegisterPresenter.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ChurchRegisterPresenter.swift; sourceTree = "<group>"; };
+		48346F14267D1269003E154C /* ChurchRegisterWireFrame.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ChurchRegisterWireFrame.swift; sourceTree = "<group>"; };
+		48346F16267D1269003E154C /* Church.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Church.swift; sourceTree = "<group>"; };
+		48346F17267D1269003E154C /* ChurchService.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ChurchService.swift; sourceTree = "<group>"; };
+		48346F18267D1269003E154C /* ChurchServiceSchedule.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ChurchServiceSchedule.swift; sourceTree = "<group>"; };
+		48346F19267D1269003E154C /* ChurchDummyData.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ChurchDummyData.swift; sourceTree = "<group>"; };
+		48346F1B267D1269003E154C /* ChurchCustomeAnotation.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ChurchCustomeAnotation.swift; sourceTree = "<group>"; };
+		48346F1C267D1269003E154C /* ChurchCustomeAnotation.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ChurchCustomeAnotation.xib; sourceTree = "<group>"; };
+		48346F1D267D1269003E154C /* ChurchRegisterView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ChurchRegisterView.swift; sourceTree = "<group>"; };
+		48346F1F267D1269003E154C /* AddressTableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = AddressTableViewCell.xib; sourceTree = "<group>"; };
+		48346F20267D1269003E154C /* AddressTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AddressTableViewCell.swift; sourceTree = "<group>"; };
+		48346F21267D1269003E154C /* ChurchRegister.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = ChurchRegister.storyboard; sourceTree = "<group>"; };
+		48346F22267D1269003E154C /* ChurchMark.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ChurchMark.swift; sourceTree = "<group>"; };
+		48346F23267D1269003E154C /* AnnotationView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AnnotationView.swift; sourceTree = "<group>"; };
+		48346F25267D1269003E154C /* ChurchRegisterProtocols.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ChurchRegisterProtocols.swift; sourceTree = "<group>"; };
+		48346F27267D1269003E154C /* ChurchRegisterInteractor.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ChurchRegisterInteractor.swift; sourceTree = "<group>"; };
+		48553C3D26D0284600F702D5 /* RegisterFirmulary.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = RegisterFirmulary.xib; sourceTree = "<group>"; };
+		48553C3F26D0286100F702D5 /* RegisterFirmulary.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegisterFirmulary.swift; sourceTree = "<group>"; };
+		48553C4426D04AC800F702D5 /* TimePicker.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TimePicker.swift; sourceTree = "<group>"; };
+		48553C4626D051CB00F702D5 /* DayPicker.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DayPicker.swift; sourceTree = "<group>"; };
+		48553C4826D468A000F702D5 /* CommunityDetailModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CommunityDetailModel.swift; sourceTree = "<group>"; };
+		486AB4142718876A008C16B8 /* CmmunityCommentsTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CmmunityCommentsTableViewCell.swift; sourceTree = "<group>"; };
+		488BF66426C19FB200974C25 /* CommunitiesMainViewPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CommunitiesMainViewPresenter.swift; sourceTree = "<group>"; };
+		488BF66626C19FE300974C25 /* CommunitiesMainViewInteractor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CommunitiesMainViewInteractor.swift; sourceTree = "<group>"; };
+		488BF66826C1A00000974C25 /* CommunitiesMainViewProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CommunitiesMainViewProtocol.swift; sourceTree = "<group>"; };
+		488BF66A26C1A01F00974C25 /* CommunitiesMainViewWireFrame.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CommunitiesMainViewWireFrame.swift; sourceTree = "<group>"; };
+		48906D4626D5AB6B00D0C0EA /* AddService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddService.swift; sourceTree = "<group>"; };
+		48906D4826D5AB7A00D0C0EA /* AddService.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = AddService.xib; sourceTree = "<group>"; };
+		48906D4B26D6A30000D0C0EA /* AddSocial.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddSocial.swift; sourceTree = "<group>"; };
+		48906D4D26D6A30D00D0C0EA /* AddSocial.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = AddSocial.xib; sourceTree = "<group>"; };
+		48906D4F26D7F13800D0C0EA /* CommunitiesGetActivitiesModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CommunitiesGetActivitiesModel.swift; sourceTree = "<group>"; };
+		48906D5126D92DDE00D0C0EA /* CommunityEditProfileModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CommunityEditProfileModel.swift; sourceTree = "<group>"; };
+		48906D5326D92EAD00D0C0EA /* CommunityFinishRegisterModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CommunityFinishRegisterModel.swift; sourceTree = "<group>"; };
+		48906D5626D9300400D0C0EA /* CommunityTupeCatalog.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CommunityTupeCatalog.swift; sourceTree = "<group>"; };
+		48906D5826D94DA400D0C0EA /* CommunityTypeModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CommunityTypeModel.swift; sourceTree = "<group>"; };
+		48A1B2FD26EE934C0000079F /* ChurchEditModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChurchEditModel.swift; sourceTree = "<group>"; };
+		48AEF707270E0F020095EFD3 /* ServiceCatalogModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ServiceCatalogModel.swift; sourceTree = "<group>"; };
+		48B6AC2926B8437200D219FC /* AddCommunitiesWireFrame.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddCommunitiesWireFrame.swift; sourceTree = "<group>"; };
+		48B6AC2B26B8438A00D219FC /* AddCommunitiesInteractor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddCommunitiesInteractor.swift; sourceTree = "<group>"; };
+		48B6AC2D26B8439B00D219FC /* AddCommunitiesPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddCommunitiesPresenter.swift; sourceTree = "<group>"; };
+		48B6AC3926B84AF000D219FC /* MyCommunitiesProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyCommunitiesProtocol.swift; sourceTree = "<group>"; };
+		48B6AC3B26B84B5E00D219FC /* MyCommunitiesWireFrame.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyCommunitiesWireFrame.swift; sourceTree = "<group>"; };
+		48B6AC3D26B84B8B00D219FC /* MyCommunitiesInteractor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyCommunitiesInteractor.swift; sourceTree = "<group>"; };
+		48B6AC3F26B84BC800D219FC /* MyCommunitiesPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyCommunitiesPresenter.swift; sourceTree = "<group>"; };
+		48B6AC4126B84C2600D219FC /* MyCommunitiesViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyCommunitiesViewController.swift; sourceTree = "<group>"; };
+		48B6AC4326B84CF500D219FC /* MyCommunitiesStoryboard.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = MyCommunitiesStoryboard.storyboard; sourceTree = "<group>"; };
+		48B6AC4626B9ABB200D219FC /* MyCommunitiesTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyCommunitiesTableViewCell.swift; sourceTree = "<group>"; };
+		48B6AC4726B9ABB200D219FC /* MyCommunitiesTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = MyCommunitiesTableViewCell.xib; sourceTree = "<group>"; };
+		48B6AC4F26B9BD3F00D219FC /* AnswerFoemularyProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AnswerFoemularyProtocol.swift; sourceTree = "<group>"; };
+		48B6AC5126B9BD4D00D219FC /* AnswerFoemularyInteractor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AnswerFoemularyInteractor.swift; sourceTree = "<group>"; };
+		48B6AC5326B9BD5900D219FC /* AnswerFoemularyPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AnswerFoemularyPresenter.swift; sourceTree = "<group>"; };
+		48B6AC5526B9BD8A00D219FC /* AnswerFoemularyViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AnswerFoemularyViewController.swift; sourceTree = "<group>"; };
+		48B6AC5726B9BD9800D219FC /* AnswerFoemularyStoryboard.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = AnswerFoemularyStoryboard.storyboard; sourceTree = "<group>"; };
+		48B6AC5A26B9C44600D219FC /* AnswerFoemularyWireFrame.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AnswerFoemularyWireFrame.swift; sourceTree = "<group>"; };
+		48B6AC6226B9C5F700D219FC /* AnswerSellectorViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AnswerSellectorViewController.swift; sourceTree = "<group>"; };
+		48B6AC6426B9C60B00D219FC /* AnswerSellectorStoryboard.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = AnswerSellectorStoryboard.storyboard; sourceTree = "<group>"; };
+		48DCCF6726C459DE00E5D5E9 /* EmptyTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EmptyTableViewCell.swift; sourceTree = "<group>"; };
+		48DCCF6826C459DE00E5D5E9 /* EmptyTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = EmptyTableViewCell.xib; sourceTree = "<group>"; };
+		48DCCF6B26C459FE00E5D5E9 /* CommunityTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CommunityTableViewCell.swift; sourceTree = "<group>"; };
+		48DCCF6C26C459FE00E5D5E9 /* CommunityTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = CommunityTableViewCell.xib; sourceTree = "<group>"; };
+		48DCCF6F26C45A2E00E5D5E9 /* MyCommunitiesMainViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyCommunitiesMainViewController.swift; sourceTree = "<group>"; };
+		48DCCF7126C45A4100E5D5E9 /* MyCommunitiesMainViewStoryboard.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = MyCommunitiesMainViewStoryboard.storyboard; sourceTree = "<group>"; };
+		48DCCF7326C45D7100E5D5E9 /* FavEmptyTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FavEmptyTableViewCell.swift; sourceTree = "<group>"; };
+		48DCCF7426C45D7100E5D5E9 /* FavEmptyTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = FavEmptyTableViewCell.xib; sourceTree = "<group>"; };
+		48FF15A226DE7DF400CDECBD /* CommunityMainListModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CommunityMainListModel.swift; sourceTree = "<group>"; };
+		48FF15A426DE8B5E00CDECBD /* CommunitySearchListModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CommunitySearchListModel.swift; sourceTree = "<group>"; };
+		48FF15A626DFE22A00CDECBD /* CommunityLocationListModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CommunityLocationListModel.swift; sourceTree = "<group>"; };
+		48FF15A826E145F000CDECBD /* CommunityPostImage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CommunityPostImage.swift; sourceTree = "<group>"; };
+		4A15316D581020BBCE9912AE /* Pods-EncuentroCatolicoChurch.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-EncuentroCatolicoChurch.debug.xcconfig"; path = "Target Support Files/Pods-EncuentroCatolicoChurch/Pods-EncuentroCatolicoChurch.debug.xcconfig"; sourceTree = "<group>"; };
+		6A71AE5E4FFA4F617D81F5A6 /* Pods_EncuentroCatolicoChurch.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_EncuentroCatolicoChurch.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		6DCF8F8B26DEB1BC00C27B7F /* CollectionCellServicesH.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CollectionCellServicesH.swift; sourceTree = "<group>"; };
+		6DCF8F8C26DEB1BC00C27B7F /* CollectionCellServicesH.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = CollectionCellServicesH.xib; sourceTree = "<group>"; };
+		6DCF8F8E26DEB1BC00C27B7F /* HorizontalServiceSection.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = HorizontalServiceSection.xib; sourceTree = "<group>"; };
+		6DCF8F8F26DEB1BC00C27B7F /* AddCommunitiesTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AddCommunitiesTableViewCell.swift; sourceTree = "<group>"; };
+		6DCF8F9026DEB1BC00C27B7F /* ServiceTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ServiceTableViewCell.swift; sourceTree = "<group>"; };
+		6DCF8F9126DEB1BC00C27B7F /* ServiceTableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ServiceTableViewCell.xib; sourceTree = "<group>"; };
+		6DCF8F9226DEB1BC00C27B7F /* SocialTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SocialTableViewCell.swift; sourceTree = "<group>"; };
+		6DCF8F9326DEB1BC00C27B7F /* HorizontalServiceSection.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HorizontalServiceSection.swift; sourceTree = "<group>"; };
+		6DCF8F9426DEB1BC00C27B7F /* SocialTableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = SocialTableViewCell.xib; sourceTree = "<group>"; };
+		6DCF8F9526DEB1BC00C27B7F /* AddCommunitiesTableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = AddCommunitiesTableViewCell.xib; sourceTree = "<group>"; };
+		6DCF8F9726DEB1BC00C27B7F /* CommunitiesMainViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CommunitiesMainViewController.swift; sourceTree = "<group>"; };
+		6DCF8FA526DEB1E200C27B7F /* CommentsRouter.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CommentsRouter.swift; sourceTree = "<group>"; };
+		6DCF8FA626DEB1E200C27B7F /* CommentsStoryboard.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = CommentsStoryboard.storyboard; sourceTree = "<group>"; };
+		6DCF8FA726DEB1E200C27B7F /* CommentsInteractor.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CommentsInteractor.swift; sourceTree = "<group>"; };
+		6DCF8FA826DEB1E200C27B7F /* CommentsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CommentsViewController.swift; sourceTree = "<group>"; };
+		6DCF8FA926DEB1E200C27B7F /* CommmentsProtocols.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CommmentsProtocols.swift; sourceTree = "<group>"; };
+		6DCF8FAA26DEB1E200C27B7F /* CommentsEntity.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CommentsEntity.swift; sourceTree = "<group>"; };
+		6DCF8FAC26DEB1E200C27B7F /* CommentsCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CommentsCell.swift; sourceTree = "<group>"; };
+		6DCF8FAD26DEB1E200C27B7F /* CommentsComponents.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CommentsComponents.swift; sourceTree = "<group>"; };
+		6DCF8FAE26DEB1E200C27B7F /* CommentsPresenter.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CommentsPresenter.swift; sourceTree = "<group>"; };
+		6DE2E362279B6F10000ED1F0 /* APIType.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = APIType.swift; sourceTree = "<group>"; };
+		6F5FAD5B26EBA9AA00381A9D /* NewEmptyCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewEmptyCell.swift; sourceTree = "<group>"; };
+		6F657ED426EBB079004DA173 /* EmptyFavComCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EmptyFavComCell.swift; sourceTree = "<group>"; };
+		6F901D9926EBC02900881649 /* EmptyPrincipalChurch.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EmptyPrincipalChurch.swift; sourceTree = "<group>"; };
+		6F901D9A26EBC02900881649 /* EmptyPrincipalChurch.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = EmptyPrincipalChurch.xib; sourceTree = "<group>"; };
+		6F9D668827161CC000667882 /* ChurchCommentCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChurchCommentCell.swift; sourceTree = "<group>"; };
+		6FB5D28327E3D372005A505B /* StoryboardAddMasses.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = StoryboardAddMasses.storyboard; sourceTree = "<group>"; };
+		6FB5D28527E3D395005A505B /* NewAddMassesView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewAddMassesView.swift; sourceTree = "<group>"; };
+		6FBAC38E2721F40800259277 /* CommunitiesMainStoryboard.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = CommunitiesMainStoryboard.storyboard; sourceTree = "<group>"; };
+		6FBEADB52710980200194907 /* NewServiceCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewServiceCell.swift; sourceTree = "<group>"; };
+		6FBEADB62710980200194907 /* NewServiceCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = NewServiceCell.xib; sourceTree = "<group>"; };
+		6FCEDE5627ADAAD900E2B019 /* AddSocial.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = AddSocial.storyboard; sourceTree = "<group>"; };
+		6FCEDE5827ADAEC200E2B019 /* NewAddSocialController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewAddSocialController.swift; sourceTree = "<group>"; };
+		6FE49AF72714E6EF002273D7 /* AlertComments.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AlertComments.swift; sourceTree = "<group>"; };
+		6FF2786C26EBCB7B0056E3BA /* EmptyFavChurch.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EmptyFavChurch.swift; sourceTree = "<group>"; };
+		6FF2786D26EBCB7B0056E3BA /* EmptyFavChurch.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = EmptyFavChurch.xib; sourceTree = "<group>"; };
+		6FF7918127486C10003F5600 /* alertModalCommController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = alertModalCommController.swift; sourceTree = "<group>"; };
+		6FF79183274897C6003F5600 /* AlertCommunity.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AlertCommunity.swift; sourceTree = "<group>"; };
+		98C46A2F25EF0E4A00DE543B /* EncuentroCatolicoChurch.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = EncuentroCatolicoChurch.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		98C46A3225EF0E4A00DE543B /* EncuentroCatolicoChurch.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = EncuentroCatolicoChurch.h; sourceTree = "<group>"; };
+		98C46A3325EF0E4A00DE543B /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		98C46A4A25EF0E7300DE543B /* Bundle.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Bundle.swift; sourceTree = "<group>"; };
+		9DA5CBA22748B80E00A40F7C /* EncuentroCatolicoProfile.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = EncuentroCatolicoProfile.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		9DC14B3A273DD56B003C4CEC /* EncuentroCatolicoProfile.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = EncuentroCatolicoProfile.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		9DF55645271A35A000EA66C9 /* EncuentroCatolicoVirtualLibrary.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = EncuentroCatolicoVirtualLibrary.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		DF3DFA992614F98800BB8DDE /* ServicesCallsDetailChurch.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ServicesCallsDetailChurch.swift; sourceTree = "<group>"; };
+		DF591EDE25FBDC9300E05CD6 /* ModelSeacrhChurch.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ModelSeacrhChurch.swift; sourceTree = "<group>"; };
+		DFED13EB25EF5F9600901D5D /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		DFED13EF25EF5FAE00901D5D /* Constants.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
+		DFED13F025EF5FAE00901D5D /* Extension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Extension.swift; sourceTree = "<group>"; };
+		DFED13F225EF5FAE00901D5D /* BaseViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BaseViewController.swift; sourceTree = "<group>"; };
+		DFED13F325EF5FAE00901D5D /* PickerViewTextField.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PickerViewTextField.swift; sourceTree = "<group>"; };
+		DFED13F525EF5FAE00901D5D /* PickerControllerDelegate.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PickerControllerDelegate.swift; sourceTree = "<group>"; };
+		DFED13F625EF5FAE00901D5D /* PickerTypes.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PickerTypes.swift; sourceTree = "<group>"; };
+		DFED13F825EF5FAE00901D5D /* PickerController.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = PickerController.storyboard; sourceTree = "<group>"; };
+		DFED13F925EF5FAE00901D5D /* PickerViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PickerViewController.swift; sourceTree = "<group>"; };
+		DFED13FA25EF5FAE00901D5D /* DatePickerViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DatePickerViewController.swift; sourceTree = "<group>"; };
+		DFED13FB25EF5FAE00901D5D /* DatePickerTextField.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DatePickerTextField.swift; sourceTree = "<group>"; };
+		DFED13FD25EF5FAE00901D5D /* LoaderView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = LoaderView.xib; sourceTree = "<group>"; };
+		DFED13FE25EF5FAE00901D5D /* LoaderView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LoaderView.swift; sourceTree = "<group>"; };
+		DFED140D25EF5FB900901D5D /* PriestChurch.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PriestChurch.swift; sourceTree = "<group>"; };
+		DFED140E25EF5FB900901D5D /* ChurchDetail.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ChurchDetail.swift; sourceTree = "<group>"; };
+		DFED141325EF5FC300901D5D /* RequestManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RequestManager.swift; sourceTree = "<group>"; };
+		DFED141425EF5FC300901D5D /* ErrorEncuentro.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ErrorEncuentro.swift; sourceTree = "<group>"; };
+		DFED141625EF5FC300901D5D /* Endpoints.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Endpoints.swift; sourceTree = "<group>"; };
+		DFED141725EF5FC300901D5D /* EnumsNetworking.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EnumsNetworking.swift; sourceTree = "<group>"; };
+		DFED141825EF5FC300901D5D /* InternetConnection.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = InternetConnection.swift; sourceTree = "<group>"; };
+		DFED141925EF5FC300901D5D /* ConnectionManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ConnectionManager.swift; sourceTree = "<group>"; };
+		DFED141A25EF5FC300901D5D /* ResponseDispatcher.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ResponseDispatcher.swift; sourceTree = "<group>"; };
+		DFED141B25EF5FC300901D5D /* RequestType.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RequestType.swift; sourceTree = "<group>"; };
+		DFED141C25EF5FC300901D5D /* BaseRouter.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BaseRouter.swift; sourceTree = "<group>"; };
+		DFED141D25EF5FC300901D5D /* API.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = API.swift; sourceTree = "<group>"; };
+		DFED141F25EF5FC300901D5D /* ChurchRouter.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ChurchRouter.swift; sourceTree = "<group>"; };
+		DFED142D25EF5FCC00901D5D /* Colors.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Colors.xcassets; sourceTree = "<group>"; };
+		DFED142E25EF5FCC00901D5D /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
+		DFED143125EF5FCC00901D5D /* Roboto-Medium.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Roboto-Medium.ttf"; sourceTree = "<group>"; };
+		DFED143225EF5FCC00901D5D /* Roboto-Light.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Roboto-Light.ttf"; sourceTree = "<group>"; };
+		DFED143325EF5FCC00901D5D /* Roboto-Regular.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Roboto-Regular.ttf"; sourceTree = "<group>"; };
+		DFED143425EF5FCC00901D5D /* Roboto-MediumItalic.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Roboto-MediumItalic.ttf"; sourceTree = "<group>"; };
+		DFED143525EF5FCC00901D5D /* Roboto-ThinItalic.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Roboto-ThinItalic.ttf"; sourceTree = "<group>"; };
+		DFED143625EF5FCC00901D5D /* Roboto-BoldItalic.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Roboto-BoldItalic.ttf"; sourceTree = "<group>"; };
+		DFED143725EF5FCC00901D5D /* Roboto-LightItalic.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Roboto-LightItalic.ttf"; sourceTree = "<group>"; };
+		DFED143825EF5FCC00901D5D /* Roboto-Italic.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Roboto-Italic.ttf"; sourceTree = "<group>"; };
+		DFED143925EF5FCC00901D5D /* LICENSE.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = LICENSE.txt; sourceTree = "<group>"; };
+		DFED143A25EF5FCC00901D5D /* Roboto-BlackItalic.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Roboto-BlackItalic.ttf"; sourceTree = "<group>"; };
+		DFED143B25EF5FCC00901D5D /* Roboto-Bold.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Roboto-Bold.ttf"; sourceTree = "<group>"; };
+		DFED143C25EF5FCC00901D5D /* Roboto-Thin.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Roboto-Thin.ttf"; sourceTree = "<group>"; };
+		DFED143D25EF5FCC00901D5D /* Roboto-Black.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Roboto-Black.ttf"; sourceTree = "<group>"; };
+		DFED145125EF5FD500901D5D /* MyChurchesPresenter.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MyChurchesPresenter.swift; sourceTree = "<group>"; };
+		DFED145325EF5FD500901D5D /* MyChurchesWireFrame.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MyChurchesWireFrame.swift; sourceTree = "<group>"; };
+		DFED145525EF5FD500901D5D /* MyChurches.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = MyChurches.storyboard; sourceTree = "<group>"; };
+		DFED145625EF5FD500901D5D /* MyChurchesView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MyChurchesView.swift; sourceTree = "<group>"; };
+		DFED145825EF5FD500901D5D /* FavouriteChurchCollectionViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = FavouriteChurchCollectionViewCell.xib; sourceTree = "<group>"; };
+		DFED145925EF5FD500901D5D /* FavouriteChurchCollectionViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FavouriteChurchCollectionViewCell.swift; sourceTree = "<group>"; };
+		DFED145B25EF5FD500901D5D /* MyChurchesProtocols.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MyChurchesProtocols.swift; sourceTree = "<group>"; };
+		DFED145D25EF5FD500901D5D /* MyChurchesInteractor.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MyChurchesInteractor.swift; sourceTree = "<group>"; };
+		DFED146025EF5FD500901D5D /* ChurchDetailPresenter.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ChurchDetailPresenter.swift; sourceTree = "<group>"; };
+		DFED146225EF5FD500901D5D /* ChurchDetailWireFrame.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ChurchDetailWireFrame.swift; sourceTree = "<group>"; };
+		DFED146425EF5FD500901D5D /* ChurchDetailView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ChurchDetailView.swift; sourceTree = "<group>"; };
+		DFED146625EF5FD500901D5D /* ServiceCollectionViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ServiceCollectionViewCell.xib; sourceTree = "<group>"; };
+		DFED146725EF5FD500901D5D /* ServiceCollectionViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ServiceCollectionViewCell.swift; sourceTree = "<group>"; };
+		DFED146825EF5FD500901D5D /* ChurchDetail.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = ChurchDetail.storyboard; sourceTree = "<group>"; };
+		DFED146A25EF5FD500901D5D /* ChurchDetailProtocols.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ChurchDetailProtocols.swift; sourceTree = "<group>"; };
+		DFED146C25EF5FD500901D5D /* ChurchDetailInteractor.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ChurchDetailInteractor.swift; sourceTree = "<group>"; };
+		DFED146F25EF5FD500901D5D /* EntityChurchPriest.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EntityChurchPriest.swift; sourceTree = "<group>"; };
+		DFED147125EF5FD500901D5D /* ChurchPriestPresenter.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ChurchPriestPresenter.swift; sourceTree = "<group>"; };
+		DFED147425EF5FD500901D5D /* PriestTableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = PriestTableViewCell.xib; sourceTree = "<group>"; };
+		DFED147525EF5FD500901D5D /* PriestTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PriestTableViewCell.swift; sourceTree = "<group>"; };
+		DFED147625EF5FD500901D5D /* ChurchPriest.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = ChurchPriest.storyboard; sourceTree = "<group>"; };
+		DFED147725EF5FD500901D5D /* ChurchPriestViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ChurchPriestViewController.swift; sourceTree = "<group>"; };
+		DFED147925EF5FD500901D5D /* Protocolos.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Protocolos.swift; sourceTree = "<group>"; };
+		DFED147B25EF5FD500901D5D /* ChurchPriestInteractor.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ChurchPriestInteractor.swift; sourceTree = "<group>"; };
+		DFED147D25EF5FD500901D5D /* ChurchPriestRouter.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ChurchPriestRouter.swift; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		98C46A2C25EF0E4A00DE543B /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				9DF55646271A35A100EA66C9 /* EncuentroCatolicoVirtualLibrary.framework in Frameworks */,
+				97A3352D612FE2ABD0A6C9A3 /* Pods_EncuentroCatolicoChurch.framework in Frameworks */,
+				9DA5CBA32748B80F00A40F7C /* EncuentroCatolicoProfile.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		2D17BDEE5A4FE639DAF1B8F8 /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				4A15316D581020BBCE9912AE /* Pods-EncuentroCatolicoChurch.debug.xcconfig */,
+				02E0DB3ABB5DC9F1EFE60DC8 /* Pods-EncuentroCatolicoChurch.release.xcconfig */,
+			);
+			name = Pods;
+			path = ../Pods;
+			sourceTree = "<group>";
+		};
+		481A301E26B0B954009C64FB /* Communities */ = {
+			isa = PBXGroup;
+			children = (
+				6DCF8FA426DEB1E100C27B7F /* Comments */,
+				48906D4A26D6A2C400D0C0EA /* AddSocial */,
+				48906D4526D5AB2400D0C0EA /* AddService */,
+				D0E07F7E26CAC66C00338C75 /* RegisterFormu */,
+				48DCCF6426C4597900E5D5E9 /* MyCommunitiesMainView */,
+				488BF64E26C18D1200974C25 /* CommunitiesMainView */,
+				48B6AC5C26B9C5A600D219FC /* AnswerSellector */,
+				48B6AC4A26B9BCDD00D219FC /* AnswerFoemulary */,
+				48B6AC3326B84AA500D219FC /* MyCommunities */,
+				48292A2226B343210042DFD0 /* AddCommunities */,
+				48292A1926B20B360042DFD0 /* Allerts */,
+				481A302C26B0BD69009C64FB /* CommunitiesFormulary */,
+			);
+			path = Communities;
+			sourceTree = "<group>";
+		};
+		481A301F26B0B962009C64FB /* View */ = {
+			isa = PBXGroup;
+			children = (
+				481A302D26B0BE75009C64FB /* CommunitiesFormularyViewController.swift */,
+				481A302F26B0C436009C64FB /* CommunitiesFormularyStoryboard.storyboard */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		481A302026B0B96A009C64FB /* Presenter */ = {
+			isa = PBXGroup;
+			children = (
+				481A302A26B0BC60009C64FB /* CommunitiesFormularyPresenter.swift */,
+			);
+			path = Presenter;
+			sourceTree = "<group>";
+		};
+		481A302126B0B976009C64FB /* Interactor */ = {
+			isa = PBXGroup;
+			children = (
+				481A302826B0BC0F009C64FB /* CommunitiesFormularyInteractor.swift */,
+			);
+			path = Interactor;
+			sourceTree = "<group>";
+		};
+		481A302226B0B980009C64FB /* Protocol */ = {
+			isa = PBXGroup;
+			children = (
+				481A302426B0B9CC009C64FB /* CommunitiesProtocol.swift */,
+			);
+			path = Protocol;
+			sourceTree = "<group>";
+		};
+		481A302326B0B989009C64FB /* WireFrame */ = {
+			isa = PBXGroup;
+			children = (
+				481A302626B0BA6E009C64FB /* CommunitiesFormularyWireFrame.swift */,
+			);
+			path = WireFrame;
+			sourceTree = "<group>";
+		};
+		481A302C26B0BD69009C64FB /* CommunitiesFormulary */ = {
+			isa = PBXGroup;
+			children = (
+				481A302326B0B989009C64FB /* WireFrame */,
+				481A302226B0B980009C64FB /* Protocol */,
+				481A302126B0B976009C64FB /* Interactor */,
+				481A302026B0B96A009C64FB /* Presenter */,
+				481A301F26B0B962009C64FB /* View */,
+			);
+			path = CommunitiesFormulary;
+			sourceTree = "<group>";
+		};
+		48292A1926B20B360042DFD0 /* Allerts */ = {
+			isa = PBXGroup;
+			children = (
+				48292A1A26B20B880042DFD0 /* CancelRegister.swift */,
+				48292A1C26B20BAC0042DFD0 /* CancelRegister.xib */,
+				48292A1E26B20BC30042DFD0 /* SuceesAllert.swift */,
+				48292A2026B20BD00042DFD0 /* SuceesAllert.xib */,
+			);
+			path = Allerts;
+			sourceTree = "<group>";
+		};
+		48292A2226B343210042DFD0 /* AddCommunities */ = {
+			isa = PBXGroup;
+			children = (
+				48292A2726B343BA0042DFD0 /* WireFrame */,
+				48292A2626B343B20042DFD0 /* Protocol */,
+				48292A2526B343AA0042DFD0 /* Interactor */,
+				48292A2426B343A20042DFD0 /* Presenter */,
+				48292A2326B343980042DFD0 /* View */,
+			);
+			path = AddCommunities;
+			sourceTree = "<group>";
+		};
+		48292A2326B343980042DFD0 /* View */ = {
+			isa = PBXGroup;
+			children = (
+				482EE56826CADA8700D70CB8 /* AddCommunities.swift */,
+				482EE56A26CADA9300D70CB8 /* AddCommunities.xib */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		48292A2426B343A20042DFD0 /* Presenter */ = {
+			isa = PBXGroup;
+			children = (
+				48B6AC2D26B8439B00D219FC /* AddCommunitiesPresenter.swift */,
+			);
+			path = Presenter;
+			sourceTree = "<group>";
+		};
+		48292A2526B343AA0042DFD0 /* Interactor */ = {
+			isa = PBXGroup;
+			children = (
+				48B6AC2B26B8438A00D219FC /* AddCommunitiesInteractor.swift */,
+			);
+			path = Interactor;
+			sourceTree = "<group>";
+		};
+		48292A2626B343B20042DFD0 /* Protocol */ = {
+			isa = PBXGroup;
+			children = (
+				48292A2826B343DF0042DFD0 /* AddCommunityProtocol.swift */,
+			);
+			path = Protocol;
+			sourceTree = "<group>";
+		};
+		48292A2726B343BA0042DFD0 /* WireFrame */ = {
+			isa = PBXGroup;
+			children = (
+				48B6AC2926B8437200D219FC /* AddCommunitiesWireFrame.swift */,
+			);
+			path = WireFrame;
+			sourceTree = "<group>";
+		};
+		48293A4B27036A0F00824EAD /* AddMasses */ = {
+			isa = PBXGroup;
+			children = (
+				48293A4C27036A2D00824EAD /* AddMasses.swift */,
+				48293A4E27036A3B00824EAD /* AddMasses.xib */,
+			);
+			path = AddMasses;
+			sourceTree = "<group>";
+		};
+		482BC4E326C57FEA0093E7A9 /* Presenter */ = {
+			isa = PBXGroup;
+			children = (
+				482BC4E726C580160093E7A9 /* MyCommunitiesMainViewPresenter.swift */,
+			);
+			path = Presenter;
+			sourceTree = "<group>";
+		};
+		482BC4E426C57FF10093E7A9 /* Interactor */ = {
+			isa = PBXGroup;
+			children = (
+				482BC4E926C580240093E7A9 /* MyCommunitiesMainViewInteractor.swift */,
+			);
+			path = Interactor;
+			sourceTree = "<group>";
+		};
+		482BC4E526C57FFB0093E7A9 /* Protocol */ = {
+			isa = PBXGroup;
+			children = (
+				482BC4EB26C580310093E7A9 /* MyCommunitiesMainViewProtocol.swift */,
+			);
+			path = Protocol;
+			sourceTree = "<group>";
+		};
+		482BC4E626C580030093E7A9 /* WireFrame */ = {
+			isa = PBXGroup;
+			children = (
+				482BC4ED26C5803D0093E7A9 /* MyCommunitiesMainViewWireFrame.swift */,
+			);
+			path = WireFrame;
+			sourceTree = "<group>";
+		};
+		48346EFD267D1269003E154C /* Maps */ = {
+			isa = PBXGroup;
+			children = (
+				48346EFE267D1269003E154C /* Media.xcassets */,
+				48346EFF267D1269003E154C /* ChurchRegister */,
+			);
+			path = Maps;
+			sourceTree = "<group>";
+		};
+		48346EFF267D1269003E154C /* ChurchRegister */ = {
+			isa = PBXGroup;
+			children = (
+				48346F07267D1269003E154C /* Colors.xcassets */,
+				48346F08267D1269003E154C /* Networking */,
+				48346F11267D1269003E154C /* Presenter */,
+				48346F13267D1269003E154C /* WireFrame */,
+				48346F15267D1269003E154C /* Models */,
+				48346F1A267D1269003E154C /* View */,
+				48346F24267D1269003E154C /* Protocols */,
+				48346F26267D1269003E154C /* Interactor */,
+			);
+			path = ChurchRegister;
+			sourceTree = "<group>";
+		};
+		48346F08267D1269003E154C /* Networking */ = {
+			isa = PBXGroup;
+			children = (
+				48346F09267D1269003E154C /* Routers */,
+			);
+			path = Networking;
+			sourceTree = "<group>";
+		};
+		48346F09267D1269003E154C /* Routers */ = {
+			isa = PBXGroup;
+			children = (
+				48346F0A267D1269003E154C /* UserRouter.swift */,
+				48346F0B267D1269003E154C /* LocationRouter.swift */,
+			);
+			path = Routers;
+			sourceTree = "<group>";
+		};
+		48346F11267D1269003E154C /* Presenter */ = {
+			isa = PBXGroup;
+			children = (
+				48346F12267D1269003E154C /* ChurchRegisterPresenter.swift */,
+			);
+			path = Presenter;
+			sourceTree = "<group>";
+		};
+		48346F13267D1269003E154C /* WireFrame */ = {
+			isa = PBXGroup;
+			children = (
+				48346F14267D1269003E154C /* ChurchRegisterWireFrame.swift */,
+			);
+			path = WireFrame;
+			sourceTree = "<group>";
+		};
+		48346F15267D1269003E154C /* Models */ = {
+			isa = PBXGroup;
+			children = (
+				48346F16267D1269003E154C /* Church.swift */,
+				48346F17267D1269003E154C /* ChurchService.swift */,
+				48346F18267D1269003E154C /* ChurchServiceSchedule.swift */,
+				48346F19267D1269003E154C /* ChurchDummyData.swift */,
+			);
+			path = Models;
+			sourceTree = "<group>";
+		};
+		48346F1A267D1269003E154C /* View */ = {
+			isa = PBXGroup;
+			children = (
+				48346F1B267D1269003E154C /* ChurchCustomeAnotation.swift */,
+				48346F1C267D1269003E154C /* ChurchCustomeAnotation.xib */,
+				48346F1D267D1269003E154C /* ChurchRegisterView.swift */,
+				48346F1E267D1269003E154C /* Cell */,
+				48346F21267D1269003E154C /* ChurchRegister.storyboard */,
+				48346F22267D1269003E154C /* ChurchMark.swift */,
+				48346F23267D1269003E154C /* AnnotationView.swift */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		48346F1E267D1269003E154C /* Cell */ = {
+			isa = PBXGroup;
+			children = (
+				48346F1F267D1269003E154C /* AddressTableViewCell.xib */,
+				48346F20267D1269003E154C /* AddressTableViewCell.swift */,
+			);
+			path = Cell;
+			sourceTree = "<group>";
+		};
+		48346F24267D1269003E154C /* Protocols */ = {
+			isa = PBXGroup;
+			children = (
+				48346F25267D1269003E154C /* ChurchRegisterProtocols.swift */,
+			);
+			path = Protocols;
+			sourceTree = "<group>";
+		};
+		48346F26267D1269003E154C /* Interactor */ = {
+			isa = PBXGroup;
+			children = (
+				48346F27267D1269003E154C /* ChurchRegisterInteractor.swift */,
+			);
+			path = Interactor;
+			sourceTree = "<group>";
+		};
+		48553C4126D0358200F702D5 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				48553C4826D468A000F702D5 /* CommunityDetailModel.swift */,
+				48906D4F26D7F13800D0C0EA /* CommunitiesGetActivitiesModel.swift */,
+				48906D5126D92DDE00D0C0EA /* CommunityEditProfileModel.swift */,
+				48906D5326D92EAD00D0C0EA /* CommunityFinishRegisterModel.swift */,
+				48FF15A826E145F000CDECBD /* CommunityPostImage.swift */,
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
+		488BF64E26C18D1200974C25 /* CommunitiesMainView */ = {
+			isa = PBXGroup;
+			children = (
+				6DCF8F8926DEB1BC00C27B7F /* View */,
+				48553C4126D0358200F702D5 /* Model */,
+				488BF65426C18D4A00974C25 /* WireFrame */,
+				488BF65326C18D4400974C25 /* Protocol */,
+				488BF65226C18D3C00974C25 /* Interactor */,
+				488BF65126C18D3400974C25 /* Presenter */,
+			);
+			path = CommunitiesMainView;
+			sourceTree = "<group>";
+		};
+		488BF65126C18D3400974C25 /* Presenter */ = {
+			isa = PBXGroup;
+			children = (
+				488BF66426C19FB200974C25 /* CommunitiesMainViewPresenter.swift */,
+			);
+			path = Presenter;
+			sourceTree = "<group>";
+		};
+		488BF65226C18D3C00974C25 /* Interactor */ = {
+			isa = PBXGroup;
+			children = (
+				488BF66626C19FE300974C25 /* CommunitiesMainViewInteractor.swift */,
+			);
+			path = Interactor;
+			sourceTree = "<group>";
+		};
+		488BF65326C18D4400974C25 /* Protocol */ = {
+			isa = PBXGroup;
+			children = (
+				488BF66826C1A00000974C25 /* CommunitiesMainViewProtocol.swift */,
+			);
+			path = Protocol;
+			sourceTree = "<group>";
+		};
+		488BF65426C18D4A00974C25 /* WireFrame */ = {
+			isa = PBXGroup;
+			children = (
+				488BF66A26C1A01F00974C25 /* CommunitiesMainViewWireFrame.swift */,
+			);
+			path = WireFrame;
+			sourceTree = "<group>";
+		};
+		48906D4526D5AB2400D0C0EA /* AddService */ = {
+			isa = PBXGroup;
+			children = (
+				48906D4626D5AB6B00D0C0EA /* AddService.swift */,
+				48906D4826D5AB7A00D0C0EA /* AddService.xib */,
+			);
+			path = AddService;
+			sourceTree = "<group>";
+		};
+		48906D4A26D6A2C400D0C0EA /* AddSocial */ = {
+			isa = PBXGroup;
+			children = (
+				48906D4B26D6A30000D0C0EA /* AddSocial.swift */,
+				48906D4D26D6A30D00D0C0EA /* AddSocial.xib */,
+				6FCEDE5627ADAAD900E2B019 /* AddSocial.storyboard */,
+				6FCEDE5827ADAEC200E2B019 /* NewAddSocialController.swift */,
+			);
+			path = AddSocial;
+			sourceTree = "<group>";
+		};
+		48906D5526D92F3800D0C0EA /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				48906D5626D9300400D0C0EA /* CommunityTupeCatalog.swift */,
+				48906D5826D94DA400D0C0EA /* CommunityTypeModel.swift */,
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
+		48B6AC3326B84AA500D219FC /* MyCommunities */ = {
+			isa = PBXGroup;
+			children = (
+				48B6AC3826B84AD600D219FC /* Protocol */,
+				48B6AC3726B84AC900D219FC /* WireFrame */,
+				48B6AC3626B84AC100D219FC /* Interactor */,
+				48B6AC3526B84AB700D219FC /* Presenter */,
+				48B6AC3426B84AB000D219FC /* View */,
+			);
+			path = MyCommunities;
+			sourceTree = "<group>";
+		};
+		48B6AC3426B84AB000D219FC /* View */ = {
+			isa = PBXGroup;
+			children = (
+				48B6AC4526B9AB8F00D219FC /* Cell */,
+				48B6AC4126B84C2600D219FC /* MyCommunitiesViewController.swift */,
+				48B6AC4326B84CF500D219FC /* MyCommunitiesStoryboard.storyboard */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		48B6AC3526B84AB700D219FC /* Presenter */ = {
+			isa = PBXGroup;
+			children = (
+				48B6AC3F26B84BC800D219FC /* MyCommunitiesPresenter.swift */,
+			);
+			path = Presenter;
+			sourceTree = "<group>";
+		};
+		48B6AC3626B84AC100D219FC /* Interactor */ = {
+			isa = PBXGroup;
+			children = (
+				48B6AC3D26B84B8B00D219FC /* MyCommunitiesInteractor.swift */,
+			);
+			path = Interactor;
+			sourceTree = "<group>";
+		};
+		48B6AC3726B84AC900D219FC /* WireFrame */ = {
+			isa = PBXGroup;
+			children = (
+				48B6AC3B26B84B5E00D219FC /* MyCommunitiesWireFrame.swift */,
+			);
+			path = WireFrame;
+			sourceTree = "<group>";
+		};
+		48B6AC3826B84AD600D219FC /* Protocol */ = {
+			isa = PBXGroup;
+			children = (
+				48B6AC3926B84AF000D219FC /* MyCommunitiesProtocol.swift */,
+			);
+			path = Protocol;
+			sourceTree = "<group>";
+		};
+		48B6AC4526B9AB8F00D219FC /* Cell */ = {
+			isa = PBXGroup;
+			children = (
+				48B6AC4626B9ABB200D219FC /* MyCommunitiesTableViewCell.swift */,
+				48B6AC4726B9ABB200D219FC /* MyCommunitiesTableViewCell.xib */,
+			);
+			path = Cell;
+			sourceTree = "<group>";
+		};
+		48B6AC4A26B9BCDD00D219FC /* AnswerFoemulary */ = {
+			isa = PBXGroup;
+			children = (
+				48906D5526D92F3800D0C0EA /* Model */,
+				48B6AC5926B9C42900D219FC /* WireFrame */,
+				48B6AC4E26B9BD2000D219FC /* Protocol */,
+				48B6AC4D26B9BD1800D219FC /* Inetractor */,
+				48B6AC4C26B9BD1100D219FC /* Presenter */,
+				48B6AC4B26B9BD0900D219FC /* View */,
+			);
+			path = AnswerFoemulary;
+			sourceTree = "<group>";
+		};
+		48B6AC4B26B9BD0900D219FC /* View */ = {
+			isa = PBXGroup;
+			children = (
+				48B6AC5526B9BD8A00D219FC /* AnswerFoemularyViewController.swift */,
+				48B6AC5726B9BD9800D219FC /* AnswerFoemularyStoryboard.storyboard */,
+				6FF7918127486C10003F5600 /* alertModalCommController.swift */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		48B6AC4C26B9BD1100D219FC /* Presenter */ = {
+			isa = PBXGroup;
+			children = (
+				48B6AC5326B9BD5900D219FC /* AnswerFoemularyPresenter.swift */,
+			);
+			path = Presenter;
+			sourceTree = "<group>";
+		};
+		48B6AC4D26B9BD1800D219FC /* Inetractor */ = {
+			isa = PBXGroup;
+			children = (
+				48B6AC5126B9BD4D00D219FC /* AnswerFoemularyInteractor.swift */,
+			);
+			path = Inetractor;
+			sourceTree = "<group>";
+		};
+		48B6AC4E26B9BD2000D219FC /* Protocol */ = {
+			isa = PBXGroup;
+			children = (
+				48B6AC4F26B9BD3F00D219FC /* AnswerFoemularyProtocol.swift */,
+			);
+			path = Protocol;
+			sourceTree = "<group>";
+		};
+		48B6AC5926B9C42900D219FC /* WireFrame */ = {
+			isa = PBXGroup;
+			children = (
+				48B6AC5A26B9C44600D219FC /* AnswerFoemularyWireFrame.swift */,
+			);
+			path = WireFrame;
+			sourceTree = "<group>";
+		};
+		48B6AC5C26B9C5A600D219FC /* AnswerSellector */ = {
+			isa = PBXGroup;
+			children = (
+				48B6AC6126B9C5CD00D219FC /* WireFrame */,
+				48B6AC6026B9C5C500D219FC /* Protocol */,
+				48B6AC5F26B9C5BE00D219FC /* Interactor */,
+				48B6AC5E26B9C5B700D219FC /* Presenter */,
+				48B6AC5D26B9C5B200D219FC /* View */,
+			);
+			path = AnswerSellector;
+			sourceTree = "<group>";
+		};
+		48B6AC5D26B9C5B200D219FC /* View */ = {
+			isa = PBXGroup;
+			children = (
+				48B6AC6226B9C5F700D219FC /* AnswerSellectorViewController.swift */,
+				48B6AC6426B9C60B00D219FC /* AnswerSellectorStoryboard.storyboard */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		48B6AC5E26B9C5B700D219FC /* Presenter */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Presenter;
+			sourceTree = "<group>";
+		};
+		48B6AC5F26B9C5BE00D219FC /* Interactor */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Interactor;
+			sourceTree = "<group>";
+		};
+		48B6AC6026B9C5C500D219FC /* Protocol */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Protocol;
+			sourceTree = "<group>";
+		};
+		48B6AC6126B9C5CD00D219FC /* WireFrame */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = WireFrame;
+			sourceTree = "<group>";
+		};
+		48DCCF6426C4597900E5D5E9 /* MyCommunitiesMainView */ = {
+			isa = PBXGroup;
+			children = (
+				48FF15A126DE7DDE00CDECBD /* Model */,
+				482BC4E626C580030093E7A9 /* WireFrame */,
+				482BC4E526C57FFB0093E7A9 /* Protocol */,
+				482BC4E426C57FF10093E7A9 /* Interactor */,
+				482BC4E326C57FEA0093E7A9 /* Presenter */,
+				48DCCF6526C4599B00E5D5E9 /* View */,
+			);
+			path = MyCommunitiesMainView;
+			sourceTree = "<group>";
+		};
+		48DCCF6526C4599B00E5D5E9 /* View */ = {
+			isa = PBXGroup;
+			children = (
+				6F5FAD5A26EBA68400381A9D /* NewCells */,
+				48DCCF6626C459A200E5D5E9 /* Cell */,
+				48DCCF6F26C45A2E00E5D5E9 /* MyCommunitiesMainViewController.swift */,
+				48DCCF7126C45A4100E5D5E9 /* MyCommunitiesMainViewStoryboard.storyboard */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		48DCCF6626C459A200E5D5E9 /* Cell */ = {
+			isa = PBXGroup;
+			children = (
+				48DCCF6726C459DE00E5D5E9 /* EmptyTableViewCell.swift */,
+				48DCCF6826C459DE00E5D5E9 /* EmptyTableViewCell.xib */,
+				48DCCF6B26C459FE00E5D5E9 /* CommunityTableViewCell.swift */,
+				48DCCF6C26C459FE00E5D5E9 /* CommunityTableViewCell.xib */,
+				48DCCF7326C45D7100E5D5E9 /* FavEmptyTableViewCell.swift */,
+				48DCCF7426C45D7100E5D5E9 /* FavEmptyTableViewCell.xib */,
+			);
+			path = Cell;
+			sourceTree = "<group>";
+		};
+		48FF15A126DE7DDE00CDECBD /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				48FF15A226DE7DF400CDECBD /* CommunityMainListModel.swift */,
+				48FF15A426DE8B5E00CDECBD /* CommunitySearchListModel.swift */,
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
+		6DCF8F8926DEB1BC00C27B7F /* View */ = {
+			isa = PBXGroup;
+			children = (
+				6DCF8F8A26DEB1BC00C27B7F /* CellCollection */,
+				6DCF8F8D26DEB1BC00C27B7F /* Cell */,
+				6FBAC38E2721F40800259277 /* CommunitiesMainStoryboard.storyboard */,
+				6DCF8F9726DEB1BC00C27B7F /* CommunitiesMainViewController.swift */,
+				6FF79183274897C6003F5600 /* AlertCommunity.swift */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		6DCF8F8A26DEB1BC00C27B7F /* CellCollection */ = {
+			isa = PBXGroup;
+			children = (
+				6DCF8F8B26DEB1BC00C27B7F /* CollectionCellServicesH.swift */,
+				6DCF8F8C26DEB1BC00C27B7F /* CollectionCellServicesH.xib */,
+			);
+			path = CellCollection;
+			sourceTree = "<group>";
+		};
+		6DCF8F8D26DEB1BC00C27B7F /* Cell */ = {
+			isa = PBXGroup;
+			children = (
+				6DCF8F8E26DEB1BC00C27B7F /* HorizontalServiceSection.xib */,
+				6DCF8F8F26DEB1BC00C27B7F /* AddCommunitiesTableViewCell.swift */,
+				6DCF8F9026DEB1BC00C27B7F /* ServiceTableViewCell.swift */,
+				6DCF8F9126DEB1BC00C27B7F /* ServiceTableViewCell.xib */,
+				6DCF8F9226DEB1BC00C27B7F /* SocialTableViewCell.swift */,
+				6DCF8F9326DEB1BC00C27B7F /* HorizontalServiceSection.swift */,
+				6DCF8F9426DEB1BC00C27B7F /* SocialTableViewCell.xib */,
+				6DCF8F9526DEB1BC00C27B7F /* AddCommunitiesTableViewCell.xib */,
+				486AB4142718876A008C16B8 /* CmmunityCommentsTableViewCell.swift */,
+			);
+			path = Cell;
+			sourceTree = "<group>";
+		};
+		6DCF8FA426DEB1E100C27B7F /* Comments */ = {
+			isa = PBXGroup;
+			children = (
+				6FE49AF62714E6BF002273D7 /* CustomAlerts */,
+				6DCF8FAB26DEB1E200C27B7F /* CommentTableCell */,
+				6DCF8FA526DEB1E200C27B7F /* CommentsRouter.swift */,
+				6DCF8FA626DEB1E200C27B7F /* CommentsStoryboard.storyboard */,
+				6DCF8FA726DEB1E200C27B7F /* CommentsInteractor.swift */,
+				6DCF8FA826DEB1E200C27B7F /* CommentsViewController.swift */,
+				6DCF8FA926DEB1E200C27B7F /* CommmentsProtocols.swift */,
+				6DCF8FAA26DEB1E200C27B7F /* CommentsEntity.swift */,
+				6DCF8FAD26DEB1E200C27B7F /* CommentsComponents.swift */,
+				6DCF8FAE26DEB1E200C27B7F /* CommentsPresenter.swift */,
+			);
+			path = Comments;
+			sourceTree = "<group>";
+		};
+		6DCF8FAB26DEB1E200C27B7F /* CommentTableCell */ = {
+			isa = PBXGroup;
+			children = (
+				6DCF8FAC26DEB1E200C27B7F /* CommentsCell.swift */,
+			);
+			path = CommentTableCell;
+			sourceTree = "<group>";
+		};
+		6F5FAD5A26EBA68400381A9D /* NewCells */ = {
+			isa = PBXGroup;
+			children = (
+				6F5FAD5B26EBA9AA00381A9D /* NewEmptyCell.swift */,
+				6F657ED426EBB079004DA173 /* EmptyFavComCell.swift */,
+			);
+			path = NewCells;
+			sourceTree = "<group>";
+		};
+		6F901D9826EBBF7000881649 /* EmptyCells */ = {
+			isa = PBXGroup;
+			children = (
+				6F901D9926EBC02900881649 /* EmptyPrincipalChurch.swift */,
+				6F901D9A26EBC02900881649 /* EmptyPrincipalChurch.xib */,
+				6FF2786C26EBCB7B0056E3BA /* EmptyFavChurch.swift */,
+				6FF2786D26EBCB7B0056E3BA /* EmptyFavChurch.xib */,
+			);
+			path = EmptyCells;
+			sourceTree = "<group>";
+		};
+		6FB5D28227E3D333005A505B /* NewAddMasses */ = {
+			isa = PBXGroup;
+			children = (
+				6FB5D28327E3D372005A505B /* StoryboardAddMasses.storyboard */,
+				6FB5D28527E3D395005A505B /* NewAddMassesView.swift */,
+			);
+			path = NewAddMasses;
+			sourceTree = "<group>";
+		};
+		6FE49AF62714E6BF002273D7 /* CustomAlerts */ = {
+			isa = PBXGroup;
+			children = (
+				6FE49AF72714E6EF002273D7 /* AlertComments.swift */,
+			);
+			path = CustomAlerts;
+			sourceTree = "<group>";
+		};
+		98C46A2525EF0E4A00DE543B = {
+			isa = PBXGroup;
+			children = (
+				98C46A3125EF0E4A00DE543B /* EncuentroCatolicoChurch */,
+				98C46A3025EF0E4A00DE543B /* Products */,
+				2D17BDEE5A4FE639DAF1B8F8 /* Pods */,
+				FCB91E766C1DAF748EDB31E4 /* Frameworks */,
+			);
+			sourceTree = "<group>";
+		};
+		98C46A3025EF0E4A00DE543B /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				98C46A2F25EF0E4A00DE543B /* EncuentroCatolicoChurch.framework */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		98C46A3125EF0E4A00DE543B /* EncuentroCatolicoChurch */ = {
+			isa = PBXGroup;
+			children = (
+				98C46A3C25EF0E5500DE543B /* Controllers */,
+				98C46A3B25EF0E4F00DE543B /* Extensions */,
+				98C46A3225EF0E4A00DE543B /* EncuentroCatolicoChurch.h */,
+				98C46A3325EF0E4A00DE543B /* Info.plist */,
+			);
+			path = EncuentroCatolicoChurch;
+			sourceTree = "<group>";
+		};
+		98C46A3B25EF0E4F00DE543B /* Extensions */ = {
+			isa = PBXGroup;
+			children = (
+				98C46A4A25EF0E7300DE543B /* Bundle.swift */,
+			);
+			path = Extensions;
+			sourceTree = "<group>";
+		};
+		98C46A3C25EF0E5500DE543B /* Controllers */ = {
+			isa = PBXGroup;
+			children = (
+				DFED13EA25EF5F8300901D5D /* Church */,
+			);
+			path = Controllers;
+			sourceTree = "<group>";
+		};
+		D0E07F7E26CAC66C00338C75 /* RegisterFormu */ = {
+			isa = PBXGroup;
+			children = (
+				48553C3D26D0284600F702D5 /* RegisterFirmulary.xib */,
+				48553C3F26D0286100F702D5 /* RegisterFirmulary.swift */,
+				48553C4426D04AC800F702D5 /* TimePicker.swift */,
+				48553C4626D051CB00F702D5 /* DayPicker.swift */,
+			);
+			path = RegisterFormu;
+			sourceTree = "<group>";
+		};
+		DFED13EA25EF5F8300901D5D /* Church */ = {
+			isa = PBXGroup;
+			children = (
+				DFED144E25EF5FD500901D5D /* Sections */,
+				DFED142C25EF5FCC00901D5D /* Resources */,
+				DFED141225EF5FC300901D5D /* Networking */,
+				DFED13EE25EF5FAE00901D5D /* Misc */,
+				DFED140C25EF5FB900901D5D /* Models */,
+				DFED13EB25EF5F9600901D5D /* Assets.xcassets */,
+			);
+			path = Church;
+			sourceTree = "<group>";
+		};
+		DFED13EE25EF5FAE00901D5D /* Misc */ = {
+			isa = PBXGroup;
+			children = (
+				DFED13EF25EF5FAE00901D5D /* Constants.swift */,
+				DFED13F025EF5FAE00901D5D /* Extension.swift */,
+				DFED13F125EF5FAE00901D5D /* CustomViews */,
+			);
+			path = Misc;
+			sourceTree = "<group>";
+		};
+		DFED13F125EF5FAE00901D5D /* CustomViews */ = {
+			isa = PBXGroup;
+			children = (
+				DFED13F225EF5FAE00901D5D /* BaseViewController.swift */,
+				DFED13F325EF5FAE00901D5D /* PickerViewTextField.swift */,
+				DFED13F425EF5FAE00901D5D /* PickerControllers */,
+				DFED13FB25EF5FAE00901D5D /* DatePickerTextField.swift */,
+				DFED13FC25EF5FAE00901D5D /* LoaderView */,
+			);
+			path = CustomViews;
+			sourceTree = "<group>";
+		};
+		DFED13F425EF5FAE00901D5D /* PickerControllers */ = {
+			isa = PBXGroup;
+			children = (
+				DFED13F525EF5FAE00901D5D /* PickerControllerDelegate.swift */,
+				DFED13F625EF5FAE00901D5D /* PickerTypes.swift */,
+				DFED13F725EF5FAE00901D5D /* View */,
+			);
+			path = PickerControllers;
+			sourceTree = "<group>";
+		};
+		DFED13F725EF5FAE00901D5D /* View */ = {
+			isa = PBXGroup;
+			children = (
+				DFED13F825EF5FAE00901D5D /* PickerController.storyboard */,
+				DFED13F925EF5FAE00901D5D /* PickerViewController.swift */,
+				DFED13FA25EF5FAE00901D5D /* DatePickerViewController.swift */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		DFED13FC25EF5FAE00901D5D /* LoaderView */ = {
+			isa = PBXGroup;
+			children = (
+				DFED13FD25EF5FAE00901D5D /* LoaderView.xib */,
+				DFED13FE25EF5FAE00901D5D /* LoaderView.swift */,
+			);
+			path = LoaderView;
+			sourceTree = "<group>";
+		};
+		DFED140C25EF5FB900901D5D /* Models */ = {
+			isa = PBXGroup;
+			children = (
+				DFED140D25EF5FB900901D5D /* PriestChurch.swift */,
+				DFED140E25EF5FB900901D5D /* ChurchDetail.swift */,
+				DF591EDE25FBDC9300E05CD6 /* ModelSeacrhChurch.swift */,
+				48FF15A626DFE22A00CDECBD /* CommunityLocationListModel.swift */,
+				48A1B2FD26EE934C0000079F /* ChurchEditModel.swift */,
+				48AEF707270E0F020095EFD3 /* ServiceCatalogModel.swift */,
+			);
+			path = Models;
+			sourceTree = "<group>";
+		};
+		DFED141225EF5FC300901D5D /* Networking */ = {
+			isa = PBXGroup;
+			children = (
+				DFED141325EF5FC300901D5D /* RequestManager.swift */,
+				DFED141425EF5FC300901D5D /* ErrorEncuentro.swift */,
+				DFED141525EF5FC300901D5D /* NativeNetworking */,
+				DFED141C25EF5FC300901D5D /* BaseRouter.swift */,
+				DFED141D25EF5FC300901D5D /* API.swift */,
+				DFED141E25EF5FC300901D5D /* Router */,
+			);
+			path = Networking;
+			sourceTree = "<group>";
+		};
+		DFED141525EF5FC300901D5D /* NativeNetworking */ = {
+			isa = PBXGroup;
+			children = (
+				DFED141625EF5FC300901D5D /* Endpoints.swift */,
+				DFED141725EF5FC300901D5D /* EnumsNetworking.swift */,
+				DFED141825EF5FC300901D5D /* InternetConnection.swift */,
+				DFED141925EF5FC300901D5D /* ConnectionManager.swift */,
+				DFED141A25EF5FC300901D5D /* ResponseDispatcher.swift */,
+				DFED141B25EF5FC300901D5D /* RequestType.swift */,
+			);
+			path = NativeNetworking;
+			sourceTree = "<group>";
+		};
+		DFED141E25EF5FC300901D5D /* Router */ = {
+			isa = PBXGroup;
+			children = (
+				DFED141F25EF5FC300901D5D /* ChurchRouter.swift */,
+			);
+			path = Router;
+			sourceTree = "<group>";
+		};
+		DFED142C25EF5FCC00901D5D /* Resources */ = {
+			isa = PBXGroup;
+			children = (
+				6DE2E362279B6F10000ED1F0 /* APIType.swift */,
+				DFED142D25EF5FCC00901D5D /* Colors.xcassets */,
+				DFED142E25EF5FCC00901D5D /* Images.xcassets */,
+				DFED142F25EF5FCC00901D5D /* Font */,
+			);
+			path = Resources;
+			sourceTree = "<group>";
+		};
+		DFED142F25EF5FCC00901D5D /* Font */ = {
+			isa = PBXGroup;
+			children = (
+				DFED143025EF5FCC00901D5D /* Roboto */,
+			);
+			path = Font;
+			sourceTree = "<group>";
+		};
+		DFED143025EF5FCC00901D5D /* Roboto */ = {
+			isa = PBXGroup;
+			children = (
+				DFED143125EF5FCC00901D5D /* Roboto-Medium.ttf */,
+				DFED143225EF5FCC00901D5D /* Roboto-Light.ttf */,
+				DFED143325EF5FCC00901D5D /* Roboto-Regular.ttf */,
+				DFED143425EF5FCC00901D5D /* Roboto-MediumItalic.ttf */,
+				DFED143525EF5FCC00901D5D /* Roboto-ThinItalic.ttf */,
+				DFED143625EF5FCC00901D5D /* Roboto-BoldItalic.ttf */,
+				DFED143725EF5FCC00901D5D /* Roboto-LightItalic.ttf */,
+				DFED143825EF5FCC00901D5D /* Roboto-Italic.ttf */,
+				DFED143925EF5FCC00901D5D /* LICENSE.txt */,
+				DFED143A25EF5FCC00901D5D /* Roboto-BlackItalic.ttf */,
+				DFED143B25EF5FCC00901D5D /* Roboto-Bold.ttf */,
+				DFED143C25EF5FCC00901D5D /* Roboto-Thin.ttf */,
+				DFED143D25EF5FCC00901D5D /* Roboto-Black.ttf */,
+			);
+			path = Roboto;
+			sourceTree = "<group>";
+		};
+		DFED144E25EF5FD500901D5D /* Sections */ = {
+			isa = PBXGroup;
+			children = (
+				481A301E26B0B954009C64FB /* Communities */,
+				48346EFD267D1269003E154C /* Maps */,
+				DFED144F25EF5FD500901D5D /* MyChurches */,
+				DFED145E25EF5FD500901D5D /* ChurchDetail */,
+				DFED146D25EF5FD500901D5D /* ChurchEdition */,
+			);
+			path = Sections;
+			sourceTree = "<group>";
+		};
+		DFED144F25EF5FD500901D5D /* MyChurches */ = {
+			isa = PBXGroup;
+			children = (
+				DFED145025EF5FD500901D5D /* Presenter */,
+				DFED145225EF5FD500901D5D /* WireFrame */,
+				DFED145425EF5FD500901D5D /* View */,
+				DFED145A25EF5FD500901D5D /* Protocols */,
+				DFED145C25EF5FD500901D5D /* Interactor */,
+			);
+			path = MyChurches;
+			sourceTree = "<group>";
+		};
+		DFED145025EF5FD500901D5D /* Presenter */ = {
+			isa = PBXGroup;
+			children = (
+				DFED145125EF5FD500901D5D /* MyChurchesPresenter.swift */,
+			);
+			path = Presenter;
+			sourceTree = "<group>";
+		};
+		DFED145225EF5FD500901D5D /* WireFrame */ = {
+			isa = PBXGroup;
+			children = (
+				DFED145325EF5FD500901D5D /* MyChurchesWireFrame.swift */,
+			);
+			path = WireFrame;
+			sourceTree = "<group>";
+		};
+		DFED145425EF5FD500901D5D /* View */ = {
+			isa = PBXGroup;
+			children = (
+				DFED145525EF5FD500901D5D /* MyChurches.storyboard */,
+				DFED145625EF5FD500901D5D /* MyChurchesView.swift */,
+				DFED145725EF5FD500901D5D /* Cell */,
+				6F901D9826EBBF7000881649 /* EmptyCells */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		DFED145725EF5FD500901D5D /* Cell */ = {
+			isa = PBXGroup;
+			children = (
+				DFED145825EF5FD500901D5D /* FavouriteChurchCollectionViewCell.xib */,
+				DFED145925EF5FD500901D5D /* FavouriteChurchCollectionViewCell.swift */,
+				36BAB033263FCE090056274B /* MyChurchCollectionViewCell.swift */,
+				36BAB034263FCE090056274B /* MyChurchCollectionViewCell.xib */,
+				366DCAF526403AFB00C09902 /* MyChurchHeaderCollectionViewCell.swift */,
+				366DCAF626403AFB00C09902 /* MyChurchHeaderCollectionViewCell.xib */,
+				366DCAFA26403D8B00C09902 /* FavouriteChurchHeaderCollectionViewCell.swift */,
+				366DCAFB26403D8B00C09902 /* FavouriteChurchHeaderCollectionViewCell.xib */,
+			);
+			path = Cell;
+			sourceTree = "<group>";
+		};
+		DFED145A25EF5FD500901D5D /* Protocols */ = {
+			isa = PBXGroup;
+			children = (
+				DFED145B25EF5FD500901D5D /* MyChurchesProtocols.swift */,
+			);
+			path = Protocols;
+			sourceTree = "<group>";
+		};
+		DFED145C25EF5FD500901D5D /* Interactor */ = {
+			isa = PBXGroup;
+			children = (
+				DFED145D25EF5FD500901D5D /* MyChurchesInteractor.swift */,
+			);
+			path = Interactor;
+			sourceTree = "<group>";
+		};
+		DFED145E25EF5FD500901D5D /* ChurchDetail */ = {
+			isa = PBXGroup;
+			children = (
+				6FB5D28227E3D333005A505B /* NewAddMasses */,
+				48293A4B27036A0F00824EAD /* AddMasses */,
+				DFED145F25EF5FD500901D5D /* Presenter */,
+				DFED146125EF5FD500901D5D /* WireFrame */,
+				DFED146325EF5FD500901D5D /* View */,
+				DFED146925EF5FD500901D5D /* Protocols */,
+				DFED146B25EF5FD500901D5D /* Interactor */,
+			);
+			path = ChurchDetail;
+			sourceTree = "<group>";
+		};
+		DFED145F25EF5FD500901D5D /* Presenter */ = {
+			isa = PBXGroup;
+			children = (
+				DFED146025EF5FD500901D5D /* ChurchDetailPresenter.swift */,
+			);
+			path = Presenter;
+			sourceTree = "<group>";
+		};
+		DFED146125EF5FD500901D5D /* WireFrame */ = {
+			isa = PBXGroup;
+			children = (
+				DFED146225EF5FD500901D5D /* ChurchDetailWireFrame.swift */,
+			);
+			path = WireFrame;
+			sourceTree = "<group>";
+		};
+		DFED146325EF5FD500901D5D /* View */ = {
+			isa = PBXGroup;
+			children = (
+				DFED146425EF5FD500901D5D /* ChurchDetailView.swift */,
+				DFED146825EF5FD500901D5D /* ChurchDetail.storyboard */,
+				DFED146525EF5FD500901D5D /* Cell */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		DFED146525EF5FD500901D5D /* Cell */ = {
+			isa = PBXGroup;
+			children = (
+				DFED146625EF5FD500901D5D /* ServiceCollectionViewCell.xib */,
+				DFED146725EF5FD500901D5D /* ServiceCollectionViewCell.swift */,
+				6FBEADB52710980200194907 /* NewServiceCell.swift */,
+				6FBEADB62710980200194907 /* NewServiceCell.xib */,
+				6F9D668827161CC000667882 /* ChurchCommentCell.swift */,
+			);
+			path = Cell;
+			sourceTree = "<group>";
+		};
+		DFED146925EF5FD500901D5D /* Protocols */ = {
+			isa = PBXGroup;
+			children = (
+				DFED146A25EF5FD500901D5D /* ChurchDetailProtocols.swift */,
+			);
+			path = Protocols;
+			sourceTree = "<group>";
+		};
+		DFED146B25EF5FD500901D5D /* Interactor */ = {
+			isa = PBXGroup;
+			children = (
+				DFED146C25EF5FD500901D5D /* ChurchDetailInteractor.swift */,
+				DF3DFA992614F98800BB8DDE /* ServicesCallsDetailChurch.swift */,
+			);
+			path = Interactor;
+			sourceTree = "<group>";
+		};
+		DFED146D25EF5FD500901D5D /* ChurchEdition */ = {
+			isa = PBXGroup;
+			children = (
+				DFED146E25EF5FD500901D5D /* Entity */,
+				DFED147025EF5FD500901D5D /* Presenter */,
+				DFED147225EF5FD500901D5D /* View */,
+				DFED147825EF5FD500901D5D /* Protocols */,
+				DFED147A25EF5FD500901D5D /* Interactor */,
+				DFED147C25EF5FD500901D5D /* Router */,
+			);
+			path = ChurchEdition;
+			sourceTree = "<group>";
+		};
+		DFED146E25EF5FD500901D5D /* Entity */ = {
+			isa = PBXGroup;
+			children = (
+				DFED146F25EF5FD500901D5D /* EntityChurchPriest.swift */,
+			);
+			path = Entity;
+			sourceTree = "<group>";
+		};
+		DFED147025EF5FD500901D5D /* Presenter */ = {
+			isa = PBXGroup;
+			children = (
+				DFED147125EF5FD500901D5D /* ChurchPriestPresenter.swift */,
+			);
+			path = Presenter;
+			sourceTree = "<group>";
+		};
+		DFED147225EF5FD500901D5D /* View */ = {
+			isa = PBXGroup;
+			children = (
+				DFED147325EF5FD500901D5D /* Cell */,
+				DFED147625EF5FD500901D5D /* ChurchPriest.storyboard */,
+				DFED147725EF5FD500901D5D /* ChurchPriestViewController.swift */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		DFED147325EF5FD500901D5D /* Cell */ = {
+			isa = PBXGroup;
+			children = (
+				DFED147425EF5FD500901D5D /* PriestTableViewCell.xib */,
+				DFED147525EF5FD500901D5D /* PriestTableViewCell.swift */,
+			);
+			path = Cell;
+			sourceTree = "<group>";
+		};
+		DFED147825EF5FD500901D5D /* Protocols */ = {
+			isa = PBXGroup;
+			children = (
+				DFED147925EF5FD500901D5D /* Protocolos.swift */,
+			);
+			path = Protocols;
+			sourceTree = "<group>";
+		};
+		DFED147A25EF5FD500901D5D /* Interactor */ = {
+			isa = PBXGroup;
+			children = (
+				DFED147B25EF5FD500901D5D /* ChurchPriestInteractor.swift */,
+			);
+			path = Interactor;
+			sourceTree = "<group>";
+		};
+		DFED147C25EF5FD500901D5D /* Router */ = {
+			isa = PBXGroup;
+			children = (
+				DFED147D25EF5FD500901D5D /* ChurchPriestRouter.swift */,
+			);
+			path = Router;
+			sourceTree = "<group>";
+		};
+		FCB91E766C1DAF748EDB31E4 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				9DA5CBA22748B80E00A40F7C /* EncuentroCatolicoProfile.framework */,
+				9DC14B3A273DD56B003C4CEC /* EncuentroCatolicoProfile.framework */,
+				9DF55645271A35A000EA66C9 /* EncuentroCatolicoVirtualLibrary.framework */,
+				36BAAF96263DA74D0056274B /* IQKeyboardManagerSwift.framework */,
+				36BAAD80263DA49D0056274B /* Alamofire.framework */,
+				6A71AE5E4FFA4F617D81F5A6 /* Pods_EncuentroCatolicoChurch.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXHeadersBuildPhase section */
+		98C46A2A25EF0E4A00DE543B /* Headers */ = {
+			isa = PBXHeadersBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				98C46A3425EF0E4A00DE543B /* EncuentroCatolicoChurch.h in Headers */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXHeadersBuildPhase section */
+
+/* Begin PBXNativeTarget section */
+		98C46A2E25EF0E4A00DE543B /* EncuentroCatolicoChurch */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 98C46A3725EF0E4A00DE543B /* Build configuration list for PBXNativeTarget "EncuentroCatolicoChurch" */;
+			buildPhases = (
+				76B4809556151477BFEBA6BB /* [CP] Check Pods Manifest.lock */,
+				98C46A2A25EF0E4A00DE543B /* Headers */,
+				98C46A2B25EF0E4A00DE543B /* Sources */,
+				98C46A2C25EF0E4A00DE543B /* Frameworks */,
+				98C46A2D25EF0E4A00DE543B /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = EncuentroCatolicoChurch;
+			productName = EncuentroCatolicoChurch;
+			productReference = 98C46A2F25EF0E4A00DE543B /* EncuentroCatolicoChurch.framework */;
+			productType = "com.apple.product-type.framework";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		98C46A2625EF0E4A00DE543B /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				LastUpgradeCheck = 1230;
+				TargetAttributes = {
+					98C46A2E25EF0E4A00DE543B = {
+						CreatedOnToolsVersion = 12.3;
+						LastSwiftMigration = 1230;
+					};
+				};
+			};
+			buildConfigurationList = 98C46A2925EF0E4A00DE543B /* Build configuration list for PBXProject "EncuentroCatolicoChurch" */;
+			compatibilityVersion = "Xcode 9.3";
+			developmentRegion = en;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+				Base,
+			);
+			mainGroup = 98C46A2525EF0E4A00DE543B;
+			productRefGroup = 98C46A3025EF0E4A00DE543B /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				98C46A2E25EF0E4A00DE543B /* EncuentroCatolicoChurch */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		98C46A2D25EF0E4A00DE543B /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				DFED144425EF5FCC00901D5D /* Roboto-ThinItalic.ttf in Resources */,
+				48B6AC6526B9C60B00D219FC /* AnswerSellectorStoryboard.storyboard in Resources */,
+				DFED144525EF5FCC00901D5D /* Roboto-BoldItalic.ttf in Resources */,
+				48346F28267D126A003E154C /* Media.xcassets in Resources */,
+				6FF2786F26EBCB7B0056E3BA /* EmptyFavChurch.xib in Resources */,
+				6DCF8F9926DEB1BC00C27B7F /* CollectionCellServicesH.xib in Resources */,
+				DFED144B25EF5FCD00901D5D /* Roboto-Thin.ttf in Resources */,
+				366DCAFD26403D8B00C09902 /* FavouriteChurchHeaderCollectionViewCell.xib in Resources */,
+				481A303026B0C436009C64FB /* CommunitiesFormularyStoryboard.storyboard in Resources */,
+				DFED148225EF5FD500901D5D /* FavouriteChurchCollectionViewCell.xib in Resources */,
+				DFED144625EF5FCC00901D5D /* Roboto-LightItalic.ttf in Resources */,
+				48553C3E26D0284600F702D5 /* RegisterFirmulary.xib in Resources */,
+				48B6AC4926B9ABB200D219FC /* MyCommunitiesTableViewCell.xib in Resources */,
+				DFED140525EF5FAE00901D5D /* PickerController.storyboard in Resources */,
+				6F901D9C26EBC02900881649 /* EmptyPrincipalChurch.xib in Resources */,
+				DFED144C25EF5FCD00901D5D /* Roboto-Black.ttf in Resources */,
+				DFED143F25EF5FCC00901D5D /* Images.xcassets in Resources */,
+				DFED144725EF5FCC00901D5D /* Roboto-Italic.ttf in Resources */,
+				DFED144825EF5FCC00901D5D /* LICENSE.txt in Resources */,
+				DFED149225EF5FD500901D5D /* ChurchPriest.storyboard in Resources */,
+				DFED144925EF5FCC00901D5D /* Roboto-BlackItalic.ttf in Resources */,
+				48346F2E267D126A003E154C /* Colors.xcassets in Resources */,
+				DFED144225EF5FCC00901D5D /* Roboto-Regular.ttf in Resources */,
+				DFED148B25EF5FD500901D5D /* ChurchDetail.storyboard in Resources */,
+				6FBAC38F2721F40900259277 /* CommunitiesMainStoryboard.storyboard in Resources */,
+				48346F3F267D126A003E154C /* AddressTableViewCell.xib in Resources */,
+				48293A4F27036A3B00824EAD /* AddMasses.xib in Resources */,
+				6FB5D28427E3D372005A505B /* StoryboardAddMasses.storyboard in Resources */,
+				6DCF8F9A26DEB1BC00C27B7F /* HorizontalServiceSection.xib in Resources */,
+				DFED144025EF5FCC00901D5D /* Roboto-Medium.ttf in Resources */,
+				48292A1D26B20BAC0042DFD0 /* CancelRegister.xib in Resources */,
+				48906D4E26D6A30D00D0C0EA /* AddSocial.xib in Resources */,
+				48DCCF7626C45D7100E5D5E9 /* FavEmptyTableViewCell.xib in Resources */,
+				482EE56B26CADA9300D70CB8 /* AddCommunities.xib in Resources */,
+				6DCF8FA126DEB1BC00C27B7F /* AddCommunitiesTableViewCell.xib in Resources */,
+				6DCF8F9D26DEB1BC00C27B7F /* ServiceTableViewCell.xib in Resources */,
+				DFED148025EF5FD500901D5D /* MyChurches.storyboard in Resources */,
+				DFED143E25EF5FCC00901D5D /* Colors.xcassets in Resources */,
+				48346F3D267D126A003E154C /* ChurchCustomeAnotation.xib in Resources */,
+				48906D4926D5AB7A00D0C0EA /* AddService.xib in Resources */,
+				DFED149025EF5FD500901D5D /* PriestTableViewCell.xib in Resources */,
+				6FBEADB82710980200194907 /* NewServiceCell.xib in Resources */,
+				366DCAF826403AFB00C09902 /* MyChurchHeaderCollectionViewCell.xib in Resources */,
+				48346F41267D126A003E154C /* ChurchRegister.storyboard in Resources */,
+				DFED148925EF5FD500901D5D /* ServiceCollectionViewCell.xib in Resources */,
+				48DCCF7226C45A4100E5D5E9 /* MyCommunitiesMainViewStoryboard.storyboard in Resources */,
+				DFED144125EF5FCC00901D5D /* Roboto-Light.ttf in Resources */,
+				DFED140925EF5FAE00901D5D /* LoaderView.xib in Resources */,
+				48DCCF6A26C459DE00E5D5E9 /* EmptyTableViewCell.xib in Resources */,
+				48DCCF6E26C459FE00E5D5E9 /* CommunityTableViewCell.xib in Resources */,
+				6FCEDE5727ADAAD900E2B019 /* AddSocial.storyboard in Resources */,
+				36BAB036263FCE090056274B /* MyChurchCollectionViewCell.xib in Resources */,
+				48B6AC4426B84CF500D219FC /* MyCommunitiesStoryboard.storyboard in Resources */,
+				DFED144325EF5FCC00901D5D /* Roboto-MediumItalic.ttf in Resources */,
+				DFED144A25EF5FCC00901D5D /* Roboto-Bold.ttf in Resources */,
+				DFED13EC25EF5F9600901D5D /* Assets.xcassets in Resources */,
+				48B6AC5826B9BD9800D219FC /* AnswerFoemularyStoryboard.storyboard in Resources */,
+				6DCF8FB026DEB1E200C27B7F /* CommentsStoryboard.storyboard in Resources */,
+				48292A2126B20BD00042DFD0 /* SuceesAllert.xib in Resources */,
+				6DCF8FA026DEB1BC00C27B7F /* SocialTableViewCell.xib in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		76B4809556151477BFEBA6BB /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-EncuentroCatolicoChurch-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		98C46A2B25EF0E4A00DE543B /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				6F9D668927161CC000667882 /* ChurchCommentCell.swift in Sources */,
+				DFED149125EF5FD500901D5D /* PriestTableViewCell.swift in Sources */,
+				482BC4EC26C580310093E7A9 /* MyCommunitiesMainViewProtocol.swift in Sources */,
+				DFED148A25EF5FD500901D5D /* ServiceCollectionViewCell.swift in Sources */,
+				6DCF8FB526DEB1E200C27B7F /* CommentsCell.swift in Sources */,
+				DFED149625EF5FD500901D5D /* ChurchPriestRouter.swift in Sources */,
+				6DCF8FB126DEB1E200C27B7F /* CommentsInteractor.swift in Sources */,
+				48DCCF6D26C459FE00E5D5E9 /* CommunityTableViewCell.swift in Sources */,
+				DFED140325EF5FAE00901D5D /* PickerControllerDelegate.swift in Sources */,
+				DFED140A25EF5FAE00901D5D /* LoaderView.swift in Sources */,
+				48DCCF6926C459DE00E5D5E9 /* EmptyTableViewCell.swift in Sources */,
+				6FB5D28627E3D395005A505B /* NewAddMassesView.swift in Sources */,
+				6FBEADB72710980200194907 /* NewServiceCell.swift in Sources */,
+				DFED148625EF5FD500901D5D /* ChurchDetailPresenter.swift in Sources */,
+				48553C4926D468A000F702D5 /* CommunityDetailModel.swift in Sources */,
+				DF591EDF25FBDC9300E05CD6 /* ModelSeacrhChurch.swift in Sources */,
+				48553C4726D051CB00F702D5 /* DayPicker.swift in Sources */,
+				6DCF8FAF26DEB1E200C27B7F /* CommentsRouter.swift in Sources */,
+				DFED148E25EF5FD500901D5D /* EntityChurchPriest.swift in Sources */,
+				DFED142725EF5FC300901D5D /* RequestType.swift in Sources */,
+				DFED142A25EF5FC300901D5D /* ChurchRouter.swift in Sources */,
+				6DCF8FB626DEB1E200C27B7F /* CommentsComponents.swift in Sources */,
+				48B6AC3C26B84B5E00D219FC /* MyCommunitiesWireFrame.swift in Sources */,
+				48DCCF7526C45D7100E5D5E9 /* FavEmptyTableViewCell.swift in Sources */,
+				DFED140825EF5FAE00901D5D /* DatePickerTextField.swift in Sources */,
+				DFED140025EF5FAE00901D5D /* Extension.swift in Sources */,
+				DF3DFA9A2614F98800BB8DDE /* ServicesCallsDetailChurch.swift in Sources */,
+				48553C4026D0286100F702D5 /* RegisterFirmulary.swift in Sources */,
+				6DCF8F9826DEB1BC00C27B7F /* CollectionCellServicesH.swift in Sources */,
+				DFED149425EF5FD500901D5D /* Protocolos.swift in Sources */,
+				6DCF8FA326DEB1BC00C27B7F /* CommunitiesMainViewController.swift in Sources */,
+				6FCEDE5927ADAEC200E2B019 /* NewAddSocialController.swift in Sources */,
+				DFED148825EF5FD500901D5D /* ChurchDetailView.swift in Sources */,
+				48346F43267D126A003E154C /* AnnotationView.swift in Sources */,
+				48B6AC2A26B8437200D219FC /* AddCommunitiesWireFrame.swift in Sources */,
+				48346F3A267D126A003E154C /* ChurchServiceSchedule.swift in Sources */,
+				48292A1B26B20B880042DFD0 /* CancelRegister.swift in Sources */,
+				DFED149525EF5FD500901D5D /* ChurchPriestInteractor.swift in Sources */,
+				DFED148C25EF5FD500901D5D /* ChurchDetailProtocols.swift in Sources */,
+				481A302526B0B9CD009C64FB /* CommunitiesProtocol.swift in Sources */,
+				6FF2786E26EBCB7B0056E3BA /* EmptyFavChurch.swift in Sources */,
+				DFED141025EF5FB900901D5D /* ChurchDetail.swift in Sources */,
+				DFED148725EF5FD500901D5D /* ChurchDetailWireFrame.swift in Sources */,
+				6DCF8F9B26DEB1BC00C27B7F /* AddCommunitiesTableViewCell.swift in Sources */,
+				48B6AC5626B9BD8A00D219FC /* AnswerFoemularyViewController.swift in Sources */,
+				DFED142625EF5FC300901D5D /* ResponseDispatcher.swift in Sources */,
+				482BC4EE26C5803D0093E7A9 /* MyCommunitiesMainViewWireFrame.swift in Sources */,
+				48906D5926D94DA400D0C0EA /* CommunityTypeModel.swift in Sources */,
+				48B6AC4226B84C2600D219FC /* MyCommunitiesViewController.swift in Sources */,
+				48292A2926B343DF0042DFD0 /* AddCommunityProtocol.swift in Sources */,
+				482BC4EA26C580240093E7A9 /* MyCommunitiesMainViewInteractor.swift in Sources */,
+				48B6AC5B26B9C44600D219FC /* AnswerFoemularyWireFrame.swift in Sources */,
+				DFED142825EF5FC300901D5D /* BaseRouter.swift in Sources */,
+				48B6AC6326B9C5F700D219FC /* AnswerSellectorViewController.swift in Sources */,
+				48B6AC3A26B84AF000D219FC /* MyCommunitiesProtocol.swift in Sources */,
+				486AB4152718876A008C16B8 /* CmmunityCommentsTableViewCell.swift in Sources */,
+				6FF7918227486C10003F5600 /* alertModalCommController.swift in Sources */,
+				48FF15A726DFE22A00CDECBD /* CommunityLocationListModel.swift in Sources */,
+				482EE56926CADA8700D70CB8 /* AddCommunities.swift in Sources */,
+				DFED142525EF5FC300901D5D /* ConnectionManager.swift in Sources */,
+				6DE2E363279B6F10000ED1F0 /* APIType.swift in Sources */,
+				488BF66B26C1A01F00974C25 /* CommunitiesMainViewWireFrame.swift in Sources */,
+				48B6AC4026B84BC800D219FC /* MyCommunitiesPresenter.swift in Sources */,
+				48FF15A526DE8B5E00CDECBD /* CommunitySearchListModel.swift in Sources */,
+				48906D5026D7F13800D0C0EA /* CommunitiesGetActivitiesModel.swift in Sources */,
+				6DCF8F9F26DEB1BC00C27B7F /* HorizontalServiceSection.swift in Sources */,
+				DFED140725EF5FAE00901D5D /* DatePickerViewController.swift in Sources */,
+				48906D4C26D6A30000D0C0EA /* AddSocial.swift in Sources */,
+				48346F38267D126A003E154C /* Church.swift in Sources */,
+				48346F3C267D126A003E154C /* ChurchCustomeAnotation.swift in Sources */,
+				48292A1F26B20BC30042DFD0 /* SuceesAllert.swift in Sources */,
+				48346F39267D126A003E154C /* ChurchService.swift in Sources */,
+				DFED140625EF5FAE00901D5D /* PickerViewController.swift in Sources */,
+				48FF15A926E145F000CDECBD /* CommunityPostImage.swift in Sources */,
+				DFED140125EF5FAE00901D5D /* BaseViewController.swift in Sources */,
+				98C46A4B25EF0E7300DE543B /* Bundle.swift in Sources */,
+				6FF79184274897C6003F5600 /* AlertCommunity.swift in Sources */,
+				48346F3E267D126A003E154C /* ChurchRegisterView.swift in Sources */,
+				DFED147E25EF5FD500901D5D /* MyChurchesPresenter.swift in Sources */,
+				DFED147F25EF5FD500901D5D /* MyChurchesWireFrame.swift in Sources */,
+				DFED140425EF5FAE00901D5D /* PickerTypes.swift in Sources */,
+				488BF66726C19FE300974C25 /* CommunitiesMainViewInteractor.swift in Sources */,
+				48346F44267D126A003E154C /* ChurchRegisterProtocols.swift in Sources */,
+				DFED140F25EF5FB900901D5D /* PriestChurch.swift in Sources */,
+				DFED142925EF5FC300901D5D /* API.swift in Sources */,
+				DFED142025EF5FC300901D5D /* RequestManager.swift in Sources */,
+				6F5FAD5C26EBA9AA00381A9D /* NewEmptyCell.swift in Sources */,
+				DFED142425EF5FC300901D5D /* InternetConnection.swift in Sources */,
+				6DCF8F9E26DEB1BC00C27B7F /* SocialTableViewCell.swift in Sources */,
+				48FF15A326DE7DF400CDECBD /* CommunityMainListModel.swift in Sources */,
+				48B6AC3E26B84B8B00D219FC /* MyCommunitiesInteractor.swift in Sources */,
+				481A302B26B0BC60009C64FB /* CommunitiesFormularyPresenter.swift in Sources */,
+				48B6AC2E26B8439B00D219FC /* AddCommunitiesPresenter.swift in Sources */,
+				48346F30267D126A003E154C /* LocationRouter.swift in Sources */,
+				48346F3B267D126A003E154C /* ChurchDummyData.swift in Sources */,
+				48A1B2FE26EE934C0000079F /* ChurchEditModel.swift in Sources */,
+				6DCF8FB326DEB1E200C27B7F /* CommmentsProtocols.swift in Sources */,
+				DFED149325EF5FD500901D5D /* ChurchPriestViewController.swift in Sources */,
+				36BAB035263FCE090056274B /* MyChurchCollectionViewCell.swift in Sources */,
+				DFED148525EF5FD500901D5D /* MyChurchesInteractor.swift in Sources */,
+				481A302926B0BC0F009C64FB /* CommunitiesFormularyInteractor.swift in Sources */,
+				6F657ED526EBB079004DA173 /* EmptyFavComCell.swift in Sources */,
+				DFED148F25EF5FD500901D5D /* ChurchPriestPresenter.swift in Sources */,
+				366DCAF726403AFB00C09902 /* MyChurchHeaderCollectionViewCell.swift in Sources */,
+				6FE49AF82714E6EF002273D7 /* AlertComments.swift in Sources */,
+				6DCF8F9C26DEB1BC00C27B7F /* ServiceTableViewCell.swift in Sources */,
+				48906D5726D9300400D0C0EA /* CommunityTupeCatalog.swift in Sources */,
+				48B6AC5426B9BD5900D219FC /* AnswerFoemularyPresenter.swift in Sources */,
+				48906D5426D92EAD00D0C0EA /* CommunityFinishRegisterModel.swift in Sources */,
+				48346F2F267D126A003E154C /* UserRouter.swift in Sources */,
+				48346F45267D126A003E154C /* ChurchRegisterInteractor.swift in Sources */,
+				6DCF8FB726DEB1E200C27B7F /* CommentsPresenter.swift in Sources */,
+				DFED148125EF5FD500901D5D /* MyChurchesView.swift in Sources */,
+				48346F42267D126A003E154C /* ChurchMark.swift in Sources */,
+				DFED148425EF5FD500901D5D /* MyChurchesProtocols.swift in Sources */,
+				DFED142125EF5FC300901D5D /* ErrorEncuentro.swift in Sources */,
+				48B6AC2C26B8438A00D219FC /* AddCommunitiesInteractor.swift in Sources */,
+				48AEF708270E0F020095EFD3 /* ServiceCatalogModel.swift in Sources */,
+				481A302E26B0BE75009C64FB /* CommunitiesFormularyViewController.swift in Sources */,
+				48B6AC4826B9ABB200D219FC /* MyCommunitiesTableViewCell.swift in Sources */,
+				6F901D9B26EBC02900881649 /* EmptyPrincipalChurch.swift in Sources */,
+				DFED142325EF5FC300901D5D /* EnumsNetworking.swift in Sources */,
+				6DCF8FB226DEB1E200C27B7F /* CommentsViewController.swift in Sources */,
+				366DCAFC26403D8B00C09902 /* FavouriteChurchHeaderCollectionViewCell.swift in Sources */,
+				DFED13FF25EF5FAE00901D5D /* Constants.swift in Sources */,
+				481A302726B0BA6E009C64FB /* CommunitiesFormularyWireFrame.swift in Sources */,
+				488BF66926C1A00000974C25 /* CommunitiesMainViewProtocol.swift in Sources */,
+				48293A4D27036A2D00824EAD /* AddMasses.swift in Sources */,
+				48553C4526D04AC800F702D5 /* TimePicker.swift in Sources */,
+				48DCCF7026C45A2E00E5D5E9 /* MyCommunitiesMainViewController.swift in Sources */,
+				488BF66526C19FB200974C25 /* CommunitiesMainViewPresenter.swift in Sources */,
+				48906D4726D5AB6B00D0C0EA /* AddService.swift in Sources */,
+				482BC4E826C580160093E7A9 /* MyCommunitiesMainViewPresenter.swift in Sources */,
+				DFED142225EF5FC300901D5D /* Endpoints.swift in Sources */,
+				48346F37267D126A003E154C /* ChurchRegisterWireFrame.swift in Sources */,
+				48906D5226D92DDE00D0C0EA /* CommunityEditProfileModel.swift in Sources */,
+				48B6AC5026B9BD3F00D219FC /* AnswerFoemularyProtocol.swift in Sources */,
+				48346F36267D126A003E154C /* ChurchRegisterPresenter.swift in Sources */,
+				DFED140225EF5FAE00901D5D /* PickerViewTextField.swift in Sources */,
+				48B6AC5226B9BD4D00D219FC /* AnswerFoemularyInteractor.swift in Sources */,
+				DFED148D25EF5FD500901D5D /* ChurchDetailInteractor.swift in Sources */,
+				6DCF8FB426DEB1E200C27B7F /* CommentsEntity.swift in Sources */,
+				48346F40267D126A003E154C /* AddressTableViewCell.swift in Sources */,
+				DFED148325EF5FD500901D5D /* FavouriteChurchCollectionViewCell.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin XCBuildConfiguration section */
+		98C46A3525EF0E4A00DE543B /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = NO;
+				CURRENT_PROJECT_VERSION = 1;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 14.3;
+				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
+				MTL_FAST_MATH = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = iphoneos;
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = DEBUG;
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+				VERSIONING_SYSTEM = "apple-generic";
+				VERSION_INFO_PREFIX = "";
+			};
+			name = Debug;
+		};
+		98C46A3625EF0E4A00DE543B /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = NO;
+				CURRENT_PROJECT_VERSION = 1;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 14.3;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				MTL_FAST_MATH = YES;
+				SDKROOT = iphoneos;
+				SWIFT_COMPILATION_MODE = wholemodule;
+				SWIFT_OPTIMIZATION_LEVEL = "-O";
+				VALIDATE_PRODUCT = YES;
+				VERSIONING_SYSTEM = "apple-generic";
+				VERSION_INFO_PREFIX = "";
+			};
+			name = Release;
+		};
+		98C46A3825EF0E4A00DE543B /* Debug */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 4A15316D581020BBCE9912AE /* Pods-EncuentroCatolicoChurch.debug.xcconfig */;
+			buildSettings = {
+				CLANG_ENABLE_MODULES = YES;
+				CODE_SIGN_STYLE = Manual;
+				DEFINES_MODULE = YES;
+				DEVELOPMENT_TEAM = "";
+				DYLIB_COMPATIBILITY_VERSION = 1;
+				DYLIB_CURRENT_VERSION = 1;
+				DYLIB_INSTALL_NAME_BASE = "@rpath";
+				INFOPLIST_FILE = EncuentroCatolicoChurch/Info.plist;
+				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
+				IPHONEOS_DEPLOYMENT_TARGET = 12.0;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = mx.arquidiocesis.EncuentroCatolicoChurch;
+				PRODUCT_NAME = "$(TARGET_NAME:c99extidentifier)";
+				PROVISIONING_PROFILE_SPECIFIER = "";
+				SKIP_INSTALL = YES;
+				SUPPORTS_MACCATALYST = NO;
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Debug;
+		};
+		98C46A3925EF0E4A00DE543B /* Release */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 02E0DB3ABB5DC9F1EFE60DC8 /* Pods-EncuentroCatolicoChurch.release.xcconfig */;
+			buildSettings = {
+				CLANG_ENABLE_MODULES = YES;
+				CODE_SIGN_STYLE = Manual;
+				DEFINES_MODULE = YES;
+				DEVELOPMENT_TEAM = "";
+				DYLIB_COMPATIBILITY_VERSION = 1;
+				DYLIB_CURRENT_VERSION = 1;
+				DYLIB_INSTALL_NAME_BASE = "@rpath";
+				INFOPLIST_FILE = EncuentroCatolicoChurch/Info.plist;
+				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
+				IPHONEOS_DEPLOYMENT_TARGET = 12.0;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = mx.arquidiocesis.EncuentroCatolicoChurch;
+				PRODUCT_NAME = "$(TARGET_NAME:c99extidentifier)";
+				PROVISIONING_PROFILE_SPECIFIER = "";
+				SKIP_INSTALL = YES;
+				SUPPORTS_MACCATALYST = NO;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		98C46A2925EF0E4A00DE543B /* Build configuration list for PBXProject "EncuentroCatolicoChurch" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				98C46A3525EF0E4A00DE543B /* Debug */,
+				98C46A3625EF0E4A00DE543B /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		98C46A3725EF0E4A00DE543B /* Build configuration list for PBXNativeTarget "EncuentroCatolicoChurch" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				98C46A3825EF0E4A00DE543B /* Debug */,
+				98C46A3925EF0E4A00DE543B /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = 98C46A2625EF0E4A00DE543B /* Project object */;
+}

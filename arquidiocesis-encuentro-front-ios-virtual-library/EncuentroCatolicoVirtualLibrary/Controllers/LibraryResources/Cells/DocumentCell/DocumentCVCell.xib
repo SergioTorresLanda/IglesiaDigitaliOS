@@ -1,0 +1,83 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="18122" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+    <device id="retina6_1" orientation="portrait" appearance="light"/>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="18093"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="System colors in document resources" minToolsVersion="11.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" id="gTV-IL-0wX" customClass="DocumentCVCell" customModule="EncuentroCatolicoVirtualLibrary" customModuleProvider="target">
+            <rect key="frame" x="0.0" y="0.0" width="306" height="122"/>
+            <autoresizingMask key="autoresizingMask"/>
+            <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center">
+                <rect key="frame" x="0.0" y="0.0" width="306" height="122"/>
+                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                <subviews>
+                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="GkS-wJ-Bon">
+                        <rect key="frame" x="0.0" y="0.0" width="306" height="122"/>
+                        <subviews>
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="laQ-sj-eZP">
+                                <rect key="frame" x="0.0" y="0.0" width="87" height="122"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="122" id="1Bj-aQ-XR3"/>
+                                    <constraint firstAttribute="width" constant="87" id="dIO-ja-eef"/>
+                                </constraints>
+                            </imageView>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="La Capilla Sixtina es una capilla del Palacio Apostólico de la Ciudad del Vaticano, la residencia oficial del papa." textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="7" baselineAdjustment="alignBaselines" minimumScaleFactor="0.5" adjustsFontForContentSizeCategory="YES" translatesAutoresizingMaskIntoConstraints="NO" id="Tie-Xx-cd5">
+                                <rect key="frame" x="107" y="50" width="199" height="67"/>
+                                <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="13"/>
+                                <color key="textColor" white="0.33333333333333331" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="3" baselineAdjustment="alignBaselines" minimumScaleFactor="0.5" adjustsFontForContentSizeCategory="YES" translatesAutoresizingMaskIntoConstraints="NO" id="QAI-Ie-eAh">
+                                <rect key="frame" x="107" y="10" width="199" height="35"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="35" id="ZRW-Jd-tXk"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" style="UICTFontTextStyleHeadline"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                        </subviews>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <constraints>
+                            <constraint firstItem="Tie-Xx-cd5" firstAttribute="leading" secondItem="laQ-sj-eZP" secondAttribute="trailing" constant="20" id="MDX-TY-eMc"/>
+                            <constraint firstItem="laQ-sj-eZP" firstAttribute="leading" secondItem="GkS-wJ-Bon" secondAttribute="leading" id="Oun-e9-av1"/>
+                            <constraint firstAttribute="trailing" secondItem="Tie-Xx-cd5" secondAttribute="trailing" id="TJZ-Bv-8IZ"/>
+                            <constraint firstAttribute="bottom" secondItem="Tie-Xx-cd5" secondAttribute="bottom" constant="5" id="ZZc-p7-i6Q"/>
+                            <constraint firstItem="QAI-Ie-eAh" firstAttribute="top" secondItem="GkS-wJ-Bon" secondAttribute="top" constant="10" id="dXl-0w-7zT"/>
+                            <constraint firstItem="QAI-Ie-eAh" firstAttribute="leading" secondItem="Tie-Xx-cd5" secondAttribute="leading" id="e1y-wY-ohF"/>
+                            <constraint firstItem="QAI-Ie-eAh" firstAttribute="trailing" secondItem="Tie-Xx-cd5" secondAttribute="trailing" id="igg-cB-bnz"/>
+                            <constraint firstItem="laQ-sj-eZP" firstAttribute="centerY" secondItem="GkS-wJ-Bon" secondAttribute="centerY" id="pN3-KA-2Wb"/>
+                            <constraint firstItem="Tie-Xx-cd5" firstAttribute="top" secondItem="QAI-Ie-eAh" secondAttribute="bottom" constant="5" id="pnN-Lv-WZA"/>
+                        </constraints>
+                    </view>
+                </subviews>
+            </view>
+            <viewLayoutGuide key="safeArea" id="ZTg-uK-7eu"/>
+            <constraints>
+                <constraint firstAttribute="bottom" secondItem="GkS-wJ-Bon" secondAttribute="bottom" id="8w6-5f-Sbf"/>
+                <constraint firstAttribute="trailing" secondItem="GkS-wJ-Bon" secondAttribute="trailing" id="9W7-mm-f93"/>
+                <constraint firstItem="GkS-wJ-Bon" firstAttribute="leading" secondItem="gTV-IL-0wX" secondAttribute="leading" id="b0G-2I-Fo0"/>
+                <constraint firstItem="GkS-wJ-Bon" firstAttribute="top" secondItem="gTV-IL-0wX" secondAttribute="top" id="vM4-Ry-H6H"/>
+            </constraints>
+            <size key="customSize" width="306" height="122"/>
+            <connections>
+                <outlet property="imgView" destination="laQ-sj-eZP" id="prn-ka-Ojz"/>
+                <outlet property="lblDescription" destination="Tie-Xx-cd5" id="B2z-ET-HLg"/>
+                <outlet property="lblTitle" destination="QAI-Ie-eAh" id="HKD-Pt-w2n"/>
+            </connections>
+            <point key="canvasLocation" x="321.73913043478262" y="61.607142857142854"/>
+        </collectionViewCell>
+    </objects>
+    <resources>
+        <systemColor name="systemBackgroundColor">
+            <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+        </systemColor>
+    </resources>
+</document>

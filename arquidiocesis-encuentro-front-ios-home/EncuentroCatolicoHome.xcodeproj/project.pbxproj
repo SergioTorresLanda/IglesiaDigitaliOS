@@ -1,0 +1,988 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 50;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		3624761326095B3C00323160 /* PresentFrameworks.swift in Sources */ = {isa = PBXBuildFile; fileRef = 98BF4F7825E593DF00299001 /* PresentFrameworks.swift */; };
+		368A2040260BAB3700188539 /* newPrayer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 368A203F260BAB3700188539 /* newPrayer.swift */; };
+		6D71F6A7DE354F184B60AA54 /* Pods_EncuentroCatolicoHome.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A5B217854BC3EC960CCEC1CF /* Pods_EncuentroCatolicoHome.framework */; };
+		6D754A6B28F969FA00226166 /* ChurchRemoteInfo.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6D754A6A28F969FA00226166 /* ChurchRemoteInfo.swift */; };
+		6DE2E35F279B6EB5000ED1F0 /* APIType.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6DE2E35E279B6EB5000ED1F0 /* APIType.swift */; };
+		6F19B0552745FE8F00B32813 /* ModalWebViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6F19B0542745FE8F00B32813 /* ModalWebViewController.swift */; };
+		6F1DF3CB26E292D6005C9F48 /* AlertTableCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6F1DF3C926E292D6005C9F48 /* AlertTableCell.swift */; };
+		6F1DF3CC26E292D6005C9F48 /* AlertTableCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 6F1DF3CA26E292D6005C9F48 /* AlertTableCell.xib */; };
+		6F38FB03274C8806000F6033 /* EncuentroCatolicoPrayers.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6F38FB02274C8806000F6033 /* EncuentroCatolicoPrayers.framework */; };
+		6F5AC06F26D001B8009ED389 /* HomeMainCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6F5AC06D26D001B8009ED389 /* HomeMainCell.swift */; };
+		6F5AC07026D001B8009ED389 /* HomeMainCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 6F5AC06E26D001B8009ED389 /* HomeMainCell.xib */; };
+		6F5AC07626D01741009ED389 /* HomeSliderCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6F5AC07426D01741009ED389 /* HomeSliderCell.swift */; };
+		6F5AC07726D01741009ED389 /* HomeSliderCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 6F5AC07526D01741009ED389 /* HomeSliderCell.xib */; };
+		6F5AC07A26D01ACF009ED389 /* SliderCollectionCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6F5AC07826D01ACF009ED389 /* SliderCollectionCell.swift */; };
+		6F5AC07B26D01ACF009ED389 /* SliderCollectionCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 6F5AC07926D01ACF009ED389 /* SliderCollectionCell.xib */; };
+		82E729A425F80239009BAA3A /* HomeEntity.swift in Sources */ = {isa = PBXBuildFile; fileRef = 82E729A325F80239009BAA3A /* HomeEntity.swift */; };
+		980F760525E58A7400B0DB0E /* Bundle.swift in Sources */ = {isa = PBXBuildFile; fileRef = 980F760425E58A7400B0DB0E /* Bundle.swift */; };
+		9813546125F7B332000C6F99 /* donationBox.json in Resources */ = {isa = PBXBuildFile; fileRef = 9813546025F7B332000C6F99 /* donationBox.json */; };
+		9837C1A325E72A69005A200F /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 9837C1A225E72A69005A200F /* Assets.xcassets */; };
+		9837C1A525E72BE0005A200F /* Design.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9837C1A425E72BE0005A200F /* Design.swift */; };
+		983D1CB9260A422D00455355 /* GlobalFunctions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 983D1CB8260A422D00455355 /* GlobalFunctions.swift */; };
+		983D1CBE260A425B00455355 /* prayerCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 983D1CBD260A425B00455355 /* prayerCell.swift */; };
+		983D1CC0260A425F00455355 /* prayerCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 983D1CBF260A425F00455355 /* prayerCell.xib */; };
+		983D1CC4260A429400455355 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 983D1CC3260A429400455355 /* Main.storyboard */; };
+		983D1D16260A565300455355 /* newPrayerCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 983D1D14260A565300455355 /* newPrayerCell.swift */; };
+		983D1D17260A565300455355 /* newPrayerCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 983D1D15260A565300455355 /* newPrayerCell.xib */; };
+		989120D625E984B600D666F4 /* SocialNetworkController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 989120D125E984B600D666F4 /* SocialNetworkController.swift */; };
+		989120D725E984B600D666F4 /* SocialNetworkController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 989120D225E984B600D666F4 /* SocialNetworkController.xib */; };
+		989120D825E984B600D666F4 /* TabNavigationMenu.swift in Sources */ = {isa = PBXBuildFile; fileRef = 989120D325E984B600D666F4 /* TabNavigationMenu.swift */; };
+		989120D925E984B600D666F4 /* TabItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = 989120D425E984B600D666F4 /* TabItem.swift */; };
+		989120DA25E984B600D666F4 /* CustomTabBarTransition.swift in Sources */ = {isa = PBXBuildFile; fileRef = 989120D525E984B600D666F4 /* CustomTabBarTransition.swift */; };
+		98A0960A26563CB000110BE8 /* prayerChainModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 98A0960926563CB000110BE8 /* prayerChainModel.swift */; };
+		98A0960C26563CC400110BE8 /* prayerChain.swift in Sources */ = {isa = PBXBuildFile; fileRef = 98A0960B26563CC400110BE8 /* prayerChain.swift */; };
+		98A60AB125E47C80009196FC /* EncuentroCatolicoHome.h in Headers */ = {isa = PBXBuildFile; fileRef = 98A60AAF25E47C80009196FC /* EncuentroCatolicoHome.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		98C46A4F25EF0EEC00DE543B /* EncuentroCatolicoChurch.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 98C46A4E25EF0EEC00DE543B /* EncuentroCatolicoChurch.framework */; };
+		98C46A8125EF12DA00DE543B /* EncuentroCatolicoMyChurch.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 98C46A8025EF12DA00DE543B /* EncuentroCatolicoMyChurch.framework */; };
+		98F393D525E581A60077B623 /* HomePresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 98F393CF25E581A60077B623 /* HomePresenter.swift */; };
+		98F393D625E581A60077B623 /* HomeRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 98F393D025E581A60077B623 /* HomeRouter.swift */; };
+		98F393D725E581A60077B623 /* HomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 98F393D125E581A60077B623 /* HomeViewController.swift */; };
+		98F393D825E581A60077B623 /* HomeProtocols.swift in Sources */ = {isa = PBXBuildFile; fileRef = 98F393D225E581A60077B623 /* HomeProtocols.swift */; };
+		98F393D925E581A60077B623 /* HomeInteractor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 98F393D325E581A60077B623 /* HomeInteractor.swift */; };
+		98F393DA25E581A60077B623 /* HomeViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 98F393D425E581A60077B623 /* HomeViewController.xib */; };
+		98F393E425E582430077B623 /* HomeComponents.swift in Sources */ = {isa = PBXBuildFile; fileRef = 98F393E325E582430077B623 /* HomeComponents.swift */; };
+		98F393EA25E583BE0077B623 /* HomeCV.swift in Sources */ = {isa = PBXBuildFile; fileRef = 98F393E825E583BE0077B623 /* HomeCV.swift */; };
+		98F393EB25E583BE0077B623 /* HomeCV.xib in Resources */ = {isa = PBXBuildFile; fileRef = 98F393E925E583BE0077B623 /* HomeCV.xib */; };
+		9DB3244E273B07DE005841D4 /* SliderCellView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 9DB3244C273B07DD005841D4 /* SliderCellView.xib */; };
+		9DB3244F273B07DE005841D4 /* SliderCellView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9DB3244D273B07DE005841D4 /* SliderCellView.swift */; };
+		9DB32452273B07F7005841D4 /* MyPrayerCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9DB32450273B07F6005841D4 /* MyPrayerCell.swift */; };
+		9DB32453273B07F7005841D4 /* MyPrayerCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 9DB32451273B07F7005841D4 /* MyPrayerCell.xib */; };
+		9DB32455273B0811005841D4 /* ModalAlert.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9DB32454273B0811005841D4 /* ModalAlert.swift */; };
+		9DB32457273B0820005841D4 /* ModalPrayController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9DB32456273B0820005841D4 /* ModalPrayController.swift */; };
+		9DB3245A273B09E5005841D4 /* ListPrayCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9DB32459273B09E5005841D4 /* ListPrayCell.swift */; };
+		AA0DEA3725EECE5B00DDB861 /* EncuentroCatolicoVirtualLibrary.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9837C21E25E85AF8005A200F /* EncuentroCatolicoVirtualLibrary.framework */; };
+		AA0DEA3C25EECE6000DDB861 /* EncuentroCatolicoLive.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9837C21D25E85AF8005A200F /* EncuentroCatolicoLive.framework */; };
+		AA0DEA4025EECE6000DDB861 /* EncuentroCatolicoMasses.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 980F760725E58B7700B0DB0E /* EncuentroCatolicoMasses.framework */; };
+		AA0DEA4225EECE6000DDB861 /* EncuentroCatolicoNews.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 980F760825E58B7700B0DB0E /* EncuentroCatolicoNews.framework */; };
+		AA0DEA4425EECE6000DDB861 /* EncuentroCatolicoPrayers.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 980F760925E58B7700B0DB0E /* EncuentroCatolicoPrayers.framework */; };
+		AA0DEA4625EECE6000DDB861 /* EncuentroCatolicoProfile.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 980F760A25E58B7700B0DB0E /* EncuentroCatolicoProfile.framework */; };
+		AA0DEA4A25EECE6100DDB861 /* EncuentroCatolicoServices.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 980F760B25E58B7700B0DB0E /* EncuentroCatolicoServices.framework */; };
+		EE13C0FD260E453000D72448 /* coursesCVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = EE13C0FB260E453000D72448 /* coursesCVC.swift */; };
+		EE13C0FE260E453000D72448 /* coursesCVC.xib in Resources */ = {isa = PBXBuildFile; fileRef = EE13C0FC260E453000D72448 /* coursesCVC.xib */; };
+		EE1BD54B2648CFA50045ACDD /* EncuentroCatolicoNewFormation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = EEA6B93F2646E55000C35ACF /* EncuentroCatolicoNewFormation.framework */; };
+		EED013052647054E0054F6AE /* DonationsWindow.swift in Sources */ = {isa = PBXBuildFile; fileRef = EED013032647054E0054F6AE /* DonationsWindow.swift */; };
+		EED013062647054E0054F6AE /* DonationsWindow.xib in Resources */ = {isa = PBXBuildFile; fileRef = EED013042647054E0054F6AE /* DonationsWindow.xib */; };
+		EEEAA36B260D56AB00EBEF10 /* Education.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = EEEAA36A260D56AB00EBEF10 /* Education.storyboard */; };
+		EEEAA373260D5A0200EBEF10 /* educationHome.swift in Sources */ = {isa = PBXBuildFile; fileRef = EEEAA372260D5A0200EBEF10 /* educationHome.swift */; };
+		EEEAA378260D5EB500EBEF10 /* featuredEducationCVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = EEEAA376260D5EB500EBEF10 /* featuredEducationCVC.swift */; };
+		EEEAA379260D5EB500EBEF10 /* featuredEducationCVC.xib in Resources */ = {isa = PBXBuildFile; fileRef = EEEAA377260D5EB500EBEF10 /* featuredEducationCVC.xib */; };
+		EEEAA37C260D655400EBEF10 /* EncuentroCatolicoUtils.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = EEEAA37B260D655400EBEF10 /* EncuentroCatolicoUtils.framework */; };
+		EEEAA380260D673C00EBEF10 /* alertView.swift in Sources */ = {isa = PBXBuildFile; fileRef = EEEAA37F260D673C00EBEF10 /* alertView.swift */; };
+		EEEAA389260D8DD800EBEF10 /* featuredCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = EEEAA387260D8DD800EBEF10 /* featuredCell.swift */; };
+		EEEAA38A260D8DD800EBEF10 /* featuredCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = EEEAA388260D8DD800EBEF10 /* featuredCell.xib */; };
+		EEEAA38E260D979800EBEF10 /* coursesHeader.swift in Sources */ = {isa = PBXBuildFile; fileRef = EEEAA38C260D979800EBEF10 /* coursesHeader.swift */; };
+		EEEAA38F260D979800EBEF10 /* coursesHeader.xib in Resources */ = {isa = PBXBuildFile; fileRef = EEEAA38D260D979800EBEF10 /* coursesHeader.xib */; };
+		EEEAA398260DA15400EBEF10 /* mentorsCVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = EEEAA396260DA15300EBEF10 /* mentorsCVC.swift */; };
+		EEEAA399260DA15400EBEF10 /* mentorsCVC.xib in Resources */ = {isa = PBXBuildFile; fileRef = EEEAA397260DA15300EBEF10 /* mentorsCVC.xib */; };
+		EEEAA39D260DA7B700EBEF10 /* mentorsViewCVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = EEEAA39B260DA7B700EBEF10 /* mentorsViewCVC.swift */; };
+		EEEAA39E260DA7B700EBEF10 /* mentorsViewCVC.xib in Resources */ = {isa = PBXBuildFile; fileRef = EEEAA39C260DA7B700EBEF10 /* mentorsViewCVC.xib */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXFileReference section */
+		27A1997AFDAC8D2971166D09 /* Pods-EncuentroCatolicoPromise.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-EncuentroCatolicoPromise.debug.xcconfig"; path = "Target Support Files/Pods-EncuentroCatolicoPromise/Pods-EncuentroCatolicoPromise.debug.xcconfig"; sourceTree = "<group>"; };
+		362475B52609587E00323160 /* EncuentroCatolicoUtils.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = EncuentroCatolicoUtils.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		368A203F260BAB3700188539 /* newPrayer.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = newPrayer.swift; sourceTree = "<group>"; };
+		4AD2FA07A77D2F5792126D5A /* Pods-EncuentroCatolicoHome.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-EncuentroCatolicoHome.release.xcconfig"; path = "Target Support Files/Pods-EncuentroCatolicoHome/Pods-EncuentroCatolicoHome.release.xcconfig"; sourceTree = "<group>"; };
+		4FA9FB44CBD8B70D6943B9CD /* Pods-EncuentroCatolicoPromise.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-EncuentroCatolicoPromise.release.xcconfig"; path = "Target Support Files/Pods-EncuentroCatolicoPromise/Pods-EncuentroCatolicoPromise.release.xcconfig"; sourceTree = "<group>"; };
+		51C3DC7543BEC99405F101A4 /* Pods-EncuentroCatolicoHome.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-EncuentroCatolicoHome.debug.xcconfig"; path = "Target Support Files/Pods-EncuentroCatolicoHome/Pods-EncuentroCatolicoHome.debug.xcconfig"; sourceTree = "<group>"; };
+		51D62090126B8B8661A9CAF5 /* Pods-EncuentroCatolicoOracion.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-EncuentroCatolicoOracion.release.xcconfig"; path = "Target Support Files/Pods-EncuentroCatolicoOracion/Pods-EncuentroCatolicoOracion.release.xcconfig"; sourceTree = "<group>"; };
+		6D754A6A28F969FA00226166 /* ChurchRemoteInfo.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ChurchRemoteInfo.swift; sourceTree = "<group>"; };
+		6DE2E35E279B6EB5000ED1F0 /* APIType.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = APIType.swift; sourceTree = "<group>"; };
+		6F19B0542745FE8F00B32813 /* ModalWebViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ModalWebViewController.swift; sourceTree = "<group>"; };
+		6F1DF3C926E292D6005C9F48 /* AlertTableCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AlertTableCell.swift; sourceTree = "<group>"; };
+		6F1DF3CA26E292D6005C9F48 /* AlertTableCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = AlertTableCell.xib; sourceTree = "<group>"; };
+		6F38FB02274C8806000F6033 /* EncuentroCatolicoPrayers.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = EncuentroCatolicoPrayers.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		6F5AC06D26D001B8009ED389 /* HomeMainCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeMainCell.swift; sourceTree = "<group>"; };
+		6F5AC06E26D001B8009ED389 /* HomeMainCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = HomeMainCell.xib; sourceTree = "<group>"; };
+		6F5AC07426D01741009ED389 /* HomeSliderCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeSliderCell.swift; sourceTree = "<group>"; };
+		6F5AC07526D01741009ED389 /* HomeSliderCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = HomeSliderCell.xib; sourceTree = "<group>"; };
+		6F5AC07826D01ACF009ED389 /* SliderCollectionCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SliderCollectionCell.swift; sourceTree = "<group>"; };
+		6F5AC07926D01ACF009ED389 /* SliderCollectionCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = SliderCollectionCell.xib; sourceTree = "<group>"; };
+		82E729A325F80239009BAA3A /* HomeEntity.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeEntity.swift; sourceTree = "<group>"; };
+		980F757B25E5877F00B0DB0E /* EncuentroCatolicoLogin.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = EncuentroCatolicoLogin.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		980F757C25E5877F00B0DB0E /* EncuentroCatolicoRegister.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = EncuentroCatolicoRegister.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		980F760425E58A7400B0DB0E /* Bundle.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Bundle.swift; sourceTree = "<group>"; };
+		980F760725E58B7700B0DB0E /* EncuentroCatolicoMasses.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = EncuentroCatolicoMasses.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		980F760825E58B7700B0DB0E /* EncuentroCatolicoNews.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = EncuentroCatolicoNews.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		980F760925E58B7700B0DB0E /* EncuentroCatolicoPrayers.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = EncuentroCatolicoPrayers.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		980F760A25E58B7700B0DB0E /* EncuentroCatolicoProfile.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = EncuentroCatolicoProfile.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		980F760B25E58B7700B0DB0E /* EncuentroCatolicoServices.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = EncuentroCatolicoServices.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		9813546025F7B332000C6F99 /* donationBox.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = donationBox.json; sourceTree = "<group>"; };
+		9817615025EFEDD2008E1018 /* EncuentroCatolicoDonations.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = EncuentroCatolicoDonations.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		9837C1A225E72A69005A200F /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		9837C1A425E72BE0005A200F /* Design.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Design.swift; sourceTree = "<group>"; };
+		9837C21B25E85AF8005A200F /* EcuentroCatolicoChurch.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = EcuentroCatolicoChurch.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		9837C21C25E85AF8005A200F /* EncuentroCatolicoFormation.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = EncuentroCatolicoFormation.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		9837C21D25E85AF8005A200F /* EncuentroCatolicoLive.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = EncuentroCatolicoLive.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		9837C21E25E85AF8005A200F /* EncuentroCatolicoVirtualLibrary.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = EncuentroCatolicoVirtualLibrary.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		983D1CAC260959B000455355 /* EncuentroCatolicoScanner.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = EncuentroCatolicoScanner.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		983D1CB8260A422D00455355 /* GlobalFunctions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GlobalFunctions.swift; sourceTree = "<group>"; };
+		983D1CBD260A425B00455355 /* prayerCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = prayerCell.swift; sourceTree = "<group>"; };
+		983D1CBF260A425F00455355 /* prayerCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = prayerCell.xib; sourceTree = "<group>"; };
+		983D1CC3260A429400455355 /* Main.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Main.storyboard; sourceTree = "<group>"; };
+		983D1D14260A565300455355 /* newPrayerCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = newPrayerCell.swift; sourceTree = "<group>"; };
+		983D1D15260A565300455355 /* newPrayerCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = newPrayerCell.xib; sourceTree = "<group>"; };
+		989120D125E984B600D666F4 /* SocialNetworkController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SocialNetworkController.swift; sourceTree = "<group>"; };
+		989120D225E984B600D666F4 /* SocialNetworkController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = SocialNetworkController.xib; sourceTree = "<group>"; };
+		989120D325E984B600D666F4 /* TabNavigationMenu.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TabNavigationMenu.swift; sourceTree = "<group>"; };
+		989120D425E984B600D666F4 /* TabItem.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TabItem.swift; sourceTree = "<group>"; };
+		989120D525E984B600D666F4 /* CustomTabBarTransition.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CustomTabBarTransition.swift; sourceTree = "<group>"; };
+		98A0960926563CB000110BE8 /* prayerChainModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = prayerChainModel.swift; sourceTree = "<group>"; };
+		98A0960B26563CC400110BE8 /* prayerChain.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = prayerChain.swift; sourceTree = "<group>"; };
+		98A60AAC25E47C80009196FC /* EncuentroCatolicoHome.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = EncuentroCatolicoHome.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		98A60AAF25E47C80009196FC /* EncuentroCatolicoHome.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = EncuentroCatolicoHome.h; sourceTree = "<group>"; };
+		98A60AB025E47C80009196FC /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		98BF4F7825E593DF00299001 /* PresentFrameworks.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PresentFrameworks.swift; sourceTree = "<group>"; };
+		98C46A4E25EF0EEC00DE543B /* EncuentroCatolicoChurch.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = EncuentroCatolicoChurch.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		98C46A8025EF12DA00DE543B /* EncuentroCatolicoMyChurch.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = EncuentroCatolicoMyChurch.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		98F393CF25E581A60077B623 /* HomePresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomePresenter.swift; sourceTree = "<group>"; };
+		98F393D025E581A60077B623 /* HomeRouter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeRouter.swift; sourceTree = "<group>"; };
+		98F393D125E581A60077B623 /* HomeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeViewController.swift; sourceTree = "<group>"; };
+		98F393D225E581A60077B623 /* HomeProtocols.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeProtocols.swift; sourceTree = "<group>"; };
+		98F393D325E581A60077B623 /* HomeInteractor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeInteractor.swift; sourceTree = "<group>"; };
+		98F393D425E581A60077B623 /* HomeViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = HomeViewController.xib; sourceTree = "<group>"; };
+		98F393E325E582430077B623 /* HomeComponents.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeComponents.swift; sourceTree = "<group>"; };
+		98F393E825E583BE0077B623 /* HomeCV.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeCV.swift; sourceTree = "<group>"; };
+		98F393E925E583BE0077B623 /* HomeCV.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = HomeCV.xib; sourceTree = "<group>"; };
+		9DB3244C273B07DD005841D4 /* SliderCellView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = SliderCellView.xib; sourceTree = "<group>"; };
+		9DB3244D273B07DE005841D4 /* SliderCellView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SliderCellView.swift; sourceTree = "<group>"; };
+		9DB32450273B07F6005841D4 /* MyPrayerCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MyPrayerCell.swift; sourceTree = "<group>"; };
+		9DB32451273B07F7005841D4 /* MyPrayerCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = MyPrayerCell.xib; sourceTree = "<group>"; };
+		9DB32454273B0811005841D4 /* ModalAlert.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = ModalAlert.swift; path = EncuentroCatolicoHome/ModalAlert.swift; sourceTree = SOURCE_ROOT; };
+		9DB32456273B0820005841D4 /* ModalPrayController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = ModalPrayController.swift; path = EncuentroCatolicoHome/ModalPrayController.swift; sourceTree = SOURCE_ROOT; };
+		9DB32459273B09E5005841D4 /* ListPrayCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ListPrayCell.swift; sourceTree = "<group>"; };
+		A5B217854BC3EC960CCEC1CF /* Pods_EncuentroCatolicoHome.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_EncuentroCatolicoHome.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		BD9C24D21D09701724A67A98 /* Pods-EncuentroCatolicoOracion.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-EncuentroCatolicoOracion.debug.xcconfig"; path = "Target Support Files/Pods-EncuentroCatolicoOracion/Pods-EncuentroCatolicoOracion.debug.xcconfig"; sourceTree = "<group>"; };
+		C4DB763646C29C353760C294 /* Pods_EncuentroCatolicoOracion.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_EncuentroCatolicoOracion.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		ECCF95E24C4753B6CD6913F7 /* Pods_EncuentroCatolicoPromise.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_EncuentroCatolicoPromise.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		EE13C0FB260E453000D72448 /* coursesCVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = coursesCVC.swift; sourceTree = "<group>"; };
+		EE13C0FC260E453000D72448 /* coursesCVC.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = coursesCVC.xib; sourceTree = "<group>"; };
+		EEA6B93F2646E55000C35ACF /* EncuentroCatolicoNewFormation.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = EncuentroCatolicoNewFormation.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		EED013032647054E0054F6AE /* DonationsWindow.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DonationsWindow.swift; sourceTree = "<group>"; };
+		EED013042647054E0054F6AE /* DonationsWindow.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = DonationsWindow.xib; sourceTree = "<group>"; };
+		EEEAA35B260CF5EE00EBEF10 /* EncuentroCatolicoUtils.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = EncuentroCatolicoUtils.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		EEEAA364260CF89000EBEF10 /* Pods_EncuentroCatolicoUtils.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = Pods_EncuentroCatolicoUtils.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		EEEAA36A260D56AB00EBEF10 /* Education.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Education.storyboard; sourceTree = "<group>"; };
+		EEEAA372260D5A0200EBEF10 /* educationHome.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = educationHome.swift; sourceTree = "<group>"; };
+		EEEAA376260D5EB500EBEF10 /* featuredEducationCVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = featuredEducationCVC.swift; sourceTree = "<group>"; };
+		EEEAA377260D5EB500EBEF10 /* featuredEducationCVC.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = featuredEducationCVC.xib; sourceTree = "<group>"; };
+		EEEAA37B260D655400EBEF10 /* EncuentroCatolicoUtils.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = EncuentroCatolicoUtils.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		EEEAA37F260D673C00EBEF10 /* alertView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = alertView.swift; sourceTree = "<group>"; };
+		EEEAA387260D8DD800EBEF10 /* featuredCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = featuredCell.swift; sourceTree = "<group>"; };
+		EEEAA388260D8DD800EBEF10 /* featuredCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = featuredCell.xib; sourceTree = "<group>"; };
+		EEEAA38C260D979800EBEF10 /* coursesHeader.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = coursesHeader.swift; sourceTree = "<group>"; };
+		EEEAA38D260D979800EBEF10 /* coursesHeader.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = coursesHeader.xib; sourceTree = "<group>"; };
+		EEEAA396260DA15300EBEF10 /* mentorsCVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = mentorsCVC.swift; sourceTree = "<group>"; };
+		EEEAA397260DA15300EBEF10 /* mentorsCVC.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = mentorsCVC.xib; sourceTree = "<group>"; };
+		EEEAA39B260DA7B700EBEF10 /* mentorsViewCVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = mentorsViewCVC.swift; sourceTree = "<group>"; };
+		EEEAA39C260DA7B700EBEF10 /* mentorsViewCVC.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = mentorsViewCVC.xib; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		98A60AA925E47C80009196FC /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				AA0DEA3725EECE5B00DDB861 /* EncuentroCatolicoVirtualLibrary.framework in Frameworks */,
+				AA0DEA4025EECE6000DDB861 /* EncuentroCatolicoMasses.framework in Frameworks */,
+				98C46A8125EF12DA00DE543B /* EncuentroCatolicoMyChurch.framework in Frameworks */,
+				AA0DEA4625EECE6000DDB861 /* EncuentroCatolicoProfile.framework in Frameworks */,
+				AA0DEA4425EECE6000DDB861 /* EncuentroCatolicoPrayers.framework in Frameworks */,
+				EE1BD54B2648CFA50045ACDD /* EncuentroCatolicoNewFormation.framework in Frameworks */,
+				6D71F6A7DE354F184B60AA54 /* Pods_EncuentroCatolicoHome.framework in Frameworks */,
+				EEEAA37C260D655400EBEF10 /* EncuentroCatolicoUtils.framework in Frameworks */,
+				98C46A4F25EF0EEC00DE543B /* EncuentroCatolicoChurch.framework in Frameworks */,
+				6F38FB03274C8806000F6033 /* EncuentroCatolicoPrayers.framework in Frameworks */,
+				AA0DEA4A25EECE6100DDB861 /* EncuentroCatolicoServices.framework in Frameworks */,
+				AA0DEA3C25EECE6000DDB861 /* EncuentroCatolicoLive.framework in Frameworks */,
+				AA0DEA4225EECE6000DDB861 /* EncuentroCatolicoNews.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		368A1FB4260BA83E00188539 /* Recovered References */ = {
+			isa = PBXGroup;
+			children = (
+				983D1CAC260959B000455355 /* EncuentroCatolicoScanner.framework */,
+			);
+			name = "Recovered References";
+			sourceTree = "<group>";
+		};
+		6F19B0532745FE7400B32813 /* ModalWebView */ = {
+			isa = PBXGroup;
+			children = (
+				6F19B0542745FE8F00B32813 /* ModalWebViewController.swift */,
+			);
+			name = ModalWebView;
+			sourceTree = "<group>";
+		};
+		6F1DF3C226E291BE005C9F48 /* AlertCell */ = {
+			isa = PBXGroup;
+			children = (
+				6F1DF3C926E292D6005C9F48 /* AlertTableCell.swift */,
+				6F1DF3CA26E292D6005C9F48 /* AlertTableCell.xib */,
+			);
+			path = AlertCell;
+			sourceTree = "<group>";
+		};
+		6F5AC06C26D0016E009ED389 /* HomeTB */ = {
+			isa = PBXGroup;
+			children = (
+				6F5AC06D26D001B8009ED389 /* HomeMainCell.swift */,
+				6F5AC06E26D001B8009ED389 /* HomeMainCell.xib */,
+			);
+			path = HomeTB;
+			sourceTree = "<group>";
+		};
+		6F5AC07126D016F4009ED389 /* HomeSliderCell */ = {
+			isa = PBXGroup;
+			children = (
+				6F5AC07426D01741009ED389 /* HomeSliderCell.swift */,
+				6F5AC07526D01741009ED389 /* HomeSliderCell.xib */,
+			);
+			path = HomeSliderCell;
+			sourceTree = "<group>";
+		};
+		6F5AC07C26D01ADB009ED389 /* SliderColletion */ = {
+			isa = PBXGroup;
+			children = (
+				6F5AC07826D01ACF009ED389 /* SliderCollectionCell.swift */,
+				6F5AC07926D01ACF009ED389 /* SliderCollectionCell.xib */,
+			);
+			path = SliderColletion;
+			sourceTree = "<group>";
+		};
+		8A47E9F804C6C1C28A259FF1 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				6F38FB02274C8806000F6033 /* EncuentroCatolicoPrayers.framework */,
+				EEA6B93F2646E55000C35ACF /* EncuentroCatolicoNewFormation.framework */,
+				EEEAA37B260D655400EBEF10 /* EncuentroCatolicoUtils.framework */,
+				EEEAA364260CF89000EBEF10 /* Pods_EncuentroCatolicoUtils.framework */,
+				EEEAA35B260CF5EE00EBEF10 /* EncuentroCatolicoUtils.framework */,
+				362475B52609587E00323160 /* EncuentroCatolicoUtils.framework */,
+				9817615025EFEDD2008E1018 /* EncuentroCatolicoDonations.framework */,
+				98C46A8025EF12DA00DE543B /* EncuentroCatolicoMyChurch.framework */,
+				98C46A4E25EF0EEC00DE543B /* EncuentroCatolicoChurch.framework */,
+				9837C21B25E85AF8005A200F /* EcuentroCatolicoChurch.framework */,
+				9837C21C25E85AF8005A200F /* EncuentroCatolicoFormation.framework */,
+				9837C21D25E85AF8005A200F /* EncuentroCatolicoLive.framework */,
+				9837C21E25E85AF8005A200F /* EncuentroCatolicoVirtualLibrary.framework */,
+				980F760725E58B7700B0DB0E /* EncuentroCatolicoMasses.framework */,
+				980F760825E58B7700B0DB0E /* EncuentroCatolicoNews.framework */,
+				980F760925E58B7700B0DB0E /* EncuentroCatolicoPrayers.framework */,
+				980F760A25E58B7700B0DB0E /* EncuentroCatolicoProfile.framework */,
+				980F760B25E58B7700B0DB0E /* EncuentroCatolicoServices.framework */,
+				980F757B25E5877F00B0DB0E /* EncuentroCatolicoLogin.framework */,
+				980F757C25E5877F00B0DB0E /* EncuentroCatolicoRegister.framework */,
+				A5B217854BC3EC960CCEC1CF /* Pods_EncuentroCatolicoHome.framework */,
+				C4DB763646C29C353760C294 /* Pods_EncuentroCatolicoOracion.framework */,
+				ECCF95E24C4753B6CD6913F7 /* Pods_EncuentroCatolicoPromise.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		980F760325E58A6000B0DB0E /* Extensions */ = {
+			isa = PBXGroup;
+			children = (
+				6DE2E35E279B6EB5000ED1F0 /* APIType.swift */,
+				98BF4F7825E593DF00299001 /* PresentFrameworks.swift */,
+				980F760425E58A7400B0DB0E /* Bundle.swift */,
+				9837C1A425E72BE0005A200F /* Design.swift */,
+			);
+			path = Extensions;
+			sourceTree = "<group>";
+		};
+		9837C1A125E72A5A005A200F /* Resources */ = {
+			isa = PBXGroup;
+			children = (
+				9837C1A225E72A69005A200F /* Assets.xcassets */,
+				9813546025F7B332000C6F99 /* donationBox.json */,
+			);
+			path = Resources;
+			sourceTree = "<group>";
+		};
+		983D1CB7260A418800455355 /* PrayerChain */ = {
+			isa = PBXGroup;
+			children = (
+				9DB32449273B0787005841D4 /* ModalPrayer */,
+				9DB32448273B0776005841D4 /* CustomAlerts */,
+				983D1D0F260A4C7600455355 /* Model */,
+				98A0960B26563CC400110BE8 /* prayerChain.swift */,
+				983D1CC3260A429400455355 /* Main.storyboard */,
+				368A203F260BAB3700188539 /* newPrayer.swift */,
+				983D1CB8260A422D00455355 /* GlobalFunctions.swift */,
+				983D1CBC260A424F00455355 /* Cells */,
+			);
+			name = PrayerChain;
+			sourceTree = "<group>";
+		};
+		983D1CBC260A424F00455355 /* Cells */ = {
+			isa = PBXGroup;
+			children = (
+				9DB3244B273B07AF005841D4 /* SliderCardsCell */,
+				9DB3244A273B079F005841D4 /* myPrayerCell */,
+				983D1D13260A563000455355 /* newPrayerCell */,
+				983D1D12260A562500455355 /* prayerCell */,
+			);
+			name = Cells;
+			sourceTree = "<group>";
+		};
+		983D1D0F260A4C7600455355 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				98A0960926563CB000110BE8 /* prayerChainModel.swift */,
+			);
+			name = Model;
+			sourceTree = "<group>";
+		};
+		983D1D12260A562500455355 /* prayerCell */ = {
+			isa = PBXGroup;
+			children = (
+				983D1CBF260A425F00455355 /* prayerCell.xib */,
+				983D1CBD260A425B00455355 /* prayerCell.swift */,
+			);
+			name = prayerCell;
+			sourceTree = "<group>";
+		};
+		983D1D13260A563000455355 /* newPrayerCell */ = {
+			isa = PBXGroup;
+			children = (
+				983D1D14260A565300455355 /* newPrayerCell.swift */,
+				983D1D15260A565300455355 /* newPrayerCell.xib */,
+			);
+			name = newPrayerCell;
+			sourceTree = "<group>";
+		};
+		989120D025E984AB00D666F4 /* TabBar */ = {
+			isa = PBXGroup;
+			children = (
+				989120D525E984B600D666F4 /* CustomTabBarTransition.swift */,
+				989120D125E984B600D666F4 /* SocialNetworkController.swift */,
+				989120D225E984B600D666F4 /* SocialNetworkController.xib */,
+				989120D425E984B600D666F4 /* TabItem.swift */,
+				989120D325E984B600D666F4 /* TabNavigationMenu.swift */,
+			);
+			path = TabBar;
+			sourceTree = "<group>";
+		};
+		98A60AA225E47C80009196FC = {
+			isa = PBXGroup;
+			children = (
+				98A60AAE25E47C80009196FC /* EncuentroCatolicoHome */,
+				98A60AAD25E47C80009196FC /* Products */,
+				C2E4C68D39DFB3F1D73AD580 /* Pods */,
+				8A47E9F804C6C1C28A259FF1 /* Frameworks */,
+				368A1FB4260BA83E00188539 /* Recovered References */,
+			);
+			sourceTree = "<group>";
+		};
+		98A60AAD25E47C80009196FC /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				98A60AAC25E47C80009196FC /* EncuentroCatolicoHome.framework */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		98A60AAE25E47C80009196FC /* EncuentroCatolicoHome */ = {
+			isa = PBXGroup;
+			children = (
+				989120D025E984AB00D666F4 /* TabBar */,
+				9837C1A125E72A5A005A200F /* Resources */,
+				980F760325E58A6000B0DB0E /* Extensions */,
+				98F393E725E583910077B623 /* Cells */,
+				98F393CD25E580E80077B623 /* Controllers */,
+				98A60AAF25E47C80009196FC /* EncuentroCatolicoHome.h */,
+				98A60AB025E47C80009196FC /* Info.plist */,
+			);
+			path = EncuentroCatolicoHome;
+			sourceTree = "<group>";
+		};
+		98BF4FEE25E5AABC00299001 /* Home */ = {
+			isa = PBXGroup;
+			children = (
+				6D754A6A28F969FA00226166 /* ChurchRemoteInfo.swift */,
+				EED013022647052C0054F6AE /* DonationsAlert */,
+				98F393CF25E581A60077B623 /* HomePresenter.swift */,
+				98F393D025E581A60077B623 /* HomeRouter.swift */,
+				98F393D125E581A60077B623 /* HomeViewController.swift */,
+				98F393D225E581A60077B623 /* HomeProtocols.swift */,
+				98F393D325E581A60077B623 /* HomeInteractor.swift */,
+				98F393E325E582430077B623 /* HomeComponents.swift */,
+				98F393D425E581A60077B623 /* HomeViewController.xib */,
+				82E729A325F80239009BAA3A /* HomeEntity.swift */,
+			);
+			name = Home;
+			sourceTree = "<group>";
+		};
+		98F393CD25E580E80077B623 /* Controllers */ = {
+			isa = PBXGroup;
+			children = (
+				6F19B0532745FE7400B32813 /* ModalWebView */,
+				EEEAA369260D514B00EBEF10 /* Education */,
+				983D1CB7260A418800455355 /* PrayerChain */,
+				98BF4FEE25E5AABC00299001 /* Home */,
+			);
+			name = Controllers;
+			sourceTree = "<group>";
+		};
+		98F393E725E583910077B623 /* Cells */ = {
+			isa = PBXGroup;
+			children = (
+				9DB32458273B09AF005841D4 /* ListPrayCell */,
+				6F1DF3C226E291BE005C9F48 /* AlertCell */,
+				6F5AC07C26D01ADB009ED389 /* SliderColletion */,
+				6F5AC07126D016F4009ED389 /* HomeSliderCell */,
+				6F5AC06C26D0016E009ED389 /* HomeTB */,
+				98F393EE25E583C20077B623 /* HomeCV */,
+			);
+			path = Cells;
+			sourceTree = "<group>";
+		};
+		98F393EE25E583C20077B623 /* HomeCV */ = {
+			isa = PBXGroup;
+			children = (
+				98F393E825E583BE0077B623 /* HomeCV.swift */,
+				98F393E925E583BE0077B623 /* HomeCV.xib */,
+			);
+			path = HomeCV;
+			sourceTree = "<group>";
+		};
+		9DB32448273B0776005841D4 /* CustomAlerts */ = {
+			isa = PBXGroup;
+			children = (
+				9DB32454273B0811005841D4 /* ModalAlert.swift */,
+			);
+			path = CustomAlerts;
+			sourceTree = "<group>";
+		};
+		9DB32449273B0787005841D4 /* ModalPrayer */ = {
+			isa = PBXGroup;
+			children = (
+				9DB32456273B0820005841D4 /* ModalPrayController.swift */,
+			);
+			path = ModalPrayer;
+			sourceTree = "<group>";
+		};
+		9DB3244A273B079F005841D4 /* myPrayerCell */ = {
+			isa = PBXGroup;
+			children = (
+				9DB32450273B07F6005841D4 /* MyPrayerCell.swift */,
+				9DB32451273B07F7005841D4 /* MyPrayerCell.xib */,
+			);
+			name = myPrayerCell;
+			sourceTree = "<group>";
+		};
+		9DB3244B273B07AF005841D4 /* SliderCardsCell */ = {
+			isa = PBXGroup;
+			children = (
+				9DB3244D273B07DE005841D4 /* SliderCellView.swift */,
+				9DB3244C273B07DD005841D4 /* SliderCellView.xib */,
+			);
+			name = SliderCardsCell;
+			sourceTree = "<group>";
+		};
+		9DB32458273B09AF005841D4 /* ListPrayCell */ = {
+			isa = PBXGroup;
+			children = (
+				9DB32459273B09E5005841D4 /* ListPrayCell.swift */,
+			);
+			path = ListPrayCell;
+			sourceTree = "<group>";
+		};
+		C2E4C68D39DFB3F1D73AD580 /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				51C3DC7543BEC99405F101A4 /* Pods-EncuentroCatolicoHome.debug.xcconfig */,
+				4AD2FA07A77D2F5792126D5A /* Pods-EncuentroCatolicoHome.release.xcconfig */,
+				BD9C24D21D09701724A67A98 /* Pods-EncuentroCatolicoOracion.debug.xcconfig */,
+				51D62090126B8B8661A9CAF5 /* Pods-EncuentroCatolicoOracion.release.xcconfig */,
+				27A1997AFDAC8D2971166D09 /* Pods-EncuentroCatolicoPromise.debug.xcconfig */,
+				4FA9FB44CBD8B70D6943B9CD /* Pods-EncuentroCatolicoPromise.release.xcconfig */,
+			);
+			name = Pods;
+			path = ../Pods;
+			sourceTree = "<group>";
+		};
+		EED013022647052C0054F6AE /* DonationsAlert */ = {
+			isa = PBXGroup;
+			children = (
+				EED013032647054E0054F6AE /* DonationsWindow.swift */,
+				EED013042647054E0054F6AE /* DonationsWindow.xib */,
+			);
+			name = DonationsAlert;
+			sourceTree = "<group>";
+		};
+		EEEAA369260D514B00EBEF10 /* Education */ = {
+			isa = PBXGroup;
+			children = (
+				EEEAA375260D5E6700EBEF10 /* Sections */,
+				EEEAA36A260D56AB00EBEF10 /* Education.storyboard */,
+				EEEAA372260D5A0200EBEF10 /* educationHome.swift */,
+				EEEAA37F260D673C00EBEF10 /* alertView.swift */,
+			);
+			name = Education;
+			sourceTree = "<group>";
+		};
+		EEEAA375260D5E6700EBEF10 /* Sections */ = {
+			isa = PBXGroup;
+			children = (
+				EEEAA395260DA12E00EBEF10 /* Mentors */,
+				EEEAA38B260D976B00EBEF10 /* Courses */,
+				EEEAA385260D8D9700EBEF10 /* Featured */,
+			);
+			name = Sections;
+			sourceTree = "<group>";
+		};
+		EEEAA385260D8D9700EBEF10 /* Featured */ = {
+			isa = PBXGroup;
+			children = (
+				EEEAA386260D8DA400EBEF10 /* Cells */,
+				EEEAA377260D5EB500EBEF10 /* featuredEducationCVC.xib */,
+				EEEAA376260D5EB500EBEF10 /* featuredEducationCVC.swift */,
+			);
+			name = Featured;
+			sourceTree = "<group>";
+		};
+		EEEAA386260D8DA400EBEF10 /* Cells */ = {
+			isa = PBXGroup;
+			children = (
+				EEEAA387260D8DD800EBEF10 /* featuredCell.swift */,
+				EEEAA388260D8DD800EBEF10 /* featuredCell.xib */,
+			);
+			name = Cells;
+			sourceTree = "<group>";
+		};
+		EEEAA38B260D976B00EBEF10 /* Courses */ = {
+			isa = PBXGroup;
+			children = (
+				EEEAA390260D98B300EBEF10 /* Cells */,
+				EEEAA38C260D979800EBEF10 /* coursesHeader.swift */,
+				EEEAA38D260D979800EBEF10 /* coursesHeader.xib */,
+			);
+			name = Courses;
+			sourceTree = "<group>";
+		};
+		EEEAA390260D98B300EBEF10 /* Cells */ = {
+			isa = PBXGroup;
+			children = (
+				EE13C0FB260E453000D72448 /* coursesCVC.swift */,
+				EE13C0FC260E453000D72448 /* coursesCVC.xib */,
+			);
+			name = Cells;
+			sourceTree = "<group>";
+		};
+		EEEAA395260DA12E00EBEF10 /* Mentors */ = {
+			isa = PBXGroup;
+			children = (
+				EEEAA39A260DA78200EBEF10 /* Cells */,
+				EEEAA39B260DA7B700EBEF10 /* mentorsViewCVC.swift */,
+				EEEAA39C260DA7B700EBEF10 /* mentorsViewCVC.xib */,
+			);
+			name = Mentors;
+			sourceTree = "<group>";
+		};
+		EEEAA39A260DA78200EBEF10 /* Cells */ = {
+			isa = PBXGroup;
+			children = (
+				EEEAA397260DA15300EBEF10 /* mentorsCVC.xib */,
+				EEEAA396260DA15300EBEF10 /* mentorsCVC.swift */,
+			);
+			name = Cells;
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXHeadersBuildPhase section */
+		98A60AA725E47C80009196FC /* Headers */ = {
+			isa = PBXHeadersBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				98A60AB125E47C80009196FC /* EncuentroCatolicoHome.h in Headers */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXHeadersBuildPhase section */
+
+/* Begin PBXNativeTarget section */
+		98A60AAB25E47C80009196FC /* EncuentroCatolicoHome */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 98A60AB425E47C80009196FC /* Build configuration list for PBXNativeTarget "EncuentroCatolicoHome" */;
+			buildPhases = (
+				23ADFB7164877B0FF1BA19F2 /* [CP] Check Pods Manifest.lock */,
+				98A60AA725E47C80009196FC /* Headers */,
+				98A60AA825E47C80009196FC /* Sources */,
+				98A60AA925E47C80009196FC /* Frameworks */,
+				98A60AAA25E47C80009196FC /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = EncuentroCatolicoHome;
+			productName = EncuentroCatolicoHome;
+			productReference = 98A60AAC25E47C80009196FC /* EncuentroCatolicoHome.framework */;
+			productType = "com.apple.product-type.framework";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		98A60AA325E47C80009196FC /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				LastUpgradeCheck = 1230;
+				TargetAttributes = {
+					98A60AAB25E47C80009196FC = {
+						CreatedOnToolsVersion = 12.3;
+						LastSwiftMigration = 1230;
+					};
+				};
+			};
+			buildConfigurationList = 98A60AA625E47C80009196FC /* Build configuration list for PBXProject "EncuentroCatolicoHome" */;
+			compatibilityVersion = "Xcode 9.3";
+			developmentRegion = en;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+				Base,
+			);
+			mainGroup = 98A60AA225E47C80009196FC;
+			productRefGroup = 98A60AAD25E47C80009196FC /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				98A60AAB25E47C80009196FC /* EncuentroCatolicoHome */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		98A60AAA25E47C80009196FC /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				EEEAA38F260D979800EBEF10 /* coursesHeader.xib in Resources */,
+				9DB3244E273B07DE005841D4 /* SliderCellView.xib in Resources */,
+				EEEAA38A260D8DD800EBEF10 /* featuredCell.xib in Resources */,
+				983D1CC4260A429400455355 /* Main.storyboard in Resources */,
+				98F393DA25E581A60077B623 /* HomeViewController.xib in Resources */,
+				EEEAA36B260D56AB00EBEF10 /* Education.storyboard in Resources */,
+				989120D725E984B600D666F4 /* SocialNetworkController.xib in Resources */,
+				EEEAA399260DA15400EBEF10 /* mentorsCVC.xib in Resources */,
+				EEEAA39E260DA7B700EBEF10 /* mentorsViewCVC.xib in Resources */,
+				983D1CC0260A425F00455355 /* prayerCell.xib in Resources */,
+				6F5AC07726D01741009ED389 /* HomeSliderCell.xib in Resources */,
+				9837C1A325E72A69005A200F /* Assets.xcassets in Resources */,
+				9813546125F7B332000C6F99 /* donationBox.json in Resources */,
+				EED013062647054E0054F6AE /* DonationsWindow.xib in Resources */,
+				EEEAA379260D5EB500EBEF10 /* featuredEducationCVC.xib in Resources */,
+				6F5AC07026D001B8009ED389 /* HomeMainCell.xib in Resources */,
+				6F1DF3CC26E292D6005C9F48 /* AlertTableCell.xib in Resources */,
+				6F5AC07B26D01ACF009ED389 /* SliderCollectionCell.xib in Resources */,
+				9DB32453273B07F7005841D4 /* MyPrayerCell.xib in Resources */,
+				98F393EB25E583BE0077B623 /* HomeCV.xib in Resources */,
+				983D1D17260A565300455355 /* newPrayerCell.xib in Resources */,
+				EE13C0FE260E453000D72448 /* coursesCVC.xib in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		23ADFB7164877B0FF1BA19F2 /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-EncuentroCatolicoHome-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		98A60AA825E47C80009196FC /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				98F393D825E581A60077B623 /* HomeProtocols.swift in Sources */,
+				980F760525E58A7400B0DB0E /* Bundle.swift in Sources */,
+				989120D825E984B600D666F4 /* TabNavigationMenu.swift in Sources */,
+				368A2040260BAB3700188539 /* newPrayer.swift in Sources */,
+				EEEAA389260D8DD800EBEF10 /* featuredCell.swift in Sources */,
+				EE13C0FD260E453000D72448 /* coursesCVC.swift in Sources */,
+				3624761326095B3C00323160 /* PresentFrameworks.swift in Sources */,
+				EED013052647054E0054F6AE /* DonationsWindow.swift in Sources */,
+				EEEAA380260D673C00EBEF10 /* alertView.swift in Sources */,
+				6F19B0552745FE8F00B32813 /* ModalWebViewController.swift in Sources */,
+				9DB3244F273B07DE005841D4 /* SliderCellView.swift in Sources */,
+				EEEAA39D260DA7B700EBEF10 /* mentorsViewCVC.swift in Sources */,
+				6F5AC06F26D001B8009ED389 /* HomeMainCell.swift in Sources */,
+				EEEAA398260DA15400EBEF10 /* mentorsCVC.swift in Sources */,
+				6DE2E35F279B6EB5000ED1F0 /* APIType.swift in Sources */,
+				9DB3245A273B09E5005841D4 /* ListPrayCell.swift in Sources */,
+				6D754A6B28F969FA00226166 /* ChurchRemoteInfo.swift in Sources */,
+				989120D625E984B600D666F4 /* SocialNetworkController.swift in Sources */,
+				EEEAA38E260D979800EBEF10 /* coursesHeader.swift in Sources */,
+				6F5AC07A26D01ACF009ED389 /* SliderCollectionCell.swift in Sources */,
+				98F393D525E581A60077B623 /* HomePresenter.swift in Sources */,
+				6F1DF3CB26E292D6005C9F48 /* AlertTableCell.swift in Sources */,
+				98F393EA25E583BE0077B623 /* HomeCV.swift in Sources */,
+				989120D925E984B600D666F4 /* TabItem.swift in Sources */,
+				983D1D16260A565300455355 /* newPrayerCell.swift in Sources */,
+				989120DA25E984B600D666F4 /* CustomTabBarTransition.swift in Sources */,
+				98A0960C26563CC400110BE8 /* prayerChain.swift in Sources */,
+				98F393D625E581A60077B623 /* HomeRouter.swift in Sources */,
+				983D1CB9260A422D00455355 /* GlobalFunctions.swift in Sources */,
+				98F393D925E581A60077B623 /* HomeInteractor.swift in Sources */,
+				EEEAA378260D5EB500EBEF10 /* featuredEducationCVC.swift in Sources */,
+				9DB32457273B0820005841D4 /* ModalPrayController.swift in Sources */,
+				98F393E425E582430077B623 /* HomeComponents.swift in Sources */,
+				983D1CBE260A425B00455355 /* prayerCell.swift in Sources */,
+				98F393D725E581A60077B623 /* HomeViewController.swift in Sources */,
+				6F5AC07626D01741009ED389 /* HomeSliderCell.swift in Sources */,
+				98A0960A26563CB000110BE8 /* prayerChainModel.swift in Sources */,
+				9DB32455273B0811005841D4 /* ModalAlert.swift in Sources */,
+				82E729A425F80239009BAA3A /* HomeEntity.swift in Sources */,
+				9837C1A525E72BE0005A200F /* Design.swift in Sources */,
+				9DB32452273B07F7005841D4 /* MyPrayerCell.swift in Sources */,
+				EEEAA373260D5A0200EBEF10 /* educationHome.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin XCBuildConfiguration section */
+		98A60AB225E47C80009196FC /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = NO;
+				CURRENT_PROJECT_VERSION = 1;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 14.3;
+				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
+				MTL_FAST_MATH = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = iphoneos;
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = DEBUG;
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+				VERSIONING_SYSTEM = "apple-generic";
+				VERSION_INFO_PREFIX = "";
+			};
+			name = Debug;
+		};
+		98A60AB325E47C80009196FC /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = NO;
+				CURRENT_PROJECT_VERSION = 1;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 14.3;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				MTL_FAST_MATH = YES;
+				SDKROOT = iphoneos;
+				SWIFT_COMPILATION_MODE = wholemodule;
+				SWIFT_OPTIMIZATION_LEVEL = "-O";
+				VALIDATE_PRODUCT = YES;
+				VERSIONING_SYSTEM = "apple-generic";
+				VERSION_INFO_PREFIX = "";
+			};
+			name = Release;
+		};
+		98A60AB525E47C80009196FC /* Debug */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 51C3DC7543BEC99405F101A4 /* Pods-EncuentroCatolicoHome.debug.xcconfig */;
+			buildSettings = {
+				CLANG_ENABLE_MODULES = YES;
+				CODE_SIGN_IDENTITY = "Apple Development";
+				CODE_SIGN_STYLE = Manual;
+				DEFINES_MODULE = YES;
+				DEVELOPMENT_TEAM = "";
+				DYLIB_COMPATIBILITY_VERSION = 1;
+				DYLIB_CURRENT_VERSION = 1;
+				DYLIB_INSTALL_NAME_BASE = "@rpath";
+				INFOPLIST_FILE = EncuentroCatolicoHome/Info.plist;
+				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
+				IPHONEOS_DEPLOYMENT_TARGET = 12.0;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = mx.arquidiocesis.EncuentroCatolicoHome;
+				PRODUCT_NAME = "$(TARGET_NAME:c99extidentifier)";
+				PROVISIONING_PROFILE_SPECIFIER = "";
+				SKIP_INSTALL = YES;
+				SUPPORTS_MACCATALYST = NO;
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Debug;
+		};
+		98A60AB625E47C80009196FC /* Release */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 4AD2FA07A77D2F5792126D5A /* Pods-EncuentroCatolicoHome.release.xcconfig */;
+			buildSettings = {
+				CLANG_ENABLE_MODULES = YES;
+				CODE_SIGN_IDENTITY = "Apple Development";
+				CODE_SIGN_STYLE = Manual;
+				DEFINES_MODULE = YES;
+				DEVELOPMENT_TEAM = "";
+				DYLIB_COMPATIBILITY_VERSION = 1;
+				DYLIB_CURRENT_VERSION = 1;
+				DYLIB_INSTALL_NAME_BASE = "@rpath";
+				INFOPLIST_FILE = EncuentroCatolicoHome/Info.plist;
+				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
+				IPHONEOS_DEPLOYMENT_TARGET = 12.0;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = mx.arquidiocesis.EncuentroCatolicoHome;
+				PRODUCT_NAME = "$(TARGET_NAME:c99extidentifier)";
+				PROVISIONING_PROFILE_SPECIFIER = "";
+				SKIP_INSTALL = YES;
+				SUPPORTS_MACCATALYST = NO;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		98A60AA625E47C80009196FC /* Build configuration list for PBXProject "EncuentroCatolicoHome" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				98A60AB225E47C80009196FC /* Debug */,
+				98A60AB325E47C80009196FC /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		98A60AB425E47C80009196FC /* Build configuration list for PBXNativeTarget "EncuentroCatolicoHome" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				98A60AB525E47C80009196FC /* Debug */,
+				98A60AB625E47C80009196FC /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = 98A60AA325E47C80009196FC /* Project object */;
+}

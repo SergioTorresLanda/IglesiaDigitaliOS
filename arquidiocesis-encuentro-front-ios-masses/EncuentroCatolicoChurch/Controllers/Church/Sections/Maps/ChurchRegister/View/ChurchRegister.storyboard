@@ -1,0 +1,194 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="19529" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+    <device id="retina4_7" orientation="portrait" appearance="light"/>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="19519"/>
+        <capability name="Named colors" minToolsVersion="9.0"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="System colors in document resources" minToolsVersion="11.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <customFonts key="customFonts">
+        <array key="Roboto-Regular.ttf">
+            <string>Roboto-Regular</string>
+        </array>
+    </customFonts>
+    <scenes>
+        <!--Localiza tu iglesia-->
+        <scene sceneID="GKr-hd-uDR">
+            <objects>
+                <viewController storyboardIdentifier="ChurchRegisterViewController" title="Localiza tu iglesia" useStoryboardIdentifierAsRestorationIdentifier="YES" interfaceStyle="light" id="EKa-Se-DGA" customClass="ChurchRegisterViewController" customModule="EncuentroCatolicoChurch" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="xXh-sh-RQG">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <mapView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" mapType="standard" translatesAutoresizingMaskIntoConstraints="NO" id="ceo-38-lRJ">
+                                <rect key="frame" x="0.0" y="35" width="375" height="632"/>
+                            </mapView>
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="navigation-background" adjustsImageSizeForAccessibilityContentSizeCategory="YES" translatesAutoresizingMaskIntoConstraints="NO" id="2y7-WM-yv9">
+                                <rect key="frame" x="0.0" y="0.0" width="375" height="109"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="109" id="7Ga-Ed-4uC"/>
+                                </constraints>
+                            </imageView>
+                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="17" translatesAutoresizingMaskIntoConstraints="NO" id="S4q-IR-3zS">
+                                <rect key="frame" x="187.5" y="607" width="0.0" height="0.0"/>
+                                <subviews>
+                                    <button hidden="YES" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Xea-Y2-VmC" customClass="EncuentroButton" customModule="EncuentroCatolicoChurch" customModuleProvider="target">
+                                        <rect key="frame" x="0.0" y="0.0" width="83" height="0.0"/>
+                                        <state key="normal" title="Comenzar">
+                                            <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                        </state>
+                                        <userDefinedRuntimeAttributes>
+                                            <userDefinedRuntimeAttribute type="boolean" keyPath="largeSize" value="NO"/>
+                                        </userDefinedRuntimeAttributes>
+                                    </button>
+                                </subviews>
+                            </stackView>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="KHd-il-ZL3">
+                                <rect key="frame" x="21" y="94" width="333" height="48"/>
+                                <subviews>
+                                    <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="¿Cuál es tu dirección?" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="NgJ-vq-W6r">
+                                        <rect key="frame" x="14" y="0.0" width="271" height="48"/>
+                                        <color key="textColor" name="eBlack"/>
+                                        <fontDescription key="fontDescription" name="Roboto-Regular" family="Roboto" pointSize="16"/>
+                                        <textInputTraits key="textInputTraits" autocapitalizationType="words" textContentType="street-address"/>
+                                        <connections>
+                                            <action selector="changeAddress:" destination="EKa-Se-DGA" eventType="editingChanged" id="04E-Ix-wiT"/>
+                                        </connections>
+                                    </textField>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="HG1-M5-2Lq">
+                                        <rect key="frame" x="285" y="0.0" width="48" height="48"/>
+                                        <constraints>
+                                            <constraint firstAttribute="width" secondItem="HG1-M5-2Lq" secondAttribute="height" multiplier="1:1" id="rv5-bo-0Kw"/>
+                                        </constraints>
+                                        <state key="normal" image="magnifier-icon"/>
+                                        <connections>
+                                            <action selector="searchAction" destination="EKa-Se-DGA" eventType="touchUpInside" id="HEB-HY-yB9"/>
+                                        </connections>
+                                    </button>
+                                </subviews>
+                                <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                                <constraints>
+                                    <constraint firstItem="HG1-M5-2Lq" firstAttribute="top" secondItem="KHd-il-ZL3" secondAttribute="top" id="AjK-Gl-qHG"/>
+                                    <constraint firstItem="HG1-M5-2Lq" firstAttribute="leading" secondItem="NgJ-vq-W6r" secondAttribute="trailing" id="Kw4-Wd-WU5"/>
+                                    <constraint firstItem="NgJ-vq-W6r" firstAttribute="top" secondItem="KHd-il-ZL3" secondAttribute="top" id="LfV-Pl-tox"/>
+                                    <constraint firstItem="NgJ-vq-W6r" firstAttribute="leading" secondItem="KHd-il-ZL3" secondAttribute="leading" constant="14" id="Qeb-D6-Km2"/>
+                                    <constraint firstAttribute="height" constant="48" id="TTn-UR-HxJ"/>
+                                    <constraint firstAttribute="bottom" secondItem="NgJ-vq-W6r" secondAttribute="bottom" id="ez3-en-5Ob"/>
+                                    <constraint firstAttribute="trailing" secondItem="HG1-M5-2Lq" secondAttribute="trailing" id="ukc-Pa-S8Q"/>
+                                    <constraint firstAttribute="bottom" secondItem="HG1-M5-2Lq" secondAttribute="bottom" id="xMs-a1-6DL"/>
+                                </constraints>
+                                <userDefinedRuntimeAttributes>
+                                    <userDefinedRuntimeAttribute type="number" keyPath="radius">
+                                        <real key="value" value="24"/>
+                                    </userDefinedRuntimeAttribute>
+                                </userDefinedRuntimeAttributes>
+                            </view>
+                            <tableView hidden="YES" clipsSubviews="YES" alpha="0.0" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="Ftr-Mj-1HX">
+                                <rect key="frame" x="21" y="146" width="333" height="200"/>
+                                <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="200" id="GeR-vJ-w94"/>
+                                </constraints>
+                                <userDefinedRuntimeAttributes>
+                                    <userDefinedRuntimeAttribute type="number" keyPath="radius">
+                                        <real key="value" value="10"/>
+                                    </userDefinedRuntimeAttribute>
+                                    <userDefinedRuntimeAttribute type="boolean" keyPath="shadow" value="YES"/>
+                                </userDefinedRuntimeAttributes>
+                            </tableView>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Localiza tu Iglesia/Comunidad" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="fua-6c-xqr">
+                                <rect key="frame" x="10" y="10" width="355" height="21.5"/>
+                                <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="18"/>
+                                <color key="textColor" red="0.06847123057" green="0.1287259758" blue="0.5059124827" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <button hidden="YES" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="5Ce-dC-4Kr">
+                                <rect key="frame" x="315" y="547" width="44" height="44"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" secondItem="5Ce-dC-4Kr" secondAttribute="height" multiplier="1:1" id="Enr-Ku-tnq"/>
+                                    <constraint firstAttribute="width" constant="44" id="pI5-qA-M1H"/>
+                                </constraints>
+                                <inset key="imageEdgeInsets" minX="10" minY="10" maxX="10" maxY="10"/>
+                                <state key="normal" image="current-locaton-button"/>
+                                <userDefinedRuntimeAttributes>
+                                    <userDefinedRuntimeAttribute type="boolean" keyPath="shadow" value="YES"/>
+                                    <userDefinedRuntimeAttribute type="number" keyPath="radius">
+                                        <real key="value" value="22"/>
+                                    </userDefinedRuntimeAttribute>
+                                </userDefinedRuntimeAttributes>
+                                <connections>
+                                    <action selector="goToCurrentLocation" destination="EKa-Se-DGA" eventType="touchUpInside" id="5OW-u6-ILT"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Rjc-qQ-D80">
+                                <rect key="frame" x="20" y="5" width="30" height="30"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="30" id="v1h-WT-ZpL"/>
+                                    <constraint firstAttribute="width" constant="30" id="whF-Yp-BdH"/>
+                                </constraints>
+                                <state key="normal" image="backLogin"/>
+                                <connections>
+                                    <action selector="regresar:" destination="EKa-Se-DGA" eventType="touchUpInside" id="XTf-u6-H7Y"/>
+                                </connections>
+                            </button>
+                        </subviews>
+                        <viewLayoutGuide key="safeArea" id="cma-42-yUK"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <constraints>
+                            <constraint firstItem="2y7-WM-yv9" firstAttribute="top" secondItem="xXh-sh-RQG" secondAttribute="top" id="1et-Yw-tFp"/>
+                            <constraint firstItem="Ftr-Mj-1HX" firstAttribute="leading" secondItem="KHd-il-ZL3" secondAttribute="leading" id="4m3-dG-QX1"/>
+                            <constraint firstItem="Ftr-Mj-1HX" firstAttribute="top" secondItem="KHd-il-ZL3" secondAttribute="bottom" constant="4" id="EpS-PA-fTE"/>
+                            <constraint firstItem="ceo-38-lRJ" firstAttribute="top" secondItem="Rjc-qQ-D80" secondAttribute="bottom" id="FJx-ye-kSe"/>
+                            <constraint firstItem="Rjc-qQ-D80" firstAttribute="leading" secondItem="cma-42-yUK" secondAttribute="leading" constant="20" id="FV6-vq-NmG"/>
+                            <constraint firstItem="S4q-IR-3zS" firstAttribute="centerX" secondItem="cma-42-yUK" secondAttribute="centerX" id="IuX-YE-CB5"/>
+                            <constraint firstAttribute="bottom" secondItem="ceo-38-lRJ" secondAttribute="bottom" id="OLv-yz-iHc"/>
+                            <constraint firstItem="Ftr-Mj-1HX" firstAttribute="trailing" secondItem="KHd-il-ZL3" secondAttribute="trailing" id="Pip-lu-dfZ"/>
+                            <constraint firstItem="fua-6c-xqr" firstAttribute="top" secondItem="cma-42-yUK" secondAttribute="top" constant="10" id="Rzj-Yt-eVt"/>
+                            <constraint firstItem="Rjc-qQ-D80" firstAttribute="top" secondItem="cma-42-yUK" secondAttribute="top" constant="5" id="Tmq-RD-Mdb"/>
+                            <constraint firstItem="KHd-il-ZL3" firstAttribute="top" secondItem="2y7-WM-yv9" secondAttribute="bottom" constant="-15" id="XaQ-EI-LXv"/>
+                            <constraint firstItem="2y7-WM-yv9" firstAttribute="leading" secondItem="cma-42-yUK" secondAttribute="leading" id="a41-vD-1C6"/>
+                            <constraint firstItem="ceo-38-lRJ" firstAttribute="trailing" secondItem="cma-42-yUK" secondAttribute="trailing" id="cec-xr-dlw"/>
+                            <constraint firstItem="fua-6c-xqr" firstAttribute="centerX" secondItem="2y7-WM-yv9" secondAttribute="centerX" id="d8w-FB-X7I"/>
+                            <constraint firstItem="S4q-IR-3zS" firstAttribute="top" secondItem="5Ce-dC-4Kr" secondAttribute="bottom" constant="16" id="dJH-CJ-daR"/>
+                            <constraint firstItem="cma-42-yUK" firstAttribute="trailing" secondItem="fua-6c-xqr" secondAttribute="trailing" constant="10" id="gJN-hH-CEc"/>
+                            <constraint firstItem="KHd-il-ZL3" firstAttribute="leading" secondItem="cma-42-yUK" secondAttribute="leading" constant="21" id="hd1-Lw-dyK"/>
+                            <constraint firstItem="cma-42-yUK" firstAttribute="bottom" secondItem="S4q-IR-3zS" secondAttribute="bottom" constant="60" id="lhg-Hp-rau"/>
+                            <constraint firstItem="ceo-38-lRJ" firstAttribute="leading" secondItem="cma-42-yUK" secondAttribute="leading" id="oYr-tp-qb8"/>
+                            <constraint firstItem="fua-6c-xqr" firstAttribute="leading" secondItem="cma-42-yUK" secondAttribute="leading" constant="10" id="pZ6-Sc-Rzo"/>
+                            <constraint firstItem="2y7-WM-yv9" firstAttribute="trailing" secondItem="cma-42-yUK" secondAttribute="trailing" id="sX4-OF-SCv"/>
+                            <constraint firstItem="cma-42-yUK" firstAttribute="trailing" secondItem="5Ce-dC-4Kr" secondAttribute="trailing" constant="16" id="tTi-Yg-eOw"/>
+                            <constraint firstItem="cma-42-yUK" firstAttribute="trailing" secondItem="KHd-il-ZL3" secondAttribute="trailing" constant="21" id="z8v-6X-NHl"/>
+                        </constraints>
+                    </view>
+                    <connections>
+                        <outlet property="addresTextField" destination="NgJ-vq-W6r" id="dbt-pe-55x"/>
+                        <outlet property="addressResultTableView" destination="Ftr-Mj-1HX" id="LLT-JJ-R9U"/>
+                        <outlet property="addressTextField" destination="NgJ-vq-W6r" id="2dB-pj-N7U"/>
+                        <outlet property="goToCurrentLocationButton" destination="5Ce-dC-4Kr" id="rFZ-kp-s70"/>
+                        <outlet property="mapKit" destination="ceo-38-lRJ" id="h2A-jm-QT5"/>
+                        <outlet property="mapSearchContainer" destination="KHd-il-ZL3" id="0a0-VU-fjr"/>
+                        <outlet property="starButton" destination="Xea-Y2-VmC" id="c8S-44-UGc"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="lR3-cd-JhQ" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="240.57971014492756" y="153.34821428571428"/>
+        </scene>
+    </scenes>
+    <resources>
+        <image name="backLogin" width="114" height="124"/>
+        <image name="current-locaton-button" width="32" height="32"/>
+        <image name="magnifier-icon" width="26.5" height="26.5"/>
+        <image name="navigation-background" width="375" height="109"/>
+        <namedColor name="eBlack">
+            <color red="0.12156862745098039" green="0.12156862745098039" blue="0.12156862745098039" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </namedColor>
+        <systemColor name="systemBackgroundColor">
+            <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+        </systemColor>
+    </resources>
+</document>

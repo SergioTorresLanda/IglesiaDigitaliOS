@@ -1,0 +1,83 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="18122" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+    <device id="retina6_1" orientation="portrait" appearance="light"/>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="18093"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="System colors in document resources" minToolsVersion="11.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="" id="gTV-IL-0wX" customClass="MyChurchCollectionViewCell" customModule="EncuentroCatolicoChurch" customModuleProvider="target">
+            <rect key="frame" x="0.0" y="0.0" width="388" height="147"/>
+            <autoresizingMask key="autoresizingMask"/>
+            <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center">
+                <rect key="frame" x="0.0" y="0.0" width="388" height="147"/>
+                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                <subviews>
+                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="yAN-oM-Mgt">
+                        <rect key="frame" x="20" y="10" width="348" height="127"/>
+                        <subviews>
+                            <view clipsSubviews="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="U8e-X6-bPE">
+                                <rect key="frame" x="0.0" y="0.0" width="348" height="127"/>
+                                <subviews>
+                                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="nUm-7A-weE">
+                                        <rect key="frame" x="0.0" y="0.0" width="150" height="127"/>
+                                        <constraints>
+                                            <constraint firstAttribute="width" constant="150" id="yEf-B4-82v"/>
+                                        </constraints>
+                                    </imageView>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" lineBreakMode="tailTruncation" numberOfLines="3" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="sVZ-UM-jBm">
+                                        <rect key="frame" x="170" y="63.5" width="158" height="0.0"/>
+                                        <fontDescription key="fontDescription" type="boldSystem" pointSize="18"/>
+                                        <nil key="textColor"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                </subviews>
+                                <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                                <constraints>
+                                    <constraint firstAttribute="trailing" secondItem="sVZ-UM-jBm" secondAttribute="trailing" constant="20" id="3sn-K0-0Gp"/>
+                                    <constraint firstItem="nUm-7A-weE" firstAttribute="leading" secondItem="U8e-X6-bPE" secondAttribute="leading" id="4TT-pl-Tto"/>
+                                    <constraint firstItem="nUm-7A-weE" firstAttribute="top" secondItem="U8e-X6-bPE" secondAttribute="top" id="4Xy-Wn-KcQ"/>
+                                    <constraint firstItem="sVZ-UM-jBm" firstAttribute="centerY" secondItem="nUm-7A-weE" secondAttribute="centerY" id="iZc-Cf-FDI"/>
+                                    <constraint firstItem="sVZ-UM-jBm" firstAttribute="leading" secondItem="nUm-7A-weE" secondAttribute="trailing" constant="20" id="kKW-VS-i0Y"/>
+                                    <constraint firstAttribute="bottom" secondItem="nUm-7A-weE" secondAttribute="bottom" id="wdW-u9-EMY"/>
+                                </constraints>
+                            </view>
+                        </subviews>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <constraints>
+                            <constraint firstItem="U8e-X6-bPE" firstAttribute="top" secondItem="yAN-oM-Mgt" secondAttribute="top" id="FjC-fd-hNv"/>
+                            <constraint firstAttribute="trailing" secondItem="U8e-X6-bPE" secondAttribute="trailing" id="UpA-IN-sH1"/>
+                            <constraint firstItem="U8e-X6-bPE" firstAttribute="leading" secondItem="yAN-oM-Mgt" secondAttribute="leading" id="oyH-Wa-p6F"/>
+                            <constraint firstAttribute="bottom" secondItem="U8e-X6-bPE" secondAttribute="bottom" id="zEf-xb-hrL"/>
+                        </constraints>
+                    </view>
+                </subviews>
+            </view>
+            <viewLayoutGuide key="safeArea" id="ZTg-uK-7eu"/>
+            <constraints>
+                <constraint firstAttribute="bottom" secondItem="yAN-oM-Mgt" secondAttribute="bottom" constant="10" id="7Bp-d9-4gt"/>
+                <constraint firstItem="yAN-oM-Mgt" firstAttribute="top" secondItem="gTV-IL-0wX" secondAttribute="top" constant="10" id="DZz-26-BGq"/>
+                <constraint firstAttribute="trailing" secondItem="yAN-oM-Mgt" secondAttribute="trailing" constant="20" id="T6s-Yb-UQh"/>
+                <constraint firstItem="yAN-oM-Mgt" firstAttribute="leading" secondItem="gTV-IL-0wX" secondAttribute="leading" constant="20" id="pWR-oU-2Vz"/>
+            </constraints>
+            <size key="customSize" width="388" height="147"/>
+            <connections>
+                <outlet property="cardView" destination="yAN-oM-Mgt" id="j3I-5J-G57"/>
+                <outlet property="containerChurch" destination="U8e-X6-bPE" id="6uM-NF-BhZ"/>
+                <outlet property="imageChurch" destination="nUm-7A-weE" id="6FG-F9-3Iq"/>
+                <outlet property="titleChurch" destination="sVZ-UM-jBm" id="r5M-eD-NYw"/>
+            </connections>
+            <point key="canvasLocation" x="155.07246376811597" y="90.066964285714278"/>
+        </collectionViewCell>
+    </objects>
+    <resources>
+        <systemColor name="systemBackgroundColor">
+            <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+        </systemColor>
+    </resources>
+</document>

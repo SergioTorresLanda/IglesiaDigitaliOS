@@ -1,0 +1,91 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="18122" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+    <device id="retina6_1" orientation="portrait" appearance="light"/>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="18093"/>
+        <capability name="Named colors" minToolsVersion="9.0"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="System colors in document resources" minToolsVersion="11.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="" id="gTV-IL-0wX" customClass="ActivitiesCardCollectionViewCell" customModule="EncuentroCatolicoProfile">
+            <rect key="frame" x="0.0" y="0.0" width="140" height="40"/>
+            <autoresizingMask key="autoresizingMask"/>
+            <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center">
+                <rect key="frame" x="0.0" y="0.0" width="140" height="40"/>
+                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                <subviews>
+                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Drv-Yj-o6H">
+                        <rect key="frame" x="0.0" y="0.0" width="140" height="40"/>
+                        <subviews>
+                            <button opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="252" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="whe-EB-DFe">
+                                <rect key="frame" x="127.5" y="7" width="7.5" height="26"/>
+                                <state key="normal" image="x 2"/>
+                                <connections>
+                                    <action selector="closeButton:" destination="gTV-IL-0wX" eventType="touchUpInside" id="99M-gv-b74"/>
+                                </connections>
+                            </button>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Sacramentos" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="JmA-ji-ABP">
+                                <rect key="frame" x="10" y="12" width="112.5" height="16"/>
+                                <fontDescription key="fontDescription" name="HelveticaNeue-Light" family="Helvetica Neue" pointSize="14"/>
+                                <color key="textColor" red="0.45882352941176469" green="0.47058823529411764" blue="0.4823529411764706" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <nil key="highlightedColor"/>
+                                <userDefinedRuntimeAttributes>
+                                    <userDefinedRuntimeAttribute type="color" keyPath="borderColor">
+                                        <color key="value" name="eLightPinkishGray"/>
+                                    </userDefinedRuntimeAttribute>
+                                </userDefinedRuntimeAttributes>
+                            </label>
+                        </subviews>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <constraints>
+                            <constraint firstItem="JmA-ji-ABP" firstAttribute="top" secondItem="Drv-Yj-o6H" secondAttribute="top" constant="12" id="JIS-C2-pgW"/>
+                            <constraint firstAttribute="bottom" secondItem="JmA-ji-ABP" secondAttribute="bottom" constant="12" id="Sw4-hy-84S"/>
+                            <constraint firstItem="whe-EB-DFe" firstAttribute="top" secondItem="Drv-Yj-o6H" secondAttribute="top" constant="7" id="Xz1-jn-HVF"/>
+                            <constraint firstAttribute="bottom" secondItem="whe-EB-DFe" secondAttribute="bottom" constant="7" id="e5B-c6-PpE"/>
+                            <constraint firstItem="JmA-ji-ABP" firstAttribute="leading" secondItem="Drv-Yj-o6H" secondAttribute="leading" constant="10" id="j1a-4o-re4"/>
+                            <constraint firstItem="whe-EB-DFe" firstAttribute="leading" secondItem="JmA-ji-ABP" secondAttribute="trailing" constant="5" id="tOD-MD-8mC"/>
+                            <constraint firstAttribute="trailing" secondItem="whe-EB-DFe" secondAttribute="trailing" constant="5" id="yPt-nh-LHj"/>
+                        </constraints>
+                        <userDefinedRuntimeAttributes>
+                            <userDefinedRuntimeAttribute type="color" keyPath="borderColor">
+                                <color key="value" name="eLightPinkishGray"/>
+                            </userDefinedRuntimeAttribute>
+                            <userDefinedRuntimeAttribute type="number" keyPath="radius">
+                                <real key="value" value="10"/>
+                            </userDefinedRuntimeAttribute>
+                            <userDefinedRuntimeAttribute type="number" keyPath="borderWith">
+                                <real key="value" value="0.5"/>
+                            </userDefinedRuntimeAttribute>
+                        </userDefinedRuntimeAttributes>
+                    </view>
+                </subviews>
+            </view>
+            <viewLayoutGuide key="safeArea" id="ZTg-uK-7eu"/>
+            <constraints>
+                <constraint firstItem="Drv-Yj-o6H" firstAttribute="leading" secondItem="gTV-IL-0wX" secondAttribute="leading" id="LQ4-od-dfR"/>
+                <constraint firstItem="Drv-Yj-o6H" firstAttribute="top" secondItem="gTV-IL-0wX" secondAttribute="top" id="RKU-zY-NSZ"/>
+                <constraint firstAttribute="bottom" secondItem="Drv-Yj-o6H" secondAttribute="bottom" id="gXv-g0-XG8"/>
+                <constraint firstAttribute="trailing" secondItem="Drv-Yj-o6H" secondAttribute="trailing" id="xxC-2R-aZv"/>
+            </constraints>
+            <size key="customSize" width="93" height="38"/>
+            <connections>
+                <outlet property="activitiesNameLabel" destination="JmA-ji-ABP" id="e1N-Et-PUu"/>
+            </connections>
+            <point key="canvasLocation" x="75.362318840579718" y="75"/>
+        </collectionViewCell>
+    </objects>
+    <resources>
+        <image name="x 2" width="7.5" height="7.5"/>
+        <namedColor name="eLightPinkishGray">
+            <color red="0.72549019607843135" green="0.72549019607843135" blue="0.72549019607843135" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </namedColor>
+        <systemColor name="systemBackgroundColor">
+            <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+        </systemColor>
+    </resources>
+</document>

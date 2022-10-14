@@ -1,0 +1,208 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="17701" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+    <device id="retina6_1" orientation="portrait" appearance="light"/>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="17703"/>
+        <capability name="Named colors" minToolsVersion="9.0"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="System colors in document resources" minToolsVersion="11.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <customFonts key="customFonts">
+        <array key="Roboto-Bold.ttf">
+            <string>Roboto-Bold</string>
+        </array>
+    </customFonts>
+    <scenes>
+        <!--Date Picker View Controller-->
+        <scene sceneID="dAc-AO-J43">
+            <objects>
+                <viewController storyboardIdentifier="DatePickerViewController" id="yty-Lf-NQv" customClass="DatePickerViewController" customModule="PriestMyChurches" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="fdZ-NP-T9T">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <visualEffectView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="5Gy-75-ovP">
+                                <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                                <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" id="Ihe-Co-N2o">
+                                    <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                                    <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                                    <subviews>
+                                        <visualEffectView opaque="NO" contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="x3q-qn-BBa">
+                                            <rect key="frame" x="0.0" y="0.0" width="174" height="768"/>
+                                            <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                                            <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" id="xma-CN-WhL">
+                                                <rect key="frame" x="0.0" y="0.0" width="174" height="768"/>
+                                                <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                                            </view>
+                                            <vibrancyEffect>
+                                                <blurEffect style="regular"/>
+                                            </vibrancyEffect>
+                                        </visualEffectView>
+                                        <datePicker contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" datePickerMode="time" minuteInterval="1" style="wheels" translatesAutoresizingMaskIntoConstraints="NO" id="yCO-rw-xBJ">
+                                            <rect key="frame" x="0.0" y="340" width="414" height="216"/>
+                                        </datePicker>
+                                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Arh-Dw-Xvb">
+                                            <rect key="frame" x="82" y="778" width="250" height="40"/>
+                                            <color key="backgroundColor" name="ePurple"/>
+                                            <constraints>
+                                                <constraint firstAttribute="height" constant="40" id="LIH-Zc-sax"/>
+                                                <constraint firstAttribute="width" constant="250" id="tn7-uL-yDA"/>
+                                            </constraints>
+                                            <fontDescription key="fontDescription" name="Roboto-Bold" family="Roboto" pointSize="16"/>
+                                            <state key="normal" title="Aceptar">
+                                                <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                            </state>
+                                            <userDefinedRuntimeAttributes>
+                                                <userDefinedRuntimeAttribute type="number" keyPath="radius">
+                                                    <real key="value" value="20"/>
+                                                </userDefinedRuntimeAttribute>
+                                            </userDefinedRuntimeAttributes>
+                                            <connections>
+                                                <action selector="acceptAction" destination="yty-Lf-NQv" eventType="touchUpInside" id="fWg-rN-00v"/>
+                                            </connections>
+                                        </button>
+                                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="sDl-w2-Cjb">
+                                            <rect key="frame" x="336" y="58" width="64" height="31"/>
+                                            <fontDescription key="fontDescription" name="Roboto-Bold" family="Roboto" pointSize="16"/>
+                                            <state key="normal" title="Cancelar">
+                                                <color key="titleColor" systemColor="systemPinkColor"/>
+                                            </state>
+                                            <connections>
+                                                <action selector="closeAction" destination="yty-Lf-NQv" eventType="touchUpInside" id="xco-fQ-uwC"/>
+                                            </connections>
+                                        </button>
+                                    </subviews>
+                                    <constraints>
+                                        <constraint firstItem="yCO-rw-xBJ" firstAttribute="width" secondItem="Ihe-Co-N2o" secondAttribute="width" id="10W-Vt-8rb"/>
+                                        <constraint firstItem="Arh-Dw-Xvb" firstAttribute="centerX" secondItem="Ihe-Co-N2o" secondAttribute="centerX" id="LV1-8N-agO"/>
+                                        <constraint firstItem="yCO-rw-xBJ" firstAttribute="centerY" secondItem="Ihe-Co-N2o" secondAttribute="centerY" id="eo8-P1-BNk"/>
+                                        <constraint firstItem="yCO-rw-xBJ" firstAttribute="centerX" secondItem="Ihe-Co-N2o" secondAttribute="centerX" id="pA0-v6-pj3"/>
+                                    </constraints>
+                                </view>
+                                <blurEffect style="regular"/>
+                            </visualEffectView>
+                        </subviews>
+                        <viewLayoutGuide key="safeArea" id="LER-BG-ctI"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <constraints>
+                            <constraint firstAttribute="bottom" secondItem="5Gy-75-ovP" secondAttribute="bottom" id="PHA-za-gTt"/>
+                            <constraint firstItem="LER-BG-ctI" firstAttribute="trailing" secondItem="5Gy-75-ovP" secondAttribute="trailing" id="Rfk-5P-v1G"/>
+                            <constraint firstItem="LER-BG-ctI" firstAttribute="bottom" secondItem="Arh-Dw-Xvb" secondAttribute="bottom" constant="44" id="UDb-VW-EbU"/>
+                            <constraint firstItem="5Gy-75-ovP" firstAttribute="leading" secondItem="LER-BG-ctI" secondAttribute="leading" id="UIT-gg-fco"/>
+                            <constraint firstItem="LER-BG-ctI" firstAttribute="trailing" secondItem="sDl-w2-Cjb" secondAttribute="trailing" constant="14" id="XYR-u2-Eto"/>
+                            <constraint firstItem="sDl-w2-Cjb" firstAttribute="top" secondItem="LER-BG-ctI" secondAttribute="top" constant="14" id="cVZ-Iy-SWq"/>
+                            <constraint firstItem="5Gy-75-ovP" firstAttribute="top" secondItem="fdZ-NP-T9T" secondAttribute="top" id="p6c-uW-MSa"/>
+                        </constraints>
+                    </view>
+                    <connections>
+                        <outlet property="datePicker" destination="yCO-rw-xBJ" id="6w0-xT-IOH"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="RpL-aZ-Ybn" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="2617" y="254"/>
+        </scene>
+        <!--Picker View Controller-->
+        <scene sceneID="sYl-eY-Va8">
+            <objects>
+                <viewController storyboardIdentifier="PickerViewController" id="NDq-Zn-BfG" customClass="PickerViewController" customModule="PriestMyChurches" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="Kxa-XU-pJS">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <visualEffectView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="7uY-rr-b4t">
+                                <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                                <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" id="MQM-y7-fPM">
+                                    <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                                    <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                                    <subviews>
+                                        <visualEffectView opaque="NO" contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="rJD-yS-2kq">
+                                            <rect key="frame" x="0.0" y="0.0" width="174" height="768"/>
+                                            <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                                            <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" id="9Zh-BD-sHa">
+                                                <rect key="frame" x="0.0" y="0.0" width="174" height="768"/>
+                                                <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                                            </view>
+                                            <vibrancyEffect>
+                                                <blurEffect style="regular"/>
+                                            </vibrancyEffect>
+                                        </visualEffectView>
+                                        <pickerView contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Hrf-cb-hBL">
+                                            <rect key="frame" x="0.0" y="340" width="414" height="216"/>
+                                        </pickerView>
+                                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="nAc-7k-P8X">
+                                            <rect key="frame" x="82" y="778" width="250" height="40"/>
+                                            <color key="backgroundColor" name="ePurple"/>
+                                            <constraints>
+                                                <constraint firstAttribute="height" constant="40" id="wIV-kU-xue"/>
+                                                <constraint firstAttribute="width" constant="250" id="yWF-CE-Cq4"/>
+                                            </constraints>
+                                            <fontDescription key="fontDescription" name="Roboto-Bold" family="Roboto" pointSize="16"/>
+                                            <state key="normal" title="Aceptar">
+                                                <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                            </state>
+                                            <userDefinedRuntimeAttributes>
+                                                <userDefinedRuntimeAttribute type="number" keyPath="radius">
+                                                    <real key="value" value="20"/>
+                                                </userDefinedRuntimeAttribute>
+                                            </userDefinedRuntimeAttributes>
+                                            <connections>
+                                                <action selector="acceptAction" destination="NDq-Zn-BfG" eventType="touchUpInside" id="33Y-dj-wLo"/>
+                                            </connections>
+                                        </button>
+                                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="gs4-LH-eBb">
+                                            <rect key="frame" x="336" y="58" width="64" height="31"/>
+                                            <fontDescription key="fontDescription" name="Roboto-Bold" family="Roboto" pointSize="16"/>
+                                            <state key="normal" title="Cancelar">
+                                                <color key="titleColor" systemColor="systemPinkColor"/>
+                                            </state>
+                                            <connections>
+                                                <action selector="closeAction" destination="NDq-Zn-BfG" eventType="touchUpInside" id="uVa-sa-gFh"/>
+                                            </connections>
+                                        </button>
+                                    </subviews>
+                                    <constraints>
+                                        <constraint firstItem="Hrf-cb-hBL" firstAttribute="centerX" secondItem="MQM-y7-fPM" secondAttribute="centerX" id="6dV-cM-TTz"/>
+                                        <constraint firstItem="nAc-7k-P8X" firstAttribute="centerX" secondItem="MQM-y7-fPM" secondAttribute="centerX" id="MEk-6N-O1l"/>
+                                        <constraint firstItem="Hrf-cb-hBL" firstAttribute="width" secondItem="MQM-y7-fPM" secondAttribute="width" id="Uw3-pM-KpR"/>
+                                        <constraint firstItem="Hrf-cb-hBL" firstAttribute="centerY" secondItem="MQM-y7-fPM" secondAttribute="centerY" id="cwl-Zf-g9K"/>
+                                    </constraints>
+                                </view>
+                                <blurEffect style="regular"/>
+                            </visualEffectView>
+                        </subviews>
+                        <viewLayoutGuide key="safeArea" id="Qkq-ab-4zb"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <constraints>
+                            <constraint firstItem="gs4-LH-eBb" firstAttribute="top" secondItem="Qkq-ab-4zb" secondAttribute="top" constant="14" id="0sg-8l-Agr"/>
+                            <constraint firstItem="Qkq-ab-4zb" firstAttribute="trailing" secondItem="7uY-rr-b4t" secondAttribute="trailing" id="39t-g6-epM"/>
+                            <constraint firstItem="7uY-rr-b4t" firstAttribute="leading" secondItem="Qkq-ab-4zb" secondAttribute="leading" id="VxF-Tj-Bet"/>
+                            <constraint firstItem="Qkq-ab-4zb" firstAttribute="bottom" secondItem="nAc-7k-P8X" secondAttribute="bottom" constant="44" id="jDS-fq-wdX"/>
+                            <constraint firstAttribute="bottom" secondItem="7uY-rr-b4t" secondAttribute="bottom" id="nAs-H8-AzK"/>
+                            <constraint firstItem="Qkq-ab-4zb" firstAttribute="trailing" secondItem="gs4-LH-eBb" secondAttribute="trailing" constant="14" id="slR-qB-W0Y"/>
+                            <constraint firstItem="7uY-rr-b4t" firstAttribute="top" secondItem="Kxa-XU-pJS" secondAttribute="top" id="uht-7T-2ho"/>
+                        </constraints>
+                    </view>
+                    <connections>
+                        <outlet property="pickerView" destination="Hrf-cb-hBL" id="gJT-2Q-uuc"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="FO6-wY-Jeh" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="3388" y="254"/>
+        </scene>
+    </scenes>
+    <resources>
+        <namedColor name="ePurple">
+            <color red="0.41960784313725491" green="0.12156862745098039" blue="0.62352941176470589" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </namedColor>
+        <systemColor name="systemBackgroundColor">
+            <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+        </systemColor>
+        <systemColor name="systemPinkColor">
+            <color red="1" green="0.17647058823529413" blue="0.33333333333333331" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </systemColor>
+    </resources>
+</document>

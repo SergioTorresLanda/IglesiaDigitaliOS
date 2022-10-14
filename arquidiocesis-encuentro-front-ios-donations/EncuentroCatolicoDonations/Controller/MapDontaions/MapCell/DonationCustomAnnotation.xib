@@ -1,0 +1,83 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="19529" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+    <device id="retina6_1" orientation="portrait" appearance="light"/>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="19519"/>
+        <capability name="Named colors" minToolsVersion="9.0"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="System colors in document resources" minToolsVersion="11.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <view contentMode="scaleToFill" id="iN0-l3-epB" customClass="DontaionCustomAnnotation" customModule="EncuentroCatolicoDonations" customModuleProvider="target">
+            <rect key="frame" x="0.0" y="0.0" width="126" height="53"/>
+            <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+            <subviews>
+                <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="lwu-vF-cxB">
+                    <rect key="frame" x="0.0" y="0.0" width="126" height="53"/>
+                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                    <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                </view>
+                <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="MFa-eS-xic">
+                    <rect key="frame" x="5" y="9.5" width="34" height="34"/>
+                    <constraints>
+                        <constraint firstAttribute="width" constant="34" id="Dxv-f4-axk"/>
+                        <constraint firstAttribute="height" constant="34" id="Xqf-B2-nkb"/>
+                    </constraints>
+                </imageView>
+                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Parroquia del señor de la resurrección" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="3" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Jaf-Vx-GCL">
+                    <rect key="frame" x="42" y="9" width="75" height="29"/>
+                    <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="8"/>
+                    <color key="textColor" name="eMainBlue"/>
+                    <nil key="highlightedColor"/>
+                </label>
+                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Seleccionar" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="pMt-bV-Ied">
+                    <rect key="frame" x="42" y="42.5" width="43" height="8.5"/>
+                    <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="7"/>
+                    <color key="textColor" name="AccentColor"/>
+                    <nil key="highlightedColor"/>
+                </label>
+                <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="5wL-EN-rge">
+                    <rect key="frame" x="0.0" y="0.0" width="126" height="53"/>
+                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                    <state key="normal" title="Button"/>
+                    <buttonConfiguration key="configuration" style="plain"/>
+                </button>
+            </subviews>
+            <viewLayoutGuide key="safeArea" id="vUN-kp-3ea"/>
+            <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+            <constraints>
+                <constraint firstItem="Jaf-Vx-GCL" firstAttribute="top" secondItem="iN0-l3-epB" secondAttribute="top" constant="9" id="4Wr-jQ-JP9"/>
+                <constraint firstItem="MFa-eS-xic" firstAttribute="centerY" secondItem="iN0-l3-epB" secondAttribute="centerY" id="P0U-pD-IKU"/>
+                <constraint firstAttribute="trailing" secondItem="Jaf-Vx-GCL" secondAttribute="trailing" constant="9" id="Tqw-rE-weO"/>
+                <constraint firstItem="Jaf-Vx-GCL" firstAttribute="leading" secondItem="MFa-eS-xic" secondAttribute="trailing" constant="3" id="aiC-Si-uDd"/>
+                <constraint firstItem="vUN-kp-3ea" firstAttribute="trailing" secondItem="pMt-bV-Ied" secondAttribute="trailing" constant="41" id="gyM-eZ-uIB"/>
+                <constraint firstItem="MFa-eS-xic" firstAttribute="leading" secondItem="iN0-l3-epB" secondAttribute="leading" constant="5" id="h4d-Dk-0lM"/>
+                <constraint firstItem="vUN-kp-3ea" firstAttribute="bottom" secondItem="pMt-bV-Ied" secondAttribute="bottom" constant="2" id="yKj-ec-WcK"/>
+            </constraints>
+            <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
+            <connections>
+                <outlet property="backgorundView" destination="lwu-vF-cxB" id="cTC-4Z-aKW"/>
+                <outlet property="btnAnnotation" destination="5wL-EN-rge" id="Wey-P8-Kyv"/>
+                <outlet property="imgChurch" destination="MFa-eS-xic" id="SkO-Xp-CqP"/>
+                <outlet property="lblChurchName" destination="Jaf-Vx-GCL" id="LAx-PD-vbD"/>
+                <outlet property="lblSelection" destination="pMt-bV-Ied" id="CNT-rb-rD3"/>
+            </connections>
+            <point key="canvasLocation" x="137.68115942028987" y="63.950892857142854"/>
+        </view>
+    </objects>
+    <resources>
+        <namedColor name="AccentColor">
+            <color red="0.0" green="0.46000000000000002" blue="0.89000000000000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </namedColor>
+        <namedColor name="eMainBlue">
+            <color red="0.0039215686274509803" green="0.12549019607843137" blue="0.40784313725490196" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </namedColor>
+        <systemColor name="systemBackgroundColor">
+            <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+        </systemColor>
+    </resources>
+</document>

@@ -1,0 +1,134 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="19529" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+    <device id="retina6_1" orientation="portrait" appearance="light"/>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="19519"/>
+        <capability name="Named colors" minToolsVersion="9.0"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="System colors in document resources" minToolsVersion="11.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" id="gTV-IL-0wX" customClass="CollectionCellServicesH" customModule="EncuentroCatolicoChurch" customModuleProvider="target">
+            <rect key="frame" x="0.0" y="0.0" width="335" height="175"/>
+            <autoresizingMask key="autoresizingMask"/>
+            <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center">
+                <rect key="frame" x="0.0" y="0.0" width="335" height="175"/>
+                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                <subviews>
+                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="wzu-7M-EO8">
+                        <rect key="frame" x="10" y="0.0" width="315" height="146"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                    </view>
+                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Om6-kQ-A2A">
+                        <rect key="frame" x="10" y="0.0" width="315" height="146"/>
+                        <subviews>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="XGl-Zb-nx5">
+                                <rect key="frame" x="0.0" y="0.0" width="315" height="55"/>
+                                <subviews>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Sábados" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="bCi-6Y-wUw">
+                                        <rect key="frame" x="13" y="7" width="165" height="17"/>
+                                        <constraints>
+                                            <constraint firstAttribute="width" constant="165" id="de6-6H-RzG"/>
+                                        </constraints>
+                                        <fontDescription key="fontDescription" type="boldSystem" pointSize="14"/>
+                                        <color key="textColor" name="eLightPinkishGray"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="4:00 pm a 15:00 pm" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="9lE-4O-PiL">
+                                        <rect key="frame" x="13" y="28" width="114" height="14.5"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="12"/>
+                                        <color key="textColor" red="0.45882352941176469" green="0.47058823529411764" blue="0.4823529411764706" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="2uu-W2-dAN">
+                                        <rect key="frame" x="290" y="5" width="20" height="22"/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="22" id="cZh-bq-2oI"/>
+                                            <constraint firstAttribute="width" constant="20" id="qnK-Yg-BxG"/>
+                                        </constraints>
+                                        <state key="normal" image="removeButton"/>
+                                        <connections>
+                                            <action selector="removeAction:" destination="gTV-IL-0wX" eventType="touchUpInside" id="gJz-ck-3Td"/>
+                                        </connections>
+                                    </button>
+                                </subviews>
+                                <color key="backgroundColor" red="0.94509803921568625" green="0.94509803921568625" blue="0.94509803921568625" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <constraints>
+                                    <constraint firstItem="9lE-4O-PiL" firstAttribute="top" secondItem="bCi-6Y-wUw" secondAttribute="bottom" constant="4" id="8aR-EZ-dYh"/>
+                                    <constraint firstAttribute="height" constant="55" id="L03-Wn-8Wx"/>
+                                    <constraint firstItem="bCi-6Y-wUw" firstAttribute="leading" secondItem="XGl-Zb-nx5" secondAttribute="leading" constant="13" id="Ufy-29-oB7"/>
+                                    <constraint firstItem="bCi-6Y-wUw" firstAttribute="top" secondItem="XGl-Zb-nx5" secondAttribute="top" constant="7" id="ag7-Q0-SZv"/>
+                                    <constraint firstAttribute="trailing" secondItem="2uu-W2-dAN" secondAttribute="trailing" constant="5" id="dYD-h7-lus"/>
+                                    <constraint firstItem="9lE-4O-PiL" firstAttribute="leading" secondItem="XGl-Zb-nx5" secondAttribute="leading" constant="13" id="jfg-pb-oC5"/>
+                                    <constraint firstItem="2uu-W2-dAN" firstAttribute="top" secondItem="XGl-Zb-nx5" secondAttribute="top" constant="5" id="vFG-16-gHc"/>
+                                </constraints>
+                            </view>
+                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" alignment="top" spacing="10" translatesAutoresizingMaskIntoConstraints="NO" id="GUe-KB-wPo">
+                                <rect key="frame" x="12" y="67" width="291" height="53.5"/>
+                                <subviews>
+                                    <label opaque="NO" userInteractionEnabled="NO" alpha="0.80000000000000004" contentMode="left" horizontalHuggingPriority="251" text="Para adultos y jovenes" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="uxH-Ik-bp7">
+                                        <rect key="frame" x="0.0" y="0.0" width="127" height="14.5"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="12"/>
+                                        <color key="textColor" red="0.21176470588235294" green="0.21176470588235294" blue="0.21176470588235294" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                    <label opaque="NO" userInteractionEnabled="NO" alpha="0.80000001192092896" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Son platicas motivacionales para acercarse mas a Jesús." textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="nNA-Yr-8Ez">
+                                        <rect key="frame" x="0.0" y="24.5" width="274.5" height="29"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="12"/>
+                                        <color key="textColor" red="0.21176470589999999" green="0.21176470589999999" blue="0.21176470589999999" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                </subviews>
+                            </stackView>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <constraints>
+                            <constraint firstAttribute="trailing" secondItem="XGl-Zb-nx5" secondAttribute="trailing" id="19Q-wg-4E0"/>
+                            <constraint firstItem="GUe-KB-wPo" firstAttribute="top" secondItem="XGl-Zb-nx5" secondAttribute="bottom" constant="12" id="6wb-M1-OhQ"/>
+                            <constraint firstItem="XGl-Zb-nx5" firstAttribute="top" secondItem="Om6-kQ-A2A" secondAttribute="top" id="RH4-G2-N0t"/>
+                            <constraint firstItem="XGl-Zb-nx5" firstAttribute="leading" secondItem="Om6-kQ-A2A" secondAttribute="leading" id="cw9-Bk-YK6"/>
+                            <constraint firstAttribute="trailing" secondItem="GUe-KB-wPo" secondAttribute="trailing" constant="12" id="r40-gR-NXc"/>
+                            <constraint firstItem="GUe-KB-wPo" firstAttribute="leading" secondItem="Om6-kQ-A2A" secondAttribute="leading" constant="12" id="t8i-qJ-dNa"/>
+                        </constraints>
+                    </view>
+                </subviews>
+            </view>
+            <viewLayoutGuide key="safeArea" id="ZTg-uK-7eu"/>
+            <constraints>
+                <constraint firstAttribute="trailing" secondItem="Om6-kQ-A2A" secondAttribute="trailing" constant="10" id="1cC-NV-3mI"/>
+                <constraint firstAttribute="bottom" secondItem="wzu-7M-EO8" secondAttribute="bottom" constant="29" id="2Tj-Hf-vaX"/>
+                <constraint firstAttribute="bottom" secondItem="Om6-kQ-A2A" secondAttribute="bottom" constant="29" id="61h-a6-Afm"/>
+                <constraint firstItem="Om6-kQ-A2A" firstAttribute="leading" secondItem="gTV-IL-0wX" secondAttribute="leading" constant="10" id="Jya-ek-gwG"/>
+                <constraint firstItem="Om6-kQ-A2A" firstAttribute="top" secondItem="gTV-IL-0wX" secondAttribute="top" id="cNl-4h-MhR"/>
+                <constraint firstItem="wzu-7M-EO8" firstAttribute="top" secondItem="gTV-IL-0wX" secondAttribute="top" id="ikq-Cw-Ct1"/>
+                <constraint firstItem="wzu-7M-EO8" firstAttribute="leading" secondItem="gTV-IL-0wX" secondAttribute="leading" constant="10" id="kDa-4P-hdx"/>
+                <constraint firstAttribute="trailing" secondItem="wzu-7M-EO8" secondAttribute="trailing" constant="10" id="sgd-T2-ycO"/>
+            </constraints>
+            <size key="customSize" width="335" height="175"/>
+            <connections>
+                <outlet property="backCard" destination="wzu-7M-EO8" id="TcY-0s-R3g"/>
+                <outlet property="cardView" destination="Om6-kQ-A2A" id="jja-m5-wbk"/>
+                <outlet property="grayView" destination="XGl-Zb-nx5" id="wyF-Ys-The"/>
+                <outlet property="lblFirst" destination="uxH-Ik-bp7" id="Y3a-Je-RcU"/>
+                <outlet property="lblMainTitle" destination="bCi-6Y-wUw" id="nbj-M5-BE3"/>
+                <outlet property="lblSecond" destination="nNA-Yr-8Ez" id="Ds5-Aa-All"/>
+                <outlet property="lblTime" destination="9lE-4O-PiL" id="aMh-Ph-h62"/>
+                <outlet property="removeButton" destination="2uu-W2-dAN" id="0fv-fQ-8mk"/>
+            </connections>
+            <point key="canvasLocation" x="163.04347826086959" y="89.397321428571431"/>
+        </collectionViewCell>
+    </objects>
+    <resources>
+        <image name="removeButton" width="20" height="20"/>
+        <namedColor name="eLightPinkishGray">
+            <color red="0.72549019607843135" green="0.72549019607843135" blue="0.72549019607843135" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </namedColor>
+        <systemColor name="systemBackgroundColor">
+            <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+        </systemColor>
+    </resources>
+</document>

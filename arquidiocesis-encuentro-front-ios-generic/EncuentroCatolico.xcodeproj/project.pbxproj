@@ -1,0 +1,668 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 51;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		0E1812EBEA935E48CE0F5C88 /* Pods_EncuentroCatolico.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9F303BBF8531D7D5EE0AB832 /* Pods_EncuentroCatolico.framework */; };
+		36ABB775260BFD4E00A9470F /* EncuentroCatolicoRegister.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 98E6E8FE25CC728700C730D1 /* EncuentroCatolicoRegister.framework */; };
+		36ABB776260BFD4E00A9470F /* EncuentroCatolicoRegister.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 98E6E8FE25CC728700C730D1 /* EncuentroCatolicoRegister.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		36C17B572604274400973D58 /* EncuentroCatolicoPayment.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 36C17B562604274400973D58 /* EncuentroCatolicoPayment.framework */; };
+		36C17B582604274400973D58 /* EncuentroCatolicoPayment.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 36C17B562604274400973D58 /* EncuentroCatolicoPayment.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		36C17B5A2604274A00973D58 /* EncuentroCatolicoUtils.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 36C17B592604274A00973D58 /* EncuentroCatolicoUtils.framework */; };
+		36C17B5B2604274A00973D58 /* EncuentroCatolicoUtils.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 36C17B592604274A00973D58 /* EncuentroCatolicoUtils.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		36E3F35D260C26BC008E6DAE /* EncuentroCatolicoVirtualLibrary.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9837C22D25E85B0F005A200F /* EncuentroCatolicoVirtualLibrary.framework */; };
+		36E3F35E260C26BC008E6DAE /* EncuentroCatolicoVirtualLibrary.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 9837C22D25E85B0F005A200F /* EncuentroCatolicoVirtualLibrary.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		6D40892F278F8EA00017E308 /* APIType.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6D40892E278F8EA00017E308 /* APIType.swift */; };
+		6DD37FB327A8E93000660A94 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 6DD37FB227A8E93000660A94 /* GoogleService-Info.plist */; };
+		980E990425E48D3B002C766D /* EncuentroCatolicoHome.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 980E990225E48D3B002C766D /* EncuentroCatolicoHome.framework */; };
+		980E990525E48D3B002C766D /* EncuentroCatolicoHome.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 980E990225E48D3B002C766D /* EncuentroCatolicoHome.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		980E990625E48D3B002C766D /* EncuentroCatolicoLogin.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 980E990325E48D3B002C766D /* EncuentroCatolicoLogin.framework */; };
+		980E990725E48D3B002C766D /* EncuentroCatolicoLogin.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 980E990325E48D3B002C766D /* EncuentroCatolicoLogin.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		9817614E25EFEDC8008E1018 /* EncuentroCatolicoDonations.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9817614D25EFEDC8008E1018 /* EncuentroCatolicoDonations.framework */; };
+		9817614F25EFEDC9008E1018 /* EncuentroCatolicoDonations.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 9817614D25EFEDC8008E1018 /* EncuentroCatolicoDonations.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		9837C1AD25E8083F005A200F /* EncuentroCatolicoMasses.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9837C1A825E8083F005A200F /* EncuentroCatolicoMasses.framework */; };
+		9837C1AE25E8083F005A200F /* EncuentroCatolicoMasses.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 9837C1A825E8083F005A200F /* EncuentroCatolicoMasses.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		9837C1AF25E8083F005A200F /* EncuentroCatolicoNews.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9837C1A925E8083F005A200F /* EncuentroCatolicoNews.framework */; };
+		9837C1B025E8083F005A200F /* EncuentroCatolicoNews.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 9837C1A925E8083F005A200F /* EncuentroCatolicoNews.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		9837C1B125E8083F005A200F /* EncuentroCatolicoPrayers.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9837C1AA25E8083F005A200F /* EncuentroCatolicoPrayers.framework */; };
+		9837C1B225E8083F005A200F /* EncuentroCatolicoPrayers.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 9837C1AA25E8083F005A200F /* EncuentroCatolicoPrayers.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		9837C1B325E8083F005A200F /* EncuentroCatolicoProfile.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9837C1AB25E8083F005A200F /* EncuentroCatolicoProfile.framework */; };
+		9837C1B425E8083F005A200F /* EncuentroCatolicoProfile.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 9837C1AB25E8083F005A200F /* EncuentroCatolicoProfile.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		9837C1B525E8083F005A200F /* EncuentroCatolicoServices.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9837C1AC25E8083F005A200F /* EncuentroCatolicoServices.framework */; };
+		9837C1B625E8083F005A200F /* EncuentroCatolicoServices.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 9837C1AC25E8083F005A200F /* EncuentroCatolicoServices.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		9837C23225E85B10005A200F /* EncuentroCatolicoLive.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9837C22C25E85B0F005A200F /* EncuentroCatolicoLive.framework */; };
+		9837C23325E85B10005A200F /* EncuentroCatolicoLive.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 9837C22C25E85B0F005A200F /* EncuentroCatolicoLive.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		983D1C4326094D4800455355 /* EncuentroCatolicoScanner.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 983D1C4226094D4800455355 /* EncuentroCatolicoScanner.framework */; };
+		983D1C4426094D4800455355 /* EncuentroCatolicoScanner.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 983D1C4226094D4800455355 /* EncuentroCatolicoScanner.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		983D1CB02609669C00455355 /* EncuentroCatolicoScanner.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 983D1C4226094D4800455355 /* EncuentroCatolicoScanner.framework */; };
+		983D1CB22609670900455355 /* EncuentroCatolicoPayment.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 983D1CB12609670900455355 /* EncuentroCatolicoPayment.framework */; };
+		983D1CB32609670900455355 /* EncuentroCatolicoPayment.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 983D1CB12609670900455355 /* EncuentroCatolicoPayment.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		983D1CB52609675E00455355 /* EncuentroCatolicoUtils.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 983D1CB42609675E00455355 /* EncuentroCatolicoUtils.framework */; };
+		983D1CB62609675E00455355 /* EncuentroCatolicoUtils.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 983D1CB42609675E00455355 /* EncuentroCatolicoUtils.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		98C46A5225EF0EF100DE543B /* EncuentroCatolicoChurch.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 98C46A5125EF0EF100DE543B /* EncuentroCatolicoChurch.framework */; };
+		98C46A5325EF0EF100DE543B /* EncuentroCatolicoChurch.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 98C46A5125EF0EF100DE543B /* EncuentroCatolicoChurch.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		98C46A7E25EF12D100DE543B /* EncuentroCatolicoMyChurch.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 98C46A7D25EF12D100DE543B /* EncuentroCatolicoMyChurch.framework */; };
+		98C46A7F25EF12D100DE543B /* EncuentroCatolicoMyChurch.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 98C46A7D25EF12D100DE543B /* EncuentroCatolicoMyChurch.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		98E6A0CD25E47E8B002133D1 /* InitComponents.swift in Sources */ = {isa = PBXBuildFile; fileRef = 98E6A0CC25E47E8B002133D1 /* InitComponents.swift */; };
+		98E6E8CA25CC6FCB00C730D1 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 98E6E8C925CC6FCB00C730D1 /* AppDelegate.swift */; };
+		98E6E8D325CC6FCE00C730D1 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 98E6E8D225CC6FCE00C730D1 /* Assets.xcassets */; };
+		98E6E8D625CC6FCE00C730D1 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 98E6E8D425CC6FCE00C730D1 /* LaunchScreen.storyboard */; };
+		98E6E90A25CC72C400C730D1 /* InitPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 98E6E90425CC72C400C730D1 /* InitPresenter.swift */; };
+		98E6E90B25CC72C400C730D1 /* InitRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 98E6E90525CC72C400C730D1 /* InitRouter.swift */; };
+		98E6E90C25CC72C400C730D1 /* InitViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 98E6E90625CC72C400C730D1 /* InitViewController.swift */; };
+		98E6E90D25CC72C400C730D1 /* InitProtocols.swift in Sources */ = {isa = PBXBuildFile; fileRef = 98E6E90725CC72C400C730D1 /* InitProtocols.swift */; };
+		98E6E90E25CC72C400C730D1 /* InitInteractor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 98E6E90825CC72C400C730D1 /* InitInteractor.swift */; };
+		98E6E90F25CC72C400C730D1 /* InitViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 98E6E90925CC72C400C730D1 /* InitViewController.xib */; };
+		98F206EE260ABE5800B143CB /* FirebaseEnviroment.swift in Sources */ = {isa = PBXBuildFile; fileRef = 98F206EB260ABE5800B143CB /* FirebaseEnviroment.swift */; };
+		98F206EF260ABE5800B143CB /* FirebaseInstanceHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 98F206EC260ABE5800B143CB /* FirebaseInstanceHelper.swift */; };
+		98F206F0260ABE5800B143CB /* FirebaseManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 98F206ED260ABE5800B143CB /* FirebaseManager.swift */; };
+		9DF4EB84260BA34C002D6916 /* APNToken.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9DF4EB83260BA34C002D6916 /* APNToken.swift */; };
+		EEA6B9442646E56B00C35ACF /* EncuentroCatolicoNewFormation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = EEA6B9432646E56B00C35ACF /* EncuentroCatolicoNewFormation.framework */; };
+		EEA6B9452646E56B00C35ACF /* EncuentroCatolicoNewFormation.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = EEA6B9432646E56B00C35ACF /* EncuentroCatolicoNewFormation.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+/* End PBXBuildFile section */
+
+/* Begin PBXCopyFilesBuildPhase section */
+		9D175C7726093E890068E880 /* Embed Frameworks */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 12;
+			dstPath = "";
+			dstSubfolderSpec = 10;
+			files = (
+				983D1CB32609670900455355 /* EncuentroCatolicoPayment.framework in Embed Frameworks */,
+				36E3F35E260C26BC008E6DAE /* EncuentroCatolicoVirtualLibrary.framework in Embed Frameworks */,
+				98C46A5325EF0EF100DE543B /* EncuentroCatolicoChurch.framework in Embed Frameworks */,
+				9837C1B025E8083F005A200F /* EncuentroCatolicoNews.framework in Embed Frameworks */,
+				980E990725E48D3B002C766D /* EncuentroCatolicoLogin.framework in Embed Frameworks */,
+				9837C1AE25E8083F005A200F /* EncuentroCatolicoMasses.framework in Embed Frameworks */,
+				983D1C4426094D4800455355 /* EncuentroCatolicoScanner.framework in Embed Frameworks */,
+				9837C1B625E8083F005A200F /* EncuentroCatolicoServices.framework in Embed Frameworks */,
+				98C46A7F25EF12D100DE543B /* EncuentroCatolicoMyChurch.framework in Embed Frameworks */,
+				36C17B582604274400973D58 /* EncuentroCatolicoPayment.framework in Embed Frameworks */,
+				980E990525E48D3B002C766D /* EncuentroCatolicoHome.framework in Embed Frameworks */,
+				36ABB776260BFD4E00A9470F /* EncuentroCatolicoRegister.framework in Embed Frameworks */,
+				EEA6B9452646E56B00C35ACF /* EncuentroCatolicoNewFormation.framework in Embed Frameworks */,
+				9837C1B425E8083F005A200F /* EncuentroCatolicoProfile.framework in Embed Frameworks */,
+				983D1CB62609675E00455355 /* EncuentroCatolicoUtils.framework in Embed Frameworks */,
+				9837C23325E85B10005A200F /* EncuentroCatolicoLive.framework in Embed Frameworks */,
+				36C17B5B2604274A00973D58 /* EncuentroCatolicoUtils.framework in Embed Frameworks */,
+				9817614F25EFEDC9008E1018 /* EncuentroCatolicoDonations.framework in Embed Frameworks */,
+				9837C1B225E8083F005A200F /* EncuentroCatolicoPrayers.framework in Embed Frameworks */,
+			);
+			name = "Embed Frameworks";
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXCopyFilesBuildPhase section */
+
+/* Begin PBXFileReference section */
+		362475812609271A00323160 /* EncuentroCatolicoPromise.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = EncuentroCatolicoPromise.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		36BAAEB6263DA6BA0056274B /* Alamofire.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = Alamofire.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		36C17B562604274400973D58 /* EncuentroCatolicoPayment.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = EncuentroCatolicoPayment.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		36C17B592604274A00973D58 /* EncuentroCatolicoUtils.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = EncuentroCatolicoUtils.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		6D40892E278F8EA00017E308 /* APIType.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = APIType.swift; sourceTree = "<group>"; };
+		6DD37FB227A8E93000660A94 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; name = "GoogleService-Info.plist"; path = "Firebase/prod/GoogleService-Info.plist"; sourceTree = "<group>"; };
+		6DE2E35B279B3E15000ED1F0 /* EncuentroCatolico copy-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; name = "EncuentroCatolico copy-Info.plist"; path = "/Users/forlinko/linko/encuentromx/baz-ios-encuentro-generic/EncuentroCatolico copy-Info.plist"; sourceTree = "<absolute>"; };
+		980E990225E48D3B002C766D /* EncuentroCatolicoHome.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = EncuentroCatolicoHome.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		980E990325E48D3B002C766D /* EncuentroCatolicoLogin.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = EncuentroCatolicoLogin.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		9817612125EFEB2C008E1018 /* ZeusPayment.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = ZeusPayment.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		9817614D25EFEDC8008E1018 /* EncuentroCatolicoDonations.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = EncuentroCatolicoDonations.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		9837C1A825E8083F005A200F /* EncuentroCatolicoMasses.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = EncuentroCatolicoMasses.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		9837C1A925E8083F005A200F /* EncuentroCatolicoNews.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = EncuentroCatolicoNews.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		9837C1AA25E8083F005A200F /* EncuentroCatolicoPrayers.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = EncuentroCatolicoPrayers.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		9837C1AB25E8083F005A200F /* EncuentroCatolicoProfile.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = EncuentroCatolicoProfile.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		9837C1AC25E8083F005A200F /* EncuentroCatolicoServices.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = EncuentroCatolicoServices.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		9837C22A25E85B0F005A200F /* EcuentroCatolicoChurch.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = EcuentroCatolicoChurch.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		9837C22B25E85B0F005A200F /* EncuentroCatolicoFormation.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = EncuentroCatolicoFormation.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		9837C22C25E85B0F005A200F /* EncuentroCatolicoLive.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = EncuentroCatolicoLive.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		9837C22D25E85B0F005A200F /* EncuentroCatolicoVirtualLibrary.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = EncuentroCatolicoVirtualLibrary.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		983D1BDF26092DDD00455355 /* baz-ios-sdk-buy */ = {isa = PBXFileReference; lastKnownFileType = folder; name = "baz-ios-sdk-buy"; path = "../../../Downloads/baz-ios-sdk-buy"; sourceTree = "<group>"; };
+		983D1C4226094D4800455355 /* EncuentroCatolicoScanner.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = EncuentroCatolicoScanner.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		983D1CB12609670900455355 /* EncuentroCatolicoPayment.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = EncuentroCatolicoPayment.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		983D1CB42609675E00455355 /* EncuentroCatolicoUtils.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = EncuentroCatolicoUtils.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		98C46A5125EF0EF100DE543B /* EncuentroCatolicoChurch.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = EncuentroCatolicoChurch.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		98C46A7D25EF12D100DE543B /* EncuentroCatolicoMyChurch.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = EncuentroCatolicoMyChurch.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		98E6A0CC25E47E8B002133D1 /* InitComponents.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InitComponents.swift; sourceTree = "<group>"; };
+		98E6E8C625CC6FCB00C730D1 /* EncuentroCatolico.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = EncuentroCatolico.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		98E6E8C925CC6FCB00C730D1 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
+		98E6E8D225CC6FCE00C730D1 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		98E6E8D525CC6FCE00C730D1 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
+		98E6E8D725CC6FCE00C730D1 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		98E6E8FE25CC728700C730D1 /* EncuentroCatolicoRegister.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = EncuentroCatolicoRegister.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		98E6E90425CC72C400C730D1 /* InitPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InitPresenter.swift; sourceTree = "<group>"; };
+		98E6E90525CC72C400C730D1 /* InitRouter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InitRouter.swift; sourceTree = "<group>"; };
+		98E6E90625CC72C400C730D1 /* InitViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InitViewController.swift; sourceTree = "<group>"; };
+		98E6E90725CC72C400C730D1 /* InitProtocols.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InitProtocols.swift; sourceTree = "<group>"; };
+		98E6E90825CC72C400C730D1 /* InitInteractor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InitInteractor.swift; sourceTree = "<group>"; };
+		98E6E90925CC72C400C730D1 /* InitViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = InitViewController.xib; sourceTree = "<group>"; };
+		98F206EB260ABE5800B143CB /* FirebaseEnviroment.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FirebaseEnviroment.swift; sourceTree = "<group>"; };
+		98F206EC260ABE5800B143CB /* FirebaseInstanceHelper.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FirebaseInstanceHelper.swift; sourceTree = "<group>"; };
+		98F206ED260ABE5800B143CB /* FirebaseManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FirebaseManager.swift; sourceTree = "<group>"; };
+		9D79A34026051F6B006A43BE /* EncuentroCatolico.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = EncuentroCatolico.entitlements; sourceTree = "<group>"; };
+		9DF4EB83260BA34C002D6916 /* APNToken.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = APNToken.swift; sourceTree = "<group>"; };
+		9F303BBF8531D7D5EE0AB832 /* Pods_EncuentroCatolico.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_EncuentroCatolico.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		EA9FDF4C9D2C3E46B901E198 /* Pods-EncuentroCatolico.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-EncuentroCatolico.release.xcconfig"; path = "Target Support Files/Pods-EncuentroCatolico/Pods-EncuentroCatolico.release.xcconfig"; sourceTree = "<group>"; };
+		EEA6B9432646E56B00C35ACF /* EncuentroCatolicoNewFormation.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = EncuentroCatolicoNewFormation.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		FED19F4EA94671B8259B6FA2 /* Pods-EncuentroCatolico.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-EncuentroCatolico.debug.xcconfig"; path = "Target Support Files/Pods-EncuentroCatolico/Pods-EncuentroCatolico.debug.xcconfig"; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		98E6E8C325CC6FCB00C730D1 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				9837C23225E85B10005A200F /* EncuentroCatolicoLive.framework in Frameworks */,
+				36C17B572604274400973D58 /* EncuentroCatolicoPayment.framework in Frameworks */,
+				9817614E25EFEDC8008E1018 /* EncuentroCatolicoDonations.framework in Frameworks */,
+				9837C1B325E8083F005A200F /* EncuentroCatolicoProfile.framework in Frameworks */,
+				9837C1AD25E8083F005A200F /* EncuentroCatolicoMasses.framework in Frameworks */,
+				983D1CB02609669C00455355 /* EncuentroCatolicoScanner.framework in Frameworks */,
+				9837C1B525E8083F005A200F /* EncuentroCatolicoServices.framework in Frameworks */,
+				980E990625E48D3B002C766D /* EncuentroCatolicoLogin.framework in Frameworks */,
+				98C46A5225EF0EF100DE543B /* EncuentroCatolicoChurch.framework in Frameworks */,
+				EEA6B9442646E56B00C35ACF /* EncuentroCatolicoNewFormation.framework in Frameworks */,
+				9837C1B125E8083F005A200F /* EncuentroCatolicoPrayers.framework in Frameworks */,
+				980E990425E48D3B002C766D /* EncuentroCatolicoHome.framework in Frameworks */,
+				9837C1AF25E8083F005A200F /* EncuentroCatolicoNews.framework in Frameworks */,
+				983D1CB22609670900455355 /* EncuentroCatolicoPayment.framework in Frameworks */,
+				0E1812EBEA935E48CE0F5C88 /* Pods_EncuentroCatolico.framework in Frameworks */,
+				36C17B5A2604274A00973D58 /* EncuentroCatolicoUtils.framework in Frameworks */,
+				98C46A7E25EF12D100DE543B /* EncuentroCatolicoMyChurch.framework in Frameworks */,
+				983D1C4326094D4800455355 /* EncuentroCatolicoScanner.framework in Frameworks */,
+				36ABB775260BFD4E00A9470F /* EncuentroCatolicoRegister.framework in Frameworks */,
+				36E3F35D260C26BC008E6DAE /* EncuentroCatolicoVirtualLibrary.framework in Frameworks */,
+				983D1CB52609675E00455355 /* EncuentroCatolicoUtils.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		368A1FB3260BA83E00188539 /* Recovered References */ = {
+			isa = PBXGroup;
+			children = (
+				36C17B562604274400973D58 /* EncuentroCatolicoPayment.framework */,
+				36C17B592604274A00973D58 /* EncuentroCatolicoUtils.framework */,
+			);
+			name = "Recovered References";
+			sourceTree = "<group>";
+		};
+		552C309138C70A5785355301 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				EEA6B9432646E56B00C35ACF /* EncuentroCatolicoNewFormation.framework */,
+				36BAAEB6263DA6BA0056274B /* Alamofire.framework */,
+				362475812609271A00323160 /* EncuentroCatolicoPromise.framework */,
+				983D1CB42609675E00455355 /* EncuentroCatolicoUtils.framework */,
+				983D1CB12609670900455355 /* EncuentroCatolicoPayment.framework */,
+				983D1C4226094D4800455355 /* EncuentroCatolicoScanner.framework */,
+				983D1BDF26092DDD00455355 /* baz-ios-sdk-buy */,
+				9817614D25EFEDC8008E1018 /* EncuentroCatolicoDonations.framework */,
+				9817612125EFEB2C008E1018 /* ZeusPayment.framework */,
+				98C46A7D25EF12D100DE543B /* EncuentroCatolicoMyChurch.framework */,
+				98C46A5125EF0EF100DE543B /* EncuentroCatolicoChurch.framework */,
+				9837C22A25E85B0F005A200F /* EcuentroCatolicoChurch.framework */,
+				9837C22B25E85B0F005A200F /* EncuentroCatolicoFormation.framework */,
+				9837C22C25E85B0F005A200F /* EncuentroCatolicoLive.framework */,
+				9837C22D25E85B0F005A200F /* EncuentroCatolicoVirtualLibrary.framework */,
+				9837C1A825E8083F005A200F /* EncuentroCatolicoMasses.framework */,
+				9837C1A925E8083F005A200F /* EncuentroCatolicoNews.framework */,
+				9837C1AA25E8083F005A200F /* EncuentroCatolicoPrayers.framework */,
+				9837C1AB25E8083F005A200F /* EncuentroCatolicoProfile.framework */,
+				9837C1AC25E8083F005A200F /* EncuentroCatolicoServices.framework */,
+				980E990225E48D3B002C766D /* EncuentroCatolicoHome.framework */,
+				980E990325E48D3B002C766D /* EncuentroCatolicoLogin.framework */,
+				98E6E8FE25CC728700C730D1 /* EncuentroCatolicoRegister.framework */,
+				9F303BBF8531D7D5EE0AB832 /* Pods_EncuentroCatolico.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		6B6EA40942CB63EBA40E152E /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				FED19F4EA94671B8259B6FA2 /* Pods-EncuentroCatolico.debug.xcconfig */,
+				EA9FDF4C9D2C3E46B901E198 /* Pods-EncuentroCatolico.release.xcconfig */,
+			);
+			name = Pods;
+			path = ../Pods;
+			sourceTree = "<group>";
+		};
+		98E6E8BD25CC6FCB00C730D1 = {
+			isa = PBXGroup;
+			children = (
+				98E6E8C825CC6FCB00C730D1 /* EncuentroCatolico */,
+				98E6E8C725CC6FCB00C730D1 /* Products */,
+				6B6EA40942CB63EBA40E152E /* Pods */,
+				552C309138C70A5785355301 /* Frameworks */,
+				368A1FB3260BA83E00188539 /* Recovered References */,
+				6DE2E35B279B3E15000ED1F0 /* EncuentroCatolico copy-Info.plist */,
+			);
+			sourceTree = "<group>";
+		};
+		98E6E8C725CC6FCB00C730D1 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				98E6E8C625CC6FCB00C730D1 /* EncuentroCatolico.app */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		98E6E8C825CC6FCB00C730D1 /* EncuentroCatolico */ = {
+			isa = PBXGroup;
+			children = (
+				98F206EA260ABE4000B143CB /* Firebase Manager */,
+				9D79A34026051F6B006A43BE /* EncuentroCatolico.entitlements */,
+				98E6E91525CC741B00C730D1 /* General */,
+				98E6E91425CC741000C730D1 /* Views */,
+				98E6E91125CC73E200C730D1 /* Resources */,
+				98E6E90325CC72B900C730D1 /* Controllers */,
+			);
+			path = EncuentroCatolico;
+			sourceTree = "<group>";
+		};
+		98E6E90325CC72B900C730D1 /* Controllers */ = {
+			isa = PBXGroup;
+			children = (
+				98E6E91225CC73EF00C730D1 /* Init */,
+			);
+			path = Controllers;
+			sourceTree = "<group>";
+		};
+		98E6E91125CC73E200C730D1 /* Resources */ = {
+			isa = PBXGroup;
+			children = (
+				6D40892E278F8EA00017E308 /* APIType.swift */,
+				9DF4EB83260BA34C002D6916 /* APNToken.swift */,
+				98E6E8D725CC6FCE00C730D1 /* Info.plist */,
+				6DD37FB227A8E93000660A94 /* GoogleService-Info.plist */,
+				98E6E8D225CC6FCE00C730D1 /* Assets.xcassets */,
+			);
+			path = Resources;
+			sourceTree = "<group>";
+		};
+		98E6E91225CC73EF00C730D1 /* Init */ = {
+			isa = PBXGroup;
+			children = (
+				98E6E90425CC72C400C730D1 /* InitPresenter.swift */,
+				98E6E90525CC72C400C730D1 /* InitRouter.swift */,
+				98E6E90625CC72C400C730D1 /* InitViewController.swift */,
+				98E6E90725CC72C400C730D1 /* InitProtocols.swift */,
+				98E6E90825CC72C400C730D1 /* InitInteractor.swift */,
+				98E6E90925CC72C400C730D1 /* InitViewController.xib */,
+				98E6A0CC25E47E8B002133D1 /* InitComponents.swift */,
+			);
+			path = Init;
+			sourceTree = "<group>";
+		};
+		98E6E91425CC741000C730D1 /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				98E6E8D425CC6FCE00C730D1 /* LaunchScreen.storyboard */,
+			);
+			path = Views;
+			sourceTree = "<group>";
+		};
+		98E6E91525CC741B00C730D1 /* General */ = {
+			isa = PBXGroup;
+			children = (
+				98E6E8C925CC6FCB00C730D1 /* AppDelegate.swift */,
+			);
+			path = General;
+			sourceTree = "<group>";
+		};
+		98F206EA260ABE4000B143CB /* Firebase Manager */ = {
+			isa = PBXGroup;
+			children = (
+				98F206EB260ABE5800B143CB /* FirebaseEnviroment.swift */,
+				98F206EC260ABE5800B143CB /* FirebaseInstanceHelper.swift */,
+				98F206ED260ABE5800B143CB /* FirebaseManager.swift */,
+			);
+			path = "Firebase Manager";
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		98E6E8C525CC6FCB00C730D1 /* EncuentroCatolico */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 98E6E8DA25CC6FCE00C730D1 /* Build configuration list for PBXNativeTarget "EncuentroCatolico" */;
+			buildPhases = (
+				426BD1DDDED982534AA103A1 /* [CP] Check Pods Manifest.lock */,
+				98E6E8C225CC6FCB00C730D1 /* Sources */,
+				98E6E8C325CC6FCB00C730D1 /* Frameworks */,
+				98E6E8C425CC6FCB00C730D1 /* Resources */,
+				2C6207A0D1D8996216B2AF87 /* [CP] Embed Pods Frameworks */,
+				9D175C7726093E890068E880 /* Embed Frameworks */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = EncuentroCatolico;
+			productName = EncuentroCatolico;
+			productReference = 98E6E8C625CC6FCB00C730D1 /* EncuentroCatolico.app */;
+			productType = "com.apple.product-type.application";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		98E6E8BE25CC6FCB00C730D1 /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				LastSwiftUpdateCheck = 1230;
+				LastUpgradeCheck = 1230;
+				TargetAttributes = {
+					98E6E8C525CC6FCB00C730D1 = {
+						CreatedOnToolsVersion = 12.3;
+					};
+				};
+			};
+			buildConfigurationList = 98E6E8C125CC6FCB00C730D1 /* Build configuration list for PBXProject "EncuentroCatolico" */;
+			compatibilityVersion = "Xcode 9.3";
+			developmentRegion = en;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+				Base,
+			);
+			mainGroup = 98E6E8BD25CC6FCB00C730D1;
+			productRefGroup = 98E6E8C725CC6FCB00C730D1 /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				98E6E8C525CC6FCB00C730D1 /* EncuentroCatolico */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		98E6E8C425CC6FCB00C730D1 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				98E6E8D625CC6FCE00C730D1 /* LaunchScreen.storyboard in Resources */,
+				6DD37FB327A8E93000660A94 /* GoogleService-Info.plist in Resources */,
+				98E6E8D325CC6FCE00C730D1 /* Assets.xcassets in Resources */,
+				98E6E90F25CC72C400C730D1 /* InitViewController.xib in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		2C6207A0D1D8996216B2AF87 /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-EncuentroCatolico/Pods-EncuentroCatolico-frameworks-${CONFIGURATION}-input-files.xcfilelist",
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-EncuentroCatolico/Pods-EncuentroCatolico-frameworks-${CONFIGURATION}-output-files.xcfilelist",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-EncuentroCatolico/Pods-EncuentroCatolico-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		426BD1DDDED982534AA103A1 /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-EncuentroCatolico-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		98E6E8C225CC6FCB00C730D1 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				98E6A0CD25E47E8B002133D1 /* InitComponents.swift in Sources */,
+				98F206EF260ABE5800B143CB /* FirebaseInstanceHelper.swift in Sources */,
+				98F206F0260ABE5800B143CB /* FirebaseManager.swift in Sources */,
+				9DF4EB84260BA34C002D6916 /* APNToken.swift in Sources */,
+				6D40892F278F8EA00017E308 /* APIType.swift in Sources */,
+				98E6E90E25CC72C400C730D1 /* InitInteractor.swift in Sources */,
+				98E6E90D25CC72C400C730D1 /* InitProtocols.swift in Sources */,
+				98F206EE260ABE5800B143CB /* FirebaseEnviroment.swift in Sources */,
+				98E6E90A25CC72C400C730D1 /* InitPresenter.swift in Sources */,
+				98E6E8CA25CC6FCB00C730D1 /* AppDelegate.swift in Sources */,
+				98E6E90C25CC72C400C730D1 /* InitViewController.swift in Sources */,
+				98E6E90B25CC72C400C730D1 /* InitRouter.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXVariantGroup section */
+		98E6E8D425CC6FCE00C730D1 /* LaunchScreen.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				98E6E8D525CC6FCE00C730D1 /* Base */,
+			);
+			name = LaunchScreen.storyboard;
+			sourceTree = "<group>";
+		};
+/* End PBXVariantGroup section */
+
+/* Begin XCBuildConfiguration section */
+		98E6E8D825CC6FCE00C730D1 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				ENABLE_BITCODE = YES;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 14.3;
+				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
+				MTL_FAST_MATH = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				OTHER_CFLAGS = "";
+				SDKROOT = iphoneos;
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = DEBUG;
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+			};
+			name = Debug;
+		};
+		98E6E8D925CC6FCE00C730D1 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_BITCODE = YES;
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 14.3;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				MTL_FAST_MATH = YES;
+				SDKROOT = iphoneos;
+				SWIFT_COMPILATION_MODE = wholemodule;
+				SWIFT_OPTIMIZATION_LEVEL = "-O";
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		98E6E8DB25CC6FCE00C730D1 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = FED19F4EA94671B8259B6FA2 /* Pods-EncuentroCatolico.debug.xcconfig */;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_ENTITLEMENTS = EncuentroCatolico/EncuentroCatolico.entitlements;
+				CODE_SIGN_IDENTITY = "Apple Development";
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = 7U69X8G25P;
+				INFOPLIST_FILE = EncuentroCatolico/Resources/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 12.0;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				MARKETING_VERSION = 1.5;
+				PRODUCT_BUNDLE_IDENTIFIER = mx.arquidiocesis.EncuentroCatolico;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE_SPECIFIER = "";
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = 1;
+				VALIDATE_WORKSPACE = NO;
+			};
+			name = Debug;
+		};
+		98E6E8DC25CC6FCE00C730D1 /* Release */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = EA9FDF4C9D2C3E46B901E198 /* Pods-EncuentroCatolico.release.xcconfig */;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_ENTITLEMENTS = EncuentroCatolico/EncuentroCatolico.entitlements;
+				CODE_SIGN_IDENTITY = "Apple Development";
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = 7U69X8G25P;
+				INFOPLIST_FILE = EncuentroCatolico/Resources/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 12.0;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				MARKETING_VERSION = 1.5;
+				PRODUCT_BUNDLE_IDENTIFIER = mx.arquidiocesis.EncuentroCatolico;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE_SPECIFIER = "";
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = 1;
+				VALIDATE_WORKSPACE = NO;
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		98E6E8C125CC6FCB00C730D1 /* Build configuration list for PBXProject "EncuentroCatolico" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				98E6E8D825CC6FCE00C730D1 /* Debug */,
+				98E6E8D925CC6FCE00C730D1 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		98E6E8DA25CC6FCE00C730D1 /* Build configuration list for PBXNativeTarget "EncuentroCatolico" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				98E6E8DB25CC6FCE00C730D1 /* Debug */,
+				98E6E8DC25CC6FCE00C730D1 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = 98E6E8BE25CC6FCB00C730D1 /* Project object */;
+}

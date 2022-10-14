@@ -1,0 +1,82 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="17701" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+    <device id="retina6_1" orientation="portrait" appearance="light"/>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="17703"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="System colors in document resources" minToolsVersion="11.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="WebViewViewController" customModule="EncuentroCatolicoServices" customModuleProvider="target">
+            <connections>
+                <outlet property="view" destination="i5M-Pr-FkT" id="sfx-zR-JGt"/>
+                <outlet property="webView" destination="9Ho-H3-pgv" id="09l-wl-QDH"/>
+            </connections>
+        </placeholder>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <view clearsContextBeforeDrawing="NO" contentMode="scaleToFill" id="i5M-Pr-FkT">
+            <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+            <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+            <subviews>
+                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="JOr-1u-MT1">
+                    <rect key="frame" x="0.0" y="0.0" width="414" height="90"/>
+                    <subviews>
+                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Biblioteca y recursos" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumScaleFactor="0.5" adjustsFontForContentSizeCategory="YES" translatesAutoresizingMaskIntoConstraints="NO" id="1XE-pu-5by">
+                            <rect key="frame" x="116.5" y="48.5" width="181" height="21.5"/>
+                            <fontDescription key="fontDescription" name="HelveticaNeue-Bold" family="Helvetica Neue" pointSize="18"/>
+                            <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                            <nil key="highlightedColor"/>
+                        </label>
+                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="cnY-Vf-4iH">
+                            <rect key="frame" x="20" y="49" width="13" height="20"/>
+                            <constraints>
+                                <constraint firstAttribute="width" constant="13" id="c6t-ji-bJ9"/>
+                                <constraint firstAttribute="height" constant="20" id="zPI-45-4TG"/>
+                            </constraints>
+                            <state key="normal" image="back"/>
+                            <connections>
+                                <action selector="close:" destination="-1" eventType="touchUpInside" id="IQW-oZ-Myv"/>
+                            </connections>
+                        </button>
+                    </subviews>
+                    <color key="backgroundColor" red="0.095760412510000004" green="0.13526713849999999" blue="0.48630607129999998" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                    <constraints>
+                        <constraint firstItem="cnY-Vf-4iH" firstAttribute="centerY" secondItem="1XE-pu-5by" secondAttribute="centerY" id="4UJ-Sy-McA"/>
+                        <constraint firstItem="cnY-Vf-4iH" firstAttribute="leading" secondItem="JOr-1u-MT1" secondAttribute="leading" constant="20" id="4x3-rQ-rE7"/>
+                        <constraint firstItem="1XE-pu-5by" firstAttribute="centerY" secondItem="JOr-1u-MT1" secondAttribute="centerY" constant="14" id="Miu-lZ-2tj"/>
+                        <constraint firstItem="1XE-pu-5by" firstAttribute="centerX" secondItem="JOr-1u-MT1" secondAttribute="centerX" id="Qvx-Vc-Ipx"/>
+                        <constraint firstAttribute="height" constant="90" id="oTg-3R-2Yd"/>
+                    </constraints>
+                </view>
+                <wkWebView contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="9Ho-H3-pgv">
+                    <rect key="frame" x="0.0" y="90" width="414" height="806"/>
+                    <color key="backgroundColor" red="0.36078431370000003" green="0.38823529410000002" blue="0.4039215686" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                    <wkWebViewConfiguration key="configuration">
+                        <audiovisualMediaTypes key="mediaTypesRequiringUserActionForPlayback" none="YES"/>
+                        <wkPreferences key="preferences"/>
+                    </wkWebViewConfiguration>
+                </wkWebView>
+            </subviews>
+            <viewLayoutGuide key="safeArea" id="fnl-2z-Ty3"/>
+            <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+            <constraints>
+                <constraint firstItem="fnl-2z-Ty3" firstAttribute="trailing" secondItem="9Ho-H3-pgv" secondAttribute="trailing" id="8CY-9C-Ulh"/>
+                <constraint firstItem="9Ho-H3-pgv" firstAttribute="leading" secondItem="fnl-2z-Ty3" secondAttribute="leading" id="Kyj-Sq-0l9"/>
+                <constraint firstItem="JOr-1u-MT1" firstAttribute="leading" secondItem="fnl-2z-Ty3" secondAttribute="leading" id="LIN-WM-fan"/>
+                <constraint firstItem="9Ho-H3-pgv" firstAttribute="top" secondItem="JOr-1u-MT1" secondAttribute="bottom" id="MkJ-dY-z0D"/>
+                <constraint firstAttribute="trailing" secondItem="JOr-1u-MT1" secondAttribute="trailing" id="ZR6-zd-Bzh"/>
+                <constraint firstAttribute="bottom" secondItem="9Ho-H3-pgv" secondAttribute="bottom" id="hIO-d9-5f7"/>
+                <constraint firstItem="JOr-1u-MT1" firstAttribute="top" secondItem="i5M-Pr-FkT" secondAttribute="top" id="ots-h6-3FF"/>
+            </constraints>
+            <point key="canvasLocation" x="139" y="55"/>
+        </view>
+    </objects>
+    <resources>
+        <image name="back" width="125" height="202"/>
+        <systemColor name="systemBackgroundColor">
+            <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+        </systemColor>
+    </resources>
+</document>

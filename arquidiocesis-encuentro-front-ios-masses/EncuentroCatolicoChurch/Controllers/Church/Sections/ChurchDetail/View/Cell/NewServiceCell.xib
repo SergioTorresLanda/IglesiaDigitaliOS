@@ -1,0 +1,103 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="17701" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+    <device id="retina6_1" orientation="portrait" appearance="light"/>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="17703"/>
+        <capability name="Named colors" minToolsVersion="9.0"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="System colors in document resources" minToolsVersion="11.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="NEWCELLSERVICE" id="gTV-IL-0wX" customClass="NewServiceCell" customModule="EncuentroCatolicoChurch" customModuleProvider="target">
+            <rect key="frame" x="0.0" y="0.0" width="439" height="126"/>
+            <autoresizingMask key="autoresizingMask"/>
+            <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center">
+                <rect key="frame" x="0.0" y="0.0" width="439" height="126"/>
+                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                <subviews>
+                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="t5G-Er-opj">
+                        <rect key="frame" x="14" y="10" width="411" height="106"/>
+                        <subviews>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Misas" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="XYg-ZP-sWa">
+                                <rect key="frame" x="46" y="14" width="47.5" height="21.5"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="21.5" id="2Lf-jb-z3v"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="boldSystem" pointSize="17"/>
+                                <color key="textColor" name="eMainBlue"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Misas" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="fMa-ox-qlp">
+                                <rect key="frame" x="46" y="44" width="40.5" height="21.5"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="21.5" id="VAh-e3-AWa"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="boldSystem" pointSize="14"/>
+                                <color key="textColor" name="eLightBlack"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="12:00:00" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="4" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ovH-aD-8IJ">
+                                <rect key="frame" x="46" y="78.5" width="50.5" height="14.5"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="12"/>
+                                <color key="textColor" name="eLightBlack"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="Trazado 6790" translatesAutoresizingMaskIntoConstraints="NO" id="8FW-d2-nVp">
+                                <rect key="frame" x="8" y="14" width="24" height="24"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="24" id="CBU-TG-Spc"/>
+                                    <constraint firstAttribute="height" constant="24" id="NMo-l0-FZI"/>
+                                </constraints>
+                            </imageView>
+                        </subviews>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <constraints>
+                            <constraint firstItem="XYg-ZP-sWa" firstAttribute="top" secondItem="t5G-Er-opj" secondAttribute="top" constant="14" id="4Tt-6d-Aa5"/>
+                            <constraint firstAttribute="bottom" secondItem="XYg-ZP-sWa" secondAttribute="bottom" constant="70.5" id="5Op-Tf-ufz"/>
+                            <constraint firstItem="8FW-d2-nVp" firstAttribute="leading" secondItem="t5G-Er-opj" secondAttribute="leading" constant="8" id="5Qe-aT-dxd"/>
+                            <constraint firstItem="fMa-ox-qlp" firstAttribute="leading" secondItem="8FW-d2-nVp" secondAttribute="trailing" constant="14" id="7yU-o4-T7B"/>
+                            <constraint firstAttribute="bottom" secondItem="ovH-aD-8IJ" secondAttribute="bottom" constant="13" id="COq-8f-BLI"/>
+                            <constraint firstItem="ovH-aD-8IJ" firstAttribute="leading" secondItem="t5G-Er-opj" secondAttribute="leading" constant="46" id="N3m-KA-6QS"/>
+                            <constraint firstAttribute="height" priority="250" constant="106" id="XMl-P5-fVC"/>
+                            <constraint firstItem="fMa-ox-qlp" firstAttribute="top" secondItem="XYg-ZP-sWa" secondAttribute="bottom" constant="8.5" id="bJo-U3-Sye"/>
+                            <constraint firstItem="XYg-ZP-sWa" firstAttribute="leading" secondItem="t5G-Er-opj" secondAttribute="leading" constant="46" id="hck-fO-49K"/>
+                            <constraint firstItem="8FW-d2-nVp" firstAttribute="centerY" secondItem="t5G-Er-opj" secondAttribute="centerY" constant="-27" id="rGv-qO-vao"/>
+                        </constraints>
+                    </view>
+                </subviews>
+            </view>
+            <viewLayoutGuide key="safeArea" id="ZTg-uK-7eu"/>
+            <constraints>
+                <constraint firstAttribute="trailing" secondItem="t5G-Er-opj" secondAttribute="trailing" constant="14" id="7Ze-K2-Cw6"/>
+                <constraint firstItem="t5G-Er-opj" firstAttribute="top" secondItem="gTV-IL-0wX" secondAttribute="top" constant="10" id="XuN-GM-qFx"/>
+                <constraint firstItem="t5G-Er-opj" firstAttribute="leading" secondItem="gTV-IL-0wX" secondAttribute="leading" constant="14" id="dJm-UD-XjO"/>
+                <constraint firstAttribute="bottom" secondItem="t5G-Er-opj" secondAttribute="bottom" constant="10" id="usO-Fh-NHn"/>
+            </constraints>
+            <size key="customSize" width="439" height="126"/>
+            <connections>
+                <outlet property="cardView" destination="t5G-Er-opj" id="Xx5-EK-fAk"/>
+                <outlet property="iconChurch" destination="8FW-d2-nVp" id="Tlh-mb-liF"/>
+                <outlet property="lblDays" destination="fMa-ox-qlp" id="Z5o-7s-jZy"/>
+                <outlet property="lblHour" destination="ovH-aD-8IJ" id="N8h-Lr-CUN"/>
+                <outlet property="serviceName" destination="XYg-ZP-sWa" id="wv0-y5-tOV"/>
+            </connections>
+            <point key="canvasLocation" x="239.85507246376812" y="34.821428571428569"/>
+        </collectionViewCell>
+    </objects>
+    <resources>
+        <image name="Trazado 6790" width="16" height="20"/>
+        <namedColor name="eLightBlack">
+            <color red="0.0" green="0.0" blue="0.0" alpha="0.60000002384185791" colorSpace="custom" customColorSpace="sRGB"/>
+        </namedColor>
+        <namedColor name="eMainBlue">
+            <color red="0.0039215686274509803" green="0.12549019607843137" blue="0.40784313725490196" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </namedColor>
+        <systemColor name="systemBackgroundColor">
+            <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+        </systemColor>
+    </resources>
+</document>

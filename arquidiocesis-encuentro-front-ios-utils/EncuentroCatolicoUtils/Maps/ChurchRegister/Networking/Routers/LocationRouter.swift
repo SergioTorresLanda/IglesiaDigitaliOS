@@ -1,0 +1,53 @@
+//
+//  LocationRouter.swift
+//  EncuentroCatolicoUtils
+//
+//  Created by Miguel Eduardo  Valdez Tellez  on 19/04/21.
+//
+
+import Foundation
+import Alamofire
+
+struct LocationResponse: Codable {
+    var id: UInt?
+    var name: String?
+    var imageUrl: String?
+    var latitude: Double?
+    var longitude: Double?
+}
+
+
+enum LocationRouter: EnrutadorBase {
+    
+    case location
+    
+    var method: HTTPMethod {
+        switch self {
+        case .location:
+            return .GET
+        }
+    }
+    
+    var path: String {
+        switch self {
+        case .location:
+            return API.URLProvider.locations()
+        }
+    }
+    
+    var parameters: Parameters? {
+        return nil
+    }
+    
+    var headers: HTTPHeaders? {
+        return nil
+    }
+    
+    var body: Any? {
+        switch self {
+        case .location:
+            return nil
+        }
+    }
+    
+}

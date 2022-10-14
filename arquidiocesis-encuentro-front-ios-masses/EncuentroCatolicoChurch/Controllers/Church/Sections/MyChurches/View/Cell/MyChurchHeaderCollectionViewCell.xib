@@ -1,0 +1,66 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="18122" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+    <device id="retina6_1" orientation="portrait" appearance="light"/>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="18093"/>
+        <capability name="Named colors" minToolsVersion="9.0"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" id="gTV-IL-0wX" customClass="MyChurchHeaderCollectionViewCell" customModule="EncuentroCatolicoChurch" customModuleProvider="target">
+            <rect key="frame" x="0.0" y="0.0" width="377" height="50"/>
+            <autoresizingMask key="autoresizingMask"/>
+            <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center">
+                <rect key="frame" x="0.0" y="0.0" width="377" height="50"/>
+                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                <subviews>
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Mi iglesia principal" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="vSM-ry-ii3">
+                        <rect key="frame" x="20" y="15.5" width="237" height="19.5"/>
+                        <fontDescription key="fontDescription" type="boldSystem" pointSize="16"/>
+                        <color key="textColor" name="eMainBlue"/>
+                        <nil key="highlightedColor"/>
+                    </label>
+                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="dDt-Kd-Qsx">
+                        <rect key="frame" x="277" y="9" width="80" height="32"/>
+                        <constraints>
+                            <constraint firstAttribute="width" constant="80" id="Vep-Ix-qZD"/>
+                        </constraints>
+                        <fontDescription key="fontDescription" type="boldSystem" pointSize="16"/>
+                        <state key="normal" title="Cambiar">
+                            <color key="titleColor" name="AccentColor"/>
+                        </state>
+                        <connections>
+                            <action selector="changeAction:" destination="gTV-IL-0wX" eventType="touchUpInside" id="xvs-3r-Nyh"/>
+                        </connections>
+                    </button>
+                </subviews>
+            </view>
+            <viewLayoutGuide key="safeArea" id="ZTg-uK-7eu"/>
+            <constraints>
+                <constraint firstAttribute="trailing" secondItem="dDt-Kd-Qsx" secondAttribute="trailing" constant="20" id="8GM-dF-DdE"/>
+                <constraint firstItem="dDt-Kd-Qsx" firstAttribute="centerY" secondItem="vSM-ry-ii3" secondAttribute="centerY" id="XtD-4k-gAW"/>
+                <constraint firstItem="vSM-ry-ii3" firstAttribute="leading" secondItem="gTV-IL-0wX" secondAttribute="leading" constant="20" id="cPh-UD-7ip"/>
+                <constraint firstItem="vSM-ry-ii3" firstAttribute="centerY" secondItem="gTV-IL-0wX" secondAttribute="centerY" id="kPE-EU-f72"/>
+                <constraint firstItem="dDt-Kd-Qsx" firstAttribute="leading" secondItem="vSM-ry-ii3" secondAttribute="trailing" constant="20" id="pAh-hd-ice"/>
+            </constraints>
+            <size key="customSize" width="377" height="50"/>
+            <connections>
+                <outlet property="changeChurch" destination="dDt-Kd-Qsx" id="4Z6-aT-quW"/>
+                <outlet property="titleSection" destination="vSM-ry-ii3" id="9kq-8c-yse"/>
+            </connections>
+            <point key="canvasLocation" x="171.73913043478262" y="57.589285714285708"/>
+        </collectionViewCell>
+    </objects>
+    <resources>
+        <namedColor name="AccentColor">
+            <color red="0.0" green="0.46000000000000002" blue="0.89000000000000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </namedColor>
+        <namedColor name="eMainBlue">
+            <color red="0.0039215686274509803" green="0.12549019607843137" blue="0.40784313725490196" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </namedColor>
+    </resources>
+</document>

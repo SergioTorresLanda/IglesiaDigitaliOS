@@ -1,0 +1,244 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="18122" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+    <device id="retina6_1" orientation="portrait" appearance="light"/>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="18093"/>
+        <capability name="Named colors" minToolsVersion="9.0"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="System colors in document resources" minToolsVersion="11.0"/>
+        <capability name="collection view cell content view" minToolsVersion="11.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <scenes>
+        <!--New Onboardings View-->
+        <scene sceneID="s0d-6b-0kx">
+            <objects>
+                <viewController storyboardIdentifier="VIEWON" useStoryboardIdentifierAsRestorationIdentifier="YES" id="Y6W-OH-hqX" customClass="NewOnboardingsView" customModule="EncuentroCatolicoProfile" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="5EZ-qb-Rvc">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" pagingEnabled="YES" showsHorizontalScrollIndicator="NO" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="ukV-MJ-FTY">
+                                <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                                <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                                <collectionViewFlowLayout key="collectionViewLayout" scrollDirection="horizontal" automaticEstimatedItemSize="YES" minimumLineSpacing="10" minimumInteritemSpacing="10" id="L8r-yu-c5n">
+                                    <size key="itemSize" width="318" height="701"/>
+                                    <size key="headerReferenceSize" width="0.0" height="0.0"/>
+                                    <size key="footerReferenceSize" width="0.0" height="0.0"/>
+                                    <inset key="sectionInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
+                                </collectionViewFlowLayout>
+                                <cells>
+                                    <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="CELLON" id="XvU-tq-pDY" customClass="OnboardingCollectionCell" customModule="EncuentroCatolicoProfile" customModuleProvider="target">
+                                        <rect key="frame" x="0.0" y="97.5" width="318" height="701"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                        <collectionViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" id="wRX-yu-0av">
+                                            <rect key="frame" x="0.0" y="0.0" width="318" height="701"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                            <subviews>
+                                                <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="cardenal-carlos-aguiar-retes" translatesAutoresizingMaskIntoConstraints="NO" id="VnL-Cm-fre">
+                                                    <rect key="frame" x="0.0" y="0.0" width="318" height="701"/>
+                                                    <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                                                </imageView>
+                                                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="GOg-ZN-ELm">
+                                                    <rect key="frame" x="0.0" y="376" width="318" height="388"/>
+                                                    <subviews>
+                                                        <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="10" translatesAutoresizingMaskIntoConstraints="NO" id="1z3-3v-ez2">
+                                                            <rect key="frame" x="9" y="48" width="300" height="134.5"/>
+                                                            <subviews>
+                                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Bienvenido" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="cVK-L8-9HT">
+                                                                    <rect key="frame" x="0.0" y="0.0" width="300" height="29"/>
+                                                                    <fontDescription key="fontDescription" type="boldSystem" pointSize="24"/>
+                                                                    <color key="textColor" name="eMainBlue"/>
+                                                                    <nil key="highlightedColor"/>
+                                                                </label>
+                                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="5" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="VsH-bs-J97">
+                                                                    <rect key="frame" x="0.0" y="39" width="300" height="95.5"/>
+                                                                    <constraints>
+                                                                        <constraint firstAttribute="width" constant="300" id="VEB-bV-jA5"/>
+                                                                    </constraints>
+                                                                    <string key="text">A este espacio de Encuentro de la Arquiócesis de México, donde fieles sacerdotes, religiosos, comunidades en instituciones de inspiración católica tenemos unlugar especial.</string>
+                                                                    <fontDescription key="fontDescription" type="system" pointSize="16"/>
+                                                                    <color key="textColor" name="eBlack"/>
+                                                                    <nil key="highlightedColor"/>
+                                                                </label>
+                                                            </subviews>
+                                                        </stackView>
+                                                        <stackView hidden="YES" opaque="NO" contentMode="scaleToFill" axis="vertical" alignment="top" spacing="5" translatesAutoresizingMaskIntoConstraints="NO" id="Bbi-g1-Vtq">
+                                                            <rect key="frame" x="23" y="207.5" width="272" height="97"/>
+                                                            <subviews>
+                                                                <stackView opaque="NO" contentMode="scaleToFill" distribution="fillProportionally" spacing="8" translatesAutoresizingMaskIntoConstraints="NO" id="aUL-ab-fe9">
+                                                                    <rect key="frame" x="0.0" y="0.0" width="272" height="29"/>
+                                                                    <subviews>
+                                                                        <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="Componente 134 – 25" translatesAutoresizingMaskIntoConstraints="NO" id="2La-DD-OsX">
+                                                                            <rect key="frame" x="0.0" y="0.0" width="14" height="29"/>
+                                                                        </imageView>
+                                                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Ver y editar el perfil con la informaciónde tu iglesia" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Nov-Cp-UVN">
+                                                                            <rect key="frame" x="22" y="0.0" width="250" height="29"/>
+                                                                            <constraints>
+                                                                                <constraint firstAttribute="width" constant="250" id="R8v-oY-yeI"/>
+                                                                            </constraints>
+                                                                            <fontDescription key="fontDescription" type="system" pointSize="12"/>
+                                                                            <color key="textColor" name="eBlack"/>
+                                                                            <nil key="highlightedColor"/>
+                                                                        </label>
+                                                                    </subviews>
+                                                                </stackView>
+                                                                <stackView opaque="NO" contentMode="scaleToFill" distribution="fillProportionally" spacing="8" translatesAutoresizingMaskIntoConstraints="NO" id="AVE-nk-GWm">
+                                                                    <rect key="frame" x="0.0" y="34" width="272" height="29"/>
+                                                                    <subviews>
+                                                                        <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="Componente 134 – 25" translatesAutoresizingMaskIntoConstraints="NO" id="yaR-bd-NEj">
+                                                                            <rect key="frame" x="0.0" y="0.0" width="14" height="29"/>
+                                                                        </imageView>
+                                                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Ver y editar el perfil con la informaciónde tu iglesia" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="3" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Jyl-4N-uwa">
+                                                                            <rect key="frame" x="22" y="0.0" width="250" height="29"/>
+                                                                            <constraints>
+                                                                                <constraint firstAttribute="width" constant="250" id="K5o-Rn-xEk"/>
+                                                                            </constraints>
+                                                                            <fontDescription key="fontDescription" type="system" pointSize="12"/>
+                                                                            <color key="textColor" name="eBlack"/>
+                                                                            <nil key="highlightedColor"/>
+                                                                        </label>
+                                                                    </subviews>
+                                                                </stackView>
+                                                                <stackView opaque="NO" contentMode="scaleToFill" distribution="fillProportionally" spacing="8" translatesAutoresizingMaskIntoConstraints="NO" id="Lbg-hc-7aC">
+                                                                    <rect key="frame" x="0.0" y="68" width="272" height="29"/>
+                                                                    <subviews>
+                                                                        <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="Componente 134 – 25" translatesAutoresizingMaskIntoConstraints="NO" id="rfW-Kb-92H">
+                                                                            <rect key="frame" x="0.0" y="0.0" width="14" height="29"/>
+                                                                        </imageView>
+                                                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Ver y editar el perfil con la informaciónde tu iglesia" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="HWS-C6-vh4">
+                                                                            <rect key="frame" x="22" y="0.0" width="250" height="29"/>
+                                                                            <constraints>
+                                                                                <constraint firstAttribute="width" constant="250" id="VvJ-Yv-ja7"/>
+                                                                            </constraints>
+                                                                            <fontDescription key="fontDescription" type="system" pointSize="12"/>
+                                                                            <color key="textColor" name="eBlack"/>
+                                                                            <nil key="highlightedColor"/>
+                                                                        </label>
+                                                                    </subviews>
+                                                                </stackView>
+                                                            </subviews>
+                                                        </stackView>
+                                                    </subviews>
+                                                    <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                                                    <constraints>
+                                                        <constraint firstItem="1z3-3v-ez2" firstAttribute="centerX" secondItem="GOg-ZN-ELm" secondAttribute="centerX" id="4YG-i5-BXk"/>
+                                                        <constraint firstAttribute="height" constant="388" id="I6t-UU-d8u"/>
+                                                        <constraint firstItem="1z3-3v-ez2" firstAttribute="top" secondItem="GOg-ZN-ELm" secondAttribute="top" constant="48" id="IAe-Wp-6gF"/>
+                                                        <constraint firstItem="Bbi-g1-Vtq" firstAttribute="top" secondItem="1z3-3v-ez2" secondAttribute="bottom" constant="25" id="bVj-Bg-Ww2"/>
+                                                        <constraint firstItem="Bbi-g1-Vtq" firstAttribute="centerX" secondItem="GOg-ZN-ELm" secondAttribute="centerX" id="pv0-IY-HQc"/>
+                                                    </constraints>
+                                                </view>
+                                            </subviews>
+                                            <constraints>
+                                                <constraint firstItem="GOg-ZN-ELm" firstAttribute="leading" secondItem="wRX-yu-0av" secondAttribute="leading" id="CaY-LA-Ffd"/>
+                                                <constraint firstAttribute="bottom" secondItem="GOg-ZN-ELm" secondAttribute="bottom" constant="-63" id="G7t-Gr-Zb6"/>
+                                                <constraint firstAttribute="trailing" secondItem="GOg-ZN-ELm" secondAttribute="trailing" id="RIs-cR-mYD"/>
+                                            </constraints>
+                                        </collectionViewCellContentView>
+                                        <color key="backgroundColor" systemColor="systemPinkColor"/>
+                                        <size key="customSize" width="318" height="701"/>
+                                        <connections>
+                                            <outlet property="backgroundImg" destination="VnL-Cm-fre" id="kMG-Aw-tFu"/>
+                                            <outlet property="halfContentView" destination="GOg-ZN-ELm" id="xu1-JM-fe9"/>
+                                            <outlet property="lblText" destination="VsH-bs-J97" id="q3a-rj-E5O"/>
+                                            <outlet property="lblTitle" destination="cVK-L8-9HT" id="00f-AE-Ibn"/>
+                                            <outlet property="lblViñeta1" destination="Nov-Cp-UVN" id="JFC-Ij-iRN"/>
+                                            <outlet property="lblViñeta2" destination="Jyl-4N-uwa" id="kHX-Ln-RMU"/>
+                                            <outlet property="lblViñeta3" destination="HWS-C6-vh4" id="MrI-ZJ-MhR"/>
+                                            <outlet property="stackViñetas" destination="Bbi-g1-Vtq" id="Hl0-cW-0Id"/>
+                                        </connections>
+                                    </collectionViewCell>
+                                </cells>
+                            </collectionView>
+                            <button hidden="YES" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Szl-d6-aYt">
+                                <rect key="frame" x="292" y="814" width="100" height="30"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="100" id="eYt-Nm-PQ9"/>
+                                </constraints>
+                                <state key="normal" title="Continuar"/>
+                                <connections>
+                                    <action selector="continueAction:" destination="Y6W-OH-hqX" eventType="touchUpInside" id="8ht-24-RdX"/>
+                                </connections>
+                            </button>
+                            <imageView clipsSubviews="YES" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="Grupo 8456" translatesAutoresizingMaskIntoConstraints="NO" id="Xr7-2L-MYk">
+                                <rect key="frame" x="352" y="809" width="40" height="40"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="40" id="TN9-RZ-YsJ"/>
+                                    <constraint firstAttribute="height" constant="40" id="Zj0-cJ-AtA"/>
+                                </constraints>
+                            </imageView>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="NdE-v0-jeN">
+                                <rect key="frame" x="23" y="814" width="100" height="30"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="100" id="mV7-qB-fWS"/>
+                                </constraints>
+                                <state key="normal" title="Omitir"/>
+                                <connections>
+                                    <action selector="skipAction:" destination="Y6W-OH-hqX" eventType="touchUpInside" id="PXk-tY-U7P"/>
+                                </connections>
+                            </button>
+                            <pageControl opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" numberOfPages="3" translatesAutoresizingMaskIntoConstraints="NO" id="PZi-nG-aqT">
+                                <rect key="frame" x="146.5" y="574" width="121.5" height="28"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="28" id="mip-3N-7pT"/>
+                                </constraints>
+                                <color key="pageIndicatorTintColor" name="eLightGray"/>
+                                <color key="currentPageIndicatorTintColor" name="eDarkGold"/>
+                            </pageControl>
+                        </subviews>
+                        <viewLayoutGuide key="safeArea" id="vDu-zF-Fre"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <constraints>
+                            <constraint firstItem="vDu-zF-Fre" firstAttribute="bottom" secondItem="NdE-v0-jeN" secondAttribute="bottom" constant="18" id="3Vu-8F-hhw"/>
+                            <constraint firstItem="ukV-MJ-FTY" firstAttribute="leading" secondItem="vDu-zF-Fre" secondAttribute="leading" id="EsP-Qa-8Wx"/>
+                            <constraint firstItem="vDu-zF-Fre" firstAttribute="bottom" secondItem="Xr7-2L-MYk" secondAttribute="bottom" constant="13" id="Pzm-8p-8YL"/>
+                            <constraint firstItem="PZi-nG-aqT" firstAttribute="centerX" secondItem="5EZ-qb-Rvc" secondAttribute="centerX" id="Tpk-wi-N2X"/>
+                            <constraint firstItem="ukV-MJ-FTY" firstAttribute="top" secondItem="5EZ-qb-Rvc" secondAttribute="top" id="XLV-iO-twO"/>
+                            <constraint firstItem="vDu-zF-Fre" firstAttribute="trailing" secondItem="Xr7-2L-MYk" secondAttribute="trailing" constant="22" id="XgP-Ff-Lby"/>
+                            <constraint firstItem="vDu-zF-Fre" firstAttribute="bottom" secondItem="Szl-d6-aYt" secondAttribute="bottom" constant="18" id="bKe-VW-Py0"/>
+                            <constraint firstItem="ukV-MJ-FTY" firstAttribute="trailing" secondItem="vDu-zF-Fre" secondAttribute="trailing" id="g7U-Ld-4fA"/>
+                            <constraint firstItem="vDu-zF-Fre" firstAttribute="bottom" secondItem="PZi-nG-aqT" secondAttribute="bottom" constant="260" id="jGs-Ga-6zZ"/>
+                            <constraint firstItem="vDu-zF-Fre" firstAttribute="trailing" secondItem="Szl-d6-aYt" secondAttribute="trailing" constant="22" id="sUO-qd-yqW"/>
+                            <constraint firstAttribute="bottom" secondItem="ukV-MJ-FTY" secondAttribute="bottom" id="taJ-vw-GVy"/>
+                            <constraint firstItem="NdE-v0-jeN" firstAttribute="leading" secondItem="vDu-zF-Fre" secondAttribute="leading" constant="23" id="vxB-DU-EWy"/>
+                        </constraints>
+                    </view>
+                    <connections>
+                        <outlet property="btnContinue" destination="Szl-d6-aYt" id="9Fb-mF-yCP"/>
+                        <outlet property="btnSkip" destination="NdE-v0-jeN" id="LmV-Jd-Lv3"/>
+                        <outlet property="goIcon" destination="Xr7-2L-MYk" id="r0r-Ok-970"/>
+                        <outlet property="mainCollectionVewi" destination="ukV-MJ-FTY" id="ssP-ev-ubs"/>
+                        <outlet property="pagerControl" destination="PZi-nG-aqT" id="fvh-pD-Bsx"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="Ief-a0-LHa" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="82.608695652173921" y="18.75"/>
+        </scene>
+    </scenes>
+    <resources>
+        <image name="Componente 134 – 25" width="14" height="14"/>
+        <image name="Grupo 8456" width="40" height="40"/>
+        <image name="cardenal-carlos-aguiar-retes" width="375" height="669"/>
+        <namedColor name="eBlack">
+            <color red="0.12156862745098039" green="0.12156862745098039" blue="0.12156862745098039" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </namedColor>
+        <namedColor name="eDarkGold">
+            <color red="0.67450980392156867" green="0.54509803921568623" blue="0.32941176470588235" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </namedColor>
+        <namedColor name="eLightGray">
+            <color red="0.77647058823529413" green="0.78823529411764703" blue="0.81176470588235294" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </namedColor>
+        <namedColor name="eMainBlue">
+            <color red="0.0039215686274509803" green="0.12549019607843137" blue="0.40784313725490196" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </namedColor>
+        <systemColor name="systemBackgroundColor">
+            <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+        </systemColor>
+        <systemColor name="systemPinkColor">
+            <color red="1" green="0.17647058823529413" blue="0.33333333333333331" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </systemColor>
+    </resources>
+</document>

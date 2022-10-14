@@ -1,0 +1,76 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="18122" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+    <device id="retina6_1" orientation="portrait" appearance="light"/>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="18093"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="System colors in document resources" minToolsVersion="11.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="" id="gTV-IL-0wX" customClass="ButtonCollectionViewCell" customModule="EncuentroCatolicoProfile" customModuleProvider="target">
+            <rect key="frame" x="0.0" y="0.0" width="319" height="48"/>
+            <autoresizingMask key="autoresizingMask"/>
+            <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center">
+                <rect key="frame" x="0.0" y="0.0" width="319" height="48"/>
+                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                <subviews>
+                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="ePg-Kb-xLV">
+                        <rect key="frame" x="0.0" y="0.0" width="319" height="48"/>
+                        <subviews>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Ajustes de notificaciones" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ZFg-Dd-wKm">
+                                <rect key="frame" x="13" y="14" width="182" height="20"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="16"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="l80-mc-Xgu">
+                                <rect key="frame" x="289.5" y="13" width="11.5" height="22"/>
+                                <state key="normal" image="iconoAtrS"/>
+                                <connections>
+                                    <action selector="nextButton:" destination="gTV-IL-0wX" eventType="touchUpInside" id="DZM-gI-hhe"/>
+                                </connections>
+                            </button>
+                        </subviews>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <constraints>
+                            <constraint firstAttribute="trailing" secondItem="l80-mc-Xgu" secondAttribute="trailing" constant="18" id="0IF-z0-eh4"/>
+                            <constraint firstItem="l80-mc-Xgu" firstAttribute="top" secondItem="ePg-Kb-xLV" secondAttribute="top" constant="13" id="7g0-oQ-rfk"/>
+                            <constraint firstItem="ZFg-Dd-wKm" firstAttribute="leading" secondItem="ePg-Kb-xLV" secondAttribute="leading" constant="13" id="7se-ft-Haq"/>
+                            <constraint firstAttribute="height" constant="48" id="DvI-0x-UpO"/>
+                            <constraint firstAttribute="bottom" secondItem="l80-mc-Xgu" secondAttribute="bottom" constant="13" id="UvH-rP-2uI"/>
+                            <constraint firstAttribute="bottom" secondItem="ZFg-Dd-wKm" secondAttribute="bottom" constant="14" id="mGL-S1-mnH"/>
+                            <constraint firstItem="ZFg-Dd-wKm" firstAttribute="top" secondItem="ePg-Kb-xLV" secondAttribute="top" constant="14" id="tAL-nA-MqS"/>
+                            <constraint firstAttribute="width" constant="319" id="zUC-lg-dDb"/>
+                        </constraints>
+                        <userDefinedRuntimeAttributes>
+                            <userDefinedRuntimeAttribute type="boolean" keyPath="shadow" value="NO"/>
+                        </userDefinedRuntimeAttributes>
+                    </view>
+                </subviews>
+            </view>
+            <viewLayoutGuide key="safeArea" id="ZTg-uK-7eu"/>
+            <constraints>
+                <constraint firstAttribute="trailing" secondItem="ePg-Kb-xLV" secondAttribute="trailing" id="0Oj-8G-JhY"/>
+                <constraint firstAttribute="bottom" secondItem="ePg-Kb-xLV" secondAttribute="bottom" id="Sj2-6n-v3R"/>
+                <constraint firstItem="ePg-Kb-xLV" firstAttribute="top" secondItem="gTV-IL-0wX" secondAttribute="top" id="b86-BS-bRa"/>
+                <constraint firstItem="ePg-Kb-xLV" firstAttribute="leading" secondItem="gTV-IL-0wX" secondAttribute="leading" id="vfI-R9-AIH"/>
+            </constraints>
+            <size key="customSize" width="318" height="48"/>
+            <connections>
+                <outlet property="collectionText" destination="ZFg-Dd-wKm" id="iRA-9X-7nH"/>
+                <outlet property="viewButton" destination="ePg-Kb-xLV" id="Met-ko-Uwy"/>
+            </connections>
+            <point key="canvasLocation" x="205.79710144927537" y="100.44642857142857"/>
+        </collectionViewCell>
+    </objects>
+    <resources>
+        <image name="iconoAtrS" width="11.5" height="18"/>
+        <systemColor name="systemBackgroundColor">
+            <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+        </systemColor>
+    </resources>
+</document>

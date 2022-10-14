@@ -1,0 +1,92 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="19162" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+    <device id="retina6_1" orientation="portrait" appearance="light"/>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="19144"/>
+        <capability name="Named colors" minToolsVersion="9.0"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" id="gTV-IL-0wX" customClass="FavouriteChurchHeaderCollectionViewCell" customModule="EncuentroCatolicoChurch" customModuleProvider="target">
+            <rect key="frame" x="0.0" y="0.0" width="442" height="50"/>
+            <autoresizingMask key="autoresizingMask"/>
+            <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center">
+                <rect key="frame" x="0.0" y="0.0" width="442" height="50"/>
+                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                <subviews>
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Mis Iglesias favoritas" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="5s3-mu-rHS">
+                        <rect key="frame" x="20" y="15.5" width="282" height="19.5"/>
+                        <fontDescription key="fontDescription" type="boldSystem" pointSize="16"/>
+                        <color key="textColor" name="eMainBlue"/>
+                        <nil key="highlightedColor"/>
+                    </label>
+                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Pvk-rr-zTR">
+                        <rect key="frame" x="322" y="0.0" width="100" height="50"/>
+                        <subviews>
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="plus-blue" translatesAutoresizingMaskIntoConstraints="NO" id="mwJ-DP-dgi">
+                                <rect key="frame" x="0.0" y="12.5" width="25" height="25"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="25" id="5Dx-Va-bbO"/>
+                                    <constraint firstAttribute="width" constant="25" id="Wbk-zF-h7s"/>
+                                </constraints>
+                            </imageView>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Agregar" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="3Tt-Ok-ehI">
+                                <rect key="frame" x="35" y="15.5" width="65" height="19.5"/>
+                                <fontDescription key="fontDescription" type="boldSystem" pointSize="16"/>
+                                <color key="textColor" name="AccentColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="0ap-up-sCb">
+                                <rect key="frame" x="0.0" y="0.0" width="100" height="50"/>
+                                <connections>
+                                    <action selector="addChurchAction:" destination="gTV-IL-0wX" eventType="touchUpInside" id="ZyC-hV-qZl"/>
+                                </connections>
+                            </button>
+                        </subviews>
+                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <constraints>
+                            <constraint firstAttribute="width" constant="100" id="1BV-9n-64v"/>
+                            <constraint firstItem="3Tt-Ok-ehI" firstAttribute="centerY" secondItem="mwJ-DP-dgi" secondAttribute="centerY" id="7A4-IH-IOh"/>
+                            <constraint firstItem="3Tt-Ok-ehI" firstAttribute="leading" secondItem="mwJ-DP-dgi" secondAttribute="trailing" constant="10" id="9g1-ia-rFG"/>
+                            <constraint firstAttribute="bottom" secondItem="0ap-up-sCb" secondAttribute="bottom" id="JsV-Pq-tXL"/>
+                            <constraint firstItem="mwJ-DP-dgi" firstAttribute="leading" secondItem="Pvk-rr-zTR" secondAttribute="leading" id="aIO-1i-HGq"/>
+                            <constraint firstAttribute="trailing" secondItem="0ap-up-sCb" secondAttribute="trailing" id="gWC-gN-Lsx"/>
+                            <constraint firstItem="0ap-up-sCb" firstAttribute="top" secondItem="Pvk-rr-zTR" secondAttribute="top" id="iLg-DY-dZv"/>
+                            <constraint firstItem="0ap-up-sCb" firstAttribute="leading" secondItem="Pvk-rr-zTR" secondAttribute="leading" id="kog-DI-PbP"/>
+                            <constraint firstItem="mwJ-DP-dgi" firstAttribute="centerY" secondItem="Pvk-rr-zTR" secondAttribute="centerY" id="ozJ-ue-RKQ"/>
+                            <constraint firstAttribute="trailing" secondItem="3Tt-Ok-ehI" secondAttribute="trailing" id="vB6-Vv-jW9"/>
+                        </constraints>
+                    </view>
+                </subviews>
+            </view>
+            <viewLayoutGuide key="safeArea" id="ZTg-uK-7eu"/>
+            <constraints>
+                <constraint firstAttribute="trailing" secondItem="Pvk-rr-zTR" secondAttribute="trailing" constant="20" id="2Eh-pK-5b4"/>
+                <constraint firstItem="5s3-mu-rHS" firstAttribute="leading" secondItem="gTV-IL-0wX" secondAttribute="leading" constant="20" id="ArS-zV-dno"/>
+                <constraint firstItem="Pvk-rr-zTR" firstAttribute="leading" secondItem="5s3-mu-rHS" secondAttribute="trailing" constant="20" id="Qsz-2V-j0b"/>
+                <constraint firstItem="Pvk-rr-zTR" firstAttribute="centerY" secondItem="5s3-mu-rHS" secondAttribute="centerY" id="exh-Ch-PSm"/>
+                <constraint firstItem="5s3-mu-rHS" firstAttribute="centerY" secondItem="gTV-IL-0wX" secondAttribute="centerY" id="g3g-Fv-aBB"/>
+                <constraint firstItem="Pvk-rr-zTR" firstAttribute="height" secondItem="gTV-IL-0wX" secondAttribute="height" id="lu1-mb-5l9"/>
+            </constraints>
+            <size key="customSize" width="442" height="50"/>
+            <connections>
+                <outlet property="addChourcButton" destination="0ap-up-sCb" id="w4J-PC-mSZ"/>
+                <outlet property="addChurchView" destination="Pvk-rr-zTR" id="DQZ-Ql-Urf"/>
+            </connections>
+            <point key="canvasLocation" x="218.84057971014494" y="49.553571428571423"/>
+        </collectionViewCell>
+    </objects>
+    <resources>
+        <image name="plus-blue" width="30" height="30"/>
+        <namedColor name="AccentColor">
+            <color red="0.0" green="0.46000000000000002" blue="0.89000000000000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </namedColor>
+        <namedColor name="eMainBlue">
+            <color red="0.0039215686274509803" green="0.12549019607843137" blue="0.40784313725490196" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </namedColor>
+    </resources>
+</document>
