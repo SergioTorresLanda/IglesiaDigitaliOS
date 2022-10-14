@@ -49,7 +49,7 @@ public class APIType {
     func SN()-> String{
         
         if staged == "Qa" {
-             API = "https://api.qa-iglesia-digital.com/arquidiocesis/red-social/v1"
+            API = "https://l67w9jsvo4.execute-api.us-east-1.amazonaws.com/v1"
         }else if staged == "Prod" {
             API = "https://os4jfceox2.execute-api.us-east-1.amazonaws.com/v1"
         }else {
