@@ -79,6 +79,7 @@ public class APIType {
            guard let httpBody = try? JSONSerialization.data(withJSONObject: parameterDictionary, options: []) else {
                return
            }
+        
            request.httpBody = httpBody
            
            let session = URLSession.shared

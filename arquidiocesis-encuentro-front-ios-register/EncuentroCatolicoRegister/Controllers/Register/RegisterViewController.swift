@@ -30,7 +30,7 @@ public extension String{
 }
 class RegisterViewController: BaseVC, UITextFieldDelegate {
     
-    @IBOutlet weak var birthdayText: DatePickerTextField!
+    @IBOutlet weak var birthdayText: UITextField!
     @IBOutlet weak var txtNombre: UITextField!
     @IBOutlet weak var txtApellido1: UITextField!
     @IBOutlet weak var txtApellido2: UITextField!
@@ -42,10 +42,8 @@ class RegisterViewController: BaseVC, UITextFieldDelegate {
     @IBOutlet weak var scroll: UIScrollView!
     @IBOutlet weak var brnContinuar: UIButton!
     @IBOutlet weak var loader: UIActivityIndicatorView!
-    
     @IBOutlet weak var correcto1: UIImageView!
     @IBOutlet weak var correcto2: UIImageView!
-    
     @IBOutlet var codeButton: UIButton!
     @IBOutlet var privacyButton: UIButton!
     @IBOutlet var termConditionsButton: UIButton!
@@ -54,11 +52,11 @@ class RegisterViewController: BaseVC, UITextFieldDelegate {
     var usuario: UserRegister?
     var celNumber: String = ""
     var evaluationStatus = false
-    
+    let datePicker = UIDatePicker()
     // MARK: Lifecycle
     override func viewDidLoad() {
         super.viewDidLoad()
-        
+        showDatePicker()
         setupDelegates()
         let codeButtonText = "Código de ética".underlineDecorative(font: UIFont.systemFont(ofSize: 11))
         let privacyButtonText = "Política de Privacidad.".underlineDecorative(font: UIFont.systemFont(ofSize: 11))
@@ -78,7 +76,6 @@ class RegisterViewController: BaseVC, UITextFieldDelegate {
         let tap = UITapGestureRecognizer(target: self, action: #selector(hideKeyBoard))
         view.addGestureRecognizer(tap)
         loader.isHidden = true
-        birthdayText.initialize()
         txtContra1.addTarget(self, action: #selector(textFieldDidChangeContra(textField:)), for: .editingChanged)
         txtContra2.addTarget(self, action: #selector(textFieldDidChangeContra2(textField:)), for: .editingChanged)
         txtNombre.addTarget(self, action: #selector(salta(sender:)), for: .editingDidEndOnExit)
@@ -129,12 +126,6 @@ class RegisterViewController: BaseVC, UITextFieldDelegate {
         
         return  returnValue
     }
-    
-//    func textField(_ textField: UITextField, shouldChangeCharactersIn range: NSRange, replacementString string: String) -> Bool {
-//        let allowedCharacters = CharacterSet(charactersIn: "1234567890")
-//        let characterSet = CharacterSet(charactersIn: string)
-//        return allowedCharacters.isSuperset(of: characterSet)
-//    }
     
     @objc private func salta(sender: UITextField) {
         let nextField = sender.superview?.viewWithTag(sender.tag + 1)
@@ -188,24 +179,17 @@ class RegisterViewController: BaseVC, UITextFieldDelegate {
     @objc private func hideKeyBoard() {
         presenter?.hideKeyBoard(view: view)
     }
+    
+    
     // MARK: Actions
     @IBAction func crearAction(_ sender: Any) {
         brnContinuar.isEnabled = false
         loader.isHidden = false
         loader.startAnimating()
         
-        var birthDate: Date!
-        var birthDateFormat: String!
-        if birthdayText.selectedDate != Date(){
-            birthDate = birthdayText.selectedDate
-            let dateFormatter = DateFormatter()
-            dateFormatter.dateFormat = "dd/MM/yyyy"
-            let dateString = dateFormatter.string(from: birthDate)
-            birthDateFormat = dateString
-        }
-        if isValidPassword(pass: txtContra1.text ?? "") && isValidPassword(pass: txtContra2.text ?? "") && isValidEmail(email: txtEmail.text ?? "") && txtCelular.text?.count == 10 && isValidDate(date: birthDate){
+        if isValidPassword(pass: txtContra1.text ?? "") && isValidPassword(pass: txtContra2.text ?? "") && isValidEmail(email: txtEmail.text ?? "") && txtCelular.text?.count == 10{
             if evaluationStatus == true {
-                presenter?.continuar(nombre: txtNombre.text ?? "", apellido1: txtApellido1.text ?? "", apellido2: txtApellido2.text ?? "", cel: txtCelular.text ?? "", email: txtEmail.text ?? "", contra1: txtContra1.text ?? "", contra2: txtContra2.text ?? "", birthDate: birthDateFormat)
+                presenter?.continuar(nombre: txtNombre.text ?? "", apellido1: txtApellido1.text ?? "", apellido2: txtApellido2.text ?? "", cel: txtCelular.text ?? "", email: txtEmail.text ?? "", contra1: txtContra1.text ?? "", contra2: txtContra2.text ?? "", birthDate: birthdayText.text ?? "")
             }else {
                 let alert = UIAlertController(title: "Alerta", message: "Verifica tu correo, formato de correo incorrecto", preferredStyle: .alert)
                 alert.addAction(UIAlertAction(title: "Aceptar", style: .default, handler: nil))
@@ -222,8 +206,34 @@ class RegisterViewController: BaseVC, UITextFieldDelegate {
             loader.isHidden = true
             loader.stopAnimating()
         }
-    }
     
+    }
+    func showDatePicker(){
+        datePicker.datePickerMode = .date
+        datePicker.maximumDate = Calendar.current.date(byAdding: .year, value: -8, to: Date())
+        if #available(iOS 13.4, *) {
+            datePicker.preferredDatePickerStyle = .wheels
+        } else {
+            // Fallback on earlier versions
+            print("Version anterior")
+        }
+        let toolbar = UIToolbar();
+        toolbar.sizeToFit()
+        
+        let doneButton = UIBarButtonItem(title: "OK", style: .plain, target: self, action: #selector(donedatePicker));
+        toolbar.setItems([ UIBarButtonItem(barButtonSystemItem: UIBarButtonItem.SystemItem.flexibleSpace, target: self, action: nil), doneButton], animated: false)
+        
+        birthdayText.inputAccessoryView = toolbar
+        birthdayText.inputView = datePicker
+    }
+    @objc func donedatePicker(){
+        let formatter = DateFormatter()
+        formatter.dateFormat = "dd/MM/yyyy" //"yyyy/MM/dd"
+        let fecha = formatter.string(from: datePicker.date)
+        birthdayText.text = fecha //vFecha
+        
+        self.view.endEditing(true)
+    }
     @IBAction func termButton(_ sender: Any) {
         guard let url = URL(string: "https://arquidiocesismexico.org.mx/aviso-de-privacidad/") else { return }
         UIApplication.shared.open(url)

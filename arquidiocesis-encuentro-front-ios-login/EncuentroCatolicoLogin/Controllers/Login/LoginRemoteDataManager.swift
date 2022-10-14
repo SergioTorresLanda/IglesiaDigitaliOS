@@ -28,8 +28,9 @@ class LoginRemoteDataManager:LoginRemoteDataManagerInputProtocol {
         }
         
         request.httpBody = cuerpo
+        
         print("🚧  -->>  user login: ", user)
-        print("🚧  -->>  request login: ", request)
+        print("🚧  -->>  endpoint login: ", endpoint)
         print("❌  -->>  cuerpo login: ", cuerpo)
 
         let tarea = URLSession.shared.dataTask(with: request) { data, response, error in

@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		2DECD15428F9EA16006AEBA8 /* DatePickerTextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2DECD15328F9EA16006AEBA8 /* DatePickerTextField.swift */; };
 		36BAB02D263DDCE70056274B /* ConfirmPhoneViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 36BAB02B263DDCE70056274B /* ConfirmPhoneViewController.swift */; };
 		36BAB02E263DDCE70056274B /* ConfirmPhoneViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 36BAB02C263DDCE70056274B /* ConfirmPhoneViewController.xib */; };
 		36F38D66260D70C300EFDB24 /* RegisterViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 36F38D64260D70C300EFDB24 /* RegisterViewController.swift */; };
@@ -31,10 +32,10 @@
 		AA22ADBB25EEFA8E00440C17 /* EncuentroCatolicoHome.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = AA22ADBA25EEFA8E00440C17 /* EncuentroCatolicoHome.framework */; };
 		AA9FFB6F25E9D65700AC70ED /* ConfimEntity.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA9FFB6E25E9D65700AC70ED /* ConfimEntity.swift */; };
 		ABF3433106FFF8D74C5A84E6 /* Pods_EncuentroCatolicoRegister.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9EB8BBE10622BC5C75B6009E /* Pods_EncuentroCatolicoRegister.framework */; };
-		D0E26FEB26333E950055765D /* DatePickerTextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = D0E26FEA26333E950055765D /* DatePickerTextField.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		2DECD15328F9EA16006AEBA8 /* DatePickerTextField.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DatePickerTextField.swift; sourceTree = "<group>"; };
 		36BAB02B263DDCE70056274B /* ConfirmPhoneViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ConfirmPhoneViewController.swift; sourceTree = "<group>"; };
 		36BAB02C263DDCE70056274B /* ConfirmPhoneViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ConfirmPhoneViewController.xib; sourceTree = "<group>"; };
 		36F38D64260D70C300EFDB24 /* RegisterViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegisterViewController.swift; sourceTree = "<group>"; };
@@ -64,7 +65,6 @@
 		AA05849C25E6F503001408E9 /* RegisterWireFrame.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegisterWireFrame.swift; sourceTree = "<group>"; };
 		AA22ADBA25EEFA8E00440C17 /* EncuentroCatolicoHome.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = EncuentroCatolicoHome.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		AA9FFB6E25E9D65700AC70ED /* ConfimEntity.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ConfimEntity.swift; sourceTree = "<group>"; };
-		D0E26FEA26333E950055765D /* DatePickerTextField.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DatePickerTextField.swift; sourceTree = "<group>"; };
 		F3B731A3733B487DA4B81CA4 /* Pods-EncuentroCatolicoRegister.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-EncuentroCatolicoRegister.debug.xcconfig"; path = "Target Support Files/Pods-EncuentroCatolicoRegister/Pods-EncuentroCatolicoRegister.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -160,19 +160,11 @@
 				D0E26FE926333E7C0055765D /* Misc */,
 				AA05847D25E6E6AD001408E9 /* Resources */,
 				980E98E025E48579002C766D /* Delegates */,
-				98E6E91025CC73CD00C730D1 /* Views */,
 				980E98E425E48779002C766D /* Controllers */,
 				98E6E8EB25CC705C00C730D1 /* EncuentroCatolicoRegister.h */,
 				98E6E8EC25CC705C00C730D1 /* Info.plist */,
 			);
 			path = EncuentroCatolicoRegister;
-			sourceTree = "<group>";
-		};
-		98E6E91025CC73CD00C730D1 /* Views */ = {
-			isa = PBXGroup;
-			children = (
-			);
-			path = Views;
 			sourceTree = "<group>";
 		};
 		AA05847D25E6E6AD001408E9 /* Resources */ = {
@@ -201,9 +193,9 @@
 		D0E26FE926333E7C0055765D /* Misc */ = {
 			isa = PBXGroup;
 			children = (
+				2DECD15328F9EA16006AEBA8 /* DatePickerTextField.swift */,
 				6D1B8A6428F9738900BE1BAF /* BaseVC.swift */,
 				6DE2E36C279B6FAC000ED1F0 /* APIType.swift */,
-				D0E26FEA26333E950055765D /* DatePickerTextField.swift */,
 			);
 			path = Misc;
 			sourceTree = "<group>";
@@ -321,10 +313,10 @@
 				AA05848D25E6EC45001408E9 /* ConfirmPhoneProtocols.swift in Sources */,
 				980E98E225E48596002C766D /* ActionSuccessLoginDelegate.swift in Sources */,
 				AA9FFB6F25E9D65700AC70ED /* ConfimEntity.swift in Sources */,
+				2DECD15428F9EA16006AEBA8 /* DatePickerTextField.swift in Sources */,
 				AA0584A025E6F503001408E9 /* RegisterInteractor.swift in Sources */,
 				AA05849025E6EC45001408E9 /* ConfirmPhoneRemoteDataManager.swift in Sources */,
 				36F38D66260D70C300EFDB24 /* RegisterViewController.swift in Sources */,
-				D0E26FEB26333E950055765D /* DatePickerTextField.swift in Sources */,
 				36BAB02D263DDCE70056274B /* ConfirmPhoneViewController.swift in Sources */,
 				AA05849D25E6F503001408E9 /* RegisterPresenter.swift in Sources */,
 				AA05848B25E6EC45001408E9 /* ConfirmPhonePresenter.swift in Sources */,

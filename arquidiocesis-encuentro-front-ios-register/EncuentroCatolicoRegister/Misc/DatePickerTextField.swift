@@ -27,7 +27,7 @@ class DatePickerTextField: UITextField {
     
     var minDate: Date?
     var maxDate: Date?
-    var minAge: Int = 0
+    var minAge: Int = 8
     var maxAge: Int = 100
     var completion: (() -> Void)? = {}
     var selectedDate: Date = Date()
