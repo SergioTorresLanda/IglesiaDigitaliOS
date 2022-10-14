@@ -171,6 +171,7 @@ class ChurchDetailViewController: BaseViewController {
     @IBOutlet weak var hServices: NSLayoutConstraint!
     @IBOutlet weak var hMasses: NSLayoutConstraint!
     @IBOutlet weak var hSocial: NSLayoutConstraint!
+    @IBOutlet weak var lblRedesSociales: UILabel!
     
     var church: ChurchDetail?
     var churchId: Int?
@@ -1096,9 +1097,9 @@ class ChurchDetailViewController: BaseViewController {
         let df = DateFormatter()
         
         df.dateFormat = dateFormat
-        let dateWithTime = df.date(from: timeAgo)
+        guard let dateWithTime = df.date(from: timeAgo) else {return ""}
         
-        let interval = Calendar.current.dateComponents([.year, .month, .day, .hour, .minute, .second], from: dateWithTime!, to: Date())
+        let interval = Calendar.current.dateComponents([.year, .month, .day, .hour, .minute, .second], from: dateWithTime, to: Date())
         
         if let year = interval.year, year > 0 {
             return year == 1 ? "hace \(year)" + " " + " año" : "hace \(year)" + " " + "años"
@@ -1269,7 +1270,18 @@ extension ChurchDetailViewController: UITableViewDelegate, UITableViewDataSource
         
         switch tableView {
         case socialTableView:
+            
             countTable = social.count
+            
+            if addSocialButton.isHidden {
+                
+                if !(social.count > 0 ) {
+                    
+                    self.lblRedesSociales.isHidden = true
+                    self.hSocial.constant = 0
+                    self.view.layoutIfNeeded()
+                }
+            }
             
         case commentsTable:
             countTable = commentList.count
@@ -1308,7 +1320,7 @@ extension ChurchDetailViewController: UITableViewDelegate, UITableViewDataSource
             cell.deleteButton.tag = indexPath.row
             cell.deleteButton.addTarget(self, action: #selector(deleteSocial), for: .touchUpInside)
             hSocial.constant = cell.frame.height * CGFloat(social.count)
-            
+            self.view.layoutIfNeeded()
             return cell
             
         default:

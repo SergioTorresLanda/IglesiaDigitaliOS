@@ -164,12 +164,8 @@ extension HomeViewController: UICollectionViewDelegate {
             self.navigationController?.pushViewController(view, animated: true)
             
         case 4:
-            if #available(iOS 13.0, *) {
-                let view = OracionesRouter.getController()
-                self.navigationController?.pushViewController(view, animated: true)
-            } else {
-                // Fallback on earlier versions
-            }
+            let view = OracionesRouter.getController()
+            self.navigationController?.pushViewController(view, animated: true)
         case 5:
             DispatchQueue.main.async {
                 let view = FirstMan_Route.createView(navigation: self.navigationController!)

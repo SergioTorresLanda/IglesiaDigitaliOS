@@ -136,7 +136,6 @@ class OracionesDetailViewController: UIViewController {
     
     @objc func tapBackAction() {
         self.navigationController?.popViewController(animated: true)
-        self.dismiss(animated: false, completion: nil)
     }
     
 }

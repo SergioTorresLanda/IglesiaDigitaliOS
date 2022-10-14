@@ -357,9 +357,9 @@ class CommentsViewController: UIViewController, CommentsViewProtocol {
         let df = DateFormatter()
         
         df.dateFormat = dateFormat
-        let dateWithTime = df.date(from: timeAgo)
+        guard let dateWithTime = df.date(from: timeAgo) else {return ""}
         
-        let interval = Calendar.current.dateComponents([.year, .month, .day, .hour, .minute, .second], from: dateWithTime!, to: Date())
+        let interval = Calendar.current.dateComponents([.year, .month, .day, .hour, .minute, .second], from: dateWithTime, to: Date())
         
         if let year = interval.year, year > 0 {
             return year == 1 ? "hace \(year)" + " " + " año" : "hace \(year)" + " " + "años"
