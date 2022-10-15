@@ -9,14 +9,22 @@
 import Foundation
 import Firebase
 
-
 public class FirebaseManager {
     
     //MARK: - Properties
     public static let shared = FirebaseManager()
 }
 
-
+//MARK: - Generic
+extension FirebaseManager {
+    var defaultInstance: FirebaseApp? {
+        return FirebaseApp.app()
+    }
+    
+    public func getGenricAppFirebaseInstance() -> FirebaseOptions {
+        return FirebaseInstanceHelper.genericAppCreateInstace()
+    }
+}
 
 //MARK: SocialNetwork
 extension FirebaseManager {
@@ -30,4 +38,3 @@ extension FirebaseManager {
         return FirebaseInstanceHelper.getSNFirebaseInstance()
     }
 }
-

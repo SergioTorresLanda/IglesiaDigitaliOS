@@ -24,16 +24,21 @@ class AppDelegate: UIResponder, UIApplicationDelegate, UNUserNotificationCenterD
         
         UNUserNotificationCenter.current().delegate = self
         
-        FirebaseApp.configure()
         UserDefaults.standard.set("Prod", forKey: "stage")
         let pushManager = PushNotificationManager(userID: "currently_logged_in_user_id")
         pushManager.registerForPN()
         pushManager.postAction()
+
+        let firebaseOptions = FirebaseManager.shared.getGenricAppFirebaseInstance()
+        FirebaseApp.configure(options: firebaseOptions)
+        
         FirebaseManager.shared.initSNFirebaseInstance()
+        
         IQKeyboardManager.shared.enable = true
         IQKeyboardManager.shared.enableAutoToolbar = false
         IQKeyboardManager.shared.shouldShowToolbarPlaceholder = false
         IQKeyboardManager.shared.keyboardDistanceFromTextField = 50.0
+        
         window = UIWindow(frame: UIScreen.main.bounds)
         window?.backgroundColor = .white
         openLogin()
@@ -42,12 +47,21 @@ class AppDelegate: UIResponder, UIApplicationDelegate, UNUserNotificationCenterD
         
     }
     
-    func openLogin(){
-        let initView = LoginRouter.createModule()
+    func openLogin() {
+        if RemoteValues.sharedInstance.fetchComplete {
+            openLoginForReal()
+        }
+
+        RemoteValues.sharedInstance.loadingDoneCallback = openLoginForReal
+    }
+    
+    func openLoginForReal() {
+        let version = RemoteValues.sharedInstance.double(forKey: .version_ios)
+        let forceUpdate = RemoteValues.sharedInstance.bool(forKey: .force_update_ios)
+        let initView = LoginRouter.createModule(forceUpdate: forceUpdate)
         navigationController = UINavigationController(rootViewController: initView)
         navigationController?.isNavigationBarHidden = true
         window?.rootViewController = navigationController
         window?.makeKeyAndVisible()
     }
 }
-
