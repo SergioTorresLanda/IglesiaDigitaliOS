@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="19529" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="4o2-ys-hdm">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="20037" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="4o2-ys-hdm">
     <device id="retina6_0" orientation="portrait" appearance="light"/>
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="19519"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="20020"/>
         <capability name="Named colors" minToolsVersion="9.0"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="System colors in document resources" minToolsVersion="11.0"/>
@@ -62,28 +62,28 @@
                                 <rect key="frame" x="0.0" y="109" width="390" height="701"/>
                                 <subviews>
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="eP7-gC-666">
-                                        <rect key="frame" x="0.0" y="0.0" width="390" height="908"/>
+                                        <rect key="frame" x="0.0" y="0.0" width="390" height="911.33333333333337"/>
                                         <subviews>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Registro de Sacerdotes" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Hc4-nq-NX0">
-                                                <rect key="frame" x="16" y="28" width="358" height="21"/>
+                                                <rect key="frame" x="16" y="28" width="358" height="21.333333333333329"/>
                                                 <fontDescription key="fontDescription" name="Roboto-Bold" family="Roboto" pointSize="18"/>
                                                 <color key="textColor" name="eMainBlue"/>
                                                 <nil key="highlightedColor"/>
                                             </label>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Vamos a confirmar algunos datos para darte de alta como                     sacerdote dentro de la app Encuentro." lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="kE9-CF-zOG">
-                                                <rect key="frame" x="16" y="65" width="358" height="28"/>
+                                                <rect key="frame" x="16" y="65.333333333333343" width="358" height="28.333333333333329"/>
                                                 <fontDescription key="fontDescription" name="Roboto-Regular" family="Roboto" pointSize="12"/>
                                                 <color key="textColor" name="eLightPinkishGray"/>
                                                 <nil key="highlightedColor"/>
                                             </label>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Datos Generales" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="e4F-Zm-yEk">
-                                                <rect key="frame" x="16" y="109" width="358" height="18.666666666666671"/>
+                                                <rect key="frame" x="16" y="109.66666666666666" width="358" height="19"/>
                                                 <fontDescription key="fontDescription" name="Roboto-Medium" family="Roboto" pointSize="16"/>
                                                 <color key="textColor" name="eMainBlue"/>
                                                 <nil key="highlightedColor"/>
                                             </label>
                                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="5" translatesAutoresizingMaskIntoConstraints="NO" id="Z0Z-By-fKS">
-                                                <rect key="frame" x="16" y="133.66666666666666" width="358" height="40"/>
+                                                <rect key="frame" x="16" y="134.66666666666666" width="358" height="40"/>
                                                 <subviews>
                                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="zOQ-Fy-F5Q">
                                                         <rect key="frame" x="0.0" y="0.0" width="358" height="40"/>
@@ -125,7 +125,7 @@
                                                 </subviews>
                                             </stackView>
                                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="5" translatesAutoresizingMaskIntoConstraints="NO" id="QRF-Tg-1HN">
-                                                <rect key="frame" x="16" y="184.66666666666669" width="358" height="40"/>
+                                                <rect key="frame" x="16" y="185.66666666666669" width="358" height="40"/>
                                                 <subviews>
                                                     <stackView opaque="NO" contentMode="scaleToFill" spacing="5" translatesAutoresizingMaskIntoConstraints="NO" id="9me-b7-h02">
                                                         <rect key="frame" x="0.0" y="0.0" width="358" height="40"/>
@@ -198,14 +198,14 @@
                                                 </subviews>
                                             </stackView>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="C7d-b6-onm">
-                                                <rect key="frame" x="16" y="235.66666666666669" width="358" height="23.333333333333314"/>
+                                                <rect key="frame" x="16" y="236.66666666666669" width="358" height="23.666666666666686"/>
                                                 <string key="text">Descríbete en pocas palabras. ¿Qué te gustaría que las personas conozcan de tí? Años de sacerdocio, una frase que te inspire, etc.</string>
                                                 <fontDescription key="fontDescription" name="Roboto-Regular" family="Roboto" pointSize="10"/>
                                                 <color key="textColor" name="eLightPinkishGray"/>
                                                 <nil key="highlightedColor"/>
                                             </label>
                                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="5" translatesAutoresizingMaskIntoConstraints="NO" id="hzx-wo-qnb">
-                                                <rect key="frame" x="16" y="275" width="358" height="40"/>
+                                                <rect key="frame" x="16" y="276.33333333333331" width="358" height="40"/>
                                                 <subviews>
                                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Dyv-fl-XLS">
                                                         <rect key="frame" x="0.0" y="0.0" width="358" height="40"/>
@@ -241,19 +241,19 @@
                                                 </subviews>
                                             </stackView>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Fecha de nacimiento" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="nGq-0p-U3W">
-                                                <rect key="frame" x="16" y="343" width="149.66666666666666" height="18.666666666666686"/>
+                                                <rect key="frame" x="16" y="344.33333333333331" width="148.66666666666666" height="19"/>
                                                 <fontDescription key="fontDescription" name="Roboto-Medium" family="Roboto" pointSize="16"/>
                                                 <color key="textColor" name="eMainBlue"/>
                                                 <nil key="highlightedColor"/>
                                             </label>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Fecha de ordenación" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="gco-Lz-Lgi">
-                                                <rect key="frame" x="223" y="343" width="151" height="18.666666666666686"/>
+                                                <rect key="frame" x="225" y="344.33333333333331" width="149" height="19"/>
                                                 <fontDescription key="fontDescription" name="Roboto-Medium" family="Roboto" pointSize="16"/>
                                                 <color key="textColor" name="eMainBlue"/>
                                                 <nil key="highlightedColor"/>
                                             </label>
                                             <stackView opaque="NO" contentMode="scaleToFill" spacing="10" translatesAutoresizingMaskIntoConstraints="NO" id="D8H-K7-vAC">
-                                                <rect key="frame" x="16" y="364.33333333333331" width="159" height="40"/>
+                                                <rect key="frame" x="16" y="366" width="159" height="40"/>
                                                 <subviews>
                                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="iU8-Jw-wKm">
                                                         <rect key="frame" x="0.0" y="0.0" width="119" height="40"/>
@@ -286,7 +286,7 @@
                                                 </subviews>
                                             </stackView>
                                             <stackView opaque="NO" contentMode="scaleToFill" spacing="10" translatesAutoresizingMaskIntoConstraints="NO" id="pBM-SK-fjf">
-                                                <rect key="frame" x="215" y="364.33333333333331" width="159" height="40"/>
+                                                <rect key="frame" x="215" y="366" width="159" height="40"/>
                                                 <subviews>
                                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="ud0-Px-rmY">
                                                         <rect key="frame" x="0.0" y="0.0" width="119" height="40"/>
@@ -319,19 +319,19 @@
                                                 </subviews>
                                             </stackView>
                                             <label hidden="YES" opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Fecha(s) invalidas*" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="mdw-m3-sBu">
-                                                <rect key="frame" x="16" y="412.33333333333337" width="358" height="14"/>
+                                                <rect key="frame" x="16" y="414" width="358" height="14.333333333333314"/>
                                                 <fontDescription key="fontDescription" name="Roboto-Light" family="Roboto" pointSize="12"/>
                                                 <color key="textColor" red="0.99215686270000003" green="0.050980392159999999" blue="0.1058823529" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                 <nil key="highlightedColor"/>
                                             </label>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="E-mail institucional / personal" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="S1r-Ua-Kh8">
-                                                <rect key="frame" x="16" y="429.33333333333337" width="358" height="18.666666666666686"/>
+                                                <rect key="frame" x="16" y="431.33333333333337" width="358" height="19"/>
                                                 <fontDescription key="fontDescription" name="Roboto-Medium" family="Roboto" pointSize="16"/>
                                                 <color key="textColor" name="eMainBlue"/>
                                                 <nil key="highlightedColor"/>
                                             </label>
                                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="5" translatesAutoresizingMaskIntoConstraints="NO" id="Mqg-kG-EYt">
-                                                <rect key="frame" x="16" y="451" width="358" height="40"/>
+                                                <rect key="frame" x="16" y="453.33333333333337" width="358" height="40"/>
                                                 <subviews>
                                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Org-Ow-x9H">
                                                         <rect key="frame" x="0.0" y="0.0" width="358" height="40"/>
@@ -367,33 +367,33 @@
                                                 </subviews>
                                             </stackView>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Selecciona una opción" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="FP2-fX-Blx">
-                                                <rect key="frame" x="16" y="514" width="358" height="16.333333333333371"/>
+                                                <rect key="frame" x="16" y="516.33333333333337" width="358" height="16.666666666666629"/>
                                                 <fontDescription key="fontDescription" name="Roboto-Regular" family="Roboto" pointSize="14"/>
                                                 <color key="textColor" name="eLightPinkishGray"/>
                                                 <nil key="highlightedColor"/>
                                             </label>
                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="WtI-qs-7ZY">
-                                                <rect key="frame" x="49" y="547.33333333333337" width="18" height="22"/>
+                                                <rect key="frame" x="49" y="550" width="18" height="22"/>
                                                 <state key="normal" image="point"/>
                                                 <connections>
                                                     <action selector="diocesanoAction:" destination="4o2-ys-hdm" eventType="touchUpInside" id="PPp-Ho-LrR"/>
                                                 </connections>
                                             </button>
                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Lfi-4V-JrZ">
-                                                <rect key="frame" x="188" y="547.33333333333337" width="18" height="22"/>
+                                                <rect key="frame" x="188" y="550" width="18" height="22"/>
                                                 <state key="normal" image="point"/>
                                                 <connections>
                                                     <action selector="religiosoAction:" destination="4o2-ys-hdm" eventType="touchUpInside" id="amX-B2-Twc"/>
                                                 </connections>
                                             </button>
                                             <imageView hidden="YES" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="pointBlue" translatesAutoresizingMaskIntoConstraints="NO" id="cAn-60-O0G">
-                                                <rect key="frame" x="190.66666666666666" y="552.33333333333337" width="12" height="12"/>
+                                                <rect key="frame" x="190.66666666666666" y="555" width="12" height="12"/>
                                             </imageView>
                                             <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="pointBlue" translatesAutoresizingMaskIntoConstraints="NO" id="fqN-lo-b2g">
-                                                <rect key="frame" x="52" y="552.33333333333337" width="12" height="12"/>
+                                                <rect key="frame" x="52" y="555" width="12" height="12"/>
                                             </imageView>
                                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="17" translatesAutoresizingMaskIntoConstraints="NO" id="mnb-Wj-VXU">
-                                                <rect key="frame" x="16" y="582.33333333333337" width="358" height="38"/>
+                                                <rect key="frame" x="16" y="585" width="358" height="38"/>
                                                 <subviews>
                                                     <stackView hidden="YES" opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="3" translatesAutoresizingMaskIntoConstraints="NO" id="bSw-od-VIV">
                                                         <rect key="frame" x="0.0" y="0.0" width="358" height="38"/>
@@ -605,7 +605,7 @@
                                                 </subviews>
                                             </stackView>
                                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="5" translatesAutoresizingMaskIntoConstraints="NO" id="dcZ-jb-4wr">
-                                                <rect key="frame" x="16" y="637.33333333333337" width="358" height="40"/>
+                                                <rect key="frame" x="16" y="640" width="358" height="40"/>
                                                 <subviews>
                                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="sF6-2l-cB4">
                                                         <rect key="frame" x="0.0" y="0.0" width="358" height="40"/>
@@ -641,7 +641,7 @@
                                                 </subviews>
                                             </stackView>
                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="3zq-PK-W1X">
-                                                <rect key="frame" x="22.666666666666657" y="737.66666666666663" width="345" height="48"/>
+                                                <rect key="frame" x="22.666666666666657" y="741" width="345" height="48"/>
                                                 <color key="backgroundColor" red="0.098039215686274508" green="0.16470588235294117" blue="0.45098039215686275" alpha="1" colorSpace="calibratedRGB"/>
                                                 <constraints>
                                                     <constraint firstAttribute="height" constant="48" id="PDd-Xv-YFA"/>
@@ -660,19 +660,19 @@
                                                 </connections>
                                             </button>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Canal de streaming por el que transmites contenido a nombre propio" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="uqY-YH-12J">
-                                                <rect key="frame" x="16" y="687.33333333333337" width="358" height="11.666666666666629"/>
+                                                <rect key="frame" x="16" y="690" width="358" height="12"/>
                                                 <fontDescription key="fontDescription" name="Roboto-Regular" family="Roboto" pointSize="10"/>
                                                 <color key="textColor" name="eLightPinkishGray"/>
                                                 <nil key="highlightedColor"/>
                                             </label>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Ej. www.youtubestreamingchannel.com" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="PCK-2c-NzK">
-                                                <rect key="frame" x="16" y="699" width="358" height="11.666666666666629"/>
+                                                <rect key="frame" x="16" y="702" width="358" height="12"/>
                                                 <fontDescription key="fontDescription" name="Roboto-Bold" family="Roboto" pointSize="10"/>
                                                 <color key="textColor" name="eLightBlack"/>
                                                 <nil key="highlightedColor"/>
                                             </label>
                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="cPY-L0-ask">
-                                                <rect key="frame" x="75" y="543.33333333333337" width="76" height="31"/>
+                                                <rect key="frame" x="75" y="546" width="76" height="31"/>
                                                 <fontDescription key="fontDescription" name="Roboto-Regular" family="Roboto" pointSize="16"/>
                                                 <state key="normal" title="Diocesano">
                                                     <color key="titleColor" name="eMainBlue"/>
@@ -682,7 +682,7 @@
                                                 </connections>
                                             </button>
                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ayp-hM-rnW">
-                                                <rect key="frame" x="210.66666666666666" y="542.33333333333337" width="65.999999999999972" height="31"/>
+                                                <rect key="frame" x="210.66666666666666" y="545" width="65.999999999999972" height="31"/>
                                                 <fontDescription key="fontDescription" name="Roboto-Regular" family="Roboto" pointSize="16"/>
                                                 <state key="normal" title="Religioso">
                                                     <color key="titleColor" name="eLightPinkishGray"/>
@@ -825,16 +825,16 @@
     </scenes>
     <designables>
         <designable name="R2J-Qm-2Gg">
-            <size key="intrinsicContentSize" width="87.333333333333329" height="18"/>
+            <size key="intrinsicContentSize" width="87" height="18.333333333333332"/>
         </designable>
         <designable name="dvV-tg-vgZ">
-            <size key="intrinsicContentSize" width="87.333333333333329" height="18"/>
+            <size key="intrinsicContentSize" width="87" height="18.333333333333332"/>
         </designable>
         <designable name="k3H-TS-iMh">
-            <size key="intrinsicContentSize" width="248" height="17"/>
+            <size key="intrinsicContentSize" width="239.33333333333334" height="17"/>
         </designable>
         <designable name="zfj-qb-oyD">
-            <size key="intrinsicContentSize" width="184" height="17"/>
+            <size key="intrinsicContentSize" width="180" height="17"/>
         </designable>
     </designables>
     <resources>
