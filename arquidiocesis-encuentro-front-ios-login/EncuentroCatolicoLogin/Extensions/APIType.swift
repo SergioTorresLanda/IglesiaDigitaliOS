@@ -25,7 +25,7 @@ public class APIType {
          //TODO: NEW
             API = "https://api.qa-iglesia-digital.com/arquidiocesis/gestion-usuarios/v1"
         }else if staged == "Prod" {
-            API = "https://ppsjgdi0d9.execute-api.us-east-1.amazonaws.com/prod"
+            API = "https://api.iglesia-digital.com.mx/arquidiocesis/gestion-usuarios/v1"
         }else {
              API = "https://auth.arquidiocesis.mx"
         }
