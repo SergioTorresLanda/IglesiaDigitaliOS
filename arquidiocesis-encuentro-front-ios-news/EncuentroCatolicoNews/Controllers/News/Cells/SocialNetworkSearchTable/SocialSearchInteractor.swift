@@ -25,10 +25,11 @@ class SearchSocialInteractor: SocialSearchInteractorProtocol {
         request.setValue("Bearer \(tksession ?? "")", forHTTPHeaderField: "Authorization")
         
         let work = URLSession.shared.dataTask(with: request) { data, response, error in
-            print("%&/", response)
-            print("  -->>  data: ", data)
-            print("  -->>  response: ", response)
-            print("  -->>  error: ", error)
+            print("-->>  Services class: ", String(describing: type(of: self)))
+            print("->  respuesta Status Code: ", response as Any)
+            print("->  error: ", error as Any)
+            let responseServer = try! JSONSerialization.jsonObject(with: data!, options: []) as? NSDictionary
+            print("->✅  responseServer: ", responseServer as Any)
 
             do {
                 if (response as! HTTPURLResponse).statusCode == 401 {
@@ -78,9 +79,11 @@ class SearchSocialInteractor: SocialSearchInteractorProtocol {
         request.setValue("application/json", forHTTPHeaderField: "Content-Type")
         
         let work = URLSession.shared.dataTask(with: request) { data, response, error in
-            print("  -->>  data: ", data)
-            print("  -->>  response: ", response)
-            print("  -->>  error: ", error)
+            print("-->>  Services class: ", String(describing: type(of: self)))
+            print("->  respuesta Status Code: ", response as Any)
+            print("->  error: ", error as Any)
+            let responseServer = try! JSONSerialization.jsonObject(with: data!, options: []) as? NSDictionary
+            print("->✅  responseServer: ", responseServer as Any)
 
             do{
                 guard let responseData = data else { return }

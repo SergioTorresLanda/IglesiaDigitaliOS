@@ -34,9 +34,11 @@ class SVS_ProfileInteractor: SSVIPER_PresenterToInteractorProtocol {
         let semaphore = DispatchSemaphore (value: 0)
 
         let task = URLSession.shared.dataTask(with: request) { data, response, error in
-            print("  -->>  data: ", data)
-            print("  -->>  response: ", response)
-            print("  -->>  error: ", error)
+            print("-->>  Services class: ", String(describing: type(of: self)))
+            print("->  respuesta Status Code: ", response as Any)
+            print("->  error: ", error as Any)
+            let responseServer = try! JSONSerialization.jsonObject(with: data!, options: []) as? NSDictionary
+            print("->✅  responseServer: ", responseServer as Any)
             guard let data = data else {
                 semaphore.signal()
                 self._presenter?.errorCloseSesion(code: 90, msg: "Hola")
