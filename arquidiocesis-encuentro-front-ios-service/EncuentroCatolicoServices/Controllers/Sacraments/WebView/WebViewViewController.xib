@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="17701" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="20037" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
     <device id="retina6_1" orientation="portrait" appearance="light"/>
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="17703"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="20020"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="System colors in document resources" minToolsVersion="11.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
@@ -30,11 +30,12 @@
                             <nil key="highlightedColor"/>
                         </label>
                         <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="cnY-Vf-4iH">
-                            <rect key="frame" x="20" y="49" width="13" height="20"/>
+                            <rect key="frame" x="8" y="39" width="40" height="40"/>
                             <constraints>
-                                <constraint firstAttribute="width" constant="13" id="c6t-ji-bJ9"/>
-                                <constraint firstAttribute="height" constant="20" id="zPI-45-4TG"/>
+                                <constraint firstAttribute="width" constant="40" id="c6t-ji-bJ9"/>
+                                <constraint firstAttribute="height" constant="40" id="zPI-45-4TG"/>
                             </constraints>
+                            <inset key="contentEdgeInsets" minX="14" minY="9" maxX="14" maxY="9"/>
                             <state key="normal" image="back"/>
                             <connections>
                                 <action selector="close:" destination="-1" eventType="touchUpInside" id="IQW-oZ-Myv"/>
@@ -44,7 +45,7 @@
                     <color key="backgroundColor" red="0.095760412510000004" green="0.13526713849999999" blue="0.48630607129999998" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                     <constraints>
                         <constraint firstItem="cnY-Vf-4iH" firstAttribute="centerY" secondItem="1XE-pu-5by" secondAttribute="centerY" id="4UJ-Sy-McA"/>
-                        <constraint firstItem="cnY-Vf-4iH" firstAttribute="leading" secondItem="JOr-1u-MT1" secondAttribute="leading" constant="20" id="4x3-rQ-rE7"/>
+                        <constraint firstItem="cnY-Vf-4iH" firstAttribute="leading" secondItem="JOr-1u-MT1" secondAttribute="leading" constant="8" id="4x3-rQ-rE7"/>
                         <constraint firstItem="1XE-pu-5by" firstAttribute="centerY" secondItem="JOr-1u-MT1" secondAttribute="centerY" constant="14" id="Miu-lZ-2tj"/>
                         <constraint firstItem="1XE-pu-5by" firstAttribute="centerX" secondItem="JOr-1u-MT1" secondAttribute="centerX" id="Qvx-Vc-Ipx"/>
                         <constraint firstAttribute="height" constant="90" id="oTg-3R-2Yd"/>

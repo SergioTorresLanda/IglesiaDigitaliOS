@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="17701" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="20037" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES">
     <device id="retina4_7" orientation="portrait" appearance="light"/>
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="17703"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="20020"/>
         <capability name="System colors in document resources" minToolsVersion="11.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
@@ -29,11 +29,12 @@
                             <nil key="highlightedColor"/>
                         </label>
                         <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="EXH-sc-avt">
-                            <rect key="frame" x="22" y="66.5" width="11.5" height="22"/>
+                            <rect key="frame" x="8" y="57.5" width="40" height="40"/>
                             <constraints>
-                                <constraint firstAttribute="width" constant="11.5" id="Shv-pP-2Su"/>
-                                <constraint firstAttribute="height" constant="22" id="YKk-4Q-qSK"/>
+                                <constraint firstAttribute="width" constant="40" id="Shv-pP-2Su"/>
+                                <constraint firstAttribute="height" constant="40" id="YKk-4Q-qSK"/>
                             </constraints>
+                            <inset key="contentEdgeInsets" minX="14" minY="9" maxX="14" maxY="9"/>
                             <state key="normal" image="back"/>
                             <connections>
                                 <action selector="close:" destination="-1" eventType="touchUpInside" id="0AP-xW-eoD"/>
@@ -46,7 +47,7 @@
                         <constraint firstItem="3FD-nM-Z2N" firstAttribute="centerX" secondItem="Xsw-Aa-H1Z" secondAttribute="centerX" id="5g4-Sq-olO"/>
                         <constraint firstAttribute="bottom" secondItem="3FD-nM-Z2N" secondAttribute="bottom" constant="20" id="9tJ-lY-HmN"/>
                         <constraint firstItem="EXH-sc-avt" firstAttribute="centerY" secondItem="3FD-nM-Z2N" secondAttribute="centerY" id="ts0-Ff-vW5"/>
-                        <constraint firstItem="EXH-sc-avt" firstAttribute="leading" secondItem="Xsw-Aa-H1Z" secondAttribute="leading" constant="22" id="xaO-6E-xsT"/>
+                        <constraint firstItem="EXH-sc-avt" firstAttribute="leading" secondItem="Xsw-Aa-H1Z" secondAttribute="leading" constant="8" id="xaO-6E-xsT"/>
                     </constraints>
                 </view>
                 <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" style="plain" separatorStyle="none" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="Iyo-nC-svp">
