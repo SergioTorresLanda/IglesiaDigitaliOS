@@ -847,7 +847,7 @@ class ProfileInfoView: UIViewController {
             break
             
         default:
-            let alert = UIAlertController(title: "Datos Vacios", message: "Llena corectamente los datos", preferredStyle: .alert)
+            let alert = UIAlertController(title: "Datos Vacios", message: "Llena correctamente los datos", preferredStyle: .alert)
             alert.addAction(UIAlertAction(title: "Aceptar", style: .default, handler: nil))
             self.present(alert, animated: true)
         }
@@ -1301,7 +1301,7 @@ class ProfileInfoView: UIViewController {
             
             break
         default:
-            let alert = UIAlertController(title: "Datos Vacios", message: "Llena corectamente los datos", preferredStyle: .alert)
+            let alert = UIAlertController(title: "Datos Vacios", message: "Llena correctamente los datos", preferredStyle: .alert)
             alert.addAction(UIAlertAction(title: "Aceptar", style: .default, handler: nil))
             self.present(alert, animated: true)
         }
