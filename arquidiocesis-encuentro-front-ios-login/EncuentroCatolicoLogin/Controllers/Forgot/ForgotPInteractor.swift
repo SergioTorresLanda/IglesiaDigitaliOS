@@ -28,7 +28,7 @@ class ForgotPInteractor: ForgotInteractorProtocol {
 //        request.setValue("Bearer \(tksession ?? "")", forHTTPHeaderField: "Authorization")
         
         let tarea = URLSession.shared.dataTask(with: request) { [self] data, response, error in
-            print("-->>  Services class: ", String(describing: type(of: self)))
+            
             print("->  respuesta Status Code: ", response as Any)
             print("->  error: ", error as Any)
 
@@ -40,10 +40,10 @@ class ForgotPInteractor: ForgotInteractorProtocol {
             self.presenter?.getStatus(status: response as! HTTPURLResponse)
             
             if (response as! HTTPURLResponse).statusCode == 200 {
-               // print(response)
+                guard let allData = data else { return }
                 do {
                     
-                    let resp = try JSONSerialization.jsonObject(with: data!, options: .allowFragments)
+                    let resp = try JSONSerialization.jsonObject(with: allData, options: .allowFragments)
                     print(resp)
                    
                 }catch{

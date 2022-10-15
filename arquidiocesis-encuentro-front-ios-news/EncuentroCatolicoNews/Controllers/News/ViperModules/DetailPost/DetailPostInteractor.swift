@@ -30,7 +30,8 @@ public class DetailPostInteractor: DetailPostInteractorProtocol {
                 self.presenter?.didFinishGettingTopReactionsWithErrors(error: error)
             } else {
                  do {
-                     let result = try JSONDecoder().decode(TopReactions.self, from: data!)
+                     guard let allData = data else { return }
+                     let result = try JSONDecoder().decode(TopReactions.self, from: allData)
                      self.presenter?.didFinishGettingTopReactions(topReactions: result)
                 } catch {
                      self.presenter?.didFinishGettingTopReactionsWithErrors(error: SocialNetworkErrors.ResponseError)

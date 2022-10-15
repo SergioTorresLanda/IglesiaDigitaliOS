@@ -26,14 +26,14 @@ class CommentsInteractor: CommentsInteractorProtocol {
         request.setValue("\(idUser)", forHTTPHeaderField: "X-User-Id")
         
         URLSession.shared.dataTask(with: request) { data, response, error in
-            print("-->>  Services class: ", String(describing: type(of: self)))
+            
             print("->  respuesta Status Code: ", response as Any)
             print("->  error: ", error as Any)
-
+            guard let allData = data else { return }
             do {
                 
                 if (response as! HTTPURLResponse).statusCode == 200 {
-                    let contentResponse = try JSONDecoder().decode(Comments.self, from: data!)
+                    let contentResponse = try JSONDecoder().decode(Comments.self, from: allData)
                     self.presenter?.transportResponseCommentsList(contentData: contentResponse)
                 }else{
                     APIType.shared.refreshToken()
@@ -71,7 +71,7 @@ class CommentsInteractor: CommentsInteractorProtocol {
         request.setValue("Bearer \( tksession ?? "")", forHTTPHeaderField: "Authorization")
         
         URLSession.shared.dataTask(with: request) { data, response, error in
-            print("-->>  Services class: ", String(describing: type(of: self)))
+            
             print("->  respuesta Status Code: ", response as Any)
             print("->  error: ", error as Any)
             

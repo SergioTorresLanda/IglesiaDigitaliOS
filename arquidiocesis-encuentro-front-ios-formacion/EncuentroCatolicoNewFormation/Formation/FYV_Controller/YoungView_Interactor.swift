@@ -29,7 +29,7 @@ class FYV_ProfileInteractor: FYV_VIPER_PresenterToInteractorProtocol {
         let semaphore = DispatchSemaphore (value: 0)
 
         let task = URLSession.shared.dataTask(with: request) { data, response, error in
-            print("-->>  Services class: ", String(describing: type(of: self)))
+            
             print("->  respuesta Status Code: ", response as Any)
             print("->  error: ", error as Any)
 

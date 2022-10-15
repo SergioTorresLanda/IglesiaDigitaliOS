@@ -93,7 +93,8 @@ public class InitViewViewController: UIViewController, InitViewViewProtocol {
                 self?.showAlert()
             } else {
                 do {
-                    let result = try JSONDecoder().decode(Reactions.self, from: data!)
+                    guard let allData = data else { return }
+                    let result = try JSONDecoder().decode(Reactions.self, from: allData)
                     
                     RealmManager.addToDataBase(result)
                     

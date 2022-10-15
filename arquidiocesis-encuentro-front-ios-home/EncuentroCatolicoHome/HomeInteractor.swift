@@ -35,7 +35,7 @@ class HomeInteractor: HomeInteractorProtocol {
         request.httpBody = cuerpo
         
         let tarea = URLSession.shared.dataTask(with: request) { data, response, error in
-            print("-->>  Services class: ", String(describing: type(of: self)))
+            
             print("->  respuesta Status Code: ", response as Any)
             print("->  error: ", error as Any)
 
@@ -44,7 +44,8 @@ class HomeInteractor: HomeInteractorProtocol {
             }
             
             if (response as! HTTPURLResponse).statusCode == 200 {
-                let userHome: UserRespHome? = try? JSONDecoder().decode(UserRespHome.self, from: data!)
+                guard let allData = data else { return }
+                let userHome: UserRespHome? = try? JSONDecoder().decode(UserRespHome.self, from: allData)
                 
                 self.presenter?.obtieneRespuetaUsuario(errores: ErroresServidorHome.Ok, user: userHome)
                 
@@ -53,8 +54,6 @@ class HomeInteractor: HomeInteractorProtocol {
                 self.presenter?.obtieneRespuetaUsuario(errores: ErroresServidorHome.ErrorServidor, user: nil)
                 
             } else {
-                //let resp = try? JSONDecoder().decode([String:String].self, from: data!)
-                
                 self.presenter?.obtieneRespuetaUsuario(errores: ErroresServidorHome.ErrorServidor, user: nil)
             }
             
@@ -88,7 +87,7 @@ class HomeInteractor: HomeInteractorProtocol {
         request.setValue("Bearer \( tksession ?? "" ?? "")", forHTTPHeaderField: "Authorization")
         
         let tarea = URLSession.shared.dataTask(with: request) { data, response, error in
-            print("-->>  Services class: ", String(describing: type(of: self)))
+            
             print("->  respuesta Status Code: ", response as Any)
             print("->  error: ", error as Any)
             guard let model = data else {
@@ -107,8 +106,6 @@ class HomeInteractor: HomeInteractorProtocol {
                 
                 if data != nil {
                     let contResponse : ProfileDetailImgH = try JSONDecoder().decode(ProfileDetailImgH.self, from: data!)
-                    print("Hola desde el reposne nuevo", contResponse)
-                    print(response)
                     self.presenter?.responseGetProfile(responseCode: response as! HTTPURLResponse, dataResponse: contResponse)
                 }
                 
@@ -139,9 +136,13 @@ class HomeInteractor: HomeInteractorProtocol {
             print("->  respuesta Status Code: ", response as Any)
             print("->  error: ", error as Any)
 
+            guard let datamodel = data else{
+                return
+            }
+            
             do{
                 
-                let contentResponse = try JSONDecoder().decode([HomeSaintOfDay].self, from: data!)
+                let contentResponse = try JSONDecoder().decode([HomeSaintOfDay].self, from: datamodel)
                 self.presenter?.trasportResponseHome(response: (response as! HTTPURLResponse), data: contentResponse, type: type)
                 
             }catch{
@@ -168,10 +169,10 @@ class HomeInteractor: HomeInteractorProtocol {
         let work = URLSession.shared.dataTask(with: request) { data, response, error in
             print("->  respuesta Status Code: ", response as Any)
             print("->  error: ", error as Any)
-
+            guard let allData = data else { return }
             do{
                 
-                let contentResponse = try JSONDecoder().decode([HomeSuggestions].self, from: data!)
+                let contentResponse = try JSONDecoder().decode([HomeSuggestions].self, from: allData)
                 self.presenter?.transportResponseSuggestions(response: (response as! HTTPURLResponse), data: contentResponse)
                 
             }catch{
@@ -193,7 +194,7 @@ class HomeInteractor: HomeInteractorProtocol {
         request.httpMethod = "GET"
         
         let tarea = URLSession.shared.dataTask(with: request) { data, response, error in
-            print("-->>  Services class: ", String(describing: type(of: self)))
+            
             print("->  respuesta Status Code: ", response as Any)
             print("->  error: ", error as Any)
 
@@ -203,9 +204,9 @@ class HomeInteractor: HomeInteractorProtocol {
             }
             
             do {
-                
-                let resp = try JSONSerialization.jsonObject(with: data!, options: .allowFragments)
-                let contentResponse : [LiveModel] = try JSONDecoder().decode([LiveModel].self, from: data!)
+                guard let allData = data else { return }
+                let resp = try JSONSerialization.jsonObject(with: allData, options: .allowFragments)
+                let contentResponse : [LiveModel] = try JSONDecoder().decode([LiveModel].self, from: allData)
                 print(resp)
                 self.presenter?.onSuccessStreaming(data: contentResponse, response: (response as! HTTPURLResponse))
                 

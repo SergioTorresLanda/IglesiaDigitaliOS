@@ -117,7 +117,7 @@ class prayerChain: UIViewController {
         
         request.httpBody = httpBody
         let tarea = URLSession.shared.dataTask(with: request) { data, response, error in
-            print("-->>  Services class: ", String(describing: type(of: self)))
+            
             print("->  respuesta Status Code: ", response as Any)
             print("->  error: ", error as Any)
 
@@ -171,9 +171,9 @@ class prayerChain: UIViewController {
         request.setValue("Bearer \( tksession ?? "")", forHTTPHeaderField: "Authorization")
         request.httpMethod = "GET"
         let tarea = URLSession.shared.dataTask(with: request) { data, response, error in
-            print("  -->>  data: ", data)
-            print("  -->>  response: ", response)
-            print("  -->>  error: ", error)
+            print("-->>  data: ", data)
+            print("-->>  response: ", response)
+            print("-->>  error: ", error)
 
             if error != nil {
                 print("Error")
@@ -183,7 +183,8 @@ class prayerChain: UIViewController {
             if (response as! HTTPURLResponse).statusCode == 200 {
                 DispatchQueue.main.async {
                     
-                    guard let userHome: prayerDataStruct = try? JSONDecoder().decode(prayerDataStruct.self, from: data!) else { return }
+                    guard let allData = data else { return }
+                    guard let userHome: prayerDataStruct = try? JSONDecoder().decode(prayerDataStruct.self, from: allData) else { return }
                     self.allData = userHome
                     
                     for element in userHome.data {
@@ -296,9 +297,9 @@ class prayerChain: UIViewController {
         let tksession = UserDefaults.standard.string(forKey: "idToken")
         request.setValue("Bearer \( tksession ?? "")", forHTTPHeaderField: "Authorization")
         let tarea = URLSession.shared.dataTask(with: request) { data, response, error in
-            print("  -->>  data: ", data)
-            print("  -->>  response: ", response)
-            print("  -->>  error: ", error)
+            print("-->>  data: ", data)
+            print("-->>  response: ", response)
+            print("-->>  error: ", error)
 
             if error != nil {
                 print("Error")

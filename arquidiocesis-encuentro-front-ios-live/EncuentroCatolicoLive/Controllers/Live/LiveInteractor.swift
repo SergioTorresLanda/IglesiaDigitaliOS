@@ -24,7 +24,7 @@ class LiveInteractor: LiveInteractorProtocol {
         request.httpMethod = "GET"
         
         let tarea = URLSession.shared.dataTask(with: request) { data, response, error in
-            print("-->>  Services class: ", String(describing: type(of: self)))
+            
             print("->  respuesta Status Code: ", response as Any)
             print("->  error: ", error as Any)
 
@@ -34,11 +34,10 @@ class LiveInteractor: LiveInteractorProtocol {
             }
             
             if (response as! HTTPURLResponse).statusCode == 200 {
-                
+                guard let allData = data else { return }
                 do {
-                    
-                    let resp = try JSONSerialization.jsonObject(with: data!, options: .allowFragments)
-                    let contentResponse : [LiveModel] = try JSONDecoder().decode([LiveModel].self, from: data!)
+                    let resp = try JSONSerialization.jsonObject(with: allData, options: .allowFragments)
+                    let contentResponse : [LiveModel] = try JSONDecoder().decode([LiveModel].self, from: allData)
                     print(resp)
                     self.presenter?.getResponse(data: contentResponse, response: (response as! HTTPURLResponse))
                    
