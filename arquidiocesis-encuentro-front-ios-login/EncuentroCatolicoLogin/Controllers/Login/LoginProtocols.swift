@@ -11,7 +11,7 @@ protocol LoginViewProtocol: class {
 
 protocol LoginWireFrameProtocol: class {
     // PRESENTER -> WIREFRAME
-    static func createModule() -> UIViewController
+    static func createModule(forceUpdate: Bool) -> UIViewController
     
     func openCreateAcount(controlador: UIViewController)
     func loginInvitado(controller: UIViewController)

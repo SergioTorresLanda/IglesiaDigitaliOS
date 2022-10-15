@@ -23,7 +23,7 @@ class LoginView: UIViewController {
     @IBOutlet weak var btnEtich: UIButton!
     
     var colorBlue = UIColor(red: 28/255, green: 117/255, blue: 188/255, alpha: 1)
-    
+    var forceUpdate: Bool = false
     let loadingAlert = UIAlertController(title: "", message: "\n \n \n \n \nCargando...", preferredStyle: .alert)
  
 //    // MARK: Lifecycle
@@ -32,6 +32,18 @@ class LoginView: UIViewController {
         spinner.isHidden = true
         setupView()
         self.hideKeyboardWhenTappedAround()
+        print(forceUpdate)
+        
+        if (forceUpdate) {
+            let alert = UIAlertController(title: "Alerta", message: "Es Necesario Actualizar", preferredStyle: .alert)
+            if let url = URL(string: "https://apps.apple.com/mx/app/iglesia-digital/id1559605584") {
+                alert.addAction(UIAlertAction(title: "Ir A Tienda", style: .default, handler: { action in
+                    UIApplication.shared.open(url, options: [:], completionHandler: nil)
+                }))
+            }
+
+            self.present(alert, animated: true, completion: nil)
+        }
     }
     
     override func viewDidAppear(_ animated: Bool) {

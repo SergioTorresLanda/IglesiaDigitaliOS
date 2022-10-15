@@ -5,8 +5,9 @@ import EncuentroCatolicoHome
 
 open class LoginRouter: LoginWireFrameProtocol {
 
-    open class func createModule() -> UIViewController {
+    open class func createModule(forceUpdate: Bool) -> UIViewController {
         let navController = LoginView(nibName: "LoginView", bundle: Bundle(for: LoginView.self))
+        navController.forceUpdate = forceUpdate
         let view = navController
         let presenter: LoginPresenterProtocol & LoginInteractorOutputProtocol = LoginPresenter()
         let interactor: LoginInteractorInputProtocol & LoginRemoteDataManagerOutputProtocol = LoginInteractor()
