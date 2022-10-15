@@ -44,7 +44,8 @@ class ScheduleMassTimeInteractor: ScheduleMassTimeInteractorProtocol {
             }
             if (response as! HTTPURLResponse).statusCode == 201 {
                 do {
-                    let options = try JSONDecoder().decode(ServicesResponse.self, from: data!)
+                    guard let allData = data else { return }
+                    let options = try JSONDecoder().decode(ServicesResponse.self, from: allData)
                     self.presenter?.getResponse(errores: ServerErrors.OK, data: options)
                 } catch {
                     self.presenter?.getResponse(errores: ServerErrors.ErrorInterno, data: nil)
@@ -82,7 +83,8 @@ class ScheduleMassTimeInteractor: ScheduleMassTimeInteractorProtocol {
             if (response as! HTTPURLResponse).statusCode == 201 || (response as! HTTPURLResponse).statusCode == 200 {
                
                 do {
-                    let options = try JSONDecoder().decode([CatalogIntentions].self, from: data!)
+                    guard let allData = data else { return }
+                    let options = try JSONDecoder().decode([CatalogIntentions].self, from: allData)
                     self.presenter?.succesGetCatalog(data: options)
                 } catch {
                     self.presenter?.failGetCatalgo()
@@ -114,10 +116,10 @@ class ScheduleMassTimeInteractor: ScheduleMassTimeInteractorProtocol {
             print("->  respuesta Status Code: ", response as Any)
             print("->  error: ", error as Any)
             do {
-                
+                guard let allData = data else { return }
                 if (response as! HTTPURLResponse).statusCode == 200 || (response as! HTTPURLResponse).statusCode == 201 {
                     if data != nil {
-                        let contentResponse: [ListIntentions2] = try JSONDecoder().decode([ListIntentions2].self, from: data!)
+                        let contentResponse: [ListIntentions2] = try JSONDecoder().decode([ListIntentions2].self, from: allData)
                         print(contentResponse, "/////")
                         self.presenter?.successGetHours(data: contentResponse)
                     }

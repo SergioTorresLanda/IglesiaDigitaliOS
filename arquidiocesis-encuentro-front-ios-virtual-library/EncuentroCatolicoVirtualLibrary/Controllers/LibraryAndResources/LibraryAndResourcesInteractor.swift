@@ -28,16 +28,17 @@ class LibraryAndResourcesInteractor: LibraryAndResourcesInteractorProtocol {
         request.httpMethod = "GET"
         
         let tarea = URLSession.shared.dataTask(with: request) { data, response, error in
-            print("  -->>  data: ", data)
-            print("  -->>  response: ", response)
-            print("  -->>  error: ", error)
+            print("-->>  data: ", data)
+            print("-->>  response: ", response)
+            print("-->>  error: ", error)
+            guard let allData = data else { return }
             if error != nil {
                 print("Hubo un error")
                 return
             }
             
             if (response as! HTTPURLResponse).statusCode == 200 {
-                let contentResponse: ContentDetail? = try? JSONDecoder().decode(ContentDetail.self, from: data!)
+                let contentResponse: ContentDetail? = try? JSONDecoder().decode(ContentDetail.self, from: allData)
                 self.presenter?.getResponse(errores: ServerErrors.OK, data: contentResponse)
             } else {
                 APIType.shared.refreshToken()

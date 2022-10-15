@@ -33,7 +33,7 @@ class LoginRemoteDataManager:LoginRemoteDataManagerInputProtocol {
         print("🚧  -->>  endpoint login: ", endpoint)
 
         let tarea = URLSession.shared.dataTask(with: request) { data, response, error in
-            print("-->>  Services class: ", String(describing: type(of: self)))
+            
             print("->  respuesta Status Code: ", response as Any)
             print("->  error: ", error as Any)
             if error != nil {
@@ -79,7 +79,7 @@ class LoginRemoteDataManager:LoginRemoteDataManagerInputProtocol {
                 
                 
                 let tarea = URLSession.shared.dataTask(with: request) { data, response, error in
-                    print("-->>  Services class: ", String(describing: type(of: self)))
+                    
                     print("->  respuesta Status Code: ", response as Any)
                     print("->  error: ", error as Any)
                     if error != nil {
@@ -120,24 +120,11 @@ class LoginRemoteDataManager:LoginRemoteDataManagerInputProtocol {
                 }
                 tarea.resume()
                 
-                
-                
-                
-                
-                
-                
-//                if resp.UserAttributes.profile == "DEAN_PRIEST" || resp.UserAttributes.profile == "DEVOTED_ADMIN"  {
-//                    defaults.setValue(true, forKey: "isComm")
-//                    
-//                }else {
-//                    defaults.setValue(false, forKey: "isComm")
-//                }
-                
                 self.remoteRequestHandler?.callbackResponse(respuesta: ResponseLogin(msg: nil, error_code: 0), error: nil, user: user)
             } else {
+                guard let allData = data else { return }
                 
-                
-                guard let respError: ServerErrors = try? JSONDecoder().decode(ServerErrors.self, from: data!) else {
+                guard let respError: ServerErrors = try? JSONDecoder().decode(ServerErrors.self, from: allData) else {
                     self.remoteRequestHandler?.callbackResponse(respuesta: nil, error: ErroresServidorLogin.ErrorServidor, user: user)
                     return
                 }

@@ -113,8 +113,8 @@ extension ErrorEncuentro {
             }
             #endif
             return descripcion
-        case .unkown(let code):
-            return "Error desconocido \(code)"
+        case .unkown(_):
+            return "Activa tus datos moviles o tu wifi para conectarte a internet."
         }
         
     }

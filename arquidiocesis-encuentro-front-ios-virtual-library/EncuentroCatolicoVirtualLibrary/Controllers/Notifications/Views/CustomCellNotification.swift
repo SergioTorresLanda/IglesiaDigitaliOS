@@ -107,7 +107,8 @@ class CustomeCellNotification: SwipeCollectionViewCell {
     }
     
     func configureCell(data: StatusModelNotification?, noData: Bool, flagX: Bool) {
-        noData ? self.configureNoData() : self.configureData(data: data!, flagX: flagX)
+        guard let allData = data else { return }
+        noData ? self.configureNoData() : self.configureData(data: allData, flagX: flagX)
     }
     
     private func configureNoData(){

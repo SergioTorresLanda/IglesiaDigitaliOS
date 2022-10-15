@@ -47,7 +47,8 @@ extension FeedTVC {
         snService.makeRequest(request: request) { (data, error) in
             if error == nil {
                 do {
-                     let json = try JSONSerialization.jsonObject(with: data!, options: []) as? [String: Any]
+                    guard let allData = data else { return }
+                     let json = try JSONSerialization.jsonObject(with: allData, options: []) as? [String: Any]
                      if let message = json?["message"] as? String,
                         let data = json?["data"] as? [String: Any],
                         let reactionsCount = data["countReact"] as? Int {
@@ -135,9 +136,11 @@ extension FeedTVC {
         let params = NewReactPublication(reaction_id: reactionId, user_id: userID)
         let request = snService.postRequestRS(strUrl: strUrl, method: .commentsAll, param: params)
         snService.newmakeRequest(request: request, completion: {(data, error) in
+            
             if error == nil{
                 do{
-                    let json = try JSONSerialization.jsonObject(with: data!, options: []) as? [String: Any]
+                    guard let allData = data else { return }
+                    let json = try JSONSerialization.jsonObject(with: allData, options: []) as? [String: Any]
                     self.newreactionImage.image = UIImage(named: "iconOracion2", in: Bundle.local, compatibleWith: nil)
                     //"\(newPosts[indexPath.row].totalReactions ?? 0)"
                     self.reactionsCountLabel.text = "\((self.newPost?.totalReactions ?? 0) + 1)"

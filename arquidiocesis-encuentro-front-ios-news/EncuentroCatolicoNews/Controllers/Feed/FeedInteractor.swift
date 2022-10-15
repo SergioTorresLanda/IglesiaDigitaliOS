@@ -107,7 +107,8 @@ public class FeedInteractor: FeedInteractorProtocol {
                     let someDictionaryFromJSON = try JSONSerialization.jsonObject(with: data ?? Data(), options: .allowFragments) as! [String: Any]
                     let jsonDecoder = JSONDecoder()
                     jsonDecoder.keyDecodingStrategy = .convertFromSnakeCase
-                    let responseModel = try jsonDecoder.decode(RSTimeLine.self, from: data!)
+                    guard let allData = data else { return }
+                    let responseModel = try jsonDecoder.decode(RSTimeLine.self, from: allData)
                     let arr = responseModel.result?.posts
                     let dctResult = someDictionaryFromJSON["result"] as? [String: Any]
                     let dctPagination = dctResult?["pagination"] as? [String: Any]
@@ -157,8 +158,9 @@ public class FeedInteractor: FeedInteractorProtocol {
                 self.presenter?.didFinishGettingPostsWithErrors(error: error)
             } else {
                 do {
+                    guard let allData = data else { return }
                     let realm = try Realm()
-                    let json = try JSONSerialization.jsonObject(with: data!, options: .fragmentsAllowed) as? [String: Any]
+                    let json = try JSONSerialization.jsonObject(with: allData, options: .fragmentsAllowed) as? [String: Any]
                     guard let publications = json?["publications"] as? [[String : Any]],
                           let pages = json?["pages"] as? Int else {
                               self.presenter?.didFinishGettingPostsWithErrors(error: SocialNetworkErrors.ResponseError)

@@ -26,7 +26,7 @@ class ConfirmationCodeInteractor: ConfirmationCodeInteractorProtocol {
         request.setValue("application/json", forHTTPHeaderField: "Content-Type")
         
         let tarea = URLSession.shared.dataTask(with: request) { [self] data, response, error in
-            print("-->>  Services class: ", String(describing: type(of: self)))
+            
             print("->  respuesta Status Code: ", response as Any)
             print("->  error: ", error as Any)
 
@@ -37,9 +37,10 @@ class ConfirmationCodeInteractor: ConfirmationCodeInteractorProtocol {
             
             if (response as! HTTPURLResponse).statusCode == 200 {
                 presenter?.getStatusPost()
+                guard let allData = data else { return }
                 do {
                     
-                    let resp = try JSONSerialization.jsonObject(with: data!, options: .allowFragments)
+                    let resp = try JSONSerialization.jsonObject(with: allData, options: .allowFragments)
                     // let contentResponse : [PModelSOS] = try JSONDecoder().decode([PModelSOS].self, from: data!)
                     print(resp)
                     
@@ -77,7 +78,7 @@ class ConfirmationCodeInteractor: ConfirmationCodeInteractorProtocol {
         request.setValue("Bearer \(tksession ?? "")", forHTTPHeaderField: "Authorization")
         
         let tarea = URLSession.shared.dataTask(with: request) { [self] data, response, error in
-            print("-->>  Services class: ", String(describing: type(of: self)))
+            
             print("->  respuesta Status Code: ", response as Any)
             print("->  error: ", error as Any)
 
@@ -88,9 +89,10 @@ class ConfirmationCodeInteractor: ConfirmationCodeInteractorProtocol {
             
             if (response as! HTTPURLResponse).statusCode == 200 {
                 self.presenter?.getStatus2()
+                guard let allData = data else { return }
                 do {
                     
-                    let resp = try JSONSerialization.jsonObject(with: data!, options: .allowFragments)
+                    let resp = try JSONSerialization.jsonObject(with: allData, options: .allowFragments)
                     print(resp)
                     // let contentResponse : [PModelSOS] = try JSONDecoder().decode([PModelSOS].self, from: data!)
                     
@@ -118,14 +120,15 @@ class ConfirmationCodeInteractor: ConfirmationCodeInteractorProtocol {
         request.setValue("Bearer \(tksession ?? "")", forHTTPHeaderField: "Authorization")
         
         URLSession.shared.dataTask(with: request) { data, response, error in
-            print("-->>  Services class: ", String(describing: type(of: self)))
+            
             print("->  respuesta Status Code: ", response as Any)
             print("->  error: ", error as Any)
-
+            
+            guard let allData = data else { return }
             do {
                 
                 if (response as! HTTPURLResponse).statusCode == 200 {
-                    let contentResponse = try JSONDecoder().decode(UserInfo.self, from: data!)
+                    let contentResponse = try JSONDecoder().decode(UserInfo.self, from: allData)
                     self.presenter?.successUserInfo(data: contentResponse)
                 }else{
                     self.presenter?.failUserInfo()

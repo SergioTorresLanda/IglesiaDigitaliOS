@@ -39,7 +39,8 @@ class MassesListInteractor: MassesListInteractorProtocol {
             
             if (response as! HTTPURLResponse).statusCode == 200 {
                 do {
-                    let options = try JSONDecoder().decode(ChurchesMasses.self, from: data!)
+                    guard let allData = data else { return }
+                    let options = try JSONDecoder().decode(ChurchesMasses.self, from: allData)
                     
                     self.presenter?.getResponse(errores: ServerErrors.OK, data: options)
                 } catch {

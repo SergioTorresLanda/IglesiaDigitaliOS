@@ -138,7 +138,8 @@ public class CreatePostInteractor: CreatePostInteractorProtocol {
                     self.presenter?.didFinishMakingPostWithErrors(error: error)
                 }else{
                     do {
-                        let json = try? JSONSerialization.jsonObject(with: data!, options: .fragmentsAllowed) as? [String: Any]
+                        guard let allData = data else { return }
+                        let json = try? JSONSerialization.jsonObject(with: allData, options: .fragmentsAllowed) as? [String: Any]
                         guard let message = json?["message"] as? String, message == "Post created Successfully" else { return }
                         self.presenter?.didFinishMakingPost()
                     }catch{
@@ -168,7 +169,8 @@ public class CreatePostInteractor: CreatePostInteractorProtocol {
                 self.presenter?.didFinishMakingPostWithErrors(error: error)
             }else{
                 do{
-                    let json = try JSONSerialization.jsonObject(with: data!, options: .fragmentsAllowed) as? [String: Any]
+                    guard let allData = data else { return }
+                    let json = try JSONSerialization.jsonObject(with: allData, options: .fragmentsAllowed) as? [String: Any]
                     self.presenter?.didFinishMakingPost()
                     
                 }catch{
@@ -230,7 +232,8 @@ public class CreatePostInteractor: CreatePostInteractorProtocol {
                     self.presenter?.didFinishMakingPostWithErrors(error: error)
                 } else {
                     do {
-                        let json = try JSONSerialization.jsonObject(with: data!, options: .fragmentsAllowed) as? [String: Any]
+                        guard let allData = data else { return }
+                        let json = try JSONSerialization.jsonObject(with: allData, options: .fragmentsAllowed) as? [String: Any]
                         guard let message = json?["message"] as? String, message == "Created Post" else { return }
                         self.presenter?.didFinishMakingPost()
                     } catch {

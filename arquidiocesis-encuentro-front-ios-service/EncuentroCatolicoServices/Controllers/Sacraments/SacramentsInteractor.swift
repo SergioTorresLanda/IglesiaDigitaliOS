@@ -39,7 +39,8 @@ class SacramentsInteractor: SacramentsInteractorProtocol {
             if (response as! HTTPURLResponse).statusCode == 200 {
                 
                 do {
-                    let options = try JSONDecoder().decode(Sacraments.self, from: data!)
+                    guard let allData = data else { return }
+                    let options = try JSONDecoder().decode(Sacraments.self, from: allData)
                     self.presenter?.getResponse(errores: ServerErrors.OK, data: options)
                 } catch {
                     self.presenter?.getResponse(errores: ServerErrors.ErrorInterno, data: [])

@@ -38,7 +38,8 @@ public class ReactionsModalInteractor: ReactionsModalInteractorProtocol {
                 self.presenter?.didFinishGettingPostsWithErrors(error: error)
             } else {
                 do {
-                    let result = try JSONDecoder().decode(PostReactions.self, from: data!)
+                    guard let allData = data else { return }
+                    let result = try JSONDecoder().decode(PostReactions.self, from: allData)
                     self.presenter?.didFinishGettingPostsReactions(reactions: result)
                 } catch {
                     self.presenter?.didFinishGettingPostsWithErrors(error: SocialNetworkErrors.ResponseError)

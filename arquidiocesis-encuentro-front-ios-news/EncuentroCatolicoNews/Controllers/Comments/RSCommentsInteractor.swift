@@ -39,11 +39,11 @@ public class RSCommentsInteractor: RSCommentInteractorProtocol{
         let work = URLSession.shared.dataTask(with: request) { data, response, error in
             print("->  respuesta Status Code: ", response as Any)
             print("->  error: ", error as Any)
-
+            guard let allData = data else { return }
             
             do{
                 if data != nil {
-                    let contentRepsonse: RelationsData = try JSONDecoder().decode(RelationsData.self, from: data!)
+                    let contentRepsonse: RelationsData = try JSONDecoder().decode(RelationsData.self, from: allData)
                     print(contentRepsonse)
                     self.presenter?.onSuccessGetRelations(data: contentRepsonse, response: (response as! HTTPURLResponse))
                 }
@@ -116,7 +116,8 @@ public class RSCommentsInteractor: RSCommentInteractorProtocol{
                     let someDictionaryFromJSON = try JSONSerialization.jsonObject(with: data ?? Data(), options: .allowFragments) as! [String: Any]
                     let jsonDecoder = JSONDecoder()
                     jsonDecoder.keyDecodingStrategy = .convertFromSnakeCase
-                    let responseModel = try jsonDecoder.decode(RSComments.self, from: data!)
+                    guard let allData = data else { return }
+                    let responseModel = try jsonDecoder.decode(RSComments.self, from: allData)
                     let arr = responseModel.result?.comments
                     let dctResult = someDictionaryFromJSON["result"] as? [String: Any]
                     let dctPag = dctResult?["Pagination"] as? [String: Any]
@@ -180,8 +181,7 @@ public class RSCommentsInteractor: RSCommentInteractorProtocol{
             print("-->>  Services class: RSCommentsInteractor")
             print("->  respuesta Status Code: ", response as Any)
             print("->  error: ", error as Any)
-            let responseServer = try! JSONSerialization.jsonObject(with: data!, options: []) as? NSDictionary
-            print("->✅  responseServer: ", responseServer as Any)
+            
 
             do{
                 guard let allData = data else { return }

@@ -39,18 +39,19 @@ final class FaithfulInteractor: FaithfulInteractorInputsType {
         
         request.httpBody = httpBody
         let tarea = URLSession.shared.dataTask(with: request) { data, response, error in
-            print("  -->>  data: ", data)
-            print("  -->>  response: ", response)
-            print("  -->>  error: ", error)
+            print("-->>  data: ", data)
+            print("-->>  response: ", response)
+            print("-->>  error: ", error)
             if error != nil {
                 print("Error")
                 return
             }
             
+            guard let allData = data else { return }
             if (response as! HTTPURLResponse).statusCode == 200 || (response as! HTTPURLResponse).statusCode == 201{
                 DispatchQueue.main.async {
                     do {
-                        let options = try JSONDecoder().decode(ServiceID.self, from: data!)
+                        let options = try JSONDecoder().decode(ServiceID.self, from: allData)
                         self.presenter?.didRegisterServicesSuccess(status: true, id: options.service_id ?? 0)
                     } catch {
                         self.presenter?.didRegisterServicesSuccess(status: false, id: 0)

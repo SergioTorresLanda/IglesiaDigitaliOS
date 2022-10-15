@@ -60,12 +60,11 @@ public struct StorageService {
             let data = try? JSONEncoder().encode(params)
             request.httpBody = data
              let response = URLSession.shared.dataTask(with: request) { data, response, error in
-                 print("-->>  Services class: ", String(describing: type(of: self)))
+                
                  print("->  respuesta Status Code: ", response as Any)
                  print("->  error: ", error as Any)
-                 let responseServer = try! JSONSerialization.jsonObject(with: data!, options: []) as? NSDictionary
-                 print("->✅  responseServer: ", responseServer as Any)
-
+                 guard let allData = data else { return }
+               
                  if error != nil {
                      completation(nil, nil)
                      return
@@ -73,7 +72,7 @@ public struct StorageService {
                  var iTotalImage = 0
                  if (response as! HTTPURLResponse).statusCode == 200 {
                      do {
-                         let resp = try JSONSerialization.jsonObject(with: data!, options: .allowFragments)
+                         let resp = try JSONSerialization.jsonObject(with: allData, options: .allowFragments)
                          print(resp)
                          let jsonDecoder = JSONDecoder()
                          let responseModel = try jsonDecoder.decode([PrefirmadaResponse].self, from: data ?? Data())
@@ -156,12 +155,11 @@ public struct StorageService {
             let data = try? JSONEncoder().encode(params)
             request.httpBody = data
             let response = URLSession.shared.dataTask(with: request) { data, response, error in
-                print("-->>  Services class: ", String(describing: type(of: self)))
+                
                 print("->  respuesta Status Code: ", response as Any)
                 print("->  error: ", error as Any)
-                let responseServer = try! JSONSerialization.jsonObject(with: data!, options: []) as? NSDictionary
-                print("->✅  responseServer: ", responseServer as Any)
-
+                guard let allData = data else { return }
+              
                 if error != nil {
                     print("Hubo un error")
                     completation(nil, nil)
@@ -170,7 +168,7 @@ public struct StorageService {
                 
                 if (response as! HTTPURLResponse).statusCode == 200 {
                     do {
-                        let resp = try JSONSerialization.jsonObject(with: data!, options: .allowFragments)
+                        let resp = try JSONSerialization.jsonObject(with: allData, options: .allowFragments)
                         print(resp)
                         let jsonDecoder = JSONDecoder()
                         let responseModel = try jsonDecoder.decode([PrefirmadaResponse].self, from: data ?? Data())

@@ -25,7 +25,8 @@ public class FeelingsInteractor: FeelingsInteractorProtocol {
                 self.presenter?.didFinishGettingFeelingsWithErrors(error: error)
             } else {
                 do {
-                    let result = try JSONDecoder().decode(Feelings.self, from: data!)
+                    guard let allData = data else { return }
+                    let result = try JSONDecoder().decode(Feelings.self, from: allData)
                     self.presenter?.didFinishGettingFeelings(feelings: result)
                 } catch  {
                     self.presenter?.didFinishGettingFeelingsWithErrors(error: SocialNetworkErrors.ResponseError)
