@@ -58,6 +58,9 @@ public class APIType {
         return API
     }
     
+//https://api.iglesia-digital.com.mx/arquidiocesis/gestion-usuarios/v1
+//https://api.iglesia-digital.com.mx/arquidiocesis/encuentro/v1
+
     func refreshToken() {
            let user = UserDefaults.standard
            let Url = String(format: "\(APIType.shared.Auth())/user/refresh_tokens")

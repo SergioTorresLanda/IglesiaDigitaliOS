@@ -39,9 +39,11 @@ class InteractorAdminModules: ProtocolosAdminModulesInteractorInput {
         request.httpBody = body
         print(body)
         let tarea = URLSession.shared.dataTask(with: request) { data, response, error in
-            print("  -->>  data: ", data)
-            print("  -->>  response: ", response)
-            print("  -->>  error: ", error)
+            print("-->>  Services class: ", String(describing: type(of: self)))
+            print("->  respuesta Status Code: ", response as Any)
+            print("->  error: ", error as Any)
+            let responseServer = try! JSONSerialization.jsonObject(with: data!, options: []) as? NSDictionary
+            print("->✅  responseServer: ", responseServer as Any)
 
             if error != nil {
                 print("Hubo un error")
@@ -89,11 +91,11 @@ class InteractorAdminModules: ProtocolosAdminModulesInteractorInput {
         guard let body = try? JSONSerialization.data(withJSONObject: dictionary, options: []) else { return  }
         request.httpBody = body
         let tarea = URLSession.shared.dataTask(with: request) { data, response, error in
-            print("  -->>  data: ", data)
-            print("  -->>  response: ", response)
-            print("  -->>  error: ", error)
-
-            print("&&&", response)
+            print("-->>  Services class: ", String(describing: type(of: self)))
+            print("->  respuesta Status Code: ", response as Any)
+            print("->  error: ", error as Any)
+            let responseServer = try! JSONSerialization.jsonObject(with: data!, options: []) as? NSDictionary
+            print("->✅  responseServer: ", responseServer as Any)
             if error != nil {
                 print("Hubo un error")
                 return
@@ -123,9 +125,11 @@ class InteractorAdminModules: ProtocolosAdminModulesInteractorInput {
         request.setValue("\(idUser)", forHTTPHeaderField: "X-User-Id")
         
         let work = URLSession.shared.dataTask(with: request) { data, response, error in
-            print("  -->>  data: ", data)
-            print("  -->>  response: ", response)
-            print("  -->>  error: ", error)
+            print("-->>  Services class: ", String(describing: type(of: self)))
+            print("->  respuesta Status Code: ", response as Any)
+            print("->  error: ", error as Any)
+            let responseServer = try! JSONSerialization.jsonObject(with: data!, options: []) as? NSDictionary
+            print("->✅  responseServer: ", responseServer as Any)
 
             do {
                 let contentResponse = try JSONDecoder().decode(DetailAdminEntity.self, from: data!)

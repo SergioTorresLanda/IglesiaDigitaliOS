@@ -30,9 +30,9 @@ public struct UserRegister: Codable {
 
 struct ResponseRegister: Codable {
     
-    let UserConfirmed: Bool
-    let UserSub: String
-    let CodeDeliveryDetails : CodeDeliveryDetails
+    let UserConfirmed: Bool?
+    let UserSub: String?
+    let CodeDeliveryDetails : CodeDeliveryDetails?
     
     init(UserConfirmed: Bool, UserSub: String, CodeDeliveryDetails : CodeDeliveryDetails) {
         self.UserConfirmed = UserConfirmed

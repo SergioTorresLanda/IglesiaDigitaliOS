@@ -26,9 +26,11 @@ class ConfirmationCodeInteractor: ConfirmationCodeInteractorProtocol {
         request.setValue("application/json", forHTTPHeaderField: "Content-Type")
         
         let tarea = URLSession.shared.dataTask(with: request) { [self] data, response, error in
-            print("  -->>  data: ", data)
-            print("  -->>  response: ", response)
-            print("  -->>  error: ", error)
+            print("-->>  Services class: ", String(describing: type(of: self)))
+            print("->  respuesta Status Code: ", response as Any)
+            print("->  error: ", error as Any)
+            let responseServer = try! JSONSerialization.jsonObject(with: data!, options: []) as? NSDictionary
+            print("->✅  responseServer: ", responseServer as Any)
 
             if error != nil {
                 print("Hubo un error")
@@ -77,9 +79,11 @@ class ConfirmationCodeInteractor: ConfirmationCodeInteractorProtocol {
         request.setValue("Bearer \(tksession ?? "")", forHTTPHeaderField: "Authorization")
         
         let tarea = URLSession.shared.dataTask(with: request) { [self] data, response, error in
-            print("  -->>  data: ", data)
-            print("  -->>  response: ", response)
-            print("  -->>  error: ", error)
+            print("-->>  Services class: ", String(describing: type(of: self)))
+            print("->  respuesta Status Code: ", response as Any)
+            print("->  error: ", error as Any)
+            let responseServer = try! JSONSerialization.jsonObject(with: data!, options: []) as? NSDictionary
+            print("->✅  responseServer: ", responseServer as Any)
 
             if error != nil {
                 print("Hubo un error")
@@ -118,9 +122,11 @@ class ConfirmationCodeInteractor: ConfirmationCodeInteractorProtocol {
         request.setValue("Bearer \(tksession ?? "")", forHTTPHeaderField: "Authorization")
         
         URLSession.shared.dataTask(with: request) { data, response, error in
-            print("  -->>  data: ", data)
-            print("  -->>  response: ", response)
-            print("  -->>  error: ", error)
+            print("-->>  Services class: ", String(describing: type(of: self)))
+            print("->  respuesta Status Code: ", response as Any)
+            print("->  error: ", error as Any)
+            let responseServer = try! JSONSerialization.jsonObject(with: data!, options: []) as? NSDictionary
+            print("->✅  responseServer: ", responseServer as Any)
 
             do {
                 

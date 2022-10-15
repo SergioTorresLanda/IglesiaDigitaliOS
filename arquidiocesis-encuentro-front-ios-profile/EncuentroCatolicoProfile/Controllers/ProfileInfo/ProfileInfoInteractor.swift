@@ -76,9 +76,11 @@ class ProfileInfoInteractor: ProfileInfoInteractorInputProtocol {
         request.setValue("Bearer \(tksession ?? "")", forHTTPHeaderField: "Authorization")
         
         let tarea = URLSession.shared.dataTask(with: request) { data, response, error in
-            print("  -->>  data: ", data)
-            print("  -->>  response: ", response)
-            print("  -->>  error: ", error)
+            print("-->>  Services class: ", String(describing: type(of: self)))
+            print("->  respuesta Status Code: ", response as Any)
+            print("->  error: ", error as Any)
+            let responseServer = try! JSONSerialization.jsonObject(with: data!, options: []) as? NSDictionary
+            print("->✅  responseServer: ", responseServer as Any)
 
             if error != nil {
                 print("Hubo un error")
@@ -120,9 +122,11 @@ class ProfileInfoInteractor: ProfileInfoInteractorInputProtocol {
         request.setValue("Bearer \(tksession ?? "")", forHTTPHeaderField: "Authorization")
         
         let tarea = URLSession.shared.dataTask(with: request) { data, response, error in
-            print("  -->>  data: ", data)
-            print("  -->>  response: ", response)
-            print("  -->>  error: ", error)
+            print("-->>  Services class: ", String(describing: type(of: self)))
+            print("->  respuesta Status Code: ", response as Any)
+            print("->  error: ", error as Any)
+            let responseServer = try! JSONSerialization.jsonObject(with: data!, options: []) as? NSDictionary
+            print("->✅  responseServer: ", responseServer as Any)
 
             if error != nil {
                 print("Hubo un error")
@@ -167,9 +171,11 @@ class ProfileInfoInteractor: ProfileInfoInteractorInputProtocol {
         request.httpBody = cuerpo
         
         let tarea = URLSession.shared.dataTask(with: request) { data, response, error in
-            print("  -->>  data: ", data)
-            print("  -->>  response: ", response)
-            print("  -->>  error: ", error)
+            print("-->>  Services class: ", String(describing: type(of: self)))
+            print("->  respuesta Status Code: ", response as Any)
+            print("->  error: ", error as Any)
+            let responseServer = try! JSONSerialization.jsonObject(with: data!, options: []) as? NSDictionary
+            print("->✅  responseServer: ", responseServer as Any)
 
             if error != nil {
                 print("Hubo un error")
@@ -211,9 +217,11 @@ class ProfileInfoInteractor: ProfileInfoInteractorInputProtocol {
         request.setValue("Bearer \( tksession ?? "")", forHTTPHeaderField: "Authorization")
         
         let tarea = URLSession.shared.dataTask(with: request) { data, response, error in
-            print("  -->>  data: ", data)
-            print("  -->>  response: ", response)
-            print("  -->>  error: ", error)
+            print("-->>  Services class: ", String(describing: type(of: self)))
+            print("->  respuesta Status Code: ", response as Any)
+            print("->  error: ", error as Any)
+            let responseServer = try! JSONSerialization.jsonObject(with: data!, options: []) as? NSDictionary
+            print("->✅  responseServer: ", responseServer as Any)
 
             if error != nil {
                 print("Hubo un error")
@@ -263,7 +271,6 @@ class ProfileInfoInteractor: ProfileInfoInteractorInputProtocol {
             print("  -->>  error: ", error)
 
             if error != nil {
-                print("Hubo un error")
                 return
             }
             
@@ -351,12 +358,13 @@ class ProfileInfoInteractor: ProfileInfoInteractorInputProtocol {
         guard let body = try? encoder.encode(dictionary) else { return  }
         request.httpBody = body
         let tarea = URLSession.shared.dataTask(with: request) { data, response, error in
-            print("  -->>  data: ", data)
-            print("  -->>  response: ", response)
-            print("  -->>  error: ", error)
+            print("-->>  Services class: ", String(describing: type(of: self)))
+            print("->  respuesta Status Code: ", response as Any)
+            print("->  error: ", error as Any)
+            let responseServer = try! JSONSerialization.jsonObject(with: data!, options: []) as? NSDictionary
+            print("->✅  responseServer: ", responseServer as Any)
 
             if error != nil {
-                print("Hubo un error")
                 return
             }
             print(response)
@@ -395,9 +403,11 @@ class ProfileInfoInteractor: ProfileInfoInteractorInputProtocol {
         guard let body = try? encoder.encode(dictionary) else { return  }
         request.httpBody = body
         let tarea = URLSession.shared.dataTask(with: request) { data, response, error in
-            print("  -->>  data: ", data)
-            print("  -->>  response: ", response)
-            print("  -->>  error: ", error)
+            print("-->>  Services class: ", String(describing: type(of: self)))
+            print("->  respuesta Status Code: ", response as Any)
+            print("->  error: ", error as Any)
+            let responseServer = try! JSONSerialization.jsonObject(with: data!, options: []) as? NSDictionary
+            print("->✅  responseServer: ", responseServer as Any)
 
             if error != nil {
                 print("Hubo un error")
@@ -436,9 +446,11 @@ class ProfileInfoInteractor: ProfileInfoInteractorInputProtocol {
         guard let body = try? encoder.encode(dictionary) else { return  }
         request.httpBody = body
         let tarea = URLSession.shared.dataTask(with: request) { data, response, error in
-            print("  -->>  data: ", data)
-            print("  -->>  response: ", response)
-            print("  -->>  error: ", error)
+            print("-->>  Services class: ", String(describing: type(of: self)))
+            print("->  respuesta Status Code: ", response as Any)
+            print("->  error: ", error as Any)
+            let responseServer = try! JSONSerialization.jsonObject(with: data!, options: []) as? NSDictionary
+            print("->✅  responseServer: ", responseServer as Any)
 
             if error != nil {
                 print("Hubo un error")

@@ -25,20 +25,19 @@ class RegisterRemoteDataManager:RegisterRemoteDataManagerInputProtocol {
         
         let tarea = URLSession.shared.dataTask(with: request) { data, response, error in
             
-            print("----------------Services ---------------------------------")
+            print("-->>  Services class: ", String(describing: type(of: self)))
             print("🎃  ->  endpoint: ", endpoint)
             print("->  request: ", register)
-            print("->  respuesta: ", response)
-            print("->  error: ", error)
-            print("----------------------------------------------------------------")
-        
+            print("->  respuesta Status Code: ", response as Any)
+            print("->  error: ", error as Any)
+            let responseServer = try! JSONSerialization.jsonObject(with: data!, options: []) as? NSDictionary
+            print("->✅  responseServer: ", responseServer as Any)
+            
             if error != nil {
-                print("Hubo un error")
                 self.remoteRequestHandler?.callbackResponse(respuesta: nil, error: ErroresServidor.ErrorServidor, user: register)
                 return
             }
            
-            
             if (response as! HTTPURLResponse).statusCode == 200 {
                 guard let dataRes = data, let respuesta: ResponseRegister = try? JSONDecoder().decode(ResponseRegister.self, from: dataRes) else {
                     print("No se pudo parsear")
@@ -52,7 +51,6 @@ class RegisterRemoteDataManager:RegisterRemoteDataManagerInputProtocol {
                     self.remoteRequestHandler?.callbackResponse(respuesta: nil, error: ErroresServidor.ErrorServidor, user: register)
                     return
                 }
-                
                 if resp.code == 101{
                     self.remoteRequestHandler?.callbackResponse(respuesta: nil, error: ErroresServidor.ErrorInterno, user: register)
                 }else if resp.code == 102{

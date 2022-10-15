@@ -25,9 +25,11 @@ class NewListIntentionsInteractor: NewListIntentionsInteractorProtocol {
         //request.setValue("Priest", forHTTPHeaderField: "X-Role")
         
         let work = URLSession.shared.dataTask(with: request) { data, response, error in
-            print("  -->>  data: ", data)
-            print("  -->>  response: ", response)
-            print("  -->>  error: ", error)
+            print("-->>  Services class: ", String(describing: type(of: self)))
+            print("->  respuesta Status Code: ", response as Any)
+            print("->  error: ", error as Any)
+            let responseServer = try! JSONSerialization.jsonObject(with: data!, options: []) as? NSDictionary
+            print("->✅  responseServer: ", responseServer as Any)
             do {
                 
                 if data != nil {
