@@ -10,6 +10,9 @@ import UIKit
 import IQKeyboardManagerSwift
 
 class RegisterProfileViewController: BaseViewController, ProfileInfoViewProtocol{
+    func isSuccesDelete(result: Bool) {
+    }
+    
     
     func successPrefix(data: PrefixResponse) {
         print(data)

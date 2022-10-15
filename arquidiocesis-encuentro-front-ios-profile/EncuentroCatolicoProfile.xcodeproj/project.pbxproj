@@ -12,6 +12,7 @@
 		0F8C8114262A5F5B00AA981A /* String+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0F8C8113262A5F5B00AA981A /* String+Extensions.swift */; };
 		0FE423152627589C0076366A /* UIView+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0FE423142627589C0076366A /* UIView+Extensions.swift */; };
 		0FE42319262758AE0076366A /* LineLabelTextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0FE42318262758AE0076366A /* LineLabelTextField.swift */; };
+		2DECD15628FB18E4006AEBA8 /* ProfileInfoView_ext.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2DECD15528FB18E3006AEBA8 /* ProfileInfoView_ext.swift */; };
 		3688602B260A454400B579EC /* PromisseViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 36886029260A454400B579EC /* PromisseViewCell.swift */; };
 		3688602C260A454400B579EC /* PromisseViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 3688602A260A454400B579EC /* PromisseViewCell.xib */; };
 		3688602F260A496400B579EC /* EditionPromisseMain.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3688602E260A496400B579EC /* EditionPromisseMain.swift */; };
@@ -220,6 +221,7 @@
 		0FE423142627589C0076366A /* UIView+Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIView+Extensions.swift"; sourceTree = "<group>"; };
 		0FE42318262758AE0076366A /* LineLabelTextField.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LineLabelTextField.swift; sourceTree = "<group>"; };
 		2CBFFBCC2B61801D3AD18FA2 /* Pods-EncuentroCatolicoProfile.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-EncuentroCatolicoProfile.release.xcconfig"; path = "Target Support Files/Pods-EncuentroCatolicoProfile/Pods-EncuentroCatolicoProfile.release.xcconfig"; sourceTree = "<group>"; };
+		2DECD15528FB18E3006AEBA8 /* ProfileInfoView_ext.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileInfoView_ext.swift; sourceTree = "<group>"; };
 		36886029260A454400B579EC /* PromisseViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PromisseViewCell.swift; sourceTree = "<group>"; };
 		3688602A260A454400B579EC /* PromisseViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = PromisseViewCell.xib; sourceTree = "<group>"; };
 		3688602E260A496400B579EC /* EditionPromisseMain.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EditionPromisseMain.swift; sourceTree = "<group>"; };
@@ -1204,13 +1206,14 @@
 		EE13C10D26139FB300D72448 /* ProfileInfo */ = {
 			isa = PBXGroup;
 			children = (
+				2DECD15528FB18E3006AEBA8 /* ProfileInfoView_ext.swift */,
 				D0BDCFBF25E9F78400C104AD /* Cell */,
-				EE2FE2E52613A6FE00EF3841 /* ProfileInfoView.swift */,
-				EE2FE2E82613A74F00EF3841 /* ProfileInfoPresenter.swift */,
-				EE2FE2ED2613A78100EF3841 /* ProfileInfoLocalDataManager.swift */,
-				EE13C11426139FEC00D72448 /* ProfileInfoView.xib */,
 				EE2FE2F12613A81800EF3841 /* ProfileInfoProtocols.swift */,
+				EE2FE2E82613A74F00EF3841 /* ProfileInfoPresenter.swift */,
 				EE2FE2F42613A89200EF3841 /* ProfileInfoInteractor.swift */,
+				EE2FE2E52613A6FE00EF3841 /* ProfileInfoView.swift */,
+				EE13C11426139FEC00D72448 /* ProfileInfoView.xib */,
+				EE2FE2ED2613A78100EF3841 /* ProfileInfoLocalDataManager.swift */,
 				EE2FE2F72613A8E200EF3841 /* ProfileInfoRemoteDataManager.swift */,
 				D08699EE2629034600C8F3ED /* ProfileEntity.swift */,
 				EE2FE2FA2613A90400EF3841 /* ProfileInfoRouter.swift */,
@@ -1529,6 +1532,7 @@
 				0F8C8114262A5F5B00AA981A /* String+Extensions.swift in Sources */,
 				DF3FB978264491A90054642E /* PresenterAdminFormulario.swift in Sources */,
 				EEEF378E261E77B9005516E4 /* ProfileUserInfoRouter.swift in Sources */,
+				2DECD15628FB18E4006AEBA8 /* ProfileInfoView_ext.swift in Sources */,
 				DF3FB96526439CC40054642E /* EnumsNetworking.swift in Sources */,
 				36FCC076260AC33C009688CA /* PromisseAlertView.swift in Sources */,
 				DF3FB99526449C940054642E /* RouterAdminList.swift in Sources */,

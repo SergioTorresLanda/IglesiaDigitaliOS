@@ -57,7 +57,9 @@ class ProfileInfoPresenter {
     func postState(request: ProfileState) {
         interactor?.postState(request: request)
     }
-
+    func deleteAccount(email: String) {
+        interactor?.deleteAccount(email: email)
+    }
     func postCongregation(request: ProfileCongregation) {
         interactor?.postCongregation(request: request)
     }
@@ -120,7 +122,9 @@ class ProfileInfoPresenter {
 //        }
         
     }
-
+    func responseDeleteByEmail(status: Bool) {
+        self.view?.isSuccesDelete(result: status)
+    }
     func responseCongregation(result: Result<ResponseCongregation, ErrorEncuentro>) {
         view?.showCongregationResponse()
     }
@@ -205,6 +209,10 @@ class ProfileInfoPresenter {
 }
 
 extension ProfileInfoPresenter: ProfileInfoPresenterProtocol {
+    func isSuccesDelete(result: Bool) {
+        ()
+    }
+    
     func showConfigController() {
         if let view = view {
             wireFrame?.pushToConfig(from: view)

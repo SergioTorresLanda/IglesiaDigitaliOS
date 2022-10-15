@@ -1,6 +1,10 @@
 import Foundation
 
 class ProfileInfoRemoteDataManager:ProfileInfoRemoteDataManagerInputProtocol {
+    func requestDeleteByEmail(email: String?) {
+        ()
+    }
+    
     
     var remoteRequestHandler: ProfileInfoRemoteDataManagerOutputProtocol?
     

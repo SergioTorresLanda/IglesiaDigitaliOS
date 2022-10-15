@@ -30,8 +30,8 @@ class FYV_ProfileInteractor: FYV_VIPER_PresenterToInteractorProtocol {
 
         let task = URLSession.shared.dataTask(with: request) { data, response, error in
             
-            print("->  respuesta Status Code: ", response as Any)
-            print("->  error: ", error as Any)
+            //print("->  respuesta Status Code: ", response as Any)
+            //print("->  error: ", error as Any)
 
             guard let data = data else {
                 semaphore.signal()

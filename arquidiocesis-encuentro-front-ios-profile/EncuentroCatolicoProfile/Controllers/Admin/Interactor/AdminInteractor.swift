@@ -32,12 +32,12 @@ class AdminInteractor: ProtocolosAdminInteractorInput {
             request.setValue("Bearer \( tksession ?? "")", forHTTPHeaderField: "Authorization")
             request.httpMethod = "DELETE"
             let task = URLSession.shared.dataTask(with: request) { data, response, error in
-                print("->  request 🤡: ", request as Any)
-                print("->  respuesta Status Code: ", response as Any)
-                print("->  error: ", error as Any)
+                //print("->  request 🤡: ", request as Any)
+                //print("->  respuesta Status Code: ", response as Any)
+                //print("->  error: ", error as Any)
                 guard let allData = data else { return }
                 let outputStr  = String(data: allData, encoding: String.Encoding.utf8) as String?
-                print("->  outputStr: ", outputStr as Any)
+                //print("->  outputStr: ", outputStr as Any)
                 if error != nil {
                     print("Hubo un error")
                     return
@@ -51,36 +51,4 @@ class AdminInteractor: ProtocolosAdminInteractorInput {
             task.resume()
         }
     
-    /*func requestDeleteColaborador(id: Int?, email: String?, phone: String?) {
-        guard let endpoint: URL = URL(string: "\(APIType.shared.Auth())/user/delete") else {
-            self.presenter?.responseDeleteColaborador(status: false)
-            return
-        }
-        var request = URLRequest(url: endpoint)
-        request.setValue("application/json", forHTTPHeaderField: "Content-Type")
-        let tksession = UserDefaults.standard.string(forKey: "idToken")
-        request.setValue("Bearer \( tksession ?? "")", forHTTPHeaderField: "Authorization")
-        request.httpMethod = "DELETE"
-        let task = URLSession.shared.dataTask(with: request) { data, response, error in
-            let sBody = NSString(data: request.httpBody? ?? "", encoding: String.Encoding.ascii.rawValue)
-            print("🧩 request", sBody)
-            print("->  request 🤡: ", request as Any)
-            print("->  respuesta Status Code: ", response as Any)
-            print("->  error: ", error as Any)
-            guard let allData = data else { return }
-            let outputStr  = String(data: allData, encoding: String.Encoding.utf8) as String?
-            print("->  outputStr: ", outputStr as Any)
-
-            if error != nil {
-                print("Hubo un error")
-                return
-            }
-            if (response as! HTTPURLResponse).statusCode == 200 {
-                self.presenter?.responseDeleteColaborador(status: true)
-            }else{
-                self.presenter?.responseDeleteColaborador(status: false)
-            }
-    }
-        task.resume()
-    }*/
 }

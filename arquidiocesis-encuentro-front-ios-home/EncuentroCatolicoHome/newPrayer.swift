@@ -107,8 +107,8 @@ class newPrayer: UIViewController {
         request.httpBody = httpBody
         let tarea = URLSession.shared.dataTask(with: request) { data, response, error in
             
-            print("->  respuesta Status Code: ", response as Any)
-            print("->  error: ", error as Any)
+            //print("->  respuesta Status Code: ", response as Any)
+            //print("->  error: ", error as Any)
 
             if error != nil {
                 print("Error")

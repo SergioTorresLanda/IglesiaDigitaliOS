@@ -2,7 +2,6 @@ import Foundation
 
 class ProfileInfoInteractor: ProfileInfoInteractorInputProtocol {
     // MARK: Properties
-    
     weak var presenter: ProfileInfoInteractorOutputProtocol?
     var localDatamanager: ProfileInfoLocalDataManagerInputProtocol?
     var remoteDatamanager: ProfileInfoRemoteDataManagerInputProtocol?
@@ -76,8 +75,8 @@ class ProfileInfoInteractor: ProfileInfoInteractorInputProtocol {
         request.setValue("Bearer \(tksession ?? "")", forHTTPHeaderField: "Authorization")
         
         let tarea = URLSession.shared.dataTask(with: request) { data, response, error in
-            print("->  respuesta Status Code: ", response as Any)
-            print("->  error: ", error as Any)
+            //print("->  respuesta Status Code: ", response as Any)
+            //print("->  error: ", error as Any)
 
             if error != nil {
                 print("Hubo un error")
@@ -119,8 +118,8 @@ class ProfileInfoInteractor: ProfileInfoInteractorInputProtocol {
         request.setValue("Bearer \(tksession ?? "")", forHTTPHeaderField: "Authorization")
         
         let tarea = URLSession.shared.dataTask(with: request) { data, response, error in
-            print("->  respuesta Status Code: ", response as Any)
-            print("->  error: ", error as Any)
+            //print("->  respuesta Status Code: ", response as Any)
+            //print("->  error: ", error as Any)
 
             if error != nil {
                 print("Hubo un error")
@@ -165,8 +164,8 @@ class ProfileInfoInteractor: ProfileInfoInteractorInputProtocol {
         request.httpBody = cuerpo
         
         let tarea = URLSession.shared.dataTask(with: request) { data, response, error in
-            print("->  respuesta Status Code: ", response as Any)
-            print("->  error: ", error as Any)
+            //print("->  respuesta Status Code: ", response as Any)
+            //print("->  error: ", error as Any)
 
             if error != nil {
                 print("Hubo un error")
@@ -208,8 +207,8 @@ class ProfileInfoInteractor: ProfileInfoInteractorInputProtocol {
         request.setValue("Bearer \( tksession ?? "")", forHTTPHeaderField: "Authorization")
         
         let tarea = URLSession.shared.dataTask(with: request) { data, response, error in
-            print("->  respuesta Status Code: ", response as Any)
-            print("->  error: ", error as Any)
+            //print("->  respuesta Status Code: ", response as Any)
+            //print("->  error: ", error as Any)
 
             if error != nil {
                 print("Hubo un error")
@@ -346,8 +345,8 @@ class ProfileInfoInteractor: ProfileInfoInteractorInputProtocol {
         guard let body = try? encoder.encode(dictionary) else { return  }
         request.httpBody = body
         let tarea = URLSession.shared.dataTask(with: request) { data, response, error in
-            print("->  respuesta Status Code: ", response as Any)
-            print("->  error: ", error as Any)
+            //print("->  respuesta Status Code: ", response as Any)
+            //print("->  error: ", error as Any)
 
             if error != nil {
                 return
@@ -388,8 +387,8 @@ class ProfileInfoInteractor: ProfileInfoInteractorInputProtocol {
         guard let body = try? encoder.encode(dictionary) else { return  }
         request.httpBody = body
         let tarea = URLSession.shared.dataTask(with: request) { data, response, error in
-            print("->  respuesta Status Code: ", response as Any)
-            print("->  error: ", error as Any)
+            //print("->  respuesta Status Code: ", response as Any)
+            //print("->  error: ", error as Any)
 
             if error != nil {
                 print("Hubo un error")
@@ -428,8 +427,8 @@ class ProfileInfoInteractor: ProfileInfoInteractorInputProtocol {
         guard let body = try? encoder.encode(dictionary) else { return  }
         request.httpBody = body
         let tarea = URLSession.shared.dataTask(with: request) { data, response, error in
-            print("->  respuesta Status Code: ", response as Any)
-            print("->  error: ", error as Any)
+            //print("->  respuesta Status Code: ", response as Any)
+            //print("->  error: ", error as Any)
 
             if error != nil {
                 print("Hubo un error")
@@ -495,6 +494,34 @@ class ProfileInfoInteractor: ProfileInfoInteractorInputProtocol {
             self?.presenter?.responseServices(result: result)
         }
     }
+    
+    func deleteAccount(email: String) {
+           let apiURL = URL(string: "\(APIType.shared.Auth())/user/delete?email=\(email)")
+            
+        var request = URLRequest(url: apiURL!)
+            request.setValue("application/json", forHTTPHeaderField: "Content-Type")
+            let tksession = UserDefaults.standard.string(forKey: "idToken")
+            request.setValue("Bearer \( tksession ?? "")", forHTTPHeaderField: "Authorization")
+            request.httpMethod = "DELETE"
+            let task = URLSession.shared.dataTask(with: request) { data, response, error in
+                //print("->  request 🤡: ", request as Any)
+                //print("->  respuesta Status Code: ", response as Any)
+                //print("->  error: ", error as Any)
+                guard let allData = data else { return }
+                let outputStr  = String(data: allData, encoding: String.Encoding.utf8) as String?
+                //print("->  outputStr: ", outputStr as Any)
+                if error != nil {
+                    print("Hubo un error")
+                    return
+                }
+                if (response as! HTTPURLResponse).statusCode == 200 {
+                    self.presenter?.responseDeleteByEmail(status: true)
+                }else{
+                    self.presenter?.responseDeleteByEmail(status: false)
+                }
+        }
+            task.resume()
+        }
 }
 
 extension ProfileInfoInteractor: ProfileInfoRemoteDataManagerOutputProtocol {

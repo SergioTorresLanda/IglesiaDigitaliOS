@@ -19,8 +19,8 @@ public func getSNToken() {
 //    request.setValue("Application/json", forHTTPHeaderField: "Content-Type")
     
     let session = URLSession.shared.dataTask(with: request){ (data, response, error) in
-        print("->  respuesta Status Code: ", response as Any)
-        print("->  error: ", error as Any)
+        //print("->  respuesta Status Code: ", response as Any)
+        //print("->  error: ", error as Any)
 
         if let response = response {
             print("response SN: \(response)")

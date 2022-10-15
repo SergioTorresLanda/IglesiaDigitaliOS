@@ -28,10 +28,10 @@ protocol ProfileInfoViewProtocol: class {
     func failLaicoReligioso()
     func successDiacano()
     func failDiacano()
-    
     func successPrefix(data: PrefixResponse)
     func failPrefix(message: String)
-    
+
+    func isSuccesDelete(result: Bool)
 }
 
 protocol ProfileInfoWireFrameProtocol: class {
@@ -73,6 +73,8 @@ protocol ProfileInfoPresenterProtocol: class {
     func postDiacono(request: ProfileDiacono)
     func postSacerdote(request: ProfilePriest)
     func postState(request: ProfileState)
+    func deleteAccount(email: String)
+    func isSuccesDelete(result: Bool)
     func postCongregation(request: ProfileCongregation)
     func showSoySacerdotecontroller(navegationController: UINavigationController)
     func getDetalles()
@@ -100,6 +102,7 @@ protocol ProfileInfoInteractorOutputProtocol: class {
     func responseDiacono(result: Result<ResponseDiacono,ErrorEncuentro>)
     func responseSacerdote(result: Result<ResponseSacerdote,ErrorEncuentro>)
     func responseState(result: Result<ResponseState,ErrorEncuentro>)
+    func responseDeleteByEmail(status: Bool)
     func responseServices(result: Result<ServiceResponse,ErrorEncuentro>)
     func responseCongregation(result: Result<ResponseCongregation,ErrorEncuentro>)
     func obtieneRespuetaUsuario(errores: ErroresServidorProfile, user: UserRespProfile?)
@@ -137,6 +140,7 @@ protocol ProfileInfoInteractorInputProtocol: class {
     func postDiacono(request: ProfileDiacono)
     func postSacerdote(request: ProfilePriest)
     func postState(request: ProfileState)
+    func deleteAccount(email: String)
     func postCongregation(request: ProfileCongregation)
     func requestDetalles()
     func postImgBase64(elementID: Int, type: String, filename: String, contentBase64: String)

@@ -24,8 +24,8 @@ class NewDontaionsInteractor: NewDontaionsInteractorProtocol {
         
         let work = URLSession.shared.dataTask(with: request) { data, response, error in
 
-            print("->  respuesta Status Code: ", response as Any)
-            print("->  error: ", error as Any)
+            //print("->  respuesta Status Code: ", response as Any)
+            //print("->  error: ", error as Any)
             
             do {
                 guard let allData = data else { return }

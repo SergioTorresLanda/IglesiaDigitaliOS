@@ -13,6 +13,7 @@
             <connections>
                 <outlet property="activityCollection" destination="D8U-y2-fsE" id="q2Z-hC-Yxp"/>
                 <outlet property="btnChangePhoto" destination="NG7-O8-rwZ" id="2hQ-hJ-bTJ"/>
+                <outlet property="btnDelete" destination="omI-qT-thq" id="E4i-hq-BRT"/>
                 <outlet property="btnGear" destination="X7f-lI-VkS" id="202-R1-P4a"/>
                 <outlet property="btnSave" destination="4SO-RD-lOM" id="vUr-sL-fg9"/>
                 <outlet property="cardLaico" destination="fkD-Ep-mSU" id="ZyX-U1-lfx"/>
@@ -134,12 +135,24 @@
                                 <action selector="changePhotoAction:" destination="-1" eventType="touchUpInside" id="DJN-de-R4t"/>
                             </connections>
                         </button>
+                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="omI-qT-thq">
+                            <rect key="frame" x="145.5" y="263" width="123" height="34"/>
+                            <fontDescription key="fontDescription" name=".AppleSystemUIFont" family=".AppleSystemUIFont" pointSize="18"/>
+                            <state key="normal" title="Eliminar cuenta">
+                                <color key="titleColor" name="eMainBlue"/>
+                            </state>
+                            <connections>
+                                <action selector="actionBtnDelete:" destination="-1" eventType="touchUpInside" id="YCl-yU-NNy"/>
+                            </connections>
+                        </button>
                     </subviews>
                     <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                     <constraints>
                         <constraint firstItem="Xdk-PF-MWt" firstAttribute="top" secondItem="P1c-dc-H9w" secondAttribute="bottom" constant="16" id="31n-es-Hlr"/>
                         <constraint firstAttribute="height" constant="302" id="6Jc-AI-yx3"/>
+                        <constraint firstItem="omI-qT-thq" firstAttribute="centerX" secondItem="2S7-wP-s15" secondAttribute="centerX" id="93E-Bw-o2J"/>
                         <constraint firstAttribute="trailing" secondItem="Xdk-PF-MWt" secondAttribute="trailing" constant="43" id="LSm-Mb-Fch"/>
+                        <constraint firstAttribute="bottom" secondItem="omI-qT-thq" secondAttribute="bottom" constant="5" id="Oho-oq-0D7"/>
                         <constraint firstAttribute="trailing" secondItem="4Fu-VD-JnC" secondAttribute="trailing" constant="-20" id="Pxf-Z4-PmY"/>
                         <constraint firstItem="P1c-dc-H9w" firstAttribute="centerX" secondItem="2S7-wP-s15" secondAttribute="centerX" id="X6R-wZ-awD"/>
                         <constraint firstItem="4Fu-VD-JnC" firstAttribute="leading" secondItem="2S7-wP-s15" secondAttribute="leading" id="bk2-SX-M5K"/>
@@ -266,7 +279,7 @@
                                             <color key="textColor" name="eMainBlue"/>
                                             <nil key="highlightedColor"/>
                                         </label>
-                                        <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="Escribe aqui..." textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="okO-xn-ZxO">
+                                        <textField opaque="NO" userInteractionEnabled="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="Escribe aqui..." textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="okO-xn-ZxO">
                                             <rect key="frame" x="0.0" y="286" width="373" height="34"/>
                                             <constraints>
                                                 <constraint firstAttribute="height" constant="34" id="Ez1-GH-csL"/>
