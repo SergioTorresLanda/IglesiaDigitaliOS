@@ -171,9 +171,9 @@ class prayerChain: UIViewController {
         request.setValue("Bearer \( tksession ?? "")", forHTTPHeaderField: "Authorization")
         request.httpMethod = "GET"
         let tarea = URLSession.shared.dataTask(with: request) { data, response, error in
-            print("-->>  data: ", data)
-            print("-->>  response: ", response)
-            print("-->>  error: ", error)
+            //print("-->>  data: ", data)
+            //print("-->>  response: ", response)
+            //print("-->>  error: ", error)
 
             if error != nil {
                 print("Error")
@@ -297,9 +297,9 @@ class prayerChain: UIViewController {
         let tksession = UserDefaults.standard.string(forKey: "idToken")
         request.setValue("Bearer \( tksession ?? "")", forHTTPHeaderField: "Authorization")
         let tarea = URLSession.shared.dataTask(with: request) { data, response, error in
-            print("-->>  data: ", data)
-            print("-->>  response: ", response)
-            print("-->>  error: ", error)
+            //print("-->>  data: ", data)
+            //print("-->>  response: ", response)
+            //print("-->>  error: ", error)
 
             if error != nil {
                 print("Error")

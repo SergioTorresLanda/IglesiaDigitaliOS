@@ -178,7 +178,7 @@ public class RSCommentsInteractor: RSCommentInteractorProtocol{
         request.setValue("Bearer \( tksession ?? "")", forHTTPHeaderField: "Authorization")
         
         let work = URLSession.shared.dataTask(with: request) { data, response, error in
-            print("-->>  Services class: RSCommentsInteractor")
+            //print("-->>  Services class: RSCommentsInteractor")
             print("->  respuesta Status Code: ", response as Any)
             print("->  error: ", error as Any)
             

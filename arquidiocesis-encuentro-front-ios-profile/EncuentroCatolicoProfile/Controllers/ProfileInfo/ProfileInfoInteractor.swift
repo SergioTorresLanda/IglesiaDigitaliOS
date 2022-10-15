@@ -31,9 +31,9 @@ class ProfileInfoInteractor: ProfileInfoInteractorInputProtocol {
         request.setValue("Bearer \( tksession ?? "")", forHTTPHeaderField: "Authorization")
         
         let tarea = URLSession.shared.dataTask(with: request) { (data, response, error) in
-            print("-->>  data: ", data)
-            print("-->>  response: ", response)
-            print("-->>  error: ", error)
+            //print("-->>  data: ", data)
+            //print("-->>  response: ", response)
+            //print("-->>  error: ", error)
 
             if error != nil {
                 print("Hubo un error")
@@ -255,8 +255,8 @@ class ProfileInfoInteractor: ProfileInfoInteractorInputProtocol {
         
         let tarea = URLSession.shared.dataTask(with: request) { _, response, error in
            
-            print("-->>  response: ", response)
-            print("-->>  error: ", error)
+            //print("-->>  response: ", response)
+            //print("-->>  error: ", error)
 
             if error != nil {
                 return
