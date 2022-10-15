@@ -37,7 +37,7 @@ public class APIType {
         if staged == "Qa" {
              API = "https://api.qa-iglesia-digital.com/arquidiocesis/encuentro/v1"
         }else if staged == "Prod" {
-            API = "https://fjumcvkjdg.execute-api.us-east-1.amazonaws.com/prod"
+            API = "https://api.iglesia-digital.com.mx/arquidiocesis/encuentro/v1"
         }else {
              API = "https://api-develop.arquidiocesis.mx"
         }

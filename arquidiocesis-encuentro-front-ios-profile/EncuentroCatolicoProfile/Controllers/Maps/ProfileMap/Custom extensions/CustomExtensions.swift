@@ -12,11 +12,8 @@ extension UIImageView {
     func downloaded(from url: URL, contentMode mode: UIView.ContentMode = .scaleAspectFit) {
         contentMode = mode
         URLSession.shared.dataTask(with: url) { data, response, error in
-            print("-->>  Services class: ", String(describing: type(of: self)))
             print("->  respuesta Status Code: ", response as Any)
             print("->  error: ", error as Any)
-            let responseServer = try! JSONSerialization.jsonObject(with: data!, options: []) as? NSDictionary
-            print("->✅  responseServer: ", responseServer as Any)
 
             guard
                 let httpURLResponse = response as? HTTPURLResponse, httpURLResponse.statusCode == 200,

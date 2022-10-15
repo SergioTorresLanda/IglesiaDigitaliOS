@@ -36,10 +36,7 @@ class LoginRemoteDataManager:LoginRemoteDataManagerInputProtocol {
             print("-->>  Services class: ", String(describing: type(of: self)))
             print("->  respuesta Status Code: ", response as Any)
             print("->  error: ", error as Any)
-            let responseServer = try! JSONSerialization.jsonObject(with: data!, options: []) as? NSDictionary
-            print("->✅  responseServer: ", responseServer as Any)
             if error != nil {
-                print("Ocurrió un error")
                 self.remoteRequestHandler?.callbackResponse(respuesta: nil, error: ErroresServidorLogin.ErrorServidor, user: user)
                 return
             }
@@ -85,9 +82,6 @@ class LoginRemoteDataManager:LoginRemoteDataManagerInputProtocol {
                     print("-->>  Services class: ", String(describing: type(of: self)))
                     print("->  respuesta Status Code: ", response as Any)
                     print("->  error: ", error as Any)
-                    let responseServer = try! JSONSerialization.jsonObject(with: data!, options: []) as? NSDictionary
-                    print("->✅  responseServer: ", responseServer as Any)
-
                     if error != nil {
                         print("Hubo un error")
                         return

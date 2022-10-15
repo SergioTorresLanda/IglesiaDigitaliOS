@@ -69,11 +69,8 @@ class Request: NSObject {
         debugPrint("body: \(params)")
         
         URLSession.shared.dataTask(with: request) { [weak self] (data, response, error) in
-            print("-->>  Services class: ", String(describing: type(of: self)))
             print("->  respuesta Status Code: ", response as Any)
             print("->  error: ", error as Any)
-            let responseServer = try! JSONSerialization.jsonObject(with: data!, options: []) as? NSDictionary
-            print("->✅  responseServer: ", responseServer as Any)
 
             guard let self = self else {
                 onError(RequestError(status: .noContent))
