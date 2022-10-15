@@ -38,11 +38,8 @@ class HomeInteractor: HomeInteractorProtocol {
             print("-->>  Services class: ", String(describing: type(of: self)))
             print("->  respuesta Status Code: ", response as Any)
             print("->  error: ", error as Any)
-            let responseServer = try! JSONSerialization.jsonObject(with: data!, options: []) as? NSDictionary
-            print("->✅  responseServer: ", responseServer as Any)
 
             if error != nil {
-                print("Hubo un error")
                 return
             }
             
@@ -100,6 +97,7 @@ class HomeInteractor: HomeInteractorProtocol {
             let responseServer = try! JSONSerialization.jsonObject(with: model, options: []) as? NSDictionary
             print("->✅  responseServer: ", responseServer as Any)
 
+
             if error != nil {
                 print("Hubo un error")
                 return
@@ -138,11 +136,8 @@ class HomeInteractor: HomeInteractorProtocol {
         request.setValue("\(idUser)", forHTTPHeaderField: "X-User-Id")
         
         let work = URLSession.shared.dataTask(with: request) { data, response, error in
-            print("-->>  Services class: HomeInteractor")
             print("->  respuesta Status Code: ", response as Any)
             print("->  error: ", error as Any)
-            let responseServer = try! JSONSerialization.jsonObject(with: data!, options: []) as? NSDictionary
-            print("->✅  responseServer: ", responseServer as Any)
 
             do{
                 
@@ -171,11 +166,8 @@ class HomeInteractor: HomeInteractorProtocol {
         request.setValue("\(idUser)", forHTTPHeaderField: "X-User-Id")
         
         let work = URLSession.shared.dataTask(with: request) { data, response, error in
-            print("-->>  Services class: HomeInteractos")
             print("->  respuesta Status Code: ", response as Any)
             print("->  error: ", error as Any)
-            let responseServer = try! JSONSerialization.jsonObject(with: data!, options: []) as? NSDictionary
-            print("->✅  responseServer: ", responseServer as Any)
 
             do{
                 
@@ -204,8 +196,6 @@ class HomeInteractor: HomeInteractorProtocol {
             print("-->>  Services class: ", String(describing: type(of: self)))
             print("->  respuesta Status Code: ", response as Any)
             print("->  error: ", error as Any)
-            let responseServer = try! JSONSerialization.jsonObject(with: data!, options: []) as? NSDictionary
-            print("->✅  responseServer: ", responseServer as Any)
 
             if error != nil {
                 print("Hubo un error")

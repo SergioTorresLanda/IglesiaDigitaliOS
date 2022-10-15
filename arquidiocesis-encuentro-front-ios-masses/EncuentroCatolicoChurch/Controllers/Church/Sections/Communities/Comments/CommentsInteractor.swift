@@ -29,8 +29,6 @@ class CommentsInteractor: CommentsInteractorProtocol {
             print("-->>  Services class: ", String(describing: type(of: self)))
             print("->  respuesta Status Code: ", response as Any)
             print("->  error: ", error as Any)
-            let responseServer = try! JSONSerialization.jsonObject(with: data!, options: []) as? NSDictionary
-            print("->✅  responseServer: ", responseServer as Any)
 
             do {
                 
@@ -76,10 +74,6 @@ class CommentsInteractor: CommentsInteractorProtocol {
             print("-->>  Services class: ", String(describing: type(of: self)))
             print("->  respuesta Status Code: ", response as Any)
             print("->  error: ", error as Any)
-            let responseServer = try! JSONSerialization.jsonObject(with: data!, options: []) as? NSDictionary
-            print("->✅  responseServer: ", responseServer as Any)
-
-            print(response)
             
             if (response as! HTTPURLResponse).statusCode == 200 || (response as! HTTPURLResponse).statusCode == 201 {
                 self.presenter?.transportSuccesPostComment()
@@ -115,11 +109,9 @@ class CommentsInteractor: CommentsInteractorProtocol {
         request.setValue("Bearer \( tksession ?? "")", forHTTPHeaderField: "Authorization")
         
         URLSession.shared.dataTask(with: request) { data, response, error in
-           // print("-->>  Services class: ", String(describing: type(of: self)))
+            print("-->>  Services class: ")
             print("->  respuesta Status Code: ", response as Any)
             print("->  error: ", error as Any)
-            let responseServer = try! JSONSerialization.jsonObject(with: data!, options: []) as? NSDictionary
-            print("->✅  responseServer: ", responseServer as Any)
 
             if (response as! HTTPURLResponse).statusCode == 200 {
                 self.presenter?.succesUpdateComment()
