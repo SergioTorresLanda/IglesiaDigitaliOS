@@ -22,6 +22,7 @@
 		167492C8274813C00073F007 /* RSTimeLine.swift in Sources */ = {isa = PBXBuildFile; fileRef = 167492C7274813C00073F007 /* RSTimeLine.swift */; };
 		16C0553F274B14360084445D /* RSTimeLineRealm.swift in Sources */ = {isa = PBXBuildFile; fileRef = 16C0553E274B14360084445D /* RSTimeLineRealm.swift */; };
 		16C05541274B367A0084445D /* RealManagerRS.swift in Sources */ = {isa = PBXBuildFile; fileRef = 16C05540274B367A0084445D /* RealManagerRS.swift */; };
+		2490111328FA304B00E5A78B /* String+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2490111228FA304B00E5A78B /* String+Extension.swift */; };
 		6D1D406027A373A2007FE35E /* followCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6D1D405627A373A2007FE35E /* followCell.swift */; };
 		6D1D406127A373A2007FE35E /* followCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 6D1D405727A373A2007FE35E /* followCell.xib */; };
 		6D1D406227A373A2007FE35E /* SocialSearchPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6D1D405827A373A2007FE35E /* SocialSearchPresenter.swift */; };
@@ -282,6 +283,7 @@
 		16C0553E274B14360084445D /* RSTimeLineRealm.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RSTimeLineRealm.swift; sourceTree = "<group>"; };
 		16C05540274B367A0084445D /* RealManagerRS.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RealManagerRS.swift; sourceTree = "<group>"; };
 		1F3CEF282077CB48E833FF30 /* Pods_EncuentroCatolicoNews.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_EncuentroCatolicoNews.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		2490111228FA304B00E5A78B /* String+Extension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "String+Extension.swift"; sourceTree = "<group>"; };
 		2B2D6B13266B7E9B7AFA41ED /* Pods-EncuentroCatolicoNews.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-EncuentroCatolicoNews.release.xcconfig"; path = "Target Support Files/Pods-EncuentroCatolicoNews/Pods-EncuentroCatolicoNews.release.xcconfig"; sourceTree = "<group>"; };
 		6D1D405627A373A2007FE35E /* followCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = followCell.swift; sourceTree = "<group>"; };
 		6D1D405727A373A2007FE35E /* followCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = followCell.xib; sourceTree = "<group>"; };
@@ -573,6 +575,14 @@
 				162684F32766C97E000E7B06 /* SNUserProfileSB.storyboard */,
 			);
 			path = SNUserProfile;
+			sourceTree = "<group>";
+		};
+		2490111128FA303500E5A78B /* Extensions */ = {
+			isa = PBXGroup;
+			children = (
+				2490111228FA304B00E5A78B /* String+Extension.swift */,
+			);
+			path = Extensions;
 			sourceTree = "<group>";
 		};
 		46DF482A6F5733B8196AE4AF /* Pods */ = {
@@ -1078,6 +1088,7 @@
 		AA9FF9E325E9A3FD00AC70ED /* Utils */ = {
 			isa = PBXGroup;
 			children = (
+				2490111128FA303500E5A78B /* Extensions */,
 				AA9FF9E425E9A3FD00AC70ED /* SocialNetworkBaseClasses */,
 				AA9FF9ED25E9A3FE00AC70ED /* Alerts */,
 				AA9FF9FB25E9A3FE00AC70ED /* Helpers */,
@@ -1680,6 +1691,7 @@
 				AA9FFAED25E9A3FF00AC70ED /* PhotoGalleryCameraCell.swift in Sources */,
 				AA9FFAC925E9A3FE00AC70ED /* ArrayExtension.swift in Sources */,
 				1641C7142747A46B006B14CD /* CommentModal.swift in Sources */,
+				2490111328FA304B00E5A78B /* String+Extension.swift in Sources */,
 				98A6C1882603EB70009FBE59 /* CreatePostData.swift in Sources */,
 				AA9FFAA225E9A3FE00AC70ED /* ReactionsModalProtocols.swift in Sources */,
 				98A6C1BB26040B36009FBE59 /* EditImagesRouter.swift in Sources */,

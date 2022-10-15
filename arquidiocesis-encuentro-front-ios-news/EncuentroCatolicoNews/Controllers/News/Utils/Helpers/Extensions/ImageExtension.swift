@@ -24,10 +24,15 @@ public extension UIImageView {
         if let image = image, let url = URL(string: image) {
             self.sd_setImage(with: url, placeholderImage: nil, options: .refreshCached, context: nil)
         } else {
+            var nameInitials = ""
+            if let initials = name?.getInitials() {
+                
+                nameInitials = initials
+            }
             self.image = LetterAvatarMaker()
                           .build { c in
                             c.circle = circle
-//                            c.username = name?.twoWords
+                            c.username = nameInitials
                             c.borderWidth = 0.0
                             c.backgroundColors = [ UIColor(red: 132/255, green: 132/255, blue: 132/255, alpha: 1.00) ]
                         }
