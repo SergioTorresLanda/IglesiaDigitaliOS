@@ -94,7 +94,10 @@ class HomeInteractor: HomeInteractorProtocol {
             print("-->>  Services class: ", String(describing: type(of: self)))
             print("->  respuesta Status Code: ", response as Any)
             print("->  error: ", error as Any)
-            let responseServer = try! JSONSerialization.jsonObject(with: data!, options: []) as? NSDictionary
+            guard let model = data else {
+                return
+            }
+            let responseServer = try! JSONSerialization.jsonObject(with: model, options: []) as? NSDictionary
             print("->✅  responseServer: ", responseServer as Any)
 
             if error != nil {

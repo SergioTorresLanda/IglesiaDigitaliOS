@@ -70,6 +70,7 @@ class HomeViewController: UIViewController, HomeViewProtocol, UITextFieldDelegat
     var isFromPrayModal = "OTHER"
     var emptyStreaming = false
     let blueBackground = UIColor.init(red: 28/255, green: 117/255, blue: 188/255, alpha: 1)
+    let redBackground = UIColor.init(red: 184/255, green: 12/255, blue: 12/255, alpha: 1.0)
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -620,7 +621,7 @@ class HomeViewController: UIViewController, HomeViewProtocol, UITextFieldDelegat
             transmitionsView.backgroundColor = blueBackground
             emptyStreaming = false
         }else{
-            transmitionsView.backgroundColor = .red
+            transmitionsView.backgroundColor = redBackground
             emptyStreaming = true
         }
         print("~~~", data)
