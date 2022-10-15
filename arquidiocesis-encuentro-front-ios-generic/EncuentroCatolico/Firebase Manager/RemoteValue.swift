@@ -20,7 +20,6 @@ class RemoteValues {
 
     private init() {
         loadDefaultValues()
-        fetchCloudValues()
     }
 
     func loadDefaultValues() {
@@ -31,27 +30,35 @@ class RemoteValues {
       
         guard let app = FirebaseManager.shared.defaultInstance else { return }
         RemoteConfig.remoteConfig(app: app).setDefaults(appDefaults as? [String: NSObject])
+        fetchCloudValues()
     }
 
     func fetchCloudValues() {
         guard let app = FirebaseManager.shared.defaultInstance else { return }
-        RemoteConfig.remoteConfig(app: app).fetch {_, error in
-            if let error = error {
-            // In a real app, you would probably want to call the loading done callback anyway,
-            // and just proceed with the default values. I won't do that here, so we can call attention
-            // to the fact that Remote Config isn't loading.
-            return
-        }
+        let settings = RemoteConfigSettings()
+        settings.minimumFetchInterval = 0
+        
+        let remote = RemoteConfig.remoteConfig(app: app)
+        remote.configSettings = settings
+        remote.fetch(withExpirationDuration: 0.0) { [weak remote](remoteConfigFetchStatus, error) in
             
-            RemoteConfig.remoteConfig(app: FirebaseManager.shared.defaultInstance!).activate {changed, error in
-                self.fetchComplete = true
+            switch remoteConfigFetchStatus {
+            case .success:
+                remote?.activate {changed, error in
+                    self.fetchComplete = true
+                    DispatchQueue.main.async {
+                        self.loadingDoneCallback?()
+                    }
+                }
+                break
                 
+            default:
                 DispatchQueue.main.async {
                     self.loadingDoneCallback?()
                 }
+                break
             }
-      }
-        
+        }
     }
 
   func bool(forKey key: ValueKey) -> Bool {

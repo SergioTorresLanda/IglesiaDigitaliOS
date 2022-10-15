@@ -348,33 +348,33 @@ class HomeViewController: UIViewController, HomeViewProtocol, UITextFieldDelegat
                 return nil
         }
     
-    func remoteConfig() {
-        
-           guard let url = URL(string: "https://arquidiocesis-public-files.s3.amazonaws.com/1_5066777712274702937.json"),
-                 let urlData = try? Data(contentsOf: url, options: .mappedIfSafe),
-                 let data = try? JSONDecoder().decode(ChurchRemoteInfo.self, from: urlData)  else {
-               return
-           }
-        if data.forceUpdateIOS {
-            if data.versionIOS > Double(getInstalledVersion() ?? "") ?? 0.0 {
-                
-                let alert = UIAlertController(title: "Aviso", message: "Actualiza tu aplicación", preferredStyle: .alert)
-                               let cancelAction = UIAlertAction(title: "Aceptar", style: .cancel){
-                                   [weak self] _ in
-                                   guard let self = self else {return}
-                                   if let url = URL(string: "itms-apps://itunes.apple.com/app/id1559605584"),
-                                                      UIApplication.shared.canOpenURL(url) {
-                                                       UIApplication.shared.open(url, options: [:], completionHandler: nil)
-                                                   }
-                                   }
-                               alert.addAction(cancelAction)
-                               
-                               self.present(alert, animated: true)
-                
-            }
-        }
-           
-   }
+//    func remoteConfig() {
+//        
+//           guard let url = URL(string: "https://arquidiocesis-public-files.s3.amazonaws.com/1_5066777712274702937.json"),
+//                 let urlData = try? Data(contentsOf: url, options: .mappedIfSafe),
+//                 let data = try? JSONDecoder().decode(ChurchRemoteInfo.self, from: urlData)  else {
+//               return
+//           }
+//        if data.forceUpdateIOS {
+//            if data.versionIOS > Double(getInstalledVersion() ?? "") ?? 0.0 {
+//                
+//                let alert = UIAlertController(title: "Aviso", message: "Actualiza tu aplicación", preferredStyle: .alert)
+//                               let cancelAction = UIAlertAction(title: "Aceptar", style: .cancel){
+//                                   [weak self] _ in
+//                                   guard let self = self else {return}
+//                                   if let url = URL(string: "itms-apps://itunes.apple.com/app/id1559605584"),
+//                                                      UIApplication.shared.canOpenURL(url) {
+//                                                       UIApplication.shared.open(url, options: [:], completionHandler: nil)
+//                                                   }
+//                                   }
+//                               alert.addAction(cancelAction)
+//                               
+//                               self.present(alert, animated: true)
+//                
+//            }
+//        }
+//           
+//   }
     
     
     private func setMessageHour() -> String {
@@ -667,7 +667,7 @@ class HomeViewController: UIViewController, HomeViewProtocol, UITextFieldDelegat
         //        viewArriba.layer.shadowOpacity = 0.5
         //        viewArriba.layer.shadowColor = UIColor.black.cgColor
         //        viewArriba.layer.maskedCorners = [.layerMinXMaxYCorner, .layerMaxXMaxYCorner]
-        remoteConfig()
+        //remoteConfig()
     }
     
     func animateViewMoving (up:Bool, moveValue :CGFloat){

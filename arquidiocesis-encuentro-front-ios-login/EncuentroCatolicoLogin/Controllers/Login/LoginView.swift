@@ -24,6 +24,7 @@ class LoginView: UIViewController {
     
     var colorBlue = UIColor(red: 28/255, green: 117/255, blue: 188/255, alpha: 1)
     var forceUpdate: Bool = false
+    var version: Double = 0.0
     let loadingAlert = UIAlertController(title: "", message: "\n \n \n \n \nCargando...", preferredStyle: .alert)
  
 //    // MARK: Lifecycle
@@ -34,15 +35,22 @@ class LoginView: UIViewController {
         self.hideKeyboardWhenTappedAround()
         print(forceUpdate)
         
-        if (forceUpdate) {
-            let alert = UIAlertController(title: "Alerta", message: "Es Necesario Actualizar", preferredStyle: .alert)
-            if let url = URL(string: "https://apps.apple.com/mx/app/iglesia-digital/id1559605584") {
-                alert.addAction(UIAlertAction(title: "Ir A Tienda", style: .default, handler: { action in
-                    UIApplication.shared.open(url, options: [:], completionHandler: nil)
-                }))
-            }
 
-            self.present(alert, animated: true, completion: nil)
+        if forceUpdate {
+            if version > Double(getInstalledVersion() ?? "") ?? 0.0 {
+                let alert = UIAlertController(title: "Aviso", message: "Es Necesario Actualizar", preferredStyle: .alert)
+                if let url = URL(string: "https://apps.apple.com/mx/app/iglesia-digital/id1559605584") {
+                    alert.addAction(UIAlertAction(title: "Ir A Tienda", style: .cancel, handler: { action in
+                        UIApplication.shared.open(url, options: [:]) { _ in
+                            
+                            exit(EXIT_SUCCESS)
+                        }
+                        
+                    }))
+                }
+
+                self.present(alert, animated: true, completion: nil)
+            }
         }
     }
     
@@ -111,33 +119,33 @@ class LoginView: UIViewController {
                 return nil
         }
     
-    func remoteConfig() {
-        
-           guard let url = URL(string: "https://arquidiocesis-public-files.s3.amazonaws.com/1_5066777712274702937.json"),
-                 let urlData = try? Data(contentsOf: url, options: .mappedIfSafe),
-                 let data = try? JSONDecoder().decode(ChurchRemoteInfo.self, from: urlData)  else {
-               return
-           }
-        if data.forceUpdateIOS {
-            if data.versionIOS > Double(getInstalledVersion() ?? "") ?? 0.0 {
-                
-                let alert = UIAlertController(title: "Aviso", message: "Actualiza tu aplicación", preferredStyle: .alert)
-                               let cancelAction = UIAlertAction(title: "Aceptar", style: .cancel){
-                                   [weak self] _ in
-                                   guard let self = self else {return}
-                                   if let url = URL(string: "itms-apps://itunes.apple.com/app/id1559605584"),
-                                                      UIApplication.shared.canOpenURL(url) {
-                                                       UIApplication.shared.open(url, options: [:], completionHandler: nil)
-                                                   }
-                                   }
-                               alert.addAction(cancelAction)
-                               
-                               self.present(alert, animated: true)
-                
-            }
-        }
+//    func remoteConfig() {
+//
+//           guard let url = URL(string: "https://arquidiocesis-public-files.s3.amazonaws.com/1_5066777712274702937.json"),
+//                 let urlData = try? Data(contentsOf: url, options: .mappedIfSafe),
+//                 let data = try? JSONDecoder().decode(ChurchRemoteInfo.self, from: urlData)  else {
+//               return
+//           }
+//        if data.forceUpdateIOS {
+//            if data.versionIOS > Double(getInstalledVersion() ?? "") ?? 0.0 {
+//
+//                let alert = UIAlertController(title: "Aviso", message: "Actualiza tu aplicación", preferredStyle: .alert)
+//                               let cancelAction = UIAlertAction(title: "Aceptar", style: .cancel){
+//                                   [weak self] _ in
+//                                   guard let self = self else {return}
+//                                   if let url = URL(string: "itms-apps://itunes.apple.com/app/id1559605584"),
+//                                                      UIApplication.shared.canOpenURL(url) {
+//                                                       UIApplication.shared.open(url, options: [:], completionHandler: nil)
+//                                                   }
+//                                   }
+//                               alert.addAction(cancelAction)
+//
+//                               self.present(alert, animated: true)
+//
+//            }
+//        }
            
-   }
+   //}
     
     @objc func popViews(){
         for controller in self.navigationController!.viewControllers as Array {
@@ -163,7 +171,7 @@ class LoginView: UIViewController {
         btnTerms.underlineButtons(sizeFont: 11, textColor: colorBlue, text: "Términos y condiciones")
         btnPolicity.underlineButtons(sizeFont: 11, textColor: colorBlue, text: "Política de privacidad")
         btnEtich.underlineButtons(sizeFont: 11, textColor: colorBlue, text: "Código de ética")
-        remoteConfig()
+        //remoteConfig()
         
     }
     

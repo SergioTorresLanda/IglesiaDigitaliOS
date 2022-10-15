@@ -32,8 +32,8 @@ class AppDelegate: UIResponder, UIApplicationDelegate, UNUserNotificationCenterD
 
         let firebaseOptions = FirebaseManager.shared.getGenricAppFirebaseInstance()
         FirebaseApp.configure(options: firebaseOptions)
-        
         FirebaseManager.shared.initSNFirebaseInstance()
+        setRemoteConfig()
         
         IQKeyboardManager.shared.enable = true
         IQKeyboardManager.shared.enableAutoToolbar = false
@@ -48,18 +48,35 @@ class AppDelegate: UIResponder, UIApplicationDelegate, UNUserNotificationCenterD
         
     }
     
-    func openLogin() {
-        if RemoteValues.sharedInstance.fetchComplete {
-            openLoginForReal()
+    func setRemoteConfig() {
+        guard let app = FirebaseManager.shared.defaultInstance else { return }
+        let settings = RemoteConfigSettings()
+        settings.minimumFetchInterval = 0
+        
+        let remote = RemoteConfig.remoteConfig(app: app)
+        remote.configSettings = settings
+        remote.fetch(withExpirationDuration: 0.0) { [weak remote](remoteConfigFetchStatus, error) in
+            switch remoteConfigFetchStatus {
+            case .success:
+                remote?.activate()
+                break
+                
+            default:
+                return
+            }
         }
-
+    }
+    
+    func openLogin() {
         RemoteValues.sharedInstance.loadingDoneCallback = openLoginForReal
     }
     
     func openLoginForReal() {
-        let version = RemoteValues.sharedInstance.double(forKey: .version_ios)
-        let forceUpdate = RemoteValues.sharedInstance.bool(forKey: .force_update_ios)
-        let initView = LoginRouter.createModule(forceUpdate: forceUpdate)
+        let app = FirebaseManager.shared.defaultInstance!
+        let remote = RemoteConfig.remoteConfig(app: app)
+        let version = remote[ValueKey.version_ios.rawValue].numberValue.doubleValue
+        let forceUpdate = remote[ValueKey.force_update_ios.rawValue].boolValue
+        let initView = LoginRouter.createModule(version: version, forceUpdate: forceUpdate)
         navigationController = UINavigationController(rootViewController: initView)
         navigationController?.isNavigationBarHidden = true
         window?.rootViewController = navigationController
