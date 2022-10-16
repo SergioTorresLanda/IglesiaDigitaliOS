@@ -109,7 +109,7 @@ class CommentsInteractor: CommentsInteractorProtocol {
         request.setValue("Bearer \( tksession ?? "")", forHTTPHeaderField: "Authorization")
         
         URLSession.shared.dataTask(with: request) { data, response, error in
-            //print("-->>  Services class: ")
+            print("-->>  Services class: ")
             //print("->  respuesta Status Code: ", response as Any)
             //print("->  error: ", error as Any)
 

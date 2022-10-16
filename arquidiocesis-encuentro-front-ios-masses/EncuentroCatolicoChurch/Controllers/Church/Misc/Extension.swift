@@ -631,8 +631,8 @@ extension UIImageView {
         guard let url = URL(string: uri) else { return }
         
         let task = URLSession.shared.dataTask(with: url) {responseData,response,error in
-            //print("-->>  response: ", response)
-            //print("-->>  error: ", error)
+            print("-->>  response: ", response)
+            print("-->>  error: ", error)
 
             if error == nil {
                 if let data = responseData {

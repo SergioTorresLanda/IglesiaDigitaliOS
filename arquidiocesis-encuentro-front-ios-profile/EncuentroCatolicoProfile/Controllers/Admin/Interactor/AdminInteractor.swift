@@ -37,7 +37,7 @@ class AdminInteractor: ProtocolosAdminInteractorInput {
                 //print("->  error: ", error as Any)
                 guard let allData = data else { return }
                 let outputStr  = String(data: allData, encoding: String.Encoding.utf8) as String?
-                //print("->  outputStr: ", outputStr as Any)
+                print("--->✅  outputStr: ", outputStr as Any)
                 if error != nil {
                     print("Hubo un error")
                     return
