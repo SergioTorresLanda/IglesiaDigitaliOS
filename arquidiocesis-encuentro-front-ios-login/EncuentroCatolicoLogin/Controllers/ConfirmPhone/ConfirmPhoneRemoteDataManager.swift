@@ -3,7 +3,8 @@ import Foundation
 class ConfirmPhoneRemoteDataManager:ConfirmPhoneRemoteDataManagerInputProtocol {
     var remoteRequestHandler: ConfirmPhoneRemoteDataManagerOutputProtocol?
     func reenviarCodigo(user: UserConfirmarCodigo) {
-        print("-->>  🎾 user: ", user)
+        print("-->>  🎾 user: ", user.username)
+        
         let endpoint: URL = URL(string: "\(APIType.shared.Auth())/user/resend_code")!
         
         var request = URLRequest(url: endpoint)
@@ -85,4 +86,12 @@ class ConfirmPhoneRemoteDataManager:ConfirmPhoneRemoteDataManagerInputProtocol {
         tarea.resume()
     }
     
+}
+
+extension String {
+    func isValidEmailSP() -> Bool {
+        // here, `try!` will always succeed because the pattern is valid
+        let regex = try! NSRegularExpression(pattern: "^[a-zA-Z0-9.!#$%&'*+/=?^_`{|}~-]+@[a-zA-Z0-9](?:[a-zA-Z0-9-]{0,61}[a-zA-Z0-9])?(?:\\.[a-zA-Z0-9](?:[a-zA-Z0-9-]{0,61}[a-zA-Z0-9])?)*$", options: .caseInsensitive)
+        return regex.firstMatch(in: self, options: [], range: NSRange(location: 0, length: count)) != nil
+    }
 }

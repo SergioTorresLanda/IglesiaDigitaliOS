@@ -279,7 +279,11 @@ extension LoginView: LoginViewProtocol {
             self.spinner.isHidden = true
             let alerta = UIAlertController(title: dtcAlerta["titulo"], message: dtcAlerta["cuerpo"], preferredStyle: .alert)
             alerta.addAction(UIAlertAction(title: "Solicitar código", style: .default, handler: {_ in
-                let model = UserRegister(username: self.txtUser.text ?? "", email: "", phone_number: "", password: "", name: "", last_name: "", middle_name: "", role: "", type_person: "", birth_date: "")
+                var dato = self.txtUser.text ?? ""
+                if  !dato.isValidEmailSP(){
+                    dato = "+52" + dato
+                }
+                let model = UserRegister(username: dato, email: "", phone_number: "", password: "", name: "", last_name: "", middle_name: "", role: "", type_person: "", birth_date: "")
                 let view  = ConfirmPhoneWireFrame.createConfirmPhoneModule(usuario: model)
                 self.navigationController?.pushViewController(view, animated: true)
             }))
