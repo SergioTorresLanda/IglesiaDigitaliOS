@@ -276,6 +276,7 @@ class RegisterViewController: BaseVC, UITextFieldDelegate {
     private func setPasswordField(sender: UIImageView, passField: UITextField) {
         passField.isSecureTextEntry = !passField.isSecureTextEntry
         sender.image = UIImage(named: !passField.isSecureTextEntry ? "hideEye" : "showEye", in: .module, compatibleWith: nil)
+        sender.tintColor = !passField.isSecureTextEntry ? UIColor(red: 102/255, green: 102/255, blue: 102/255, alpha: 1) : nil
     }
     
     //    @IBAction func politicasAction(_ sender: Any) {
