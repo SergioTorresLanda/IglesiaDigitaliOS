@@ -34,11 +34,11 @@ class LoginRemoteDataManager:LoginRemoteDataManagerInputProtocol {
         
         let tarea = URLSession.shared.dataTask(with: request) { data, response, error in
             
-            print("-->  respuesta Status Code LOGIN: ", response as Any)
-            print("-->  error: ", error as Any)
+            //print("->  respuesta Status Code LOGIN: ", response as Any)
+            //print("->  error: ", error as Any)
             guard let allData = data else { return }
             let outputStr  = String(data: allData, encoding: String.Encoding.utf8) as String?
-            print("--->✅  LOGIN Response ->  ", outputStr as Any)
+            //print("-->✅  LOGIN Response ->  ", outputStr as Any)
             
             
             if error != nil {
@@ -80,8 +80,8 @@ class LoginRemoteDataManager:LoginRemoteDataManagerInputProtocol {
                 request.setValue("Bearer \(tksession ?? "")", forHTTPHeaderField: "Authorization")
                 let tarea = URLSession.shared.dataTask(with: request) { data, response, error in
                     
-                    print("-->  respuesta Status Code: ", response as Any)
-                    print("-->  error: ", error as Any)
+                    //print("->  respuesta Status Code: ", response as Any)
+                    //print("->  error: ", error as Any)
                     if error != nil {
                         print("Hubo un error")
                         return

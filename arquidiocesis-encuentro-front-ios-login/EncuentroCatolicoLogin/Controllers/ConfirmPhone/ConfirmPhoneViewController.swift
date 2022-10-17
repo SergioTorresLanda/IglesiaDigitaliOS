@@ -161,8 +161,8 @@ class ConfirmPhoneViewController: UIViewController {
         loader.startAnimating()
         activatedBtnSend(isHide: false)//true)
        // startTimer()
-        print("--> 🚧 usuario: ",usuario?.username)
-        print("--> 🚧 usuario: ",usuario!)
+        //print("-> 🚧 usuario: ",usuario?.username)
+        //print("-> 🚧 usuario: ",usuario!)
         
     
         
@@ -179,6 +179,8 @@ class ConfirmPhoneViewController: UIViewController {
         loader.startAnimating()
         presenter?.controller = self
         let code = "\(txtNumber1.text ?? "")\(txtNumber2.text ?? "")\(txtNumber3.text ?? "")\(txtNumber4.text ?? "")\(txtNumber5.text ?? "")\(txtNumber6.text ?? "")"
+        
+        print("🚧  🤡  code: ", code)
         presenter?.crearCuenta(user: usuario!, newCode: code)
     }
     

@@ -88,8 +88,6 @@ extension ConfirmPhonePresenter: ConfirmPhoneInteractorOutputProtocol {
                 let msg = ["titulo":"Error", "cuerpo": "El código es incorrecto"]
                 self.view?.mostrarMSG(dtcAlerta: msg)
             case .OKCodigo:
-                
-                
                 let msg = ["titulo":"Correcto", "cuerpo": "Se envio un nuevo código a tu celular"]
                 self.view?.mostrarMSG(dtcAlerta: msg)
             }

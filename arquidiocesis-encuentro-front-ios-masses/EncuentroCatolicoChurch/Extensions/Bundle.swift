@@ -14,8 +14,8 @@ extension UIImageView {
         contentMode = mode
         URLSession.shared.dataTask(with: url) { data, response, error in
             
-            print("-->  respuesta Status Code: ", response as Any)
-            print("-->  error: ", error as Any)
+            //print("->  respuesta Status Code: ", response as Any)
+            //print("->  error: ", error as Any)
             
             guard
                 let httpURLResponse = response as? HTTPURLResponse, httpURLResponse.statusCode == 200,

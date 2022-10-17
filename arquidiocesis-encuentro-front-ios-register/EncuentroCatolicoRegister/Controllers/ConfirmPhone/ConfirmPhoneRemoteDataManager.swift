@@ -3,7 +3,7 @@ import Foundation
 class ConfirmPhoneRemoteDataManager:ConfirmPhoneRemoteDataManagerInputProtocol {
     var remoteRequestHandler: ConfirmPhoneRemoteDataManagerOutputProtocol?
     func reenviarCodigo(user: UserConfirmarCodigo) {
-        print("-->>  🎾 user: ", user)
+        //print("->>  🎾 user: ", user)
         let endpoint: URL = URL(string: "\(APIType.shared.Auth())/user/resend_code")!
         
         var request = URLRequest(url: endpoint)
@@ -18,11 +18,11 @@ class ConfirmPhoneRemoteDataManager:ConfirmPhoneRemoteDataManagerInputProtocol {
         request.httpBody = cuerpo
         
         let tarea = URLSession.shared.dataTask(with: request) { data, response, error in
-            print("--> ☘️ respuesta Status Code: ", response as Any)
-            print("-->  ☘️🎃 error: ", error as Any)
+            //print("-> ☘️ respuesta Status Code: ", response as Any)
+            //print("->  ☘️🎃 error: ", error as Any)
             guard let allData = data else { return }
             let outputStr  = String(data: allData, encoding: String.Encoding.utf8) as String?
-            print("--->✅  Response ->  ", outputStr as Any)
+            //print("-->✅  Response ->  ", outputStr as Any)
             
             if error != nil {
                 self.remoteRequestHandler?.callbackResponse(respuesta: nil, error: ErroresServidorConfirm.ErrorServidor, user: nil)
@@ -58,8 +58,8 @@ class ConfirmPhoneRemoteDataManager:ConfirmPhoneRemoteDataManagerInputProtocol {
         request.httpBody = cuerpo
         
         let tarea = URLSession.shared.dataTask(with: request) { data, response, error in
-            print("-->  respuesta Status Code: ", response as Any)
-            print("-->  error: ", error as Any)
+            //print("->  respuesta Status Code: ", response as Any)
+            //print("->  error: ", error as Any)
 
             if error != nil {
                 print("Hubo un error")

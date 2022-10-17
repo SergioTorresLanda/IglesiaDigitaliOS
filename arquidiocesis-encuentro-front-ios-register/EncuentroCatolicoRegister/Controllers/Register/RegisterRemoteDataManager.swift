@@ -31,7 +31,7 @@ class RegisterRemoteDataManager:RegisterRemoteDataManagerInputProtocol {
             print("->  respuesta Status Code: ", response as Any)
             print("->  error: ", error as Any)
             let outputStr  = String(data: data!, encoding: String.Encoding.utf8) as String?
-            print("--->✅  Response ->  ", outputStr as Any)
+            //print("-->✅  Response ->  ", outputStr as Any)
             if error != nil {
                 self.remoteRequestHandler?.callbackResponse(respuesta: nil, error: ErroresServidor.ErrorServidor, user: register)
                 return

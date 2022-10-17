@@ -69,8 +69,8 @@ class Request: NSObject {
         debugPrint("body: \(params)")
         
         URLSession.shared.dataTask(with: request) { [weak self] (data, response, error) in
-            print("-->  respuesta Status Code: ", response as Any)
-            print("-->  error: ", error as Any)
+            //print("->  respuesta Status Code: ", response as Any)
+            //print("->  error: ", error as Any)
 
             guard let self = self else {
                 onError(RequestError(status: .noContent))

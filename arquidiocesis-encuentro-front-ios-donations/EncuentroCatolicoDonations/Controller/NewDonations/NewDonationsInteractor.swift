@@ -24,8 +24,8 @@ class NewDontaionsInteractor: NewDontaionsInteractorProtocol {
         
         let work = URLSession.shared.dataTask(with: request) { data, response, error in
 
-            print("-->  respuesta Status Code: ", response as Any)
-            print("-->  error: ", error as Any)
+            //print("->  respuesta Status Code: ", response as Any)
+            //print("->  error: ", error as Any)
             
             do {
                 guard let allData = data else { return }
@@ -48,9 +48,9 @@ class NewDontaionsInteractor: NewDontaionsInteractorProtocol {
         request.httpMethod = "GET"
         
         let work = URLSession.shared.dataTask(with: request) { data, response, error in
-            print("-->>  data: ", data)
-            print("-->>  response: ", response)
-            print("-->>  error: ", error)
+            //print("->>  data: ", data)
+            //print("->>  response: ", response)
+            //print("->>  error: ", error)
             do {
                 guard let allData = data else { return }
                 let contentResponse = try JSONDecoder().decode([ChurchesSuggested].self, from: allData)

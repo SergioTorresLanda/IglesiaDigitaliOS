@@ -15,7 +15,7 @@ public class NavigationBar: UINavigationBar {
 
     for subview in self.subviews {
         let stringFromClass = NSStringFromClass(subview.classForCoder)
-      print("--------- \(stringFromClass)")
+      //print("-------- \(stringFromClass)")
       if stringFromClass.contains("BarBackground") {
         subview.frame.origin.y = -20
         subview.frame.size.height = 64

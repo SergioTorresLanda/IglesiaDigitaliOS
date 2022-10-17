@@ -32,12 +32,12 @@ class AdminInteractor: ProtocolosAdminInteractorInput {
             request.setValue("Bearer \( tksession ?? "")", forHTTPHeaderField: "Authorization")
             request.httpMethod = "DELETE"
             let task = URLSession.shared.dataTask(with: request) { data, response, error in
-                print("-->  request 🤡: ", request as Any)
-                print("-->  respuesta Status Code: ", response as Any)
-                print("-->  error: ", error as Any)
+                //print("->  request 🤡: ", request as Any)
+                //print("->  respuesta Status Code: ", response as Any)
+                //print("->  error: ", error as Any)
                 guard let allData = data else { return }
                 let outputStr  = String(data: allData, encoding: String.Encoding.utf8) as String?
-                print("--->✅  Response ->  ", outputStr as Any)
+                //print("-->✅  Response ->  ", outputStr as Any)
                 if error != nil {
                     print("Hubo un error")
                     return
