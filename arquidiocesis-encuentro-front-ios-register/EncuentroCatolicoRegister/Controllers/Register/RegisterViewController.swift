@@ -117,7 +117,7 @@ class RegisterViewController: BaseVC, UITextFieldDelegate {
     
     func isValidPassword(pass: String) -> Bool {
         var returnValue = true
-        let emailRegEx = "^(?=.*\\d)(?=.*[a-z])(?=.*[A-Z])(?=.*[\\.=+^\\$*.&{}()?\\[\\]!\\-?@#%&/,><':;|_~`]).{8,}$"
+        let emailRegEx = "^(?=.*\\d)(?=.*[a-z])(?=.*[A-Z])(?=.*[\\.=+^\\$*.&{}()?\\[\\]!\\-\\?\\@#%&/,><':;|_~`]).{8,}$"
         
         do {
             let regex = try NSRegularExpression(pattern: emailRegEx)
