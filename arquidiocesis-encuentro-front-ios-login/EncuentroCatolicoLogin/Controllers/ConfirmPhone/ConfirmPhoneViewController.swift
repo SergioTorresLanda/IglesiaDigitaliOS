@@ -36,9 +36,11 @@ class ConfirmPhoneViewController: UIViewController {
     @IBOutlet weak var firstLblTimer: UILabel!
     @IBOutlet weak var secondLblTimer: UILabel!
     @IBOutlet weak var thirdLblTimer: UILabel!
+    
+    @IBOutlet weak var viewResendOTP: UIStackView!
     var miliSeconds = 99
     var seconds = 59
-    var minutes = 3
+    var minutes = 0
     var timeLapse : Timer?
     // Loader Timer View
 //    @IBOutlet weak var loaderTimerView: UIView!
@@ -52,7 +54,7 @@ class ConfirmPhoneViewController: UIViewController {
     // MARK: Lifecycle
     override func viewDidLoad() {
         super.viewDidLoad()
-        startTimer()
+        
         setupDelegates()
         navigationController?.interactivePopGestureRecognizer?.isEnabled = false
         presenter?.viewView = view
@@ -95,10 +97,10 @@ class ConfirmPhoneViewController: UIViewController {
         
         if minutes == 0{
             timeLapse?.invalidate()
-            minutes = 4
+            minutes = 2
             seconds = 59
             miliSeconds = 100
-            firstLblTimer.text = "03"
+            firstLblTimer.text = "00"
             secondLblTimer.text = "00"
             thirdLblTimer.text = "00"
             
@@ -143,8 +145,8 @@ class ConfirmPhoneViewController: UIViewController {
         txtNumber6.delegate = self
     }
     func activatedBtnSend(isHide: Bool){
+        viewResendOTP.isHidden = isHide
         refreshCode.isHidden = isHide
-        btnReenviar.isHidden = isHide
     }
     @objc private func hideKeyBoard() {
         presenter?.hideKeyBoard(view: view)
@@ -155,9 +157,15 @@ class ConfirmPhoneViewController: UIViewController {
         getOTP()
     }
     func getOTP(){
-        activatedBtnSend(isHide: true)
-        print("--> 🚧 usuario: ",usuario?.username)
-        print("--> 🚧 usuario: ",usuario!)
+        loader.isHidden = false
+        loader.startAnimating()
+        activatedBtnSend(isHide: false)//true)
+       // startTimer()
+        //print("-> 🚧 usuario: ",usuario?.username)
+        //print("-> 🚧 usuario: ",usuario!)
+        
+    
+        
         presenter?.reenviarCodigo(user: usuario!)
     }
     
@@ -171,6 +179,8 @@ class ConfirmPhoneViewController: UIViewController {
         loader.startAnimating()
         presenter?.controller = self
         let code = "\(txtNumber1.text ?? "")\(txtNumber2.text ?? "")\(txtNumber3.text ?? "")\(txtNumber4.text ?? "")\(txtNumber5.text ?? "")\(txtNumber6.text ?? "")"
+        
+        print("🚧  🤡  code: ", code)
         presenter?.crearCuenta(user: usuario!, newCode: code)
     }
     

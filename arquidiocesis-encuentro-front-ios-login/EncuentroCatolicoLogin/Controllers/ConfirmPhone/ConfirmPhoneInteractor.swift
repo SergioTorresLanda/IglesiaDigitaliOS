@@ -8,7 +8,8 @@ class ConfirmPhoneInteractor: ConfirmPhoneInteractorInputProtocol {
     var remoteDatamanager: ConfirmPhoneRemoteDataManagerInputProtocol?
     
     func reenviarCodigo(user: UserRegister) {
-        remoteDatamanager?.reenviarCodigo(user: UserConfirmarCodigo(username: user.email))
+        
+        remoteDatamanager?.reenviarCodigo(user: UserConfirmarCodigo(username: user.username))
     }
     
     func crearCuenta(user: UserRegister, codigo: String) {

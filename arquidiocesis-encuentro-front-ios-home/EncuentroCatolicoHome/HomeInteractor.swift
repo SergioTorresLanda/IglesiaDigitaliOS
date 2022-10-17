@@ -36,8 +36,8 @@ class HomeInteractor: HomeInteractorProtocol {
         
         let tarea = URLSession.shared.dataTask(with: request) { data, response, error in
             
-            print("-->  respuesta Status Code: ", response as Any)
-            print("-->  error: ", error as Any)
+            //print("->  respuesta Status Code: ", response as Any)
+            //print("->  error: ", error as Any)
 
             if error != nil {
                 return
@@ -88,13 +88,13 @@ class HomeInteractor: HomeInteractorProtocol {
         
         let tarea = URLSession.shared.dataTask(with: request) { data, response, error in
             
-            print("-->  respuesta Status Code: ", response as Any)
-            print("-->  error: ", error as Any)
+            //print("->  respuesta Status Code: ", response as Any)
+            //print("->  error: ", error as Any)
             guard let model = data else {
                 return
             }
             let responseServer = try! JSONSerialization.jsonObject(with: model, options: []) as? NSDictionary
-            print("-->✅  responseServer: ", responseServer as Any)
+            //print("->✅  responseServer: ", responseServer as Any)
 
 
             if error != nil {
@@ -133,8 +133,8 @@ class HomeInteractor: HomeInteractorProtocol {
         request.setValue("\(idUser)", forHTTPHeaderField: "X-User-Id")
         
         let work = URLSession.shared.dataTask(with: request) { data, response, error in
-            print("-->  respuesta Status Code: ", response as Any)
-            print("-->  error: ", error as Any)
+            //print("->  respuesta Status Code: ", response as Any)
+            //print("->  error: ", error as Any)
 
             guard let datamodel = data else{
                 return
@@ -167,8 +167,8 @@ class HomeInteractor: HomeInteractorProtocol {
         request.setValue("\(idUser)", forHTTPHeaderField: "X-User-Id")
         
         let work = URLSession.shared.dataTask(with: request) { data, response, error in
-            print("-->  respuesta Status Code: ", response as Any)
-            print("-->  error: ", error as Any)
+            //print("->  respuesta Status Code: ", response as Any)
+            //print("->  error: ", error as Any)
             guard let allData = data else { return }
             do{
                 
@@ -195,8 +195,8 @@ class HomeInteractor: HomeInteractorProtocol {
         
         let tarea = URLSession.shared.dataTask(with: request) { data, response, error in
             
-            print("-->  respuesta Status Code: ", response as Any)
-            print("-->  error: ", error as Any)
+            //print("->  respuesta Status Code: ", response as Any)
+            //print("->  error: ", error as Any)
 
             if error != nil {
                 print("Hubo un error")

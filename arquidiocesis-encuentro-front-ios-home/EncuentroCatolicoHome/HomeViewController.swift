@@ -537,7 +537,7 @@ class HomeViewController: UIViewController, HomeViewProtocol, UITextFieldDelegat
                 allSections.append(saintOfDay)
             }
             
-            print("-----", saintOfDay)
+            //print("----", saintOfDay)
             if data.count != 0 {
                 arraySections.append(true)
             }else{
@@ -556,7 +556,7 @@ class HomeViewController: UIViewController, HomeViewProtocol, UITextFieldDelegat
                 allSections.append(realesesPost)
             }
             
-            print("----", realesesPost)
+            //print("---", realesesPost)
             if data.count != 0 {
                 arraySections.append(true)
             }else{

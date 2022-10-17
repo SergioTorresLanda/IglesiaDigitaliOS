@@ -263,7 +263,7 @@ class ProfileInfoView: UIViewController {
                 alert.addAction(cancelAction)
                 self.present(alert, animated: true)
             }else {
-                self.showAlert(str: "El usuario no existe")
+                self.showAlert(str: "No fue posible eliminar tu cuenta, intente más tarde.")
             }
         }
     }

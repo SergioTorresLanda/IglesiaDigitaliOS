@@ -35,7 +35,7 @@ class ConfirmPhoneWireFrame: ConfirmPhoneWireFrameProtocol {
         alert.addAction(UIAlertAction(title: "Aceptar", style: .default, handler: {_ in
             let defaults = UserDefaults.standard
             defaults.setValue(true, forKey: "isNewUser")
-            let Navcontroller = controller.navigationController?.viewControllers[(controller.navigationController?.viewControllers.count)! - 3]
+            let Navcontroller = controller.navigationController?.viewControllers[(controller.navigationController?.viewControllers.count)! - 1]
             controller.navigationController?.popToViewController(Navcontroller!, animated: true)
         }))
         controller.present(alert, animated: true, completion: nil)

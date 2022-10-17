@@ -28,8 +28,8 @@ class RequestManager {
             #if PROD
             debugPrint("", response)
             #endif
-            print("-->>  decoder: ", decoder)
-            print("-->>  response: ", response)
+            //print("->>  decoder: ", decoder)
+            //print("->>  response: ", response)
            
                 if let defaultError = ErrorEncuentro(response: response) {
                     completion(Result.failure(defaultError),
@@ -47,8 +47,8 @@ class RequestManager {
     
     
     private func completion<T>(response: AFDataResponse<Data?>, decoder: Any, completion: @escaping handler<T>) where T: Codable {
-        print("-->>  decoder: ", decoder)
-        print("-->>  response: ", response)
+        //print("->>  decoder: ", decoder)
+        //print("->>  response: ", response)
         do{
             if let defaultError = ErrorEncuentro(response: response) {
                 completion(Result.failure(defaultError), nil)
