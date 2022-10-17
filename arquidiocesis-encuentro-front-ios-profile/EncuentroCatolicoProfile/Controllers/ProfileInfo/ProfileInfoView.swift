@@ -258,7 +258,15 @@ class ProfileInfoView: UIViewController {
                 let cancelAction = UIAlertAction(title: "Aceptar", style: .cancel){
                     [weak self] _ in
                     guard let self = self else {return}
-                    self.logOut()
+                    UserDefaults.standard.removeObject(forKey: "nombre")
+                    UserDefaults.standard.removeObject(forKey: "id")
+                    
+                    self.view.window?.rootViewController?.dismiss(animated: true) {
+                        NotificationCenter.default.post(Notification(name: Notification.Name(rawValue: "newLogOut"),
+                                                                     object: nil, userInfo: nil))
+                    }
+                    
+                    NotificationCenter.default.removeObserver(self, name: Notification.Name(rawValue: "newLogOut"), object: nil)
                     }
                 alert.addAction(cancelAction)
                 self.present(alert, animated: true)
