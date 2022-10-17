@@ -56,7 +56,7 @@ class LoginView: UIViewController {
     override func viewDidAppear(_ animated: Bool) {
         let defaults = UserDefaults.standard
         let newUser = defaults.bool(forKey: "isNewUser")
-       /* if newUser == true{
+        if newUser == true{
             let email = defaults.string(forKey: "email") ?? ""
             let password = defaults.string(forKey: "password") ?? ""
             txtUser.text = email
@@ -65,7 +65,7 @@ class LoginView: UIViewController {
             txtUser.text = ""
             txtPassword.text = ""
         }
-        */
+        
         self.btnRegistar.isEnabled = true
         self.spinner.stopAnimating()
         self.spinner.isHidden = true
