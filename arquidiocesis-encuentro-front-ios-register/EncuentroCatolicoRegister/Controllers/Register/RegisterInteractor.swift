@@ -74,7 +74,7 @@ class RegisterInteractor: RegisterInteractorInputProtocol {
     
     func isValidPassword(pass: String) -> Bool {
         var returnValue = true
-        let emailRegEx = "^(?=\\w*)(?=\\w*[A-Z])(?=\\w*[a-z])\\S{8,}$"
+        let emailRegEx = "^(?=.*\\d)(?=.*[a-z])(?=.*[A-Z])(?=.*[\\.=+^\\$*.&{}()?\\[\\]!\\-\\?\\@#%&/,><':;|_~`]).{8,}$"
         
         do {
             let regex = try NSRegularExpression(pattern: emailRegEx)
