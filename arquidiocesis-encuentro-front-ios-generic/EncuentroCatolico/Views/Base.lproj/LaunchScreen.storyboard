@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="19529" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" launchScreen="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="01J-lp-oVM">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="20037" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" launchScreen="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="01J-lp-oVM">
     <device id="retina6_1" orientation="portrait" appearance="light"/>
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="19519"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="20020"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
@@ -17,7 +17,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="iglesiaDigital" adjustsImageSizeForAccessibilityContentSizeCategory="YES" translatesAutoresizingMaskIntoConstraints="NO" id="9J8-4l-Amo">
-                                <rect key="frame" x="82" y="328" width="250" height="250"/>
+                                <rect key="frame" x="82" y="323" width="250" height="250"/>
                                 <constraints>
                                     <constraint firstAttribute="width" secondItem="9J8-4l-Amo" secondAttribute="height" multiplier="1:1" id="TS1-OF-g2l"/>
                                 </constraints>
@@ -38,7 +38,6 @@
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
                         <color key="backgroundColor" red="0.124122791" green="0.45375221970000001" blue="0.73729205129999997" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                         <constraints>
-                            <constraint firstItem="9J8-4l-Amo" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" constant="284" id="6XI-yG-3oE"/>
                             <constraint firstItem="9J8-4l-Amo" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="82" id="9fy-hS-zaZ"/>
                             <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="9J8-4l-Amo" secondAttribute="trailing" constant="82" id="CaT-In-1Dp"/>
                             <constraint firstItem="gQL-yO-un3" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="20" id="Mcw-Dh-9Uq"/>
@@ -46,6 +45,7 @@
                             <constraint firstAttribute="trailing" secondItem="SPc-1T-XjP" secondAttribute="trailing" constant="20" id="WQI-PH-IB7"/>
                             <constraint firstItem="6Tk-OE-BBY" firstAttribute="bottom" secondItem="SPc-1T-XjP" secondAttribute="bottom" constant="10" id="a9z-3Q-wza"/>
                             <constraint firstItem="SPc-1T-XjP" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="20" id="jEi-yY-H8M"/>
+                            <constraint firstItem="9J8-4l-Amo" firstAttribute="centerY" secondItem="Ze5-6b-2t3" secondAttribute="centerY" id="jLm-91-O0o"/>
                             <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="gQL-yO-un3" secondAttribute="trailing" constant="20" id="jir-zb-jUh"/>
                         </constraints>
                     </view>
@@ -56,6 +56,6 @@
         </scene>
     </scenes>
     <resources>
-        <image name="iglesiaDigital" width="554" height="554"/>
+        <image name="iglesiaDigital" width="723" height="723"/>
     </resources>
 </document>

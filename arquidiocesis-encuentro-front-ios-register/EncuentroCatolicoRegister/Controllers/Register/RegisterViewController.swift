@@ -46,7 +46,9 @@ class RegisterViewController: BaseVC, UITextFieldDelegate {
     @IBOutlet weak var correcto2: UIImageView!
     @IBOutlet var codeButton: UIButton!
     @IBOutlet var privacyButton: UIButton!
+    @IBOutlet weak var confirmPasswordImageView: UIImageView!
     @IBOutlet var termConditionsButton: UIButton!
+    @IBOutlet weak var passwordImageView: UIImageView!
     // MARK: Properties
     var presenter: RegisterPresenterProtocol?
     var usuario: UserRegister?
@@ -85,8 +87,13 @@ class RegisterViewController: BaseVC, UITextFieldDelegate {
         txtEmail.addTarget(self, action: #selector(salta(sender:)), for: .editingDidEndOnExit)
         txtEmail.addTarget(self, action: #selector(evalute(sender:)), for: .editingChanged)
         txtContra1.addTarget(self, action: #selector(salta(sender:)), for: .editingDidEndOnExit)
+        txtContra1.delegate = self
         txtContra2.addTarget(self, action: #selector(finaliza(sender:)), for: .editingDidEndOnExit)
+        txtContra2.delegate = self
         txtCelular.delegate = self
+        
+        setPasswordImage(isValid: false, view: correcto1)
+        setPasswordImage(isValid: false, view: correcto2)
     }
     
     private func setupDelegates() {
@@ -110,7 +117,7 @@ class RegisterViewController: BaseVC, UITextFieldDelegate {
     
     func isValidPassword(pass: String) -> Bool {
         var returnValue = true
-        let emailRegEx = "^(?=\\w*)(?=\\w*[A-Z])(?=\\w*[a-z])(?=.*[ !$%&?._-])\\S{8,}$"
+        let emailRegEx = "^(?=.*\\d)(?=.*[a-z])(?=.*[A-Z])(?=.*[\\.=+^\\$*.&{}()?\\[\\]!\\-?@#%&/,><':;|_~`]).{8,}$"
         
         do {
             let regex = try NSRegularExpression(pattern: emailRegEx)
@@ -169,17 +176,24 @@ class RegisterViewController: BaseVC, UITextFieldDelegate {
     }
     
     @objc private func textFieldDidChangeContra(textField: UITextField) {
-        correcto1.isHidden = !isValidPassword(pass: textField.text ?? "") && !(txtContra1.text == txtContra2.text)
+        correcto1.isHidden = textField.text ?? "" == ""
+        setPasswordImage(isValid: isValidPassword(pass: textField.text ?? ""), view: correcto1)
+        setPasswordImage(isValid: txtContra1.text == txtContra2.text, view: correcto2)
     }
     
     @objc private func textFieldDidChangeContra2(textField: UITextField) {
-        correcto2.isHidden = !(txtContra1.text == txtContra2.text)
+        correcto2.isHidden = textField.text ?? "" == ""
+        setPasswordImage(isValid: isValidPassword(pass: textField.text ?? "") && txtContra1.text == txtContra2.text, view: correcto2)
     }
     
     @objc private func hideKeyBoard() {
         presenter?.hideKeyBoard(view: view)
     }
     
+    private func setPasswordImage(isValid: Bool, view: UIImageView) {
+        view.image = UIImage(named: isValid ? "correcto" : "close", in: .module, compatibleWith: nil)
+        view.tintColor = isValid ? nil : .red
+    }
     
     // MARK: Actions
     @IBAction func crearAction(_ sender: Any) {
@@ -251,12 +265,17 @@ class RegisterViewController: BaseVC, UITextFieldDelegate {
     //        presenter?.cancelar(controller: self)
     //    }
     
-    @IBAction func showPassword1(_ sender: Any) {
-        txtContra1.isSecureTextEntry = !txtContra1.isSecureTextEntry
+    @IBAction func showPassword1(_ sender: UIButton) {
+        setPasswordField(sender: passwordImageView, passField: txtContra1)
     }
     
-    @IBAction func showPassword2(_ sender: Any) {
-        txtContra2.isSecureTextEntry = !txtContra2.isSecureTextEntry
+    @IBAction func showPassword2(_ sender: UIButton) {
+        setPasswordField(sender: confirmPasswordImageView, passField: txtContra2)
+    }
+    
+    private func setPasswordField(sender: UIImageView, passField: UITextField) {
+        passField.isSecureTextEntry = !passField.isSecureTextEntry
+        sender.image = UIImage(named: !passField.isSecureTextEntry ? "hideEye" : "showEye", in: .module, compatibleWith: nil)
     }
     
     //    @IBAction func politicasAction(_ sender: Any) {
@@ -345,8 +364,9 @@ extension RegisterViewController {
             catch {
                 print("ERROR")
             }
-        return true
-            
+            return true
+        case txtContra2, txtContra1:
+            return !string.contains(" ")
         default:
             return true
         }

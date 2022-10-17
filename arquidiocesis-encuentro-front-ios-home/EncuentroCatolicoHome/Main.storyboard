@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="19529" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="CDF-NV-70P">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="20037" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="CDF-NV-70P">
     <device id="retina6_1" orientation="portrait" appearance="light"/>
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="19519"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="20020"/>
         <capability name="Named colors" minToolsVersion="9.0"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="System colors in document resources" minToolsVersion="11.0"/>
@@ -395,10 +395,10 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" translatesAutoresizingMaskIntoConstraints="NO" id="eN3-cV-7uV">
-                                <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                                <rect key="frame" x="0.0" y="76" width="414" height="820"/>
                                 <subviews>
                                     <wkWebView contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="aGV-Nb-LeX">
-                                        <rect key="frame" x="0.0" y="0.0" width="414" height="796"/>
+                                        <rect key="frame" x="0.0" y="0.0" width="414" height="720"/>
                                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         <wkWebViewConfiguration key="configuration">
                                             <audiovisualMediaTypes key="mediaTypesRequiringUserActionForPlayback" none="YES"/>
@@ -406,7 +406,7 @@
                                         </wkWebViewConfiguration>
                                     </wkWebView>
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="6AH-a2-R2F">
-                                        <rect key="frame" x="0.0" y="796" width="414" height="100"/>
+                                        <rect key="frame" x="0.0" y="720" width="414" height="100"/>
                                         <subviews>
                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="8vY-DD-YR4">
                                                 <rect key="frame" x="279" y="31.5" width="127" height="37"/>
@@ -434,7 +434,7 @@
                                 </subviews>
                             </stackView>
                             <imageView clipsSubviews="YES" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="xmark.circle.fill" catalog="system" translatesAutoresizingMaskIntoConstraints="NO" id="BfU-YO-jsL">
-                                <rect key="frame" x="369" y="20.5" width="25" height="24"/>
+                                <rect key="frame" x="369" y="44.5" width="25" height="24"/>
                                 <color key="tintColor" name="eMainBlue"/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="25" id="QlT-4U-bx3"/>
@@ -447,10 +447,10 @@
                         <constraints>
                             <constraint firstAttribute="bottom" secondItem="eN3-cV-7uV" secondAttribute="bottom" id="3IM-4g-rzI"/>
                             <constraint firstItem="eN3-cV-7uV" firstAttribute="trailing" secondItem="apF-VH-mvl" secondAttribute="trailing" id="CIj-yh-q8x"/>
-                            <constraint firstItem="eN3-cV-7uV" firstAttribute="top" secondItem="wTP-y4-7vK" secondAttribute="top" id="GHc-Hg-Zfc"/>
+                            <constraint firstItem="eN3-cV-7uV" firstAttribute="top" secondItem="apF-VH-mvl" secondAttribute="top" constant="32" id="GHc-Hg-Zfc"/>
                             <constraint firstItem="apF-VH-mvl" firstAttribute="trailing" secondItem="BfU-YO-jsL" secondAttribute="trailing" constant="20" id="S0d-11-5Ej"/>
                             <constraint firstItem="eN3-cV-7uV" firstAttribute="leading" secondItem="apF-VH-mvl" secondAttribute="leading" id="cBY-ym-mgL"/>
-                            <constraint firstItem="BfU-YO-jsL" firstAttribute="top" secondItem="wTP-y4-7vK" secondAttribute="top" constant="20" id="rLr-lM-BMn"/>
+                            <constraint firstItem="BfU-YO-jsL" firstAttribute="top" secondItem="apF-VH-mvl" secondAttribute="top" id="rLr-lM-BMn"/>
                         </constraints>
                     </view>
                     <connections>

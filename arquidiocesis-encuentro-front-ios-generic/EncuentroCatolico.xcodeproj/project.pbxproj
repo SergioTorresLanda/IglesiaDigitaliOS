@@ -50,7 +50,8 @@
 		98E6E8CA25CC6FCB00C730D1 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 98E6E8C925CC6FCB00C730D1 /* AppDelegate.swift */; };
 		98E6E8D325CC6FCE00C730D1 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 98E6E8D225CC6FCE00C730D1 /* Assets.xcassets */; };
 		98E6E8D625CC6FCE00C730D1 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 98E6E8D425CC6FCE00C730D1 /* LaunchScreen.storyboard */; };
-		9DF4EB84260BA34C002D6916 /* APNToken.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9DF4EB83260BA34C002D6916 /* APNToken.swift */; };
+		9DF4EB84260BA34C002D6916 /* AppDelegate+Notifications.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9DF4EB83260BA34C002D6916 /* AppDelegate+Notifications.swift */; };
+		A94514C928FC7AC400675CB6 /* AppDelegate+RemoteConfig.swift in Sources */ = {isa = PBXBuildFile; fileRef = A94514C828FC7AC400675CB6 /* AppDelegate+RemoteConfig.swift */; };
 		EE76A86828FA18E5008DFBE7 /* FirebaseManager2.swift in Sources */ = {isa = PBXBuildFile; fileRef = EE76A86528FA18E5008DFBE7 /* FirebaseManager2.swift */; };
 		EE76A86928FA18E5008DFBE7 /* FirebaseInstanceHelper2.swift in Sources */ = {isa = PBXBuildFile; fileRef = EE76A86628FA18E5008DFBE7 /* FirebaseInstanceHelper2.swift */; };
 		EE76A86C28FA4A7E008DFBE7 /* RemoteValue.swift in Sources */ = {isa = PBXBuildFile; fileRef = EE76A86B28FA4A7E008DFBE7 /* RemoteValue.swift */; };
@@ -124,8 +125,9 @@
 		98E6E8D725CC6FCE00C730D1 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		98E6E8FE25CC728700C730D1 /* EncuentroCatolicoRegister.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = EncuentroCatolicoRegister.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		9D79A34026051F6B006A43BE /* EncuentroCatolico.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = EncuentroCatolico.entitlements; sourceTree = "<group>"; };
-		9DF4EB83260BA34C002D6916 /* APNToken.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = APNToken.swift; sourceTree = "<group>"; };
+		9DF4EB83260BA34C002D6916 /* AppDelegate+Notifications.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "AppDelegate+Notifications.swift"; sourceTree = "<group>"; };
 		9F303BBF8531D7D5EE0AB832 /* Pods_EncuentroCatolico.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_EncuentroCatolico.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		A94514C828FC7AC400675CB6 /* AppDelegate+RemoteConfig.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "AppDelegate+RemoteConfig.swift"; sourceTree = "<group>"; };
 		EA9FDF4C9D2C3E46B901E198 /* Pods-EncuentroCatolico.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-EncuentroCatolico.release.xcconfig"; path = "Target Support Files/Pods-EncuentroCatolico/Pods-EncuentroCatolico.release.xcconfig"; sourceTree = "<group>"; };
 		EE76A86528FA18E5008DFBE7 /* FirebaseManager2.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FirebaseManager2.swift; sourceTree = "<group>"; };
 		EE76A86628FA18E5008DFBE7 /* FirebaseInstanceHelper2.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FirebaseInstanceHelper2.swift; sourceTree = "<group>"; };
@@ -241,7 +243,7 @@
 			children = (
 				98F206EA260ABE4000B143CB /* Firebase Manager */,
 				9D79A34026051F6B006A43BE /* EncuentroCatolico.entitlements */,
-				98E6E91525CC741B00C730D1 /* General */,
+				98E6E91525CC741B00C730D1 /* AppDelegate */,
 				98E6E91425CC741000C730D1 /* Views */,
 				98E6E91125CC73E200C730D1 /* Resources */,
 			);
@@ -252,7 +254,6 @@
 			isa = PBXGroup;
 			children = (
 				6D40892E278F8EA00017E308 /* APIType.swift */,
-				9DF4EB83260BA34C002D6916 /* APNToken.swift */,
 				98E6E8D725CC6FCE00C730D1 /* Info.plist */,
 				6DD37FB227A8E93000660A94 /* GoogleService-Info.plist */,
 				98E6E8D225CC6FCE00C730D1 /* Assets.xcassets */,
@@ -268,12 +269,14 @@
 			path = Views;
 			sourceTree = "<group>";
 		};
-		98E6E91525CC741B00C730D1 /* General */ = {
+		98E6E91525CC741B00C730D1 /* AppDelegate */ = {
 			isa = PBXGroup;
 			children = (
 				98E6E8C925CC6FCB00C730D1 /* AppDelegate.swift */,
+				9DF4EB83260BA34C002D6916 /* AppDelegate+Notifications.swift */,
+				A94514C828FC7AC400675CB6 /* AppDelegate+RemoteConfig.swift */,
 			);
-			path = General;
+			path = AppDelegate;
 			sourceTree = "<group>";
 		};
 		98F206EA260ABE4000B143CB /* Firebase Manager */ = {
@@ -402,7 +405,8 @@
 			buildActionMask = 2147483647;
 			files = (
 				EE76A86928FA18E5008DFBE7 /* FirebaseInstanceHelper2.swift in Sources */,
-				9DF4EB84260BA34C002D6916 /* APNToken.swift in Sources */,
+				A94514C928FC7AC400675CB6 /* AppDelegate+RemoteConfig.swift in Sources */,
+				9DF4EB84260BA34C002D6916 /* AppDelegate+Notifications.swift in Sources */,
 				6D40892F278F8EA00017E308 /* APIType.swift in Sources */,
 				98E6E8CA25CC6FCB00C730D1 /* AppDelegate.swift in Sources */,
 				EE76A86828FA18E5008DFBE7 /* FirebaseManager2.swift in Sources */,
