@@ -86,6 +86,12 @@ class ConfirmPhoneViewController: UIViewController {
     // MARK: Actions
     @IBAction func reenvioAction(_ sender: Any) {
         //print("-> 🚧 usuario: ",usuario!)
+        txtNumber1.text = ""
+        txtNumber2.text = ""
+        txtNumber3.text = ""
+        txtNumber4.text = ""
+        txtNumber5.text = ""
+        txtNumber6.text = ""
         presenter?.reenviarCodigo(user: usuario!)
        
     }

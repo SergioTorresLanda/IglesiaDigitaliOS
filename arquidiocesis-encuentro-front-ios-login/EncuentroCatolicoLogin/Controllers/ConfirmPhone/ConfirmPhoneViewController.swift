@@ -69,12 +69,10 @@ class ConfirmPhoneViewController: UIViewController {
         
         let modifyNumberText = "Modificar número".underlineDecorative(font: UIFont.systemFont(ofSize: 14))
         let refreshPhoneNumberText = "Corregir número celular".underlineDecorative(font: UIFont.systemFont(ofSize: 14,weight: .bold))
-        let refreshCodeText = "Reenviar código".underlineDecorative(font: UIFont.systemFont(ofSize: 14, weight: .bold))
+        let refreshCodeText = "Reenviar nuevo código".underlineDecorative(font: UIFont.systemFont(ofSize: 14, weight: .bold))
         modifyNumber.setAttributedTitle(modifyNumberText, for: .normal)
         refreshCode.setAttributedTitle(refreshCodeText, for: .normal)
      //   refreshPhoneNumber.setAttributedTitle(refreshPhoneNumberText, for: .normal)
-        
-
         let codeButtonText = "Código de ética".underlineDecorative(font: UIFont.systemFont(ofSize: 11))
         let privacyButtonText = "Política de Privacidad.".underlineDecorative(font: UIFont.systemFont(ofSize: 11))
         let termButtonText = "Términos y condiciones".underlineDecorative(font: UIFont.systemFont(ofSize: 11))
@@ -154,6 +152,12 @@ class ConfirmPhoneViewController: UIViewController {
     
     // MARK: Actions
     @IBAction func reenvioAction(_ sender: Any) {
+        txtNumber1.text = ""
+        txtNumber2.text = ""
+        txtNumber3.text = ""
+        txtNumber4.text = ""
+        txtNumber5.text = ""
+        txtNumber6.text = ""
         getOTP()
     }
     func getOTP(){
