@@ -6,6 +6,8 @@ protocol LoginViewProtocol: class {
     var presenter: LoginPresenterProtocol? { get set }
     
     func mostrarMSG(dtcAlerta: [String:String])
+    func retryRegister(dtcAlerta: [String:String])
+    
     func hideLoading()
 }
 

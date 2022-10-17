@@ -61,8 +61,8 @@ public struct StorageService {
             request.httpBody = data
              let response = URLSession.shared.dataTask(with: request) { data, response, error in
                 
-                 //print("->  respuesta Status Code: ", response as Any)
-                 //print("->  error: ", error as Any)
+                 print("-->  respuesta Status Code: ", response as Any)
+                 print("-->  error: ", error as Any)
                  guard let allData = data else { return }
                
                  if error != nil {
@@ -156,8 +156,8 @@ public struct StorageService {
             request.httpBody = data
             let response = URLSession.shared.dataTask(with: request) { data, response, error in
                 
-                //print("->  respuesta Status Code: ", response as Any)
-                //print("->  error: ", error as Any)
+                print("-->  respuesta Status Code: ", response as Any)
+                print("-->  error: ", error as Any)
                 guard let allData = data else { return }
               
                 if error != nil {

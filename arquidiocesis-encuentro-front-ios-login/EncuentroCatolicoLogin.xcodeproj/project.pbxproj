@@ -7,6 +7,15 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		2D8FC6E128FCAE05000A6A7B /* ConfirmPhoneProtocols.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2D8FC6D928FCAE05000A6A7B /* ConfirmPhoneProtocols.swift */; };
+		2D8FC6E228FCAE05000A6A7B /* ConfirmPhoneViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2D8FC6DA28FCAE05000A6A7B /* ConfirmPhoneViewController.swift */; };
+		2D8FC6E328FCAE05000A6A7B /* ConfirmPhonePresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2D8FC6DB28FCAE05000A6A7B /* ConfirmPhonePresenter.swift */; };
+		2D8FC6E428FCAE05000A6A7B /* ConfirmPhoneInteractor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2D8FC6DC28FCAE05000A6A7B /* ConfirmPhoneInteractor.swift */; };
+		2D8FC6E528FCAE05000A6A7B /* ConfirmPhoneViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 2D8FC6DD28FCAE05000A6A7B /* ConfirmPhoneViewController.xib */; };
+		2D8FC6E628FCAE05000A6A7B /* ConfirmPhoneRemoteDataManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2D8FC6DE28FCAE05000A6A7B /* ConfirmPhoneRemoteDataManager.swift */; };
+		2D8FC6E728FCAE05000A6A7B /* ConfimEntity.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2D8FC6DF28FCAE05000A6A7B /* ConfimEntity.swift */; };
+		2D8FC6E828FCAE05000A6A7B /* ConfirmPhoneWireFrame.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2D8FC6E028FCAE05000A6A7B /* ConfirmPhoneWireFrame.swift */; };
+		2D8FC6EA28FCAE7B000A6A7B /* RegisterEntity.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2D8FC6E928FCAE7B000A6A7B /* RegisterEntity.swift */; };
 		481A301A26B05E6B009C64FB /* FirebaseManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 481A301926B05E6B009C64FB /* FirebaseManager.swift */; };
 		481A301C26B05EA2009C64FB /* FirebaseInstanceHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 481A301B26B05EA2009C64FB /* FirebaseInstanceHelper.swift */; };
 		6D6A3A05278E27A00019E226 /* APIType.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6D6A3A04278E27A00019E226 /* APIType.swift */; };
@@ -69,6 +78,15 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		2D8FC6D928FCAE05000A6A7B /* ConfirmPhoneProtocols.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ConfirmPhoneProtocols.swift; sourceTree = "<group>"; };
+		2D8FC6DA28FCAE05000A6A7B /* ConfirmPhoneViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ConfirmPhoneViewController.swift; sourceTree = "<group>"; };
+		2D8FC6DB28FCAE05000A6A7B /* ConfirmPhonePresenter.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ConfirmPhonePresenter.swift; sourceTree = "<group>"; };
+		2D8FC6DC28FCAE05000A6A7B /* ConfirmPhoneInteractor.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ConfirmPhoneInteractor.swift; sourceTree = "<group>"; };
+		2D8FC6DD28FCAE05000A6A7B /* ConfirmPhoneViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ConfirmPhoneViewController.xib; sourceTree = "<group>"; };
+		2D8FC6DE28FCAE05000A6A7B /* ConfirmPhoneRemoteDataManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ConfirmPhoneRemoteDataManager.swift; sourceTree = "<group>"; };
+		2D8FC6DF28FCAE05000A6A7B /* ConfimEntity.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ConfimEntity.swift; sourceTree = "<group>"; };
+		2D8FC6E028FCAE05000A6A7B /* ConfirmPhoneWireFrame.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ConfirmPhoneWireFrame.swift; sourceTree = "<group>"; };
+		2D8FC6E928FCAE7B000A6A7B /* RegisterEntity.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RegisterEntity.swift; sourceTree = "<group>"; };
 		481A301926B05E6B009C64FB /* FirebaseManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FirebaseManager.swift; sourceTree = "<group>"; };
 		481A301B26B05EA2009C64FB /* FirebaseInstanceHelper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FirebaseInstanceHelper.swift; sourceTree = "<group>"; };
 		6D6A3A04278E27A00019E226 /* APIType.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = APIType.swift; sourceTree = "<group>"; };
@@ -150,6 +168,22 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		2D8FC6D828FCAE05000A6A7B /* ConfirmPhone */ = {
+			isa = PBXGroup;
+			children = (
+				2D8FC6E928FCAE7B000A6A7B /* RegisterEntity.swift */,
+				2D8FC6D928FCAE05000A6A7B /* ConfirmPhoneProtocols.swift */,
+				2D8FC6DB28FCAE05000A6A7B /* ConfirmPhonePresenter.swift */,
+				2D8FC6DC28FCAE05000A6A7B /* ConfirmPhoneInteractor.swift */,
+				2D8FC6DA28FCAE05000A6A7B /* ConfirmPhoneViewController.swift */,
+				2D8FC6DD28FCAE05000A6A7B /* ConfirmPhoneViewController.xib */,
+				2D8FC6DE28FCAE05000A6A7B /* ConfirmPhoneRemoteDataManager.swift */,
+				2D8FC6DF28FCAE05000A6A7B /* ConfimEntity.swift */,
+				2D8FC6E028FCAE05000A6A7B /* ConfirmPhoneWireFrame.swift */,
+			);
+			path = ConfirmPhone;
+			sourceTree = "<group>";
+		};
 		6F25FC352669633800D1B44C /* OnBorardingCollection */ = {
 			isa = PBXGroup;
 			children = (
@@ -265,6 +299,7 @@
 		980E98F425E48C5B002C766D /* Controllers */ = {
 			isa = PBXGroup;
 			children = (
+				2D8FC6D828FCAE05000A6A7B /* ConfirmPhone */,
 				6F3BC36426814068001CEF0D /* ConfirmationCode */,
 				6FD5D5B22681008400A700FE /* Forgot */,
 				82C1594225F6BF46001CE1D3 /* OnBoarding */,
@@ -414,6 +449,7 @@
 			files = (
 				9834785125E6B737005E9BDA /* Assets.xcassets in Resources */,
 				980E990025E48C69002C766D /* LoginView.xib in Resources */,
+				2D8FC6E528FCAE05000A6A7B /* ConfirmPhoneViewController.xib in Resources */,
 				6FBF73A62669D02B006379AE /* OnBoarding.storyboard in Resources */,
 				82C1596225F6C099001CE1D3 /* Vista1View.xib in Resources */,
 				6FD5D5B4268100D600A700FE /* ForgotPassword.storyboard in Resources */,
@@ -455,11 +491,16 @@
 			files = (
 				6F25FC44266970F300D1B44C /* OnBoardingCCWireFrame.swift in Sources */,
 				6F25FC5926697D4000D1B44C /* OnBoardingCCComponents.swift in Sources */,
+				2D8FC6E328FCAE05000A6A7B /* ConfirmPhonePresenter.swift in Sources */,
+				2D8FC6E728FCAE05000A6A7B /* ConfimEntity.swift in Sources */,
 				82C1594E25F6C038001CE1D3 /* Vista1View.swift in Sources */,
 				9DFA1711273F2BB700319318 /* LocationUserPerm.swift in Sources */,
 				6D6A3A05278E27A00019E226 /* APIType.swift in Sources */,
 				826DC6DD25E855A900F51EB7 /* LoginProtocols.swift in Sources */,
+				2D8FC6E628FCAE05000A6A7B /* ConfirmPhoneRemoteDataManager.swift in Sources */,
 				6F3BC36E26814122001CEF0D /* ConfirmationCodePresenter.swift in Sources */,
+				2D8FC6EA28FCAE7B000A6A7B /* RegisterEntity.swift in Sources */,
+				2D8FC6E128FCAE05000A6A7B /* ConfirmPhoneProtocols.swift in Sources */,
 				82C1594D25F6C038001CE1D3 /* Vista1Interactor.swift in Sources */,
 				82C1595C25F6C05E001CE1D3 /* Vista2Protocols.swift in Sources */,
 				826DC6E125E855A900F51EB7 /* LoginWireFrame.swift in Sources */,
@@ -479,6 +520,7 @@
 				6D754A6928F968D300226166 /* ChurchRemoteInfo.swift in Sources */,
 				82C1594C25F6C038001CE1D3 /* Vista1Protocols.swift in Sources */,
 				6F26AA1526811095002AB7BE /* ForgotPRouter.swift in Sources */,
+				2D8FC6E428FCAE05000A6A7B /* ConfirmPhoneInteractor.swift in Sources */,
 				6F29458A266FE425009657D4 /* Cell2OnBoarding.swift in Sources */,
 				6F25FC4B2669712B00D1B44C /* OnBoardingCCRemoteDataManager.swift in Sources */,
 				481A301A26B05E6B009C64FB /* FirebaseManager.swift in Sources */,
@@ -496,6 +538,8 @@
 				6F3BC3772681415C001CEF0D /* ConfirmationCodeProtocol.swift in Sources */,
 				82C1596025F6C05E001CE1D3 /* Vista2WireFrame.swift in Sources */,
 				6F26AA1226811085002AB7BE /* ForgotPEntity.swift in Sources */,
+				2D8FC6E828FCAE05000A6A7B /* ConfirmPhoneWireFrame.swift in Sources */,
+				2D8FC6E228FCAE05000A6A7B /* ConfirmPhoneViewController.swift in Sources */,
 				826DC6DC25E855A900F51EB7 /* LoginLocalDataManager.swift in Sources */,
 				82C1595A25F6C05E001CE1D3 /* Vista2Presenter.swift in Sources */,
 				82C1595E25F6C05E001CE1D3 /* Vista2View.swift in Sources */,

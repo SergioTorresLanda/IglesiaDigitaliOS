@@ -24,8 +24,8 @@ class AppDelegate: UIResponder, UIApplicationDelegate, UNUserNotificationCenterD
         
         UNUserNotificationCenter.current().delegate = self
         
-        UserDefaults.standard.set("Prod", forKey: "stage")
-        //UserDefaults.standard.set("Qa", forKey: "stage")
+        //UserDefaults.standard.set("Prod", forKey: "stage")
+        UserDefaults.standard.set("Qa", forKey: "stage")
         let pushManager = PushNotificationManager(userID: "currently_logged_in_user_id")
         pushManager.registerForPN()
         pushManager.postAction()

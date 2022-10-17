@@ -41,8 +41,8 @@ class ImageLoader: UIImageView {
 
         // image does not available in cache.. so retrieving it from url...
         URLSession.shared.dataTask(with: url, completionHandler: { (data, response, error) in
-            //print("->  respuesta Status Code: ", response as Any)
-            //print("->  error: ", error as Any)
+            print("-->  respuesta Status Code: ", response as Any)
+            print("-->  error: ", error as Any)
             if error != nil {
                 DispatchQueue.main.async(execute: {
                     self.activityIndicator.stopAnimating()

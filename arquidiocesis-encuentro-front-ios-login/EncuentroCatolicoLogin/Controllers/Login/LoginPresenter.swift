@@ -11,7 +11,7 @@ class LoginPresenter  {
     var wireFrame: LoginWireFrameProtocol?
     let onboarding = UserDefaults.standard.bool(forKey: "onboarding")
     var controla: UIViewController!
-    
+    static var strError = "Error en el servidor"
 }
 
 extension LoginPresenter: LoginPresenterProtocol {
@@ -87,11 +87,11 @@ extension LoginPresenter: LoginInteractorOutputProtocol {
                 let msg = ["titulo": "Atención", "cuerpo": "El usuario y/o contraseña son incorrectos"]
                 self.view?.mostrarMSG(dtcAlerta: msg)
             case .ErrorServidor:
-                let msg = ["titulo":"Error", "cuerpo": "Error en el servidor"]
+                let msg = ["titulo":"Error", "cuerpo": LoginPresenter.strError]
                 self.view?.mostrarMSG(dtcAlerta: msg)
             case .usuarioNoExiste:
-                let msg = ["titulo":"Error", "cuerpo": "El usuario no existe"]
-                self.view?.mostrarMSG(dtcAlerta: msg)
+                let msg = ["titulo":"Aviso", "cuerpo": "Te invitamos a terminar el registro, por favor solicita un código de acceso"]
+                self.view?.retryRegister(dtcAlerta: msg)
             }
         }
     }

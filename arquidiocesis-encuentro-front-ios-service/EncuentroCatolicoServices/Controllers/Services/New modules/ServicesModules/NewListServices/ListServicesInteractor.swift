@@ -25,8 +25,8 @@ class ListServiceInteractor: ListServiceInteractorProtocol {
         
         let work = URLSession.shared.dataTask(with: request) { (data, response, error) in
             
-            //print("->  respuesta Status Code: ", response as Any)
-            //print("->  error: ", error as Any)
+            print("-->  respuesta Status Code: ", response as Any)
+            print("-->  error: ", error as Any)
             do{
                 if data != nil {
                     let responseData: [ListServicesStandard] = try JSONDecoder().decode([ListServicesStandard].self, from: data!)
@@ -58,8 +58,8 @@ class ListServiceInteractor: ListServiceInteractorProtocol {
         request.setValue("\(idUser)", forHTTPHeaderField: "X-User-Id")
         
         let work = URLSession.shared.dataTask(with: request) { (data, response, error) in
-            //print("->  respuesta Status Code: ", response as Any)
-            //print("->  error: ", error as Any)
+            print("-->  respuesta Status Code: ", response as Any)
+            print("-->  error: ", error as Any)
             
             if (response as! HTTPURLResponse).statusCode == 200 {
                 self.presenter?.deleteResponse(responseCode: response as! HTTPURLResponse)
