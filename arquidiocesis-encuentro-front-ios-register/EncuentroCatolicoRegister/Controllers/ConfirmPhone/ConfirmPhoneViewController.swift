@@ -27,12 +27,16 @@ class ConfirmPhoneViewController: UIViewController {
     @IBOutlet var privacyButton: UIButton!
     @IBOutlet var termConditionsButton: UIButton!
     @IBOutlet var lblArriba: UIView!
+    @IBOutlet weak var lblTime: UILabel!
     // MARK: Properties
     var presenter: ConfirmPhonePresenterProtocol?
     var usuario: UserRegister?
     var codeStr : [String] = []
     var pos = 0
 
+    var countDown               :   Int   = 0
+    var timer                   :   Timer?
+    let TIME_CODE = 179
     // MARK: Lifecycle
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -50,7 +54,7 @@ class ConfirmPhoneViewController: UIViewController {
         
         let modifyNumberText = "Modificar número".underlineDecorative(font: UIFont.systemFont(ofSize: 14))
         let refreshPhoneNumberText = "Corregir número celular".underlineDecorative(font: UIFont.systemFont(ofSize: 14,weight: .bold))
-        let refreshCodeText = "Reenviar código".underlineDecorative(font: UIFont.systemFont(ofSize: 14, weight: .bold))
+        let refreshCodeText = "Reenviar nuevo código".underlineDecorative(font: UIFont.systemFont(ofSize: 14, weight: .bold))
         modifyNumber.setAttributedTitle(modifyNumberText, for: .normal)
         refreshCode.setAttributedTitle(refreshCodeText, for: .normal)
         refreshPhoneNumber.setAttributedTitle(refreshPhoneNumberText, for: .normal)
@@ -70,6 +74,12 @@ class ConfirmPhoneViewController: UIViewController {
         loader.isHidden = true
     }
     
+    override func viewWillAppear(_ animated: Bool) {
+        
+        super.viewWillAppear(animated)
+        self.startTime(TIME_CODE)
+    }
+    
     private func setupDelegates() {
         txtNumber1.delegate = self
         txtNumber2.delegate = self
@@ -83,6 +93,72 @@ class ConfirmPhoneViewController: UIViewController {
         presenter?.hideKeyBoard(view: view)
     }
     
+    public func stopTime() {
+        
+        if let _ = timer {
+            
+            timer?.invalidate()
+            timer = nil
+        }
+    }
+    
+    override func viewWillDisappear(_ animated: Bool) {
+        
+        super.viewWillDisappear(animated)
+        self.stopTime()
+    }
+    
+    public func startTime(_ maxTime: Int) {
+        
+        self.stopTime()
+        let minutes = maxTime / 60
+        countDown = maxTime
+        
+        DispatchQueue.main.async {
+            
+            self.activatedBtnSend(isHide: true)
+        }
+        
+        self.timer = Timer.scheduledTimer(
+            timeInterval    :   1,
+            target          :   self,
+            selector        :   #selector(updateCountDown),
+            userInfo        :   nil,
+            repeats         :   true
+        )
+    }
+    
+    @objc func updateCountDown() {
+        
+        let seg = countDown % 60
+        let min = countDown / 60
+        
+//        if countDown == (valueTime - 5) {
+//
+//            self.headerView.isHiddenSnack(true)
+//        }
+        
+        if countDown > 0 {
+            
+            self.lblTime.text = "\(min)" + ":" + (seg > 9 ? "\(seg)" : "0\(seg)")
+            
+            countDown = countDown - 1
+        } else {
+            
+            DispatchQueue.main.async {
+                self.lblTime.text = "0:00"
+                self.activatedBtnSend(isHide: false)
+            }
+            self.stopTime()
+        }
+    }
+    
+    func activatedBtnSend(isHide: Bool){
+        
+        refreshCode.isHidden = isHide
+        btnReenviar.isEnabled = !isHide
+    }
+    
     // MARK: Actions
     @IBAction func reenvioAction(_ sender: Any) {
         //print("-> 🚧 usuario: ",usuario!)
@@ -92,8 +168,10 @@ class ConfirmPhoneViewController: UIViewController {
         txtNumber4.text = ""
         txtNumber5.text = ""
         txtNumber6.text = ""
-        presenter?.reenviarCodigo(user: usuario!)
-       
+        if let user = self.usuario {
+            
+            self.presenter?.reenviarCodigo(user: user)
+        }
     }
     
     @IBAction func cambiaNumero(_ sender: Any) {
@@ -106,7 +184,10 @@ class ConfirmPhoneViewController: UIViewController {
         loader.startAnimating()
         presenter?.controller = self
         let code = "\(txtNumber1.text ?? "")\(txtNumber2.text ?? "")\(txtNumber3.text ?? "")\(txtNumber4.text ?? "")\(txtNumber5.text ?? "")\(txtNumber6.text ?? "")"
-        presenter?.crearCuenta(user: usuario!, newCode: code)
+        if let user = self.usuario {
+            
+            presenter?.crearCuenta(user: user, newCode: code)
+        }
     }
     
     @IBAction func cancelarAction(_ sender: Any) {
@@ -130,6 +211,7 @@ extension ConfirmPhoneViewController: ConfirmPhoneViewProtocol {
         self.btnCrear.isEnabled = true
         self.loader.stopAnimating()
         self.loader.isHidden = true
+        self.startTime(TIME_CODE)
         let alerta = UIAlertController(title: dtcAlerta["titulo"], message: dtcAlerta["cuerpo"], preferredStyle: .alert)
         alerta.addAction(UIAlertAction(title: "Aceptar", style: .default, handler: nil))
         self.present(alerta, animated: true, completion: nil)

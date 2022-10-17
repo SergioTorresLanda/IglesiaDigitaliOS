@@ -27,21 +27,9 @@ class ConfirmPhoneViewController: UIViewController {
     @IBOutlet var privacyButton: UIButton!
     @IBOutlet var termConditionsButton: UIButton!
     @IBOutlet var lblArriba: UIView!
-    // Timer View
-    @IBOutlet weak var firstTimerView: UIView!
-    @IBOutlet weak var secondTimerView: UIView!
-    @IBOutlet weak var thirdTimerView: UIView!
-  //  @IBOutlet weak var firstTwoPoints: UIButton!
-   // @IBOutlet weak var secondTwoPoints: UIButton!
-    @IBOutlet weak var firstLblTimer: UILabel!
-    @IBOutlet weak var secondLblTimer: UILabel!
-    @IBOutlet weak var thirdLblTimer: UILabel!
+    @IBOutlet weak var lblTime: UILabel!
     
     @IBOutlet weak var viewResendOTP: UIStackView!
-    var miliSeconds = 99
-    var seconds = 59
-    var minutes = 0
-    var timeLapse : Timer?
     // Loader Timer View
 //    @IBOutlet weak var loaderTimerView: UIView!
     
@@ -50,7 +38,9 @@ class ConfirmPhoneViewController: UIViewController {
     var usuario: UserRegister?
     var codeStr : [String] = []
     var pos = 0
-    
+    var countDown               :   Int   = 0
+    var timer                   :   Timer?
+    let TIME_CODE = 179
     // MARK: Lifecycle
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -87,53 +77,14 @@ class ConfirmPhoneViewController: UIViewController {
         loader.isHidden = true
         getOTP()
     }
-    func startTimer() {
-        timeLapse = Timer.scheduledTimer(timeInterval: 0.01, target: self, selector: #selector(handleTimer), userInfo: nil, repeats: true)
+
+    
+    override func viewWillDisappear(_ animated: Bool) {
+        
+        super.viewWillDisappear(animated)
+        self.stopTime()
     }
     
-    @objc func handleTimer() {
-        
-        if minutes == 0{
-            timeLapse?.invalidate()
-            minutes = 2
-            seconds = 59
-            miliSeconds = 100
-            firstLblTimer.text = "00"
-            secondLblTimer.text = "00"
-            thirdLblTimer.text = "00"
-            
-            activatedBtnSend(isHide: false)
-            /*let alert = AcceptAlertDonations.showAlert(message: "Se agotó el tiempo de espera para realizar el pago, por favor vuelve a intentarlo", btnTitle: "Entendido")
-            alert.delegate = self
-            alert.modalPresentationStyle = .overFullScreen
-            self.present(alert, animated: true, completion: nil)*/
-        }else{
-            if seconds == 0 {
-                minutes -= 1
-                seconds = 59
-            }
-            if miliSeconds == 0 {
-                seconds -= 1
-                miliSeconds = 100
-            }
-            
-            firstLblTimer.text = "0\(minutes)"
-            
-            if miliSeconds < 10 {
-                thirdLblTimer.text = "0\(miliSeconds)"
-            }else{
-                thirdLblTimer.text = "\(miliSeconds)"
-            }
-            
-            if seconds < 10 {
-                secondLblTimer.text = "0\(seconds)"
-            }else{
-                secondLblTimer.text = "\(seconds)"
-            }
-            miliSeconds -= 1
-        }
-        
-    }
     private func setupDelegates() {
         txtNumber1.delegate = self
         txtNumber2.delegate = self
@@ -143,11 +94,66 @@ class ConfirmPhoneViewController: UIViewController {
         txtNumber6.delegate = self
     }
     func activatedBtnSend(isHide: Bool){
-        viewResendOTP.isHidden = isHide
+        
         refreshCode.isHidden = isHide
+        btnReenviar.isEnabled = !isHide
     }
     @objc private func hideKeyBoard() {
         presenter?.hideKeyBoard(view: view)
+    }
+    
+    public func startTime(_ maxTime: Int) {
+        
+        self.stopTime()
+        let minutes = maxTime / 60
+        countDown = maxTime
+        
+        DispatchQueue.main.async {
+            
+            self.activatedBtnSend(isHide: true)
+        }
+        
+        self.timer = Timer.scheduledTimer(
+            timeInterval    :   1,
+            target          :   self,
+            selector        :   #selector(updateCountDown),
+            userInfo        :   nil,
+            repeats         :   true
+        )
+    }
+    
+    @objc func updateCountDown() {
+        
+        let seg = countDown % 60
+        let min = countDown / 60
+        
+//        if countDown == (valueTime - 5) {
+//
+//            self.headerView.isHiddenSnack(true)
+//        }
+        
+        if countDown > 0 {
+            
+            self.lblTime.text = "\(min)" + ":" + (seg > 9 ? "\(seg)" : "0\(seg)")
+            
+            countDown = countDown - 1
+        } else {
+            
+            DispatchQueue.main.async {
+                self.lblTime.text = "0:00"
+                self.activatedBtnSend(isHide: false)
+            }
+            self.stopTime()
+        }
+    }
+    
+    public func stopTime() {
+        
+        if let _ = timer {
+            
+            timer?.invalidate()
+            timer = nil
+        }
     }
     
     // MARK: Actions
@@ -210,6 +216,7 @@ extension ConfirmPhoneViewController: ConfirmPhoneViewProtocol {
         self.btnCrear.isEnabled = true
         self.loader.stopAnimating()
         self.loader.isHidden = true
+        self.startTime(TIME_CODE)
         let alerta = UIAlertController(title: dtcAlerta["titulo"], message: dtcAlerta["cuerpo"], preferredStyle: .alert)
         alerta.addAction(UIAlertAction(title: "Aceptar", style: .default, handler: nil))
         self.present(alerta, animated: true, completion: nil)
