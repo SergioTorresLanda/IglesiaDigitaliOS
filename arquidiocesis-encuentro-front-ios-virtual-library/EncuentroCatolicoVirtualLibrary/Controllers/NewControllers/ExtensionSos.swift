@@ -112,8 +112,8 @@ extension UIImageView {
         
         let task = URLSession.shared.dataTask(with: url) {responseData,response,error in
             
-            //print("->  respuesta Status Code: ", response as Any)
-            //print("->  error: ", error as Any)
+            print("-->  respuesta Status Code: ", response as Any)
+            print("-->  error: ", error as Any)
             
             if error == nil {
                 if let data = responseData {

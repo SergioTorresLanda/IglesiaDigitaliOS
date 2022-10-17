@@ -8,11 +8,11 @@
 import UIKit
 
 class ConfirmPhoneViewController: UIViewController {
-
+    
     // MARK: Outlets
     @IBOutlet var modifyNumber: UIButton!
     @IBOutlet var refreshCode: UIButton!
-    @IBOutlet var refreshPhoneNumber: UIButton!
+   // @IBOutlet var refreshPhoneNumber: UIButton!
     @IBOutlet weak var txtNumber1: UITextField!
     @IBOutlet weak var txtNumber2: UITextField!
     @IBOutlet weak var txtNumber3: UITextField!
@@ -27,15 +27,32 @@ class ConfirmPhoneViewController: UIViewController {
     @IBOutlet var privacyButton: UIButton!
     @IBOutlet var termConditionsButton: UIButton!
     @IBOutlet var lblArriba: UIView!
+    // Timer View
+    @IBOutlet weak var firstTimerView: UIView!
+    @IBOutlet weak var secondTimerView: UIView!
+    @IBOutlet weak var thirdTimerView: UIView!
+  //  @IBOutlet weak var firstTwoPoints: UIButton!
+   // @IBOutlet weak var secondTwoPoints: UIButton!
+    @IBOutlet weak var firstLblTimer: UILabel!
+    @IBOutlet weak var secondLblTimer: UILabel!
+    @IBOutlet weak var thirdLblTimer: UILabel!
+    var miliSeconds = 99
+    var seconds = 59
+    var minutes = 3
+    var timeLapse : Timer?
+    // Loader Timer View
+//    @IBOutlet weak var loaderTimerView: UIView!
+    
     // MARK: Properties
     var presenter: ConfirmPhonePresenterProtocol?
     var usuario: UserRegister?
     var codeStr : [String] = []
     var pos = 0
-
+    
     // MARK: Lifecycle
     override func viewDidLoad() {
         super.viewDidLoad()
+        startTimer()
         setupDelegates()
         navigationController?.interactivePopGestureRecognizer?.isEnabled = false
         presenter?.viewView = view
@@ -53,9 +70,9 @@ class ConfirmPhoneViewController: UIViewController {
         let refreshCodeText = "Reenviar código".underlineDecorative(font: UIFont.systemFont(ofSize: 14, weight: .bold))
         modifyNumber.setAttributedTitle(modifyNumberText, for: .normal)
         refreshCode.setAttributedTitle(refreshCodeText, for: .normal)
-        refreshPhoneNumber.setAttributedTitle(refreshPhoneNumberText, for: .normal)
+     //   refreshPhoneNumber.setAttributedTitle(refreshPhoneNumberText, for: .normal)
         
-        
+
         let codeButtonText = "Código de ética".underlineDecorative(font: UIFont.systemFont(ofSize: 11))
         let privacyButtonText = "Política de Privacidad.".underlineDecorative(font: UIFont.systemFont(ofSize: 11))
         let termButtonText = "Términos y condiciones".underlineDecorative(font: UIFont.systemFont(ofSize: 11))
@@ -68,8 +85,55 @@ class ConfirmPhoneViewController: UIViewController {
         btnReenviar.layer.borderColor = UIColor(red: 25/255, green: 42/255, blue: 115/255, alpha: 1).cgColor
         view.addGestureRecognizer(tap)
         loader.isHidden = true
+        getOTP()
+    }
+    func startTimer() {
+        timeLapse = Timer.scheduledTimer(timeInterval: 0.01, target: self, selector: #selector(handleTimer), userInfo: nil, repeats: true)
     }
     
+    @objc func handleTimer() {
+        
+        if minutes == 0{
+            timeLapse?.invalidate()
+            minutes = 4
+            seconds = 59
+            miliSeconds = 100
+            firstLblTimer.text = "03"
+            secondLblTimer.text = "00"
+            thirdLblTimer.text = "00"
+            
+            activatedBtnSend(isHide: false)
+            /*let alert = AcceptAlertDonations.showAlert(message: "Se agotó el tiempo de espera para realizar el pago, por favor vuelve a intentarlo", btnTitle: "Entendido")
+            alert.delegate = self
+            alert.modalPresentationStyle = .overFullScreen
+            self.present(alert, animated: true, completion: nil)*/
+        }else{
+            if seconds == 0 {
+                minutes -= 1
+                seconds = 59
+            }
+            if miliSeconds == 0 {
+                seconds -= 1
+                miliSeconds = 100
+            }
+            
+            firstLblTimer.text = "0\(minutes)"
+            
+            if miliSeconds < 10 {
+                thirdLblTimer.text = "0\(miliSeconds)"
+            }else{
+                thirdLblTimer.text = "\(miliSeconds)"
+            }
+            
+            if seconds < 10 {
+                secondLblTimer.text = "0\(seconds)"
+            }else{
+                secondLblTimer.text = "\(seconds)"
+            }
+            miliSeconds -= 1
+        }
+        
+    }
     private func setupDelegates() {
         txtNumber1.delegate = self
         txtNumber2.delegate = self
@@ -78,16 +142,23 @@ class ConfirmPhoneViewController: UIViewController {
         txtNumber5.delegate = self
         txtNumber6.delegate = self
     }
-    
+    func activatedBtnSend(isHide: Bool){
+        refreshCode.isHidden = isHide
+        btnReenviar.isHidden = isHide
+    }
     @objc private func hideKeyBoard() {
         presenter?.hideKeyBoard(view: view)
     }
     
     // MARK: Actions
     @IBAction func reenvioAction(_ sender: Any) {
+        getOTP()
+    }
+    func getOTP(){
+        activatedBtnSend(isHide: true)
+        print("--> 🚧 usuario: ",usuario?.username)
         print("--> 🚧 usuario: ",usuario!)
         presenter?.reenviarCodigo(user: usuario!)
-       
     }
     
     @IBAction func cambiaNumero(_ sender: Any) {
@@ -102,6 +173,7 @@ class ConfirmPhoneViewController: UIViewController {
         let code = "\(txtNumber1.text ?? "")\(txtNumber2.text ?? "")\(txtNumber3.text ?? "")\(txtNumber4.text ?? "")\(txtNumber5.text ?? "")\(txtNumber6.text ?? "")"
         presenter?.crearCuenta(user: usuario!, newCode: code)
     }
+    
     
     @IBAction func cancelarAction(_ sender: Any) {
         presenter?.cancelar(controller: self)
@@ -145,51 +217,51 @@ extension ConfirmPhoneViewController: UITextFieldDelegate {
             //This lines allows the user to delete the number in the textfield.
             if string.isEmpty{
                 
-              //  if numberFieldsCollection[0].text != "" {
-                    print("Ve pa atrás")
-                    
-                    switch textField.tag {
-                    case 1:
-                        DispatchQueue.main.async {
-                            self.view.endEditing(true)
-                        }
-                        
-                    case 2:
-                        DispatchQueue.main.async {
-                            self.txtNumber1.becomeFirstResponder()
-                        }
-                       
-                        
-                    case 3:
-                        DispatchQueue.main.async {
-                            self.txtNumber2.becomeFirstResponder()
-                        }
-                       
-                        
-                    case 4:
-                        DispatchQueue.main.async {
-                            self.txtNumber3.becomeFirstResponder()
-                        }
-                       
-                        
-                    case 5:
-                        DispatchQueue.main.async {
-                            self.txtNumber4.becomeFirstResponder()
-                        }
-                       
-                        
-                    case 6:
-                        DispatchQueue.main.async {
-                            self.txtNumber5.becomeFirstResponder()
-                        }
-//                        Timer.scheduledTimer(withTimeInterval: 0.1, repeats: false) { (timer) in
-//
-//                        }
-                        
-                    default:
-                        print("Deafult")
+                //  if numberFieldsCollection[0].text != "" {
+                print("Ve pa atrás")
+                
+                switch textField.tag {
+                case 1:
+                    DispatchQueue.main.async {
+                        self.view.endEditing(true)
                     }
                     
+                case 2:
+                    DispatchQueue.main.async {
+                        self.txtNumber1.becomeFirstResponder()
+                    }
+                    
+                    
+                case 3:
+                    DispatchQueue.main.async {
+                        self.txtNumber2.becomeFirstResponder()
+                    }
+                    
+                    
+                case 4:
+                    DispatchQueue.main.async {
+                        self.txtNumber3.becomeFirstResponder()
+                    }
+                    
+                    
+                case 5:
+                    DispatchQueue.main.async {
+                        self.txtNumber4.becomeFirstResponder()
+                    }
+                    
+                    
+                case 6:
+                    DispatchQueue.main.async {
+                        self.txtNumber5.becomeFirstResponder()
+                    }
+                    //                        Timer.scheduledTimer(withTimeInterval: 0.1, repeats: false) { (timer) in
+                    //
+                    //                        }
+                    
+                default:
+                    print("Deafult")
+                }
+                
                 
                 return true
             }

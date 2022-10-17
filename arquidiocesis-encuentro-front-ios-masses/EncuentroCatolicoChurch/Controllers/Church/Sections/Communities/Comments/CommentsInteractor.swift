@@ -27,8 +27,8 @@ class CommentsInteractor: CommentsInteractorProtocol {
         
         URLSession.shared.dataTask(with: request) { data, response, error in
             
-            //print("->  respuesta Status Code: ", response as Any)
-            //print("->  error: ", error as Any)
+            print("-->  respuesta Status Code: ", response as Any)
+            print("-->  error: ", error as Any)
             guard let allData = data else { return }
             do {
                 
@@ -72,8 +72,8 @@ class CommentsInteractor: CommentsInteractorProtocol {
         
         URLSession.shared.dataTask(with: request) { data, response, error in
             
-            //print("->  respuesta Status Code: ", response as Any)
-            //print("->  error: ", error as Any)
+            print("-->  respuesta Status Code: ", response as Any)
+            print("-->  error: ", error as Any)
             
             if (response as! HTTPURLResponse).statusCode == 200 || (response as! HTTPURLResponse).statusCode == 201 {
                 self.presenter?.transportSuccesPostComment()
@@ -109,9 +109,9 @@ class CommentsInteractor: CommentsInteractorProtocol {
         request.setValue("Bearer \( tksession ?? "")", forHTTPHeaderField: "Authorization")
         
         URLSession.shared.dataTask(with: request) { data, response, error in
-            //print("-->>  Services class: ")
-            //print("->  respuesta Status Code: ", response as Any)
-            //print("->  error: ", error as Any)
+            print("-->>  Services class: ")
+            print("-->  respuesta Status Code: ", response as Any)
+            print("-->  error: ", error as Any)
 
             if (response as! HTTPURLResponse).statusCode == 200 {
                 self.presenter?.succesUpdateComment()

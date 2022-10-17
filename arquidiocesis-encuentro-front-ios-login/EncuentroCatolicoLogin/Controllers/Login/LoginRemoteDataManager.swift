@@ -4,11 +4,11 @@ class LoginRemoteDataManager:LoginRemoteDataManagerInputProtocol {
     
     var remoteRequestHandler: LoginRemoteDataManagerOutputProtocol?
     
-//    #if Dev
-//         let API = "https://auth.arquidiocesis.mx"
-//    #else
-//        let API = "https://zvxa775yh8.execute-api.us-east-1.amazonaws.com/qa"
-//    #endif
+    //    #if Dev
+    //         let API = "https://auth.arquidiocesis.mx"
+    //    #else
+    //        let API = "https://zvxa775yh8.execute-api.us-east-1.amazonaws.com/qa"
+    //    #endif
     
     func login(user: UserLogin) {
         
@@ -31,19 +31,22 @@ class LoginRemoteDataManager:LoginRemoteDataManagerInputProtocol {
         
         print("🚧  -->>  user login: ", user)
         print("🚧  -->>  endpoint login: ", endpoint)
-
+        
         let tarea = URLSession.shared.dataTask(with: request) { data, response, error in
             
-            //print("->  respuesta Status Code: ", response as Any)
-            //print("->  error: ", error as Any)
+            print("-->  respuesta Status Code LOGIN: ", response as Any)
+            print("-->  error: ", error as Any)
+            guard let allData = data else { return }
+            let outputStr  = String(data: allData, encoding: String.Encoding.utf8) as String?
+            print("--->✅  LOGIN Response ->  ", outputStr as Any)
+            
+            
             if error != nil {
                 self.remoteRequestHandler?.callbackResponse(respuesta: nil, error: ErroresServidorLogin.ErrorServidor, user: user)
                 return
             }
             
             if (response as! HTTPURLResponse).statusCode == 200 {
-//                let domain = Bundle.main.bundleIdentifier!
-//                UserDefaults.standard.removePersistentDomain(forName: domain)
                 UserDefaults.standard.synchronize()
                 let defaults = UserDefaults.standard
                 defaults.setValue(true, forKey: "isUserLogged")
@@ -65,7 +68,7 @@ class LoginRemoteDataManager:LoginRemoteDataManagerInputProtocol {
                 
                 
                 let idUser = defaults.integer(forKey: "id")
-                print(idUser, "qwertyuiop")
+                
                 guard let endpoint: URL = URL(string: "\(APIType.shared.Auth())/user/detail/\(idUser)") else {
                     print("Error formando url")
                     return
@@ -75,20 +78,16 @@ class LoginRemoteDataManager:LoginRemoteDataManagerInputProtocol {
                 let tksession = UserDefaults.standard.string(forKey: "idToken")
                 request.httpMethod = "GET"
                 request.setValue("Bearer \(tksession ?? "")", forHTTPHeaderField: "Authorization")
-//                request.setValue("application/json", forHTTPHeaderField: "Content-Type")
-                
-                
                 let tarea = URLSession.shared.dataTask(with: request) { data, response, error in
                     
-                    //print("->  respuesta Status Code: ", response as Any)
-                    //print("->  error: ", error as Any)
+                    print("-->  respuesta Status Code: ", response as Any)
+                    print("-->  error: ", error as Any)
                     if error != nil {
                         print("Hubo un error")
                         return
                     }
                     
                     do {
-                        
                         if data != nil {
                             let contResponse : ProfileDetailImgH = try JSONDecoder().decode(ProfileDetailImgH.self, from: data!)
                             
@@ -121,23 +120,23 @@ class LoginRemoteDataManager:LoginRemoteDataManagerInputProtocol {
                 tarea.resume()
                 
                 self.remoteRequestHandler?.callbackResponse(respuesta: ResponseLogin(msg: nil, error_code: 0), error: nil, user: user)
-            } else {
+            }else{
                 guard let allData = data else { return }
                 
                 guard let respError: ServerErrors = try? JSONDecoder().decode(ServerErrors.self, from: allData) else {
                     self.remoteRequestHandler?.callbackResponse(respuesta: nil, error: ErroresServidorLogin.ErrorServidor, user: user)
                     return
                 }
-                
+                LoginPresenter.strError = respError.error
                 if respError.code ==  107{
                     self.remoteRequestHandler?.callbackResponse(respuesta: nil, error: ErroresServidorLogin.usuarioPasswordIncorrecto, user: user)
                 } else if respError.code == 105{
+                    self.remoteRequestHandler?.callbackResponse(respuesta: nil, error: ErroresServidorLogin.ErrorServidor, user: user)
+                }else if respError.code == 103{
                     self.remoteRequestHandler?.callbackResponse(respuesta: nil, error: ErroresServidorLogin.usuarioNoExiste, user: user)
                 } else {
                     self.remoteRequestHandler?.callbackResponse(respuesta: nil, error: ErroresServidorLogin.ErrorServidor, user: user)
                 }
-                
-                
             }
         }
         tarea.resume()

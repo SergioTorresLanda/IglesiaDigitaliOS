@@ -167,7 +167,7 @@ class LoginView: UIViewController {
         btnRegistar.layer.borderWidth = 1
         btnRegistar.layer.borderColor = UIColor(red: 25/255, green: 42/255, blue: 115/255, alpha: 1).cgColor
         
-        btnForgot.underlineButtonsWithFont(sizeFont: 13, textColor: colorBlue, text: "Olvide contraseña", font: "SEMI")
+        btnForgot.underlineButtonsWithFont(sizeFont: 13, textColor: colorBlue, text: "Olvidé contraseña", font: "SEMI")
         btnTerms.underlineButtons(sizeFont: 11, textColor: colorBlue, text: "Términos y condiciones")
         btnPolicity.underlineButtons(sizeFont: 11, textColor: colorBlue, text: "Política de privacidad")
         btnEtich.underlineButtons(sizeFont: 11, textColor: colorBlue, text: "Código de ética")
@@ -269,6 +269,20 @@ extension LoginView: LoginViewProtocol {
             self.spinner.isHidden = true
             let alerta = UIAlertController(title: dtcAlerta["titulo"], message: dtcAlerta["cuerpo"], preferredStyle: .alert)
             alerta.addAction(UIAlertAction(title: "Aceptar", style: .default, handler: nil))
+            self.present(alerta, animated: true, completion: nil)
+        })
+    }
+    func retryRegister(dtcAlerta: [String : String]) {
+        loadingAlert.dismiss(animated: true, completion: {
+            self.btnRegistar.isEnabled = true
+            self.spinner.stopAnimating()
+            self.spinner.isHidden = true
+            let alerta = UIAlertController(title: dtcAlerta["titulo"], message: dtcAlerta["cuerpo"], preferredStyle: .alert)
+            alerta.addAction(UIAlertAction(title: "Solicitar código", style: .default, handler: {_ in
+                let model = UserRegister(username: self.txtUser.text ?? "", email: "", phone_number: "", password: "", name: "", last_name: "", middle_name: "", role: "", type_person: "", birth_date: "")
+                let view  = ConfirmPhoneWireFrame.createConfirmPhoneModule(usuario: model)
+                self.navigationController?.pushViewController(view, animated: true)
+            }))
             self.present(alerta, animated: true, completion: nil)
         })
     }
