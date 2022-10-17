@@ -71,7 +71,7 @@
                             <rect key="frame" x="0.0" y="144" width="375" height="40"/>
                             <subviews>
                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Cerrar sesión" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="T6j-nJ-Kbi">
-                                    <rect key="frame" x="13" y="10.5" width="97" height="19.5"/>
+                                    <rect key="frame" x="30" y="10.5" width="97" height="19.5"/>
                                     <fontDescription key="fontDescription" type="system" pointSize="16"/>
                                     <color key="textColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                     <nil key="highlightedColor"/>
@@ -93,7 +93,7 @@
                                 <constraint firstItem="RQd-2P-OOb" firstAttribute="centerY" secondItem="31I-sT-Oup" secondAttribute="centerY" id="GsS-P9-bKq"/>
                                 <constraint firstItem="RQd-2P-OOb" firstAttribute="centerY" secondItem="T6j-nJ-Kbi" secondAttribute="centerY" id="MSB-3e-ffJ"/>
                                 <constraint firstItem="RQd-2P-OOb" firstAttribute="leading" secondItem="31I-sT-Oup" secondAttribute="leadingMargin" id="Ytz-3G-SMe"/>
-                                <constraint firstItem="T6j-nJ-Kbi" firstAttribute="leading" secondItem="31I-sT-Oup" secondAttribute="leading" constant="13" id="pbR-2q-UE3"/>
+                                <constraint firstItem="T6j-nJ-Kbi" firstAttribute="leading" secondItem="31I-sT-Oup" secondAttribute="leading" constant="30" id="pbR-2q-UE3"/>
                             </constraints>
                         </view>
                         <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="none" translatesAutoresizingMaskIntoConstraints="NO" id="zhB-Xk-cFb">
