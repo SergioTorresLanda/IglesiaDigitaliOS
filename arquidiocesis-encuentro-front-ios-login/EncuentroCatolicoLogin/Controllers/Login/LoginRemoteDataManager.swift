@@ -54,6 +54,7 @@ class LoginRemoteDataManager:LoginRemoteDataManagerInputProtocol {
                 guard let dataRes = data, let resp: RespuestaServidor = try? JSONDecoder().decode(RespuestaServidor.self, from: dataRes) else {
                     return
                 }
+                DAKeychain.shared["miIglesia"] = user.password
                 defaults.set(resp.AuthenticationResult.RefreshToken, forKey: "refToken")
                 defaults.set(resp.AuthenticationResult.AccessToken, forKey: "accToken")
                 defaults.set(resp.AuthenticationResult.IdToken, forKey: "idToken")
@@ -65,7 +66,7 @@ class LoginRemoteDataManager:LoginRemoteDataManagerInputProtocol {
                 defaults.setValue(resp.UserAttributes.email, forKey: "email")
                 defaults.setValue(resp.UserAttributes.role, forKey: "role")
                 defaults.setValue(resp.UserAttributes.profile, forKey: "profile")
-                
+                defaults.setValue(true, forKey: "biometricEnable")
                 
                 let idUser = defaults.integer(forKey: "id")
                 
