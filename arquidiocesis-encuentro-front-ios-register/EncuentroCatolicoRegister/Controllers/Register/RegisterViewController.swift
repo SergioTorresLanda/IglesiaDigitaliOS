@@ -155,7 +155,7 @@ class RegisterViewController: BaseVC {
         field.textField.keyboardType = .asciiCapable
         field.textField.returnKeyType = .next
         field.textField.autocapitalizationType = .none
-        field.fieldName = "Confirmar tu cosntraseña"
+        field.fieldName = "Confirmar tu contraseña"
         field.fieldDescription = "Ambas contraseñas deben coincidir."
         field.validations = [
             ECUFieldGenericValidation.required.getValidation(),
