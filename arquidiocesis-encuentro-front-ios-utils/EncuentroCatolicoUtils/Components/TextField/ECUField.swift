@@ -183,8 +183,7 @@ extension ECUField: UITextFieldDelegate {
     }
     
     public func textField(_ textField: UITextField, shouldChangeCharactersIn range: NSRange, replacementString string: String) -> Bool {
-        guard string == "\n",
-              withReturn else {
+        if string == "\n" && !withReturn {
             return true
         }
         
