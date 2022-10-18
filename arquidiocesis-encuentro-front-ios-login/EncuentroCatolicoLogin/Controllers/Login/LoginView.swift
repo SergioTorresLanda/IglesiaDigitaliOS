@@ -61,6 +61,7 @@ class LoginView: UIViewController {
     override func viewDidAppear(_ animated: Bool) {
         let defaults = UserDefaults.standard
         let newUser = defaults.bool(forKey: "isNewUser")
+        validateButtonBiometric()
         /*if newUser == true{
             let email = defaults.string(forKey: "email") ?? ""
             let password = defaults.string(forKey: "password") ?? ""
@@ -105,6 +106,7 @@ class LoginView: UIViewController {
         NotificationCenter.default.addObserver(self, selector: #selector(popViews), name: NSNotification.Name(rawValue: "newLogOut"), object: nil)
         let defaults = UserDefaults.standard
         let nombre = defaults.string(forKey: "nombre") ?? ""
+        validateButtonBiometric()
         if nombre != "" {
             openHome()
         }
@@ -118,6 +120,7 @@ class LoginView: UIViewController {
     
     
     private func validateButtonBiometric() {
+        let biometricButton: Bool = UserDefaults.standard.bool(forKey: "biometricEnable")
         if biometricButton {
             btnBiometric.isHidden = false
         }else{
