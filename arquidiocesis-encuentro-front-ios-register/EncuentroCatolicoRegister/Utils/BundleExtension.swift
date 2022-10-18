@@ -8,5 +8,5 @@
 import Foundation
 
 extension Bundle {
-    static var module = Bundle(for: RegisterNewViewController.self)
+    static var module = Bundle(for: RegisterViewController.self)
 }
