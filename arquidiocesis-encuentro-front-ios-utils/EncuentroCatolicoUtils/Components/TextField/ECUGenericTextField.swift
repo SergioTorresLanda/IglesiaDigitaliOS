@@ -11,23 +11,31 @@ public typealias ECGenericAction = () -> Void
 
 open class ECUGenericTextField: UITextField {
     //MARK: - Properties
-    var padding = UIEdgeInsets(top: 10, left: 10, bottom: 10, right: 10)
-    
-    var leftIcon: UIImage? {
+    public var leftIcon: UIImage? {
         didSet {
-            self.setLeftIcon(leftIcon)
-            self.padding.left = self.leftView?.frame.size.width ?? 10
+            guard oldValue != leftIcon else {
+                return
+            }
+            
+            setLeftIcon()
         }
     }
-    var leftAction: ECGenericAction?
-    
-    var rightIcon: UIImage? {
+    public var leftIconTint: UIColor?
+    public var leftAction: ECGenericAction?
+    public var rightIcon: UIImage? {
         didSet {
-            self.setRightIcon(rightIcon)
-            self.padding.right = self.rightView?.frame.size.width ?? 10
+            guard oldValue != leftIcon else {
+                return
+            }
+            
+            setLeftIcon()
         }
     }
-    var rightAction: ECGenericAction?
+    public var rightIconTint: UIColor?
+    public var rightAction: ECGenericAction?
+    public var border: ECUBorder?
+    
+    var padding = UIEdgeInsets(top: 10, left: 41, bottom: 10, right: 10)
     
     //MARK: - Life Cycle
     open override func textRect(forBounds bounds: CGRect) -> CGRect {
@@ -42,6 +50,13 @@ open class ECUGenericTextField: UITextField {
         return bounds.inset(by: padding)
     }
     
+    override open func layoutSubviews() {
+        super.layoutSubviews()
+        
+        setupBorder()
+        setLeftIcon()
+        setRightIcon()
+    }
     //MARK: - Events
     @objc private func onClick(_ sender: UIView) {
         sender.tag == 0 ? leftAction?() : rightAction?()
@@ -50,12 +65,36 @@ open class ECUGenericTextField: UITextField {
 
 //MARK: - Private functions
 extension ECUGenericTextField {
-    private func setLeftIcon(_ icon: UIImage?) {
-        setIcon(icon, isRight: false)
+    private func setupBorder() {
+        guard self.superview != nil,
+              let border = self.border else {
+            return
+        }
+        
+        self.addBorder(border: border)
+        self.border = nil
     }
     
-    private func setRightIcon(_ icon: UIImage?) {
+    private func setLeftIcon() {
+        guard self.superview != nil,
+              let icon = self.leftIcon else {
+            return
+        }
+        
+        setIcon(icon, isRight: false)
+        self.padding.left = self.leftView?.frame.size.width ?? 10
+        self.leftIcon = nil
+    }
+    
+    private func setRightIcon() {
+        guard self.superview != nil,
+              let icon = self.rightIcon else {
+            return
+        }
+        
         setIcon(icon, isRight: true)
+        self.padding.right = self.rightView?.frame.size.width ?? 10
+        self.rightIcon = nil
     }
     
     private func setIcon(_ icon: UIImage?, isRight: Bool) {
@@ -78,6 +117,7 @@ extension ECUGenericTextField {
         button.tag = isRight ? 1 : 0
         button.addTarget(self, action: #selector(onClick(_:)), for: .touchUpInside)
         
+        iconView.tintColor = isRight ? rightIconTint : leftIconTint
         iconView.image = icon
         iconView.contentMode = .scaleAspectFit
         

@@ -61,16 +61,16 @@ public extension UIView {
         }, completion: nil)
     }
 
-    func addBorder(toSide side: ECUViewSide, withColor color: CGColor, andThickness thickness: CGFloat) {
-
+    func addBorder(border borderConfig: ECUBorder) {
         let border = CALayer()
-        border.backgroundColor = color
-
-        switch side {
-        case .left: border.frame = CGRect(x: frame.minX, y: frame.minY, width: thickness, height: frame.height); break
-        case .right: border.frame = CGRect(x: frame.maxX, y: frame.minY, width: thickness, height: frame.height); break
-        case .top: border.frame = CGRect(x: frame.minX, y: frame.minY, width: frame.width, height: thickness); break
-        case .bottom: border.frame = CGRect(x: frame.minX, y: frame.maxY, width: frame.width, height: thickness); break
+        
+        border.backgroundColor = borderConfig.color
+        
+        switch borderConfig.side {
+        case .left: border.frame = CGRect(x: frame.minX, y: frame.minY, width: borderConfig.thickenss, height: frame.height)
+        case .right: border.frame = CGRect(x: frame.maxX, y: frame.minY, width: borderConfig.thickenss, height: frame.height)
+        case .top: border.frame = CGRect(x: frame.minX, y: frame.minY, width: frame.width, height: borderConfig.thickenss)
+        case .bottom: border.frame = CGRect(x: frame.minX, y: frame.maxY, width: frame.width, height: borderConfig.thickenss)
         }
 
         layer.addSublayer(border)

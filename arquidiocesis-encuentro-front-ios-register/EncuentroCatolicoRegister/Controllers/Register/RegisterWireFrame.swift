@@ -4,7 +4,7 @@ import UIKit
 open class RegisterRouter: RegisterWireFrameProtocol {
 
     open class func createModule(_ user: UserRegister?) -> UIViewController {
-        let navController = RegisterViewController(nibName: "RegisterViewController", bundle: Bundle(for: RegisterViewController.self))
+        let navController = RegisterNewViewController(nibName: "RegisterNewViewController", bundle: Bundle(for: RegisterNewViewController.self))
         let view = navController
         let presenter: RegisterPresenterProtocol & RegisterInteractorOutputProtocol = RegisterPresenter()
         let interactor: RegisterInteractorInputProtocol & RegisterRemoteDataManagerOutputProtocol = RegisterInteractor()
@@ -31,6 +31,10 @@ open class RegisterRouter: RegisterWireFrameProtocol {
     
     func cancelar(controller: UIViewController) {
         controller.dismiss(animated: true, completion: nil)
+    }
+    
+    func back(controller: UIViewController) {
+        controller.navigationController?.popViewController(animated: true)
     }
     
 }

@@ -12,6 +12,10 @@ class RegisterPresenter  {
 }
 
 extension RegisterPresenter: RegisterPresenterProtocol {
+    func back(controller: UIViewController) {
+        wireFrame?.back(controller: controller)
+    }
+    
     
     // TODO: implement presenter methods
     func viewDidLoad(nombre: UITextField, apellido1: UITextField, apellido2: UITextField, celular: UITextField, email: UITextField, usuario: UserRegister?) {

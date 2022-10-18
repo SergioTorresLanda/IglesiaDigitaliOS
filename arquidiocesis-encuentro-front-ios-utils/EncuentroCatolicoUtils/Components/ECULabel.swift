@@ -8,6 +8,7 @@
 import UIKit
 
 /// Generic Label
-@IBDesignable open class ECULabel: UILabel {
+@IBDesignable
+open class ECULabel: UILabel {
     
 }

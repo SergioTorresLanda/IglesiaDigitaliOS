@@ -13,36 +13,241 @@ import Firebase
 class RegisterNewViewController: BaseVC {
     //MARK: - Protocol Properties
     var presenter: RegisterPresenterProtocol?
+    lazy var fieldList: [ECUField] = [
+        nameField,
+        firstLastNameField,
+        secondLastNameField,
+        birthdateField,
+        phoneField,
+        emailField,
+        passwordField,
+        confirmPasswordField
+    ]
     
     //MARK: - IBOutlets
-    @IBOutlet weak var nameField: ECUField!
-    @IBOutlet weak var firstLastNameField: ECUField!
-    @IBOutlet weak var secondLastNameField: ECUField!
-    @IBOutlet weak var phoneField: ECUField!
-    @IBOutlet weak var birthdateField: ECUField!
-    @IBOutlet weak var emailField: ECUField!
-    @IBOutlet weak var passwordfield: ECUField!
-    @IBOutlet weak var confirmPasswordField: ECUField!
     @IBOutlet weak var loader: UIActivityIndicatorView!
     @IBOutlet weak var continueButton: UIButton!
+    @IBOutlet weak var fieldStack: UIStackView!
+    @IBOutlet weak var navView: UIView!
+    
+    //MARK: - Properties
+    var usuario: UserRegister?
+    
+    let nameField: ECUField = {
+        let field = ECUField()
+        
+        field.fieldName = "Nombre (s)"
+        field.textField.maxLength = 25
+        field.shouldChangeCharacters = { !$0.evaluateRegEx(for: .regexName) }
+        field.textField.textContentType = .givenName
+        field.textField.returnKeyType = .next
+        field.textField.keyboardType = .asciiCapable
+        field.textField.autocapitalizationType = .words
+        
+        field.validations = [
+            ECUFieldGenericValidation.required.getValidation()
+        ]
+        
+        return field
+    }()
+    
+    let firstLastNameField: ECUField = {
+        let field = ECUField()
+        
+        field.fieldName = "Apellido paterno"
+        field.textField.maxLength = 25
+        field.shouldChangeCharacters = { !$0.evaluateRegEx(for: .regexName) }
+        field.textField.returnKeyType = .next
+        field.textField.keyboardType = .asciiCapable
+        field.textField.autocapitalizationType = .none
+        field.textField.autocapitalizationType = .words
+        field.validations = [
+            ECUFieldGenericValidation.required.getValidation()
+        ]
+        
+        return field
+    }()
+    
+    let secondLastNameField: ECUField = {
+        let field = ECUField()
+        
+        field.fieldName = "Apellido materno"
+        field.textField.maxLength = 25
+        field.shouldChangeCharacters =  { !$0.evaluateRegEx(for: .regexName) }
+        field.textField.returnKeyType = .next
+        field.textField.keyboardType = .asciiCapable
+        field.textField.autocapitalizationType = .none
+        field.textField.autocapitalizationType = .words
+        
+        return field
+    }()
+    
+    let phoneField: ECUField = {
+        let field = ECUField()
+        
+        field.fieldName = "Número celular"
+        field.textField.maxLength = 11
+        field.textField.returnKeyType = .next
+        field.textField.keyboardType = .numberPad
+        field.textField.autocapitalizationType = .none
+        field.validations = [
+            ECUFieldGenericValidation.required.getValidation(),
+            ECUFieldGenericValidation.isValidPhone.getValidation()
+        ]
+        
+        return field
+    }()
+    
+    let birthdateField: ECUField = {
+        let field = ECUField()
+        
+        field.fieldName = "Fecha de nacimiento"
+        
+        field.validations = [
+            ECUFieldGenericValidation.required.getValidation()
+        ]
+        
+        return field
+    }()
+    
+    let emailField: ECUField = {
+        let field = ECUField()
+        
+        field.textField.maxLength = 64
+        field.textField.returnKeyType = .next
+        field.fieldName = "Correo electrónico"
+        field.textField.textContentType = .emailAddress
+        field.textField.autocapitalizationType = .none
+        field.textField.keyboardType = .emailAddress
+        field.validations = [
+            ECUFieldGenericValidation.required.getValidation(),
+            ECUFieldGenericValidation.isValidEmail.getValidation()
+        ]
+        
+        return field
+    }()
+    
+    let passwordField: ECUField = {
+        let field = ECUField()
+        
+        field.shouldChangeCharacters =  { !$0.contains(" ") }
+        field.textField.maxLength = 16
+        field.textField.keyboardType = .asciiCapable
+        field.textField.autocorrectionType = .no
+        field.textField.returnKeyType = .next
+        field.textField.autocapitalizationType = .none
+        field.fieldName = "Contraseña"
+        field.fieldDescription = "Debe tener mínimo 8 caracteres, 1 mayúscula, 1 número y 1 carácter especial."
+        field.validations = [
+            ECUFieldGenericValidation.required.getValidation(),
+            ECUFieldGenericValidation.isValidPwd.getValidation()
+        ]
+        
+        return field
+        
+    }()
+    
+    lazy var confirmPasswordField: ECUField = {
+        let field = ECUField()
+        
+        field.shouldChangeCharacters =  { !$0.contains(" ") }
+        field.textField.maxLength = 16
+        field.textField.keyboardType = .asciiCapable
+        field.textField.returnKeyType = .next
+        field.textField.autocapitalizationType = .none
+        field.fieldName = "Confirmar tu cosntraseña"
+        field.fieldDescription = "Ambas contraseñas deben coincidir."
+        field.validations = [
+            ECUFieldGenericValidation.required.getValidation(),
+            ECUFieldGenericValidation.isValidPwd.getValidation(),
+            { $0 == self.passwordField.text ? nil : "Ambas contraseñas deben coincidir." }
+        ]
+        
+        return field
+    }()
+    
+    let datePicker = UIDatePicker()
     
     //MARK: - Life Cycle
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        setupUI()
+        presenter?.controlador = self
+        presenter?.viewDidLoad(nombre: nameField.textField, apellido1: firstLastNameField.textField, apellido2: secondLastNameField.textField, celular: phoneField.textField, email: emailField.textField, usuario: usuario)
     }
     
+    
+    //MARK: - Events
+    @objc func donedatePicker(){
+        let formatter = DateFormatter()
+        
+        formatter.dateFormat = "dd/MM/yyyy"
+        
+        let fecha = formatter.string(from: datePicker.date)
+        
+        birthdateField.textField.text = fecha
+        
+        self.view.endEditing(true)
+    }
+    
+    @objc func next(_ sender: UIView) {
+        guard let nextTextField = fieldList[safe: sender.tag + 1] else {
+            view.endEditing(true)
+            return
+        }
+        
+        nextTextField.textField.becomeFirstResponder()
+    }
+    
+    @IBAction func onClickLink(_ sender: UIView) {
+        var url = ""
+        
+        switch sender.tag {
+        case 1, 2, 3:
+            url = "https://arquidiocesismexico.org.mx/aviso-de-privacidad/"
+        default:
+            return
+        }
+        
+        guard let url = URL(string: url) else { return }
+        
+        UIApplication.shared.open(url)
+    }
+    
+    @IBAction func onClickContinue(_ sender: Any) {
+        guard self.validateForm() else {
+            mostrarMSG(dtcAlerta: ["titulo": "Alerta", "cuerpo": "Verifique sus datos"])
+            return
+        }
+        
+        toggleLoading(show: true)
+        presenter?.continuar(nombre: nameField.text,
+                             apellido1: firstLastNameField.text,
+                             apellido2: secondLastNameField.text,
+                             cel: phoneField.text,
+                             email: emailField.text,
+                             contra1: passwordField.text,
+                             contra2: confirmPasswordField.text,
+                             birthDate: birthdateField.text)
+    }
+    
+    @IBAction func onClickBack(_ sender: Any) {
+        presenter?.back(controller: self)
+    }
 }
 
+//MARK: - ECUForm
+extension RegisterNewViewController: ECUForm {}
+
+//MARK: - RegisterViewProtocol
 extension RegisterNewViewController: RegisterViewProtocol {
-    
-    // TODO: implement view output methods
     func resetButton() {
         toggleLoading(show: false)
     }
     
     func mostrarMSG(dtcAlerta: [String : String]) {
-        toggleLoading(show: true)
+        toggleLoading(show: false)
         
         guard let title = dtcAlerta["titulo"],
               let desc =  dtcAlerta["cuerpo"]  else {
@@ -59,6 +264,19 @@ extension RegisterNewViewController: RegisterViewProtocol {
 
 //MARK: - Private functions
 extension RegisterNewViewController {
+    private func setupUI() {
+        toggleLoading(show: false)
+        setupFields()
+        setupDatePicker()
+        
+        
+        navView.layer.cornerRadius = 30
+        navView.layer.shadowRadius = 5
+        navView.layer.shadowOpacity = 0.5
+        navView.layer.shadowColor = UIColor.black.cgColor
+        navView.layer.maskedCorners = [.layerMinXMaxYCorner, .layerMaxXMaxYCorner]
+    }
+    
     private func toggleLoading(show: Bool) {
         continueButton.isEnabled = !show
         show ? loader.startAnimating() : loader.stopAnimating()
@@ -66,33 +284,52 @@ extension RegisterNewViewController {
     }
     
     private func setupFields() {
-        let validName: (_ value: String) -> Bool = { $0.evaluateRegEx(for: ".*[^A-Za-zÁÉÍÓÚáéíóúñÑ ].*") }
+        fieldList.enumerated().forEach { index, field in
+            fieldStack.addArrangedSubview(field)
+            
+            guard field !== birthdateField else {
+                return
+            }
+            
+            field.textField.tag = index
+            field.textField.addTarget(self, action: #selector(self.next(_:)), for: .editingDidEndOnExit)
+        }
         
-        nameField.shouldChangeCharacters = validName
-        nameField.textField.textContentType = .givenName
-        nameField.textField.autocapitalizationType = .words
-        nameField.validations = [
-            ECUFieldGenericValidation.required.getValidation()
-        ]
+        setPasswordField(sender: passwordField.textField)
+        setPasswordField(sender: confirmPasswordField.textField)
         
-        firstLastNameField.shouldChangeCharacters = validName
-        firstLastNameField.textField.textContentType = .middleName
-        firstLastNameField.textField.autocapitalizationType = .words
-        firstLastNameField.validations = [
-            ECUFieldGenericValidation.required.getValidation()
-        ]
+        passwordField.onClickRightAction = {
+            self.setPasswordField(sender: self.passwordField.textField)
+        }
         
-        secondLastNameField.shouldChangeCharacters = validName
-        secondLastNameField.textField.textContentType = .familyName
-        secondLastNameField.textField.autocapitalizationType = .words
+        birthdateField.rightIcon = UIImage(named: "calendariov3", in: .module, compatibleWith: nil)
         
-        phoneField.shouldChangeCharacters = { $0.evaluateRegEx(for: "^(\\d+){10}$") }
-        phoneField.shouldChangeCharacters = { $0.evaluateRegEx(for: "^(\\d+){10}$") }
-        phoneField.textField.keyboardType = .numberPad
-        phoneField.validations = [
-            ECUFieldGenericValidation.required.getValidation()
-        ]
+        confirmPasswordField.onClickRightAction = {
+            self.setPasswordField(sender: self.confirmPasswordField.textField)
+        }
+    }
+    
+    private func setPasswordField(sender: ECUGenericTextField) {
+        sender.isSecureTextEntry = !sender.isSecureTextEntry
+        sender.rightIconTint = !sender.isSecureTextEntry ? UIColor(red: 102/255, green: 102/255, blue: 102/255, alpha: 1) : nil
+        sender.rightIcon = UIImage(named: !sender.isSecureTextEntry ? "hideEye" : "showEye", in: .module, compatibleWith: nil)
+    }
+    
+    private func setupDatePicker(){
+        datePicker.datePickerMode = .date
+        datePicker.maximumDate = Calendar.current.date(byAdding: .year, value: -8, to: Date())
         
+        if #available(iOS 13.4, *) {
+            datePicker.preferredDatePickerStyle = .wheels
+        }
         
+        let toolbar = UIToolbar();
+        toolbar.sizeToFit()
+        
+        let doneButton = UIBarButtonItem(title: "OK", style: .plain, target: self, action: #selector(donedatePicker));
+        toolbar.setItems([ UIBarButtonItem(barButtonSystemItem: UIBarButtonItem.SystemItem.flexibleSpace, target: self, action: nil), doneButton], animated: false)
+        
+        birthdateField.textField.inputAccessoryView = toolbar
+        birthdateField.textField.inputView = datePicker
     }
 }

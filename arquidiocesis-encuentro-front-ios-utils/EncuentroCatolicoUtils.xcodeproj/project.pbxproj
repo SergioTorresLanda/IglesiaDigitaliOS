@@ -29,6 +29,9 @@
 		A94514EB28FCB80700675CB6 /* UIColor+Palette.swift in Sources */ = {isa = PBXBuildFile; fileRef = A94514EA28FCB80700675CB6 /* UIColor+Palette.swift */; };
 		A94514ED28FCB88E00675CB6 /* ECUViewSide.swift in Sources */ = {isa = PBXBuildFile; fileRef = A94514EC28FCB88E00675CB6 /* ECUViewSide.swift */; };
 		A94514F028FCB8F700675CB6 /* ECULabel.swift in Sources */ = {isa = PBXBuildFile; fileRef = A94514EF28FCB8F700675CB6 /* ECULabel.swift */; };
+		A95E90CA28FF323E00A4F202 /* ECUBorder.swift in Sources */ = {isa = PBXBuildFile; fileRef = A95E90C928FF323E00A4F202 /* ECUBorder.swift */; };
+		A95E90CD28FF4AD100A4F202 /* ECUForm.swift in Sources */ = {isa = PBXBuildFile; fileRef = A95E90CC28FF4AD100A4F202 /* ECUForm.swift */; };
+		A95E90CF28FF4FA700A4F202 /* Collection+Utils.swift in Sources */ = {isa = PBXBuildFile; fileRef = A95E90CE28FF4FA700A4F202 /* Collection+Utils.swift */; };
 		A966606D28FCDF14007887CD /* Media.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = A966606C28FCDF14007887CD /* Media.xcassets */; };
 		EEEAA351260CF34500EBEF10 /* paymentCompleted.swift in Sources */ = {isa = PBXBuildFile; fileRef = EEEAA34F260CF34500EBEF10 /* paymentCompleted.swift */; };
 		EEEAA352260CF34500EBEF10 /* paymentCompleted.xib in Resources */ = {isa = PBXBuildFile; fileRef = EEEAA350260CF34500EBEF10 /* paymentCompleted.xib */; };
@@ -73,6 +76,9 @@
 		A94514EA28FCB80700675CB6 /* UIColor+Palette.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIColor+Palette.swift"; sourceTree = "<group>"; };
 		A94514EC28FCB88E00675CB6 /* ECUViewSide.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ECUViewSide.swift; sourceTree = "<group>"; };
 		A94514EF28FCB8F700675CB6 /* ECULabel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ECULabel.swift; sourceTree = "<group>"; };
+		A95E90C928FF323E00A4F202 /* ECUBorder.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ECUBorder.swift; sourceTree = "<group>"; };
+		A95E90CC28FF4AD100A4F202 /* ECUForm.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ECUForm.swift; sourceTree = "<group>"; };
+		A95E90CE28FF4FA700A4F202 /* Collection+Utils.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Collection+Utils.swift"; sourceTree = "<group>"; };
 		A966606C28FCDF14007887CD /* Media.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Media.xcassets; sourceTree = "<group>"; };
 		B1638C081860BF2FBEB2A5E9 /* Pods_EncuentroCatolicoUtils.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_EncuentroCatolicoUtils.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		CE99028C9E1B25B47D5B6147 /* Pods-EncuentroCatolicoUtils.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-EncuentroCatolicoUtils.release.xcconfig"; path = "Target Support Files/Pods-EncuentroCatolicoUtils/Pods-EncuentroCatolicoUtils.release.xcconfig"; sourceTree = "<group>"; };
@@ -133,8 +139,7 @@
 		984F465D25F94E1C006D709B /* EncuentroCatolicoUtils */ = {
 			isa = PBXGroup;
 			children = (
-				A94514EC28FCB88E00675CB6 /* ECUViewSide.swift */,
-				A94514E828FCB72300675CB6 /* ECUSizeType.swift */,
+				A95E90CB28FF32C200A4F202 /* Models */,
 				A94514D628FCB22900675CB6 /* Resources */,
 				A94514D128FCAF1000675CB6 /* Components */,
 				A94514CA28FC7CE600675CB6 /* Extensions */,
@@ -176,6 +181,7 @@
 				A94514E228FCB56100675CB6 /* String+Utils.swift */,
 				A94514E628FCB61800675CB6 /* View+Utils.swift */,
 				A94514EA28FCB80700675CB6 /* UIColor+Palette.swift */,
+				A95E90CE28FF4FA700A4F202 /* Collection+Utils.swift */,
 			);
 			path = Extensions;
 			sourceTree = "<group>";
@@ -186,6 +192,7 @@
 				A94514E428FCB5EC00675CB6 /* ECUView.swift */,
 				A94514EF28FCB8F700675CB6 /* ECULabel.swift */,
 				A94514DB28FCB44900675CB6 /* TextField */,
+				A95E90CC28FF4AD100A4F202 /* ECUForm.swift */,
 			);
 			path = Components;
 			sourceTree = "<group>";
@@ -208,6 +215,16 @@
 				A94514D228FCAF2300675CB6 /* ECUGenericTextField.swift */,
 			);
 			path = TextField;
+			sourceTree = "<group>";
+		};
+		A95E90CB28FF32C200A4F202 /* Models */ = {
+			isa = PBXGroup;
+			children = (
+				A94514E828FCB72300675CB6 /* ECUSizeType.swift */,
+				A94514EC28FCB88E00675CB6 /* ECUViewSide.swift */,
+				A95E90C928FF323E00A4F202 /* ECUBorder.swift */,
+			);
+			path = Models;
 			sourceTree = "<group>";
 		};
 		B95A5C78160F925A5C22A505 /* Frameworks */ = {
@@ -381,11 +398,13 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				A95E90CD28FF4AD100A4F202 /* ECUForm.swift in Sources */,
 				A94514D328FCAF2300675CB6 /* ECUGenericTextField.swift in Sources */,
 				A94514ED28FCB88E00675CB6 /* ECUViewSide.swift in Sources */,
 				A94514EB28FCB80700675CB6 /* UIColor+Palette.swift in Sources */,
 				A94514DA28FCB2A100675CB6 /* Bundle+Local.swift in Sources */,
 				A94514E528FCB5EC00675CB6 /* ECUView.swift in Sources */,
+				A95E90CA28FF323E00A4F202 /* ECUBorder.swift in Sources */,
 				3689987B2612277800532C40 /* APIManager.swift in Sources */,
 				A94514DE28FCB46000675CB6 /* ECUFieldGenericValidation.swift in Sources */,
 				A94514CC28FC7CF300675CB6 /* Date+Utils.swift in Sources */,
@@ -394,6 +413,7 @@
 				A94514E328FCB56100675CB6 /* String+Utils.swift in Sources */,
 				A94514E728FCB61800675CB6 /* View+Utils.swift in Sources */,
 				EEEAA351260CF34500EBEF10 /* paymentCompleted.swift in Sources */,
+				A95E90CF28FF4FA700A4F202 /* Collection+Utils.swift in Sources */,
 				A94514DF28FCB46000675CB6 /* ECUField.swift in Sources */,
 				984F468025F94FE1006D709B /* alertViewController.swift in Sources */,
 			);

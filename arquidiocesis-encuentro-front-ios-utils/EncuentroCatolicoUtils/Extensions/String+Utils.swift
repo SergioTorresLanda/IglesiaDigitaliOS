@@ -8,6 +8,9 @@
 import Foundation
 
 public extension String {
+    //MARK: - Static Properties
+    static let regexName = ".*[^A-Za-zÁÉÍÓÚáéíóúñÑ ].*"
+    static let regexPwd = "^(?=.*\\d)(?=.*[a-z])(?=.*[A-Z])(?=.*[\\.=+^\\$*.&{}()?\\[\\]!\\-\\?\\@#%&/,><':;|_~`]).{8,}$"
     //MARK: - Methods
     func getLocalizedString(bundle: Bundle) -> String {
         NSLocalizedString(self, tableName: nil, bundle: bundle, value: self, comment: "")

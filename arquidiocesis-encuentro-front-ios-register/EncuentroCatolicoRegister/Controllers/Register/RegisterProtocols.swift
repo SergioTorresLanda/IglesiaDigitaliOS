@@ -13,6 +13,7 @@ protocol RegisterWireFrameProtocol: class {
     static func createModule(_ user: UserRegister?) -> UIViewController
     func confirmarPhone(controlador: UIViewController, user: UserRegister)
     func cancelar(controller: UIViewController)
+    func back(controller: UIViewController)
 }
 
 protocol RegisterPresenterProtocol: class {
@@ -27,6 +28,8 @@ protocol RegisterPresenterProtocol: class {
     func continuar(nombre: String, apellido1: String, apellido2: String, cel: String, email: String, contra1: String, contra2: String, birthDate: String)
     func cancelar(controller: UIViewController)
     func politicas()
+    
+    func back(controller: UIViewController)
     
 }
 

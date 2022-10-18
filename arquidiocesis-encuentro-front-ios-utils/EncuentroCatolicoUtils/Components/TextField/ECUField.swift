@@ -33,41 +33,22 @@ open class ECUField: ECUView {
     }
     
     @IBInspectable
-    public var borderWidth: CGFloat = 1 {
-        didSet { self.textField.layer.borderWidth = borderWidth }
-    }
-    
-    @IBInspectable
-    public var textFieldCornerRadius: CGFloat = 0.2 {
-        didSet { layoutIfNeeded() }
-    }
-    
-    @IBInspectable
-    public var leftIcon: UIImage? {
+    public var rightIcon: UIImage? {
         didSet {
-            guard superview != nil else {
-                debugPrint("Before use this property first add tu superview")
-                return
-            }
-            
-            self.textField.leftIcon = leftIcon
+            self.textField.rightIcon = rightIcon
         }
     }
     
     @IBInspectable
-    public var rightIcon: UIImage? {
+    public var rightIconTint: UIColor? {
         didSet {
-            guard superview != nil else {
-                debugPrint("Before use this property first add tu superview")
-                return
-            }
-            
-            self.textField.rightIcon = rightIcon
+            self.textField.rightIconTint = rightIconTint
         }
     }
     
     
     //MARK: - Properties
+    public var withReturn: Bool = false
     public var shouldChangeCharacters: ((_ value: String) -> Bool)?
     public var validations: [ECUValidation] = []
     public var onClickLeftAction: (ECGenericAction)? {
@@ -77,15 +58,43 @@ open class ECUField: ECUView {
         didSet { textField.rightAction = onClickRightAction }
     }
     
-    var color: UIColor = .primary {
-        didSet {
-            textField.layer.borderColor = color.cgColor
-            textField.tintColor = color
-        }
+    public var isValid: Bool {
+        validate()
     }
     public let textField: ECUGenericTextField = ECUGenericTextField()
     
-    private var isValid: Bool = false
+    public var text: String {
+        textField.text?.trimmingCharacters(in: .whitespaces) ?? ""
+    }
+    
+    var errorDesc: String? {
+        didSet {
+            errorInfoLabel.isHidden = (errorDesc?.trimmingCharacters(in: [" "]) ?? "") == ""
+            errorInfoLabel.text = errorDesc
+            textField.leftIconTint = errorDesc != nil ? .danger : nil
+            textField.leftIcon = UIImage(named: errorDesc != nil ? "close" : "success", in: .local, compatibleWith: nil)
+        }
+    }
+    var color: UIColor = .primary {
+        didSet {
+            textField.tintColor = color
+        }
+    }
+    
+    private var errorMessage: String? {
+        var lastMessage: String?
+        
+        for validation in validations {
+            lastMessage = validation(textField.text?.trimmingCharacters(in: .whitespaces))
+            
+            if lastMessage != nil {
+                break
+            }
+        }
+        
+        return lastMessage
+    }
+    
     
     private let titleLabel: UILabel = {
         let label = ECULabel()
@@ -97,10 +106,21 @@ open class ECUField: ECUView {
         return label
     }()
     
+    private let errorInfoLabel: UILabel = {
+        let label = ECULabel()
+        
+        label.font = UIFont.systemFont(ofSize: 12)
+        label.textColor = .danger
+        label.numberOfLines = 0
+        
+        return label
+    }()
+    
+    
     private let descriptionLabel: UILabel = {
         let label = ECULabel()
         
-        label.font = UIFont.boldSystemFont(ofSize: 16)
+        label.font = UIFont.systemFont(ofSize: 12, weight: .light)
         label.textColor = .disabled
         label.numberOfLines = 0
         
@@ -113,28 +133,28 @@ open class ECUField: ECUView {
         stack.axis = .vertical
         stack.distribution = .fill
         stack.alignment = .fill
-        stack.spacing = 2
+        stack.spacing = 0
+        
+        return stack
+    }()
+    
+    private let vFieldStack: UIStackView = {
+        let stack = UIStackView()
+        
+        stack.axis = .vertical
+        stack.distribution = .fill
+        stack.alignment = .fill
+        stack.spacing = 8
         
         return stack
     }()
     
     //MARK: - Methods
     @discardableResult
-    func validate() -> String? {
-        var lastMessage: String?
+    public func validate() -> Bool {
+        errorDesc = self.errorMessage
         
-        for validation in validations {
-            lastMessage = validation(textField.text)
-            
-            if lastMessage != nil {
-                break
-            }
-        }
-        
-        textField.layer.borderColor = lastMessage != nil ? UIColor.dangerDark.cgColor : color.cgColor
-        isValid = lastMessage == nil
-        
-        return lastMessage
+        return errorDesc == nil
     }
     
     //MARK: - Life Cycle
@@ -150,12 +170,6 @@ open class ECUField: ECUView {
         commonInit()
     }
     
-    override open func layoutSubviews() {
-        super.layoutSubviews()
-        
-        self.textField.layer.cornerRadius = self.textField.layer.frame.height * textFieldCornerRadius
-    }
-    
     //MARK: - Events
     @objc func onChangeTextField(_ sender: UITextField) {
         validate()
@@ -169,7 +183,12 @@ extension ECUField: UITextFieldDelegate {
     }
     
     public func textField(_ textField: UITextField, shouldChangeCharactersIn range: NSRange, replacementString string: String) -> Bool {
-        self.shouldChangeCharacters?(textField.text ?? "") ?? true
+        guard string == "\n",
+              withReturn else {
+            return true
+        }
+        
+        return self.shouldChangeCharacters?(string) ?? true
     }
 }
 
@@ -184,14 +203,15 @@ extension ECUField {
     private func setupUI() {
         self.backgroundColor = .clear
         
+        textField.borderStyle = .none
         textField.delegate = self
         textField.addTarget(self, action: #selector(onChangeTextField(_:)), for: .editingChanged)
-        textField.addBorder(toSide: .bottom, withColor: UIColor.disabled.cgColor, andThickness: 5.0)
+        textField.border = ECUBorder(side: .bottom, color: UIColor.disabled.cgColor, thickness: 1.0)
     }
     
     private func setupConstraints() {
         self.addSubview(vTitleStack)
-        self.addSubview(textField)
+        self.addSubview(vFieldStack)
         
         vTitleStack.translatesAutoresizingMaskIntoConstraints = false
         NSLayoutConstraint.activate([
@@ -203,13 +223,16 @@ extension ECUField {
         vTitleStack.addArrangedSubview(titleLabel)
         vTitleStack.addArrangedSubview(descriptionLabel)
         
-        textField.translatesAutoresizingMaskIntoConstraints = false
+        vFieldStack.translatesAutoresizingMaskIntoConstraints = false
         NSLayoutConstraint.activate([
-            textField.topAnchor.constraint(equalTo: titleLabel.bottomAnchor, constant: 8),
-            textField.leadingAnchor.constraint(equalTo: self.leadingAnchor),
-            textField.trailingAnchor.constraint(equalTo: self.trailingAnchor),
-            textField.bottomAnchor.constraint(equalTo: self.bottomAnchor)
+            vFieldStack.topAnchor.constraint(equalTo: vTitleStack.bottomAnchor, constant: 8),
+            vFieldStack.leadingAnchor.constraint(equalTo: self.leadingAnchor),
+            vFieldStack.trailingAnchor.constraint(equalTo: self.trailingAnchor),
+            vFieldStack.bottomAnchor.constraint(equalTo: self.bottomAnchor)
         ])
+        
+        vFieldStack.addArrangedSubview(textField)
+        vFieldStack.addArrangedSubview(errorInfoLabel)
     }
     
     private func setupPlaceholder() {

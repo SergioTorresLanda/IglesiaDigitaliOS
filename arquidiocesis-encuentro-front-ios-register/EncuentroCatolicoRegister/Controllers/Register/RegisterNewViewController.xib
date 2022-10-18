@@ -12,16 +12,10 @@
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="RegisterNewViewController" customModule="EncuentroCatolicoRegister" customModuleProvider="target">
             <connections>
-                <outlet property="birthdateField" destination="E4R-Wu-tx8" id="XxO-9i-1TQ"/>
-                <outlet property="confirmPasswordField" destination="fMp-CL-fGc" id="oEB-La-CmE"/>
                 <outlet property="continueButton" destination="rmg-cr-rBs" id="GTd-Ea-ppJ"/>
-                <outlet property="emailField" destination="stp-O4-4wG" id="iDu-y9-OK7"/>
-                <outlet property="firstLastNameField" destination="ya4-D2-R4o" id="sAt-40-Ysd"/>
+                <outlet property="fieldStack" destination="cUA-v8-688" id="Wty-J8-MqV"/>
                 <outlet property="loader" destination="1wE-qt-UY1" id="w5Q-OZ-6i2"/>
-                <outlet property="nameField" destination="CRt-Qc-Hmz" id="qb8-M8-pWE"/>
-                <outlet property="passwordfield" destination="stp-O4-4wG" id="SoV-E1-jZn"/>
-                <outlet property="phoneField" destination="WdP-I0-czx" id="Y7B-fg-mg3"/>
-                <outlet property="secondLastNameField" destination="WdP-I0-czx" id="wWu-Zq-a3B"/>
+                <outlet property="navView" destination="eL5-JL-Tf1" id="60U-bZ-gQJ"/>
                 <outlet property="view" destination="iN0-l3-epB" id="06P-GJ-zBx"/>
             </connections>
         </placeholder>
@@ -30,10 +24,6 @@
             <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
             <subviews>
-                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="oNL-fC-eGD">
-                    <rect key="frame" x="0.0" y="0.0" width="414" height="44"/>
-                    <color key="backgroundColor" name="eMainBlue"/>
-                </view>
                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="eL5-JL-Tf1">
                     <rect key="frame" x="0.0" y="44" width="414" height="80"/>
                     <subviews>
@@ -52,6 +42,9 @@
                             </constraints>
                             <inset key="contentEdgeInsets" minX="5" minY="5" maxX="5" maxY="5"/>
                             <state key="normal" image="backRegister"/>
+                            <connections>
+                                <action selector="onClickBack:" destination="-1" eventType="touchUpInside" id="c33-Lb-w4v"/>
+                            </connections>
                         </button>
                     </subviews>
                     <color key="backgroundColor" name="eMainBlue"/>
@@ -74,14 +67,18 @@
                         </userDefinedRuntimeAttribute>
                     </userDefinedRuntimeAttributes>
                 </view>
+                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="oNL-fC-eGD">
+                    <rect key="frame" x="0.0" y="0.0" width="414" height="54"/>
+                    <color key="backgroundColor" name="eMainBlue"/>
+                </view>
                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="x70-jK-kna">
                     <rect key="frame" x="0.0" y="124" width="414" height="738"/>
                     <subviews>
-                        <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" ambiguous="YES" translatesAutoresizingMaskIntoConstraints="NO" id="O7g-Tc-DVI">
+                        <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="O7g-Tc-DVI">
                             <rect key="frame" x="0.0" y="0.0" width="414" height="738"/>
                             <subviews>
-                                <view contentMode="scaleToFill" ambiguous="YES" translatesAutoresizingMaskIntoConstraints="NO" id="Ru0-ns-PXd">
-                                    <rect key="frame" x="0.0" y="0.0" width="414" height="1292.5"/>
+                                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Ru0-ns-PXd">
+                                    <rect key="frame" x="0.0" y="0.0" width="414" height="738"/>
                                     <subviews>
                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Crear cuenta" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="oHa-1I-fKD">
                                             <rect key="frame" x="16" y="32" width="382" height="29"/>
@@ -95,100 +92,11 @@
                                             <nil key="textColor"/>
                                             <nil key="highlightedColor"/>
                                         </label>
-                                        <stackView opaque="NO" contentMode="scaleToFill" ambiguous="YES" axis="vertical" spacing="8" translatesAutoresizingMaskIntoConstraints="NO" id="cUA-v8-688">
-                                            <rect key="frame" x="16" y="129.5" width="382" height="1324"/>
-                                            <subviews>
-                                                <view contentMode="scaleToFill" ambiguous="YES" translatesAutoresizingMaskIntoConstraints="NO" id="CRt-Qc-Hmz" customClass="ECUField" customModule="EncuentroCatolicoUtils">
-                                                    <rect key="frame" x="0.0" y="0.0" width="382" height="128"/>
-                                                    <color key="backgroundColor" systemColor="systemBackgroundColor"/>
-                                                    <constraints>
-                                                        <constraint firstAttribute="height" priority="250" constant="128" id="5QI-U1-0OJ"/>
-                                                    </constraints>
-                                                    <userDefinedRuntimeAttributes>
-                                                        <userDefinedRuntimeAttribute type="string" keyPath="fieldName" value="Nombre (s)"/>
-                                                    </userDefinedRuntimeAttributes>
-                                                </view>
-                                                <view contentMode="scaleToFill" ambiguous="YES" translatesAutoresizingMaskIntoConstraints="NO" id="ya4-D2-R4o" customClass="ECUField" customModule="EncuentroCatolicoUtils">
-                                                    <rect key="frame" x="0.0" y="136" width="382" height="128"/>
-                                                    <color key="backgroundColor" systemColor="systemBackgroundColor"/>
-                                                    <constraints>
-                                                        <constraint firstAttribute="height" priority="250" constant="128" id="HQE-XY-6SL"/>
-                                                    </constraints>
-                                                    <userDefinedRuntimeAttributes>
-                                                        <userDefinedRuntimeAttribute type="string" keyPath="fieldName" value="Apellido paterno"/>
-                                                    </userDefinedRuntimeAttributes>
-                                                </view>
-                                                <view contentMode="scaleToFill" ambiguous="YES" translatesAutoresizingMaskIntoConstraints="NO" id="eTs-z1-QNt" customClass="ECUField" customModule="EncuentroCatolicoUtils">
-                                                    <rect key="frame" x="0.0" y="272" width="382" height="128"/>
-                                                    <color key="backgroundColor" systemColor="systemBackgroundColor"/>
-                                                    <constraints>
-                                                        <constraint firstAttribute="height" priority="250" constant="128" id="K2Z-Kx-xA0"/>
-                                                    </constraints>
-                                                    <userDefinedRuntimeAttributes>
-                                                        <userDefinedRuntimeAttribute type="string" keyPath="fieldName" value="Apellido materno"/>
-                                                    </userDefinedRuntimeAttributes>
-                                                </view>
-                                                <view contentMode="scaleToFill" ambiguous="YES" translatesAutoresizingMaskIntoConstraints="NO" id="WdP-I0-czx" customClass="ECUField" customModule="EncuentroCatolicoUtils">
-                                                    <rect key="frame" x="0.0" y="408" width="382" height="128"/>
-                                                    <color key="backgroundColor" systemColor="systemBackgroundColor"/>
-                                                    <constraints>
-                                                        <constraint firstAttribute="height" priority="250" constant="128" id="6NQ-uC-QtF"/>
-                                                    </constraints>
-                                                    <userDefinedRuntimeAttributes>
-                                                        <userDefinedRuntimeAttribute type="string" keyPath="fieldName" value="Número celular"/>
-                                                        <userDefinedRuntimeAttribute type="image" keyPath="rightIcon" value="calendariov3"/>
-                                                    </userDefinedRuntimeAttributes>
-                                                </view>
-                                                <view contentMode="scaleToFill" ambiguous="YES" translatesAutoresizingMaskIntoConstraints="NO" id="E4R-Wu-tx8" customClass="ECUField" customModule="EncuentroCatolicoUtils">
-                                                    <rect key="frame" x="0.0" y="544" width="382" height="128"/>
-                                                    <color key="backgroundColor" systemColor="systemBackgroundColor"/>
-                                                    <constraints>
-                                                        <constraint firstAttribute="height" priority="250" constant="128" id="pce-pc-dXK"/>
-                                                    </constraints>
-                                                    <userDefinedRuntimeAttributes>
-                                                        <userDefinedRuntimeAttribute type="string" keyPath="fieldName" value="Fecha de nacimiento"/>
-                                                        <userDefinedRuntimeAttribute type="image" keyPath="rightIcon" value="calendariov3"/>
-                                                    </userDefinedRuntimeAttributes>
-                                                </view>
-                                                <view contentMode="scaleToFill" ambiguous="YES" translatesAutoresizingMaskIntoConstraints="NO" id="Pu6-6c-yob" customClass="ECUField" customModule="EncuentroCatolicoUtils">
-                                                    <rect key="frame" x="0.0" y="680" width="382" height="128"/>
-                                                    <color key="backgroundColor" systemColor="systemBackgroundColor"/>
-                                                    <constraints>
-                                                        <constraint firstAttribute="height" priority="250" constant="128" id="OXB-0f-S4B"/>
-                                                    </constraints>
-                                                    <userDefinedRuntimeAttributes>
-                                                        <userDefinedRuntimeAttribute type="string" keyPath="fieldName" value="Correo electrónico"/>
-                                                        <userDefinedRuntimeAttribute type="image" keyPath="rightIcon" value="calendariov3"/>
-                                                    </userDefinedRuntimeAttributes>
-                                                </view>
-                                                <view contentMode="scaleToFill" ambiguous="YES" translatesAutoresizingMaskIntoConstraints="NO" id="stp-O4-4wG" customClass="ECUField" customModule="EncuentroCatolicoUtils">
-                                                    <rect key="frame" x="0.0" y="816" width="382" height="250"/>
-                                                    <color key="backgroundColor" systemColor="systemBackgroundColor"/>
-                                                    <constraints>
-                                                        <constraint firstAttribute="height" priority="250" constant="128" id="e4N-aI-1cZ"/>
-                                                    </constraints>
-                                                    <userDefinedRuntimeAttributes>
-                                                        <userDefinedRuntimeAttribute type="string" keyPath="fieldName" value="Contraseña"/>
-                                                        <userDefinedRuntimeAttribute type="image" keyPath="rightIcon" value="calendariov3"/>
-                                                        <userDefinedRuntimeAttribute type="string" keyPath="fieldDescription" value="Debe tener mínimo 8 caracteres, 1 mayúscula, 1 número y 1 carácter especial."/>
-                                                    </userDefinedRuntimeAttributes>
-                                                </view>
-                                                <view contentMode="scaleToFill" ambiguous="YES" translatesAutoresizingMaskIntoConstraints="NO" id="fMp-CL-fGc" customClass="ECUField" customModule="EncuentroCatolicoUtils">
-                                                    <rect key="frame" x="0.0" y="1074" width="382" height="250"/>
-                                                    <color key="backgroundColor" systemColor="systemBackgroundColor"/>
-                                                    <constraints>
-                                                        <constraint firstAttribute="height" priority="250" constant="128" id="XbW-ly-JW9"/>
-                                                    </constraints>
-                                                    <userDefinedRuntimeAttributes>
-                                                        <userDefinedRuntimeAttribute type="string" keyPath="fieldName" value="Confirmar tu contraseña"/>
-                                                        <userDefinedRuntimeAttribute type="image" keyPath="rightIcon" value="calendariov3"/>
-                                                        <userDefinedRuntimeAttribute type="string" keyPath="fieldDescription" value="Ambas contraseñas deben coincidir."/>
-                                                    </userDefinedRuntimeAttributes>
-                                                </view>
-                                            </subviews>
+                                        <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="8" translatesAutoresizingMaskIntoConstraints="NO" id="cUA-v8-688">
+                                            <rect key="frame" x="16" y="129.5" width="382" height="389.5"/>
                                         </stackView>
-                                        <button opaque="NO" contentMode="scaleToFill" ambiguous="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="rmg-cr-rBs">
-                                            <rect key="frame" x="17" y="1120.5" width="380" height="50"/>
+                                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="rmg-cr-rBs">
+                                            <rect key="frame" x="17" y="566" width="380" height="50"/>
                                             <color key="backgroundColor" red="0.1070672646" green="0.16110616920000001" blue="0.40394377710000001" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                                             <constraints>
                                                 <constraint firstAttribute="height" constant="50" id="uR9-W7-V0X"/>
@@ -202,12 +110,15 @@
                                                     <integer key="value" value="10"/>
                                                 </userDefinedRuntimeAttribute>
                                             </userDefinedRuntimeAttributes>
+                                            <connections>
+                                                <action selector="onClickContinue:" destination="-1" eventType="touchUpInside" id="J5e-Q6-DKV"/>
+                                            </connections>
                                         </button>
-                                        <activityIndicatorView opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" ambiguous="YES" style="large" translatesAutoresizingMaskIntoConstraints="NO" id="1wE-qt-UY1">
-                                            <rect key="frame" x="188.5" y="636" width="37" height="20"/>
+                                        <activityIndicatorView opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" style="whiteLarge" translatesAutoresizingMaskIntoConstraints="NO" id="1wE-qt-UY1">
+                                            <rect key="frame" x="188.5" y="572.5" width="37" height="37"/>
                                         </activityIndicatorView>
-                                        <stackView opaque="NO" contentMode="scaleToFill" ambiguous="YES" axis="vertical" spacing="-4" translatesAutoresizingMaskIntoConstraints="NO" id="wTz-KP-MkZ">
-                                            <rect key="frame" x="20" y="1202.5" width="374" height="70"/>
+                                        <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="-4" translatesAutoresizingMaskIntoConstraints="NO" id="wTz-KP-MkZ">
+                                            <rect key="frame" x="20" y="648" width="374" height="70"/>
                                             <subviews>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Al usar nuestra aplicación aceptas nuestros" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="GPq-VT-Txi">
                                                     <rect key="frame" x="0.0" y="0.0" width="374" height="26"/>
@@ -221,25 +132,31 @@
                                                 <stackView opaque="NO" contentMode="scaleToFill" distribution="fillProportionally" translatesAutoresizingMaskIntoConstraints="NO" id="Dfa-S2-bsv">
                                                     <rect key="frame" x="0.0" y="22" width="374" height="26"/>
                                                     <subviews>
-                                                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="right" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="c1I-Qo-m7N">
-                                                            <rect key="frame" x="0.0" y="0.0" width="165" height="26"/>
+                                                        <button opaque="NO" tag="1" contentMode="scaleToFill" contentHorizontalAlignment="right" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="c1I-Qo-m7N">
+                                                            <rect key="frame" x="0.0" y="0.0" width="167" height="26"/>
                                                             <fontDescription key="fontDescription" type="system" pointSize="11"/>
-                                                            <state key="normal" title="Términos y condiciones">
+                                                            <state key="normal" title="Términos y condiciones ">
                                                                 <color key="titleColor" name="AccentColor"/>
                                                             </state>
+                                                            <connections>
+                                                                <action selector="onClickLink:" destination="-1" eventType="touchUpInside" id="cjM-a0-mM1"/>
+                                                            </connections>
                                                         </button>
                                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="y nuestra" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="fN7-pS-YGc">
-                                                            <rect key="frame" x="165" y="0.0" width="65.5" height="26"/>
+                                                            <rect key="frame" x="167" y="0.0" width="65" height="26"/>
                                                             <fontDescription key="fontDescription" type="system" pointSize="11"/>
                                                             <nil key="textColor"/>
                                                             <nil key="highlightedColor"/>
                                                         </label>
-                                                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="gzD-K6-Zzg">
-                                                            <rect key="frame" x="230.5" y="0.0" width="143.5" height="26"/>
+                                                        <button opaque="NO" tag="2" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="gzD-K6-Zzg">
+                                                            <rect key="frame" x="232" y="0.0" width="142" height="26"/>
                                                             <fontDescription key="fontDescription" name="ArialMT" family="Arial" pointSize="11"/>
                                                             <state key="normal" title="Política de privacidad.">
                                                                 <color key="titleColor" name="AccentColor"/>
                                                             </state>
+                                                            <connections>
+                                                                <action selector="onClickLink:" destination="-1" eventType="touchUpInside" id="4O3-uj-GcI"/>
+                                                            </connections>
                                                         </button>
                                                     </subviews>
                                                 </stackView>
@@ -252,12 +169,15 @@
                                                             <nil key="textColor"/>
                                                             <nil key="highlightedColor"/>
                                                         </label>
-                                                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="aby-fC-7XV">
+                                                        <button opaque="NO" tag="2" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="aby-fC-7XV">
                                                             <rect key="frame" x="189" y="0.0" width="185" height="26"/>
                                                             <fontDescription key="fontDescription" type="system" pointSize="11"/>
                                                             <state key="normal" title="Código de ética">
                                                                 <color key="titleColor" name="AccentColor"/>
                                                             </state>
+                                                            <connections>
+                                                                <action selector="onClickLink:" destination="-1" eventType="touchUpInside" id="8ad-MB-PPB"/>
+                                                            </connections>
                                                         </button>
                                                     </subviews>
                                                 </stackView>
@@ -310,23 +230,22 @@
             <color key="backgroundColor" systemColor="systemBackgroundColor"/>
             <constraints>
                 <constraint firstItem="oNL-fC-eGD" firstAttribute="leading" secondItem="vUN-kp-3ea" secondAttribute="leading" id="1Y8-s2-ZKS"/>
-                <constraint firstItem="eL5-JL-Tf1" firstAttribute="top" secondItem="oNL-fC-eGD" secondAttribute="bottom" id="4mG-R1-nmh"/>
+                <constraint firstItem="eL5-JL-Tf1" firstAttribute="top" secondItem="vUN-kp-3ea" secondAttribute="top" id="4mG-R1-nmh"/>
                 <constraint firstItem="vUN-kp-3ea" firstAttribute="bottom" secondItem="x70-jK-kna" secondAttribute="bottom" id="9EO-sV-ice"/>
                 <constraint firstItem="x70-jK-kna" firstAttribute="top" secondItem="eL5-JL-Tf1" secondAttribute="bottom" id="Hv7-TS-eBe"/>
                 <constraint firstItem="vUN-kp-3ea" firstAttribute="trailing" secondItem="x70-jK-kna" secondAttribute="trailing" id="IXO-JV-Gr1"/>
                 <constraint firstAttribute="trailing" secondItem="oNL-fC-eGD" secondAttribute="trailing" id="NHy-bU-qc2"/>
                 <constraint firstItem="oNL-fC-eGD" firstAttribute="top" secondItem="iN0-l3-epB" secondAttribute="top" id="d29-rV-F9J"/>
-                <constraint firstItem="vUN-kp-3ea" firstAttribute="top" secondItem="oNL-fC-eGD" secondAttribute="bottom" id="kf3-B0-rfa"/>
+                <constraint firstItem="vUN-kp-3ea" firstAttribute="top" secondItem="oNL-fC-eGD" secondAttribute="bottom" constant="-10" id="kf3-B0-rfa"/>
                 <constraint firstItem="x70-jK-kna" firstAttribute="leading" secondItem="vUN-kp-3ea" secondAttribute="leading" id="nOZ-wR-5eB"/>
                 <constraint firstAttribute="trailing" secondItem="eL5-JL-Tf1" secondAttribute="trailing" id="o7a-dS-ody"/>
                 <constraint firstItem="eL5-JL-Tf1" firstAttribute="leading" secondItem="vUN-kp-3ea" secondAttribute="leading" id="wUV-2g-LTa"/>
             </constraints>
-            <point key="canvasLocation" x="139" y="64"/>
+            <point key="canvasLocation" x="137.68115942028987" y="63.616071428571423"/>
         </view>
     </objects>
     <resources>
         <image name="backRegister" width="125" height="202"/>
-        <image name="calendariov3" width="30" height="30"/>
         <image name="encuentroNew" width="210" height="40"/>
         <namedColor name="AccentColor">
             <color red="0.0" green="0.46000000000000002" blue="0.89000000000000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>

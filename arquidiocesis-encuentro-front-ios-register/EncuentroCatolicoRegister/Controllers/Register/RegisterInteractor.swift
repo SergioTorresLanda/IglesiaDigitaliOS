@@ -22,35 +22,10 @@ class RegisterInteractor: RegisterInteractorInputProtocol {
         let cel = cel.trimmingCharacters(in: .whitespaces)
         let email = email.trimmingCharacters(in: .whitespaces)
         let contra1 = contra1.trimmingCharacters(in: .whitespaces)
-        let contra2 = contra2.trimmingCharacters(in: .whitespaces)
+        let defaults = UserDefaults.standard
         
-        if nombre.trimmingCharacters(in: .whitespaces) == "" || apellido1.trimmingCharacters(in: .whitespaces) == "" || apellido1.trimmingCharacters(in: .whitespaces) == "" || cel == "" || email == "" || contra1 == "" || contra2 == "" {
-            presenter?.respuestaValidacion(error: ErroresRegister.DatosVacios, user: nil)
-        } else {
-            if contra1 != contra2 {
-                presenter?.respuestaValidacion(error: ErroresRegister.ContraIncorrecta, user: nil)
-                return
-            }
-            
-            if !isValidPassword(pass: contra1) {
-                presenter?.respuestaValidacion(error: ErroresRegister.ContraIncorrecta2, user: nil)
-                return
-            }
-            
-            if cel.count < 10 {
-                presenter?.respuestaValidacion(error: ErroresRegister.CelDigitos, user: nil)
-                return
-            }
-            
-            if !isValidEmailAddress(emailAddressString: email) {
-                presenter?.respuestaValidacion(error: ErroresRegister.EmailIncorrecto, user: nil)
-                return
-            }
-            
-            let defaults = UserDefaults.standard
-            defaults.setValue(contra1, forKey: "password")
-            remoteDatamanager?.saveData(register: UserRegister(username: email, email: email, phone_number: cel, password: contra1, name: nombre, last_name: apellido1, middle_name: apellido2, role: "Fiel", type_person: "1", birth_date: birthDate))
-        }
+        defaults.setValue(contra1, forKey: "password")
+        remoteDatamanager?.saveData(register: UserRegister(username: email, email: email, phone_number: cel, password: contra1, name: nombre, last_name: apellido1, middle_name: apellido2, role: "Fiel", type_person: "1", birth_date: birthDate))
     }
     
     func isValidEmailAddress(emailAddressString: String) -> Bool {
