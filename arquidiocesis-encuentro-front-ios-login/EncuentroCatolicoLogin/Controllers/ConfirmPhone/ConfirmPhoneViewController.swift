@@ -127,11 +127,6 @@ class ConfirmPhoneViewController: UIViewController {
         let seg = countDown % 60
         let min = countDown / 60
         
-//        if countDown == (valueTime - 5) {
-//
-//            self.headerView.isHiddenSnack(true)
-//        }
-        
         if countDown > 0 {
             
             self.lblTime.text = "\(min)" + ":" + (seg > 9 ? "\(seg)" : "0\(seg)")
