@@ -2,6 +2,7 @@ import Foundation
 import UIKit
 import EncuentroCatolicoHome
 import EncuentroCatolicoProfile
+import AuthenticationServices
 
 class LoginView: UIViewController {
     
@@ -20,10 +21,13 @@ class LoginView: UIViewController {
     @IBOutlet weak var btnPolicity: UIButton!
     @IBOutlet weak var btnForgot: UIButton!
     @IBOutlet weak var btnEtich: UIButton!
+    @IBOutlet weak var btnBiometric: UIButton!
     
     var colorBlue = UIColor(red: 28/255, green: 117/255, blue: 188/255, alpha: 1)
     var forceUpdate: Bool = false
+    private var biometric = BiometricAuth()
     var version: Double = 0.0
+    var biometricButton: Bool = UserDefaults.standard.bool(forKey: "biometricEnable")
     let loadingAlert = UIAlertController(title: "", message: "\n \n \n \n \nCargando...", preferredStyle: .alert)
  
 //    // MARK: Lifecycle
@@ -31,6 +35,7 @@ class LoginView: UIViewController {
         super.viewDidLoad()
         spinner.isHidden = true
         setupView()
+        validateButtonBiometric()
         self.hideKeyboardWhenTappedAround()
         print(forceUpdate)
         
@@ -77,6 +82,7 @@ class LoginView: UIViewController {
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
       //  configureKeyboardObservables()
+        validateButtonBiometric()
         let newUser = UserDefaults.standard.bool(forKey: "isNewUser")
         if newUser == false {
             validateFirstController()
@@ -108,6 +114,15 @@ class LoginView: UIViewController {
         let view = SocialNetwork.openSocialNetowrk(firebaseApp: instance)
         view.modalPresentationStyle = .fullScreen
         self.present(view, animated: true)
+    }
+    
+    
+    private func validateButtonBiometric() {
+        if biometricButton {
+            btnBiometric.isHidden = false
+        }else{
+            btnBiometric.isHidden = true
+        }
     }
     
     private func getInstalledVersion() -> String? {
@@ -167,6 +182,7 @@ class LoginView: UIViewController {
         btnRegistar.layer.borderColor = UIColor(red: 25/255, green: 42/255, blue: 115/255, alpha: 1).cgColor
         
         btnForgot.underlineButtonsWithFont(sizeFont: 13, textColor: colorBlue, text: "Olvidé contraseña", font: "SEMI")
+        btnBiometric.underlineButtonsWithFont(sizeFont: 13, textColor: colorBlue, text: "inicio de sesión biométrica", font: "SEMI")
         btnTerms.underlineButtons(sizeFont: 11, textColor: colorBlue, text: "Términos y condiciones")
         btnPolicity.underlineButtons(sizeFont: 11, textColor: colorBlue, text: "Política de privacidad")
         btnEtich.underlineButtons(sizeFont: 11, textColor: colorBlue, text: "Código de ética")
@@ -234,6 +250,38 @@ class LoginView: UIViewController {
     @IBAction func eticButton(_ sender: Any) {
         guard let url = URL(string: "https://arquidiocesismexico.org.mx/aviso-de-privacidad/") else { return }
         UIApplication.shared.open(url)
+    }
+    
+    
+    @IBAction func biometricLogin(_ sender: Any) {
+        biometric.canEvaluate { (canEvaluate, _, canEvaluateError) in
+            guard canEvaluate else {
+                alert(title: "Error",
+                      message: canEvaluateError?.localizedDescription ?? "Face ID/Touch ID may not be configured",
+                      okActionTitle: "Darn!")
+                return
+            }
+            
+            biometric.evaluate { [weak self] (success, error) in
+                guard success else {
+                    self?.alert(title: "Error",
+                                message: error?.localizedDescription ?? "Face ID/Touch ID may not be configured",
+                                okActionTitle: "Darn!")
+                    return
+                }
+                
+                let userValue = UserDefaults.standard.string(forKey: "email")
+                let drws = DAKeychain.shared["miIglesia"]
+                self?.btnRegistar.isEnabled = false
+                self?.spinner.isHidden = false
+                self?.spinner.startAnimating()
+                self?.showLoading()
+                self?.presenter?.controla = self
+                self?.presenter?.login(user: userValue ?? "", password: drws ?? "")
+                
+            }
+        }
+        
     }
     
     @objc private func keyboardWillShow(notification: NSNotification) {
@@ -309,5 +357,14 @@ extension LoginView {
             let emailTest = NSPredicate(format:"SELF MATCHES %@", emailRegEx)
             return emailTest.evaluate(with: email)
         }
+    
+    func alert(title: String, message: String, okActionTitle: String) {
+        let alertView = UIAlertController(title: title,
+                                          message: message,
+                                          preferredStyle: .alert)
+        let okAction = UIAlertAction(title: okActionTitle, style: .default)
+        alertView.addAction(okAction)
+        present(alertView, animated: true)
+    }
 
 }
