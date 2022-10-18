@@ -269,7 +269,6 @@ extension RegisterViewController {
         setupFields()
         setupDatePicker()
         
-        
         navView.layer.cornerRadius = 30
         navView.layer.shadowRadius = 5
         navView.layer.shadowOpacity = 0.5

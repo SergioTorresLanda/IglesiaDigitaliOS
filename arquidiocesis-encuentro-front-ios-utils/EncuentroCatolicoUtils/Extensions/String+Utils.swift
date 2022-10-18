@@ -5,7 +5,7 @@
 //  Created by Alejandro on 16/10/22.
 //
 
-import Foundation
+import UIKit
 
 public extension String {
     //MARK: - Static Properties
@@ -23,5 +23,21 @@ public extension String {
         guard let nsRegEx = try? NSRegularExpression(pattern: regEx, options: options) else { return false }
         
         return nsRegEx.firstMatch(in: self, options: [], range: range) != nil
+    }
+    
+    func underlineDecorative(font:UIFont)->NSMutableAttributedString{
+        let attibute = NSMutableParagraphStyle()
+        
+        attibute.alignment = .left
+        attibute.lineBreakMode = .byWordWrapping
+        
+        let attributes: [NSAttributedString.Key : Any] = [
+            NSAttributedString.Key.foregroundColor: UIColor.getColorFromHex(hex: "1C75BC"),
+            NSAttributedString.Key.underlineStyle : NSUnderlineStyle.single.rawValue,
+            NSAttributedString.Key.font : font ,
+            NSAttributedString.Key.paragraphStyle : attibute
+        ]
+        let stringAttribute = NSMutableAttributedString(string: self, attributes: attributes)
+        return stringAttribute
     }
 }
