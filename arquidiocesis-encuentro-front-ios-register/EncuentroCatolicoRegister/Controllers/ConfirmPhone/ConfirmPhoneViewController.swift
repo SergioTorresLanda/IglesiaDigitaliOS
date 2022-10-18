@@ -211,7 +211,6 @@ extension ConfirmPhoneViewController: ConfirmPhoneViewProtocol {
         self.btnCrear.isEnabled = true
         self.loader.stopAnimating()
         self.loader.isHidden = true
-        self.startTime(TIME_CODE)
         let alerta = UIAlertController(title: dtcAlerta["titulo"], message: dtcAlerta["cuerpo"], preferredStyle: .alert)
         alerta.addAction(UIAlertAction(title: "Aceptar", style: .default, handler: nil))
         self.present(alerta, animated: true, completion: nil)
