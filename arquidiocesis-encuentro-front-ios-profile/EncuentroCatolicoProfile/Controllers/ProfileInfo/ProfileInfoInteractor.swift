@@ -496,12 +496,20 @@ class ProfileInfoInteractor: ProfileInfoInteractorInputProtocol {
     }
     
     func deleteAccount(email: String) {
-        let apiURL = URL(string: "\(APIType.shared.Auth())/user/delete?email=\(email)")
+        let apiURL = URL(string: "\(APIType.shared.Auth())/user/delete")
         var request = URLRequest(url: apiURL!)
+        let defaults = UserDefaults.standard
+        let tksession = defaults.string(forKey: "idToken")
+        let parameterDictionary: [String : Any] = [
+            "email" :  email
+        ]
+        guard let httpBody = try? JSONSerialization.data(withJSONObject: parameterDictionary, options: []) else {
+            return
+        }
         request.setValue("application/json", forHTTPHeaderField: "Content-Type")
-        let tksession = UserDefaults.standard.string(forKey: "idToken")
         request.setValue("Bearer \( tksession ?? "")", forHTTPHeaderField: "Authorization")
         request.httpMethod = "DELETE"
+        request.httpBody = httpBody
         let task = URLSession.shared.dataTask(with: request) { data, response, error in
             
             print("tksession: ", tksession)
