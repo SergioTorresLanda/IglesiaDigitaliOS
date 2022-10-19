@@ -16,6 +16,7 @@
                 <outlet property="btnEtich" destination="5hN-Ms-RMc" id="xJW-SR-uN6"/>
                 <outlet property="btnForgot" destination="Yhh-8U-KaO" id="SX8-gX-cbj"/>
                 <outlet property="btnLogin" destination="7f0-aS-f2e" id="oTC-97-Dh6"/>
+                <outlet property="btnPassword" destination="RJz-re-lGg" id="y8r-Ir-hwA"/>
                 <outlet property="btnPolicity" destination="940-VG-sA7" id="ouU-dU-sPR"/>
                 <outlet property="btnRegistar" destination="yOZ-g9-33p" id="lKG-KX-ypm"/>
                 <outlet property="btnTerms" destination="nmp-0j-sL8" id="0qC-82-K12"/>
@@ -138,7 +139,7 @@
                                     <constraints>
                                         <constraint firstAttribute="width" constant="35" id="mB7-gd-xIz"/>
                                     </constraints>
-                                    <state key="normal" image="Trailing"/>
+                                    <state key="normal" image="showEye"/>
                                     <connections>
                                         <action selector="showPassword:" destination="-1" eventType="touchUpInside" id="3P1-5I-qpJ"/>
                                     </connections>
@@ -395,8 +396,8 @@
     </objects>
     <resources>
         <image name="Logo blanco" width="210" height="40"/>
-        <image name="Trailing" width="24" height="24"/>
         <image name="lineBlue" width="79" height="3"/>
+        <image name="showEye" width="24" height="24"/>
         <namedColor name="AccentColor">
             <color red="0.0" green="0.46000000000000002" blue="0.89000000000000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </namedColor>
