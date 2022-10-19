@@ -29,8 +29,8 @@ class LoginView: UIViewController {
     var version: Double = 0.0
     var biometricButton: Bool = UserDefaults.standard.bool(forKey: "biometricEnable")
     let loadingAlert = UIAlertController(title: "", message: "\n \n \n \n \nCargando...", preferredStyle: .alert)
- 
-//    // MARK: Lifecycle
+    
+    //    // MARK: Lifecycle
     override func viewDidLoad() {
         super.viewDidLoad()
         spinner.isHidden = true
@@ -39,7 +39,7 @@ class LoginView: UIViewController {
         self.hideKeyboardWhenTappedAround()
         print(forceUpdate)
         
-
+        
         if forceUpdate {
             if version > Double(getInstalledVersion() ?? "") ?? 0.0 {
                 let alert = UIAlertController(title: "Aviso", message: "Es Necesario Actualizar", preferredStyle: .alert)
@@ -52,7 +52,7 @@ class LoginView: UIViewController {
                         
                     }))
                 }
-
+                
                 self.present(alert, animated: true, completion: nil)
             }
         }
@@ -63,15 +63,15 @@ class LoginView: UIViewController {
         let newUser = defaults.bool(forKey: "isNewUser")
         validateButtonBiometric()
         /*if newUser == true{
-            let email = defaults.string(forKey: "email") ?? ""
-            let password = defaults.string(forKey: "password") ?? ""
-            txtUser.text = email
-            txtPassword.text = password
-        }else{
-            txtUser.text = ""
-            txtPassword.text = ""
-        }
-        */
+         let email = defaults.string(forKey: "email") ?? ""
+         let password = defaults.string(forKey: "password") ?? ""
+         txtUser.text = email
+         txtPassword.text = password
+         }else{
+         txtUser.text = ""
+         txtPassword.text = ""
+         }
+         */
         self.btnRegistar.isEnabled = true
         self.spinner.stopAnimating()
         self.spinner.isHidden = true
@@ -82,7 +82,7 @@ class LoginView: UIViewController {
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
-      //  configureKeyboardObservables()
+        //  configureKeyboardObservables()
         validateButtonBiometric()
         let newUser = UserDefaults.standard.bool(forKey: "isNewUser")
         if newUser == false {
@@ -92,6 +92,7 @@ class LoginView: UIViewController {
     
     override func viewWillDisappear(_ animated: Bool) {
         hideLoading()
+        
     }
     
     @objc private func salta(sender: UITextField) {
@@ -102,6 +103,11 @@ class LoginView: UIViewController {
     @objc private func finaliza(sender: UITextField) {
         self.dismissKeyboard()
     }
+    
+    deinit {
+        biometricValidations()
+    }
+    
     func validateFirstController() {
         NotificationCenter.default.addObserver(self, selector: #selector(popViews), name: NSNotification.Name(rawValue: "newLogOut"), object: nil)
         let defaults = UserDefaults.standard
@@ -129,40 +135,40 @@ class LoginView: UIViewController {
     }
     
     private func getInstalledVersion() -> String? {
-                if let info = Bundle.main.infoDictionary,
-                   let currentVersion = info["CFBundleShortVersionString"] as? String {
-                    return currentVersion
-                }
-                return nil
+        if let info = Bundle.main.infoDictionary,
+           let currentVersion = info["CFBundleShortVersionString"] as? String {
+            return currentVersion
         }
+        return nil
+    }
     
-//    func remoteConfig() {
-//
-//           guard let url = URL(string: "https://arquidiocesis-public-files.s3.amazonaws.com/1_5066777712274702937.json"),
-//                 let urlData = try? Data(contentsOf: url, options: .mappedIfSafe),
-//                 let data = try? JSONDecoder().decode(ChurchRemoteInfo.self, from: urlData)  else {
-//               return
-//           }
-//        if data.forceUpdateIOS {
-//            if data.versionIOS > Double(getInstalledVersion() ?? "") ?? 0.0 {
-//
-//                let alert = UIAlertController(title: "Aviso", message: "Actualiza tu aplicación", preferredStyle: .alert)
-//                               let cancelAction = UIAlertAction(title: "Aceptar", style: .cancel){
-//                                   [weak self] _ in
-//                                   guard let self = self else {return}
-//                                   if let url = URL(string: "itms-apps://itunes.apple.com/app/id1559605584"),
-//                                                      UIApplication.shared.canOpenURL(url) {
-//                                                       UIApplication.shared.open(url, options: [:], completionHandler: nil)
-//                                                   }
-//                                   }
-//                               alert.addAction(cancelAction)
-//
-//                               self.present(alert, animated: true)
-//
-//            }
-//        }
-           
-   //}
+    //    func remoteConfig() {
+    //
+    //           guard let url = URL(string: "https://arquidiocesis-public-files.s3.amazonaws.com/1_5066777712274702937.json"),
+    //                 let urlData = try? Data(contentsOf: url, options: .mappedIfSafe),
+    //                 let data = try? JSONDecoder().decode(ChurchRemoteInfo.self, from: urlData)  else {
+    //               return
+    //           }
+    //        if data.forceUpdateIOS {
+    //            if data.versionIOS > Double(getInstalledVersion() ?? "") ?? 0.0 {
+    //
+    //                let alert = UIAlertController(title: "Aviso", message: "Actualiza tu aplicación", preferredStyle: .alert)
+    //                               let cancelAction = UIAlertAction(title: "Aceptar", style: .cancel){
+    //                                   [weak self] _ in
+    //                                   guard let self = self else {return}
+    //                                   if let url = URL(string: "itms-apps://itunes.apple.com/app/id1559605584"),
+    //                                                      UIApplication.shared.canOpenURL(url) {
+    //                                                       UIApplication.shared.open(url, options: [:], completionHandler: nil)
+    //                                                   }
+    //                                   }
+    //                               alert.addAction(cancelAction)
+    //
+    //                               self.present(alert, animated: true)
+    //
+    //            }
+    //        }
+    
+    //}
     
     @objc func popViews(){
         for controller in self.navigationController!.viewControllers as Array {
@@ -211,6 +217,49 @@ class LoginView: UIViewController {
         return toValidate
     }
     
+    private func biometricValidations() {
+        biometric.canEvaluate { (canEvaluate, typeBio, canEvaluateError) in
+            
+            switch typeBio {
+            case .none:
+                btnBiometric.isHidden = true
+            case .touchID:
+                btnBiometric.isHidden = false
+            case .faceID:
+                btnBiometric.isHidden = false
+            case .unknown:
+                btnBiometric.isHidden = true
+            }
+            
+            guard canEvaluate else {
+                alert(title: "Error",
+                      message: canEvaluateError?.localizedDescription ?? "Face ID/Touch ID no estan configurados",
+                      okActionTitle: "Aceptar!")
+                return
+            }
+            
+        }
+        
+        biometric.evaluate { [weak self] (success, error) in
+            guard self != nil else {return}
+            switch success {
+            case true:
+                let userValue = UserDefaults.standard.string(forKey: "email")
+                let drws = DAKeychain.shared["miIglesia"]
+                    self?.btnRegistar.isEnabled = false
+                    self?.spinner.isHidden = false
+                    self?.spinner.startAnimating()
+                    self?.showLoading()
+                    self?.presenter?.controla = self
+                    self?.presenter?.login(user: userValue ?? "", password: drws ?? "")
+            case false:
+                break
+            }
+            
+        }
+
+    }
+    
     //MARK: - Actions
     @IBAction func olvidoPass(_ sender: Any) {
         presenter?.olvidoPass(controlador: self)
@@ -257,33 +306,7 @@ class LoginView: UIViewController {
     
     
     @IBAction func biometricLogin(_ sender: Any) {
-        biometric.canEvaluate { (canEvaluate, _, canEvaluateError) in
-            guard canEvaluate else {
-                alert(title: "Error",
-                      message: canEvaluateError?.localizedDescription ?? "Face ID/Touch ID may not be configured",
-                      okActionTitle: "Darn!")
-                return
-            }
-            
-            biometric.evaluate { [weak self] (success, error) in
-                guard success else {
-                    self?.alert(title: "Error",
-                                message: error?.localizedDescription ?? "Face ID/Touch ID may not be configured",
-                                okActionTitle: "Darn!")
-                    return
-                }
-                
-                let userValue = UserDefaults.standard.string(forKey: "email")
-                let drws = DAKeychain.shared["miIglesia"]
-                self?.btnRegistar.isEnabled = false
-                self?.spinner.isHidden = false
-                self?.spinner.startAnimating()
-                self?.showLoading()
-                self?.presenter?.controla = self
-                self?.presenter?.login(user: userValue ?? "", password: drws ?? "")
-                
-            }
-        }
+        biometricValidations()
         
     }
     
@@ -348,18 +371,18 @@ extension LoginView: LoginViewProtocol {
 }
 
 extension LoginView {
-
+    
     func isValidPhone(phone: String) -> Bool {
-            let phoneRegex = "^[0-9+]{0,1}+[0-9]{5,16}$"
-            let phoneTest = NSPredicate(format: "SELF MATCHES %@", phoneRegex)
-            return phoneTest.evaluate(with: phone)
-        }
-
+        let phoneRegex = "^[0-9+]{0,1}+[0-9]{5,16}$"
+        let phoneTest = NSPredicate(format: "SELF MATCHES %@", phoneRegex)
+        return phoneTest.evaluate(with: phone)
+    }
+    
     func isValidEmail(email: String) -> Bool {
-            let emailRegEx = "[A-Z0-9a-z._%+-]+@[A-Za-z0-9.-]+\\.[A-Za-z]{2,64}"
-            let emailTest = NSPredicate(format:"SELF MATCHES %@", emailRegEx)
-            return emailTest.evaluate(with: email)
-        }
+        let emailRegEx = "[A-Z0-9a-z._%+-]+@[A-Za-z0-9.-]+\\.[A-Za-z]{2,64}"
+        let emailTest = NSPredicate(format:"SELF MATCHES %@", emailRegEx)
+        return emailTest.evaluate(with: email)
+    }
     
     func alert(title: String, message: String, okActionTitle: String) {
         let alertView = UIAlertController(title: title,
@@ -369,5 +392,5 @@ extension LoginView {
         alertView.addAction(okAction)
         present(alertView, animated: true)
     }
-
+    
 }
