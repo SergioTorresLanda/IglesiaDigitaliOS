@@ -14,6 +14,7 @@ class LoginView: UIViewController {
     @IBOutlet weak var btnLogin: UIButton!
     @IBOutlet weak var txtUser: UITextField!
     @IBOutlet weak var txtPassword: UITextField!
+    @IBOutlet weak var btnPassword: UIButton!
     @IBOutlet weak var viewArriba: UIView!
     @IBOutlet weak var btnRegistar: UIButton!
     @IBOutlet weak var spinner: UIActivityIndicatorView!
@@ -62,16 +63,8 @@ class LoginView: UIViewController {
         let defaults = UserDefaults.standard
         let newUser = defaults.bool(forKey: "isNewUser")
         validateButtonBiometric()
-        /*if newUser == true{
-         let email = defaults.string(forKey: "email") ?? ""
-         let password = defaults.string(forKey: "password") ?? ""
-         txtUser.text = email
-         txtPassword.text = password
-         }else{
-         txtUser.text = ""
-         txtPassword.text = ""
-         }
-         */
+        txtUser.text = ""
+        txtPassword.text = ""
         self.btnRegistar.isEnabled = true
         self.spinner.stopAnimating()
         self.spinner.isHidden = true
@@ -284,8 +277,14 @@ class LoginView: UIViewController {
     }
     
     @IBAction func showPassword(_ sender: Any) {
+        let module = Bundle(for: LoginView.self)
+        btnPassword.setImage(UIImage(named: !txtPassword.isSecureTextEntry ? "hideEye" : "showEye", in: module, compatibleWith: nil), for: .normal)
+        btnPassword.tintColor = .gray
+        
+        
         txtPassword.isSecureTextEntry = !txtPassword.isSecureTextEntry
     }
+    
     
     @IBAction func termsAction(_ sender: Any) {
         guard let url = URL(string: "https://arquidiocesismexico.org.mx/aviso-de-privacidad/") else { return }
@@ -371,7 +370,7 @@ extension LoginView: LoginViewProtocol {
 }
 
 extension LoginView {
-    
+
     func isValidPhone(phone: String) -> Bool {
         let phoneRegex = "^[0-9+]{0,1}+[0-9]{5,16}$"
         let phoneTest = NSPredicate(format: "SELF MATCHES %@", phoneRegex)
