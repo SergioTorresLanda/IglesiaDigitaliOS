@@ -63,7 +63,8 @@ class LoginView: UIViewController {
         let defaults = UserDefaults.standard
         let newUser = defaults.bool(forKey: "isNewUser")
         validateButtonBiometric()
-        
+        txtUser.text = ""
+        txtPassword.text = ""
         self.btnRegistar.isEnabled = true
         self.spinner.stopAnimating()
         self.spinner.isHidden = true
@@ -84,6 +85,7 @@ class LoginView: UIViewController {
     
     override func viewWillDisappear(_ animated: Bool) {
         hideLoading()
+        
     }
     
     @objc private func salta(sender: UITextField) {
@@ -94,6 +96,11 @@ class LoginView: UIViewController {
     @objc private func finaliza(sender: UITextField) {
         self.dismissKeyboard()
     }
+    
+    deinit {
+        biometricValidations()
+    }
+    
     func validateFirstController() {
         NotificationCenter.default.addObserver(self, selector: #selector(popViews), name: NSNotification.Name(rawValue: "newLogOut"), object: nil)
         let defaults = UserDefaults.standard
@@ -203,6 +210,49 @@ class LoginView: UIViewController {
         return toValidate
     }
     
+    private func biometricValidations() {
+        biometric.canEvaluate { (canEvaluate, typeBio, canEvaluateError) in
+            
+            switch typeBio {
+            case .none:
+                btnBiometric.isHidden = true
+            case .touchID:
+                btnBiometric.isHidden = false
+            case .faceID:
+                btnBiometric.isHidden = false
+            case .unknown:
+                btnBiometric.isHidden = true
+            }
+            
+            guard canEvaluate else {
+                alert(title: "Error",
+                      message: canEvaluateError?.localizedDescription ?? "Face ID/Touch ID no estan configurados",
+                      okActionTitle: "Aceptar!")
+                return
+            }
+            
+        }
+        
+        biometric.evaluate { [weak self] (success, error) in
+            guard self != nil else {return}
+            switch success {
+            case true:
+                let userValue = UserDefaults.standard.string(forKey: "email")
+                let drws = DAKeychain.shared["miIglesia"]
+                    self?.btnRegistar.isEnabled = false
+                    self?.spinner.isHidden = false
+                    self?.spinner.startAnimating()
+                    self?.showLoading()
+                    self?.presenter?.controla = self
+                    self?.presenter?.login(user: userValue ?? "", password: drws ?? "")
+            case false:
+                break
+            }
+            
+        }
+
+    }
+    
     //MARK: - Actions
     @IBAction func olvidoPass(_ sender: Any) {
         presenter?.olvidoPass(controlador: self)
@@ -255,33 +305,7 @@ class LoginView: UIViewController {
     
     
     @IBAction func biometricLogin(_ sender: Any) {
-        biometric.canEvaluate { (canEvaluate, _, canEvaluateError) in
-            guard canEvaluate else {
-                alert(title: "Error",
-                      message: canEvaluateError?.localizedDescription ?? "Face ID/Touch ID may not be configured",
-                      okActionTitle: "Darn!")
-                return
-            }
-            
-            biometric.evaluate { [weak self] (success, error) in
-                guard success else {
-                    self?.alert(title: "Error",
-                                message: error?.localizedDescription ?? "Face ID/Touch ID may not be configured",
-                                okActionTitle: "Darn!")
-                    return
-                }
-                
-                let userValue = UserDefaults.standard.string(forKey: "email")
-                let drws = DAKeychain.shared["miIglesia"]
-                self?.btnRegistar.isEnabled = false
-                self?.spinner.isHidden = false
-                self?.spinner.startAnimating()
-                self?.showLoading()
-                self?.presenter?.controla = self
-                self?.presenter?.login(user: userValue ?? "", password: drws ?? "")
-                
-            }
-        }
+        biometricValidations()
         
     }
     
@@ -346,6 +370,7 @@ extension LoginView: LoginViewProtocol {
 }
 
 extension LoginView {
+
     func isValidPhone(phone: String) -> Bool {
         let phoneRegex = "^[0-9+]{0,1}+[0-9]{5,16}$"
         let phoneTest = NSPredicate(format: "SELF MATCHES %@", phoneRegex)
