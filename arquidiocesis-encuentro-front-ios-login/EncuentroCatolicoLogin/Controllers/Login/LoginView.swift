@@ -236,6 +236,7 @@ class LoginView: UIViewController {
     }
     
     private func biometricCanValidate() {
+        
         biometric.canEvaluate { (canEvaluate, typeBio, canEvaluateError) in
             
             switch typeBio {
