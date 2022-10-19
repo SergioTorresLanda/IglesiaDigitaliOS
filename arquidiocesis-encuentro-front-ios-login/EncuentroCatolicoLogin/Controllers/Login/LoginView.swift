@@ -282,11 +282,10 @@ class LoginView: UIViewController {
     
     @IBAction func showPassword(_ sender: Any) {
         let module = Bundle(for: LoginView.self)
+        txtPassword.isSecureTextEntry = !txtPassword.isSecureTextEntry
+        
         btnPassword.setImage(UIImage(named: !txtPassword.isSecureTextEntry ? "hideEye" : "showEye", in: module, compatibleWith: nil), for: .normal)
         btnPassword.tintColor = .gray
-        
-        
-        txtPassword.isSecureTextEntry = !txtPassword.isSecureTextEntry
     }
     
     
