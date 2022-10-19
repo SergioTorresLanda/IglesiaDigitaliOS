@@ -36,7 +36,7 @@ class LoginView: UIViewController {
         super.viewDidLoad()
         spinner.isHidden = true
         setupView()
-        validateButtonBiometric()
+//        validateButtonBiometric()
         self.hideKeyboardWhenTappedAround()
         print(forceUpdate)
         
@@ -62,7 +62,8 @@ class LoginView: UIViewController {
     override func viewDidAppear(_ animated: Bool) {
         let defaults = UserDefaults.standard
         let newUser = defaults.bool(forKey: "isNewUser")
-        validateButtonBiometric()
+        biometricCanValidate()
+//        validateButtonBiometric()
         txtUser.text = ""
         txtPassword.text = ""
         self.btnRegistar.isEnabled = true
@@ -76,7 +77,8 @@ class LoginView: UIViewController {
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         //  configureKeyboardObservables()
-        validateButtonBiometric()
+//        validateButtonBiometric()
+        biometricCanValidate()
         let newUser = UserDefaults.standard.bool(forKey: "isNewUser")
         if newUser == false {
             validateFirstController()
@@ -105,7 +107,8 @@ class LoginView: UIViewController {
         NotificationCenter.default.addObserver(self, selector: #selector(popViews), name: NSNotification.Name(rawValue: "newLogOut"), object: nil)
         let defaults = UserDefaults.standard
         let nombre = defaults.string(forKey: "nombre") ?? ""
-        validateButtonBiometric()
+//        validateButtonBiometric()
+        biometricCanValidate()
         if nombre != "" {
             openHome()
         }
@@ -211,27 +214,6 @@ class LoginView: UIViewController {
     }
     
     private func biometricValidations() {
-        biometric.canEvaluate { (canEvaluate, typeBio, canEvaluateError) in
-            
-            switch typeBio {
-            case .none:
-                btnBiometric.isHidden = true
-            case .touchID:
-                btnBiometric.isHidden = false
-            case .faceID:
-                btnBiometric.isHidden = false
-            case .unknown:
-                btnBiometric.isHidden = true
-            }
-            
-            guard canEvaluate else {
-                alert(title: "Error",
-                      message: canEvaluateError?.localizedDescription ?? "Face ID/Touch ID no estan configurados",
-                      okActionTitle: "Aceptar!")
-                return
-            }
-            
-        }
         
         biometric.evaluate { [weak self] (success, error) in
             guard self != nil else {return}
@@ -251,6 +233,28 @@ class LoginView: UIViewController {
             
         }
 
+    }
+    
+    private func biometricCanValidate() {
+        
+        biometric.canEvaluate { (canEvaluate, typeBio, canEvaluateError) in
+            
+            switch typeBio {
+            case .none:
+                btnBiometric.isHidden = true
+            case .touchID:
+                btnBiometric.isHidden = false
+            case .faceID:
+                btnBiometric.isHidden = false
+            case .unknown:
+                btnBiometric.isHidden = true
+            }
+            
+            guard canEvaluate else {
+                return
+            }
+            
+        }
     }
     
     //MARK: - Actions
