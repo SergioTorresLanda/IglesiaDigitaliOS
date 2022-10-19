@@ -55,7 +55,7 @@ class LoginRemoteDataManager:LoginRemoteDataManagerInputProtocol {
                     return
                 }
                 DAKeychain.shared["miIglesia"] = user.password
-                defaults.setValue(true, forKey: "biometricEnable")
+//                defaults.setValue(true, forKey: "biometricEnable")
                 defaults.set(resp.AuthenticationResult.RefreshToken, forKey: "refToken")
                 defaults.set(resp.AuthenticationResult.AccessToken, forKey: "accToken")
                 defaults.set(resp.AuthenticationResult.IdToken, forKey: "idToken")

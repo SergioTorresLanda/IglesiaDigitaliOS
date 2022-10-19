@@ -40,7 +40,7 @@ class BiometricAuth {
         }
     }
     
-    private var context = LAContext()
+    private let context = LAContext()
     private let policy: LAPolicy
     private let localizedReason: String
     
@@ -53,7 +53,6 @@ class BiometricAuth {
         self.localizedReason = localizedReason
         context.localizedFallbackTitle = localizedFallbackTitle
         context.localizedCancelTitle = "Touch me not"
-        context.touchIDAuthenticationAllowableReuseDuration = 0
     }
     
     func canEvaluate(completion: (Bool, BiometricType, BiometricError?) -> Void) {
@@ -80,13 +79,14 @@ class BiometricAuth {
     
     func evaluate(completion: @escaping (Bool, BiometricError?) -> Void) {
         // Asks Context to evaluate a Policy with a LocalizedReason
-        context = LAContext()
         context.evaluatePolicy(policy, localizedReason: localizedReason) { [weak self] success, error in
             // Moves to the main thread because completion triggers UI changes
-            DispatchQueue.main.async {
                 if success {
                     // Context successfully evaluated the Policy
-                    completion(true, nil)
+                    DispatchQueue.main.async {
+                        // Context successfully evaluated the Policy
+                        completion(true, nil)
+                    }
                 } else {
                     // Unwraps Error
                     // If not available, sends false for Success & nil for BiometricError
@@ -95,7 +95,6 @@ class BiometricAuth {
                     // Maps error to our BiometricError
                     completion(false, self?.biometricError(from: error as NSError))
                 }
-            }
         }
     }
     
