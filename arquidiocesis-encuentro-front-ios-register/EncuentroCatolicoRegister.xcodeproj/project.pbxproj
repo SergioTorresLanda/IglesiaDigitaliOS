@@ -17,7 +17,7 @@
 		98AB13DA26012942000F1670 /* EncuentroCatolicoUtils.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 98AB13D926012942000F1670 /* EncuentroCatolicoUtils.framework */; };
 		98E6E8ED25CC705C00C730D1 /* EncuentroCatolicoRegister.h in Headers */ = {isa = PBXBuildFile; fileRef = 98E6E8EB25CC705C00C730D1 /* EncuentroCatolicoRegister.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		A94514D028FC98A900675CB6 /* BundleExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = A94514CF28FC98A900675CB6 /* BundleExtension.swift */; };
-		A94514F928FCBD9C00675CB6 /* RegisterNewViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = A94514F828FCBD9C00675CB6 /* RegisterNewViewController.xib */; };
+		A94514F928FCBD9C00675CB6 /* RegisterViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = A94514F828FCBD9C00675CB6 /* RegisterViewController.xib */; };
 		A978620C28FCC8E900C5DE8E /* RegisterViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A978620B28FCC8E900C5DE8E /* RegisterViewController.swift */; };
 		AA05848225E6E704001408E9 /* Imagenes.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = AA05848125E6E704001408E9 /* Imagenes.xcassets */; };
 		AA05848B25E6EC45001408E9 /* ConfirmPhonePresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA05848425E6EC45001408E9 /* ConfirmPhonePresenter.swift */; };
@@ -52,7 +52,7 @@
 		98E6E8EC25CC705C00C730D1 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		9EB8BBE10622BC5C75B6009E /* Pods_EncuentroCatolicoRegister.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_EncuentroCatolicoRegister.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		A94514CF28FC98A900675CB6 /* BundleExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BundleExtension.swift; sourceTree = "<group>"; };
-		A94514F828FCBD9C00675CB6 /* RegisterNewViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = RegisterNewViewController.xib; sourceTree = "<group>"; };
+		A94514F828FCBD9C00675CB6 /* RegisterViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = RegisterViewController.xib; sourceTree = "<group>"; };
 		A978620B28FCC8E900C5DE8E /* RegisterViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegisterViewController.swift; sourceTree = "<group>"; };
 		AA05848125E6E704001408E9 /* Imagenes.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Imagenes.xcassets; sourceTree = "<group>"; };
 		AA05848425E6EC45001408E9 /* ConfirmPhonePresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ConfirmPhonePresenter.swift; sourceTree = "<group>"; };
@@ -132,7 +132,7 @@
 				AA05849B25E6F503001408E9 /* RegisterRemoteDataManager.swift */,
 				AA05849C25E6F503001408E9 /* RegisterWireFrame.swift */,
 				82EC185F25E7222400B247A9 /* RegisterEntity.swift */,
-				A94514F828FCBD9C00675CB6 /* RegisterNewViewController.xib */,
+				A94514F828FCBD9C00675CB6 /* RegisterViewController.xib */,
 				A978620B28FCC8E900C5DE8E /* RegisterViewController.swift */,
 			);
 			path = Register;
@@ -281,7 +281,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				A94514F928FCBD9C00675CB6 /* RegisterNewViewController.xib in Resources */,
+				A94514F928FCBD9C00675CB6 /* RegisterViewController.xib in Resources */,
 				AA05848225E6E704001408E9 /* Imagenes.xcassets in Resources */,
 				36BAB02E263DDCE70056274B /* ConfirmPhoneViewController.xib in Resources */,
 			);

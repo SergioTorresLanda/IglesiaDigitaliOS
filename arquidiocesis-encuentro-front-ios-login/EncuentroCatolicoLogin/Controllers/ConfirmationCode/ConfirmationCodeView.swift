@@ -7,6 +7,7 @@
 
 import UIKit
 import EncuentroCatolicoVirtualLibrary
+import EncuentroCatolicoUtils
 
 class ConfirmationCodeView: UIViewController, ConfirmationCodeViewProtocol {
     
@@ -14,10 +15,6 @@ class ConfirmationCodeView: UIViewController, ConfirmationCodeViewProtocol {
     let underlineColor = UIColor.init(red: 28/255, green: 117/255, blue: 188/255, alpha: 1)
     var canContinue = false
     var canResend = false
-    var funcTimer : Timer?
-    var jumpTimer : Timer?
-    var timeLapse : Timer?
-    var timerInt = 59
     var isPaste = false
     var pos = 0
     var codeStr : [String] = []
@@ -58,6 +55,14 @@ class ConfirmationCodeView: UIViewController, ConfirmationCodeViewProtocol {
     @IBOutlet weak var lblTimer: UILabel!
     @IBOutlet weak var lblPhone: UILabel!
     
+    private lazy var timer: ECUTimer = {
+        let timer = ECUTimerNative()
+       
+        timer.delegate = self
+        
+        return timer
+    }()
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         
@@ -67,12 +72,8 @@ class ConfirmationCodeView: UIViewController, ConfirmationCodeViewProtocol {
             lblPhone.text = emailUser
         }
         
-        timeLapse = Timer.scheduledTimer(timeInterval: 1, target: self, selector: #selector(handleTimer), userInfo: nil, repeats: true)
+        timer.start(to: Int.otpTimeout)
         
-        funcTimer = Timer.scheduledTimer(withTimeInterval: 60, repeats: true) { (timer) in
-           // self.canResend = true
-           
-        }
         numberFieldsCollection.forEach { (field) in
             field.delegate = self
             field.textContentType = .oneTimeCode
@@ -119,29 +120,6 @@ class ConfirmationCodeView: UIViewController, ConfirmationCodeViewProtocol {
         imageView.image = UIImage(named: "logoEncuentro", in: Bundle.local, compatibleWith: nil)
         alertLoader.view.addSubview(imageView)
         self.present(alertLoader, animated: false, completion: nil)
-    }
-    
-    @objc func handleTimer() {
-        self.lblTimer.text = "0:\(self.timerInt)"
-        if self.timerInt < 10 {
-            self.lblTimer.text = "0:0\(self.timerInt)"
-        }
-        
-        if self.timerInt == 0 {
-            timeLapse?.invalidate()
-            UIView.animate(withDuration: 0.3) {
-                self.lblDescTimer.alpha = 0
-                self.lblTimer.alpha = 0
-                self.btnResend.alpha = 1
-                self.lblTimer.text = "1:00"
-                self.canResend = true
-                
-            }
-        }
-        
-        self.timerInt -= 1
-    
-        print("MEnos uno")
     }
     
     @objc func handleTapBack() {
@@ -234,8 +212,7 @@ class ConfirmationCodeView: UIViewController, ConfirmationCodeViewProtocol {
                 self.numberFieldsCollection.forEach { (fielf) in
                     fielf.text = ""
                 }
-                self.timeLapse = Timer.scheduledTimer(timeInterval: 1, target: self, selector: #selector(self.handleTimer), userInfo: nil, repeats: true)
-                self.timerInt = 59
+                self.timer.start(to: Int.otpTimeout)
                 UIView.animate(withDuration: 0.3) {
                     self.btnResend.alpha = 0
                     self.lblDescTimer.alpha = 1
@@ -582,25 +559,6 @@ extension ConfirmationCodeView: UITextFieldDelegate {
             }
             
             print(codeStr)
-            
-//            jumpTimer = Timer.scheduledTimer(withTimeInterval: 2, repeats: false, block: { (timer) in
-//                self.numberFieldsCollection[1].becomeFirstResponder()
-//            })
-//
-//            if str.count == 5 {
-//                jumpTimer?.invalidate()
-//                jumpTimer = nil
-//
-//                str.forEach { (char) in
-//                    if pos <= 5 {
-//                    self.numberFieldsCollection[pos].text = "\(char)"
-//
-//                    }
-//
-//                }
-//
-//            }
-            
         case 2:
             Timer.scheduledTimer(withTimeInterval: 0.1, repeats: false) { (timer) in
                 self.numberFieldsCollection[2].becomeFirstResponder()
@@ -706,3 +664,18 @@ extension BidirectionalCollection {
         return self[i]
     }
 }
+
+//MARK: - ECUTimerDelegate
+extension ConfirmationCodeView: ECUTimerDelegate {
+    func timerOnStop() {
+        self.lblDescTimer.alpha = 0
+        self.lblTimer.alpha = 0
+        self.btnResend.alpha = 1
+        self.canResend = true
+    }
+    
+    func timer(onUpdate countdown: Int) {
+        self.lblTimer.text = countdown.secondstoTimeString()
+    }
+}
+

@@ -71,8 +71,11 @@ open class ECUField: ECUView {
         didSet {
             errorInfoLabel.isHidden = (errorDesc?.trimmingCharacters(in: [" "]) ?? "") == ""
             errorInfoLabel.text = errorDesc
-            textField.leftIconTint = errorDesc != nil ? .danger : nil
-            textField.leftIcon = UIImage(named: errorDesc != nil ? "close" : "success", in: .local, compatibleWith: nil)
+            
+            if self.rightIcon == nil {
+                textField.rightIconTint = errorDesc != nil ? .danger : nil
+                textField.rightIcon = UIImage(named: errorDesc != nil ? "close" : "success", in: .local, compatibleWith: nil)
+            }
         }
     }
     var color: UIColor = .primary {

@@ -10,19 +10,19 @@ import Foundation
 public typealias ECUValidation = (_ value: String?) -> String?
 
 public enum ECUFieldGenericValidation {
-    case required
+    case required(fieldName: String)
     case greaterThan(comparation: Double)
     case greaterOrEqualThan(comparation: Double)
     case isValidEmail
     case isValidPhone
-    case isValidPwd
+    case isValidPwd(fieldName: String)
     case minimunCharecters(comparation: Int)
 
     //MARK: - Methods
     public func getValidation() -> ECUValidation {
         switch self {
-        case .required:
-            return { $0 == "" ? "@error_msg_required".getLocalizedString(bundle: .local) : nil }
+        case .required(let fieldName):
+            return { $0 == "" ? String(format: "@error_msg_required".getLocalizedString(bundle: .local), String(fieldName)) : nil }
         case .greaterThan(let comparation):
             return { (Double($0 ?? "") ?? 0.0) > comparation ? nil : String(format: "@error_msg_greater_than".getLocalizedString(bundle: .local), String(comparation))}
         case .greaterOrEqualThan(let comparation):
@@ -37,8 +37,8 @@ public enum ECUFieldGenericValidation {
             }
         case .isValidPhone:
             return { ($0?.evaluateRegEx(for: #"(\d+){10}"#) ?? false) ? nil : "@error_msg_invalid_phone".getLocalizedString(bundle: .local) }
-        case .isValidPwd:
-            return { ($0?.evaluateRegEx(for: .regexPwd) ?? false) ? nil : "@error_msg_invalid_pwd".getLocalizedString(bundle: .local) }
+        case .isValidPwd(let fieldName):
+            return { ($0?.evaluateRegEx(for: .regexPwd) ?? false) ? nil : String(format: "@error_msg_invalid_generic".getLocalizedString(bundle: .local), String(fieldName)) }
         case .minimunCharecters(let comparation):
             return { $0?.count ?? 0 > comparation ? nil : String(format: "@error_msg_minimum_characters".getLocalizedString(bundle: .local), String(comparation))}
         }

@@ -10,7 +10,6 @@
 		3689987B2612277800532C40 /* APIManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3689987A2612277800532C40 /* APIManager.swift */; };
 		97EAC8D9D81454237F1B985F /* Pods_EncuentroCatolicoUtils.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B1638C081860BF2FBEB2A5E9 /* Pods_EncuentroCatolicoUtils.framework */; };
 		984F466525F94E1D006D709B /* EncuentroCatolicoUtils.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 984F465B25F94E1C006D709B /* EncuentroCatolicoUtils.framework */; };
-		984F466A25F94E1D006D709B /* EncuentroCatolicoUtilsTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 984F466925F94E1D006D709B /* EncuentroCatolicoUtilsTests.swift */; };
 		984F466C25F94E1D006D709B /* EncuentroCatolicoUtils.h in Headers */ = {isa = PBXBuildFile; fileRef = 984F465E25F94E1C006D709B /* EncuentroCatolicoUtils.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		984F468025F94FE1006D709B /* alertViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 984F467E25F94FE1006D709B /* alertViewController.swift */; };
 		984F468125F94FE1006D709B /* alertViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 984F467F25F94FE1006D709B /* alertViewController.xib */; };
@@ -33,6 +32,11 @@
 		A95E90CD28FF4AD100A4F202 /* ECUForm.swift in Sources */ = {isa = PBXBuildFile; fileRef = A95E90CC28FF4AD100A4F202 /* ECUForm.swift */; };
 		A95E90CF28FF4FA700A4F202 /* Collection+Utils.swift in Sources */ = {isa = PBXBuildFile; fileRef = A95E90CE28FF4FA700A4F202 /* Collection+Utils.swift */; };
 		A966606D28FCDF14007887CD /* Media.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = A966606C28FCDF14007887CD /* Media.xcassets */; };
+		A9E4ED5F29006A3700294CDD /* ECUTimer.swift in Sources */ = {isa = PBXBuildFile; fileRef = A9E4ED5E29006A3700294CDD /* ECUTimer.swift */; };
+		A9E4ED6129006ADE00294CDD /* ECUTimerNative.swift in Sources */ = {isa = PBXBuildFile; fileRef = A9E4ED6029006ADE00294CDD /* ECUTimerNative.swift */; };
+		A9E4ED6329006D1500294CDD /* ECUTimerDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = A9E4ED6229006D1500294CDD /* ECUTimerDelegate.swift */; };
+		A9E4ED66290070A000294CDD /* ECUTimerTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = A9E4ED65290070A000294CDD /* ECUTimerTest.swift */; };
+		A9E4ED68290074CF00294CDD /* Int+Utils.swift in Sources */ = {isa = PBXBuildFile; fileRef = A9E4ED67290074CF00294CDD /* Int+Utils.swift */; };
 		EEEAA351260CF34500EBEF10 /* paymentCompleted.swift in Sources */ = {isa = PBXBuildFile; fileRef = EEEAA34F260CF34500EBEF10 /* paymentCompleted.swift */; };
 		EEEAA352260CF34500EBEF10 /* paymentCompleted.xib in Resources */ = {isa = PBXBuildFile; fileRef = EEEAA350260CF34500EBEF10 /* paymentCompleted.xib */; };
 		EEEAA358260CF4F700EBEF10 /* success.json in Resources */ = {isa = PBXBuildFile; fileRef = EEEAA357260CF4F700EBEF10 /* success.json */; };
@@ -57,7 +61,6 @@
 		984F465E25F94E1C006D709B /* EncuentroCatolicoUtils.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = EncuentroCatolicoUtils.h; sourceTree = "<group>"; };
 		984F465F25F94E1C006D709B /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		984F466425F94E1D006D709B /* EncuentroCatolicoUtilsTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = EncuentroCatolicoUtilsTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
-		984F466925F94E1D006D709B /* EncuentroCatolicoUtilsTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EncuentroCatolicoUtilsTests.swift; sourceTree = "<group>"; };
 		984F466B25F94E1D006D709B /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		984F467E25F94FE1006D709B /* alertViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = alertViewController.swift; sourceTree = "<group>"; };
 		984F467F25F94FE1006D709B /* alertViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = alertViewController.xib; sourceTree = "<group>"; };
@@ -80,6 +83,11 @@
 		A95E90CC28FF4AD100A4F202 /* ECUForm.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ECUForm.swift; sourceTree = "<group>"; };
 		A95E90CE28FF4FA700A4F202 /* Collection+Utils.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Collection+Utils.swift"; sourceTree = "<group>"; };
 		A966606C28FCDF14007887CD /* Media.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Media.xcassets; sourceTree = "<group>"; };
+		A9E4ED5E29006A3700294CDD /* ECUTimer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ECUTimer.swift; sourceTree = "<group>"; };
+		A9E4ED6029006ADE00294CDD /* ECUTimerNative.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ECUTimerNative.swift; sourceTree = "<group>"; };
+		A9E4ED6229006D1500294CDD /* ECUTimerDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ECUTimerDelegate.swift; sourceTree = "<group>"; };
+		A9E4ED65290070A000294CDD /* ECUTimerTest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ECUTimerTest.swift; sourceTree = "<group>"; };
+		A9E4ED67290074CF00294CDD /* Int+Utils.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Int+Utils.swift"; sourceTree = "<group>"; };
 		B1638C081860BF2FBEB2A5E9 /* Pods_EncuentroCatolicoUtils.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_EncuentroCatolicoUtils.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		CE99028C9E1B25B47D5B6147 /* Pods-EncuentroCatolicoUtils.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-EncuentroCatolicoUtils.release.xcconfig"; path = "Target Support Files/Pods-EncuentroCatolicoUtils/Pods-EncuentroCatolicoUtils.release.xcconfig"; sourceTree = "<group>"; };
 		EEEAA34F260CF34500EBEF10 /* paymentCompleted.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = paymentCompleted.swift; sourceTree = "<group>"; };
@@ -139,6 +147,7 @@
 		984F465D25F94E1C006D709B /* EncuentroCatolicoUtils */ = {
 			isa = PBXGroup;
 			children = (
+				A9E4ED5C29006A1B00294CDD /* Core */,
 				A95E90CB28FF32C200A4F202 /* Models */,
 				A94514D628FCB22900675CB6 /* Resources */,
 				A94514D128FCAF1000675CB6 /* Components */,
@@ -158,7 +167,7 @@
 		984F466825F94E1D006D709B /* EncuentroCatolicoUtilsTests */ = {
 			isa = PBXGroup;
 			children = (
-				984F466925F94E1D006D709B /* EncuentroCatolicoUtilsTests.swift */,
+				A9E4ED642900708900294CDD /* ECUUtils */,
 				984F466B25F94E1D006D709B /* Info.plist */,
 			);
 			path = EncuentroCatolicoUtilsTests;
@@ -182,6 +191,7 @@
 				A94514E628FCB61800675CB6 /* View+Utils.swift */,
 				A94514EA28FCB80700675CB6 /* UIColor+Palette.swift */,
 				A95E90CE28FF4FA700A4F202 /* Collection+Utils.swift */,
+				A9E4ED67290074CF00294CDD /* Int+Utils.swift */,
 			);
 			path = Extensions;
 			sourceTree = "<group>";
@@ -225,6 +235,32 @@
 				A95E90C928FF323E00A4F202 /* ECUBorder.swift */,
 			);
 			path = Models;
+			sourceTree = "<group>";
+		};
+		A9E4ED5C29006A1B00294CDD /* Core */ = {
+			isa = PBXGroup;
+			children = (
+				A9E4ED5D29006A2400294CDD /* ECUTimer */,
+			);
+			path = Core;
+			sourceTree = "<group>";
+		};
+		A9E4ED5D29006A2400294CDD /* ECUTimer */ = {
+			isa = PBXGroup;
+			children = (
+				A9E4ED5E29006A3700294CDD /* ECUTimer.swift */,
+				A9E4ED6029006ADE00294CDD /* ECUTimerNative.swift */,
+				A9E4ED6229006D1500294CDD /* ECUTimerDelegate.swift */,
+			);
+			path = ECUTimer;
+			sourceTree = "<group>";
+		};
+		A9E4ED642900708900294CDD /* ECUUtils */ = {
+			isa = PBXGroup;
+			children = (
+				A9E4ED65290070A000294CDD /* ECUTimerTest.swift */,
+			);
+			path = ECUUtils;
 			sourceTree = "<group>";
 		};
 		B95A5C78160F925A5C22A505 /* Frameworks */ = {
@@ -399,12 +435,15 @@
 			buildActionMask = 2147483647;
 			files = (
 				A95E90CD28FF4AD100A4F202 /* ECUForm.swift in Sources */,
+				A9E4ED5F29006A3700294CDD /* ECUTimer.swift in Sources */,
 				A94514D328FCAF2300675CB6 /* ECUGenericTextField.swift in Sources */,
 				A94514ED28FCB88E00675CB6 /* ECUViewSide.swift in Sources */,
 				A94514EB28FCB80700675CB6 /* UIColor+Palette.swift in Sources */,
+				A9E4ED68290074CF00294CDD /* Int+Utils.swift in Sources */,
 				A94514DA28FCB2A100675CB6 /* Bundle+Local.swift in Sources */,
 				A94514E528FCB5EC00675CB6 /* ECUView.swift in Sources */,
 				A95E90CA28FF323E00A4F202 /* ECUBorder.swift in Sources */,
+				A9E4ED6329006D1500294CDD /* ECUTimerDelegate.swift in Sources */,
 				3689987B2612277800532C40 /* APIManager.swift in Sources */,
 				A94514DE28FCB46000675CB6 /* ECUFieldGenericValidation.swift in Sources */,
 				A94514CC28FC7CF300675CB6 /* Date+Utils.swift in Sources */,
@@ -413,6 +452,7 @@
 				A94514E328FCB56100675CB6 /* String+Utils.swift in Sources */,
 				A94514E728FCB61800675CB6 /* View+Utils.swift in Sources */,
 				EEEAA351260CF34500EBEF10 /* paymentCompleted.swift in Sources */,
+				A9E4ED6129006ADE00294CDD /* ECUTimerNative.swift in Sources */,
 				A95E90CF28FF4FA700A4F202 /* Collection+Utils.swift in Sources */,
 				A94514DF28FCB46000675CB6 /* ECUField.swift in Sources */,
 				984F468025F94FE1006D709B /* alertViewController.swift in Sources */,
@@ -423,7 +463,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				984F466A25F94E1D006D709B /* EncuentroCatolicoUtilsTests.swift in Sources */,
+				A9E4ED66290070A000294CDD /* ECUTimerTest.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

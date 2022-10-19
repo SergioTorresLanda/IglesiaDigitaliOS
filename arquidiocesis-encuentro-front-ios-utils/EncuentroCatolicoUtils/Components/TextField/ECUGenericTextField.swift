@@ -24,18 +24,18 @@ open class ECUGenericTextField: UITextField {
     public var leftAction: ECGenericAction?
     public var rightIcon: UIImage? {
         didSet {
-            guard oldValue != leftIcon else {
+            guard oldValue != rightIcon else {
                 return
             }
             
-            setLeftIcon()
+            setRightIcon()
         }
     }
     public var rightIconTint: UIColor?
     public var rightAction: ECGenericAction?
     public var border: ECUBorder?
     
-    var padding = UIEdgeInsets(top: 10, left: 41, bottom: 10, right: 10)
+    var padding = UIEdgeInsets(top: 10, left: 10, bottom: 10, right: 10)
     
     //MARK: - Life Cycle
     open override func textRect(forBounds bounds: CGRect) -> CGRect {
@@ -52,7 +52,7 @@ open class ECUGenericTextField: UITextField {
     
     override open func layoutSubviews() {
         super.layoutSubviews()
-        
+
         setupBorder()
         setLeftIcon()
         setRightIcon()
@@ -66,7 +66,7 @@ open class ECUGenericTextField: UITextField {
 //MARK: - Private functions
 extension ECUGenericTextField {
     private func setupBorder() {
-        guard self.superview != nil,
+        guard self.frame != .zero,
               let border = self.border else {
             return
         }
@@ -76,7 +76,7 @@ extension ECUGenericTextField {
     }
     
     private func setLeftIcon() {
-        guard self.superview != nil,
+        guard self.frame != .zero,
               let icon = self.leftIcon else {
             return
         }
@@ -87,7 +87,7 @@ extension ECUGenericTextField {
     }
     
     private func setRightIcon() {
-        guard self.superview != nil,
+        guard self.frame != .zero,
               let icon = self.rightIcon else {
             return
         }

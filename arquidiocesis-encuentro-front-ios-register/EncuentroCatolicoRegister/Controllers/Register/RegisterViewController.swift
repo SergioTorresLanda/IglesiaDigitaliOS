@@ -45,7 +45,7 @@ class RegisterViewController: BaseVC {
         field.textField.autocapitalizationType = .words
         
         field.validations = [
-            ECUFieldGenericValidation.required.getValidation()
+            ECUFieldGenericValidation.required(fieldName: "tu nombre").getValidation()
         ]
         
         return field
@@ -62,7 +62,7 @@ class RegisterViewController: BaseVC {
         field.textField.autocapitalizationType = .none
         field.textField.autocapitalizationType = .words
         field.validations = [
-            ECUFieldGenericValidation.required.getValidation()
+            ECUFieldGenericValidation.required(fieldName: "tu \(field.fieldName.lowercased())").getValidation()
         ]
         
         return field
@@ -86,12 +86,12 @@ class RegisterViewController: BaseVC {
         let field = ECUField()
         
         field.fieldName = "Número celular"
-        field.textField.maxLength = 11
+        field.textField.maxLength = 10
         field.textField.returnKeyType = .next
         field.textField.keyboardType = .numberPad
         field.textField.autocapitalizationType = .none
         field.validations = [
-            ECUFieldGenericValidation.required.getValidation(),
+            ECUFieldGenericValidation.required(fieldName: "tu \(field.fieldName.lowercased())").getValidation(),
             ECUFieldGenericValidation.isValidPhone.getValidation()
         ]
         
@@ -104,7 +104,7 @@ class RegisterViewController: BaseVC {
         field.fieldName = "Fecha de nacimiento"
         
         field.validations = [
-            ECUFieldGenericValidation.required.getValidation()
+            ECUFieldGenericValidation.required(fieldName: "tu \(field.fieldName.lowercased())").getValidation()
         ]
         
         return field
@@ -120,7 +120,7 @@ class RegisterViewController: BaseVC {
         field.textField.autocapitalizationType = .none
         field.textField.keyboardType = .emailAddress
         field.validations = [
-            ECUFieldGenericValidation.required.getValidation(),
+            ECUFieldGenericValidation.required(fieldName: "tu \(field.fieldName.lowercased())").getValidation(),
             ECUFieldGenericValidation.isValidEmail.getValidation()
         ]
         
@@ -139,8 +139,8 @@ class RegisterViewController: BaseVC {
         field.fieldName = "Contraseña"
         field.fieldDescription = "Debe tener mínimo 8 caracteres, 1 mayúscula, 1 número y 1 carácter especial."
         field.validations = [
-            ECUFieldGenericValidation.required.getValidation(),
-            ECUFieldGenericValidation.isValidPwd.getValidation()
+            ECUFieldGenericValidation.required(fieldName: "tu \(field.fieldName.lowercased())").getValidation(),
+            ECUFieldGenericValidation.isValidPwd(fieldName: "una contraseña").getValidation()
         ]
         
         return field
@@ -158,9 +158,8 @@ class RegisterViewController: BaseVC {
         field.fieldName = "Confirmar tu contraseña"
         field.fieldDescription = "Ambas contraseñas deben coincidir."
         field.validations = [
-            ECUFieldGenericValidation.required.getValidation(),
-            ECUFieldGenericValidation.isValidPwd.getValidation(),
-            { $0 == self.passwordField.text ? nil : "Ambas contraseñas deben coincidir." }
+            ECUFieldGenericValidation.required(fieldName: "tu confirmación de contraseña").getValidation(),
+            { $0 == self.passwordField.text ? nil : "La confirmación de la contraseña debe ser igual a la contraseña" }
         ]
         
         return field
@@ -294,24 +293,24 @@ extension RegisterViewController {
             field.textField.addTarget(self, action: #selector(self.next(_:)), for: .editingDidEndOnExit)
         }
         
-        setPasswordField(sender: passwordField.textField)
-        setPasswordField(sender: confirmPasswordField.textField)
+        setPasswordField(sender: passwordField)
+        setPasswordField(sender: confirmPasswordField)
         
         passwordField.onClickRightAction = {
-            self.setPasswordField(sender: self.passwordField.textField)
+            self.setPasswordField(sender: self.passwordField)
         }
         
         birthdateField.rightIcon = UIImage(named: "calendariov3", in: .module, compatibleWith: nil)
         
         confirmPasswordField.onClickRightAction = {
-            self.setPasswordField(sender: self.confirmPasswordField.textField)
+            self.setPasswordField(sender: self.confirmPasswordField)
         }
     }
     
-    private func setPasswordField(sender: ECUGenericTextField) {
-        sender.isSecureTextEntry = !sender.isSecureTextEntry
-        sender.rightIconTint = !sender.isSecureTextEntry ? UIColor(red: 102/255, green: 102/255, blue: 102/255, alpha: 1) : nil
-        sender.rightIcon = UIImage(named: !sender.isSecureTextEntry ? "hideEye" : "showEye", in: .module, compatibleWith: nil)
+    private func setPasswordField(sender: ECUField) {
+        sender.textField.isSecureTextEntry = !sender.textField.isSecureTextEntry
+        sender.rightIconTint = !sender.textField.isSecureTextEntry ? UIColor(red: 102/255, green: 102/255, blue: 102/255, alpha: 1) : nil
+        sender.rightIcon = UIImage(named: !sender.textField.isSecureTextEntry ? "hideEye" : "showEye", in: .module, compatibleWith: nil)
     }
     
     private func setupDatePicker(){

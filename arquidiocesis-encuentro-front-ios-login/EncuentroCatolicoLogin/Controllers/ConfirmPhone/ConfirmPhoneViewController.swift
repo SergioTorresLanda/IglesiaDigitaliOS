@@ -6,6 +6,7 @@
 //
 
 import UIKit
+import EncuentroCatolicoUtils
 
 class ConfirmPhoneViewController: UIViewController {
     
@@ -35,12 +36,17 @@ class ConfirmPhoneViewController: UIViewController {
     
     // MARK: Properties
     var presenter: ConfirmPhonePresenterProtocol?
+    lazy var timer: ECUTimer = {
+        let timer = ECUTimerNative()
+        
+        timer.delegate = self
+        
+        return timer
+    }()
     var usuario: UserRegister?
     var codeStr : [String] = []
     var pos = 0
-    var countDown               :   Int   = 0
-    var timer                   :   Timer?
-    let TIME_CODE = 179
+    
     // MARK: Lifecycle
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -103,52 +109,14 @@ class ConfirmPhoneViewController: UIViewController {
     }
     
     public func startTime(_ maxTime: Int) {
-        
-        self.stopTime()
-        let minutes = maxTime / 60
-        countDown = maxTime
-        
-        DispatchQueue.main.async {
-            
-            self.activatedBtnSend(isHide: true)
-        }
-        
-        self.timer = Timer.scheduledTimer(
-            timeInterval    :   1,
-            target          :   self,
-            selector        :   #selector(updateCountDown),
-            userInfo        :   nil,
-            repeats         :   true
-        )
-    }
-    
-    @objc func updateCountDown() {
-        
-        let seg = countDown % 60
-        let min = countDown / 60
-        
-        if countDown > 0 {
-            
-            self.lblTime.text = "\(min)" + ":" + (seg > 9 ? "\(seg)" : "0\(seg)")
-            
-            countDown = countDown - 1
-        } else {
-            
-            DispatchQueue.main.async {
-                self.lblTime.text = "0:00"
-                self.activatedBtnSend(isHide: false)
-            }
-            self.stopTime()
+        timer.start(to: maxTime)
+        DispatchQueue.main.async { [weak self] in
+            self?.activatedBtnSend(isHide: true)
         }
     }
     
     public func stopTime() {
         
-        if let _ = timer {
-            
-            timer?.invalidate()
-            timer = nil
-        }
     }
     
     // MARK: Actions
@@ -164,13 +132,8 @@ class ConfirmPhoneViewController: UIViewController {
     func getOTP(){
         loader.isHidden = false
         loader.startAnimating()
-        activatedBtnSend(isHide: false)//true)
-       // startTimer()
-        //print("-> 🚧 usuario: ",usuario?.username)
-        //print("-> 🚧 usuario: ",usuario!)
         
-    
-        
+        activatedBtnSend(isHide: false)
         presenter?.reenviarCodigo(user: usuario!)
     }
     
@@ -211,7 +174,7 @@ extension ConfirmPhoneViewController: ConfirmPhoneViewProtocol {
         self.btnCrear.isEnabled = true
         self.loader.stopAnimating()
         self.loader.isHidden = true
-        self.startTime(TIME_CODE)
+        self.startTime(Int.otpTimeout)
         let alerta = UIAlertController(title: dtcAlerta["titulo"], message: dtcAlerta["cuerpo"], preferredStyle: .alert)
         alerta.addAction(UIAlertAction(title: "Aceptar", style: .default, handler: nil))
         self.present(alerta, animated: true, completion: nil)
@@ -398,3 +361,20 @@ extension ConfirmPhoneViewController: UITextFieldDelegate {
     }
 }
 
+//MARK: - ECUTimerDelegate
+extension ConfirmPhoneViewController: ECUTimerDelegate {
+    func timerOnStop() {
+        self.activatedBtnSend(isHide: false)
+    }
+    
+    func timer(onUpdate countdown: Int) {
+        updateCountdown(countDown: countdown)
+    }
+}
+
+//MARK: - Private functions
+extension ConfirmPhoneViewController {
+    private func updateCountdown(countDown: Int) {
+        self.lblTime.text = countDown.secondstoTimeString()
+    }
+}

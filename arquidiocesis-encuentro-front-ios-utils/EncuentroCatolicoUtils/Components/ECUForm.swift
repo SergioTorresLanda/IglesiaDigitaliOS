@@ -20,7 +20,7 @@ public extension ECUForm {
     func validateForm() -> Bool {
         var isValid: Bool = true
         
-        fieldList.forEach { field in
+        fieldList.filter({ $0.validations.count > 0 }).forEach { field in
             if !field.isValid,
                isValid {
                 isValid = false

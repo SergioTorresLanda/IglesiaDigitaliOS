@@ -56,8 +56,6 @@ class ForgotPViewController: UIViewController, ForgotViewProtocol {
         
         let tapSuperview = UITapGestureRecognizer(target: self, action: #selector(TapSuperview))
         self.view.addGestureRecognizer(tapSuperview)
-        
-        
     }
     
     @objc func TapSuperview() {

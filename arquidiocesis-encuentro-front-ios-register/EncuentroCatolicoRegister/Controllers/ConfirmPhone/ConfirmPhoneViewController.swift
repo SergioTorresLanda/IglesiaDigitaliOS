@@ -6,6 +6,7 @@
 //
 
 import UIKit
+import EncuentroCatolicoUtils
 
 class ConfirmPhoneViewController: UIViewController {
 
@@ -33,10 +34,14 @@ class ConfirmPhoneViewController: UIViewController {
     var usuario: UserRegister?
     var codeStr : [String] = []
     var pos = 0
-
-    var countDown               :   Int   = 0
-    var timer                   :   Timer?
-    let TIME_CODE = 179
+    lazy var timer: ECUTimer = {
+        let timer = ECUTimerNative()
+        
+        timer.delegate = self
+        
+        return timer
+    }()
+    
     // MARK: Lifecycle
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -77,7 +82,7 @@ class ConfirmPhoneViewController: UIViewController {
     override func viewWillAppear(_ animated: Bool) {
         
         super.viewWillAppear(animated)
-        self.startTime(TIME_CODE)
+        self.startTime(Int.otpTimeout)
     }
     
     private func setupDelegates() {
@@ -94,62 +99,18 @@ class ConfirmPhoneViewController: UIViewController {
     }
     
     public func stopTime() {
-        
-        if let _ = timer {
-            
-            timer?.invalidate()
-            timer = nil
-        }
+        timer.stop()
     }
     
     override func viewWillDisappear(_ animated: Bool) {
-        
         super.viewWillDisappear(animated)
         self.stopTime()
     }
     
     public func startTime(_ maxTime: Int) {
-        
-        self.stopTime()
-        let minutes = maxTime / 60
-        countDown = maxTime
-        
-        DispatchQueue.main.async {
-            
-            self.activatedBtnSend(isHide: true)
-        }
-        
-        self.timer = Timer.scheduledTimer(
-            timeInterval    :   1,
-            target          :   self,
-            selector        :   #selector(updateCountDown),
-            userInfo        :   nil,
-            repeats         :   true
-        )
-    }
-    
-    @objc func updateCountDown() {
-        
-        let seg = countDown % 60
-        let min = countDown / 60
-        
-//        if countDown == (valueTime - 5) {
-//
-//            self.headerView.isHiddenSnack(true)
-//        }
-        
-        if countDown > 0 {
-            
-            self.lblTime.text = "\(min)" + ":" + (seg > 9 ? "\(seg)" : "0\(seg)")
-            
-            countDown = countDown - 1
-        } else {
-            
-            DispatchQueue.main.async {
-                self.lblTime.text = "0:00"
-                self.activatedBtnSend(isHide: false)
-            }
-            self.stopTime()
+        timer.start(to: maxTime)
+        DispatchQueue.main.async { [weak self] in
+            self?.activatedBtnSend(isHide: true)
         }
     }
     
@@ -216,6 +177,17 @@ extension ConfirmPhoneViewController: ConfirmPhoneViewProtocol {
         self.present(alerta, animated: true, completion: nil)
     }
     
+}
+
+//MARK: - ECUTimerDelegate
+extension ConfirmPhoneViewController: ECUTimerDelegate {
+    func timerOnStop() {
+        self.activatedBtnSend(isHide: false)
+    }
+    
+    func timer(onUpdate countdown: Int) {
+        updateCountdown(countDown: countdown)
+    }
 }
 
 extension ConfirmPhoneViewController: UITextFieldDelegate {
@@ -397,3 +369,9 @@ extension ConfirmPhoneViewController: UITextFieldDelegate {
     }
 }
 
+//MARK: - Private functions
+extension ConfirmPhoneViewController {
+    private func updateCountdown(countDown: Int) {
+        self.lblTime.text = countDown.secondstoTimeString()
+    }
+}
