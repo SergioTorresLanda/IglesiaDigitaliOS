@@ -331,7 +331,7 @@ extension ConfirmationCodeView: UITextFieldDelegate {
                         print("sigue")
                     }else{
                         canContinue = false
-                        mensaje = "La contraseña debe tener 8 caracteres y al menos una letra mayúscula, un número y caracter especial"
+                        mensaje = "La contraseña debe tener 8 caracteres y al menos una letra mayúscula, un número y carácter especial"
                         alertFields = AcceptAlert.showAlert(titulo: "Atención", mensaje: mensaje)
                     }
                     
@@ -351,7 +351,7 @@ extension ConfirmationCodeView: UITextFieldDelegate {
                     canContinue = true
                 }else{
                     canContinue = false
-                    mensaje = "La contraseña debe tener 8 caracteres y al menos una letra mayúscula, un número y caracter especial"
+                    mensaje = "La contraseña debe tener 8 caracteres y al menos una letra mayúscula, un número y carácter especial"
                     alertFields = AcceptAlert.showAlert(titulo: "Atención", mensaje: mensaje)
                 }
                 
