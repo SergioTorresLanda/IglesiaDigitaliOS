@@ -630,7 +630,7 @@ class NewDontaionsViewController: BaseVC, NewDontaionsViewProtocol {
     @IBAction func saveTaxDataAction(_ sender: Any) {
         if FormularyFieldCollection[0].text != "" && FormularyFieldCollection[1].text != "" && FormularyFieldCollection[2].text != "" && FormularyFieldCollection[3].text != "" && FormularyFieldCollection[4].text != "" && FormularyFieldCollection[5].text != "" && FormularyFieldCollection[6].text != "" {
             
-            //            showLoading()
+                        showLoading()
             if isEditingData == true {
                 presenter?.saveBillingData(method: "PUT", taxId: billingId, businessName: FormularyFieldCollection[0].text ?? "", rfc: FormularyFieldCollection[1].text ?? "", address: FormularyFieldCollection[2].text ?? "", neighborhood: FormularyFieldCollection[3].text ?? "", zipCode: FormularyFieldCollection[4].text ?? "", municipality: FormularyFieldCollection[5].text ?? "", email: FormularyFieldCollection[6].text ?? "", automaticBilling: automaticBilling)
                 
