@@ -36,9 +36,7 @@
                                             <constraint firstAttribute="height" constant="66" id="lmn-zt-p7v"/>
                                         </constraints>
                                         <state key="normal" title="Button"/>
-                                        <buttonConfiguration key="configuration" style="plain" image="Icono_atrás">
-                                            <preferredSymbolConfiguration key="preferredSymbolConfigurationForImage" scale="large"/>
-                                        </buttonConfiguration>
+                                        <buttonConfiguration key="configuration" style="plain" image="Icono_atrás"/>
                                         <connections>
                                             <action selector="backAction:" destination="Y6W-OH-hqX" eventType="touchUpInside" id="Yms-rd-3it"/>
                                         </connections>
@@ -1508,6 +1506,7 @@
     <resources>
         <image name="CircleLodareImg" width="70.5" height="70.5"/>
         <image name="Icono_atrás" width="11.5" height="18"/>
+        <image name="Icono_atrás" width="11.5" height="18"/>
         <image name="Icono_buscar_Celeste" width="16" height="16"/>
         <image name="NewIcono_buscar" width="25" height="25"/>
         <image name="TwoPoints" width="4" height="12"/>
