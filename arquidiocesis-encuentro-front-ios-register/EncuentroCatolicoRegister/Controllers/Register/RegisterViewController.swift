@@ -18,7 +18,6 @@ class RegisterViewController: BaseVC {
         firstLastNameField,
         secondLastNameField,
         phoneField,
-        birthdateField,
         emailField,
         passwordField,
         confirmPasswordField
@@ -98,18 +97,6 @@ class RegisterViewController: BaseVC {
         return field
     }()
     
-    let birthdateField: ECUField = {
-        let field = ECUField()
-        
-        field.fieldName = "Fecha de nacimiento"
-        
-        field.validations = [
-            ECUFieldGenericValidation.required(fieldName: "tu \(field.fieldName.lowercased())").getValidation()
-        ]
-        
-        return field
-    }()
-    
     let emailField: ECUField = {
         let field = ECUField()
         
@@ -178,18 +165,6 @@ class RegisterViewController: BaseVC {
     
     
     //MARK: - Events
-    @objc func donedatePicker(){
-        let formatter = DateFormatter()
-        
-        formatter.dateFormat = "dd/MM/yyyy"
-        
-        let fecha = formatter.string(from: datePicker.date)
-        
-        birthdateField.textField.text = fecha
-        
-        self.view.endEditing(true)
-    }
-    
     @objc func next(_ sender: UIView) {
         guard let nextTextField = fieldList[safe: sender.tag + 1] else {
             view.endEditing(true)
@@ -227,8 +202,7 @@ class RegisterViewController: BaseVC {
                              cel: phoneField.text,
                              email: emailField.text,
                              contra1: passwordField.text,
-                             contra2: confirmPasswordField.text,
-                             birthDate: birthdateField.text)
+                             contra2: confirmPasswordField.text)
     }
     
     @IBAction func onClickBack(_ sender: Any) {
@@ -266,7 +240,6 @@ extension RegisterViewController {
     private func setupUI() {
         toggleLoading(show: false)
         setupFields()
-        setupDatePicker()
         
         navView.layer.cornerRadius = 30
         navView.layer.shadowRadius = 5
@@ -285,10 +258,6 @@ extension RegisterViewController {
         fieldList.enumerated().forEach { index, field in
             fieldStack.addArrangedSubview(field)
             
-            guard field !== birthdateField else {
-                return
-            }
-            
             field.textField.tag = index
             field.textField.addTarget(self, action: #selector(self.next(_:)), for: .editingDidEndOnExit)
         }
@@ -300,8 +269,6 @@ extension RegisterViewController {
             self.setPasswordField(sender: self.passwordField)
         }
         
-        birthdateField.rightIcon = UIImage(named: "calendariov3", in: .module, compatibleWith: nil)
-        
         confirmPasswordField.onClickRightAction = {
             self.setPasswordField(sender: self.confirmPasswordField)
         }
@@ -311,23 +278,5 @@ extension RegisterViewController {
         sender.textField.isSecureTextEntry = !sender.textField.isSecureTextEntry
         sender.rightIconTint = !sender.textField.isSecureTextEntry ? UIColor(red: 102/255, green: 102/255, blue: 102/255, alpha: 1) : nil
         sender.rightIcon = UIImage(named: !sender.textField.isSecureTextEntry ? "hideEye" : "showEye", in: .module, compatibleWith: nil)
-    }
-    
-    private func setupDatePicker(){
-        datePicker.datePickerMode = .date
-        datePicker.maximumDate = Calendar.current.date(byAdding: .year, value: -8, to: Date())
-        
-        if #available(iOS 13.4, *) {
-            datePicker.preferredDatePickerStyle = .wheels
-        }
-        
-        let toolbar = UIToolbar();
-        toolbar.sizeToFit()
-        
-        let doneButton = UIBarButtonItem(title: "OK", style: .plain, target: self, action: #selector(donedatePicker));
-        toolbar.setItems([ UIBarButtonItem(barButtonSystemItem: UIBarButtonItem.SystemItem.flexibleSpace, target: self, action: nil), doneButton], animated: false)
-        
-        birthdateField.textField.inputAccessoryView = toolbar
-        birthdateField.textField.inputView = datePicker
     }
 }

@@ -10,10 +10,9 @@ public struct UserRegister: Codable {
     let last_name: String
     let middle_name: String
     let role: String
-    let birth_date: String
     let type_person: String
     
-    init(username: String, email: String, phone_number: String, password: String, name: String, last_name: String, middle_name: String, role: String, type_person: String, birth_date: String) {
+    init(username: String, email: String, phone_number: String, password: String, name: String, last_name: String, middle_name: String, role: String, type_person: String) {
         self.username = username
         self.email = email
         self.phone_number = phone_number
@@ -23,7 +22,6 @@ public struct UserRegister: Codable {
         self.middle_name = middle_name
         self.role = role
         self.type_person = type_person
-        self.birth_date = birth_date
     }
     
 }

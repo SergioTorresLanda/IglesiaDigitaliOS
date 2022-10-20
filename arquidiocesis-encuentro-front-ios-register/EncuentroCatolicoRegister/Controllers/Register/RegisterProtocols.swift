@@ -1,14 +1,14 @@
 import Foundation
 import UIKit
 
-protocol RegisterViewProtocol: class {
+protocol RegisterViewProtocol: AnyObject {
     // PRESENTER -> VIEW
     var presenter: RegisterPresenterProtocol? { get set }
     func resetButton()
     func mostrarMSG(dtcAlerta: [String: String])
 }
 
-protocol RegisterWireFrameProtocol: class {
+protocol RegisterWireFrameProtocol: AnyObject {
     // PRESENTER -> WIREFRAME
     static func createModule(_ user: UserRegister?) -> UIViewController
     func confirmarPhone(controlador: UIViewController, user: UserRegister)
@@ -16,7 +16,7 @@ protocol RegisterWireFrameProtocol: class {
     func back(controller: UIViewController)
 }
 
-protocol RegisterPresenterProtocol: class {
+protocol RegisterPresenterProtocol: AnyObject {
     // VIEW -> PRESENTER
     var view: RegisterViewProtocol? { get set }
     var interactor: RegisterInteractorInputProtocol? { get set }
@@ -25,7 +25,7 @@ protocol RegisterPresenterProtocol: class {
     
     func viewDidLoad(nombre: UITextField, apellido1: UITextField, apellido2: UITextField, celular: UITextField, email: UITextField, usuario: UserRegister?)
     func hideKeyBoard(view: UIView)
-    func continuar(nombre: String, apellido1: String, apellido2: String, cel: String, email: String, contra1: String, contra2: String, birthDate: String)
+    func continuar(nombre: String, apellido1: String, apellido2: String, cel: String, email: String, contra1: String, contra2: String)
     func cancelar(controller: UIViewController)
     func politicas()
     
@@ -33,37 +33,37 @@ protocol RegisterPresenterProtocol: class {
     
 }
 
-protocol RegisterInteractorOutputProtocol: class {
+protocol RegisterInteractorOutputProtocol: AnyObject {
    // INTERACTOR -> PRESENTER
     func respuestaValidacion(error: ErroresRegister, user: UserRegister?)
 }
 
-protocol RegisterInteractorInputProtocol: class {
+protocol RegisterInteractorInputProtocol: AnyObject {
     // PRESENTER -> INTERACTOR
     var presenter: RegisterInteractorOutputProtocol? { get set }
     var localDatamanager: RegisterLocalDataManagerInputProtocol? { get set }
     var remoteDatamanager: RegisterRemoteDataManagerInputProtocol? { get set }
     
     func viewDidLoad(nombre: UITextField, apellido1: UITextField, apellido2: UITextField, celular: UITextField, email: UITextField, usuario: UserRegister?)
-    func realizaValidaciones(nombre: String, apellido1: String, apellido2: String, cel: String, email: String, contra1: String, contra2: String, birth_date: String)
+    func realizaValidaciones(nombre: String, apellido1: String, apellido2: String, cel: String, email: String, contra1: String, contra2: String)
 }
 
-protocol RegisterDataManagerInputProtocol: class {
+protocol RegisterDataManagerInputProtocol: AnyObject {
     // INTERACTOR -> DATAMANAGER
 }
 
-protocol RegisterRemoteDataManagerInputProtocol: class {
+protocol RegisterRemoteDataManagerInputProtocol: AnyObject {
     // INTERACTOR -> REMOTEDATAMANAGER
     var remoteRequestHandler: RegisterRemoteDataManagerOutputProtocol? { get set }
     
     func saveData(register: UserRegister)
 }
 
-protocol RegisterRemoteDataManagerOutputProtocol: class {
+protocol RegisterRemoteDataManagerOutputProtocol: AnyObject {
     // REMOTEDATAMANAGER -> INTERACTOR
     func callbackResponse(respuesta: ResponseRegister?, error: ErroresServidor?, user: UserRegister)
 }
 
-protocol RegisterLocalDataManagerInputProtocol: class {
+protocol RegisterLocalDataManagerInputProtocol: AnyObject {
     // INTERACTOR -> LOCALDATAMANAGER
 }

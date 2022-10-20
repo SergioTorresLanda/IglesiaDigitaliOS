@@ -26,8 +26,8 @@ extension RegisterPresenter: RegisterPresenterProtocol {
         view.endEditing(true)
     }
     
-    func continuar(nombre: String, apellido1: String, apellido2: String, cel: String, email: String, contra1: String, contra2: String,  birthDate: String) {
-        interactor?.realizaValidaciones(nombre: nombre, apellido1: apellido1, apellido2: apellido2, cel: "+52" + cel, email: email, contra1: contra1, contra2: contra2, birth_date: birthDate)
+    func continuar(nombre: String, apellido1: String, apellido2: String, cel: String, email: String, contra1: String, contra2: String) {
+        interactor?.realizaValidaciones(nombre: nombre, apellido1: apellido1, apellido2: apellido2, cel: "+52" + cel, email: email, contra1: contra1, contra2: contra2)
     }
     
     func cancelar(controller: UIViewController) {
