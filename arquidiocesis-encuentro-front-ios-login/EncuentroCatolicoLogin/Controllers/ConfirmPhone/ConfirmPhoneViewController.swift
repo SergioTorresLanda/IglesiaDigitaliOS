@@ -128,7 +128,6 @@ class ConfirmPhoneViewController: UIViewController {
         txtNumber5.text = ""
         txtNumber6.text = ""
         getOTP()
-        timer.start(to: .otpTimeout)
     }
     func getOTP(){
         loader.isHidden = false
