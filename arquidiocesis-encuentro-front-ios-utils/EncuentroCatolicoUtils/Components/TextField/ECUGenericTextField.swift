@@ -17,7 +17,12 @@ open class ECUGenericTextField: UITextField {
                 return
             }
             
-            setLeftIcon()
+            guard let leftIcon = leftIcon else {
+                setIcon(nil, isRight: false)
+                return
+            }
+
+            self.leftImage = leftIcon
         }
     }
     public var leftIconTint: UIColor?
@@ -28,7 +33,12 @@ open class ECUGenericTextField: UITextField {
                 return
             }
             
-            setRightIcon()
+            guard let rightIcon = rightIcon else {
+                setIcon(nil, isRight: true)
+                return
+            }
+
+            self.rightImage = rightIcon
         }
     }
     public var rightIconTint: UIColor?
@@ -37,6 +47,24 @@ open class ECUGenericTextField: UITextField {
     
     var padding = UIEdgeInsets(top: 10, left: 10, bottom: 10, right: 10)
     
+    private var rightImage: UIImage? {
+        didSet {
+            guard oldValue != rightIcon else {
+                return
+            }
+            
+            setRightIcon()
+        }
+    }
+    private var leftImage: UIImage? {
+        didSet {
+            guard oldValue != leftIcon else {
+                return
+            }
+            
+            setLeftIcon()
+        }
+    }
     //MARK: - Life Cycle
     open override func textRect(forBounds bounds: CGRect) -> CGRect {
         return bounds.inset(by: padding)
@@ -77,24 +105,24 @@ extension ECUGenericTextField {
     
     private func setLeftIcon() {
         guard self.frame != .zero,
-              let icon = self.leftIcon else {
+              let icon = self.leftImage else {
             return
         }
         
         setIcon(icon, isRight: false)
         self.padding.left = self.leftView?.frame.size.width ?? 10
-        self.leftIcon = nil
+        self.leftImage = nil
     }
     
     private func setRightIcon() {
         guard self.frame != .zero,
-              let icon = self.rightIcon else {
+              let icon = self.rightImage else {
             return
         }
         
         setIcon(icon, isRight: true)
         self.padding.right = self.rightView?.frame.size.width ?? 10
-        self.rightIcon = nil
+        self.rightImage = nil
     }
     
     private func setIcon(_ icon: UIImage?, isRight: Bool) {

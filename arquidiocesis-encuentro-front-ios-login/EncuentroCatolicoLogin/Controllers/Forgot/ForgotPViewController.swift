@@ -76,7 +76,7 @@ class ForgotPViewController: UIViewController, ForgotViewProtocol {
 
     func statusResponse() {
         let singleton = ForgotPViewController.singleton
-        singleton.emailParam = validatePhoneMail(toValidate: emailField.text ?? "") 
+        singleton.emailParam = validatePhoneMail(toValidate: emailField.text ?? "") ?? (emailField.text ?? "")
         alertLoader.dismiss(animated: true, completion: nil)
         Timer.scheduledTimer(withTimeInterval: 0.5, repeats: false) { (timer) in
             let view  = ConfirmationCodeRouter.createModule(userEmail: self.emailField.text ?? "")
@@ -94,14 +94,17 @@ class ForgotPViewController: UIViewController, ForgotViewProtocol {
         }
     }
     
-    private func validatePhoneMail(toValidate: String)->String {
+    private func validatePhoneMail(toValidate: String) -> String? {
         
         if isValidPhone(phone: toValidate) {
             return "+52\(toValidate)"
-        }else if isValidEmail(email: toValidate){
+        }
+        
+        if isValidEmail(email: toValidate) {
             return toValidate
         }
-        return toValidate
+        
+        return nil
     }
     @IBAction func backDismiss(_ sender: Any) {
         self.navigationController?.popViewController(animated: true)
@@ -113,10 +116,17 @@ class ForgotPViewController: UIViewController, ForgotViewProtocol {
 //        let view  = ConfirmationCodeRouter.createModule(userEmail: emailField.text ?? "")
 //        self.navigationController?.pushViewController(view, animated: true)
         
-        if emailField.text != "" {
+        if (emailField.text ?? "") != "" {
             if canContiue == true {
+                guard let textValidate = validatePhoneMail(toValidate: (emailField.text ?? "")) else {
+                    alertFields = AcceptAlert.showAlert(titulo: "Atención", mensaje: "Debes ingresar un correo electrónico válido o un número celular válido")
+                    alertFields!.view.backgroundColor = .clear
+                    present(alertFields!, animated: true)
+                    return
+                }
+                
                 showLoader()
-                presenter?.postData(dataEmail: validatePhoneMail(toValidate: emailField.text!))
+                presenter?.postData(dataEmail: textValidate)
 //                let view  = ConfirmationCodeRouter.createModule()
 //        self.navigationController?.pushViewController(view, animated: true)
 
@@ -205,16 +215,12 @@ extension ForgotPViewController: UITextFieldDelegate {
 
 extension ForgotPViewController {
 
-        func isValidPhone(phone: String) -> Bool {
-                let phoneRegex = "^[0-9+]{0,1}+[0-9]{5,16}$"
-                let phoneTest = NSPredicate(format: "SELF MATCHES %@", phoneRegex)
-                return phoneTest.evaluate(with: phone)
-            }
+    func isValidPhone(phone: String) -> Bool {
+        phone.evaluateRegEx(for: .regexPhone)
+    }
 
-        func isValidEmail(email: String) -> Bool {
-                let emailRegEx = "[A-Z0-9a-z._%+-]+@[A-Za-z0-9.-]+\\.[A-Za-z]{2,64}"
-                let emailTest = NSPredicate(format:"SELF MATCHES %@", emailRegEx)
-                return emailTest.evaluate(with: email)
-            }
+    func isValidEmail(email: String) -> Bool {
+        email.evaluateRegEx(for: .regexEmail)
+    }
 
 }

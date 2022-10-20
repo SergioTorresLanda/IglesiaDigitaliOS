@@ -76,6 +76,12 @@ open class ECUField: ECUView {
                 textField.rightIconTint = errorDesc != nil ? .danger : nil
                 textField.rightIcon = UIImage(named: errorDesc != nil ? "close" : "success", in: .local, compatibleWith: nil)
             }
+            
+            if errorDesc == nil,
+               self.text == "" {
+                textField.rightIconTint = nil
+                textField.rightIcon = nil
+            }
         }
     }
     var color: UIColor = .primary {

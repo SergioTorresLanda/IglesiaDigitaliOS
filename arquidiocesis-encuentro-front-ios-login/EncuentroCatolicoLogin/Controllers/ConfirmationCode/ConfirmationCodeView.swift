@@ -261,7 +261,7 @@ class ConfirmationCodeView: UIViewController, ConfirmationCodeViewProtocol {
     @IBAction func resendAction(_ sender: Any) {
         
         if self.canResend == false{
-            let alert = AcceptAlert.showAlert(titulo: "", mensaje: "No podrás solicitar otro código hasta pasado un minuto")
+            let alert = AcceptAlert.showAlert(titulo: "", mensaje: "No podrás solicitar otro código hasta pasando tres minutos")
             alert.view.backgroundColor = .clear
             present(alert, animated: true)
         }else{

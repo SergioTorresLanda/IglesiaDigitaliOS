@@ -17,8 +17,8 @@ class RegisterViewController: BaseVC {
         nameField,
         firstLastNameField,
         secondLastNameField,
-        birthdateField,
         phoneField,
+        birthdateField,
         emailField,
         passwordField,
         confirmPasswordField
@@ -158,7 +158,7 @@ class RegisterViewController: BaseVC {
         field.fieldName = "Confirmar tu contraseña"
         field.fieldDescription = "Ambas contraseñas deben coincidir."
         field.validations = [
-            ECUFieldGenericValidation.required(fieldName: "tu confirmación de contraseña").getValidation(),
+            ECUFieldGenericValidation.required(fieldName: "la confirmación de la contraseña").getValidation(),
             { $0 == self.passwordField.text ? nil : "La confirmación de la contraseña debe ser igual a la contraseña" }
         ]
         

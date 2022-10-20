@@ -133,6 +133,8 @@ class ConfirmPhoneViewController: UIViewController {
             
             self.presenter?.reenviarCodigo(user: user)
         }
+        
+        startTime(.otpTimeout)
     }
     
     @IBAction func cambiaNumero(_ sender: Any) {

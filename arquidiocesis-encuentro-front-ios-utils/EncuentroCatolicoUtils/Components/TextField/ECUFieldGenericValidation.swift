@@ -29,14 +29,14 @@ public enum ECUFieldGenericValidation {
             return { (Double($0 ?? "") ?? 0.0) >= comparation ? nil : String(format: "@error_msg_greater_than".getLocalizedString(bundle: .local), String(comparation)) }
         case .isValidEmail:
             return { value in
-                guard (value?.evaluateRegEx(for: "[A-Z0-9a-z._%+-]+@[A-Za-z0-9.-]+\\.[A-Za-z]{2,64}") ?? false) else {
+                guard (value?.evaluateRegEx(for: .regexEmail) ?? false) else {
                     return "@error_msg_invalid_email".getLocalizedString(bundle: .local)
                 }
                 
                 return validateCom(email: value) ? nil : "@error_msg_invalid_email_by_com".getLocalizedString(bundle: .local)
             }
         case .isValidPhone:
-            return { ($0?.evaluateRegEx(for: #"(\d+){10}"#) ?? false) ? nil : "@error_msg_invalid_phone".getLocalizedString(bundle: .local) }
+            return { ($0?.evaluateRegEx(for: .regexPhone) ?? false) ? nil : "@error_msg_invalid_phone".getLocalizedString(bundle: .local) }
         case .isValidPwd(let fieldName):
             return { ($0?.evaluateRegEx(for: .regexPwd) ?? false) ? nil : String(format: "@error_msg_invalid_generic".getLocalizedString(bundle: .local), String(fieldName)) }
         case .minimunCharecters(let comparation):
