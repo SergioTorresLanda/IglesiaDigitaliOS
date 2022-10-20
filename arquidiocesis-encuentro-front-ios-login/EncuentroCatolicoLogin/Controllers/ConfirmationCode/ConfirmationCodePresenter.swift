@@ -31,7 +31,7 @@ class ConfirmationCodePresenter: ConfirmationCodePresenterProtocol {
     
     func getErrorPost() {
         DispatchQueue.main.async {
-//            self.view?.errorChange()
+            self.view?.errorChange()
         }
     }
     

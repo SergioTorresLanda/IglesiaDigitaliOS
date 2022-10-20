@@ -82,7 +82,7 @@ class ConfirmPhoneViewController: UIViewController {
     override func viewWillAppear(_ animated: Bool) {
         
         super.viewWillAppear(animated)
-        self.startTime(Int.otpTimeout)
+        self.startTime(.otpTimeout)
     }
     
     private func setupDelegates() {

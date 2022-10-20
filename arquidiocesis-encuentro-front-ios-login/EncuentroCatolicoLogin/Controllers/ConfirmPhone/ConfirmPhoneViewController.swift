@@ -134,6 +134,7 @@ class ConfirmPhoneViewController: UIViewController {
         loader.startAnimating()
         
         activatedBtnSend(isHide: false)
+        startTime(.otpTimeout)
         presenter?.reenviarCodigo(user: usuario!)
     }
     
@@ -174,7 +175,6 @@ extension ConfirmPhoneViewController: ConfirmPhoneViewProtocol {
         self.btnCrear.isEnabled = true
         self.loader.stopAnimating()
         self.loader.isHidden = true
-        self.startTime(Int.otpTimeout)
         let alerta = UIAlertController(title: dtcAlerta["titulo"], message: dtcAlerta["cuerpo"], preferredStyle: .alert)
         alerta.addAction(UIAlertAction(title: "Aceptar", style: .default, handler: nil))
         self.present(alerta, animated: true, completion: nil)

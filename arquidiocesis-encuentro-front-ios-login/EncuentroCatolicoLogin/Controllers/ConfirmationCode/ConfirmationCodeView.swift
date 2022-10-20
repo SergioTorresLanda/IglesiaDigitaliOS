@@ -72,7 +72,7 @@ class ConfirmationCodeView: UIViewController, ConfirmationCodeViewProtocol {
             lblPhone.text = emailUser
         }
         
-        timer.start(to: Int.otpTimeout)
+        timer.start(to: .otpTimeout)
         
         numberFieldsCollection.forEach { (field) in
             field.delegate = self
@@ -212,7 +212,6 @@ class ConfirmationCodeView: UIViewController, ConfirmationCodeViewProtocol {
                 self.numberFieldsCollection.forEach { (fielf) in
                     fielf.text = ""
                 }
-                self.timer.start(to: Int.otpTimeout)
                 UIView.animate(withDuration: 0.3) {
                     self.btnResend.alpha = 0
                     self.lblDescTimer.alpha = 1
@@ -266,6 +265,7 @@ class ConfirmationCodeView: UIViewController, ConfirmationCodeViewProtocol {
             present(alert, animated: true)
         }else{
             let singleton = ForgotPViewController.singleton
+            timer.start(to: .otpTimeout)
             presenter?.postData2(dataEmail: singleton.emailParam)
             btnResend.isEnabled = false
         }
