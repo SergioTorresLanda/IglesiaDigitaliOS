@@ -188,6 +188,7 @@ class NewDontaionsViewController: BaseVC, NewDontaionsViewProtocol {
     private func setupUI() {
         customNavbar.layer.cornerRadius = 20
         customNavbar.ShadowNavBar()
+        profileContent.isHidden = true
         backIcon.setTitle("", for: .normal)
         btnSearch.titleLabel?.numberOfLines = 1
         btnSearch.titleLabel?.adjustsFontSizeToFitWidth = true
