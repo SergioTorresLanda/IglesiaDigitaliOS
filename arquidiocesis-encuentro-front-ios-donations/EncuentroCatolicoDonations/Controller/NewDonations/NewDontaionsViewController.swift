@@ -203,7 +203,7 @@ class NewDontaionsViewController: BaseVC, NewDontaionsViewProtocol {
         var axisX = 61
         axisX += Int(statixMinX)
         menuLine = UIView(frame: CGRect(x: axisX, y: Int(menuCollection.frame.maxY), width: 61, height: 3))
-        menuLine.backgroundColor = UIColor.init(red: 190/255, green: 169/255, blue: 120/255, alpha: 1)
+        menuLine.backgroundColor = UIColor.init(red: 1/255, green: 32/255, blue: 104/255, alpha: 1)
         menuLine.layer.cornerRadius = 3
         viewToShadow.addSubview(menuLine)
         
