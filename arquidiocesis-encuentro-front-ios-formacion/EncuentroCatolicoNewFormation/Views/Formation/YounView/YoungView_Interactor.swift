@@ -8,9 +8,10 @@
 import UIKit
 //import EncuentroCatolicoLogin
 
-protocol FYV_VIPER_PresenterToInteractorProtocol: class {
+protocol FYV_VIPER_PresenterToInteractorProtocol: AnyObject {
     var _presenter: FYV_VIPER_InteractorToPresenterProtocol? {set get}
     func getData(strTypeCatalog: String)
+    func getFormationCatalog()
 }
 
 class FYV_ProfileInteractor: FYV_VIPER_PresenterToInteractorProtocol {
@@ -26,17 +27,10 @@ class FYV_ProfileInteractor: FYV_VIPER_PresenterToInteractorProtocol {
         request.httpMethod = "GET"
         let tksession = UserDefaults.standard.string(forKey: "idToken")
         request.setValue("Bearer \( tksession ?? "")", forHTTPHeaderField: "Authorization")
-        let semaphore = DispatchSemaphore (value: 0)
-
-        let task = URLSession.shared.dataTask(with: request) { data, response, error in
-            
-            //print("->  respuesta Status Code: ", response as Any)
-            //print("->  error: ", error as Any)
-
+        
+        URLSession.shared.dataTask(with: request) { data, response, error in
             guard let data = data else {
-                semaphore.signal()
-//                self._presenter?.errorCloseSesion(code: 90, msg: "Hola")
-                return
+              return
             }
             do{
                 let userResponse = try JSONDecoder().decode([FF_Formation_Entity].self, from: data)
@@ -47,10 +41,27 @@ class FYV_ProfileInteractor: FYV_VIPER_PresenterToInteractorProtocol {
 //                self._presenter?.errorCloseSesion(code: 90, msg: "Hola")
                 APIType.shared.refreshToken()
             }
-            semaphore.signal()
-        }
-        task.resume()
-        semaphore.wait()
+        }.resume()
+    }
+    
+    public func getFormationCatalog() -> Void {
+        var request = URLRequest(url: URL(string: "https://api-develop.arquidiocesis.mx/catalog/library-themes")!,timeoutInterval: .timeout)
+        
+        request.httpMethod = "GET"
+        
+        URLSession.shared.dataTask(with: request) { [weak self] data, response, error in
+            guard let self = self else {
+                return
+            }
+            
+            guard let data = data,
+                  let userResponse = try? JSONDecoder().decode(FF_CatalogObj_Entity.self, from: data) else {
+                self._presenter?.onError(msg: "Ocurrió un error inesperado")
+                return
+            }
+            
+            self._presenter?.setDataCatalog(data: userResponse)
+        }.resume()
     }
     
     func getData(strTypeCatalog: String){

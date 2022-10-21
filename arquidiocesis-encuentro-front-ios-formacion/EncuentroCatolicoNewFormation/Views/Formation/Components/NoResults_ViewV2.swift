@@ -42,7 +42,7 @@ class NoResults_ViewV2: UIView{
         let imv = UIImageView()
         imv.contentMode = .scaleAspectFit
         imv.translatesAutoresizingMaskIntoConstraints = false
-        imv.image = UIImage(named: "sinresultadosV2", in: Bundle(for: FirstMan_Route.self), compatibleWith: nil)
+        imv.image = UIImage(named: "sinresultadosV2", in: Bundle(for: YoungView_Route.self), compatibleWith: nil)
             
         addSubview(searchTextPrincipal)
         addSubview(imv)

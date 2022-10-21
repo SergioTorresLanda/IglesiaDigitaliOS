@@ -23,6 +23,5 @@ class FF_CatalogObj_Entity: Codable{
     
     enum CodingKeys: String, CodingKey{
         case data = "data"
-        
     }
 }

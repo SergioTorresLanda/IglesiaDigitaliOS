@@ -51,7 +51,7 @@ extension UIImage {
 }
 extension Bundle {
     func getBundle() -> Bundle {
-        return Bundle(for: FirstMan_Route.self)
+        return Bundle(for: YoungView_Route.self)
     }
 }
 

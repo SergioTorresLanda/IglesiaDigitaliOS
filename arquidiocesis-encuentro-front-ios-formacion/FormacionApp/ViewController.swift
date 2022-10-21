@@ -28,7 +28,7 @@ class ViewController: UIViewController {
 
     @objc func action(){
         guard let navigation = self.navigationController else { debugPrint("Can't create navigation"); return }
-        let viewC = FirstMan_Route.createView(navigation: navigation)
+        let viewC = YoungView_Route.createView(navigation: navigation)
         self.navigationController?.pushViewController(viewC, animated: true)
     }
 }

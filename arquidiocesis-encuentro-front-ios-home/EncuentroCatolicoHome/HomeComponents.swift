@@ -167,10 +167,8 @@ extension HomeViewController: UICollectionViewDelegate {
             let view = OracionesRouter.getController()
             self.navigationController?.pushViewController(view, animated: true)
         case 5:
-            DispatchQueue.main.async {
-                let view = FirstMan_Route.createView(navigation: self.navigationController!)
-                self.navigationController?.pushViewController(view, animated: true)
-            }
+            let view = YoungView_Route.createView(navigation: self.navigationController!)
+            self.navigationController?.pushViewController(view, animated: true)
         case 6:
             let storyboard = UIStoryboard(name: "Main", bundle: Bundle.local)
             let vc = storyboard.instantiateViewController(withIdentifier: "prayerChainFeed") as! prayerChain

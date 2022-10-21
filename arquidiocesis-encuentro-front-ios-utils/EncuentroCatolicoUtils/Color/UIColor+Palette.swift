@@ -29,7 +29,7 @@ public extension UIColor {
     
     ///App Secondary Color
     static var secondary: UIColor {
-        UIColor(named: "secondary", in: .local, compatibleWith: nil) ?? UIColor()
+        UIColor(named: "eDarkGold", in: .local, compatibleWith: nil) ?? UIColor()
     }
     
     ///App Secondary Light Color

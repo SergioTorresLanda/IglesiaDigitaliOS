@@ -18,7 +18,7 @@ struct FormationCell {
 }
 
 class InfoView_Cell: UITableViewCell {
-    
+    //MARK: - Properties
     var details : FormationCell? {
         didSet {
             title.text = details?.title
@@ -30,14 +30,12 @@ class InfoView_Cell: UITableViewCell {
         }
     }
     
-//    var imageViewTitle UIImageView()
-    
     lazy var imageViewTitle : ImageLoader = {
         let imv = ImageLoader()
-//        imv.contentMode = .scaleAspectFit
-//        imv.contentMode = .scaleAspectFill
+
         imv.translatesAutoresizingMaskIntoConstraints = false
         imv.backgroundColor = UIColor(white: 230.0 / 255.0, alpha: 1.0)
+        
         return imv
     }()
     
@@ -108,8 +106,21 @@ class InfoView_Cell: UITableViewCell {
         return lbl
     }()
     
+    //MARK: - Life Cycle
     override init(style: UITableViewCell.CellStyle, reuseIdentifier: String?) {
         super.init(style: style, reuseIdentifier: reuseIdentifier)
+       
+        setupConstraints()
+    }
+    
+    required init?(coder: NSCoder) {
+        fatalError("init(coder:) has not been implemented")
+    }
+}
+
+//MARK: - Private functions
+extension InfoView_Cell {
+    private func setupConstraints() {
         let stackHorizontalDetails = UIStackView(arrangedSubviews: [whereIs,zone,views])
         let stackVertical = UIStackView(arrangedSubviews: [title,subtitle, tags,stackHorizontalDetails])
         let stackHorizontal = UIStackView(arrangedSubviews: [imageViewTitle,stackVertical])
@@ -146,24 +157,11 @@ class InfoView_Cell: UITableViewCell {
             imageViewTitle.widthAnchor.constraint(equalToConstant: 106),
             views.widthAnchor.constraint(equalToConstant: 70),
             title.heightAnchor.constraint(equalToConstant: 30),
+            
             stackHorizontal.topAnchor.constraint(equalTo: self.topAnchor, constant: 5),
             stackHorizontal.rightAnchor.constraint(equalTo: self.rightAnchor, constant: -16),
             stackHorizontal.leftAnchor.constraint(equalTo: self.leftAnchor, constant: 10),
             stackHorizontal.bottomAnchor.constraint(equalTo: self.bottomAnchor, constant: -2)
         ])
     }
-    
-    override func layoutSubviews() {
-        super.layoutSubviews()
-        contentView.frame = contentView.frame.inset(by: UIEdgeInsets(top: 10, left: 10, bottom: -10, right: -10))
-    }
-    
-    required init?(coder: NSCoder) {
-        fatalError("init(coder:) has not been implemented")
-    }
-
-    override func setSelected(_ selected: Bool, animated: Bool) {
-        super.setSelected(selected, animated: animated)
-    }
-
 }

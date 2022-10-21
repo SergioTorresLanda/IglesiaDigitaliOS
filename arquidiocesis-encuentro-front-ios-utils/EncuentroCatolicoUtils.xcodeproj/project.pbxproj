@@ -37,6 +37,9 @@
 		A9E4ED6329006D1500294CDD /* ECUTimerDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = A9E4ED6229006D1500294CDD /* ECUTimerDelegate.swift */; };
 		A9E4ED66290070A000294CDD /* ECUTimerTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = A9E4ED65290070A000294CDD /* ECUTimerTest.swift */; };
 		A9E4ED68290074CF00294CDD /* Int+Utils.swift in Sources */ = {isa = PBXBuildFile; fileRef = A9E4ED67290074CF00294CDD /* Int+Utils.swift */; };
+		A9F10B1B2902152200227FE9 /* UIViewController+Utils.swift in Sources */ = {isa = PBXBuildFile; fileRef = A9F10B1A2902152200227FE9 /* UIViewController+Utils.swift */; };
+		A9F10B2129025B2D00227FE9 /* Double+Utils.swift in Sources */ = {isa = PBXBuildFile; fileRef = A9F10B2029025B2D00227FE9 /* Double+Utils.swift */; };
+		A9F10B252902625D00227FE9 /* UIAlertViewController+Utils.swift in Sources */ = {isa = PBXBuildFile; fileRef = A9F10B242902625D00227FE9 /* UIAlertViewController+Utils.swift */; };
 		EEEAA351260CF34500EBEF10 /* paymentCompleted.swift in Sources */ = {isa = PBXBuildFile; fileRef = EEEAA34F260CF34500EBEF10 /* paymentCompleted.swift */; };
 		EEEAA352260CF34500EBEF10 /* paymentCompleted.xib in Resources */ = {isa = PBXBuildFile; fileRef = EEEAA350260CF34500EBEF10 /* paymentCompleted.xib */; };
 		EEEAA358260CF4F700EBEF10 /* success.json in Resources */ = {isa = PBXBuildFile; fileRef = EEEAA357260CF4F700EBEF10 /* success.json */; };
@@ -88,6 +91,9 @@
 		A9E4ED6229006D1500294CDD /* ECUTimerDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ECUTimerDelegate.swift; sourceTree = "<group>"; };
 		A9E4ED65290070A000294CDD /* ECUTimerTest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ECUTimerTest.swift; sourceTree = "<group>"; };
 		A9E4ED67290074CF00294CDD /* Int+Utils.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Int+Utils.swift"; sourceTree = "<group>"; };
+		A9F10B1A2902152200227FE9 /* UIViewController+Utils.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIViewController+Utils.swift"; sourceTree = "<group>"; };
+		A9F10B2029025B2D00227FE9 /* Double+Utils.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Double+Utils.swift"; sourceTree = "<group>"; };
+		A9F10B242902625D00227FE9 /* UIAlertViewController+Utils.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIAlertViewController+Utils.swift"; sourceTree = "<group>"; };
 		B1638C081860BF2FBEB2A5E9 /* Pods_EncuentroCatolicoUtils.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_EncuentroCatolicoUtils.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		CE99028C9E1B25B47D5B6147 /* Pods-EncuentroCatolicoUtils.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-EncuentroCatolicoUtils.release.xcconfig"; path = "Target Support Files/Pods-EncuentroCatolicoUtils/Pods-EncuentroCatolicoUtils.release.xcconfig"; sourceTree = "<group>"; };
 		EEEAA34F260CF34500EBEF10 /* paymentCompleted.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = paymentCompleted.swift; sourceTree = "<group>"; };
@@ -150,6 +156,7 @@
 				A9E4ED5C29006A1B00294CDD /* Core */,
 				A95E90CB28FF32C200A4F202 /* Models */,
 				A94514D628FCB22900675CB6 /* Resources */,
+				A9F10B2A290272A900227FE9 /* Color */,
 				A94514D128FCAF1000675CB6 /* Components */,
 				A94514CA28FC7CE600675CB6 /* Extensions */,
 				36899879261226DC00532C40 /* Services */,
@@ -189,9 +196,11 @@
 				A94514D928FCB2A100675CB6 /* Bundle+Local.swift */,
 				A94514E228FCB56100675CB6 /* String+Utils.swift */,
 				A94514E628FCB61800675CB6 /* View+Utils.swift */,
-				A94514EA28FCB80700675CB6 /* UIColor+Palette.swift */,
 				A95E90CE28FF4FA700A4F202 /* Collection+Utils.swift */,
 				A9E4ED67290074CF00294CDD /* Int+Utils.swift */,
+				A9F10B1A2902152200227FE9 /* UIViewController+Utils.swift */,
+				A9F10B2029025B2D00227FE9 /* Double+Utils.swift */,
+				A9F10B242902625D00227FE9 /* UIAlertViewController+Utils.swift */,
 			);
 			path = Extensions;
 			sourceTree = "<group>";
@@ -261,6 +270,14 @@
 				A9E4ED65290070A000294CDD /* ECUTimerTest.swift */,
 			);
 			path = ECUUtils;
+			sourceTree = "<group>";
+		};
+		A9F10B2A290272A900227FE9 /* Color */ = {
+			isa = PBXGroup;
+			children = (
+				A94514EA28FCB80700675CB6 /* UIColor+Palette.swift */,
+			);
+			path = Color;
 			sourceTree = "<group>";
 		};
 		B95A5C78160F925A5C22A505 /* Frameworks */ = {
@@ -440,11 +457,14 @@
 				A94514ED28FCB88E00675CB6 /* ECUViewSide.swift in Sources */,
 				A94514EB28FCB80700675CB6 /* UIColor+Palette.swift in Sources */,
 				A9E4ED68290074CF00294CDD /* Int+Utils.swift in Sources */,
+				A9F10B252902625D00227FE9 /* UIAlertViewController+Utils.swift in Sources */,
 				A94514DA28FCB2A100675CB6 /* Bundle+Local.swift in Sources */,
 				A94514E528FCB5EC00675CB6 /* ECUView.swift in Sources */,
 				A95E90CA28FF323E00A4F202 /* ECUBorder.swift in Sources */,
 				A9E4ED6329006D1500294CDD /* ECUTimerDelegate.swift in Sources */,
 				3689987B2612277800532C40 /* APIManager.swift in Sources */,
+				A9F10B1B2902152200227FE9 /* UIViewController+Utils.swift in Sources */,
+				A9F10B2129025B2D00227FE9 /* Double+Utils.swift in Sources */,
 				A94514DE28FCB46000675CB6 /* ECUFieldGenericValidation.swift in Sources */,
 				A94514CC28FC7CF300675CB6 /* Date+Utils.swift in Sources */,
 				A94514F028FCB8F700675CB6 /* ECULabel.swift in Sources */,
@@ -627,7 +647,7 @@
 				SUPPORTS_MACCATALYST = NO;
 				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 				SWIFT_VERSION = 5.0;
-				TARGETED_DEVICE_FAMILY = "1,2";
+				TARGETED_DEVICE_FAMILY = 1;
 			};
 			name = Debug;
 		};
@@ -657,7 +677,7 @@
 				SKIP_INSTALL = YES;
 				SUPPORTS_MACCATALYST = NO;
 				SWIFT_VERSION = 5.0;
-				TARGETED_DEVICE_FAMILY = "1,2";
+				TARGETED_DEVICE_FAMILY = 1;
 			};
 			name = Release;
 		};

@@ -64,8 +64,6 @@ class LoginView: UIViewController {
         let newUser = defaults.bool(forKey: "isNewUser")
         biometricCanValidate()
 //        validateButtonBiometric()
-        txtUser.text = ""
-        txtPassword.text = ""
         self.btnRegistar.isEnabled = true
         self.spinner.stopAnimating()
         self.spinner.isHidden = true
@@ -86,8 +84,16 @@ class LoginView: UIViewController {
     }
     
     override func viewWillDisappear(_ animated: Bool) {
-        hideLoading()
+        super.viewWillDisappear(animated)
         
+        hideLoading()
+    }
+    
+    override func viewDidDisappear(_ animated: Bool) {
+        super.viewDidDisappear(animated)
+        
+        txtUser.text = ""
+        txtPassword.text = ""
     }
     
     @objc private func salta(sender: UITextField) {

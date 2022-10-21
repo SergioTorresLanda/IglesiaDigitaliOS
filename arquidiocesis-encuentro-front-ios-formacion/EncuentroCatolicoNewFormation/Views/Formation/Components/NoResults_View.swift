@@ -17,7 +17,7 @@ class NoResults_View: UIView {
     var details : NoResults? {
         didSet {
             searchText.text = "\"\(details?.searchText ?? "")\""
-            imageViewTitle.image = details?.imageDefault ?? UIImage(named: "sinresultadosV2", in: Bundle(for: FirstMan_Route.self), compatibleWith: nil)
+            imageViewTitle.image = details?.imageDefault ?? UIImage(named: "sinresultadosV2", in: Bundle(for: YoungView_Route.self), compatibleWith: nil)
         }
     }
     
@@ -48,7 +48,7 @@ class NoResults_View: UIView {
         let imv = UIImageView()
         imv.contentMode = .scaleToFill
         imv.translatesAutoresizingMaskIntoConstraints = false
-        imv.image = UIImage(named: "sinresultadosV2", in: Bundle(for: FirstMan_Route.self), compatibleWith: nil)
+        imv.image = UIImage(named: "sinresultadosV2", in: Bundle(for: YoungView_Route.self), compatibleWith: nil)
         return imv
     }()
     

@@ -6,60 +6,10 @@
 //
 
 import UIKit
-//import EncuentroCatolicoLogin
 
-protocol SSVIPER_PresenterToRouter {
-    func goToNextView(navigation: UINavigationController, url: String)
-}
-
-
-
-open class FirstMan_Route {
-
-    static func getCatalog() -> [FF_Catalog_Entity]?{
-        
-        var rtnArr = [FF_Catalog_Entity]()
-//        var request = URLRequest(url: URL(string: "https://api-develop.arquidiocesis.mx/catalog/library-themes")!,timeoutInterval: Double.infinity)
-        var request = URLRequest(url: URL(string: "\(APIType.shared.User())/catalog/library-themes")!,timeoutInterval: Double.infinity)
-        request.httpMethod = "GET"
-        let tksession = UserDefaults.standard.string(forKey: "idToken")
-        request.setValue("Bearer \(tksession ?? "")", forHTTPHeaderField: "Authorization")
-        let semaphore = DispatchSemaphore (value: 0)
-        
-        let task = URLSession.shared.dataTask(with: request) { data, response, error in
-            //print("->  respuesta Status Code: ", response as Any)
-            //print("->  error: ", error as Any)
-
-            guard let data = data else {
-                semaphore.signal()
-//                _presenterr?.errorCloseSesion(code: 90, msg: "Hola")
-                return
-            }
-            do{
-                let userResponse = try JSONDecoder().decode(FF_CatalogObj_Entity.self, from: data)
-                let presenter : SSVIPER_InteractorToPresenterProtocol = SVS_ProfilePresenter()
-                presenter.setDataCatalog(dataCatalog: userResponse)
-                rtnArr = userResponse.data
-                
-            }catch let error {
-                print("Error: \(error.localizedDescription)")
-                APIType.shared.refreshToken()
-//                _presenterr?.errorCloseSesion(code: 90, msg: "Hola")
-                rtnArr = []
-            }
-            semaphore.signal()
-        }
-        task.resume()
-        semaphore.wait()
-        return rtnArr
-    }
-    
+open class YoungView_Route {
     public static func createView(navigation: UINavigationController) -> UIViewController {
-        
-        let arrCatalog = getCatalog()
-        
         let view = YoungView_Controller()
-        view.arrCatalogo = arrCatalog ?? []
         let presenter_FYV : FYV_VIPER_ViewToPresenterProtocol & FYV_VIPER_InteractorToPresenterProtocol = FYV_ProfilePresenter()
         let interactor_FYV: FYV_VIPER_PresenterToInteractorProtocol = FYV_ProfileInteractor()
         let route: SSVIPER_PresenterToRouter = FirstMan_Route()
@@ -72,15 +22,32 @@ open class FirstMan_Route {
         
         return view
     }
-    
+
 }
 
-extension FirstMan_Route: SSVIPER_PresenterToRouter{
+extension YoungView_Route: SSVIPER_PresenterToRouter{
     func goToNextView(navigation: UINavigationController, url: String) {
         let another = FFNView_Route.createView(url: url)
         navigation.pushViewController(another, animated: true)
     }
     
+    func showSpinner(navigation: UINavigationController) {
+        navigation.showSpinner()
+    }
+    
+    func hideSpinner(navigation: UINavigationController) {
+        navigation.hideSpinner()
+    }
+    
+    func goToErrorView(navigation: UINavigationController, title: String, message: String) {
+        let alert = UIAlertController(title: title, message: message, preferredStyle: .alert)
+        
+        alert.addAction(UIAlertAction(title: "Aceptar", style: .default, handler: { _ in
+            navigation.popViewController(animated: true)
+        }))
+        
+        navigation.present(alert, animated: true)
+    }
 }
 
 

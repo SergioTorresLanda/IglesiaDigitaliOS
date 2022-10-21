@@ -9,7 +9,7 @@ import Foundation
 import UIKit
 import CoreMIDI
 
-protocol CustomSegmentControllerDelegate: class {
+protocol CustomSegmentControllerDelegate: AnyObject {
     func change(to index:Int)
 }
 

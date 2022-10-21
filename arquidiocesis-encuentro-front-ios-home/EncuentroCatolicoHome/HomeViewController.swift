@@ -867,7 +867,7 @@ extension HomeViewController: UIViewControllerTransitioningDelegate {
             
         case "VIDEO":
             DispatchQueue.main.asyncAfter(deadline: .now() + 0.2) {
-                let view = FirstMan_Route.createView(navigation: self.navigationController!)
+                let view = YoungView_Route.createView(navigation: self.navigationController!)
                 self.navigationController?.pushViewController(view, animated: true)
             }
             
