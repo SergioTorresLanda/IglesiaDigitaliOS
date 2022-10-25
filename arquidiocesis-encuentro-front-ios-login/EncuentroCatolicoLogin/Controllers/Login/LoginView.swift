@@ -124,17 +124,7 @@ class LoginView: UIViewController {
         view.modalPresentationStyle = .fullScreen
         self.present(view, animated: true)
     }
-    
-    
-    private func validateButtonBiometric() {
-        let biometricButton: Bool = UserDefaults.standard.bool(forKey: "biometricEnable")
-        if biometricButton {
-            btnBiometric.isHidden = false
-        }else{
-            btnBiometric.isHidden = true
-        }
-    }
-    
+
     private func getInstalledVersion() -> String? {
         if let info = Bundle.main.infoDictionary,
            let currentVersion = info["CFBundleShortVersionString"] as? String {
@@ -226,6 +216,7 @@ class LoginView: UIViewController {
             case true:
                 let userValue = UserDefaults.standard.string(forKey: "email")
                 let drws = DAKeychain.shared["miIglesia"]
+                
                     self?.btnRegistar.isEnabled = false
                     self?.spinner.isHidden = false
                     self?.spinner.startAnimating()
@@ -241,24 +232,30 @@ class LoginView: UIViewController {
     }
     
     private func biometricCanValidate() {
+        let userValue = UserDefaults.standard.string(forKey: "email") ?? ""
+        let drws = DAKeychain.shared["miIglesia"] ?? ""
+        
+        guard userValue != "",
+              drws != ""   else {
+            btnBiometric.isHidden = true
+            return
+        }
         
         biometric.canEvaluate { (canEvaluate, typeBio, canEvaluateError) in
-            
             switch typeBio {
-            case .none:
+            case .none, .unknown:
                 btnBiometric.isHidden = true
-            case .touchID:
-                btnBiometric.isHidden = false
-            case .faceID:
-                btnBiometric.isHidden = false
-            case .unknown:
-                btnBiometric.isHidden = true
+                return
+            case .touchID, .faceID:
+                break
             }
             
             guard canEvaluate else {
+                btnBiometric.isHidden = true
                 return
             }
-            
+        
+            btnBiometric.isHidden = false
         }
     }
     
