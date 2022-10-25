@@ -203,7 +203,7 @@ class NewDontaionsViewController: BaseVC, NewDontaionsViewProtocol {
         var axisX = 61
         axisX += Int(statixMinX)
         menuLine = UIView(frame: CGRect(x: axisX, y: Int(menuCollection.frame.maxY), width: 61, height: 3))
-        menuLine.backgroundColor = UIColor.init(red: 190/255, green: 169/255, blue: 120/255, alpha: 1)
+        menuLine.backgroundColor = UIColor.init(red: 1/255, green: 32/255, blue: 104/255, alpha: 1)
         menuLine.layer.cornerRadius = 3
         viewToShadow.addSubview(menuLine)
         
@@ -630,7 +630,7 @@ class NewDontaionsViewController: BaseVC, NewDontaionsViewProtocol {
     @IBAction func saveTaxDataAction(_ sender: Any) {
         if FormularyFieldCollection[0].text != "" && FormularyFieldCollection[1].text != "" && FormularyFieldCollection[2].text != "" && FormularyFieldCollection[3].text != "" && FormularyFieldCollection[4].text != "" && FormularyFieldCollection[5].text != "" && FormularyFieldCollection[6].text != "" {
             
-            //            showLoading()
+                        showLoading()
             if isEditingData == true {
                 presenter?.saveBillingData(method: "PUT", taxId: billingId, businessName: FormularyFieldCollection[0].text ?? "", rfc: FormularyFieldCollection[1].text ?? "", address: FormularyFieldCollection[2].text ?? "", neighborhood: FormularyFieldCollection[3].text ?? "", zipCode: FormularyFieldCollection[4].text ?? "", municipality: FormularyFieldCollection[5].text ?? "", email: FormularyFieldCollection[6].text ?? "", automaticBilling: automaticBilling)
                 

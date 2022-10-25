@@ -96,9 +96,13 @@ extension NewDontaionsInteractor {
             
         ]
         
-        let body = try! JSONSerialization.data(withJSONObject: params)
+        guard let httpBody = try? JSONSerialization.data(withJSONObject: params, options: []) else {
+            return
+        }
+        
         request.setValue("Bearer \( tksession ?? "")", forHTTPHeaderField: "Authorization")
-        request.httpBody = body
+        request.setValue("application/json", forHTTPHeaderField: "Content-Type")
+        request.httpBody = httpBody
         request.httpMethod = method
         
         let work = URLSession.shared.dataTask(with: request) { data, response, error in

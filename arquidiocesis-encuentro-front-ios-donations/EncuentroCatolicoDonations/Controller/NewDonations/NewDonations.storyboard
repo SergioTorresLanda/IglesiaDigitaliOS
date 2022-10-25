@@ -841,6 +841,11 @@
                                                                                                         </constraints>
                                                                                                         <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                                                                                         <textInputTraits key="textInputTraits" returnKeyType="next"/>
+                                                                                                        <userDefinedRuntimeAttributes>
+                                                                                                            <userDefinedRuntimeAttribute type="number" keyPath="maxLength">
+                                                                                                                <integer key="value" value="50"/>
+                                                                                                            </userDefinedRuntimeAttribute>
+                                                                                                        </userDefinedRuntimeAttributes>
                                                                                                     </textField>
                                                                                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="SmP-X6-RT2">
                                                                                                         <rect key="frame" x="0.0" y="58" width="382" height="1"/>
@@ -1505,8 +1510,8 @@
     </scenes>
     <resources>
         <image name="CircleLodareImg" width="70.5" height="70.5"/>
-        <image name="Icono_atrás" width="11.5" height="18"/>
         <image name="Icono_atrás" width="11.5" height="18"/>
+        <image name="Icono_atrás" width="11.5" height="18"/>
         <image name="Icono_buscar_Celeste" width="16" height="16"/>
         <image name="NewIcono_buscar" width="25" height="25"/>
         <image name="TwoPoints" width="4" height="12"/>
