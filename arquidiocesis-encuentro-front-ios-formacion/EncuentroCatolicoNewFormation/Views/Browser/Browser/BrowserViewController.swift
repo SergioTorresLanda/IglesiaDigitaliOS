@@ -106,25 +106,25 @@ extension BrowserViewController: WKNavigationDelegate {
 extension BrowserViewController: URLSessionDownloadDelegate {
     func urlSession(_ session: URLSession, downloadTask: URLSessionDownloadTask, didFinishDownloadingTo location: URL) {
         let path = NSSearchPathForDirectoriesInDomains(FileManager.SearchPathDirectory.documentDirectory, FileManager.SearchPathDomainMask.userDomainMask, true)
-        let docDirectoryPath: String = path[0]
+        guard let docDirectoryPath: String = path[safe: 0] else {
+            return
+        }
         let fileManager = FileManager()
         let destinationURLForFile = URL(fileURLWithPath: docDirectoryPath.appendingFormat("/BiliotecaVirtual.pdf"))
         
         do {
             try fileManager.removeItem(at: destinationURLForFile)
-        }
-        catch{
-        }
-        if fileManager.fileExists(atPath: destinationURLForFile.path){
-            showFilePath(path: destinationURLForFile.path)
-        }else{
-            do {
-                try fileManager.moveItem(at: location, to: destinationURLForFile)
+            if fileManager.fileExists(atPath: destinationURLForFile.path){
                 showFilePath(path: destinationURLForFile.path)
-            }catch{
-                
+                return
             }
+            
+            try fileManager.moveItem(at: location, to: destinationURLForFile)
+            showFilePath(path: destinationURLForFile.path)
+        } catch {
+            
         }
+        
     }
     
     func urlSession(_ session: URLSession, task: URLSessionTask, didCompleteWithError error: Error?) {

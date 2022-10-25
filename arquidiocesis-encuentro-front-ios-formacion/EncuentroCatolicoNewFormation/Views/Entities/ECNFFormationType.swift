@@ -18,7 +18,7 @@ enum ECNFFormationType: String, CaseIterable {
     
     //MARK: - Static Methods
     static func getTypesByCatalog(by code: String) -> [ECNFFormationType] {
-        code == "OUTSTANDING" ? [.newest, .featured] : [.pdf, .video, .audio, .text, .link]
+        code == "OUTSTANDING" ? [.newest] : [.pdf, .video, .audio, .text, .link]
     }
     
     //MARK: - Methods
@@ -35,7 +35,7 @@ enum ECNFFormationType: String, CaseIterable {
         case .link:
             return "Enlaces"
         case .newest:
-            return "Lo Nuevo"
+            return "Lo nuevo"
         case .featured:
             return "Lo más visto"
         }

@@ -34,7 +34,7 @@ class InfoView_Cell: UITableViewCell {
         let imv = UIImageView()
 
         imv.translatesAutoresizingMaskIntoConstraints = false
-        imv.backgroundColor = UIColor(white: 230.0 / 255.0, alpha: 1.0)
+        imv.contentMode = .scaleAspectFit
         
         return imv
     }()
@@ -75,7 +75,7 @@ class InfoView_Cell: UITableViewCell {
     private lazy var whereIs : UILabel = {
         let lbl = UILabel()
         lbl.tintColor = UIColor(white: 175.0 / 255.0, alpha: 1.0)
-        lbl.numberOfLines = 2
+        lbl.numberOfLines = 1
         lbl.lineBreakMode = .byTruncatingTail
         lbl.font = UIFont.systemFont(ofSize: 7)
         lbl.textAlignment = .left
@@ -86,7 +86,7 @@ class InfoView_Cell: UITableViewCell {
     private lazy var zone : UILabel = {
         let lbl = UILabel()
         lbl.tintColor = UIColor(white: 175.0 / 255.0, alpha: 1.0)
-        lbl.numberOfLines = 2
+        lbl.numberOfLines = 1
         lbl.lineBreakMode = .byTruncatingTail
         lbl.font = UIFont.systemFont(ofSize: 7)
         lbl.textAlignment = .left
@@ -97,7 +97,7 @@ class InfoView_Cell: UITableViewCell {
     private lazy var views : UILabel = {
         let lbl = UILabel()
         lbl.tintColor = UIColor(white: 175.0 / 255.0, alpha: 1.0)
-        lbl.numberOfLines = 2
+        lbl.numberOfLines = 1
         lbl.lineBreakMode = .byTruncatingTail
         lbl.font = UIFont.systemFont(ofSize: 7)
         lbl.textAlignment = .center

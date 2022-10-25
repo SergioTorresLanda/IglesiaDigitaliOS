@@ -372,7 +372,6 @@ class ProfileInfoView: UIViewController {
                 arrayIsActive[i] = false
             }
             radioBtnCollection.reloadData()
-           // prefixField.text = "N/A"
             miniContentSwitch.isHidden = true
             serachStack.isHidden = true
             lineasViewCollection[6].isHidden = true

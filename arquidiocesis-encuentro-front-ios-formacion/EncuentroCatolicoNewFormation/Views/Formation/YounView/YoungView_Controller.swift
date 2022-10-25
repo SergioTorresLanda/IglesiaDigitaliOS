@@ -106,10 +106,10 @@ extension YoungView_Controller: FYV_VIPER_PresenterToViewProtocol {
     }
     
     func setDataChild(data: [FF_Formation_Entity]) {
-        self.arGeneralSection = Dictionary(grouping: data, by: { $0.type })
+        self.arGeneralSection = Dictionary(grouping: data, by: { strCodeCatalog == "OUTSTANDING" ? ECNFFormationType.newest.rawValue : $0.type })
             .map { TableYoungSection(title: $0.key, data: $0.value) }
         
-        sgmSelection = ECNFFormationType(rawValue: arGeneralSection.first?.data.first?.type ?? (arTitles.first?.rawValue ?? ""))
+        sgmSelection = ECNFFormationType(rawValue: arGeneralSection.first?.title ?? (arTitles.first?.rawValue ?? ""))
 
         self.hideSpinner()
         self.tableYoung.reloadData()
@@ -140,7 +140,7 @@ extension YoungView_Controller: UITableViewDataSource {
         let imageString = sgmSectionData.asFormationCell().image.trimmingCharacters(in: [" "])
 
         guard let imgUrl = URL(string: imageString) ?? URL(string: sgmSectionData.url.getYouTubeThubnailFromURL()) else {
-            row.imageViewTitle.image = UIImage(named: sgmSelection == .pdf ? "pdf" : "link", in: Bundle().getBundle(), compatibleWith: nil)
+            row.imageViewTitle.image = UIImage(named: "iglesiaDigital", in: Bundle().getBundle(), compatibleWith: nil)
             return row
         }
         
@@ -150,7 +150,6 @@ extension YoungView_Controller: UITableViewDataSource {
             row.imageViewTitle.image = UIImage(named: "link", in: Bundle().getBundle(), compatibleWith: nil)
         } else {
             row.imageViewTitle.setCacheImage(with: imgUrl)
-            row.imageViewTitle.contentMode = .scaleAspectFit
         }
         
         return row
@@ -168,10 +167,11 @@ extension YoungView_Controller: UITableViewDataSource {
 //MARK: - UITableViewDelegate
 extension YoungView_Controller: UITableViewDelegate {
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        guard let libraryDataURL = formations[safe: indexPath.row]?.url.addingPercentEncoding(withAllowedCharacters: .urlQueryAllowed),
-              let url = URL(string: libraryDataURL) else {
+        guard let libraryDataURL = formations[safe: indexPath.row]?.url,
+              let url = URL(string: libraryDataURL) ?? URL(string: libraryDataURL.addingPercentEncoding(withAllowedCharacters: .urlQueryAllowed) ?? "") else {
             return
         }
+        
         
         let view = BrowserViewController(nibName: "BrowserViewController", bundle: Bundle().getBundle())
         

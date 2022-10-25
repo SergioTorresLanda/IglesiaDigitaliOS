@@ -18,31 +18,35 @@ class FYV_ProfileInteractor: FYV_VIPER_PresenterToInteractorProtocol {
     var _presenter: FYV_VIPER_InteractorToPresenterProtocol?
     
     public func getFormationsComponets(strTypeCatalog: String) -> Void {
-//        var component = URLComponents(string: "https://api-develop.arquidiocesis.mx/formations")!
-        var component = URLComponents(string: "\(APIType.shared.User())/formations")!
+        guard var component = URLComponents(string: "\(APIType.shared.User())/formations") else {
+            self._presenter?.onError(msg: "Ocurrió un error inesperado")
+            return
+        }
+
         component.queryItems = [
             URLQueryItem(name: "type", value: strTypeCatalog)
         ]
-        var request = URLRequest(url: component.url!,timeoutInterval: Double.infinity)
+        
+        var request = URLRequest(url: component.url!,timeoutInterval: Double.timeout)
         request.httpMethod = "GET"
         let tksession = UserDefaults.standard.string(forKey: "idToken")
         request.setValue("Bearer \( tksession ?? "")", forHTTPHeaderField: "Authorization")
         
         URLSession.shared.dataTask(with: request) { data, response, error in
             guard let data = data else {
+                self._presenter?.onError(msg: "Ocurrió un error inesperado")
               return
             }
             do{
+                print("IG: data \(data)")
                 let userResponse = try JSONDecoder().decode([FF_Formation_Entity].self, from: data)
                 userResponse.forEach({ print("-|\($0.title)|-") })
                 
                 print("IG: userResponse \(userResponse)")
                 
                 self._presenter?.setDataSingle(data: userResponse)
-            }catch let error {
-                print("Error: \(error.localizedDescription)")
-//                self._presenter?.errorCloseSesion(code: 90, msg: "Hola")
-                APIType.shared.refreshToken()
+            } catch {
+                self._presenter?.onError(msg: "Ocurrió un error inesperado")
             }
         }.resume()
     }
