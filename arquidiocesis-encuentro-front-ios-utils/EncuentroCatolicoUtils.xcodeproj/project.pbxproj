@@ -32,6 +32,8 @@
 		A95E90CD28FF4AD100A4F202 /* ECUForm.swift in Sources */ = {isa = PBXBuildFile; fileRef = A95E90CC28FF4AD100A4F202 /* ECUForm.swift */; };
 		A95E90CF28FF4FA700A4F202 /* Collection+Utils.swift in Sources */ = {isa = PBXBuildFile; fileRef = A95E90CE28FF4FA700A4F202 /* Collection+Utils.swift */; };
 		A966606D28FCDF14007887CD /* Media.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = A966606C28FCDF14007887CD /* Media.xcassets */; };
+		A96B14472907473A001C9B0A /* UIImageView+Utils.swift in Sources */ = {isa = PBXBuildFile; fileRef = A96B14462907473A001C9B0A /* UIImageView+Utils.swift */; };
+		A9AA19D82903138200C0DD7C /* APITypeUtils.swift in Sources */ = {isa = PBXBuildFile; fileRef = A9AA19D72903138200C0DD7C /* APITypeUtils.swift */; };
 		A9E4ED5F29006A3700294CDD /* ECUTimer.swift in Sources */ = {isa = PBXBuildFile; fileRef = A9E4ED5E29006A3700294CDD /* ECUTimer.swift */; };
 		A9E4ED6129006ADE00294CDD /* ECUTimerNative.swift in Sources */ = {isa = PBXBuildFile; fileRef = A9E4ED6029006ADE00294CDD /* ECUTimerNative.swift */; };
 		A9E4ED6329006D1500294CDD /* ECUTimerDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = A9E4ED6229006D1500294CDD /* ECUTimerDelegate.swift */; };
@@ -86,6 +88,8 @@
 		A95E90CC28FF4AD100A4F202 /* ECUForm.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ECUForm.swift; sourceTree = "<group>"; };
 		A95E90CE28FF4FA700A4F202 /* Collection+Utils.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Collection+Utils.swift"; sourceTree = "<group>"; };
 		A966606C28FCDF14007887CD /* Media.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Media.xcassets; sourceTree = "<group>"; };
+		A96B14462907473A001C9B0A /* UIImageView+Utils.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIImageView+Utils.swift"; sourceTree = "<group>"; };
+		A9AA19D72903138200C0DD7C /* APITypeUtils.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = APITypeUtils.swift; sourceTree = "<group>"; };
 		A9E4ED5E29006A3700294CDD /* ECUTimer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ECUTimer.swift; sourceTree = "<group>"; };
 		A9E4ED6029006ADE00294CDD /* ECUTimerNative.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ECUTimerNative.swift; sourceTree = "<group>"; };
 		A9E4ED6229006D1500294CDD /* ECUTimerDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ECUTimerDelegate.swift; sourceTree = "<group>"; };
@@ -126,6 +130,7 @@
 			isa = PBXGroup;
 			children = (
 				3689987A2612277800532C40 /* APIManager.swift */,
+				A9AA19D72903138200C0DD7C /* APITypeUtils.swift */,
 			);
 			path = Services;
 			sourceTree = "<group>";
@@ -201,6 +206,7 @@
 				A9F10B1A2902152200227FE9 /* UIViewController+Utils.swift */,
 				A9F10B2029025B2D00227FE9 /* Double+Utils.swift */,
 				A9F10B242902625D00227FE9 /* UIAlertViewController+Utils.swift */,
+				A96B14462907473A001C9B0A /* UIImageView+Utils.swift */,
 			);
 			path = Extensions;
 			sourceTree = "<group>";
@@ -458,6 +464,7 @@
 				A94514EB28FCB80700675CB6 /* UIColor+Palette.swift in Sources */,
 				A9E4ED68290074CF00294CDD /* Int+Utils.swift in Sources */,
 				A9F10B252902625D00227FE9 /* UIAlertViewController+Utils.swift in Sources */,
+				A96B14472907473A001C9B0A /* UIImageView+Utils.swift in Sources */,
 				A94514DA28FCB2A100675CB6 /* Bundle+Local.swift in Sources */,
 				A94514E528FCB5EC00675CB6 /* ECUView.swift in Sources */,
 				A95E90CA28FF323E00A4F202 /* ECUBorder.swift in Sources */,
@@ -475,6 +482,7 @@
 				A9E4ED6129006ADE00294CDD /* ECUTimerNative.swift in Sources */,
 				A95E90CF28FF4FA700A4F202 /* Collection+Utils.swift in Sources */,
 				A94514DF28FCB46000675CB6 /* ECUField.swift in Sources */,
+				A9AA19D82903138200C0DD7C /* APITypeUtils.swift in Sources */,
 				984F468025F94FE1006D709B /* alertViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

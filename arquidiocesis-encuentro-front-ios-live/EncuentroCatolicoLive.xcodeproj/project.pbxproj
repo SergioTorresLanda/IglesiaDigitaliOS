@@ -31,6 +31,7 @@
 		98ABEB7B25E86649005725F3 /* LiveProtocols.swift in Sources */ = {isa = PBXBuildFile; fileRef = 98ABEB7525E86649005725F3 /* LiveProtocols.swift */; };
 		98ABEB7C25E86649005725F3 /* LiveInteractor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 98ABEB7625E86649005725F3 /* LiveInteractor.swift */; };
 		98ABEB7D25E86649005725F3 /* LiveViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 98ABEB7725E86649005725F3 /* LiveViewController.xib */; };
+		A92D77B22907503000B8F0CF /* EncuentroCatolicoNewFormation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A92D77B12907503000B8F0CF /* EncuentroCatolicoNewFormation.framework */; };
 		E1DF672837CF748E28A1769A /* Pods_EncuentroCatolicoLive.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2B8F7EAE51F0A7FE6B33AE6E /* Pods_EncuentroCatolicoLive.framework */; };
 		EEA3F336265630E3007235FE /* BrowserViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = EEA3F334265630E3007235FE /* BrowserViewController.swift */; };
 		EEA3F337265630E3007235FE /* BrowserViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = EEA3F335265630E3007235FE /* BrowserViewController.xib */; };
@@ -67,6 +68,7 @@
 		98ABEB7525E86649005725F3 /* LiveProtocols.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LiveProtocols.swift; sourceTree = "<group>"; };
 		98ABEB7625E86649005725F3 /* LiveInteractor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LiveInteractor.swift; sourceTree = "<group>"; };
 		98ABEB7725E86649005725F3 /* LiveViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = LiveViewController.xib; sourceTree = "<group>"; };
+		A92D77B12907503000B8F0CF /* EncuentroCatolicoNewFormation.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = EncuentroCatolicoNewFormation.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		EEA3F334265630E3007235FE /* BrowserViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BrowserViewController.swift; sourceTree = "<group>"; };
 		EEA3F335265630E3007235FE /* BrowserViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = BrowserViewController.xib; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -78,6 +80,7 @@
 			files = (
 				E1DF672837CF748E28A1769A /* Pods_EncuentroCatolicoLive.framework in Frameworks */,
 				9817615D25EFF4E3008E1018 /* EncuentroCatolicoMyChurch.framework in Frameworks */,
+				A92D77B22907503000B8F0CF /* EncuentroCatolicoNewFormation.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -87,6 +90,7 @@
 		08AFA3F4DF28C46478CBC88C /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				A92D77B12907503000B8F0CF /* EncuentroCatolicoNewFormation.framework */,
 				9817615C25EFF4E3008E1018 /* EncuentroCatolicoMyChurch.framework */,
 				9817615725EFF442008E1018 /* EncuentroCatolicoChurch.framework */,
 				2B8F7EAE51F0A7FE6B33AE6E /* Pods_EncuentroCatolicoLive.framework */,

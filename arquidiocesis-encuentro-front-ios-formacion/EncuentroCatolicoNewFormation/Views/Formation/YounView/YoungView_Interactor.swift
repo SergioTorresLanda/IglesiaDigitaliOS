@@ -6,7 +6,7 @@
 //
 
 import UIKit
-//import EncuentroCatolicoLogin
+import EncuentroCatolicoUtils
 
 protocol FYV_VIPER_PresenterToInteractorProtocol: AnyObject {
     var _presenter: FYV_VIPER_InteractorToPresenterProtocol? {set get}
@@ -35,6 +35,9 @@ class FYV_ProfileInteractor: FYV_VIPER_PresenterToInteractorProtocol {
             do{
                 let userResponse = try JSONDecoder().decode([FF_Formation_Entity].self, from: data)
                 userResponse.forEach({ print("-|\($0.title)|-") })
+                
+                print("IG: userResponse \(userResponse)")
+                
                 self._presenter?.setDataSingle(data: userResponse)
             }catch let error {
                 print("Error: \(error.localizedDescription)")
@@ -45,7 +48,7 @@ class FYV_ProfileInteractor: FYV_VIPER_PresenterToInteractorProtocol {
     }
     
     public func getFormationCatalog() -> Void {
-        var request = URLRequest(url: URL(string: "https://api-develop.arquidiocesis.mx/catalog/library-themes")!,timeoutInterval: .timeout)
+        var request = URLRequest(url: URL(string: "\(APITypeUtils.shared.getBasePath())/arquidiocesis/encuentro/v1/catalog/library-themes")!,timeoutInterval: .timeout)
         
         request.httpMethod = "GET"
         
@@ -60,6 +63,7 @@ class FYV_ProfileInteractor: FYV_VIPER_PresenterToInteractorProtocol {
                 return
             }
             
+            print("IG: catalog \(userResponse.data)")
             self._presenter?.setDataCatalog(data: userResponse)
         }.resume()
     }

@@ -27,8 +27,7 @@ public class YoungView_Route {
 //MARK: - SSVIPER_PresenterToRouter
 extension YoungView_Route: SSVIPER_PresenterToRouter {
     func goToNextView(navigation: UINavigationController, url: String) {
-        let another = FFNView_Route.createView(url: url)
-        navigation.pushViewController(another, animated: true)
+        navigation.pushViewController(FFNView_Route.createView(url: url), animated: true)
     }
     
     func showSpinner(navigation: UINavigationController) {

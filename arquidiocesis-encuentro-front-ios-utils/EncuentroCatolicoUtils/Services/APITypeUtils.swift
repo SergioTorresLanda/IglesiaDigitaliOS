@@ -1,63 +1,63 @@
 //
-//  APIType.swift
-//  EncuentroCatolicoLogin
+//  APITypeUtils.swift
+//  EncuentroCatolicoUtils
 //
-//  Created by For Linko on 11/01/22.
+//  Created by Alejandro on 21/10/22.
 //
 
 import Foundation
 
-struct respTokenValue: Codable {
-    let IdToken: String
+public struct respTokenValue: Codable {
+    //MARK: - Properties
+    public let IdToken: String
     
-    init(idToken: String) {
+    //MARK: - Life Cycle
+    public init(idToken: String) {
         self.IdToken = idToken
     }
 }
 
-public class APIType {
-    static var shared = APIType()
-    let staged = UserDefaults.standard.string(forKey: "stage")
-    var API: String = ""
+public class APITypeUtils {
+    //MARK: - Properties
+    public static var shared = APITypeUtils()
+    public let staged = UserDefaults.standard.string(forKey: "stage")
+    public var API: String = ""
     
-    func getBasePath() -> String {
+    //MARK: - Methods
+    public func getBasePath() -> String {
         switch staged {
         case "Qa":
-            return "https://api.qa-iglesia-digital.com/arquidiocesis/"
+            return "https://api.qa-iglesia-digital.com"
         case "Prod":
-            return "https://api.iglesia-digital.com.mx/arquidiocesis/"
+            return "https://api.iglesia-digital.com.mx"
         default:
             return ""
         }
     }
     
-    func Auth()-> String{
-        
-        if staged == "Qa" {
-             API = "https://api.qa-iglesia-digital.com/arquidiocesis/gestion-usuarios/v1"
-        }else if staged == "Prod" {
-            API = "https://api.iglesia-digital.com.mx/arquidiocesis/gestion-usuarios/v1"
-        }else {
-             API = "https://auth.arquidiocesis.mx"
+    public func Auth()-> String {
+        switch staged {
+        case "Qa", "Prod":
+            API = "\(self.getBasePath())/arquidiocesis/gestion-usuarios/v1"
+        default:
+            API = "https://auth.arquidiocesis.mx"
         }
-        return API
         
+        return API
     }
     
-    func User()-> String{
-        
-        if staged == "Qa" {
-            API = "https://api.qa-iglesia-digital.com/arquidiocesis/encuentro/v1"
-        }else if staged == "Prod" {
-            API = "https://api.iglesia-digital.com.mx/arquidiocesis/encuentro/v1"
-        }else {
-             API = "https://api-develop.arquidiocesis.mx"
+    public func User()-> String{
+        switch staged {
+        case "Qa", "Prod":
+            API = "\(self.getBasePath())/arquidiocesis/encuentro/v1"
+        default:
+            API = "https://auth.arquidiocesis.mx"
         }
-        return API
         
+        return API
     }
     
-    func SN()-> String{
+    public func SN()-> String{
         
         if staged == "Qa" {
             API = "https://l67w9jsvo4.execute-api.us-east-1.amazonaws.com/v1"
@@ -69,9 +69,9 @@ public class APIType {
         return API
     }
     
-    func refreshToken() {
+    public func refreshToken() {
            let user = UserDefaults.standard
-           let Url = String(format: "\(APIType.shared.Auth())/user/refresh_tokens")
+           let Url = String(format: "\(APITypeUtils.shared.Auth())/user/refresh_tokens")
            
            guard let serviceUrl = URL(string: Url) else { return }
            let parameterDictionary: [String : Any] = [
@@ -102,5 +102,4 @@ public class APIType {
                }
            }.resume()
        }
-    
 }

@@ -66,7 +66,6 @@ extension String {
     }
     
     var localized: String {
-        return Bundle().getBundle().localizedString(forKey: self, value: nil, table: "StandardLocalizations")
+        return Bundle().getBundle().localizedString(forKey: self, value: nil, table: nil)
     }
-    
 }

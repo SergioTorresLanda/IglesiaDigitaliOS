@@ -27,6 +27,8 @@ target 'EncuentroCatolico' do
   pod 'SkeletonView'
   pod 'Toast-Swift', '~> 5.0.0'
   pod 'SwiftSoup', '2.0.0'
+  pod 'Kingfisher', '6.3.1'
+  
   project 'arquidiocesis-encuentro-front-ios-generic/EncuentroCatolico.xcodeproj'
 end
 
@@ -269,7 +271,8 @@ target 'EncuentroCatolicoUtils' do
   pod 'lottie-ios'
   pod 'Alamofire'
   pod 'AlamofireImage'
-
+  pod 'Kingfisher', '6.3.1'
+  
   project 'arquidiocesis-encuentro-front-ios-utils/EncuentroCatolicoUtils.xcodeproj'
 end
 

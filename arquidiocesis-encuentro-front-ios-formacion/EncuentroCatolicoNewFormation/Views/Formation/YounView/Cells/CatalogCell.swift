@@ -6,6 +6,7 @@
 //
 
 import UIKit
+import EncuentroCatolicoUtils
 
 class CatalogCell: UICollectionViewCell{
     //MARK: - Propeties
@@ -23,6 +24,7 @@ class CatalogCell: UICollectionViewCell{
         
         view.backgroundColor = .secondary
         view.isHidden = true
+        view.layer.cornerRadius = 2
         
         return view
     }()
@@ -41,13 +43,11 @@ class CatalogCell: UICollectionViewCell{
     func setData(data: FF_Catalog_Entity, strCode: String){
         let isPressed = strCode == data.code
         
-        guard let imageURL = URL(string: isPressed ? data.iconPressedUrl : data.iconUrl),
-              let imageData = try? Data(contentsOf: imageURL) else {
+        guard let imageURL = URL(string: isPressed ? data.iconPressedUrl : data.iconUrl) else {
             return
         }
         
-        let image = UIImage(data: imageData)
-        showCaseImageView.image = image
+        showCaseImageView.setCacheImage(with: imageURL)
         underLineView.isHidden = !isPressed
     }
 }
@@ -68,7 +68,8 @@ extension CatalogCell {
         
         underLineView.translatesAutoresizingMaskIntoConstraints = false
         NSLayoutConstraint.activate([
-            underLineView.topAnchor.constraint(equalTo: showCaseImageView.bottomAnchor, constant: 4),
+            underLineView.topAnchor.constraint(greaterThanOrEqualTo: showCaseImageView.bottomAnchor, constant: 4),
+            underLineView.heightAnchor.constraint(equalToConstant: 4),
             underLineView.leadingAnchor.constraint(equalTo: self.contentView.leadingAnchor, constant: 0),
             underLineView.trailingAnchor.constraint(equalTo: self.contentView.trailingAnchor, constant: 0),
             underLineView.bottomAnchor.constraint(equalTo: self.contentView.bottomAnchor, constant: 0)

@@ -7,14 +7,14 @@
 
 import UIKit
 
-protocol NavigationDelegationAction: class{
+protocol NavigationDelegationAction: AnyObject {
     func getAction(sender: UIButton)
 }
 
 class NavigationGeneric: UIView {
     
     public var navigationShared : UINavigationController?
-    public var delegate: NavigationDelegationAction?
+    public weak var delegate: NavigationDelegationAction?
     
     override init(frame: CGRect) {
         super.init(frame: frame)
@@ -28,23 +28,34 @@ class NavigationGeneric: UIView {
         
         let buttonUnsegue = UIButton()
         buttonUnsegue.translatesAutoresizingMaskIntoConstraints = false
-        let image = UIImage(named: "back", in: Bundle().getBundle(), compatibleWith: nil)
-        buttonUnsegue.setImage(image, for: UIControl.State.normal)
+        
+        let imageView = UIImageView(image: UIImage(named: "back", in: Bundle().getBundle(), compatibleWith: nil))
+        
+        imageView.translatesAutoresizingMaskIntoConstraints = false
+        
         buttonUnsegue.addTarget(self, action: #selector(segueNavigation(sender:)), for: UIControl.Event.touchUpInside)
         
         self.translatesAutoresizingMaskIntoConstraints = false
+        
         translatesAutoresizingMaskIntoConstraints = false
         backgroundColor = UIColor(red: 25.0 / 255.0, green: 42.0 / 255.0, blue: 115.0 / 255.0, alpha: 1.0)
         self.addSubview(title_lbl)
+        self.addSubview(imageView)
         self.addSubview(buttonUnsegue)
         
         NSLayoutConstraint.activate([
             title_lbl.bottomAnchor.constraint(equalTo: self.bottomAnchor, constant: -15),
             title_lbl.centerXAnchor.constraint(equalTo: self.centerXAnchor),
-            buttonUnsegue.bottomAnchor.constraint(equalTo: self.bottomAnchor, constant: -15),
-            buttonUnsegue.leftAnchor.constraint(equalTo: self.leftAnchor, constant: 20),
-            buttonUnsegue.heightAnchor.constraint(equalToConstant: 19),
-            buttonUnsegue.widthAnchor.constraint(equalToConstant: 12)
+            
+            imageView.bottomAnchor.constraint(equalTo: self.bottomAnchor, constant: -15),
+            imageView.leftAnchor.constraint(equalTo: self.leftAnchor, constant: 20),
+            imageView.heightAnchor.constraint(equalToConstant: 19),
+            imageView.widthAnchor.constraint(equalToConstant: 12),
+            
+            buttonUnsegue.centerYAnchor.constraint(equalTo: imageView.centerYAnchor),
+            buttonUnsegue.centerXAnchor.constraint(equalTo: imageView.centerXAnchor),
+            buttonUnsegue.heightAnchor.constraint(equalToConstant: 40),
+            buttonUnsegue.widthAnchor.constraint(equalTo: buttonUnsegue.heightAnchor)
         ])
     }
     

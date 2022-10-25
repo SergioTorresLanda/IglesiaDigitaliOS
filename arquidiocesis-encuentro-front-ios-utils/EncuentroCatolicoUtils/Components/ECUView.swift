@@ -14,11 +14,10 @@ open class ECUView: UIView {
     public var shadowSelected: ECUSizeType? {
         didSet { layoutIfNeeded() }
     }
-    
     //MARK: - Life Cycle
     public override func layoutSubviews() {
         super.layoutSubviews()
-        
+
         setupShadow()
     }
 }

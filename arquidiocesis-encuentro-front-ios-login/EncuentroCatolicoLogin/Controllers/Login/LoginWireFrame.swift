@@ -7,8 +7,14 @@ open class LoginRouter: LoginWireFrameProtocol {
 
     open class func createModule(version: Double, forceUpdate: Bool) -> UIViewController {
         let navController = LoginView(nibName: "LoginView", bundle: Bundle(for: LoginView.self))
+        print("RemoteConfig: willSetData force \(forceUpdate)")
+        print("RemoteConfig: willSetData version \(version)")
+        
         navController.forceUpdate = forceUpdate
         navController.version = version
+        print("RemoteConfig: endSetData force \(forceUpdate)")
+        print("RemoteConfig: endSetData version \(version)")
+        
         let view = navController
         let presenter: LoginPresenterProtocol & LoginInteractorOutputProtocol = LoginPresenter()
         let interactor: LoginInteractorInputProtocol & LoginRemoteDataManagerOutputProtocol = LoginInteractor()

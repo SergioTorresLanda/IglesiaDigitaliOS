@@ -9,66 +9,46 @@ import UIKit
 import WebKit
 import Foundation
 
-class BrowserViewController: UIViewController, WKNavigationDelegate, URLSessionDelegate {
+class BrowserViewController: UIViewController, URLSessionDelegate {
 
+    //MARK: - @IBOutlets
     @IBOutlet weak var webView: WKWebView!
-    
     @IBOutlet weak var btnDownload: UIButton!
+    //MARK: - Properties
     var defaultSession: URLSession!
     var downloadTask: URLSessionDownloadTask!
-    var screenURL: String!
+    var screenURL: String?
     var btnDownloadFile: UIButton?
     
     let alert = UIAlertController(title: "", message: "\n \n \n \n \nCargando...", preferredStyle: .alert)
-    
+    //MARK: - Life Cycle
     override func viewDidLoad() {
         super.viewDidLoad()
-        let url = URL(string: screenURL ?? "www.com")!
+        
+        guard let urlString = screenURL,
+              let url = URL(string: urlString) else {
+            return
+        }
+        
         btnDownload.setTitle("", for: .normal)
         showLoading()
         webView.navigationDelegate = self
         webView.load(URLRequest(url: url))
         webView.allowsBackForwardNavigationGestures = true
         
+        let backgroundSessionConfig = URLSessionConfiguration.background(withIdentifier: "backgroundSession")
         
-        if let _ = URL(string: String(url.absoluteString)){
-            let backgroundSessionConfig = URLSessionConfiguration.background(withIdentifier: "backgroundSession")
-            defaultSession = Foundation.URLSession(configuration: backgroundSessionConfig, delegate: self, delegateQueue: OperationQueue.main)
-        }
+        defaultSession = Foundation.URLSession(configuration: backgroundSessionConfig, delegate: self, delegateQueue: OperationQueue.main)
     }
     
+    //MARK: - Methods
     func showLoading(){
         let imageView = UIImageView(frame: CGRect(x: 75, y: 25, width: 140, height: 60))
         imageView.image = UIImage(named: "logoEncuentro", in: Bundle().getBundle(), compatibleWith: nil)
         alert.view.addSubview(imageView)
         self.present(alert, animated: false, completion: nil)
     }
-    
-    func webView(_ webView: WKWebView, didStartProvisionalNavigation navigation: WKNavigation!){
-        alert.dismiss(animated: false, completion: nil)
-    } // show indicator
 
-    func webView(_ webView: WKWebView, didFinish navigation: WKNavigation!){
-        alert.dismiss(animated: false, completion: nil)
-    }  // hide indicator
-
-    func webView(_ webView: WKWebView, didFail navigation: WKNavigation!, withError error: Error){
-        alert.dismiss(animated: false, completion: nil)
-    }
-    
-    
-    @IBAction func close(_ sender: Any){
-        self.navigationController?.popViewController(animated: true)
-    }
-    
-    
-    @IBAction func btnDownload(_ sender: UIButton) {
-        if let url = URL(string: screenURL){
-            downloadTask = defaultSession.downloadTask(with: url)
-            downloadTask.resume()
-        }
-    }
-    
     func showFilePath(path: String){
         let fileManager = FileManager.default
         if fileManager.fileExists(atPath: path){
@@ -94,9 +74,36 @@ class BrowserViewController: UIViewController, WKNavigationDelegate, URLSessionD
         }
         return nil
     }
+    
+    //MARK: - @IBAction
+    @IBAction func close(_ sender: Any){
+        self.navigationController?.popViewController(animated: true)
+    }
+    
+    @IBAction func btnDownload(_ sender: UIButton) {
+        guard let screenURL = screenURL,
+              let url = URL(string: screenURL) else {
+            return
+        }
+
+        downloadTask = defaultSession.downloadTask(with: url)
+        downloadTask.resume()
+    }
 }
 
-extension BrowserViewController: URLSessionDownloadDelegate{
+//MARK: - WKNavigationDelegate
+extension BrowserViewController: WKNavigationDelegate {
+    func webView(_ webView: WKWebView, didFinish navigation: WKNavigation!){
+        alert.dismiss(animated: false, completion: nil)
+    }
+
+    func webView(_ webView: WKWebView, didFail navigation: WKNavigation!, withError error: Error){
+        onError()
+    }
+}
+
+//MARK: - URLSessionDownloadDelegate
+extension BrowserViewController: URLSessionDownloadDelegate {
     func urlSession(_ session: URLSession, downloadTask: URLSessionDownloadTask, didFinishDownloadingTo location: URL) {
         let path = NSSearchPathForDirectoriesInDomains(FileManager.SearchPathDirectory.documentDirectory, FileManager.SearchPathDomainMask.userDomainMask, true)
         let docDirectoryPath: String = path[0]
@@ -122,5 +129,21 @@ extension BrowserViewController: URLSessionDownloadDelegate{
     
     func urlSession(_ session: URLSession, task: URLSessionTask, didCompleteWithError error: Error?) {
         downloadTask = nil
+        onError()
+    }
+}
+
+//MARK: - Private functions
+extension BrowserViewController {
+    private func onError() {
+        alert.dismiss(animated: true)
+        
+        let alert = UIAlertController(title: "Error", message: "Ocurrio algo inesperado, intentelo más tarde", preferredStyle: .alert)
+        
+        alert.addAction(UIAlertAction(title: "Aceptar", style: .default, handler: { _ in
+            self.navigationController?.popViewController(animated: true)
+        }))
+        
+        self.present(alert, animated: true)
     }
 }

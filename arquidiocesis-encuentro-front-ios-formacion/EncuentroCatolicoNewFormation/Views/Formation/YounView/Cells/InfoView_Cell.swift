@@ -30,8 +30,8 @@ class InfoView_Cell: UITableViewCell {
         }
     }
     
-    lazy var imageViewTitle : ImageLoader = {
-        let imv = ImageLoader()
+    lazy var imageViewTitle : UIImageView = {
+        let imv = UIImageView()
 
         imv.translatesAutoresizingMaskIntoConstraints = false
         imv.backgroundColor = UIColor(white: 230.0 / 255.0, alpha: 1.0)
@@ -136,15 +136,15 @@ extension InfoView_Cell {
         
         
         stackHorizontalDetails.axis = .horizontal
-        stackHorizontalDetails.distribution = .fillProportionally
+        stackHorizontalDetails.distribution = .fill
         stackHorizontalDetails.spacing = 10
         
         stackHorizontal.axis = .horizontal
-        stackHorizontal.distribution = .fillProportionally
+        stackHorizontal.distribution = .fill
         stackHorizontal.spacing = 7
         
         stackVertical.axis = .vertical
-        stackVertical.distribution = .fillProportionally
+        stackVertical.distribution = .fill
         
         imageViewTitle.translatesAutoresizingMaskIntoConstraints = false
         stackHorizontal.translatesAutoresizingMaskIntoConstraints = false

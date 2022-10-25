@@ -16,7 +16,7 @@ extension String{
         self.contains("youtube") ? self.replacingOccurrences(of: "watch?v=", with: "embed/") : self
     }
     
-    func getYouTubeThubnailFromURL() -> String{
+    func getYouTubeThubnailFromURL() -> String {
         var videoID = ""
         
         videoID = self.replacingOccurrences(of: "https://www.youtube.com/watch?v=", with: "")

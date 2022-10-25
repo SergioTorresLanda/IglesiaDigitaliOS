@@ -38,8 +38,7 @@ class LoginView: UIViewController {
         setupView()
 //        validateButtonBiometric()
         self.hideKeyboardWhenTappedAround()
-        print(forceUpdate)
-        
+        print("RemoteConfig: didLoad \(forceUpdate)")
         
         if forceUpdate {
             if version > Double(getInstalledVersion() ?? "") ?? 0.0 {
