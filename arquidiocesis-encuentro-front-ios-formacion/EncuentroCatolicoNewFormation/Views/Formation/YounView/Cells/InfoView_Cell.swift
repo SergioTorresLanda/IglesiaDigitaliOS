@@ -121,6 +121,8 @@ class InfoView_Cell: UITableViewCell {
 //MARK: - Private functions
 extension InfoView_Cell {
     private func setupConstraints() {
+        self.selectionStyle = .none
+        
         let stackHorizontalDetails = UIStackView(arrangedSubviews: [whereIs,zone,views])
         let stackVertical = UIStackView(arrangedSubviews: [title,subtitle, tags,stackHorizontalDetails])
         let stackHorizontal = UIStackView(arrangedSubviews: [imageViewTitle,stackVertical])
