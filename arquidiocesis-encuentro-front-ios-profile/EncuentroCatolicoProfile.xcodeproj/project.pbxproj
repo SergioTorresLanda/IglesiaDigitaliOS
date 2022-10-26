@@ -214,6 +214,16 @@
 		EEEF3792261E77B9005516E4 /* ProfileUserInfoViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = EEEF378C261E77B9005516E4 /* ProfileUserInfoViewController.xib */; };
 /* End PBXBuildFile section */
 
+/* Begin PBXContainerItemProxy section */
+		A9B2D6CA2908A1E70035C7F3 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = A9B2D6C62908A1E70035C7F3 /* EncuentroCatolicoScanner.xcodeproj */;
+			proxyType = 2;
+			remoteGlobalIDString = 983D1C3626094D3300455355;
+			remoteInfo = EncuentroCatolicoScanner;
+		};
+/* End PBXContainerItemProxy section */
+
 /* Begin PBXFileReference section */
 		0AB93846E98B4E3633AF7633 /* Pods-EncuentroCatolicoProfile.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-EncuentroCatolicoProfile.debug.xcconfig"; path = "Target Support Files/Pods-EncuentroCatolicoProfile/Pods-EncuentroCatolicoProfile.debug.xcconfig"; sourceTree = "<group>"; };
 		0F06BD54262FF5DE00801068 /* RadioButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RadioButton.swift; sourceTree = "<group>"; };
@@ -325,6 +335,7 @@
 		9DCA1B572644427600F76324 /* AdminListView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = AdminListView.xib; sourceTree = "<group>"; };
 		9DCA1B5C264442AB00F76324 /* AdminListCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AdminListCell.swift; sourceTree = "<group>"; };
 		9DCA1B5D264442AB00F76324 /* AdminListCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = AdminListCell.xib; sourceTree = "<group>"; };
+		A9B2D6C62908A1E70035C7F3 /* EncuentroCatolicoScanner.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = EncuentroCatolicoScanner.xcodeproj; path = "../../arquidiocesis-encuentro-front-ios-scanner/EncuentroCatolicoScanner.xcodeproj"; sourceTree = "<group>"; };
 		D072346926445B18005C6028 /* FormularioConfig.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = FormularioConfig.xib; sourceTree = "<group>"; };
 		D072346A26445B18005C6028 /* MainConfigView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MainConfigView.swift; sourceTree = "<group>"; };
 		D072346B26445B18005C6028 /* MainConfigView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = MainConfigView.xib; sourceTree = "<group>"; };
@@ -755,6 +766,7 @@
 				980F761625E58BB000B0DB0E /* Resources */,
 				980F761B25E58BC700B0DB0E /* Controllers */,
 				36FCC02F260A9DD6009688CA /* EncuentroCatolicoProfile.xcdatamodeld */,
+				A9B2D6C62908A1E70035C7F3 /* EncuentroCatolicoScanner.xcodeproj */,
 				980F759325E5888300B0DB0E /* EncuentroCatolicoProfile.h */,
 				980F759425E5888300B0DB0E /* Info.plist */,
 			);
@@ -824,6 +836,14 @@
 				9DCA1B5D264442AB00F76324 /* AdminListCell.xib */,
 			);
 			path = cell;
+			sourceTree = "<group>";
+		};
+		A9B2D6C72908A1E70035C7F3 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				A9B2D6CB2908A1E70035C7F3 /* EncuentroCatolicoScanner.framework */,
+			);
+			name = Products;
 			sourceTree = "<group>";
 		};
 		BC1A6DBA48ADB5FBC6E972D5 /* Frameworks */ = {
@@ -1293,12 +1313,28 @@
 			mainGroup = 980F758625E5888300B0DB0E;
 			productRefGroup = 980F759125E5888300B0DB0E /* Products */;
 			projectDirPath = "";
+			projectReferences = (
+				{
+					ProductGroup = A9B2D6C72908A1E70035C7F3 /* Products */;
+					ProjectRef = A9B2D6C62908A1E70035C7F3 /* EncuentroCatolicoScanner.xcodeproj */;
+				},
+			);
 			projectRoot = "";
 			targets = (
 				980F758F25E5888300B0DB0E /* EncuentroCatolicoProfile */,
 			);
 		};
 /* End PBXProject section */
+
+/* Begin PBXReferenceProxy section */
+		A9B2D6CB2908A1E70035C7F3 /* EncuentroCatolicoScanner.framework */ = {
+			isa = PBXReferenceProxy;
+			fileType = wrapper.framework;
+			path = EncuentroCatolicoScanner.framework;
+			remoteRef = A9B2D6CA2908A1E70035C7F3 /* PBXContainerItemProxy */;
+			sourceTree = BUILT_PRODUCTS_DIR;
+		};
+/* End PBXReferenceProxy section */
 
 /* Begin PBXResourcesBuildPhase section */
 		980F758E25E5888300B0DB0E /* Resources */ = {

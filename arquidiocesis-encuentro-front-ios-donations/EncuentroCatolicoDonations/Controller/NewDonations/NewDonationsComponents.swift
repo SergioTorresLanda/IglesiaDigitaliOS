@@ -38,6 +38,7 @@ extension NewDontaionsViewController: UICollectionViewDelegate, UICollectionView
                 cell.contentView.alpha = 0
             default:
                 cell.nameItem.text = menuItems[indexPath.item]
+                
                 if #available(iOS 13.0, *) {
                     cell.imgItem.image = UIImage(systemName: menuIcons[indexPath.item])
                 } else {

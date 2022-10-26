@@ -133,6 +133,8 @@ class ConfirmPhoneViewController: UIViewController {
         loader.isHidden = false
         loader.startAnimating()
         
+        
+        
         activatedBtnSend(isHide: false)
         startTime(.otpTimeout)
         presenter?.reenviarCodigo(user: usuario!)

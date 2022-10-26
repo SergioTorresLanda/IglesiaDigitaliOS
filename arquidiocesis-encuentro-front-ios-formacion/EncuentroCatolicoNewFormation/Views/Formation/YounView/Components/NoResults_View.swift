@@ -9,6 +9,7 @@ import UIKit
 
 struct NoResults {
     var imageDefault: UIImage?
+    var textSearch: String?
 }
 
 class NoResults_View: UIView {
@@ -16,6 +17,7 @@ class NoResults_View: UIView {
     var details : NoResults? {
         didSet {
             imageViewTitle.image = details?.imageDefault ?? UIImage(named: "sinresultadosV2", in: Bundle(for: YoungView_Route.self), compatibleWith: nil)
+            searchTextPrincipal.text = details?.textSearch ?? "formation_empty_view".getStringFrom()
         }
     }
     
@@ -28,7 +30,6 @@ class NoResults_View: UIView {
         lbl.font = UIFont.boldSystemFont(ofSize: 18)
         lbl.textAlignment = .center
         lbl.translatesAutoresizingMaskIntoConstraints = false
-        lbl.text = "formation_empty_view".localized
         
         return lbl
     }()

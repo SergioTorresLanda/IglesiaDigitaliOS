@@ -35,13 +35,12 @@ class ConfirmPhoneWireFrame: ConfirmPhoneWireFrameProtocol {
         alert.addAction(UIAlertAction(title: "Aceptar", style: .default, handler: {_ in
             let defaults = UserDefaults.standard
             defaults.setValue(true, forKey: "isNewUser")
-            let Navcontroller = controller.navigationController?.viewControllers[(controller.navigationController?.viewControllers.count)! - 1]
-            controller.navigationController?.popToViewController(Navcontroller!, animated: true)
+            guard let Navcontroller = controller.navigationController?.viewControllers.first else {
+                return
+            }
+            controller.navigationController?.popToViewController(Navcontroller, animated: true)
         }))
         controller.present(alert, animated: true, completion: nil)
-      /*  let view = SocialNetworkController(nibName: "SocialNetworkController", bundle: Bundle(for: SocialNetworkController.self))
-        view.modalPresentationStyle = .fullScreen
-        controller.present(view, animated: true) */
     }
     
     func cambiarNumero(usuario: UserRegister, controller: UIViewController) {

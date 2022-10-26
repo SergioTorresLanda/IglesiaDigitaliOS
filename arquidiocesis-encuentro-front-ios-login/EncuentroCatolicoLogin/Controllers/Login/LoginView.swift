@@ -360,7 +360,7 @@ extension LoginView: LoginViewProtocol {
                 if  !dato.isValidEmailSP(){
                     dato = "+52" + dato
                 }
-                let model = UserRegister(username: dato, email: "", phone_number: "", password: "", name: "", last_name: "", middle_name: "", role: "", type_person: "", birth_date: "")
+                let model = UserRegister(username: dato, email: "", phone_number: dato, password: "", name: "", last_name: "", middle_name: "", role: "", type_person: "", birth_date: "")
                 let view  = ConfirmPhoneWireFrame.createConfirmPhoneModule(usuario: model)
                 self.navigationController?.pushViewController(view, animated: true)
             }))

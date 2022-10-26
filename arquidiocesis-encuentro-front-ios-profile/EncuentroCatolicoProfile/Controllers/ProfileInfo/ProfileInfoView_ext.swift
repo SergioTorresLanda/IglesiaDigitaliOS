@@ -433,7 +433,8 @@ extension ProfileInfoView: ProfileInfoViewProtocol {
             lineasViewCollection[6].isHidden = false
             miniContentCongregation.isHidden = false
             lblYouCan.isHidden = true
-            prefixField.text = detail.data?.User?.prefix?.description ?? "N/A"
+            prefixField.text = detail.data?.User?.prefix?.description
+            prefixField.placeholder = "Selecciona"
             selectedPrefixID = detail.data?.User?.prefix?.id ?? 0
             presenter?.requestPrefixes(code: "RELIGIOUS")
             hideOrShowPrefix(isShow: false)
@@ -577,7 +578,8 @@ extension ProfileInfoView: ProfileInfoViewProtocol {
             }
             
             selectedPrefixID = detail.data?.User?.prefix?.id ?? 0
-            prefixField.text = detail.data?.User?.prefix?.description ?? "N/A"
+            prefixField.text = detail.data?.User?.prefix?.description
+            prefixField.placeholder = "Selecciona"
             presenter?.requestPrefixes(code: "DEACON")
             hideOrShowPrefix(isShow: false)
            
@@ -589,7 +591,8 @@ extension ProfileInfoView: ProfileInfoViewProtocol {
             serachStack.isHidden = true
             lineasViewCollection[6].isHidden = true
             lblYouCan.isHidden = true
-            prefixField.text = detail.data?.User?.prefix?.description ?? "N/A"
+            prefixField.text = detail.data?.User?.prefix?.description
+            prefixField.placeholder = "Selecciona"
             selectedPrefixID = detail.data?.User?.prefix?.id ?? 0
             presenter?.requestPrefixes(code: "PRIEST")
             hideOrShowPrefix(isShow: false)
@@ -705,12 +708,14 @@ extension ProfileInfoView: ProfileInfoViewProtocol {
         arrayPrefix.removeAll()
         arrayPrefixID.removeAll()
         loadingAlert.dismiss(animated: true, completion: nil)
+        arrayPrefix.append("Selecciona")
+        arrayPrefixID.append(0)
+        
         data.data?.forEach({ prefix in
             arrayPrefix.append(prefix.description ?? "")
             arrayPrefixID.append(prefix.id ?? 0)
         })
-        arrayPrefix.append("N/A")
-        arrayPrefixID.append(0)
+
         pickerPrefix.reloadAllComponents()
         
     }

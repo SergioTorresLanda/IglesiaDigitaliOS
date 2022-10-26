@@ -13,7 +13,7 @@ class YoungView_Controller: UIViewController {
     var _presenter: FYV_VIPER_ViewToPresenterProtocol?
     
     //MARK: - Properties
-    private let searchField : UITextField = Search_TextField()
+    private let searchField : Search_TextField = Search_TextField()
     private var arGeneralSection: [TableYoungSection] = [] {
         didSet {
             updateFormations()
@@ -63,7 +63,12 @@ class YoungView_Controller: UIViewController {
     private var strTypeComponents: String? = ""
     private var arTitles: [ECNFFormationType] = ECNFFormationType.allCases {
         didSet {
+            guard oldValue != arTitles else {
+                return
+            }
+            
             fileTypeList.options = arTitles
+            sgmSelection = arTitles.first
         }
     }
     
@@ -93,6 +98,7 @@ class YoungView_Controller: UIViewController {
     
     //MARK: - Events
     @objc func onChangeFilter(_ sender: UITextField) {
+        searchField.closeButton?.isHidden = sender.text?.trimmingCharacters(in: [" "]) ?? "" == ""
         updateFormations()
     }
 }
@@ -109,8 +115,6 @@ extension YoungView_Controller: FYV_VIPER_PresenterToViewProtocol {
         self.arGeneralSection = Dictionary(grouping: data, by: { strCodeCatalog == "OUTSTANDING" ? ECNFFormationType.newest.rawValue : $0.type })
             .map { TableYoungSection(title: $0.key, data: $0.value) }
         
-        sgmSelection = ECNFFormationType(rawValue: arGeneralSection.first?.title ?? (arTitles.first?.rawValue ?? ""))
-
         self.hideSpinner()
         self.tableYoung.reloadData()
     }
@@ -156,7 +160,7 @@ extension YoungView_Controller: UITableViewDataSource {
     }
     
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
-        80
+        90
     }
     
     func tableView(_ tableView: UITableView, estimatedHeightForRowAt indexPath: IndexPath) -> CGFloat {
@@ -237,7 +241,13 @@ extension YoungView_Controller: UICollectionViewDelegateFlowLayout, UICollection
 //MARK: - Private functions
 extension YoungView_Controller {
     private func viewNoResultV2(bSearch: Bool) -> UIView {
-        NoResults_View(frame: CGRect(x: 0, y: 0, width: 0, height: 0))
+        let view = NoResults_View(frame: CGRect(x: 0, y: 0, width: 0, height: 0))
+        
+        view.details = NoResults(imageDefault: nil,
+                                 textSearch: (searchField.text?.trimmingCharacters(in: [" "]) ?? "") == "" ? nil :
+                                    String(format: "formation_empty_view_for".localized, searchField.text?.trimmingCharacters(in: [" "]) ?? ""))
+        
+        return view
     }
     
     private func updateFormations() {
@@ -262,7 +272,6 @@ extension YoungView_Controller {
     private func setCatalog(codeCatalog: String) {
         strCodeCatalog = codeCatalog
         arTitles = ECNFFormationType.getTypesByCatalog(by: codeCatalog)
-        
         collectionViewCatalg.reloadData()
         arGeneralSection.removeAll()
         
@@ -283,18 +292,6 @@ extension YoungView_Controller {
         searchField.translatesAutoresizingMaskIntoConstraints = false
         searchField.delegate = self
         searchField.placeholder = "formation_button_search".getStringFrom()
-        
-        let imageView_ = UIImageView(frame: CGRect(x: 8.0, y: 8.0, width: 25.0, height: 25.0))
-        let image_ = UIImage(named: "iconoBuscar", in: Bundle(for: YoungView_Route.self), compatibleWith: nil)
-        
-        imageView_.image = image_
-        imageView_.contentMode = .scaleAspectFit
-        
-        let view = UIView(frame: CGRect(x: 0, y: 0, width: 40, height: 40))
-        view.addSubview(imageView_)
-        
-        searchField.rightViewMode = UITextField.ViewMode.always
-        searchField.rightView = view
         
         collectionViewCatalg.backgroundColor = .white
         collectionViewCatalg.delegate = self

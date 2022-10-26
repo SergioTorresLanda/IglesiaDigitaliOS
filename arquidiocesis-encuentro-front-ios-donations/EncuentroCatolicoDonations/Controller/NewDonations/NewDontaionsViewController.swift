@@ -26,7 +26,10 @@ class NewDontaionsViewController: BaseVC, NewDontaionsViewProtocol {
     var itemsRadioBtn = ["Si", "No"]
     var conceptType = ["Selecciona", "Ofrenda", "Diezmo", "Limosna", "Pago de una intención", "pago de un servicio", "Otro"]
     var amountList = ["10", "50", "100", "200", "300", "400", "500", "1000", "Otra"]
-    var isActive = [false, false]
+    var isActive = [false, true]
+    var withBill: Bool {
+        isActive[safe: 0] ?? false
+    }
     var listFavoritesLocations = [LocationsDontaions]()
     var churchSuggestedList = [ChurchesSuggested]()
     var listMainLocations = [AssignedDonations]()
@@ -328,55 +331,38 @@ class NewDontaionsViewController: BaseVC, NewDontaionsViewProtocol {
         
         if  valuleAmount   < 9 {
             let alert = UIAlertController(title: "Aviso", message: "¡Gracias! Desafortunadamente no podemos recibir ofrendas menores a $10 pesos.", preferredStyle: .alert)
-                           let cancelAction = UIAlertAction(title: "Aceptar", style: .cancel){
-                               [weak self] _ in
-                               guard let self = self else {return}
-                               self.navigationController?.popViewController(animated: true)
-                               }
-                           alert.addAction(cancelAction)
-                           
-                           self.present(alert, animated: true)
+            let cancelAction = UIAlertAction(title: "Aceptar", style: .cancel){
+                [weak self] _ in
+                guard let self = self else {return}
+                self.navigationController?.popViewController(animated: true)
+            }
+            alert.addAction(cancelAction)
+            
+            self.present(alert, animated: true)
         } else if valuleAmount >= 10000 {
             let alert = UIAlertController(title: "Aviso", message: "No es posible recibir ofrendas superiores a $10,000 pesos. Cualquier duda favor de comunicarte a contacto@miofrenda.mx", preferredStyle: .alert)
-                           let cancelAction = UIAlertAction(title: "Aceptar", style: .cancel){
-                               [weak self] _ in
-                               guard let self = self else {return}
-                               self.navigationController?.popViewController(animated: true)
-                               }
-                           alert.addAction(cancelAction)
-                           
-                           self.present(alert, animated: true)
-        }
-            let donationRequest = (isActive[safe: 0] ?? false) ? DonationRequest(amount: amount, email: email, locationId: String(churchSelecrtedId), name: name, operationId: "68844", phoneNumber: phone, surnames: surname, rfc: rfc, businessName: businessName, address: address, neighborhood: neighborhood, municipality: municipality, zipcode: zipCode) : DonationRequest(amount: amount, email: email, locationId: String(churchSelecrtedId), name: name, operationId: "68844", phoneNumber: phone, surnames: surname)
-            
-            guard let jsonData = try? JSONEncoder().encode(donationRequest),
-                  let json = String(data: jsonData, encoding: String.Encoding.utf8),
-                  let resultString = SecurityUtils.encryptForWebView(json)?.base64EncodedString() else {
-                return nil
+            let cancelAction = UIAlertAction(title: "Aceptar", style: .cancel){
+                [weak self] _ in
+                guard let self = self else {return}
+                self.navigationController?.popViewController(animated: true)
             }
+            alert.addAction(cancelAction)
             
-            return "\(APIType.shared.myOffer())/pagos/data/v2?data=\(resultString.addingPercentEncoding(withAllowedCharacters: .afURLQueryAllowed)?.replacingOccurrences(of: "/", with: "%2F") ?? "")"
+            self.present(alert, animated: true)
+        }
+        let donationRequest = withBill ? DonationRequest(amount: amount, email: email, locationId: String(churchSelecrtedId), name: name, operationId: "68844", phoneNumber: phone, surnames: surname, rfc: rfc, businessName: businessName, address: address, neighborhood: neighborhood, municipality: municipality, zipcode: zipCode) : DonationRequest(amount: amount, email: email, locationId: String(churchSelecrtedId), name: name, operationId: "68844", phoneNumber: phone, surnames: surname)
+        
+        guard let jsonData = try? JSONEncoder().encode(donationRequest),
+              let json = String(data: jsonData, encoding: String.Encoding.utf8),
+              let resultString = SecurityUtils.encryptForWebView(json)?.base64EncodedString() else {
+            return nil
+        }
+        
+        return "\(APIType.shared.myOffer())/pagos/data/v2?data=\(resultString.addingPercentEncoding(withAllowedCharacters: .afURLQueryAllowed)?.replacingOccurrences(of: "/", with: "%2F") ?? "")"
         
         
     }
-    
-//    func loadWebView() {
-//        //        guard let url = URL(string: "https://qamiofrenda.pamatz.com/pagos/data?idparroquia=001/1&monto=100&nombre=Roman") else { return }
-////        guard let url = URL(string:setUrl()) else { return }
-//        do {
-//            let html = try String(contentsOf: url)
-//            let document: Document = try SwiftSoup.parse(html)
-//            let div : Element = try document.select("div").first()!
-//            let embedHTML = document
-//            let url2 = URL(string: "https://")!
-//
-//            self.myWebView.loadHTMLString("\(embedHTML)" as String, baseURL:url2)
-//
-//        }catch{
-//            print("Catch error html")
-//        }
-//    }
-    
+
     private func setupTables() {
         mainChurchComTable.register(UINib(nibName: "MainChurchCommTableCell", bundle: Bundle.local), forCellReuseIdentifier: "CELLCHURCHCOMM")
         mainChurchComTable.delegate = self
@@ -452,25 +438,7 @@ class NewDontaionsViewController: BaseVC, NewDontaionsViewProtocol {
         picker.delegate = self
         picker.dataSource = self
     }
-    /* @available(iOS 14.0, *)
-     func setupMenu() {
-     let add = UIAction(title: "Add", image: UIImage(systemName: "plus")) { _ in
-     //  self.showToast(message: "Add", seconds: 1.0)
-     }
-     
-     let edit = UIAction(title: "Edit", image: UIImage(systemName: "pencil")) { _ in
-     // self.showToast(message: "Edit", seconds: 1.0)
-     }
-     
-     let delete = UIAction(title: "Delete", image: UIImage(systemName: "minus")) { _ in
-     // self.showToast(message: "Delete", seconds: 1.0)
-     }
-     
-     let menu = UIMenu(title: "", children: [add, edit, delete])
-     pullDownButton.menu = menu
-     pullDownButton.showsMenuAsPrimaryAction = true
-     } */
-    
+
     func showAlert(title: String, message: String) {
         let alert = UIAlertController(title: title, message: message, preferredStyle: .alert)
         let ok = UIAlertAction(title: "Ok", style: .default) { action in
@@ -630,7 +598,7 @@ class NewDontaionsViewController: BaseVC, NewDontaionsViewProtocol {
     @IBAction func saveTaxDataAction(_ sender: Any) {
         if FormularyFieldCollection[0].text != "" && FormularyFieldCollection[1].text != "" && FormularyFieldCollection[2].text != "" && FormularyFieldCollection[3].text != "" && FormularyFieldCollection[4].text != "" && FormularyFieldCollection[5].text != "" && FormularyFieldCollection[6].text != "" {
             
-                        showLoading()
+            showLoading()
             if isEditingData == true {
                 presenter?.saveBillingData(method: "PUT", taxId: billingId, businessName: FormularyFieldCollection[0].text ?? "", rfc: FormularyFieldCollection[1].text ?? "", address: FormularyFieldCollection[2].text ?? "", neighborhood: FormularyFieldCollection[3].text ?? "", zipCode: FormularyFieldCollection[4].text ?? "", municipality: FormularyFieldCollection[5].text ?? "", email: FormularyFieldCollection[6].text ?? "", automaticBilling: automaticBilling)
                 
@@ -687,24 +655,27 @@ class NewDontaionsViewController: BaseVC, NewDontaionsViewProtocol {
             isActive[index] = true
         }
         
+        defer {
+            radioBtnYesCollection.reloadData()
+        }
+        
         switch index {
         case 0:
-            if isActive[index] == true {
-                if billingData.count == 0{
-                    addDataContainerView.isHidden = false
-                    addDataView.isHidden = true
-                    lblData.isHidden = true
-                    lblDataBillingNew.isHidden = false
-                    formularyTaxContainer.isHidden = false
-                }
-            }else{
-                addDataContainerView.isHidden = true
-                addDataView.isHidden = false
-                lblData.isHidden = false
-                lblDataBillingNew.isHidden = true
-                formularyTaxContainer.isHidden = true
+            if withBill,
+               billingData.count == 0 {
+                addDataContainerView.isHidden = false
+                addDataView.isHidden = true
+                lblData.isHidden = true
+                lblDataBillingNew.isHidden = false
+                formularyTaxContainer.isHidden = false
+                return
             }
             
+            addDataContainerView.isHidden = true
+            addDataView.isHidden = false
+            lblData.isHidden = false
+            lblDataBillingNew.isHidden = true
+            formularyTaxContainer.isHidden = true
         case 1:
             addDataContainerView.isHidden = true
             addDataView.isHidden = false
@@ -713,8 +684,7 @@ class NewDontaionsViewController: BaseVC, NewDontaionsViewProtocol {
         default:
             break
         }
-        
-        radioBtnYesCollection.reloadData()
+
         
     }
     
@@ -905,6 +875,7 @@ extension NewDontaionsViewController {
             
             switch selected?.automatic_invoicing {
             case true:
+                isActive = [true, false]
                 checkSquare.isHidden = false
                 automaticBilling = true
                 if flowId == 2 {
@@ -913,6 +884,7 @@ extension NewDontaionsViewController {
                 
                 
             case false:
+                isActive = [false, true]
                 checkSquare.isHidden = true
                 automaticBilling = false
                 if flowId == 2 {
@@ -944,11 +916,9 @@ extension NewDontaionsViewController {
                 changeContainerView.isHidden = false
                 btnSave.isHidden = true
                 
-            }else{
-                isActive = [true, false]
-                radioBtnYesCollection.reloadData()
             }
             
+            radioBtnYesCollection.reloadData()
         }else{
             if flowId == 1 {
                 addDataView.isHidden = false
@@ -958,7 +928,7 @@ extension NewDontaionsViewController {
                 checkBtn.isEnabled = true
                 
             }else{
-                isActive = [false, false]
+                isActive = [false, true]
                 radioBtnYesCollection.reloadData()
                 checkSquare.isHidden = true
                 automaticBilling = false
@@ -1073,24 +1043,18 @@ extension NewDontaionsViewController: WKNavigationDelegate {
                 print("An error occurred: \(error)")
             }
         }
-        
-//        self.myWebView.evaluateJavaScript("document.getElementsByTagName('button')[0].style.color='black'") { value, error in
-//        }
-        
-//        self.myWebView.evaluateJavaScript("document.getElementsByTagName('button')[0].onclick=showToast") { value, error in
-//        }
-        }
+    }
     
     func webView(_ webView: WKWebView, decidePolicyFor navigationAction: WKNavigationAction, decisionHandler: @escaping (WKNavigationActionPolicy) -> Void) {
-            decisionHandler(.allow)
-            guard let urlAsString = navigationAction.request.url?.absoluteString.lowercased() else {
-                return
-            }
-
-            if urlAsString.range(of: "the url that the button redirects the webpage to") != nil {
+        decisionHandler(.allow)
+        guard let urlAsString = navigationAction.request.url?.absoluteString.lowercased() else {
+            return
+        }
+        
+        if urlAsString.range(of: "the url that the button redirects the webpage to") != nil {
             // do something
-            }
-         }
+        }
+    }
 }
 
 extension NewDontaionsViewController {
@@ -1112,7 +1076,7 @@ extension Character
     {
         let characterString = String(self)
         let scalars = characterString.unicodeScalars
-
+        
         return scalars[scalars.startIndex].value
     }
 }

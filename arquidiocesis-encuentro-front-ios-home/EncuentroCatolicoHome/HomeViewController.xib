@@ -221,23 +221,23 @@
                             <rect key="frame" x="0.0" y="617" width="414" height="260"/>
                             <subviews>
                                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Ojx-rA-8wC">
-                                    <rect key="frame" x="231" y="82" width="176" height="48"/>
+                                    <rect key="frame" x="184" y="50" width="223" height="80"/>
                                     <subviews>
                                         <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="t6W-o9-7JK">
-                                            <rect key="frame" x="1" y="9" width="175" height="30"/>
+                                            <rect key="frame" x="1" y="9" width="222" height="30"/>
                                             <connections>
                                                 <action selector="openDonations:" destination="-1" eventType="touchUpInside" id="M4L-Am-gSk"/>
                                             </connections>
                                         </button>
                                         <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="donacionIcon" translatesAutoresizingMaskIntoConstraints="NO" id="rQ4-5c-a6U">
-                                            <rect key="frame" x="9" y="8" width="160" height="40"/>
+                                            <rect key="frame" x="9" y="8" width="207" height="72"/>
                                         </imageView>
                                     </subviews>
                                     <constraints>
                                         <constraint firstItem="t6W-o9-7JK" firstAttribute="top" secondItem="Ojx-rA-8wC" secondAttribute="top" constant="9" id="2g0-78-zhX"/>
                                         <constraint firstAttribute="trailing" secondItem="rQ4-5c-a6U" secondAttribute="trailing" constant="7" id="Meq-Tn-t7d"/>
                                         <constraint firstItem="rQ4-5c-a6U" firstAttribute="leading" secondItem="Ojx-rA-8wC" secondAttribute="leading" constant="9" id="PPE-hR-pbE"/>
-                                        <constraint firstAttribute="height" constant="48" id="TzP-4F-vxp"/>
+                                        <constraint firstAttribute="height" constant="80" id="TzP-4F-vxp"/>
                                         <constraint firstItem="t6W-o9-7JK" firstAttribute="centerX" secondItem="Ojx-rA-8wC" secondAttribute="centerX" constant="0.5" id="bli-Q8-d1U"/>
                                         <constraint firstItem="t6W-o9-7JK" firstAttribute="leading" secondItem="Ojx-rA-8wC" secondAttribute="leading" constant="1" id="sjM-9A-VnA"/>
                                         <constraint firstItem="rQ4-5c-a6U" firstAttribute="top" secondItem="Ojx-rA-8wC" secondAttribute="top" constant="8" id="vKZ-cE-1RO"/>
@@ -247,7 +247,6 @@
                             </subviews>
                             <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                             <constraints>
-                                <constraint firstItem="Ojx-rA-8wC" firstAttribute="leading" secondItem="IRF-r2-8YK" secondAttribute="leading" constant="231" id="dqJ-AU-bF8"/>
                                 <constraint firstAttribute="bottom" secondItem="Ojx-rA-8wC" secondAttribute="bottom" constant="130" id="v4T-Em-TXL"/>
                                 <constraint firstAttribute="trailing" secondItem="Ojx-rA-8wC" secondAttribute="trailing" constant="7" id="wyr-vu-865"/>
                             </constraints>
