@@ -888,6 +888,11 @@
                                                                                                         </constraints>
                                                                                                         <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                                                                                         <textInputTraits key="textInputTraits" keyboardType="numberPad"/>
+                                                                                                        <userDefinedRuntimeAttributes>
+                                                                                                            <userDefinedRuntimeAttribute type="number" keyPath="maxLength">
+                                                                                                                <integer key="value" value="5"/>
+                                                                                                            </userDefinedRuntimeAttribute>
+                                                                                                        </userDefinedRuntimeAttributes>
                                                                                                     </textField>
                                                                                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="dJL-Fs-Ao7">
                                                                                                         <rect key="frame" x="0.0" y="58" width="382" height="1"/>

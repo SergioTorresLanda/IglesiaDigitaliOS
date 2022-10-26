@@ -540,11 +540,11 @@ class NewDontaionsViewController: BaseVC, NewDontaionsViewProtocol {
         }else if isActive[0] == true{
             self.setupWebView()
             if billingData.count == 0 {
-                if FormularyFieldCollection[0].text != "" && FormularyFieldCollection[1].text != "" && FormularyFieldCollection[2].text != "" && FormularyFieldCollection[3].text != "" && FormularyFieldCollection[4].text != "" && FormularyFieldCollection[5].text != "" && FormularyFieldCollection[6].text != "" {
+                if FormularyFieldCollection[0].text != "" && FormularyFieldCollection[1].text != "" && FormularyFieldCollection[1].text?.count == 13 && FormularyFieldCollection[2].text != "" && FormularyFieldCollection[3].text != "" && FormularyFieldCollection[4].text != "" && FormularyFieldCollection[5].text != "" && FormularyFieldCollection[6].text != "" {
                     //                        showLoading()
                     presenter?.saveBillingData(method: "POST", taxId: 0, businessName: FormularyFieldCollection[0].text ?? "", rfc: FormularyFieldCollection[1].text ?? "", address: FormularyFieldCollection[2].text ?? "", neighborhood: FormularyFieldCollection[3].text ?? "", zipCode: FormularyFieldCollection[4].text ?? "", municipality: FormularyFieldCollection[5].text ?? "", email: FormularyFieldCollection[6].text ?? "", automaticBilling: automaticBilling)
                 }else{
-                    let alert = AcceptAlertDonations.showAlert(message: "Por favor llena todos los campos del formulario", btnTitle: "Ok")
+                    let alert = AcceptAlertDonations.showAlert(message: "Por favor verifica", btnTitle: "Ok")
                     alert.modalPresentationStyle = .overFullScreen
                     self.present(alert, animated: true, completion: nil)
                 }
@@ -596,7 +596,7 @@ class NewDontaionsViewController: BaseVC, NewDontaionsViewProtocol {
     }
     
     @IBAction func saveTaxDataAction(_ sender: Any) {
-        if FormularyFieldCollection[0].text != "" && FormularyFieldCollection[1].text != "" && FormularyFieldCollection[2].text != "" && FormularyFieldCollection[3].text != "" && FormularyFieldCollection[4].text != "" && FormularyFieldCollection[5].text != "" && FormularyFieldCollection[6].text != "" {
+        if FormularyFieldCollection[0].text != "" && FormularyFieldCollection[1].text != "" && FormularyFieldCollection[1].text?.count == 13 && FormularyFieldCollection[2].text != "" && FormularyFieldCollection[3].text != "" && FormularyFieldCollection[4].text != "" && FormularyFieldCollection[5].text != "" && FormularyFieldCollection[6].text != "" {
             
             showLoading()
             if isEditingData == true {
