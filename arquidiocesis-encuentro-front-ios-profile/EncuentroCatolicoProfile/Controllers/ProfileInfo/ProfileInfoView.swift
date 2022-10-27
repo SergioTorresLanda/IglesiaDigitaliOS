@@ -87,6 +87,7 @@ class ProfileInfoView: UIViewController {
     var serviceProvider = "Unspecified"
     var nameService = [String]()
     
+    
     static let singleton = ProfileInfoView()
     
 // MARK: CODE VIEW -
@@ -156,8 +157,8 @@ class ProfileInfoView: UIViewController {
     var lifeStateSelected: Int = 0
     var selectedLifeState: DataContent?
     var topicSelected: [DataContent] = []
-    
     let loadingAlert = UIAlertController(title: "", message: "\n \n \n \n \nCargando...", preferredStyle: .alert)
+    
     var imgChoosed : UIImage!
     
     var congregationArray: CongregationsResponse?
@@ -168,6 +169,17 @@ class ProfileInfoView: UIViewController {
     let cellId = "cellId"
     
 // MARK: LIFE CYCLE VIEW FUNCTIONS -
+    func showLoading() {
+        let imageView = UIImageView(frame: CGRect(x: 75, y: 25, width: 140, height: 60))
+        imageView.image = UIImage(named: "logoEncuentro", in: Bundle.local, compatibleWith: nil)
+        loadingAlert.view.addSubview(imageView)
+        present(loadingAlert, animated: true, completion: nil)
+    }
+    
+    func stopLoading() {
+        loadingAlert.dismiss(animated: true, completion: nil)
+    }
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         let singleton = ProfileInfoView.sinleton
@@ -245,6 +257,7 @@ class ProfileInfoView: UIViewController {
             [weak self] _ in
             guard let self = self else {return}
             self.presenter?.deleteAccount(email: correo)
+            self.showLoading()
             }
         alert.addAction(cancelAction)
         alert.addAction(deleteAction)
@@ -253,6 +266,8 @@ class ProfileInfoView: UIViewController {
     }
     func isSuccesDelete(result: Bool) {
         DispatchQueue.main.async {
+            self.stopLoading()
+            
             if result == true {
                 let alert = UIAlertController(title: "Aviso", message: "La cuenta fue eliminada con éxito", preferredStyle: .alert)
                 let cancelAction = UIAlertAction(title: "Aceptar", style: .cancel){
@@ -275,6 +290,7 @@ class ProfileInfoView: UIViewController {
             }
         }
     }
+    
     func showAlert(str: String){
         let alerta = UIAlertController(title: "Aviso", message: str, preferredStyle: .alert)
         alerta.addAction(UIAlertAction(title: "Aceptar", style: .default, handler: nil))
@@ -1078,12 +1094,7 @@ class ProfileInfoView: UIViewController {
         //        view.backgroundColor = .systemGray
     }
     
-    func showLoading() {
-        let imageView = UIImageView(frame: CGRect(x: 75, y: 25, width: 140, height: 60))
-        imageView.image = UIImage(named: "logoEncuentro", in: Bundle.local, compatibleWith: nil)
-        loadingAlert.view.addSubview(imageView)
-        present(loadingAlert, animated: true, completion: nil)
-    }
+
     
     func hideLoading() {
         loadingAlert.dismiss(animated: true, completion: nil)

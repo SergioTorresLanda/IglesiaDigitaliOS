@@ -174,6 +174,23 @@ class NewDontaionsViewController: BaseVC, NewDontaionsViewProtocol {
     @IBOutlet weak var bottomArrowConstraint: NSLayoutConstraint!
     
     // MARK: LIFE CYCLE VIEW FUNCTIONS -
+    func isValidRFC(rfc: String) -> Bool {
+        let rfcPatternPm = "^(([A-ZÑ&]{3})([0-9]{2})([0][13578]|[1][02])(([0][1-9]|[12][\\d])|[3][01])([A-Z0-9]{3}))|" +
+            "(([A-ZÑ&]{3})([0-9]{2})([0][13456789]|[1][012])(([0][1-9]|[12][\\d])|[3][0])([A-Z0-9]{3}))|" +
+            "(([A-ZÑ&]{3})([02468][048]|[13579][26])[0][2]([0][1-9]|[12][\\d])([A-Z0-9]{3}))|" +
+            "(([A-ZÑ&]{3})([0-9]{2})[0][2]([0][1-9]|[1][0-9]|[2][0-8])([A-Z0-9]{3}))$"
+        
+        let rfcPatternPf = "^(([A-ZÑ&]{4})([0-9]{2})([0][13578]|[1][02])(([0][1-9]|[12][\\d])|[3][01])([A-Z0-9]{3}))|" +
+            "(([A-ZÑ&]{4})([0-9]{2})([0][13456789]|[1][012])(([0][1-9]|[12][\\d])|[3][0])([A-Z0-9]{3}))|" +
+            "(([A-ZÑ&]{4})([02468][048]|[13579][26])[0][2]([0][1-9]|[12][\\d])([A-Z0-9]{3}))|" +
+            "(([A-ZÑ&]{4})([0-9]{2})[0][2]([0][1-9]|[1][0-9]|[2][0-8])([A-Z0-9]{3}))$"
+        
+        let validationPm = NSPredicate(format:"SELF MATCHES %@", rfcPatternPm)
+        let validationPf = NSPredicate(format:"SELF MATCHES %@", rfcPatternPf)
+        
+        return validationPm.evaluate(with: self) || validationPf.evaluate(with: self)
+    }
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         showLoading()
@@ -596,19 +613,27 @@ class NewDontaionsViewController: BaseVC, NewDontaionsViewProtocol {
     }
     
     @IBAction func saveTaxDataAction(_ sender: Any) {
-        if FormularyFieldCollection[0].text != "" && FormularyFieldCollection[1].text != "" && FormularyFieldCollection[1].text?.count == 13 && FormularyFieldCollection[2].text != "" && FormularyFieldCollection[3].text != "" && FormularyFieldCollection[4].text != "" && FormularyFieldCollection[5].text != "" && FormularyFieldCollection[6].text != "" {
+        if FormularyFieldCollection[0].text != "" && FormularyFieldCollection[1].text != "" && FormularyFieldCollection[2].text != "" && FormularyFieldCollection[3].text != "" && FormularyFieldCollection[4].text != "" && FormularyFieldCollection[5].text != "" && FormularyFieldCollection[6].text != "" {
             
-            showLoading()
-            if isEditingData == true {
-                presenter?.saveBillingData(method: "PUT", taxId: billingId, businessName: FormularyFieldCollection[0].text ?? "", rfc: FormularyFieldCollection[1].text ?? "", address: FormularyFieldCollection[2].text ?? "", neighborhood: FormularyFieldCollection[3].text ?? "", zipCode: FormularyFieldCollection[4].text ?? "", municipality: FormularyFieldCollection[5].text ?? "", email: FormularyFieldCollection[6].text ?? "", automaticBilling: automaticBilling)
-                
-            }else{
-                presenter?.saveBillingData(method: "POST", taxId: 0, businessName: FormularyFieldCollection[0].text ?? "", rfc: FormularyFieldCollection[1].text ?? "", address: FormularyFieldCollection[2].text ?? "", neighborhood: FormularyFieldCollection[3].text ?? "", zipCode: FormularyFieldCollection[4].text ?? "", municipality: FormularyFieldCollection[5].text ?? "", email: FormularyFieldCollection[6].text ?? "", automaticBilling: automaticBilling)
+            if let rfc = FormularyFieldCollection[1].text, rfc.count == 13 {
+                showLoading()
+                if isEditingData == true {
+                    presenter?.saveBillingData(method: "PUT", taxId: billingId, businessName: FormularyFieldCollection[0].text ?? "", rfc: FormularyFieldCollection[1].text ?? "", address: FormularyFieldCollection[2].text ?? "", neighborhood: FormularyFieldCollection[3].text ?? "", zipCode: FormularyFieldCollection[4].text ?? "", municipality: FormularyFieldCollection[5].text ?? "", email: FormularyFieldCollection[6].text ?? "", automaticBilling: automaticBilling)
+                    
+                }else{
+                    presenter?.saveBillingData(method: "POST", taxId: 0, businessName: FormularyFieldCollection[0].text ?? "", rfc: FormularyFieldCollection[1].text ?? "", address: FormularyFieldCollection[2].text ?? "", neighborhood: FormularyFieldCollection[3].text ?? "", zipCode: FormularyFieldCollection[4].text ?? "", municipality: FormularyFieldCollection[5].text ?? "", email: FormularyFieldCollection[6].text ?? "", automaticBilling: automaticBilling)
+                }
+            } else {
+                let alert = AcceptAlertDonations.showAlert(message: "Verifica tu RFC", btnTitle: "Ok")
+                alert.modalPresentationStyle = .overFullScreen
+                self.present(alert, animated: true, completion: nil)
             }
+            
+
             
         }else{
             // showAlert(title: "Aviso", message: "Por favor llena todos los campos")
-            let alert = AcceptAlertDonations.showAlert(message: "Por favor llena todos los campos", btnTitle: "Ok")
+            let alert = AcceptAlertDonations.showAlert(message: "Por favor Llena Todos Los Campos y Verifica Que Sean Correctos", btnTitle: "Ok")
             alert.modalPresentationStyle = .overFullScreen
             self.present(alert, animated: true, completion: nil)
         }
