@@ -789,7 +789,9 @@ PODS:
   - gRPC-Core/Interface (1.44.0)
   - GTMSessionFetcher/Core (2.1.0)
   - IQKeyboardManagerSwift (6.5.10)
-  - Kingfisher (6.3.1)
+  - Kingfisher (5.15.7):
+    - Kingfisher/Core (= 5.15.7)
+  - Kingfisher/Core (5.15.7)
   - LetterAvatarKit (1.2.3)
   - leveldb-library (1.22.1)
   - Libuv-gRPC (0.0.10):
@@ -841,7 +843,7 @@ DEPENDENCIES:
   - Firebase/RemoteConfig
   - Firebase/Storage
   - IQKeyboardManagerSwift
-  - Kingfisher (= 6.3.1)
+  - Kingfisher (= 5.15.7)
   - LetterAvatarKit (= 1.2.3)
   - lottie-ios
   - PayCardsRecognizer
@@ -924,7 +926,7 @@ SPEC CHECKSUMS:
   gRPC-Core: 943e491cb0d45598b0b0eb9e910c88080369290b
   GTMSessionFetcher: ffbb25ec00ebcb5201adab0a56d808f6f1902d9f
   IQKeyboardManagerSwift: 52962c76ab33532f15ad9f3ff4e5715eda5335bb
-  Kingfisher: 016c8b653a35add51dd34a3aba36b580041acc74
+  Kingfisher: 6e1a13523fcb1c86924ce53affe4ac957e544d59
   LetterAvatarKit: f1c77efaae125a6f39e15210847eeefed57ad204
   leveldb-library: 50c7b45cbd7bf543c81a468fe557a16ae3db8729
   Libuv-gRPC: 55e51798e14ef436ad9bc45d12d43b77b49df378
@@ -941,6 +943,6 @@ SPEC CHECKSUMS:
   SwiftSoup: 4fe21f65cdbfa3a40559047016b7962b88d29279
   Toast-Swift: 9b6a70f28b3bf0b96c40d46c0c4b9d6639846711
 
-PODFILE CHECKSUM: 7fb2f6ce764374795496d3c4a0a1544d4a6df06b
+PODFILE CHECKSUM: f9184f1706551a109b5a51132117197d7da4cdd7
 
-COCOAPODS: 1.11.3
+COCOAPODS: 1.11.2
