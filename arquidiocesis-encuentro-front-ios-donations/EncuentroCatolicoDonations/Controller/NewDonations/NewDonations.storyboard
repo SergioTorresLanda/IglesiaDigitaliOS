@@ -686,322 +686,96 @@
                                                                                 </constraints>
                                                                             </view>
                                                                             <view hidden="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="TjC-Nz-JVD">
-                                                                                <rect key="frame" x="0.0" y="0.0" width="382" height="511"/>
+                                                                                <rect key="frame" x="0.0" y="0.0" width="382" height="175"/>
                                                                                 <subviews>
-                                                                                    <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" translatesAutoresizingMaskIntoConstraints="NO" id="lj6-mr-jSD">
-                                                                                        <rect key="frame" x="0.0" y="10" width="382" height="496"/>
+                                                                                    <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="16" translatesAutoresizingMaskIntoConstraints="NO" id="lj6-mr-jSD">
+                                                                                        <rect key="frame" x="16" y="10" width="350" height="160"/>
                                                                                         <subviews>
-                                                                                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="2h1-jy-lrv">
-                                                                                                <rect key="frame" x="0.0" y="0.0" width="382" height="64"/>
-                                                                                                <subviews>
-                                                                                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Razón social" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="35N-nd-cm1">
-                                                                                                        <rect key="frame" x="8" y="0.0" width="76" height="16"/>
-                                                                                                        <constraints>
-                                                                                                            <constraint firstAttribute="height" constant="16" id="kwf-n5-kp1"/>
-                                                                                                        </constraints>
-                                                                                                        <fontDescription key="fontDescription" type="system" pointSize="13"/>
-                                                                                                        <color key="textColor" name="eMainBlue"/>
-                                                                                                        <nil key="highlightedColor"/>
-                                                                                                    </label>
-                                                                                                    <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="Ej: Alejandra Lemus Acevedo / EAU S.A de C.V." textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="ox1-vQ-27H">
-                                                                                                        <rect key="frame" x="8" y="21" width="366" height="34"/>
-                                                                                                        <constraints>
-                                                                                                            <constraint firstAttribute="height" constant="34" id="nRo-dD-Fhg"/>
-                                                                                                        </constraints>
-                                                                                                        <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                                                                                        <textInputTraits key="textInputTraits" autocapitalizationType="words" returnKeyType="next"/>
-                                                                                                    </textField>
-                                                                                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="dAL-HN-YTh">
-                                                                                                        <rect key="frame" x="0.0" y="58" width="382" height="1"/>
-                                                                                                        <color key="backgroundColor" red="0.68627450980392157" green="0.68627450980392157" blue="0.68627450980392157" alpha="1" colorSpace="calibratedRGB"/>
-                                                                                                        <constraints>
-                                                                                                            <constraint firstAttribute="height" constant="1" id="6nF-hx-Dts"/>
-                                                                                                        </constraints>
-                                                                                                    </view>
-                                                                                                </subviews>
+                                                                                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="2h1-jy-lrv" customClass="ECUField" customModule="EncuentroCatolicoUtils">
+                                                                                                <rect key="frame" x="0.0" y="0.0" width="350" height="0.0"/>
                                                                                                 <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                                                                                                 <constraints>
                                                                                                     <constraint firstAttribute="height" priority="250" constant="82" id="5Eu-L9-29R"/>
-                                                                                                    <constraint firstItem="ox1-vQ-27H" firstAttribute="top" secondItem="35N-nd-cm1" secondAttribute="bottom" constant="5" id="723-eR-duU"/>
-                                                                                                    <constraint firstItem="35N-nd-cm1" firstAttribute="top" secondItem="2h1-jy-lrv" secondAttribute="top" id="9Sd-3k-Zqe"/>
-                                                                                                    <constraint firstAttribute="trailing" secondItem="ox1-vQ-27H" secondAttribute="trailing" constant="8" id="9zV-va-8xX"/>
-                                                                                                    <constraint firstAttribute="trailing" secondItem="dAL-HN-YTh" secondAttribute="trailing" id="DUc-v4-C40"/>
-                                                                                                    <constraint firstAttribute="bottom" secondItem="dAL-HN-YTh" secondAttribute="bottom" constant="5" id="Kxo-QF-cew"/>
-                                                                                                    <constraint firstItem="35N-nd-cm1" firstAttribute="leading" secondItem="2h1-jy-lrv" secondAttribute="leading" constant="8" id="NTZ-xd-Bkt"/>
-                                                                                                    <constraint firstItem="dAL-HN-YTh" firstAttribute="top" secondItem="ox1-vQ-27H" secondAttribute="bottom" constant="3" id="hDJ-hV-iaB"/>
-                                                                                                    <constraint firstItem="ox1-vQ-27H" firstAttribute="leading" secondItem="2h1-jy-lrv" secondAttribute="leading" constant="8" id="hjS-K2-NYp"/>
-                                                                                                    <constraint firstItem="dAL-HN-YTh" firstAttribute="leading" secondItem="2h1-jy-lrv" secondAttribute="leading" id="pNh-ig-0DK"/>
                                                                                                 </constraints>
+                                                                                                <userDefinedRuntimeAttributes>
+                                                                                                    <userDefinedRuntimeAttribute type="string" keyPath="fieldName" value="Razón social"/>
+                                                                                                    <userDefinedRuntimeAttribute type="string" keyPath="placeholderText" value="Ej: Alejandra Lemus Acevedo / EAU S.A de C.V"/>
+                                                                                                </userDefinedRuntimeAttributes>
                                                                                             </view>
-                                                                                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="MPu-OO-Z8l">
-                                                                                                <rect key="frame" x="0.0" y="64" width="382" height="64"/>
-                                                                                                <subviews>
-                                                                                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="RFC" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Rr8-j3-mYX">
-                                                                                                        <rect key="frame" x="8" y="0.0" width="25.5" height="16"/>
-                                                                                                        <constraints>
-                                                                                                            <constraint firstAttribute="height" constant="16" id="M1r-fv-ZSQ"/>
-                                                                                                        </constraints>
-                                                                                                        <fontDescription key="fontDescription" type="system" pointSize="13"/>
-                                                                                                        <color key="textColor" name="eMainBlue"/>
-                                                                                                        <nil key="highlightedColor"/>
-                                                                                                    </label>
-                                                                                                    <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="Ej: TALD810516EU2" textAlignment="natural" clearsOnBeginEditing="YES" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="kCh-n4-nL4">
-                                                                                                        <rect key="frame" x="8" y="21" width="366" height="34"/>
-                                                                                                        <constraints>
-                                                                                                            <constraint firstAttribute="height" constant="34" id="v2Y-gO-01p"/>
-                                                                                                        </constraints>
-                                                                                                        <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                                                                                        <textInputTraits key="textInputTraits" autocapitalizationType="allCharacters" returnKeyType="next"/>
-                                                                                                        <userDefinedRuntimeAttributes>
-                                                                                                            <userDefinedRuntimeAttribute type="number" keyPath="maxLength">
-                                                                                                                <integer key="value" value="13"/>
-                                                                                                            </userDefinedRuntimeAttribute>
-                                                                                                        </userDefinedRuntimeAttributes>
-                                                                                                    </textField>
-                                                                                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="dzM-tc-19a">
-                                                                                                        <rect key="frame" x="0.0" y="58" width="382" height="1"/>
-                                                                                                        <color key="backgroundColor" red="0.68627450980000004" green="0.68627450980000004" blue="0.68627450980000004" alpha="1" colorSpace="calibratedRGB"/>
-                                                                                                        <constraints>
-                                                                                                            <constraint firstAttribute="height" constant="1" id="nVt-CI-bS9"/>
-                                                                                                        </constraints>
-                                                                                                    </view>
-                                                                                                </subviews>
+                                                                                            <view tag="1" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="MPu-OO-Z8l" customClass="ECUField" customModule="EncuentroCatolicoUtils">
+                                                                                                <rect key="frame" x="0.0" y="16" width="350" height="0.0"/>
                                                                                                 <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                                                                                                 <constraints>
-                                                                                                    <constraint firstAttribute="bottom" secondItem="dzM-tc-19a" secondAttribute="bottom" constant="5" id="1dS-hu-ckJ"/>
-                                                                                                    <constraint firstAttribute="trailing" secondItem="dzM-tc-19a" secondAttribute="trailing" id="AYZ-Oe-KmW"/>
-                                                                                                    <constraint firstItem="dzM-tc-19a" firstAttribute="top" secondItem="kCh-n4-nL4" secondAttribute="bottom" constant="3" id="HGX-VO-WxL"/>
                                                                                                     <constraint firstAttribute="height" priority="250" constant="82" id="JRY-4k-7a3"/>
-                                                                                                    <constraint firstItem="Rr8-j3-mYX" firstAttribute="top" secondItem="MPu-OO-Z8l" secondAttribute="top" id="NlU-vy-ZTH"/>
-                                                                                                    <constraint firstItem="kCh-n4-nL4" firstAttribute="top" secondItem="Rr8-j3-mYX" secondAttribute="bottom" constant="5" id="Qgg-7X-AAe"/>
-                                                                                                    <constraint firstItem="kCh-n4-nL4" firstAttribute="leading" secondItem="MPu-OO-Z8l" secondAttribute="leading" constant="8" id="fYw-4V-x5O"/>
-                                                                                                    <constraint firstItem="dzM-tc-19a" firstAttribute="leading" secondItem="MPu-OO-Z8l" secondAttribute="leading" id="hca-bM-QVd"/>
-                                                                                                    <constraint firstAttribute="trailing" secondItem="kCh-n4-nL4" secondAttribute="trailing" constant="8" id="ncO-E3-1IN"/>
-                                                                                                    <constraint firstItem="Rr8-j3-mYX" firstAttribute="leading" secondItem="MPu-OO-Z8l" secondAttribute="leading" constant="8" id="ysJ-JG-Meu"/>
                                                                                                 </constraints>
+                                                                                                <userDefinedRuntimeAttributes>
+                                                                                                    <userDefinedRuntimeAttribute type="string" keyPath="fieldName" value="RFC"/>
+                                                                                                    <userDefinedRuntimeAttribute type="string" keyPath="placeholderText" value="Ej: TALD810516EU2 / EJM951105H32"/>
+                                                                                                    <userDefinedRuntimeAttribute type="number" keyPath="maxLength">
+                                                                                                        <integer key="value" value="13"/>
+                                                                                                    </userDefinedRuntimeAttribute>
+                                                                                                </userDefinedRuntimeAttributes>
                                                                                             </view>
-                                                                                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="1z0-a8-8cE">
-                                                                                                <rect key="frame" x="0.0" y="128" width="382" height="64"/>
-                                                                                                <subviews>
-                                                                                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Direccción" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="wI4-aG-ZyC">
-                                                                                                        <rect key="frame" x="8" y="0.0" width="64.5" height="16"/>
-                                                                                                        <constraints>
-                                                                                                            <constraint firstAttribute="height" constant="16" id="a4l-mG-eS9"/>
-                                                                                                        </constraints>
-                                                                                                        <fontDescription key="fontDescription" type="system" pointSize="13"/>
-                                                                                                        <color key="textColor" name="eMainBlue"/>
-                                                                                                        <nil key="highlightedColor"/>
-                                                                                                    </label>
-                                                                                                    <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="Ej: Lago Erie No. 34, Lago Erie #34, Lago Erie 34" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="txd-uk-XGC">
-                                                                                                        <rect key="frame" x="8" y="21" width="366" height="34"/>
-                                                                                                        <constraints>
-                                                                                                            <constraint firstAttribute="height" constant="34" id="apc-h3-bd6"/>
-                                                                                                        </constraints>
-                                                                                                        <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                                                                                        <textInputTraits key="textInputTraits" returnKeyType="next"/>
-                                                                                                    </textField>
-                                                                                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="ouN-WV-uwi">
-                                                                                                        <rect key="frame" x="0.0" y="58" width="382" height="1"/>
-                                                                                                        <color key="backgroundColor" red="0.68627450980000004" green="0.68627450980000004" blue="0.68627450980000004" alpha="1" colorSpace="calibratedRGB"/>
-                                                                                                        <constraints>
-                                                                                                            <constraint firstAttribute="height" constant="1" id="fOa-xj-hAF"/>
-                                                                                                        </constraints>
-                                                                                                    </view>
-                                                                                                </subviews>
+                                                                                            <view tag="2" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="1z0-a8-8cE" customClass="ECUField" customModule="EncuentroCatolicoUtils">
+                                                                                                <rect key="frame" x="0.0" y="32" width="350" height="0.0"/>
                                                                                                 <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                                                                                                 <constraints>
-                                                                                                    <constraint firstItem="wI4-aG-ZyC" firstAttribute="leading" secondItem="1z0-a8-8cE" secondAttribute="leading" constant="8" id="71D-gq-3LX"/>
-                                                                                                    <constraint firstItem="txd-uk-XGC" firstAttribute="leading" secondItem="1z0-a8-8cE" secondAttribute="leading" constant="8" id="7x7-Co-O8y"/>
-                                                                                                    <constraint firstItem="ouN-WV-uwi" firstAttribute="top" secondItem="txd-uk-XGC" secondAttribute="bottom" constant="3" id="Khq-gr-dBG"/>
-                                                                                                    <constraint firstAttribute="bottom" secondItem="ouN-WV-uwi" secondAttribute="bottom" constant="5" id="SEH-03-1Nl"/>
-                                                                                                    <constraint firstAttribute="trailing" secondItem="ouN-WV-uwi" secondAttribute="trailing" id="UTn-Cq-DB3"/>
-                                                                                                    <constraint firstItem="txd-uk-XGC" firstAttribute="top" secondItem="wI4-aG-ZyC" secondAttribute="bottom" constant="5" id="YOx-k4-LpK"/>
-                                                                                                    <constraint firstItem="ouN-WV-uwi" firstAttribute="leading" secondItem="1z0-a8-8cE" secondAttribute="leading" id="ac6-KD-bJt"/>
-                                                                                                    <constraint firstAttribute="trailing" secondItem="txd-uk-XGC" secondAttribute="trailing" constant="8" id="dfh-SJ-pTo"/>
                                                                                                     <constraint firstAttribute="height" priority="250" constant="82" id="rU8-gb-lrz"/>
-                                                                                                    <constraint firstItem="wI4-aG-ZyC" firstAttribute="top" secondItem="1z0-a8-8cE" secondAttribute="top" id="tuo-YD-BPY"/>
                                                                                                 </constraints>
+                                                                                                <userDefinedRuntimeAttributes>
+                                                                                                    <userDefinedRuntimeAttribute type="string" keyPath="fieldName" value="Direccción"/>
+                                                                                                    <userDefinedRuntimeAttribute type="string" keyPath="placeholderText" value="Ej: Lago Erie No. 34, Lago Erie #34, Lago Erie 34"/>
+                                                                                                </userDefinedRuntimeAttributes>
                                                                                             </view>
-                                                                                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="9oD-5z-xNt">
-                                                                                                <rect key="frame" x="0.0" y="192" width="382" height="64"/>
-                                                                                                <subviews>
-                                                                                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Colonia" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="etI-2D-qyl">
-                                                                                                        <rect key="frame" x="8" y="0.0" width="45.5" height="16"/>
-                                                                                                        <constraints>
-                                                                                                            <constraint firstAttribute="height" constant="16" id="mCE-rK-ncS"/>
-                                                                                                        </constraints>
-                                                                                                        <fontDescription key="fontDescription" type="system" pointSize="13"/>
-                                                                                                        <color key="textColor" name="eMainBlue"/>
-                                                                                                        <nil key="highlightedColor"/>
-                                                                                                    </label>
-                                                                                                    <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="Ej: Tacuba, Popotla, Anahuac" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="t5i-4G-nk5">
-                                                                                                        <rect key="frame" x="8" y="21" width="366" height="34"/>
-                                                                                                        <constraints>
-                                                                                                            <constraint firstAttribute="height" constant="34" id="QX4-dw-0Ai"/>
-                                                                                                        </constraints>
-                                                                                                        <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                                                                                        <textInputTraits key="textInputTraits" returnKeyType="next"/>
-                                                                                                        <userDefinedRuntimeAttributes>
-                                                                                                            <userDefinedRuntimeAttribute type="number" keyPath="maxLength">
-                                                                                                                <integer key="value" value="50"/>
-                                                                                                            </userDefinedRuntimeAttribute>
-                                                                                                        </userDefinedRuntimeAttributes>
-                                                                                                    </textField>
-                                                                                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="SmP-X6-RT2">
-                                                                                                        <rect key="frame" x="0.0" y="58" width="382" height="1"/>
-                                                                                                        <color key="backgroundColor" red="0.68627450980000004" green="0.68627450980000004" blue="0.68627450980000004" alpha="1" colorSpace="calibratedRGB"/>
-                                                                                                        <constraints>
-                                                                                                            <constraint firstAttribute="height" constant="1" id="4nF-M0-fmK"/>
-                                                                                                        </constraints>
-                                                                                                    </view>
-                                                                                                </subviews>
+                                                                                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="9oD-5z-xNt" customClass="ECUField" customModule="EncuentroCatolicoUtils">
+                                                                                                <rect key="frame" x="0.0" y="48" width="350" height="0.0"/>
                                                                                                 <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                                                                                                 <constraints>
-                                                                                                    <constraint firstItem="etI-2D-qyl" firstAttribute="top" secondItem="9oD-5z-xNt" secondAttribute="top" id="CCh-RK-xy4"/>
-                                                                                                    <constraint firstItem="t5i-4G-nk5" firstAttribute="leading" secondItem="9oD-5z-xNt" secondAttribute="leading" constant="8" id="ObW-36-Ls9"/>
-                                                                                                    <constraint firstItem="t5i-4G-nk5" firstAttribute="top" secondItem="etI-2D-qyl" secondAttribute="bottom" constant="5" id="P6T-Dd-kp0"/>
-                                                                                                    <constraint firstItem="etI-2D-qyl" firstAttribute="leading" secondItem="9oD-5z-xNt" secondAttribute="leading" constant="8" id="X4z-UH-VeN"/>
-                                                                                                    <constraint firstItem="SmP-X6-RT2" firstAttribute="top" secondItem="t5i-4G-nk5" secondAttribute="bottom" constant="3" id="elM-5p-anU"/>
-                                                                                                    <constraint firstAttribute="trailing" secondItem="SmP-X6-RT2" secondAttribute="trailing" id="fxz-xS-vxj"/>
-                                                                                                    <constraint firstItem="SmP-X6-RT2" firstAttribute="leading" secondItem="9oD-5z-xNt" secondAttribute="leading" id="mJC-ti-0uc"/>
-                                                                                                    <constraint firstAttribute="bottom" secondItem="SmP-X6-RT2" secondAttribute="bottom" constant="5" id="mfj-hH-aAb"/>
-                                                                                                    <constraint firstAttribute="trailing" secondItem="t5i-4G-nk5" secondAttribute="trailing" constant="8" id="oqQ-e6-1lV"/>
                                                                                                     <constraint firstAttribute="height" priority="250" constant="82" id="t1E-4S-iFb"/>
                                                                                                 </constraints>
+                                                                                                <userDefinedRuntimeAttributes>
+                                                                                                    <userDefinedRuntimeAttribute type="string" keyPath="fieldName" value="Colonia"/>
+                                                                                                    <userDefinedRuntimeAttribute type="string" keyPath="placeholderText" value="Ej: Tacuba, Popotla, Anahuac"/>
+                                                                                                </userDefinedRuntimeAttributes>
                                                                                             </view>
-                                                                                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="qGf-H7-iZe">
-                                                                                                <rect key="frame" x="0.0" y="256" width="382" height="64"/>
-                                                                                                <subviews>
-                                                                                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="C.P." textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ANR-U3-eHZ">
-                                                                                                        <rect key="frame" x="8" y="0.0" width="24" height="16"/>
-                                                                                                        <constraints>
-                                                                                                            <constraint firstAttribute="height" constant="16" id="GqX-rg-Cx9"/>
-                                                                                                        </constraints>
-                                                                                                        <fontDescription key="fontDescription" type="system" pointSize="13"/>
-                                                                                                        <color key="textColor" name="eMainBlue"/>
-                                                                                                        <nil key="highlightedColor"/>
-                                                                                                    </label>
-                                                                                                    <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="Ej: 11410" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="u52-pv-Aof">
-                                                                                                        <rect key="frame" x="8" y="21" width="366" height="34"/>
-                                                                                                        <constraints>
-                                                                                                            <constraint firstAttribute="height" constant="34" id="QGl-Oo-zCz"/>
-                                                                                                        </constraints>
-                                                                                                        <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                                                                                        <textInputTraits key="textInputTraits" keyboardType="numberPad"/>
-                                                                                                        <userDefinedRuntimeAttributes>
-                                                                                                            <userDefinedRuntimeAttribute type="number" keyPath="maxLength">
-                                                                                                                <integer key="value" value="5"/>
-                                                                                                            </userDefinedRuntimeAttribute>
-                                                                                                        </userDefinedRuntimeAttributes>
-                                                                                                    </textField>
-                                                                                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="dJL-Fs-Ao7">
-                                                                                                        <rect key="frame" x="0.0" y="58" width="382" height="1"/>
-                                                                                                        <color key="backgroundColor" red="0.68627450980000004" green="0.68627450980000004" blue="0.68627450980000004" alpha="1" colorSpace="calibratedRGB"/>
-                                                                                                        <constraints>
-                                                                                                            <constraint firstAttribute="height" constant="1" id="f2G-tf-aRT"/>
-                                                                                                        </constraints>
-                                                                                                    </view>
-                                                                                                </subviews>
+                                                                                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="qGf-H7-iZe" customClass="ECUField" customModule="EncuentroCatolicoUtils">
+                                                                                                <rect key="frame" x="0.0" y="64" width="350" height="0.0"/>
                                                                                                 <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                                                                                                 <constraints>
-                                                                                                    <constraint firstItem="u52-pv-Aof" firstAttribute="top" secondItem="ANR-U3-eHZ" secondAttribute="bottom" constant="5" id="5Kn-7H-Y9o"/>
-                                                                                                    <constraint firstAttribute="trailing" secondItem="u52-pv-Aof" secondAttribute="trailing" constant="8" id="76Q-wh-gH6"/>
-                                                                                                    <constraint firstItem="dJL-Fs-Ao7" firstAttribute="top" secondItem="u52-pv-Aof" secondAttribute="bottom" constant="3" id="JMc-Z5-EUv"/>
                                                                                                     <constraint firstAttribute="height" priority="250" constant="82" id="OJk-RP-VE6"/>
-                                                                                                    <constraint firstItem="ANR-U3-eHZ" firstAttribute="top" secondItem="qGf-H7-iZe" secondAttribute="top" id="UzP-6q-Oi8"/>
-                                                                                                    <constraint firstItem="ANR-U3-eHZ" firstAttribute="leading" secondItem="qGf-H7-iZe" secondAttribute="leading" constant="8" id="goM-QG-z9s"/>
-                                                                                                    <constraint firstAttribute="trailing" secondItem="dJL-Fs-Ao7" secondAttribute="trailing" id="goZ-mz-Gmb"/>
-                                                                                                    <constraint firstItem="dJL-Fs-Ao7" firstAttribute="leading" secondItem="qGf-H7-iZe" secondAttribute="leading" id="h5r-qL-R1L"/>
-                                                                                                    <constraint firstAttribute="bottom" secondItem="dJL-Fs-Ao7" secondAttribute="bottom" constant="5" id="jH7-Bw-QEw"/>
-                                                                                                    <constraint firstItem="u52-pv-Aof" firstAttribute="leading" secondItem="qGf-H7-iZe" secondAttribute="leading" constant="8" id="u87-C0-QSS"/>
                                                                                                 </constraints>
+                                                                                                <userDefinedRuntimeAttributes>
+                                                                                                    <userDefinedRuntimeAttribute type="string" keyPath="fieldName" value="C.P."/>
+                                                                                                    <userDefinedRuntimeAttribute type="string" keyPath="placeholderText" value="Ej: 11410"/>
+                                                                                                    <userDefinedRuntimeAttribute type="number" keyPath="maxLength">
+                                                                                                        <integer key="value" value="5"/>
+                                                                                                    </userDefinedRuntimeAttribute>
+                                                                                                </userDefinedRuntimeAttributes>
                                                                                             </view>
-                                                                                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="9Zj-PQ-gjc">
-                                                                                                <rect key="frame" x="0.0" y="320" width="382" height="64"/>
-                                                                                                <subviews>
-                                                                                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Alcaldía" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Zl2-Ue-sRn">
-                                                                                                        <rect key="frame" x="8" y="0.0" width="48" height="16"/>
-                                                                                                        <constraints>
-                                                                                                            <constraint firstAttribute="height" constant="16" id="dPs-Zq-xYj"/>
-                                                                                                        </constraints>
-                                                                                                        <fontDescription key="fontDescription" type="system" pointSize="13"/>
-                                                                                                        <color key="textColor" name="eMainBlue"/>
-                                                                                                        <nil key="highlightedColor"/>
-                                                                                                    </label>
-                                                                                                    <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="Ej: Miguel Hidalgo" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="9ej-Uu-KFg">
-                                                                                                        <rect key="frame" x="8" y="21" width="366" height="34"/>
-                                                                                                        <constraints>
-                                                                                                            <constraint firstAttribute="height" constant="34" id="cwu-fn-K0o"/>
-                                                                                                        </constraints>
-                                                                                                        <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                                                                                        <textInputTraits key="textInputTraits" returnKeyType="next"/>
-                                                                                                    </textField>
-                                                                                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="mkp-Qy-Ojs">
-                                                                                                        <rect key="frame" x="0.0" y="58" width="382" height="1"/>
-                                                                                                        <color key="backgroundColor" red="0.68627450980000004" green="0.68627450980000004" blue="0.68627450980000004" alpha="1" colorSpace="calibratedRGB"/>
-                                                                                                        <constraints>
-                                                                                                            <constraint firstAttribute="height" constant="1" id="Ugd-EA-NZ6"/>
-                                                                                                        </constraints>
-                                                                                                    </view>
-                                                                                                </subviews>
+                                                                                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="9Zj-PQ-gjc" customClass="ECUField" customModule="EncuentroCatolicoUtils">
+                                                                                                <rect key="frame" x="0.0" y="80" width="350" height="0.0"/>
                                                                                                 <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                                                                                                 <constraints>
-                                                                                                    <constraint firstAttribute="bottom" secondItem="mkp-Qy-Ojs" secondAttribute="bottom" constant="5" id="F65-hH-rCD"/>
-                                                                                                    <constraint firstItem="9ej-Uu-KFg" firstAttribute="top" secondItem="Zl2-Ue-sRn" secondAttribute="bottom" constant="5" id="HRH-l2-4SA"/>
-                                                                                                    <constraint firstItem="9ej-Uu-KFg" firstAttribute="leading" secondItem="9Zj-PQ-gjc" secondAttribute="leading" constant="8" id="LLL-EQ-4oZ"/>
-                                                                                                    <constraint firstItem="Zl2-Ue-sRn" firstAttribute="leading" secondItem="9Zj-PQ-gjc" secondAttribute="leading" constant="8" id="MKo-vH-Rhn"/>
-                                                                                                    <constraint firstAttribute="trailing" secondItem="mkp-Qy-Ojs" secondAttribute="trailing" id="SVv-Sg-LIs"/>
                                                                                                     <constraint firstAttribute="height" priority="250" constant="82" id="X2m-2l-5tp"/>
-                                                                                                    <constraint firstItem="Zl2-Ue-sRn" firstAttribute="top" secondItem="9Zj-PQ-gjc" secondAttribute="top" id="agT-1V-NQc"/>
-                                                                                                    <constraint firstItem="mkp-Qy-Ojs" firstAttribute="top" secondItem="9ej-Uu-KFg" secondAttribute="bottom" constant="3" id="mE3-66-2IW"/>
-                                                                                                    <constraint firstAttribute="trailing" secondItem="9ej-Uu-KFg" secondAttribute="trailing" constant="8" id="tB2-r6-Wcf"/>
-                                                                                                    <constraint firstItem="mkp-Qy-Ojs" firstAttribute="leading" secondItem="9Zj-PQ-gjc" secondAttribute="leading" id="uqx-06-we3"/>
                                                                                                 </constraints>
+                                                                                                <userDefinedRuntimeAttributes>
+                                                                                                    <userDefinedRuntimeAttribute type="string" keyPath="fieldName" value="Alcaldía"/>
+                                                                                                    <userDefinedRuntimeAttribute type="string" keyPath="placeholderText" value="Ej: Miguel Hidalgo"/>
+                                                                                                </userDefinedRuntimeAttributes>
                                                                                             </view>
-                                                                                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="HQ2-tf-kcj">
-                                                                                                <rect key="frame" x="0.0" y="384" width="382" height="64"/>
-                                                                                                <subviews>
-                                                                                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Correo electrónico" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="isp-fY-V9e">
-                                                                                                        <rect key="frame" x="8" y="0.0" width="113" height="16"/>
-                                                                                                        <constraints>
-                                                                                                            <constraint firstAttribute="height" constant="16" id="z1C-r2-Lz5"/>
-                                                                                                        </constraints>
-                                                                                                        <fontDescription key="fontDescription" type="system" pointSize="13"/>
-                                                                                                        <color key="textColor" name="eMainBlue"/>
-                                                                                                        <nil key="highlightedColor"/>
-                                                                                                    </label>
-                                                                                                    <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="Ej:correo@correo.com.mx" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="G8P-Zd-p5Y">
-                                                                                                        <rect key="frame" x="8" y="21" width="366" height="34"/>
-                                                                                                        <constraints>
-                                                                                                            <constraint firstAttribute="height" constant="34" id="Pij-K5-rgg"/>
-                                                                                                        </constraints>
-                                                                                                        <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                                                                                        <textInputTraits key="textInputTraits" keyboardType="emailAddress" returnKeyType="done"/>
-                                                                                                    </textField>
-                                                                                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="9kx-lf-QAK">
-                                                                                                        <rect key="frame" x="0.0" y="58" width="382" height="1"/>
-                                                                                                        <color key="backgroundColor" red="0.68627450980000004" green="0.68627450980000004" blue="0.68627450980000004" alpha="1" colorSpace="calibratedRGB"/>
-                                                                                                        <constraints>
-                                                                                                            <constraint firstAttribute="height" constant="1" id="md6-Lm-hIU"/>
-                                                                                                        </constraints>
-                                                                                                    </view>
-                                                                                                </subviews>
+                                                                                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="HQ2-tf-kcj" customClass="ECUField" customModule="EncuentroCatolicoUtils">
+                                                                                                <rect key="frame" x="0.0" y="96" width="350" height="0.0"/>
                                                                                                 <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                                                                                                 <constraints>
-                                                                                                    <constraint firstItem="isp-fY-V9e" firstAttribute="top" secondItem="HQ2-tf-kcj" secondAttribute="top" id="0Cc-N6-3Xg"/>
-                                                                                                    <constraint firstAttribute="bottom" secondItem="9kx-lf-QAK" secondAttribute="bottom" constant="5" id="6RK-AS-gio"/>
-                                                                                                    <constraint firstItem="G8P-Zd-p5Y" firstAttribute="leading" secondItem="HQ2-tf-kcj" secondAttribute="leading" constant="8" id="CZ9-ga-vKL"/>
-                                                                                                    <constraint firstItem="isp-fY-V9e" firstAttribute="leading" secondItem="HQ2-tf-kcj" secondAttribute="leading" constant="8" id="LEt-Mq-0u3"/>
-                                                                                                    <constraint firstItem="9kx-lf-QAK" firstAttribute="top" secondItem="G8P-Zd-p5Y" secondAttribute="bottom" constant="3" id="Lfe-ic-tmC"/>
                                                                                                     <constraint firstAttribute="height" priority="250" constant="82" id="UDG-Lq-7t1"/>
-                                                                                                    <constraint firstItem="G8P-Zd-p5Y" firstAttribute="top" secondItem="isp-fY-V9e" secondAttribute="bottom" constant="5" id="WPK-XF-Gt2"/>
-                                                                                                    <constraint firstItem="9kx-lf-QAK" firstAttribute="leading" secondItem="HQ2-tf-kcj" secondAttribute="leading" id="ZrO-fV-H8y"/>
-                                                                                                    <constraint firstAttribute="trailing" secondItem="9kx-lf-QAK" secondAttribute="trailing" id="c6l-Bp-isr"/>
-                                                                                                    <constraint firstAttribute="trailing" secondItem="G8P-Zd-p5Y" secondAttribute="trailing" constant="8" id="jlY-7n-U0b"/>
                                                                                                 </constraints>
+                                                                                                <userDefinedRuntimeAttributes>
+                                                                                                    <userDefinedRuntimeAttribute type="string" keyPath="fieldName" value="Correo electrónico"/>
+                                                                                                    <userDefinedRuntimeAttribute type="string" keyPath="placeholderText" value="Ej: correo@correo.com.mx"/>
+                                                                                                </userDefinedRuntimeAttributes>
                                                                                             </view>
                                                                                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="UoK-fl-OuH">
-                                                                                                <rect key="frame" x="0.0" y="448" width="382" height="48"/>
+                                                                                                <rect key="frame" x="0.0" y="112" width="350" height="48"/>
                                                                                                 <subviews>
                                                                                                     <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="square" catalog="system" translatesAutoresizingMaskIntoConstraints="NO" id="W6Q-Oj-2Q3">
                                                                                                         <rect key="frame" x="10" y="16" width="18" height="15.5"/>
@@ -1059,9 +833,9 @@
                                                                                 <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                                                                                 <constraints>
                                                                                     <constraint firstAttribute="bottom" secondItem="lj6-mr-jSD" secondAttribute="bottom" constant="5" id="KSV-0J-LHs"/>
-                                                                                    <constraint firstItem="lj6-mr-jSD" firstAttribute="leading" secondItem="TjC-Nz-JVD" secondAttribute="leading" id="Lbh-KW-pJp"/>
+                                                                                    <constraint firstItem="lj6-mr-jSD" firstAttribute="leading" secondItem="TjC-Nz-JVD" secondAttribute="leading" constant="16" id="Lbh-KW-pJp"/>
                                                                                     <constraint firstAttribute="height" priority="250" constant="102" id="dG8-Ux-xSy"/>
-                                                                                    <constraint firstAttribute="trailing" secondItem="lj6-mr-jSD" secondAttribute="trailing" id="dlZ-zV-l53"/>
+                                                                                    <constraint firstAttribute="trailing" secondItem="lj6-mr-jSD" secondAttribute="trailing" constant="16" id="dlZ-zV-l53"/>
                                                                                     <constraint firstItem="lj6-mr-jSD" firstAttribute="top" secondItem="TjC-Nz-JVD" secondAttribute="top" constant="10" id="tfu-Zq-O81"/>
                                                                                 </constraints>
                                                                             </view>
@@ -1298,32 +1072,18 @@
                         <outlet property="subContainerConcept" destination="ldN-py-slw" id="fye-Ms-kCq"/>
                         <outlet property="suggestionsChurchMainView" destination="sON-2a-kSI" id="yu5-w9-rQF"/>
                         <outlet property="suggestionsChurchTable" destination="De3-cn-Yqm" id="ffc-tC-7ua"/>
+                        <outlet property="taxAddressField" destination="1z0-a8-8cE" id="GD0-zM-pYo"/>
+                        <outlet property="taxCPField" destination="qGf-H7-iZe" id="hC3-uQ-VJW"/>
+                        <outlet property="taxColonyField" destination="9oD-5z-xNt" id="jdf-g5-fYi"/>
+                        <outlet property="taxEmailField" destination="HQ2-tf-kcj" id="9QZ-xP-eMK"/>
+                        <outlet property="taxRFCField" destination="MPu-OO-Z8l" id="tvi-50-VEY"/>
+                        <outlet property="taxSocialReasonField" destination="2h1-jy-lrv" id="mCu-Xz-f2F"/>
+                        <outlet property="taxTownHallField" destination="9Zj-PQ-gjc" id="GaY-sw-bPU"/>
                         <outlet property="thirdLblTimer" destination="5uL-16-HnS" id="vA0-Hb-VTa"/>
                         <outlet property="thirdTimerView" destination="qrt-mY-rJl" id="x7L-UX-NAV"/>
                         <outlet property="viewToShadow" destination="uTB-I5-FuB" id="pWp-zv-4hf"/>
                         <outlet property="webViewContainer" destination="DSF-5K-2s5" id="2en-Ux-GBa"/>
-                        <outletCollection property="lblFormularyCollection" destination="wI4-aG-ZyC" collectionClass="NSMutableArray" id="mof-iA-smQ"/>
-                        <outletCollection property="lblFormularyCollection" destination="ANR-U3-eHZ" collectionClass="NSMutableArray" id="5ct-kr-4wB"/>
-                        <outletCollection property="lblFormularyCollection" destination="isp-fY-V9e" collectionClass="NSMutableArray" id="qyT-Yd-MJK"/>
-                        <outletCollection property="lblFormularyCollection" destination="35N-nd-cm1" collectionClass="NSMutableArray" id="49h-ta-xit"/>
-                        <outletCollection property="lineFormularyCollection" destination="dAL-HN-YTh" collectionClass="NSMutableArray" id="YWS-KA-tfu"/>
                         <outletCollection property="lblFormularyCollection" destination="4Jt-zx-qcD" collectionClass="NSMutableArray" id="PXM-so-8y8"/>
-                        <outletCollection property="lineFormularyCollection" destination="mkp-Qy-Ojs" collectionClass="NSMutableArray" id="3kA-Hk-LEz"/>
-                        <outletCollection property="lblFormularyCollection" destination="Rr8-j3-mYX" collectionClass="NSMutableArray" id="r4k-Tf-33u"/>
-                        <outletCollection property="lineFormularyCollection" destination="ouN-WV-uwi" collectionClass="NSMutableArray" id="pmw-cQ-oks"/>
-                        <outletCollection property="lineFormularyCollection" destination="dJL-Fs-Ao7" collectionClass="NSMutableArray" id="Q7R-hd-92E"/>
-                        <outletCollection property="lineFormularyCollection" destination="SmP-X6-RT2" collectionClass="NSMutableArray" id="MO6-nk-WZJ"/>
-                        <outletCollection property="lineFormularyCollection" destination="9kx-lf-QAK" collectionClass="NSMutableArray" id="3Jz-D7-RgD"/>
-                        <outletCollection property="lblFormularyCollection" destination="Zl2-Ue-sRn" collectionClass="NSMutableArray" id="4Mc-Vo-UPj"/>
-                        <outletCollection property="lineFormularyCollection" destination="dzM-tc-19a" collectionClass="NSMutableArray" id="qaW-IU-QEB"/>
-                        <outletCollection property="lblFormularyCollection" destination="etI-2D-qyl" collectionClass="NSMutableArray" id="Zzy-xd-man"/>
-                        <outletCollection property="FormularyFieldCollection" destination="ox1-vQ-27H" collectionClass="NSMutableArray" id="fzw-5e-KOt"/>
-                        <outletCollection property="FormularyFieldCollection" destination="kCh-n4-nL4" collectionClass="NSMutableArray" id="zfT-3x-1eo"/>
-                        <outletCollection property="FormularyFieldCollection" destination="txd-uk-XGC" collectionClass="NSMutableArray" id="t2o-xe-v0k"/>
-                        <outletCollection property="FormularyFieldCollection" destination="t5i-4G-nk5" collectionClass="NSMutableArray" id="GR8-UA-4bu"/>
-                        <outletCollection property="FormularyFieldCollection" destination="u52-pv-Aof" collectionClass="NSMutableArray" id="Hg6-br-qSa"/>
-                        <outletCollection property="FormularyFieldCollection" destination="9ej-Uu-KFg" collectionClass="NSMutableArray" id="PsU-U5-tuD"/>
-                        <outletCollection property="FormularyFieldCollection" destination="G8P-Zd-p5Y" collectionClass="NSMutableArray" id="k42-yR-Jah"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Ief-a0-LHa" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>

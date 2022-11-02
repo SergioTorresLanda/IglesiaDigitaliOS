@@ -12,11 +12,13 @@ public protocol ECUForm {
     var fieldList: [ECUField] { get set }
     
     //MARK: - Methods
+    @MainActor
     func validateForm() -> Bool
 }
 
 //MARK: - Default Implementations
 public extension ECUForm {
+    @MainActor
     func validateForm() -> Bool {
         var isValid: Bool = true
         

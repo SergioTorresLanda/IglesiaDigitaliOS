@@ -7,6 +7,7 @@
 
 import UIKit
 import EncuentroCatolicoVirtualLibrary
+import EncuentroCatolicoUtils
 
 class ForgotPViewController: UIViewController, ForgotViewProtocol {
 
@@ -216,11 +217,11 @@ extension ForgotPViewController: UITextFieldDelegate {
 extension ForgotPViewController {
 
     func isValidPhone(phone: String) -> Bool {
-        phone.evaluateRegEx(for: .regexPhone)
+        phone.evaluateRegEx(for: ECURegexValidation.phone.rawValue)
     }
 
     func isValidEmail(email: String) -> Bool {
-        email.evaluateRegEx(for: .regexEmail)
+        email.evaluateRegEx(for: ECURegexValidation.email.rawValue)
     }
 
 }

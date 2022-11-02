@@ -37,7 +37,7 @@ class RegisterViewController: BaseVC {
         
         field.fieldName = "Nombre (s)"
         field.textField.maxLength = 25
-        field.shouldChangeCharacters = { !$0.evaluateRegEx(for: .regexName) }
+        field.shouldChangeCharacters = { !$0.evaluateRegEx(for: ECURegexValidation.notName.rawValue) }
         field.textField.textContentType = .givenName
         field.textField.returnKeyType = .next
         field.textField.keyboardType = .asciiCapable
@@ -55,7 +55,7 @@ class RegisterViewController: BaseVC {
         
         field.fieldName = "Apellido paterno"
         field.textField.maxLength = 25
-        field.shouldChangeCharacters = { !$0.evaluateRegEx(for: .regexName) }
+        field.shouldChangeCharacters = { !$0.evaluateRegEx(for: ECURegexValidation.notName.rawValue) }
         field.textField.returnKeyType = .next
         field.textField.keyboardType = .asciiCapable
         field.textField.autocapitalizationType = .none
@@ -72,7 +72,7 @@ class RegisterViewController: BaseVC {
         
         field.fieldName = "Apellido materno"
         field.textField.maxLength = 25
-        field.shouldChangeCharacters =  { !$0.evaluateRegEx(for: .regexName) }
+        field.shouldChangeCharacters =  { !$0.evaluateRegEx(for: ECURegexValidation.notName.rawValue) }
         field.textField.returnKeyType = .next
         field.textField.keyboardType = .asciiCapable
         field.textField.autocapitalizationType = .none

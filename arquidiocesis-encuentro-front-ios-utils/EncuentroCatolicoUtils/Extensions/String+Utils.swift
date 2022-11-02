@@ -8,11 +8,6 @@
 import UIKit
 
 public extension String {
-    //MARK: - Static Properties
-    static let regexName = ".*[^A-Za-zÁÉÍÓÚáéíóúñÑ ].*"
-    static let regexPwd = "^(?=.*\\d)(?=.*[a-z])(?=.*[A-Z])(?=.*[\\.=+^\\$*.&{}()?\\[\\]!\\-\\?\\@#%&/,><':;|_~`]).{8,}$"
-    static let regexPhone = #"(\d+){10}"#
-    static let regexEmail = "[A-Z0-9a-z._%+-]+@[A-Za-z0-9.-]+\\.[A-Za-z]{2,64}"
     //MARK: - Methods
     func getLocalizedString(bundle: Bundle) -> String {
         NSLocalizedString(self, tableName: nil, bundle: bundle, value: self, comment: "")

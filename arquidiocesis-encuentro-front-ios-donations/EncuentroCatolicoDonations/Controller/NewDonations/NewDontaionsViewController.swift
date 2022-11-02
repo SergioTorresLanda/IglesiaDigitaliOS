@@ -14,11 +14,21 @@ import WebKit
 import SwiftSoup
 import EncuentroCatolicoProfile
 import CryptoSwift
+import EncuentroCatolicoUtils
+import Alamofire
 
 class NewDontaionsViewController: BaseVC, NewDontaionsViewProtocol {
     // MARK: PROTOCOL VAR -
     var presenter: NewDontaionsPresneterProtocol?
-    
+    lazy var fieldList: [ECUField] = [
+        taxSocialReasonField,
+        taxRFCField,
+        taxAddressField,
+        taxColonyField,
+        taxCPField,
+        taxTownHallField,
+        taxEmailField
+    ]
     // MARK: LOCAL VAR -
     var menuLine: UIView!
     var menuItems = ["", "Ofrenda", "", "Facturar", ""]
@@ -142,8 +152,15 @@ class NewDontaionsViewController: BaseVC, NewDontaionsViewProtocol {
     // Formulary tax data
     @IBOutlet weak var formularyTaxContainer: UIView!
     @IBOutlet var lblFormularyCollection: [UILabel]!
-    @IBOutlet var FormularyFieldCollection: [UITextField]!
-    @IBOutlet var lineFormularyCollection: [UIView]!
+    
+    @IBOutlet weak var taxSocialReasonField: ECUField!
+    @IBOutlet weak var taxRFCField: ECUField!
+    @IBOutlet weak var taxAddressField: ECUField!
+    @IBOutlet weak var taxColonyField: ECUField!
+    @IBOutlet weak var taxCPField: ECUField!
+    @IBOutlet weak var taxTownHallField: ECUField!
+    @IBOutlet weak var taxEmailField: ECUField!
+    
     
     @IBOutlet weak var emptySquare: UIImageView!
     @IBOutlet weak var checkSquare: UIImageView!
@@ -201,7 +218,7 @@ class NewDontaionsViewController: BaseVC, NewDontaionsViewProtocol {
         setupTables()
         setupFieldsDelegate()
         setupGestures()
-        
+        setupFields()
     }
     
     // MARK: SETUP FUNCTIONS -
@@ -274,10 +291,6 @@ class NewDontaionsViewController: BaseVC, NewDontaionsViewProtocol {
         
         amountField.delegate = self
         setupPickerFieldAmount(pickerAmount)
-        
-        FormularyFieldCollection.forEach { field in
-            field.delegate = self
-        }
     }
     
     private func setupGestures() {
@@ -333,13 +346,13 @@ class NewDontaionsViewController: BaseVC, NewDontaionsViewProtocol {
         let name = defaults.string(forKey: "OnlyName") ?? ""
         let surname = defaults.string(forKey: "LastName2") ?? ""
         let phone = defaults.string(forKey: "phone2") ?? ""
-        let email = FormularyFieldCollection[safe: 6]?.text ?? defaults.string(forKey: "email") ?? ""
-        let rfc = FormularyFieldCollection[safe: 1]?.text
-        let address = FormularyFieldCollection[safe: 2]?.text
-        let neighborhood = FormularyFieldCollection[safe: 3]?.text
-        let zipCode = FormularyFieldCollection[safe: 4]?.text
-        let municipality = FormularyFieldCollection[safe: 5]?.text
-        let businessName = FormularyFieldCollection[safe: 0]?.text
+        let email = taxEmailField.text == "" ? defaults.string(forKey: "email") ?? "" : taxEmailField.text
+        let rfc = taxRFCField.text
+        let address = taxAddressField.text
+        let neighborhood = taxColonyField.text
+        let zipCode = taxCPField.text
+        let municipality = taxTownHallField.text
+        let businessName = taxSocialReasonField.text
         
         if amount == "Otra" {
             amount = otherAmountField.text ?? ""
@@ -557,14 +570,11 @@ class NewDontaionsViewController: BaseVC, NewDontaionsViewProtocol {
         }else if isActive[0] == true{
             self.setupWebView()
             if billingData.count == 0 {
-                if FormularyFieldCollection[0].text != "" && FormularyFieldCollection[1].text != "" && FormularyFieldCollection[1].text?.count == 13 && FormularyFieldCollection[2].text != "" && FormularyFieldCollection[3].text != "" && FormularyFieldCollection[4].text != "" && FormularyFieldCollection[5].text != "" && FormularyFieldCollection[6].text != "" {
-                    //                        showLoading()
-                    presenter?.saveBillingData(method: "POST", taxId: 0, businessName: FormularyFieldCollection[0].text ?? "", rfc: FormularyFieldCollection[1].text ?? "", address: FormularyFieldCollection[2].text ?? "", neighborhood: FormularyFieldCollection[3].text ?? "", zipCode: FormularyFieldCollection[4].text ?? "", municipality: FormularyFieldCollection[5].text ?? "", email: FormularyFieldCollection[6].text ?? "", automaticBilling: automaticBilling)
-                }else{
-                    let alert = AcceptAlertDonations.showAlert(message: "Por favor verifica", btnTitle: "Ok")
-                    alert.modalPresentationStyle = .overFullScreen
-                    self.present(alert, animated: true, completion: nil)
+                guard self.validateForm() else {
+                    return
                 }
+                
+                presenter?.saveBillingData(method: "POST", taxId: 0, businessName: taxSocialReasonField.text, rfc: taxRFCField.text, address: taxAddressField.text, neighborhood: taxColonyField.text, zipCode: taxCPField.text, municipality: taxTownHallField.text, email: taxEmailField.text, automaticBilling: automaticBilling)
             }else{
                 if amountField.text != "" && conceptField.text != "" {
                     self.setupWebView()
@@ -613,30 +623,12 @@ class NewDontaionsViewController: BaseVC, NewDontaionsViewProtocol {
     }
     
     @IBAction func saveTaxDataAction(_ sender: Any) {
-        if FormularyFieldCollection[0].text != "" && FormularyFieldCollection[1].text != "" && FormularyFieldCollection[2].text != "" && FormularyFieldCollection[3].text != "" && FormularyFieldCollection[4].text != "" && FormularyFieldCollection[5].text != "" && FormularyFieldCollection[6].text != "" {
-            
-            if let rfc = FormularyFieldCollection[1].text, rfc.count == 13 {
-                showLoading()
-                if isEditingData == true {
-                    presenter?.saveBillingData(method: "PUT", taxId: billingId, businessName: FormularyFieldCollection[0].text ?? "", rfc: FormularyFieldCollection[1].text ?? "", address: FormularyFieldCollection[2].text ?? "", neighborhood: FormularyFieldCollection[3].text ?? "", zipCode: FormularyFieldCollection[4].text ?? "", municipality: FormularyFieldCollection[5].text ?? "", email: FormularyFieldCollection[6].text ?? "", automaticBilling: automaticBilling)
-                    
-                }else{
-                    presenter?.saveBillingData(method: "POST", taxId: 0, businessName: FormularyFieldCollection[0].text ?? "", rfc: FormularyFieldCollection[1].text ?? "", address: FormularyFieldCollection[2].text ?? "", neighborhood: FormularyFieldCollection[3].text ?? "", zipCode: FormularyFieldCollection[4].text ?? "", municipality: FormularyFieldCollection[5].text ?? "", email: FormularyFieldCollection[6].text ?? "", automaticBilling: automaticBilling)
-                }
-            } else {
-                let alert = AcceptAlertDonations.showAlert(message: "Verifica tu RFC", btnTitle: "Ok")
-                alert.modalPresentationStyle = .overFullScreen
-                self.present(alert, animated: true, completion: nil)
-            }
-            
-
-            
-        }else{
-            // showAlert(title: "Aviso", message: "Por favor llena todos los campos")
-            let alert = AcceptAlertDonations.showAlert(message: "Por favor Llena Todos Los Campos y Verifica Que Sean Correctos", btnTitle: "Ok")
-            alert.modalPresentationStyle = .overFullScreen
-            self.present(alert, animated: true, completion: nil)
+        guard validateForm() else {
+            return
         }
+        
+        showLoading()
+        presenter?.saveBillingData(method: isEditingData ? "PUT" : "POST", taxId: 0, businessName: taxSocialReasonField.text, rfc: taxRFCField.text, address: taxAddressField.text, neighborhood: taxColonyField.text, zipCode: taxCPField.text, municipality: taxTownHallField.text, email: taxEmailField.text, automaticBilling: automaticBilling)
     }
     
     @IBAction func checkBoxAction(_ sender: Any) {
@@ -654,14 +646,9 @@ class NewDontaionsViewController: BaseVC, NewDontaionsViewProtocol {
         changeContainerView.isHidden = true
         checkBtn.isEnabled = true
         btnSave.isHidden = false
-        FormularyFieldCollection.forEach { field in
-            field.isUserInteractionEnabled = true
-            field.alpha = 1
-        }
-        FormularyFieldCollection[0].becomeFirstResponder()
-        lineFormularyCollection.forEach { line in
-            line.alpha = 1
-        }
+        
+        fieldList.forEach { $0.isInteractionEnabled = true }
+        fieldList.first?.becomeFirstResponder()
     }
     
     // MARK: @OBJC FUNC -
@@ -890,13 +877,14 @@ extension NewDontaionsViewController {
         
         if data.count != 0 {
             let selected = data.first
-            FormularyFieldCollection[0].text = selected?.business_name
-            FormularyFieldCollection[1].text = selected?.rfc
-            FormularyFieldCollection[2].text = selected?.address
-            FormularyFieldCollection[3].text = selected?.neighborhood
-            FormularyFieldCollection[4].text = selected?.zipcode
-            FormularyFieldCollection[5].text = selected?.municipality
-            FormularyFieldCollection[6].text = selected?.email
+            
+            taxSocialReasonField.textField.text = selected?.business_name ?? ""
+            taxRFCField.textField.text = selected?.rfc ?? ""
+            taxAddressField.textField.text = selected?.address ?? ""
+            taxColonyField.textField.text = selected?.neighborhood ?? ""
+            taxCPField.textField.text = selected?.zipcode ?? ""
+            taxTownHallField.textField.text = selected?.municipality ?? ""
+            taxEmailField.textField.text = selected?.email ?? ""
             
             switch selected?.automatic_invoicing {
             case true:
@@ -925,13 +913,7 @@ extension NewDontaionsViewController {
                 }
                 
             }
-            lineFormularyCollection.forEach { line in
-                line.alpha = 0
-            }
-            FormularyFieldCollection.forEach { field in
-                field.isUserInteractionEnabled = false
-                field.alpha = 0.5
-            }
+            fieldList.forEach { $0.isInteractionEnabled = false }
             billingId = selected?.id ?? 0
             checkBtn.isEnabled = false
             
@@ -1082,7 +1064,80 @@ extension NewDontaionsViewController: WKNavigationDelegate {
     }
 }
 
+//MARK: - ECUForm
+extension NewDontaionsViewController: ECUForm {}
+
 extension NewDontaionsViewController {
+    private func setupFields() {
+        taxSocialReasonField.shouldChangeCharacters = { !$0.evaluateRegEx(for: ECURegexValidation.notName.rawValue) }
+        
+        taxSocialReasonField.textField.textContentType = .none
+        taxSocialReasonField.textField.returnKeyType = .next
+        taxSocialReasonField.textField.keyboardType = .asciiCapable
+        taxSocialReasonField.textField.autocapitalizationType = .words
+        
+        taxSocialReasonField.validations = [
+            ECUFieldGenericValidation.required(fieldName: "tu razón social").getValidation()
+        ]
+        
+        taxRFCField.textField.textContentType = .none
+        taxRFCField.textField.returnKeyType = .next
+        taxRFCField.textField.keyboardType = .namePhonePad
+        taxRFCField.textField.autocapitalizationType = .allCharacters
+        taxRFCField.onChangeText = {
+            self.taxRFCField.textField.text = self.taxRFCField.textField.text?.uppercased()
+        }
+        
+        taxRFCField.validations = [
+            ECUFieldGenericValidation.required(fieldName: "tu RFC").getValidation(),
+            ECUFieldGenericValidation.isValidRfc.getValidation()
+        ]
+        
+        taxAddressField.textField.textContentType = .addressCityAndState
+        taxAddressField.textField.returnKeyType = .next
+        taxAddressField.textField.keyboardType = .asciiCapable
+        taxAddressField.textField.autocapitalizationType = .words
+        
+        taxAddressField.validations = [
+            ECUFieldGenericValidation.required(fieldName: "tu dirección").getValidation()
+        ]
+        
+        taxColonyField.textField.textContentType = .none
+        taxColonyField.textField.returnKeyType = .next
+        taxColonyField.textField.keyboardType = .asciiCapable
+        taxColonyField.textField.autocapitalizationType = .words
+        
+        taxColonyField.validations = [
+            ECUFieldGenericValidation.required(fieldName: "tu colonia").getValidation()
+        ]
+        
+        taxCPField.textField.textContentType = .none
+        taxCPField.textField.returnKeyType = .next
+        taxCPField.textField.keyboardType = .numberPad
+        
+        taxCPField.validations = [
+            ECUFieldGenericValidation.required(fieldName: "tu c.p.").getValidation(),
+            { ($0?.evaluateRegEx(for: ECURegexValidation.zipCode.rawValue) ?? false) ? nil : "Campo de código postal incorrecto" }
+        ]
+        
+        taxTownHallField.textField.textContentType = .none
+        taxTownHallField.textField.returnKeyType = .next
+        taxTownHallField.textField.keyboardType = .asciiCapable
+        
+        taxTownHallField.validations = [
+            ECUFieldGenericValidation.required(fieldName: "tu alcaldía").getValidation()
+        ]
+        
+        taxEmailField.textField.textContentType = .emailAddress
+        taxEmailField.textField.returnKeyType = .next
+        taxEmailField.textField.autocapitalizationType = .none
+        taxEmailField.textField.keyboardType = .emailAddress
+        
+        taxEmailField.validations = [
+            ECUFieldGenericValidation.required(fieldName: "un correo válido").getValidation(),
+            ECUFieldGenericValidation.isValidEmail.getValidation()
+        ]
+    }
     
     private func parseStringToDataToJson(toData: String) -> Response? {
         let str = toData.replacingOccurrences(of: "\\", with: "", options: .literal, range: nil)
@@ -1091,17 +1146,5 @@ extension NewDontaionsViewController {
             return response
         }
         return nil
-    }
-    
-}
-
-extension Character
-{
-    func unicodeScalarCodePoint() -> UInt32
-    {
-        let characterString = String(self)
-        let scalars = characterString.unicodeScalars
-        
-        return scalars[scalars.startIndex].value
     }
 }

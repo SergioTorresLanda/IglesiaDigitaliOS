@@ -238,7 +238,6 @@ extension NewDontaionsViewController: UIPickerViewDelegate, UIPickerViewDataSour
 
 // MARK: TEXT FIELD EXTENSION -
 extension NewDontaionsViewController: UITextFieldDelegate {
-    
     func textField(_ textField: UITextField, shouldChangeCharactersIn range: NSRange, replacementString string: String) -> Bool {
         guard let textFieldText = textField.text,
                let rangeOfTextToReplace = Range(range, in: textFieldText) else {
@@ -253,19 +252,6 @@ extension NewDontaionsViewController: UITextFieldDelegate {
             
         case otherAmountField:
             return count <= 6
-            
-        case FormularyFieldCollection[1]:
-            return count <= 30
-            
-        case FormularyFieldCollection[3]:
-            return count <= 15
-            
-        case FormularyFieldCollection[4]:
-            return count <= 5
-            
-        case FormularyFieldCollection[5]:
-            return count <= 40
-            
         default:
             return count <= 80
         }
@@ -280,32 +266,6 @@ extension NewDontaionsViewController: UITextFieldDelegate {
         default:
             break
         }
-    }
-    
-    func textFieldShouldReturn(_ textField: UITextField) -> Bool {
-        
-        switch textField {
-        case FormularyFieldCollection[0]:
-            FormularyFieldCollection[1].becomeFirstResponder()
-            
-        case FormularyFieldCollection[1]:
-            FormularyFieldCollection[2].becomeFirstResponder()
-            
-        case FormularyFieldCollection[2]:
-            FormularyFieldCollection[3].becomeFirstResponder()
-            
-        case FormularyFieldCollection[3]:
-            FormularyFieldCollection[4].becomeFirstResponder()
-            
-        case FormularyFieldCollection[5]:
-            FormularyFieldCollection[6].becomeFirstResponder()
-            
-        case FormularyFieldCollection[6]:
-            self.view.endEditing(true)
-        default:
-            break
-        }
-        return true
     }
 }
 

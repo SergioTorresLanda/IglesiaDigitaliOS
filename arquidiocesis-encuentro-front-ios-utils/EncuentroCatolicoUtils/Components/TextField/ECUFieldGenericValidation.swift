@@ -16,6 +16,7 @@ public enum ECUFieldGenericValidation {
     case isValidEmail
     case isValidPhone
     case isValidPwd(fieldName: String)
+    case isValidRfc
     case minimunCharecters(comparation: Int)
 
     //MARK: - Methods
@@ -29,16 +30,18 @@ public enum ECUFieldGenericValidation {
             return { (Double($0 ?? "") ?? 0.0) >= comparation ? nil : String(format: "@error_msg_greater_than".getLocalizedString(bundle: .local), String(comparation)) }
         case .isValidEmail:
             return { value in
-                guard (value?.evaluateRegEx(for: .regexEmail) ?? false) else {
+                guard (value?.evaluateRegEx(for: ECURegexValidation.email.rawValue) ?? false) else {
                     return "@error_msg_invalid_email".getLocalizedString(bundle: .local)
                 }
                 
                 return validateCom(email: value) ? nil : "@error_msg_invalid_email_by_com".getLocalizedString(bundle: .local)
             }
         case .isValidPhone:
-            return { ($0?.evaluateRegEx(for: .regexPhone) ?? false) ? nil : "@error_msg_invalid_phone".getLocalizedString(bundle: .local) }
+            return { ($0?.evaluateRegEx(for: ECURegexValidation.phone.rawValue) ?? false) ? nil : "@error_msg_invalid_phone".getLocalizedString(bundle: .local) }
         case .isValidPwd(let fieldName):
-            return { ($0?.evaluateRegEx(for: .regexPwd) ?? false) ? nil : String(format: "@error_msg_invalid_generic".getLocalizedString(bundle: .local), String(fieldName)) }
+            return { ($0?.evaluateRegEx(for: ECURegexValidation.pwd.rawValue) ?? false) ? nil : String(format: "@error_msg_invalid_generic".getLocalizedString(bundle: .local), String(fieldName)) }
+        case .isValidRfc:
+            return  { ($0?.evaluateRegEx(for: ECURegexValidation.rfc.rawValue) ?? false) ? nil :  "@error_msg_invalid_rfc".getLocalizedString(bundle: .local) }
         case .minimunCharecters(let comparation):
             return { $0?.count ?? 0 > comparation ? nil : String(format: "@error_msg_minimum_characters".getLocalizedString(bundle: .local), String(comparation))}
         }

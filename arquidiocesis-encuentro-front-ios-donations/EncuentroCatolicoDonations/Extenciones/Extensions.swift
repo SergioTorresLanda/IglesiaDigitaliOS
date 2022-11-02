@@ -46,6 +46,16 @@ extension Collection {
     }
 }
 
+extension Character {
+    func unicodeScalarCodePoint() -> UInt32
+    {
+        let characterString = String(self)
+        let scalars = characterString.unicodeScalars
+        
+        return scalars[scalars.startIndex].value
+    }
+}
+
 extension UIImageView {
     func DownloadImage(_ uri : String) {
         guard let url = URL(string: uri) else {return}

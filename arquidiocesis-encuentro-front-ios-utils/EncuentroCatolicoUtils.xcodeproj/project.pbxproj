@@ -14,6 +14,7 @@
 		984F468025F94FE1006D709B /* alertViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 984F467E25F94FE1006D709B /* alertViewController.swift */; };
 		984F468125F94FE1006D709B /* alertViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 984F467F25F94FE1006D709B /* alertViewController.xib */; };
 		98AB140D26017513000F1670 /* cat.json in Resources */ = {isa = PBXBuildFile; fileRef = 98AB140C26017513000F1670 /* cat.json */; };
+		A90AF482291190EB0051BCEC /* UITextField+Utils.swift in Sources */ = {isa = PBXBuildFile; fileRef = A90AF481291190EB0051BCEC /* UITextField+Utils.swift */; };
 		A94514CC28FC7CF300675CB6 /* Date+Utils.swift in Sources */ = {isa = PBXBuildFile; fileRef = A94514CB28FC7CF300675CB6 /* Date+Utils.swift */; };
 		A94514D328FCAF2300675CB6 /* ECUGenericTextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = A94514D228FCAF2300675CB6 /* ECUGenericTextField.swift */; };
 		A94514D828FCB23900675CB6 /* Colors.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = A94514D728FCB23900675CB6 /* Colors.xcassets */; };
@@ -33,6 +34,7 @@
 		A95E90CF28FF4FA700A4F202 /* Collection+Utils.swift in Sources */ = {isa = PBXBuildFile; fileRef = A95E90CE28FF4FA700A4F202 /* Collection+Utils.swift */; };
 		A966606D28FCDF14007887CD /* Media.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = A966606C28FCDF14007887CD /* Media.xcassets */; };
 		A96B14472907473A001C9B0A /* UIImageView+Utils.swift in Sources */ = {isa = PBXBuildFile; fileRef = A96B14462907473A001C9B0A /* UIImageView+Utils.swift */; };
+		A9747C082911A61F001EFFF0 /* ECURegexValidation.swift in Sources */ = {isa = PBXBuildFile; fileRef = A9747C072911A61F001EFFF0 /* ECURegexValidation.swift */; };
 		A9AA19D82903138200C0DD7C /* APITypeUtils.swift in Sources */ = {isa = PBXBuildFile; fileRef = A9AA19D72903138200C0DD7C /* APITypeUtils.swift */; };
 		A9E4ED5F29006A3700294CDD /* ECUTimer.swift in Sources */ = {isa = PBXBuildFile; fileRef = A9E4ED5E29006A3700294CDD /* ECUTimer.swift */; };
 		A9E4ED6129006ADE00294CDD /* ECUTimerNative.swift in Sources */ = {isa = PBXBuildFile; fileRef = A9E4ED6029006ADE00294CDD /* ECUTimerNative.swift */; };
@@ -70,6 +72,7 @@
 		984F467E25F94FE1006D709B /* alertViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = alertViewController.swift; sourceTree = "<group>"; };
 		984F467F25F94FE1006D709B /* alertViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = alertViewController.xib; sourceTree = "<group>"; };
 		98AB140C26017513000F1670 /* cat.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = cat.json; sourceTree = "<group>"; };
+		A90AF481291190EB0051BCEC /* UITextField+Utils.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UITextField+Utils.swift"; sourceTree = "<group>"; };
 		A94514CB28FC7CF300675CB6 /* Date+Utils.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Date+Utils.swift"; sourceTree = "<group>"; };
 		A94514D228FCAF2300675CB6 /* ECUGenericTextField.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ECUGenericTextField.swift; sourceTree = "<group>"; };
 		A94514D728FCB23900675CB6 /* Colors.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Colors.xcassets; sourceTree = "<group>"; };
@@ -89,6 +92,7 @@
 		A95E90CE28FF4FA700A4F202 /* Collection+Utils.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Collection+Utils.swift"; sourceTree = "<group>"; };
 		A966606C28FCDF14007887CD /* Media.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Media.xcassets; sourceTree = "<group>"; };
 		A96B14462907473A001C9B0A /* UIImageView+Utils.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIImageView+Utils.swift"; sourceTree = "<group>"; };
+		A9747C072911A61F001EFFF0 /* ECURegexValidation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ECURegexValidation.swift; sourceTree = "<group>"; };
 		A9AA19D72903138200C0DD7C /* APITypeUtils.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = APITypeUtils.swift; sourceTree = "<group>"; };
 		A9E4ED5E29006A3700294CDD /* ECUTimer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ECUTimer.swift; sourceTree = "<group>"; };
 		A9E4ED6029006ADE00294CDD /* ECUTimerNative.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ECUTimerNative.swift; sourceTree = "<group>"; };
@@ -207,6 +211,7 @@
 				A9F10B2029025B2D00227FE9 /* Double+Utils.swift */,
 				A9F10B242902625D00227FE9 /* UIAlertViewController+Utils.swift */,
 				A96B14462907473A001C9B0A /* UIImageView+Utils.swift */,
+				A90AF481291190EB0051BCEC /* UITextField+Utils.swift */,
 			);
 			path = Extensions;
 			sourceTree = "<group>";
@@ -248,6 +253,7 @@
 				A94514E828FCB72300675CB6 /* ECUSizeType.swift */,
 				A94514EC28FCB88E00675CB6 /* ECUViewSide.swift */,
 				A95E90C928FF323E00A4F202 /* ECUBorder.swift */,
+				A9747C072911A61F001EFFF0 /* ECURegexValidation.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -460,6 +466,7 @@
 				A95E90CD28FF4AD100A4F202 /* ECUForm.swift in Sources */,
 				A9E4ED5F29006A3700294CDD /* ECUTimer.swift in Sources */,
 				A94514D328FCAF2300675CB6 /* ECUGenericTextField.swift in Sources */,
+				A9747C082911A61F001EFFF0 /* ECURegexValidation.swift in Sources */,
 				A94514ED28FCB88E00675CB6 /* ECUViewSide.swift in Sources */,
 				A94514EB28FCB80700675CB6 /* UIColor+Palette.swift in Sources */,
 				A9E4ED68290074CF00294CDD /* Int+Utils.swift in Sources */,
@@ -478,6 +485,7 @@
 				A94514E928FCB72300675CB6 /* ECUSizeType.swift in Sources */,
 				A94514E328FCB56100675CB6 /* String+Utils.swift in Sources */,
 				A94514E728FCB61800675CB6 /* View+Utils.swift in Sources */,
+				A90AF482291190EB0051BCEC /* UITextField+Utils.swift in Sources */,
 				EEEAA351260CF34500EBEF10 /* paymentCompleted.swift in Sources */,
 				A9E4ED6129006ADE00294CDD /* ECUTimerNative.swift in Sources */,
 				A95E90CF28FF4FA700A4F202 /* Collection+Utils.swift in Sources */,

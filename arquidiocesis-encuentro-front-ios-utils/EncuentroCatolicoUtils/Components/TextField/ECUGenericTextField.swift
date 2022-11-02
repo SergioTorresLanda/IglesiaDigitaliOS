@@ -44,6 +44,7 @@ open class ECUGenericTextField: UITextField {
     public var rightIconTint: UIColor?
     public var rightAction: ECGenericAction?
     public var border: ECUBorder?
+    public var borderLayer: CALayer?
     
     var padding = UIEdgeInsets(top: 10, left: 10, bottom: 10, right: 10)
     
@@ -94,17 +95,17 @@ open class ECUGenericTextField: UITextField {
 //MARK: - Private functions
 extension ECUGenericTextField {
     private func setupBorder() {
-        guard self.frame != .zero,
+        guard self.frame.height != .zero,
               let border = self.border else {
             return
         }
         
-        self.addBorder(border: border)
+        self.borderLayer = self.addBorder(border: border)
         self.border = nil
     }
     
     private func setLeftIcon() {
-        guard self.frame != .zero,
+        guard  self.frame.height != .zero,
               let icon = self.leftImage else {
             return
         }
@@ -115,7 +116,7 @@ extension ECUGenericTextField {
     }
     
     private func setRightIcon() {
-        guard self.frame != .zero,
+        guard self.frame.height != .zero,
               let icon = self.rightImage else {
             return
         }

@@ -61,7 +61,8 @@ public extension UIView {
         }, completion: nil)
     }
 
-    func addBorder(border borderConfig: ECUBorder) {
+    @discardableResult
+    func addBorder(border borderConfig: ECUBorder) -> CALayer {
         let border = CALayer()
         
         border.backgroundColor = borderConfig.color
@@ -74,5 +75,7 @@ public extension UIView {
         }
 
         layer.addSublayer(border)
+        
+        return border
     }
 }

@@ -7,8 +7,14 @@
 
 import UIKit
 
+@MainActor
 open class ECUField: ECUView {
     //MARK: - @IBInspectable
+    @IBInspectable
+    public var maxLength: Int = Int.max {
+        didSet { self.textField.maxLength = maxLength }
+    }
+    
     @IBInspectable
     public var fieldName: String = " " {
         didSet { titleLabel.text = fieldName }
@@ -28,7 +34,7 @@ open class ECUField: ECUView {
     }
     
     @IBInspectable
-    public var placeholderColor: UIColor = UIColor() {
+    public var placeholderColor: UIColor = .disabled {
         didSet { setupPlaceholder() }
     }
     
@@ -48,6 +54,22 @@ open class ECUField: ECUView {
     
     
     //MARK: - Properties
+    public var isInteractionEnabled: Bool = true {
+        didSet {
+            textField.isUserInteractionEnabled = isInteractionEnabled
+            
+            if !isInteractionEnabled {
+                textField.rightIconTint = nil
+                textField.rightIcon = nil
+            } else {
+                validate()
+            }
+            
+            textField.borderLayer?.removeFromSuperlayer()
+            textField.border = isInteractionEnabled ? ECUBorder(side: .bottom, color: UIColor.disabled.cgColor, thickness: 1.0) : nil
+            textField.setNeedsLayout()
+        }
+    }
     public var withReturn: Bool = false
     public var shouldChangeCharacters: ((_ value: String) -> Bool)?
     public var validations: [ECUValidation] = []
@@ -57,6 +79,7 @@ open class ECUField: ECUView {
     public var onClickRightAction: ECGenericAction? {
         didSet { textField.rightAction = onClickRightAction }
     }
+    public var onChangeText: ECGenericAction?
     
     public var isValid: Bool {
         validate()
@@ -182,6 +205,7 @@ open class ECUField: ECUView {
     //MARK: - Events
     @objc func onChangeTextField(_ sender: UITextField) {
         validate()
+        onChangeText?()
     }
 }
 
