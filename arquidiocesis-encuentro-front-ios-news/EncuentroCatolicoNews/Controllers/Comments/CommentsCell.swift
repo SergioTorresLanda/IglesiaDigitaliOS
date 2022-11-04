@@ -47,19 +47,19 @@ public class CommentsCell: UITableViewCell, CustomPopOverDelegate{
         btnResponder.setAttributedTitle(attributedText, for: .normal)
     }
     
-    func setupData(strName: String, strComment: String, stDate: String, strSecondDate: String, imgName: String, reaction: Int, likes: Int){
+    func setupData(id: Int, strName: String, strComment: String, stDate: String, strSecondDate: String, imgName: String, reaction: Int, likes: Int){
         lblName.text = strName
         customLabel.text = strComment
         lblSecondDate.text = strSecondDate
         lblDate.text = stDate
         imgvProfile.setImage(name: imgName, image: nil)
         lblNumLikes.text = "\(likes)"
+        
         let stNameLike = reaction == 1 ? "iconOracion2" : "iconOracion"
-        if #available(iOS 13.0, *) {
-            btnOracion.setImage(UIImage(named: stNameLike, in: Bundle.local, with: nil), for: .normal)
-        } else {
-            // Fallback on earlier versions
-        }
+        
+        btnOracion.setImage(UIImage(named: stNameLike, in: Bundle.local, compatibleWith: nil), for: .normal)
+        
+        btnMoreActions.isHidden = id == UserDefaults.standard.integer(forKey: "SNId")
     }
     
     func setUpNewData(commnts: CmComments?){

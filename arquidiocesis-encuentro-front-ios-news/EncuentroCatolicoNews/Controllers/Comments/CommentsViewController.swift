@@ -160,23 +160,24 @@ extension CommentsViewController: UITableViewDataSource{
     
     public func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell{
         guard let cell = tableView.dequeueReusableCell(withIdentifier: "CommentsCell", for: indexPath) as? CommentsCell else { return UITableViewCell() }
+        
         cell.lblName.adjustsFontSizeToFitWidth = true
         cell.btnResponder.tag = indexPath.row
         cell.btnOracion.tag = indexPath.row
         cell.btnMoreActions.tag = indexPath.row
         cell.delegateComment = self
         cell.ctnView.constant = indexPath.row == 0 ? 0.0 : 16.0
-        if indexPath.row == 0{
+        
+        if indexPath.row == 0 {
             let iDate = newPost?.createdAt
             let stDate = "\(iDate ?? 0)"
-            if let communityName = newPost?.scope?.name {
-                cell.setupData(strName: communityName, strComment: newPost?.content ?? "", stDate: Date(timeIntervalSince1970: TimeInterval(stDate) ?? 0.0).formatRelativeString(), strSecondDate: Date(timeIntervalSince1970: TimeInterval(stDate) ?? 0.0).formatRelativeString(), imgName: name ?? "", reaction: newPost?.reaction?.type ?? 0, likes: newPost?.totalReactions ?? 0)
-            }else{
-                cell.setupData(strName: newPost?.author?.name ?? "", strComment: newPost?.content ?? "", stDate: Date(timeIntervalSince1970: TimeInterval(stDate) ?? 0.0).formatRelativeString(), strSecondDate: Date(timeIntervalSince1970: TimeInterval(stDate) ?? 0.0).formatRelativeString(), imgName: name ?? "", reaction: newPost?.reaction?.type ?? 0, likes: newPost?.totalReactions ?? 0)
-            }
-        }else{
-            cell.setUpNewData(commnts: commentsArray[indexPath.row - 1])
+            
+            cell.setupData(id: newPost?.id ?? -1, strName: newPost?.scope?.name ?? newPost?.author?.name ?? "", strComment: newPost?.content ?? "", stDate: Date(timeIntervalSince1970: TimeInterval(stDate) ?? 0.0).formatRelativeString(), strSecondDate: Date(timeIntervalSince1970: TimeInterval(stDate) ?? 0.0).formatRelativeString(), imgName: name ?? "", reaction: newPost?.reaction?.type ?? 0, likes: newPost?.totalReactions ?? 0)
+            
+            return cell
         }
+        
+        cell.setUpNewData(commnts: commentsArray[indexPath.row - 1])
         
         return cell
     }

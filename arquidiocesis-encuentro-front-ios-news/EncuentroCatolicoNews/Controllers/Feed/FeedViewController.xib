@@ -1,9 +1,10 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="19529" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="20037" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
     <device id="retina4_7" orientation="portrait" appearance="light"/>
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="19519"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="20020"/>
+        <capability name="Named colors" minToolsVersion="9.0"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="System colors in document resources" minToolsVersion="11.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
@@ -51,21 +52,22 @@
                                 <action selector="popView:" destination="-1" eventType="touchUpInside" id="rQV-Nm-lIV"/>
                             </connections>
                         </button>
-                        <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="backLogin" translatesAutoresizingMaskIntoConstraints="NO" id="87a-mg-PfY">
+                        <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="back" translatesAutoresizingMaskIntoConstraints="NO" id="87a-mg-PfY">
                             <rect key="frame" x="15" y="20" width="25" height="25"/>
+                            <color key="tintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                             <constraints>
                                 <constraint firstAttribute="height" constant="25" id="Vcf-yz-10k"/>
                                 <constraint firstAttribute="width" constant="25" id="aWL-Yz-Peb"/>
                             </constraints>
                         </imageView>
-                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Red Social" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="FM8-uF-yCL">
-                            <rect key="frame" x="143.5" y="21.5" width="88" height="22"/>
+                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Red social" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="FM8-uF-yCL">
+                            <rect key="frame" x="144.5" y="21.5" width="86" height="22"/>
                             <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="18"/>
-                            <color key="textColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                            <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                             <nil key="highlightedColor"/>
                         </label>
                     </subviews>
-                    <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                    <color key="backgroundColor" name="ePrimary"/>
                     <constraints>
                         <constraint firstItem="FM8-uF-yCL" firstAttribute="centerY" secondItem="HTT-HB-Glz" secondAttribute="centerY" id="73A-Xs-tIT"/>
                         <constraint firstItem="WvN-Du-SE3" firstAttribute="leading" secondItem="HTT-HB-Glz" secondAttribute="leading" id="HoB-3k-8AX"/>
@@ -91,6 +93,10 @@
                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="O6W-ld-FbT">
                     <rect key="frame" x="0.0" y="0.0" width="375" height="0.0"/>
                     <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                </view>
+                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="f9L-9p-Jth">
+                    <rect key="frame" x="0.0" y="0.0" width="375" height="0.0"/>
+                    <color key="backgroundColor" name="eMainBlue"/>
                 </view>
                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="5FC-Yc-Ffy">
                     <rect key="frame" x="0.0" y="73" width="375" height="96"/>
@@ -203,15 +209,25 @@
                 <constraint firstAttribute="trailing" secondItem="HTT-HB-Glz" secondAttribute="trailing" id="fy4-Ig-g2M"/>
                 <constraint firstItem="y1Z-e5-Obm" firstAttribute="bottom" secondItem="Mxq-bG-jRH" secondAttribute="bottom" constant="-40" id="gu0-Dd-0Xe"/>
                 <constraint firstItem="y1Z-e5-Obm" firstAttribute="bottom" secondItem="HKr-RV-DnL" secondAttribute="bottom" constant="79" id="how-Zd-sEi"/>
+                <constraint firstItem="y1Z-e5-Obm" firstAttribute="top" secondItem="f9L-9p-Jth" secondAttribute="bottom" id="mQT-aE-hhI"/>
+                <constraint firstItem="f9L-9p-Jth" firstAttribute="leading" secondItem="y1Z-e5-Obm" secondAttribute="leading" id="oKT-Vl-JGg"/>
+                <constraint firstItem="y1Z-e5-Obm" firstAttribute="trailing" secondItem="f9L-9p-Jth" secondAttribute="trailing" id="qbv-CR-3Bh"/>
                 <constraint firstItem="HTT-HB-Glz" firstAttribute="top" secondItem="y1Z-e5-Obm" secondAttribute="top" id="xeR-08-xCw"/>
+                <constraint firstItem="f9L-9p-Jth" firstAttribute="top" secondItem="i5M-Pr-FkT" secondAttribute="top" id="xxC-BQ-BRA"/>
             </constraints>
             <nil key="simulatedBottomBarMetrics"/>
             <point key="canvasLocation" x="130.40000000000001" y="151.57421289355324"/>
         </view>
     </objects>
     <resources>
-        <image name="backLogin" width="114" height="124"/>
+        <image name="back" width="125" height="202"/>
         <image name="iconCreatePost" width="14" height="14"/>
+        <namedColor name="eMainBlue">
+            <color red="0.0039215686274509803" green="0.12549019607843137" blue="0.40784313725490196" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </namedColor>
+        <namedColor name="ePrimary">
+            <color red="0.0040000001899898052" green="0.125" blue="0.40799999237060547" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </namedColor>
         <systemColor name="systemBackgroundColor">
             <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
         </systemColor>
