@@ -623,12 +623,12 @@ class NewDontaionsViewController: BaseVC, NewDontaionsViewProtocol {
     }
     
     @IBAction func saveTaxDataAction(_ sender: Any) {
-        guard validateForm(), !billingData.isEmpty else {
+        guard validateForm() else {
             return
         }
         
         showLoading()
-        presenter?.saveBillingData(method: isEditingData ? "PUT" : "POST", taxId: billingData[0].id!, businessName: taxSocialReasonField.text, rfc: taxRFCField.text, address: taxAddressField.text, neighborhood: taxColonyField.text, zipCode: taxCPField.text, municipality: taxTownHallField.text, email: taxEmailField.text, automaticBilling: automaticBilling)
+        presenter?.saveBillingData(method: isEditingData ? "PUT" : "POST", taxId: billingData[safe: 0]?.id ?? 0, businessName: taxSocialReasonField.text, rfc: taxRFCField.text, address: taxAddressField.text, neighborhood: taxColonyField.text, zipCode: taxCPField.text, municipality: taxTownHallField.text, email: taxEmailField.text, automaticBilling: automaticBilling)
     }
     
     @IBAction func checkBoxAction(_ sender: Any) {
