@@ -59,7 +59,7 @@ public class CommentsCell: UITableViewCell, CustomPopOverDelegate{
         
         btnOracion.setImage(UIImage(named: stNameLike, in: Bundle.local, compatibleWith: nil), for: .normal)
         
-        btnMoreActions.isHidden = id == UserDefaults.standard.integer(forKey: "SNId")
+        btnMoreActions.isHidden = id != UserDefaults.standard.integer(forKey: "SNId")
     }
     
     func setUpNewData(commnts: CmComments?){
