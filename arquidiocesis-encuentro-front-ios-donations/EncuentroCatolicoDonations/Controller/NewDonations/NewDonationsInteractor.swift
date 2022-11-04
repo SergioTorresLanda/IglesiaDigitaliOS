@@ -80,9 +80,11 @@ extension NewDontaionsInteractor {
             break
         }
         
+        print(urlStr)
         guard let apiURL = URL(string: urlStr) else { return }
         var request = URLRequest(url: apiURL)
-        
+        print(apiURL)
+        print(request)
         let params : [String:Any] = [
             
             "business_name" : businessName,
