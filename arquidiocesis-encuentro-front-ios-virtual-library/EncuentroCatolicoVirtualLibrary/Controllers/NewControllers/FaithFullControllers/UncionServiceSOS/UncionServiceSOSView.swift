@@ -173,6 +173,7 @@ class UncionServiceSOSView: UIViewController, UncionServiceViewProtocol {
                 default:
                     minutesComplete = String(minutes)
                 }
+                //lblTimeCollection[0].text = "\(date):\(hour):\(minutesComplete)"
                 lblTimeCollection[0].text = "\(hour):\(minutesComplete)"
                 lblTimeCollection[0].alpha = 1
                 UIView.animate(withDuration: 0.3) {

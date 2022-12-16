@@ -52,7 +52,7 @@ open class acceptAlertService: UIViewController {
         UIView.animate(withDuration: 0.1) {
             self.shadowView.alpha = 0
         }
-        
+        //self.navigationController?.popViewController(animated: true)
         self.dismiss(animated: true, completion: nil    )
     }
     

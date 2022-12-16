@@ -22,8 +22,8 @@ class ScheduleMassTimePresenter: ScheduleMassTimePresenterProtocol {
         self.router = router
     }
     
-    func sendService(date: String, hour: String, description: String, location: Int, service_id: Int) {
-        interactor?.sendService(date: date, hour: hour, description: description, location: location, service_id: service_id)
+    func sendService(date: String, hour: String, description: String, location: Int, service_id: Int, mention_from: String) {
+        interactor?.sendService(date: date, hour: hour, description: description, location: location, service_id: service_id, mention_from: mention_from)
     }
     
     func getResponse(errores: ServerErrors, data: ServicesResponse?) {
@@ -74,6 +74,10 @@ class ScheduleMassTimePresenter: ScheduleMassTimePresenterProtocol {
         DispatchQueue.main.async {
             self.view?.failHours()
         }
+    }
+    
+    func nextFlowPayment(){
+        router.nextFlowPayment()
     }
 
 }

@@ -14,6 +14,7 @@ struct ServicesRequest: Codable {
     let mass_schedule: String
     let location_id: Int
     let service_id: Int
+    let mention_from: String
 }
 
 struct LocationServicesRequest: Codable {
@@ -47,4 +48,16 @@ struct PriestData2: Codable {
     var name: String?
     var first_surname: String?
     var second_surname: String?
+}
+
+
+struct Response: Codable {
+    let status, invoice, code, responseDescription: String?
+    let operationID: String?
+
+    enum CodingKeys: String, CodingKey {
+        case status, invoice, code
+        case responseDescription = "description"
+        case operationID = "operation_id"
+    }
 }

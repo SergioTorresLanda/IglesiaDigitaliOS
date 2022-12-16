@@ -110,6 +110,7 @@ target 'EncuentroCatolicoServices' do
   pod 'CryptoSwift'
   pod 'AlamofireImage'
   pod 'IQKeyboardManagerSwift'
+  pod 'SwiftSoup', '2.0.0'
 
   project 'arquidiocesis-encuentro-front-ios-service/EncuentroCatolicoServices.xcodeproj'
 end

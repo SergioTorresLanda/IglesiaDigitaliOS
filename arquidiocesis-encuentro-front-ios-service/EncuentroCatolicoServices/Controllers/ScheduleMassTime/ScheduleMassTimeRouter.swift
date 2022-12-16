@@ -15,8 +15,10 @@ class ScheduleMassTimeRouter: ScheduleMassTimeWireframeProtocol {
     weak var viewController: UIViewController?
     
     static func createModule(date: Date, location: Assigned) -> UIViewController {
+        let storyboard = UIStoryboard(name: "ScheduleMassTimeViewController", bundle: Bundle.local)
+        let view = storyboard.instantiateViewController(withIdentifier: "ScheduleMassTimeVC") as! ScheduleMassTimeViewController
         // Change to get view from storyboard if not using progammatic UI
-        let view = ScheduleMassTimeViewController(nibName: "ScheduleMassTimeViewController", bundle: Bundle.init(identifier: "mx.arquidiocesis.EncuentroCatolicoServices"))
+        //let view = ScheduleMassTimeViewController(nibName: "ScheduleMassTimeViewController", bundle: Bundle.init(identifier: "mx.arquidiocesis.EncuentroCatolicoServices"))
         let interactor = ScheduleMassTimeInteractor()
         let router = ScheduleMassTimeRouter()
         let presenter = ScheduleMassTimePresenter(interface: view, interactor: interactor, router: router)
@@ -28,5 +30,10 @@ class ScheduleMassTimeRouter: ScheduleMassTimeWireframeProtocol {
         router.viewController = view
         
         return view
+    }
+    
+    func nextFlowPayment(){
+        let view = ECDonationToMyChurchRouter.createModule()
+        viewController?.navigationController?.pushViewController(view, animated: true)
     }
 }

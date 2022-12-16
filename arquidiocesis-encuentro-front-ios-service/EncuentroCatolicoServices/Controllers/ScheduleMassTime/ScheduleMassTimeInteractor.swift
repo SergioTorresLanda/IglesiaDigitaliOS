@@ -14,12 +14,13 @@ class ScheduleMassTimeInteractor: ScheduleMassTimeInteractorProtocol {
 
     weak var presenter: ScheduleMassTimePresenterProtocol?
     let userID = UserDefaults.standard.integer(forKey: "id")
-    func sendService(date: String, hour: String, description: String, location: Int, service_id: Int) {
+    func sendService(date: String, hour: String, description: String, location: Int, service_id: Int, mention_from: String) {
         let model = ServicesRequest(dedicated_to: description,
                                     mass_date: date,
                                     mass_schedule: hour,
                                     location_id: location,
-                                    service_id: service_id)
+                                    service_id: service_id,
+                                    mention_from: mention_from)
         guard let endpoint = URL(string: "\(APIType.shared.User())/services"),
             let data = try? JSONEncoder().encode(model)
             else {

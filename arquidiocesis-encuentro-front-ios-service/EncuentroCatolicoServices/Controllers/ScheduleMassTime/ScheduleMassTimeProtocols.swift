@@ -12,11 +12,11 @@ import Foundation
 
 //MARK: Wireframe -
 protocol ScheduleMassTimeWireframeProtocol: class {
-
+    func nextFlowPayment()
 }
 //MARK: Presenter -
 protocol ScheduleMassTimePresenterProtocol: class {
-    func sendService(date: String, hour: String, description: String, location: Int, service_id: Int)
+    func sendService(date: String, hour: String, description: String, location: Int, service_id: Int, mention_from: String)
     func getResponse(errores: ServerErrors, data: ServicesResponse?)
     func requestCatalogIntentions()
     func succesGetCatalog(data: [CatalogIntentions])
@@ -24,6 +24,7 @@ protocol ScheduleMassTimePresenterProtocol: class {
     func requestGetHours(locationID: String, dateStr: String)
     func successGetHours(data: [ListIntentions2])
     func failGetHours()
+    func nextFlowPayment()
         
         
 }
@@ -32,7 +33,7 @@ protocol ScheduleMassTimePresenterProtocol: class {
 protocol ScheduleMassTimeInteractorProtocol: class {
 
   var presenter: ScheduleMassTimePresenterProtocol?  { get set }
-    func sendService(date: String, hour: String, description: String, location: Int, service_id: Int)
+    func sendService(date: String, hour: String, description: String, location: Int, service_id: Int,mention_from: String)
     func getCatalog()
     func getListIntetions(locationID: String, dateStr: String)
 }

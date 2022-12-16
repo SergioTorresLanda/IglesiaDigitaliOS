@@ -17,7 +17,7 @@ extension DetailIntentionView: UITableViewDelegate, UITableViewDataSource {
         let cell = tableView.dequeueReusableCell(withIdentifier: "CELLINTENTION", for: indexPath) as! IntentionCellDetail
         
         cell.lblTypeIntention.text = arrayIntentions[indexPath.row].intention
-        cell.lblName.text = arrayIntentions[indexPath.row].dedicated_to?.joined(separator: "\n")
+        cell.lblName.text = arrayIntentions[indexPath.row].dedicated_to?.map({"\($0.to ?? "") \n de parte de \($0.from ?? "")."}).joined(separator: "")
         cell.selectionStyle = .none
         
         return cell

@@ -34,7 +34,7 @@ class NewDontaionsViewController: BaseVC, NewDontaionsViewProtocol {
     var menuItems = ["", "Ofrenda", "", "Facturar", ""]
     var menuIcons = ["", "heart.fill", "", "doc.plaintext.fill", ""]
     var itemsRadioBtn = ["Si", "No"]
-    var conceptType = ["Selecciona", "Ofrenda", "Diezmo", "Limosna", "Pago de una intención", "pago de un servicio", "Otro"]
+    var conceptType = ["Selecciona concepto", "Ofrenda", "Diezmo", "Limosna", "Pago de una intención", "pago de un servicio", "Otro"]
     var amountList = ["10", "50", "100", "200", "300", "400", "500", "1000", "Otra"]
     var isActive = [false, true]
     var withBill: Bool {
@@ -184,6 +184,10 @@ class NewDontaionsViewController: BaseVC, NewDontaionsViewProtocol {
     @IBOutlet weak var loaderLbl: UILabel!
     @IBOutlet weak var loaderImg: UIImageView!
     @IBOutlet weak var webViewContainer: UIView!
+    @IBOutlet weak var lblCOffering: UILabel!
+    @IBOutlet weak var lblAOffering: UILabel!
+    @IBOutlet weak var btnCancelar: UIButton!
+    
     var myWebView = WKWebView()
     
     @IBOutlet weak var changeContainerView: UIView!
@@ -226,6 +230,7 @@ class NewDontaionsViewController: BaseVC, NewDontaionsViewProtocol {
         customNavbar.layer.cornerRadius = 20
         customNavbar.ShadowNavBar()
         profileContent.isHidden = true
+        btnCancelar.isHidden = true
         backIcon.setTitle("", for: .normal)
         btnSearch.titleLabel?.numberOfLines = 1
         btnSearch.titleLabel?.adjustsFontSizeToFitWidth = true
@@ -279,7 +284,9 @@ class NewDontaionsViewController: BaseVC, NewDontaionsViewProtocol {
         
         btnChangeData.titleLabel?.font = UIFont.systemFont(ofSize: 14, weight: .semibold)
         
-        
+        btnCancelar.layer.cornerRadius = 8
+        btnCancelar.layer.borderWidth = 0.5
+        btnCancelar.layer.borderColor = UIColor(red: 25/255, green: 42/255, blue: 115/255, alpha: 1).cgColor
     }
     
     private func setupFieldsDelegate() {
@@ -325,8 +332,8 @@ class NewDontaionsViewController: BaseVC, NewDontaionsViewProtocol {
         
         webViewContainer.addConstraints([leading, top, trailing, bottom])
         guard let url = URL(string: setSecureURL() ?? "") else { return }
+        print("URLWEBPAY👹",url)
         myWebView.load(URLRequest(url: url))
-        
         
         // Sencilla
         //https://qamiofrenda.pamatz.com/pagos/data?amount=1&email=rdpamatz@gmail.com&name=Roman&surnames=Pamatz&phone_number=5516171324&location_id=629&operation_id=68844
@@ -381,12 +388,27 @@ class NewDontaionsViewController: BaseVC, NewDontaionsViewProtocol {
             self.present(alert, animated: true)
         }
         let donationRequest = withBill ? DonationRequest(amount: amount, email: email, locationId: String(churchSelecrtedId), name: name, operationId: "68844", phoneNumber: phone, surnames: surname, rfc: rfc, businessName: businessName, address: address, neighborhood: neighborhood, municipality: municipality, zipcode: zipCode) : DonationRequest(amount: amount, email: email, locationId: String(churchSelecrtedId), name: name, operationId: "68844", phoneNumber: phone, surnames: surname)
-        
+        print("DONACION👹",donationRequest)
         guard let jsonData = try? JSONEncoder().encode(donationRequest),
               let json = String(data: jsonData, encoding: String.Encoding.utf8),
               let resultString = SecurityUtils.encryptForWebView(json)?.base64EncodedString() else {
+            print("DONACION 2💀",donationRequest)
             return nil
         }
+        
+        print("RESULT😵‍💫",resultString)
+        if conceptField.text == "Otro"{
+            lblCOffering.text = specifyField.text ?? ""
+        }else{
+            lblCOffering.text = conceptField.text ?? ""
+        }
+        
+        if amountField.text == "Otra"{
+            lblAOffering.text = "$" + (otherAmountField.text ?? "") + ".00 M. N."
+        }else{
+            lblAOffering.text = (amountField.text ?? "") + ".00 M. N."
+        }
+        
         
         return "\(APIType.shared.myOffer())/pagos/data/v2?data=\(resultString.addingPercentEncoding(withAllowedCharacters: .afURLQueryAllowed)?.replacingOccurrences(of: "/", with: "%2F") ?? "")"
         
@@ -482,6 +504,9 @@ class NewDontaionsViewController: BaseVC, NewDontaionsViewProtocol {
     func startTimer() {
         timeLapse = Timer.scheduledTimer(timeInterval: 0.01, target: self, selector: #selector(handleTimer), userInfo: nil, repeats: true)
     }
+    @IBAction func btnActionCancel(_ sender: Any) {
+        self.navigationController?.popViewController(animated: true)
+    }
     
     // MARK: @IBACTIONS -
     @IBAction func backAction(_ sender: Any) {
@@ -500,6 +525,7 @@ class NewDontaionsViewController: BaseVC, NewDontaionsViewProtocol {
         case 3:
             webViewContainer.isHidden = true
             profileContent.isHidden = true
+            btnCancelar.isHidden = true
             menuContentView.isHidden = false
             lblContainerView.isHidden = false
             searchContent.isHidden = false
@@ -546,6 +572,7 @@ class NewDontaionsViewController: BaseVC, NewDontaionsViewProtocol {
                 searchContent.isHidden = true
                 detailChurchStack.isHidden = true
                 profileContent.isHidden = false
+                btnCancelar.isHidden = false
                 // loaderTimerView.isHidden = false
                 startTimer()
                 webViewContainer.isHidden = false
@@ -584,6 +611,7 @@ class NewDontaionsViewController: BaseVC, NewDontaionsViewProtocol {
                     searchContent.isHidden = true
                     detailChurchStack.isHidden = true
                     profileContent.isHidden = false
+                    btnCancelar.isHidden = false
                     // loaderTimerView.isHidden = false
                     webViewContainer.isHidden = false
                     startTimer()
@@ -965,6 +993,7 @@ extension NewDontaionsViewController: accpetAlertActionDelegate {
     func didPressAcccept() {
         webViewContainer.isHidden = true
         profileContent.isHidden = true
+        btnCancelar.isHidden = true
         menuContentView.isHidden = false
         lblContainerView.isHidden = false
         searchContent.isHidden = false
@@ -1024,10 +1053,21 @@ extension NewDontaionsViewController: WKScriptMessageHandler{
                 let objResponse = self.parseStringToDataToJson(toData: message.body as! String)
                 
                 if objResponse?.status == "success" {
-                    let alert = AcceptAlertDonations.showAlert(message: "¡Muchas gracias! Tu ofrenda ha sido procesada exitosamente y tu intención ha sido enviada.", btnTitle: "Entendido")
+                    let alert = UIAlertController(title: "Aviso", message: "¡Muchas gracias! Tu donación ha sido procesada exitosamente.", preferredStyle: .alert)
+                    alert.view.subviews.first?.subviews.first?.subviews.first?.backgroundColor = UIColor.white
+                    let cancelAction = UIAlertAction(title: "Aceptar", style: .cancel){
+                        [weak self] _ in
+                        guard let self = self else {return}
+                        self.navigationController?.popViewController(animated: true)
+                        //self.dismiss(animated: true, completion: nil)
+                    }
+                    alert.addAction(cancelAction)
+                    
+                    self.present(alert, animated: true)
+                    /*let alert = AcceptAlertDonations.showAlert(message: "¡Muchas gracias! Tu ofrenda ha sido procesada exitosamente y tu intención ha sido enviada.", btnTitle: "Entendido")
                     alert.delegate = self
                     alert.modalPresentationStyle = .overFullScreen
-                    self.present(alert, animated: true, completion: nil)
+                    self.present(alert, animated: true, completion: nil)*/
                 }else {
                     let alert = AcceptAlertDonations.showAlert(message: objResponse?.responseDescription?.folding(options: .diacriticInsensitive, locale: .current) ?? "Ocurrio un error, Intente mas tarde", btnTitle: "Entendido")
                     alert.delegate = self

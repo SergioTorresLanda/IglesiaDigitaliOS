@@ -25,8 +25,8 @@
                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="by3-Hj-EbH">
                     <rect key="frame" x="0.0" y="0.0" width="375" height="108"/>
                     <subviews>
-                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Solicitar intención" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="N6p-Sn-23m">
-                            <rect key="frame" x="112.5" y="66.5" width="150.5" height="21.5"/>
+                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Agendar" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="N6p-Sn-23m">
+                            <rect key="frame" x="152" y="66.5" width="71.5" height="21.5"/>
                             <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="18"/>
                             <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                             <nil key="highlightedColor"/>
@@ -54,13 +54,23 @@
                     </constraints>
                 </view>
                 <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" translatesAutoresizingMaskIntoConstraints="NO" id="Jcs-Mn-Y16">
-                    <rect key="frame" x="0.0" y="170" width="375" height="230"/>
+                    <rect key="frame" x="0.0" y="170" width="375" height="244.5"/>
                     <subviews>
                         <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="jdD-3d-gwH">
-                            <rect key="frame" x="0.0" y="0.0" width="375" height="180"/>
+                            <rect key="frame" x="0.0" y="0.0" width="375" height="194.5"/>
                             <subviews>
+                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Elige la iglesia en la que quieres solicitar tu intencion para la misa" lineBreakMode="tailTruncation" numberOfLines="3" baselineAdjustment="alignBaselines" adjustsFontForContentSizeCategory="YES" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="BOY-dG-Epb">
+                                    <rect key="frame" x="17" y="3" width="348" height="35"/>
+                                    <constraints>
+                                        <constraint firstAttribute="height" constant="35" id="2Dp-k3-WT4"/>
+                                        <constraint firstAttribute="width" constant="348" id="2mJ-Vg-Jwm"/>
+                                    </constraints>
+                                    <fontDescription key="fontDescription" name="HelveticaNeue-Medium" family="Helvetica Neue" pointSize="14"/>
+                                    <color key="textColor" red="0.074509803920000006" green="0.1529411765" blue="0.48627450979999998" alpha="1" colorSpace="calibratedRGB"/>
+                                    <nil key="highlightedColor"/>
+                                </label>
                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Iglesia principal" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontForContentSizeCategory="YES" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="DkE-63-18o">
-                                    <rect key="frame" x="17" y="27" width="128" height="20.5"/>
+                                    <rect key="frame" x="17" y="40" width="128" height="20.5"/>
                                     <constraints>
                                         <constraint firstAttribute="height" constant="20.5" id="mHQ-IW-1yD"/>
                                     </constraints>
@@ -68,33 +78,23 @@
                                     <color key="textColor" red="0.074509803920000006" green="0.1529411765" blue="0.48627450979999998" alpha="1" colorSpace="calibratedRGB"/>
                                     <nil key="highlightedColor"/>
                                 </label>
-                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Elige la iglesia en la que quieres solicitar tu intencion para la misa" lineBreakMode="tailTruncation" numberOfLines="3" baselineAdjustment="alignBaselines" adjustsFontForContentSizeCategory="YES" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="BOY-dG-Epb">
-                                    <rect key="frame" x="17" y="3" width="348" height="20.5"/>
-                                    <constraints>
-                                        <constraint firstAttribute="height" constant="20.5" id="2Dp-k3-WT4"/>
-                                        <constraint firstAttribute="width" constant="348" id="2mJ-Vg-Jwm"/>
-                                    </constraints>
-                                    <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="11"/>
-                                    <color key="textColor" red="0.074509803920000006" green="0.1529411765" blue="0.48627450979999998" alpha="1" colorSpace="calibratedRGB"/>
-                                    <nil key="highlightedColor"/>
-                                </label>
                                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Adw-rk-VpO">
-                                    <rect key="frame" x="10" y="55.5" width="355" height="123.5"/>
+                                    <rect key="frame" x="10" y="68.5" width="355" height="125"/>
                                     <subviews>
                                         <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="oy3-Ua-oID">
-                                            <rect key="frame" x="7" y="0.0" width="151" height="123.5"/>
+                                            <rect key="frame" x="7" y="0.0" width="151" height="125"/>
                                             <constraints>
                                                 <constraint firstAttribute="width" constant="151" id="lEx-ct-KG4"/>
                                             </constraints>
                                         </imageView>
                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" lineBreakMode="tailTruncation" numberOfLines="6" baselineAdjustment="alignBaselines" minimumScaleFactor="0.5" adjustsFontForContentSizeCategory="YES" translatesAutoresizingMaskIntoConstraints="NO" id="Xka-ec-mza">
-                                            <rect key="frame" x="168" y="10" width="177" height="103.5"/>
+                                            <rect key="frame" x="168" y="10" width="177" height="105"/>
                                             <fontDescription key="fontDescription" name="HelveticaNeue-Bold" family="Helvetica Neue" pointSize="15"/>
                                             <nil key="textColor"/>
                                             <nil key="highlightedColor"/>
                                         </label>
                                         <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="rr1-uu-9sB">
-                                            <rect key="frame" x="0.0" y="0.0" width="355" height="124"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="355" height="125.5"/>
                                             <connections>
                                                 <action selector="btnSendToView:" destination="-1" eventType="touchUpInside" id="hGy-TJ-3ev"/>
                                             </connections>
@@ -123,13 +123,13 @@
                                 <constraint firstItem="BOY-dG-Epb" firstAttribute="leading" secondItem="DkE-63-18o" secondAttribute="leading" id="SmS-it-fZU"/>
                                 <constraint firstItem="Adw-rk-VpO" firstAttribute="leading" secondItem="jdD-3d-gwH" secondAttribute="leading" constant="10" id="aOt-pZ-3fL"/>
                                 <constraint firstAttribute="trailing" secondItem="Adw-rk-VpO" secondAttribute="trailing" constant="10" id="eKu-xg-8Ed"/>
-                                <constraint firstItem="DkE-63-18o" firstAttribute="top" secondItem="jdD-3d-gwH" secondAttribute="top" constant="27" id="hab-BM-ISC"/>
-                                <constraint firstAttribute="height" constant="180" id="lvm-Ta-Dby"/>
+                                <constraint firstItem="DkE-63-18o" firstAttribute="top" secondItem="jdD-3d-gwH" secondAttribute="top" constant="40" id="hab-BM-ISC"/>
+                                <constraint firstAttribute="height" constant="194.5" id="lvm-Ta-Dby"/>
                                 <constraint firstItem="Adw-rk-VpO" firstAttribute="top" secondItem="DkE-63-18o" secondAttribute="bottom" constant="8" id="o09-EL-aDJ"/>
                             </constraints>
                         </view>
                         <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="x9b-Kg-aTW">
-                            <rect key="frame" x="0.0" y="180" width="375" height="50"/>
+                            <rect key="frame" x="0.0" y="194.5" width="375" height="50"/>
                             <subviews>
                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Iglesias favoritas" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontForContentSizeCategory="YES" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="AfE-4f-Fu4">
                                     <rect key="frame" x="17" y="15" width="137.5" height="20.5"/>
@@ -148,7 +148,7 @@
                     </subviews>
                 </stackView>
                 <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="none" translatesAutoresizingMaskIntoConstraints="NO" id="HeF-2c-Bmg">
-                    <rect key="frame" x="17" y="400" width="338" height="172"/>
+                    <rect key="frame" x="17" y="414.5" width="338" height="157.5"/>
                     <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                     <collectionViewFlowLayout key="collectionViewLayout" minimumLineSpacing="10" minimumInteritemSpacing="10" id="gbd-Yj-7P5">
                         <size key="itemSize" width="128" height="128"/>

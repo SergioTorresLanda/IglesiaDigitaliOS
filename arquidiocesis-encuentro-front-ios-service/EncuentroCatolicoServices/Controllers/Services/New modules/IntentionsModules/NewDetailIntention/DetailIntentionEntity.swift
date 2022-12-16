@@ -17,9 +17,17 @@ struct IntentionDetails: Codable {
 
 struct Intentions: Codable {
     var intention: String?
-    var dedicated_to: [String]?
+    var dedicated_to: [DedicatedTo]?
 }
 
 struct PDFObject: Codable {
     var url: String?
 }
+
+struct DedicatedTo: Codable {
+    var from: String?
+    var to: String?
+    
+}
+
+

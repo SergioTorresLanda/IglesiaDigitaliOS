@@ -57,6 +57,15 @@ public class APIType {
         return API
     }
     
+    func myOffer() -> String {
+        if staged == "Qa" {
+             API = "https://qamiofrenda.pamatz.com"
+        }else if staged == "Prod" {
+            API = "https://miofrenda.mx"
+        }
+        return API
+    }
+    
     func refreshToken() {
            let user = UserDefaults.standard
            let Url = String(format: "\(APIType.shared.Auth())/user/refresh_tokens")

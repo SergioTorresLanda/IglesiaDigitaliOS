@@ -9,21 +9,62 @@
 //
 
 import UIKit
+import WebKit
+import SwiftSoup
 import EncuentroCatolicoVirtualLibrary
+import EncuentroCatolicoUtils
+import Alamofire
+import CryptoSwift
 
-class ScheduleMassTimeViewController: UIViewController, ScheduleMassTimeViewProtocol {
+
+class ScheduleMassTimeViewController: UIViewController, ScheduleMassTimeViewProtocol, accpetAlertActionDelegate {
     
-    @IBOutlet weak var lblDate      : UILabel!
-    @IBOutlet weak var collection   : UICollectionView!
-    @IBOutlet weak var txtIntention : UITextField!
-    @IBOutlet weak var txtName      : UITextField!
-    @IBOutlet weak var btnNext      : UIButton!
+    @IBOutlet weak var containerViewIntention: UIView!
+    @IBOutlet weak var lblDate: UILabel!
+    @IBOutlet weak var collection: UICollectionView!
+    @IBOutlet weak var txtIntention: UITextField!
+    @IBOutlet weak var txtSendTo: UITextField!
+    @IBOutlet weak var txtName: UITextField!
+    @IBOutlet weak var amountField: UITextField!
+    @IBOutlet weak var otherAmountField: UITextField!
+    @IBOutlet weak var btnNext: UIButton!
     
+    @IBOutlet weak var btnClose: UIButton!
+    
+    //PAYMENT
+    @IBOutlet weak var contentViewPayment: UIView!
+    @IBOutlet weak var firstTimerView: UIView!
+    @IBOutlet weak var firstLblTimer: UILabel!
+    @IBOutlet weak var secondTimerView: UIView!
+    @IBOutlet weak var secondLblTimer: UILabel!
+    @IBOutlet weak var thirdTimerView: UIView!
+    @IBOutlet weak var thirdLblTimer: UILabel!
+    @IBOutlet weak var lblCOffering: UILabel!
+    @IBOutlet weak var lblAOffering: UILabel!
+    
+    @IBOutlet weak var webViewContainer: UIView!
+    
+    @IBOutlet weak var btnCancelar: UIButton!
+    
+   
+    
+    var miliSeconds = 99
+    var seconds = 59
+    var minutes = 4
+    var timeLapse : Timer?
+    
+    var flowId = 0
+    var myWebView = WKWebView()
+    let defaults = UserDefaults.standard
+//    
     let viewBundle = Bundle.init(identifier: "mx.arquidiocesis.EncuentroCatolicoServices")
     var presenter: ScheduleMassTimePresenterProtocol?
     var maseDate: Date!
+    
     var location: Assigned!
     let picker = UIPickerView()
+    let pickerAmount = UIPickerView()
+    let amountList = ["10", "50", "100", "200", "300", "400", "500", "1000", "Otra"]
     let pckData: Array<String> = ["Catálogo de intenciones",
                                   "Por el cumpleaños de",
                                   "Por el aniversario de matrimonio de",
@@ -45,22 +86,38 @@ class ScheduleMassTimeViewController: UIViewController, ScheduleMassTimeViewProt
     let alert = UIAlertController(title: "", message: "\n \n \n \n \nCargando...", preferredStyle: .alert)
     let accptaAlert = AcceptAlert.showAlert(titulo: "Aviso", mensaje: "No se cuenta con horarios disponibles")
     let transition = SlideTransition()
+  
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        setupUI()
         presenter?.requestCatalogIntentions()
         let dateFormatter = DateFormatter()
         dateFormatter.dateFormat = "yyyy-MM-dd"
         dateFormatter.locale = .init(identifier: "es_MX")
         let date = dateFormatter.string(from: maseDate)
         self.presenter?.requestGetHours(locationID: "\(location.id ?? 0)", dateStr: date)
-        
+        self.txtName.text = defaults.string(forKey: "COMPLETENAME") ?? ""
         txtIntention.inputView = picker
         picker.delegate = self
         txtIntention.addBottomBorderWithColor(color: UIColor(red: 175/255, green: 175/255, blue: 175/255, alpha: 1.0), width: 1.0)
+        btnClose.setTitle("", for: .normal)
+        btnClose.image(for: .normal)
+        txtSendTo.addBottomBorderWithColor(color: UIColor(red: 175/255, green: 175/255, blue: 175/255, alpha: 1.0), width: 1.0)
+        txtSendTo.delegate = self
+        
         txtName.addBottomBorderWithColor(color: UIColor(red: 175/255, green: 175/255, blue: 175/255, alpha: 1.0), width: 1.0)
 //        txtName.returnKeyType = .done
         txtName.delegate = self
+        
+        amountField.addBottomBorderWithColor(color: UIColor(red: 175/255, green: 175/255, blue: 175/255, alpha: 1.0), width: 1.0)
+        amountField.delegate = self
+        
+        setupPickerFieldAmount(pickerAmount)
+        
+        otherAmountField.addBottomBorderWithColor(color: UIColor(red: 175/255, green: 175/255, blue: 175/255, alpha: 1.0), width: 1.0)
+        otherAmountField.delegate = self
+        
         txtIntention.returnKeyType = .done
         txtIntention.delegate = self
         btnNext.layer.cornerRadius = 8
@@ -75,13 +132,332 @@ class ScheduleMassTimeViewController: UIViewController, ScheduleMassTimeViewProt
         }
     }
     
-    @IBAction func close(_ sender: Any){
-        self.navigationController?.popViewController(animated: true)
+    override func viewWillAppear(_ animated: Bool) {
+        //newArray = []
+    }
+    
+    func didPressAcccept() {
+        
+    }
+    
+    //FPM
+    private func setupUI() {
+        contentViewPayment.isHidden = true
+        firstTimerView.layer.cornerRadius = 8
+        secondTimerView.layer.cornerRadius = 8
+        thirdTimerView.layer.cornerRadius = 8
+        
+        firstLblTimer.text = "05"
+        secondLblTimer.text = "00"
+        thirdLblTimer.text = "00"
+        startTimer()
+        timeLapse?.invalidate()
+        firstTimerView.ShadowCard()
+        secondTimerView.ShadowCard()
+        thirdTimerView.ShadowCard()
+        
+        
+        btnCancelar.layer.cornerRadius = 8
+        btnCancelar.layer.borderWidth = 0.5
+        btnCancelar.layer.borderColor = UIColor(red: 25/255, green: 42/255, blue: 115/255, alpha: 1).cgColor
+    }
+   
+    @objc func handleTimer() {
+        
+        if minutes == 0{
+            timeLapse?.invalidate()
+            minutes = 4
+            seconds = 59
+            miliSeconds = 100
+            firstLblTimer.text = "05"
+            secondLblTimer.text = "00"
+            thirdLblTimer.text = "00"
+            let alert = UIAlertController(title: "Aviso", message: "Se agotó el tiempo de espera para realizar el pago, por favor vuelve a intentarlo", preferredStyle: .alert)
+            let cancelAction = UIAlertAction(title: "Entendido", style: .cancel){
+                [weak self] _ in
+                guard let self = self else {return}
+                self.dismiss(animated: true, completion: nil)
+                //self.navigationController?.popViewController(animated: true)
+                
+            }
+            alert.addAction(cancelAction)
+            
+            self.present(alert, animated: true)
+            
+            
+        }else{
+            if seconds == 0 {
+                minutes -= 1
+                seconds = 59
+            }
+            if miliSeconds == 0 {
+                seconds -= 1
+                miliSeconds = 100
+            }
+            
+            firstLblTimer.text = "0\(minutes)"
+            
+            if miliSeconds < 10 {
+                thirdLblTimer.text = "0\(miliSeconds)"
+            }else{
+                thirdLblTimer.text = "\(miliSeconds)"
+            }
+            
+            if seconds < 10 {
+                secondLblTimer.text = "0\(seconds)"
+            }else{
+                secondLblTimer.text = "\(seconds)"
+            }
+            miliSeconds -= 1
+        }
+        
+    }
+    
+    func startTimer() {
+        timeLapse = Timer.scheduledTimer(timeInterval: 0.01, target: self, selector: #selector(handleTimer), userInfo: nil, repeats: true)
+    }
+
+    
+    private func setupWebView() {
+        print("segunda etapa")
+        let contentController = WKUserContentController()
+        contentController.add(self, name: "sumbitToiOS")
+        let config = WKWebViewConfiguration()
+        config.userContentController = contentController
+        myWebView.navigationDelegate = self
+        myWebView = WKWebView(frame: webViewContainer.frame, configuration: config)
+        webViewContainer.addSubview(myWebView)
+        myWebView.translatesAutoresizingMaskIntoConstraints = false
+        
+        let leading = myWebView.leadingAnchor.constraint(equalTo: webViewContainer.leadingAnchor)
+        let trailing = myWebView.trailingAnchor.constraint(equalTo: webViewContainer.trailingAnchor)
+        let top = myWebView.topAnchor.constraint(equalTo: webViewContainer.topAnchor)
+        let bottom = myWebView.bottomAnchor.constraint(equalTo: webViewContainer.bottomAnchor)
+        
+        webViewContainer.addConstraints([leading, top, trailing, bottom])
+        guard let url = URL(string: setSecureURL() ?? "") else { return }
+        print("URLWEBPAY👹",url)
+        myWebView.load(URLRequest(url: url))
+        webViewContainer.addConstraints([leading, top, trailing, bottom])
+    
+    }
+    
+    
+    private func setSecureURL() -> String? {
+        var amount = amountField.text?.replacingOccurrences(of: "$", with: "") ?? ""
+        let name = defaults.string(forKey: "OnlyName") ?? ""
+        let surname = defaults.string(forKey: "LastName2") ?? ""
+        let phone = defaults.string(forKey: "phone2") ?? ""
+        
+        
+        if amount == "Otra" {
+            amount = otherAmountField.text ?? ""
+        }
+        let valuleAmount = Int(amount ) ?? 0
+        
+        if  valuleAmount   < 9 {
+            let alert = UIAlertController(title: "Aviso", message: "¡Gracias! Desafortunadamente no podemos recibir ofrendas menores a $10 pesos.", preferredStyle: .alert)
+            let cancelAction = UIAlertAction(title: "Aceptar", style: .cancel){
+                [weak self] _ in
+                guard let self = self else {return}
+                self.dismiss(animated: true, completion: nil)
+                //self.navigationController?.popViewController(animated: true)
+            }
+            alert.addAction(cancelAction)
+            
+            self.present(alert, animated: true)
+            /*let alert = AcceptAlertDonations.showAlert(title: "Aviso", message: "¡Gracias! Desafortunadamente no podemos recibir ofrendas menores a $10 pesos.", btnTitle: "Aceptar")
+            alert.delegate = self
+            alert.modalPresentationStyle = .overFullScreen
+            self.present(alert, animated: true, completion: nil)*/
+            
+        } else if valuleAmount >= 10000 {
+            let alert = UIAlertController(title: "Aviso", message: "No es posible recibir ofrendas superiores a $10,000 pesos. Cualquier duda favor de comunicarte a contacto@miofrenda.mx", preferredStyle: .alert)
+            let cancelAction = UIAlertAction(title: "Aceptar", style: .cancel){
+                [weak self] _ in
+                guard let self = self else {return}
+                self.dismiss(animated: true, completion: nil)
+                //self.navigationController?.popViewController(animated: true)
+                
+            }
+            alert.addAction(cancelAction)
+            
+            self.present(alert, animated: true)
+        }
+        
+        let donationRequest =   DonationRequestP(amount: amount, email: "sergio.torreslanda@gmail.com", locationId: String(service_id), name: name, operationId: "68844", phoneNumber: phone, surnames: surname)
+        
+        guard let jsonData = try? JSONEncoder().encode(donationRequest),
+              let json = String(data: jsonData, encoding: String.Encoding.utf8),
+              let resultString = SecurityUtils.encryptForWebView(json)?.base64EncodedString() else {
+            print("DONACION👹",donationRequest)
+            return nil
+        }
+        
+        print("RESULT😵‍💫",resultString)
+        if amountField.text == "Otra"{
+            lblAOffering.text = "$" + (otherAmountField.text ?? "") + ".00 M. N."
+        }else{
+            lblAOffering.text = (amountField.text ?? "") + ".00 M. N."
+        }
+        
+        return "\(APIType.shared.myOffer())/pagos/data/v2?data=\(resultString.addingPercentEncoding(withAllowedCharacters: .afURLQueryAllowed)?.replacingOccurrences(of: "/", with: "%2F") ?? "")"
+        
+        
+    }
+
+    @IBAction func btnPayCancel(_ sender: Any) {
+        /*let alert = AcceptAlertDonations.showAlert(title: "Advertencia",message: "Estas seguro que deseas salir, se perderá todo el proceso.", btnTitle: "Cancelar")
+        alert.delegate = self
+        alert.btnTitleStr = "cancel"
+        alert.modalPresentationStyle = .overFullScreen
+        self.present(alert, animated: true, completion: nil)*/
+        let alert = UIAlertController(title: "Advertencia", message: "Estas seguro que deseas salir, se perderá todo el proceso", preferredStyle: UIAlertController.Style.alert)
+        alert.view.subviews.first?.subviews.first?.subviews.first?.backgroundColor = UIColor.white
+
+        alert.addAction(UIAlertAction(title: "Cancelar", style: UIAlertAction.Style.default, handler: { _ in
+                   //Cancel Action
+               }))
+               alert.addAction(UIAlertAction(title: "Aceptar",
+                                             style: UIAlertAction.Style.default,
+                                             handler: {(_: UIAlertAction!) in
+                                               //Sign out action
+                   self.containerViewIntention.isHidden = false
+                   self.contentViewPayment.isHidden = true
+                   self.timeLapse?.invalidate()
+                   self.minutes = 4
+                   self.seconds = 59
+                   self.miliSeconds = 100
+                   self.firstLblTimer.text = "05"
+                   self.secondLblTimer.text = "00"
+                   self.thirdLblTimer.text = "00"
+                   self.flowId = 0
+               }))
+               self.present(alert, animated: true, completion: nil)
+           
+        
+        /*let alert = UIAlertController(title: "Advertencia", message: "Estas seguro que deseas salir, se perderá todo el proceso", preferredStyle: .alert)
+        let cancelAction = UIAlertAction(title: "Aceptar", style: .cancel){
+            [weak self] _ in
+            guard let self = self else {return}
+            self.dismiss(animated: true, completion: nil)
+            //self.navigationController?.popViewController(animated: true)
+            
+        }
+        alert.addAction(cancelAction)
+        
+        self.present(alert, animated: true)*/
+        
+        
+    }
+    
+    @IBAction func close(_ sender: Any) {
+        switch flowId {
+        case 0:
+            self.navigationController?.popViewController(animated: true)
+            
+        case 1:
+            self.containerViewIntention.isHidden = false
+            self.contentViewPayment.isHidden = true
+            timeLapse?.invalidate()
+            minutes = 4
+            seconds = 59
+            miliSeconds = 100
+            firstLblTimer.text = "05"
+            secondLblTimer.text = "00"
+            thirdLblTimer.text = "00"
+            flowId = 0
+            
+        default:
+            break
+        }
+        
     }
     
     @IBAction func onTapRequestIntention(_ sender: Any) {
-        guard let description = txtIntention.text,
+        //self.setupWebView()
+        if txtIntention.text != "" && txtSendTo.text != "" && amountField.text != "" {
+            print("primera etapa")
+            self.setupWebView()
+            flowId = 1
+            self.contentViewPayment.isHidden = false
+            self.containerViewIntention.isHidden = true
+            let newStr = "\(txtIntention.text ?? "") \(txtSendTo.text ?? "")"
+            lblCOffering.text = newStr
+            lblAOffering.text = (amountField.text ?? "") + ".00 M. N."
+            
+            
+            startTimer()
+            webViewContainer.isHidden = false
+            //                    self.myWebView.evaluateJavaScript("function showToast() { document.getElementById('tarjeta').value='12342565768976' }") { value, error in
+            //                    }
+            self.myWebView.evaluateJavaScript("function showToast() { webkit.messageHandlers.callbackHandler.postMessage('Algo de texto') }") { value, error in
+            }
+            
+            self.myWebView.evaluateJavaScript("document.getElementsByTagName('button')[0].style.color='black'") { value, error in
+            }
+            
+            self.myWebView.evaluateJavaScript("document.getElementsByTagName('button')[0].onclick=showToast") { value, error in
+            }
+            
+        }else{
+            let alert = UIAlertController(title: "Atención", message: "Por favor llena todos los campos.", preferredStyle: UIAlertController.Style.alert)
+            alert.view.subviews.first?.subviews.first?.subviews.first?.backgroundColor = UIColor.white
+
+            alert.addAction(UIAlertAction(title: "Aceptar", style: UIAlertAction.Style.default, handler: { _ in
+                       //Cancel Action
+                   }))
+                   /*alert.addAction(UIAlertAction(title: "",
+                                                 style: UIAlertAction.Style.default,
+                                                 handler: {(_: UIAlertAction!) in
+                                                   //Sign out action
+                       /*self.containerViewIntention.isHidden = false
+                       self.contentViewPayment.isHidden = true
+                       self.timeLapse?.invalidate()
+                       self.minutes = 4
+                       self.seconds = 59
+                       self.miliSeconds = 100
+                       self.firstLblTimer.text = "05"
+                       self.secondLblTimer.text = "00"
+                       self.thirdLblTimer.text = "00"
+                       self.flowId = 0*/
+                   }))*/
+                   self.present(alert, animated: true, completion: nil)
+            /*let alert = AcceptAlertDonations.showAlert(title: "Atención", message: "Por favor llena todos los campos", btnTitle: "Entendido")
+            alert.modalPresentationStyle = .overFullScreen
+            self.present(alert, animated: true, completion: nil)*/
+            
+            /*let alert = UIAlertController(title: "Atención", message: "Por favor llena todos los campos", preferredStyle: .alert)
+            alert.view.subviews.first?.subviews.first?.subviews.first?.backgroundColor = UIColor.white
+            let cancelAction = UIAlertAction(title: "Entendido", style: .cancel){
+                [weak self] _ in
+                guard let self = self else {return}
+                alert.modalPresentationStyle = .overFullScreen
+                //self.present(alert, animated: true, completion: nil)
+                self.dismiss(animated: true, completion: nil)
+                //self.navigationController?.popViewController(animated: true)
+                
+            }
+            
+            alert.addAction(cancelAction)
+            
+            self.present(alert, animated: true)*/
+            
+        }
+        
+        /* // Accessing alert view backgroundColor :
+         alert.view.subviews.first?.subviews.first?.subviews.first?.backgroundColor = UIColor.green
+
+         // Accessing buttons tintcolor :
+         alert.view.tintColor = UIColor.white
+
+         alert.addAction(dismissAction)
+         present(alert, animated: true, completion:  nil)*/
+        
+        
+        /*guard let description = txtIntention.text,
             let selectedHour = selectedHourIndex,
+              let deParteDe = txtSendTo.text,
             let location = location.id
             else {
                 return
@@ -92,8 +468,78 @@ class ScheduleMassTimeViewController: UIViewController, ScheduleMassTimeViewProt
         let date = dateFormatter.string(from: maseDate)
       //  let service_id = 32
         showLoading()
-        presenter?.sendService(date: date, hour: arrayListIntentions[selectedHour].start_time ?? "", description: txtName.text ?? "", location: location, service_id: service_id)
+        presenter?.sendService(date: date, hour: arrayListIntentions[selectedHour].start_time ?? "", description: txtSendTo.text ?? "", location: location, service_id: service_id, mention_from: txtName.text ?? "" )*/
     }
+    
+    func sendIntention(){
+        guard let description = txtIntention.text,
+            let selectedHour = selectedHourIndex,
+              let deParteDe = txtSendTo.text,
+            let location = location.id
+            else {
+            print("faltan datos 1")
+                return
+        }
+        let dateFormatter = DateFormatter()
+        dateFormatter.dateFormat = "yyyy-MM-dd"
+        dateFormatter.locale = .init(identifier: "es_MX")
+        let date = dateFormatter.string(from: maseDate)
+        //alerta
+        let alert = UIAlertController(title: "Aviso", message: "¡Muchas gracias! Tu donación ha sido procesada exitosamente y tu intención ha sido enviada.", preferredStyle: .alert)
+        alert.view.subviews.first?.subviews.first?.subviews.first?.backgroundColor = UIColor.white
+        let cancelAction = UIAlertAction(title: "Aceptar", style: .cancel){
+            [weak self] _ in
+            guard let self = self else {return}
+            self.navigationController?.popToRootViewController(animated: true)
+            //self.navigationController?.popViewController(animated: true)
+            
+            //self.dismiss(animated: true, completion: nil)
+        }
+        alert.addAction(cancelAction)
+        
+        self.present(alert, animated: true)
+      //  let service_id = 32
+        //showLoading()
+        presenter?.sendService(date: date, hour: arrayListIntentions[selectedHour].start_time ?? "", description: txtSendTo.text ?? "", location: location, service_id: service_id, mention_from: txtName.text ?? "" )
+    }
+    
+    
+    private func setupPickerFieldAmount(_ picker: UIPickerView) {
+        picker.frame = CGRect(x: 0, y: 200, width: view.frame.width, height: 200)
+        picker.showsSelectionIndicator = true
+        let toolBar = UIToolbar()
+        toolBar.barStyle = UIBarStyle.default
+        toolBar.isTranslucent = true
+        toolBar.tintColor = UIColor(red: 76/255, green: 217/255, blue: 100/255, alpha: 1)
+        toolBar.sizeToFit()
+        
+        let doneButton = UIBarButtonItem(title: "Aceptar", style: UIBarButtonItem.Style.done, target: self, action: #selector(self.acceptPickerAmount))
+        let spaceButton = UIBarButtonItem(barButtonSystemItem: UIBarButtonItem.SystemItem.flexibleSpace, target: nil, action: nil)
+        let cancelButton = UIBarButtonItem(title: "Cancelar", style: UIBarButtonItem.Style.plain, target: self, action: #selector(self.cancelPickerAmount))
+        
+        toolBar.setItems([cancelButton, spaceButton, doneButton], animated: false)
+        toolBar.items?.forEach({ (button) in
+            button.tintColor = UIColor.init(red: 25/255, green: 42/255, blue: 115/255, alpha: 1)
+        })
+        
+        toolBar.isUserInteractionEnabled = true
+        
+        amountField.inputView = picker
+        amountField.inputAccessoryView = toolBar
+        picker.delegate = self
+        picker.dataSource = self
+    }
+    
+    
+    @objc func acceptPickerAmount() {
+        self.view.endEditing(true)
+    }
+    
+    @objc func cancelPickerAmount() {
+        amountField.text = ""
+        self.view.endEditing(true)
+    }
+    
     
     func setupCollectionDelegate() {
         collection.delegate = self
@@ -104,7 +550,7 @@ class ScheduleMassTimeViewController: UIViewController, ScheduleMassTimeViewProt
     
     func loadResult(data: ServicesResponse) {
         hideLoading()
-        self.navigationController?.popToRootViewController(animated: true)
+        //self.navigationController?.popToRootViewController(animated: true)
         NotificationCenter.default.post(name: Notification.Name("intentionCreated"), object: nil)
     }
     
@@ -211,27 +657,60 @@ extension ScheduleMassTimeViewController: UIPickerViewDelegate, UIPickerViewData
     }
     
     func pickerView(_ pickerView: UIPickerView, numberOfRowsInComponent component: Int) -> Int {
-        return newArray.count
+        var count = 0
+        switch pickerView {
+        case picker:
+        count = newArray.count
+        
+        case pickerAmount:
+            count = amountList.count
+            
+        default:
+            break
+        }
+        return count
     }
     
-    func pickerView(_ pickerView: UIPickerView, viewForRow row: Int, forComponent component: Int, reusing view: UIView?) -> UIView {
+    /*func pickerView(_ pickerView: UIPickerView, viewForRow row: Int, forComponent component: Int, reusing view: UIView?) -> UIView {
         var label = UILabel()
         if let v = view as? UILabel { label = v }
         label.adjustsFontSizeToFitWidth = true
        // label.font = UIFont (name: "Helvetica Neue", size: 10)
         label.text =  newArray[row].name
+        label.text = amountList[row]
         label.textAlignment = .center
         return label
-    }
+    }*/
     
     func pickerView( _ pickerView: UIPickerView, titleForRow row: Int, forComponent component: Int) -> String? {
+        switch pickerView {
+        case picker:
         return newArray[row].name
+            
+        default:
+            return amountList[row]
+        
+        }
     }
     
     func pickerView( _ pickerView: UIPickerView, didSelectRow row: Int, inComponent component: Int) {
+        switch pickerView {
+        case picker:
         txtIntention.text = newArray[row].name
         service_id = newArray[row].id ?? 0
         self.view.endEditing(true)
+            
+        default:
+            amountField.text = "$\(amountList[row])"
+            if amountList[row] == "Otra"{
+                amountField.text = "Otra"
+                otherAmountField.isHidden = false
+                
+            }else{
+                otherAmountField.isHidden = true
+            }
+        
+        }
     }
 
 }
@@ -253,7 +732,7 @@ extension ScheduleMassTimeViewController: UITextFieldDelegate {
     
     func textField(_ textField: UITextField, shouldChangeCharactersIn range: NSRange, replacementString string: String) -> Bool {
                 do {
-                    let regex = try NSRegularExpression(pattern: ".*[^A-Za-z ].*", options: [])
+                    let regex = try NSRegularExpression(pattern: ".*[^A-Za-z ñÑ].*", options: [])
                     if regex.firstMatch(in: string, options: [], range: NSMakeRange(0, string.count)) != nil {
                         return false
                     }
@@ -269,3 +748,117 @@ extension ScheduleMassTimeViewController: UITextFieldDelegate {
         self.view.endEditing(true)
     }
 }
+
+extension ScheduleMassTimeViewController: WKScriptMessageHandler {
+    func userContentController(_ userContentController: WKUserContentController, didReceive message: WKScriptMessage) {
+        if (message.name == "sumbitToiOS") {
+            //showLoading()
+            DispatchQueue.main.asyncAfter(deadline: .now() + 3.0){
+                let objResponse = self.parseStringToDataToJson(toData: message.body as! String)
+                
+                if objResponse?.status == "success" {
+                    self.sendIntention()
+                    //self.hideLoading()
+                    /*let alert = AcceptAlertDonations.showAlert(title: "Aviso", message: "¡Muchas gracias! Tu ofrenda ha sido procesada exitosamente y tu intención ha sido enviada.", btnTitle: "Entendido")
+                    alert.delegate = self
+                    alert.modalPresentationStyle = .overFullScreen
+                    self.present(alert, animated: true, completion: nil)*/
+                   /* let alert = UIAlertController(title: "Aviso", message: "¡Muchas gracias! Tu donación ha sido procesada exitosamente y tu intención ha sido enviada.", preferredStyle: .alert)
+                    alert.view.subviews.first?.subviews.first?.subviews.first?.backgroundColor = UIColor.white
+                    let cancelAction = UIAlertAction(title: "Aceptar", style: .cancel){
+                        [weak self] _ in
+                        guard let self = self else {return}
+                        self.navigationController?.popViewController(animated: true)
+                        
+                        //self.dismiss(animated: true, completion: nil)
+                    }
+                    alert.addAction(cancelAction)
+                    
+                    self.present(alert, animated: true)*/
+                }else {
+                    let alert = UIAlertController(title: "Aviso", message: "Tu banco no autorizo la compra. Operación declinada por su banco.", preferredStyle: UIAlertController.Style.alert)
+                    alert.view.subviews.first?.subviews.first?.subviews.first?.backgroundColor = UIColor.white
+
+                    alert.addAction(UIAlertAction(title: "Aceptar", style: UIAlertAction.Style.default, handler: { _ in
+                               //Cancel Action
+                           }))
+                           /*alert.addAction(UIAlertAction(title: "",
+                                                         style: UIAlertAction.Style.default,
+                                                         handler: {(_: UIAlertAction!) in
+                                                           //Sign out action
+                               /*self.containerViewIntention.isHidden = false
+                               self.contentViewPayment.isHidden = true
+                               self.timeLapse?.invalidate()
+                               self.minutes = 4
+                               self.seconds = 59
+                               self.miliSeconds = 100
+                               self.firstLblTimer.text = "05"
+                               self.secondLblTimer.text = "00"
+                               self.thirdLblTimer.text = "00"
+                               self.flowId = 0*/
+                           }))*/
+                           self.present(alert, animated: true, completion: nil)
+                       
+                    
+                    /*let alert = UIAlertController(title: "Aviso", message: "Tu banco no autorizo la compra. Operación declinada por su banco.", preferredStyle: .alert)
+                    alert.view.subviews.first?.subviews.first?.subviews.first?.backgroundColor = UIColor.white
+                    let cancelAction = UIAlertAction(title: "Aceptar", style: .cancel){
+                        [weak self] _ in
+                        guard let self = self else {return}
+                        //self.navigationController?.popViewController(animated: true)
+                        self.dismiss(animated: true, completion: nil)
+                    }
+                    alert.addAction(cancelAction)
+                    
+                    self.present(alert, animated: true)*/
+                    /*let alert = AcceptAlertDonations.showAlert(message: objResponse?.responseDescription?.folding(options: .diacriticInsensitive, locale: .current) ?? "Ocurrio un error, Intente mas tarde", btnTitle: "Entendido")
+                    alert.delegate = self
+                    alert.modalPresentationStyle = .overFullScreen
+                    self.present(alert, animated: true, completion: nil)*/
+                }
+                
+            }
+        }
+    }
+    
+    
+    
+}
+
+
+extension ScheduleMassTimeViewController: WKNavigationDelegate {
+    func webView(_ webView: WKWebView, didFinish navigation: WKNavigation!) {
+        let script = "document.getElementsByTagName('button')[0].onclick=showToast"
+        self.myWebView.evaluateJavaScript(script) { value, error in
+            if let result = value {
+                print("Label is updated with message: \(result)")
+            } else if let error = error {
+                print("An error occurred: \(error)")
+            }
+        }
+    }
+    
+    func webView(_ webView: WKWebView, decidePolicyFor navigationAction: WKNavigationAction, decisionHandler: @escaping (WKNavigationActionPolicy) -> Void) {
+        decisionHandler(.allow)
+        guard let urlAsString = navigationAction.request.url?.absoluteString.lowercased() else {
+            return
+        }
+        
+        if urlAsString.range(of: "the url that the button redirects the webpage to") != nil {
+            // do something
+        }
+    }
+    
+    
+    private func parseStringToDataToJson(toData: String) -> Response? {
+        let str = toData.replacingOccurrences(of: "\\", with: "", options: .literal, range: nil)
+        let data = Data(str.utf8)
+        if let response = try? JSONDecoder().decode(Response.self, from: data) {
+            return response
+        }
+        return nil
+    }
+}
+
+
+
