@@ -178,12 +178,27 @@
                                                 <action selector="login:" destination="-1" eventType="touchUpInside" id="0ed-5S-GUu"/>
                                             </connections>
                                         </button>
+                                        <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="lineBlue" translatesAutoresizingMaskIntoConstraints="NO" id="tMc-aF-7f2">
+                                            <rect key="frame" x="38.5" y="514" width="30" height="2"/>
+                                            <constraints>
+                                                <constraint firstAttribute="width" constant="30" id="gIT-Up-YUe"/>
+                                                <constraint firstAttribute="height" constant="2" id="oU1-2G-RnH"/>
+                                            </constraints>
+                                        </imageView>
                                         <label opaque="NO" userInteractionEnabled="NO" alpha="0.80000000000000004" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="¿Aún no tienes una cuenta?" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="4FZ-iA-sU3">
                                             <rect key="frame" x="73.5" y="507" width="173" height="16"/>
                                             <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="13"/>
                                             <nil key="textColor"/>
                                             <nil key="highlightedColor"/>
                                         </label>
+                                        <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="lineBlue" translatesAutoresizingMaskIntoConstraints="NO" id="gqD-AN-h6M">
+                                            <rect key="frame" x="251.5" y="514" width="30" height="2"/>
+                                            <color key="tintColor" systemColor="labelColor"/>
+                                            <constraints>
+                                                <constraint firstAttribute="width" constant="30" id="SX5-ga-9lV"/>
+                                                <constraint firstAttribute="height" constant="2" id="SzF-mL-hZa"/>
+                                            </constraints>
+                                        </imageView>
                                         <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="yOZ-g9-33p">
                                             <rect key="frame" x="20" y="531" width="280" height="48"/>
                                             <constraints>
@@ -271,21 +286,6 @@
                                                 </stackView>
                                             </subviews>
                                         </stackView>
-                                        <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="lineBlue" translatesAutoresizingMaskIntoConstraints="NO" id="tMc-aF-7f2">
-                                            <rect key="frame" x="38.5" y="514" width="30" height="2"/>
-                                            <constraints>
-                                                <constraint firstAttribute="width" constant="30" id="gIT-Up-YUe"/>
-                                                <constraint firstAttribute="height" constant="2" id="oU1-2G-RnH"/>
-                                            </constraints>
-                                        </imageView>
-                                        <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="lineBlue" translatesAutoresizingMaskIntoConstraints="NO" id="gqD-AN-h6M">
-                                            <rect key="frame" x="251.5" y="514" width="30" height="2"/>
-                                            <color key="tintColor" systemColor="labelColor"/>
-                                            <constraints>
-                                                <constraint firstAttribute="width" constant="30" id="SX5-ga-9lV"/>
-                                                <constraint firstAttribute="height" constant="2" id="SzF-mL-hZa"/>
-                                            </constraints>
-                                        </imageView>
                                         <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Yhh-8U-KaO">
                                             <rect key="frame" x="78" y="357.5" width="164" height="23"/>
                                             <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="13"/>

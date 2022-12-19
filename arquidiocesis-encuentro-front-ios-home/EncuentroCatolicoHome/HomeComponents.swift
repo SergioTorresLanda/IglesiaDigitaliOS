@@ -30,18 +30,18 @@ extension HomeViewController: UICollectionViewDataSource {
         case 0:
             let cell = homeCV.dequeueReusableCell(withReuseIdentifier: "HomeCV", for: indexPath) as! HomeCV
             
-            cell.lblFrameworkName.text = "Red Social"
+            cell.lblFrameworkName.text = "Cadena de oración"
             
             if arraySelectedCell[indexPath.item] == false {
-                cell.imageMenu.image  = UIImage(named:"Grupo(gris) 8615", in: Bundle.local, compatibleWith: nil)
+                cell.imageMenu.image  = UIImage(named:"Grupo(gris) 8617", in: Bundle.local, compatibleWith: nil)
             }else{
-                cell.imageMenu.image = UIImage(named: "Grupo 8615", in: Bundle.local, compatibleWith: nil)
+                cell.imageMenu.image = UIImage(named: "Grupo 8617", in: Bundle.local, compatibleWith: nil)
             }
             
             cell.containerButton.layer.cornerRadius = 10
             //  cell.containerButton.addShadow()
-            
             return cell
+            
         case 1:
             let cell = homeCV.dequeueReusableCell(withReuseIdentifier: "HomeCV", for: indexPath) as! HomeCV
             
@@ -57,48 +57,7 @@ extension HomeViewController: UICollectionViewDataSource {
             
             return cell
         case 2:
-            let cell = homeCV.dequeueReusableCell(withReuseIdentifier: "HomeCV", for: indexPath) as! HomeCV
             
-            cell.lblFrameworkName.text = "Comunidades"
-            cell.lblFrameworkName.adjustsFontSizeToFitWidth = true
-            
-            if arraySelectedCell[indexPath.item] == false {
-                cell.imageMenu.image  = UIImage(named:"Grupo(gris) 8612", in: Bundle.local, compatibleWith: nil)
-            }else{
-                cell.imageMenu.image = UIImage(named: "Grupo 8612", in: Bundle.local, compatibleWith: nil)
-            }
-            cell.containerButton.layer.cornerRadius = 10
-            // cell.containerButton.addShadow()
-            return cell
-        case 3:
-            let cell = homeCV.dequeueReusableCell(withReuseIdentifier: "HomeCV", for: indexPath) as! HomeCV
-            
-            
-            cell.lblFrameworkName.text = "Servicios"
-            
-            if arraySelectedCell[indexPath.item] == false {
-                cell.imageMenu.image  = UIImage(named:"Grupo(gris) 8613", in: Bundle.local, compatibleWith: nil)
-            }else{
-                cell.imageMenu.image = UIImage(named: "Grupo 8613", in: Bundle.local, compatibleWith: nil)
-            }
-            cell.containerButton.layer.cornerRadius = 10
-            // cell.containerButton.addShadow()
-            return cell
-        case 4:
-            let cell = homeCV.dequeueReusableCell(withReuseIdentifier: "HomeCV", for: indexPath) as! HomeCV
-            
-            cell.lblFrameworkName.text = "Oraciones"
-            
-            if arraySelectedCell[indexPath.item] == false {
-                cell.imageMenu.image  = UIImage(named:"Grupo(gris) 8616", in: Bundle.local, compatibleWith: nil)
-            }else{
-                cell.imageMenu.image = UIImage(named: "Grupo 8616", in: Bundle.local, compatibleWith: nil)
-            }
-            cell.containerButton.layer.cornerRadius = 10
-            // cell.containerButton.addShadow()
-            
-            return cell
-        case 5:
             let cell = homeCV.dequeueReusableCell(withReuseIdentifier: "HomeCV", for: indexPath) as! HomeCV
             
             cell.lblFrameworkName.text = "Biblioteca Virtual"
@@ -113,20 +72,71 @@ extension HomeViewController: UICollectionViewDataSource {
             // cell.containerButton.addShadow()
             
             return cell
-        case 6:
+            
+        case 3:
+            
             let cell = homeCV.dequeueReusableCell(withReuseIdentifier: "HomeCV", for: indexPath) as! HomeCV
             
-            cell.lblFrameworkName.text = "Cadena de oración"
+            cell.lblFrameworkName.text = "Oraciones"
             
             if arraySelectedCell[indexPath.item] == false {
-                cell.imageMenu.image  = UIImage(named:"Grupo(gris) 8617", in: Bundle.local, compatibleWith: nil)
+                cell.imageMenu.image  = UIImage(named:"Grupo(gris) 8616", in: Bundle.local, compatibleWith: nil)
             }else{
-                cell.imageMenu.image = UIImage(named: "Grupo 8617", in: Bundle.local, compatibleWith: nil)
+                cell.imageMenu.image = UIImage(named: "Grupo 8616", in: Bundle.local, compatibleWith: nil)
+            }
+            cell.containerButton.layer.cornerRadius = 10
+            // cell.containerButton.addShadow()
+            
+            return cell
+            
+        case 4:
+            
+            let cell = homeCV.dequeueReusableCell(withReuseIdentifier: "HomeCV", for: indexPath) as! HomeCV
+            
+            
+            cell.lblFrameworkName.text = "Servicios"
+            
+            if arraySelectedCell[indexPath.item] == false {
+                cell.imageMenu.image  = UIImage(named:"Grupo(gris) 8613", in: Bundle.local, compatibleWith: nil)
+            }else{
+                cell.imageMenu.image = UIImage(named: "Grupo 8613", in: Bundle.local, compatibleWith: nil)
+            }
+            cell.containerButton.layer.cornerRadius = 10
+            // cell.containerButton.addShadow()
+            return cell
+            
+        case 5:
+            let cell = homeCV.dequeueReusableCell(withReuseIdentifier: "HomeCV", for: indexPath) as! HomeCV
+            
+            cell.lblFrameworkName.text = "Red Social"
+            
+            if arraySelectedCell[indexPath.item] == false {
+                cell.imageMenu.image  = UIImage(named:"Grupo(gris) 8615", in: Bundle.local, compatibleWith: nil)
+            }else{
+                cell.imageMenu.image = UIImage(named: "Grupo 8615", in: Bundle.local, compatibleWith: nil)
             }
             
             cell.containerButton.layer.cornerRadius = 10
             //  cell.containerButton.addShadow()
+            
             return cell
+            
+            
+        case 6:
+            let cell = homeCV.dequeueReusableCell(withReuseIdentifier: "HomeCV", for: indexPath) as! HomeCV
+            
+            cell.lblFrameworkName.text = "Comunidades"
+            cell.lblFrameworkName.adjustsFontSizeToFitWidth = true
+            
+            if arraySelectedCell[indexPath.item] == false {
+                cell.imageMenu.image  = UIImage(named:"Grupo(gris) 8612", in: Bundle.local, compatibleWith: nil)
+            }else{
+                cell.imageMenu.image = UIImage(named: "Grupo 8612", in: Bundle.local, compatibleWith: nil)
+            }
+            cell.containerButton.layer.cornerRadius = 10
+            // cell.containerButton.addShadow()
+            return cell
+            
         default:
             let cell = homeCV.dequeueReusableCell(withReuseIdentifier: "HomeCV", for: indexPath) as! HomeCV
             
@@ -146,9 +156,10 @@ extension HomeViewController: UICollectionViewDelegate {
     public func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
         switch indexPath.row {
         case 0:
-            let instance = SocialNetworkConstant.shared.instance
-            let view =  SocialNetworkNews.openSocialNetowrk(firebaseApp: instance)
-            self.navigationController?.pushViewController(view, animated: true)
+            let storyboard = UIStoryboard(name: "Main", bundle: Bundle.local)
+            let vc = storyboard.instantiateViewController(withIdentifier: "prayerChainFeed") as! prayerChain
+            vc.userName = nombrePersona.text!
+            self.navigationController?.pushViewController(vc, animated: true)
             
 //            let view = AcceptAlert.showAlert(titulo: "Aviso", mensaje: "Esta sección se trabajara con la gente de Banco Azteca")
 //            self.present(view, animated: true, completion: nil)
@@ -156,24 +167,24 @@ extension HomeViewController: UICollectionViewDelegate {
             let view = MyChurchesWireFrame.getController()
             self.navigationController?.pushViewController(view, animated: true)
         case 2:
-            let view = MyCommunitiesMainViewwWireFrame.getController()
+            let view = YoungView_Route.createView(navigation: self.navigationController!)
             self.navigationController?.pushViewController(view, animated: true)
-            
         case 3:
-            let view = HomeServiceWireFrame.createModule()
+            let view = OracionesRouter.getController()
             self.navigationController?.pushViewController(view, animated: true)
             
         case 4:
-            let view = OracionesRouter.getController()
+            let view = HomeServiceWireFrame.createModule()
             self.navigationController?.pushViewController(view, animated: true)
+            
         case 5:
-            let view = YoungView_Route.createView(navigation: self.navigationController!)
+            let instance = SocialNetworkConstant.shared.instance
+            let view =  SocialNetworkNews.openSocialNetowrk(firebaseApp: instance)
             self.navigationController?.pushViewController(view, animated: true)
+           
         case 6:
-            let storyboard = UIStoryboard(name: "Main", bundle: Bundle.local)
-            let vc = storyboard.instantiateViewController(withIdentifier: "prayerChainFeed") as! prayerChain
-            vc.userName = nombrePersona.text!
-            self.navigationController?.pushViewController(vc, animated: true)
+            let view = MyCommunitiesMainViewwWireFrame.getController()
+            self.navigationController?.pushViewController(view, animated: true)
         default:
             break
         }
