@@ -72,7 +72,8 @@ class NewOnboardingsView: UIViewController, NewOnboardingViewProtocol {
             pagerControl.isHidden = true
             showViñetas = [true]
             titulosText = [""]
-            normalText = ["Gracias padre \(name) has sido registrado como sacerdote y ahora tienes derecho a:" ]
+            normalText = ["Estamos trabajando en la actualización de los datos. Agradecemos su comprensión"]
+            //normalText = ["Gracias padre \(name) has sido registrado como sacerdote y ahora tienes derecho a:" ]
             imgNames = ["Priest"]
             viñetasText = ["Ver y editar tu perfil", "Consultar el historial de ofrendas recibidas", "Publicar en red social a nombre propio"]
             

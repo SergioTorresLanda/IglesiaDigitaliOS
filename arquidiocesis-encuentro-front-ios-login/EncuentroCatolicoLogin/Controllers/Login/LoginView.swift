@@ -24,6 +24,14 @@ class LoginView: UIViewController {
     @IBOutlet weak var btnEtich: UIButton!
     @IBOutlet weak var btnBiometric: UIButton!
     
+    @IBOutlet weak var contentViewTerminos: UIView!
+    @IBOutlet weak var btnLogIn: UIButton!
+    
+    
+    @IBOutlet weak var contentViewIniSes: UIView!
+    
+    @IBOutlet weak var btnBack: UIButton!
+    
     var colorBlue = UIColor(red: 28/255, green: 117/255, blue: 188/255, alpha: 1)
     var forceUpdate: Bool = false
     private var biometric = BiometricAuth()
@@ -170,6 +178,9 @@ class LoginView: UIViewController {
         }
     }
     private func setupView(){
+        contentViewTerminos.isHidden = false
+        contentViewIniSes.isHidden = true
+        btnBack.isHidden = true
         btnLogin.layer.masksToBounds = true
         btnLogin.setCorner(cornerRadius: 10)
         viewArriba.layer.cornerRadius = 30
@@ -238,13 +249,29 @@ class LoginView: UIViewController {
         guard userValue != "",
               drws != ""   else {
             btnBiometric.isHidden = true
+            btnRegistar.backgroundColor = UIColor.init(red: 17/255, green: 33/255, blue: 129/255, alpha: 1)
+            btnRegistar.setTitleColor(UIColor.white, for: UIControl.State())
+           
+            btnLogIn.backgroundColor = UIColor.clear
+            btnLogIn.setTitleColor(UIColor.init(red: 17/255, green: 33/255, blue: 129/255, alpha: 1), for: UIControl.State())
+            btnLogIn.layer.borderWidth = 1
+            btnLogIn.layer.borderColor = UIColor(red: 25/255, green: 42/255, blue: 115/255, alpha: 1).cgColor
             return
+           
         }
         
         biometric.canEvaluate { (canEvaluate, typeBio, canEvaluateError) in
             switch typeBio {
             case .none, .unknown:
                 btnBiometric.isHidden = true
+                btnRegistar.backgroundColor = UIColor.init(red: 17/255, green: 33/255, blue: 129/255, alpha: 1)
+                btnRegistar.setTitleColor(UIColor.white, for: UIControl.State())
+                
+               
+                btnLogIn.backgroundColor = UIColor.clear
+                btnLogIn.setTitleColor(UIColor.init(red: 17/255, green: 33/255, blue: 129/255, alpha: 1), for: UIControl.State())
+                btnLogIn.layer.borderWidth = 1
+                btnLogIn.layer.borderColor = UIColor(red: 25/255, green: 42/255, blue: 115/255, alpha: 1).cgColor
                 return
             case .touchID, .faceID:
                 break
@@ -252,11 +279,42 @@ class LoginView: UIViewController {
             
             guard canEvaluate else {
                 btnBiometric.isHidden = true
+                btnRegistar.backgroundColor = UIColor.init(red: 17/255, green: 33/255, blue: 129/255, alpha: 1)
+                btnRegistar.setTitleColor(UIColor.white, for: UIControl.State())
+                
+               
+                btnLogIn.backgroundColor = UIColor.clear
+                btnLogIn.setTitleColor(UIColor.init(red: 17/255, green: 33/255, blue: 129/255, alpha: 1), for: UIControl.State())
+                btnLogIn.layer.borderWidth = 1
+                btnLogIn.layer.borderColor = UIColor(red: 25/255, green: 42/255, blue: 115/255, alpha: 1).cgColor
                 return
             }
         
             btnBiometric.isHidden = false
+            btnLogIn.backgroundColor = UIColor.init(red: 17/255, green: 33/255, blue: 129/255, alpha: 1)
+            btnLogIn.setTitleColor(UIColor.white, for: UIControl.State())
+           
+            btnRegistar.backgroundColor = UIColor.clear
+            btnRegistar.setTitleColor(UIColor.init(red: 17/255, green: 33/255, blue: 129/255, alpha: 1), for: UIControl.State())
+            btnRegistar.layer.borderWidth = 1
+            btnRegistar.layer.borderColor = UIColor(red: 25/255, green: 42/255, blue: 115/255, alpha: 1).cgColor
         }
+    }
+    
+    
+    @IBAction func btnActionLogin(_ sender: Any) {
+        self.contentViewIniSes.isHidden = false
+        self.btnBack.isHidden = false
+        self.contentViewTerminos.isHidden = true
+    }
+    
+    @IBAction func btnActionBackToTop(_ sender: Any) {
+        self.contentViewIniSes.isHidden = true
+        self.btnBack.isHidden = true
+        self.contentViewTerminos.isHidden = false
+        self.txtUser.text = ""
+        self.txtPassword.text = ""
+        // presenter?.back(controller: self)
     }
     
     //MARK: - Actions

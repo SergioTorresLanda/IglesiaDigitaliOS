@@ -34,7 +34,7 @@ struct DonationRequestP: Encodable {
         case phoneNumber = "phone_number"
         case surnames
         case rfc
-        case businessName = "business_Name"
+        case businessName = "business_name"
         case address
         case neighborhood = "neighborhood"
         case municipality
