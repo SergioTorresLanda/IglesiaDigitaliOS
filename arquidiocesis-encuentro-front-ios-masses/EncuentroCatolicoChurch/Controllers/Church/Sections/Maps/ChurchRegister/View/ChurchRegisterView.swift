@@ -82,7 +82,7 @@ class ChurchRegisterViewController: BaseViewController, ChurchRegisterViewProtoc
     }
     
     override func viewWillAppear(_ animated: Bool) {
-        
+        print("VC ECChurch - Maps - ChurchRegisterView ")
         setTitle("Localiza tu Iglesia")
         addressResultTableView.isHidden = true
         Church.getMyChurch() {

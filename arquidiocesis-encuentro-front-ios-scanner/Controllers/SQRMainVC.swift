@@ -50,6 +50,7 @@ public class SQRMainVC: UIViewController {
         _presenter?.getData()
     }
     
+    
     @objc func dismissView(_ sender: UIButton) {
         self.navigationController?.popViewController(animated: true)
     }
@@ -241,6 +242,7 @@ extension SQRMainVC: SQRPresenterToViewProtocol, AVCaptureMetadataOutputObjectsD
         super.viewWillAppear(animated)
         
         //super.navigation(navAction: .back, title: "buy".getStringFrom())
+        print("VC ECScanner - SQRMainVC ")
 
         if (captureSession?.isRunning == false) {
                 captureSession.startRunning()

@@ -24,7 +24,7 @@
 		6F38550B26B1DA23005174A3 /* acceptAlertService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6F38550A26B1DA23005174A3 /* acceptAlertService.swift */; };
 		6F38550D26B1DA75005174A3 /* yesNoAlertService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6F38550C26B1DA75005174A3 /* yesNoAlertService.swift */; };
 		6F4CA9CC26AFA89A0044C38E /* HomeServiceTableCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6F4CA9CB26AFA89A0044C38E /* HomeServiceTableCell.swift */; };
-		6F6ABF1526AFBE5200E9E870 /* ListServicesView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6F6ABF1426AFBE5200E9E870 /* ListServicesView.swift */; };
+		6F6ABF1526AFBE5200E9E870 /* ListServicesVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6F6ABF1426AFBE5200E9E870 /* ListServicesVC.swift */; };
 		6F6ABF1726AFBE7600E9E870 /* ListServicesInteractor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6F6ABF1626AFBE7600E9E870 /* ListServicesInteractor.swift */; };
 		6F6ABF1926AFBE8100E9E870 /* ListServicesPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6F6ABF1826AFBE8100E9E870 /* ListServicesPresenter.swift */; };
 		6F6ABF1B26AFBE8F00E9E870 /* ListServicesEntity.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6F6ABF1A26AFBE8F00E9E870 /* ListServicesEntity.swift */; };
@@ -34,7 +34,7 @@
 		6F6ABF2426AFC67700E9E870 /* ListDetailCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6F6ABF2326AFC67700E9E870 /* ListDetailCell.swift */; };
 		6F8E044B26F2612000D006CD /* IntentionCellDetail.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6F8E044A26F2612000D006CD /* IntentionCellDetail.swift */; };
 		6F99884D26E972A800967F99 /* IntentionsCommunities.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 6F99884526E972A800967F99 /* IntentionsCommunities.storyboard */; };
-		6F99884E26E972A800967F99 /* IntentionsCommunitiesView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6F99884626E972A800967F99 /* IntentionsCommunitiesView.swift */; };
+		6F99884E26E972A800967F99 /* IntentionsCommunitiesVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6F99884626E972A800967F99 /* IntentionsCommunitiesVC.swift */; };
 		6F99884F26E972A800967F99 /* IntentionsCommunitiesComponents.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6F99884726E972A800967F99 /* IntentionsCommunitiesComponents.swift */; };
 		6F99885026E972A800967F99 /* IntentionsCommunitiesEntity.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6F99884826E972A800967F99 /* IntentionsCommunitiesEntity.swift */; };
 		6F99885126E972A800967F99 /* IntentionsCommunitiesPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6F99884926E972A800967F99 /* IntentionsCommunitiesPresenter.swift */; };
@@ -42,7 +42,7 @@
 		6F99885326E972A800967F99 /* IntentionCommunitiesInteractor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6F99884B26E972A800967F99 /* IntentionCommunitiesInteractor.swift */; };
 		6F99885426E972A800967F99 /* IntentionsCommunitiesProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6F99884C26E972A800967F99 /* IntentionsCommunitiesProtocol.swift */; };
 		6FA1F7EC26AF4D2F00FBEC69 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 6FA1F7EB26AF4D2F00FBEC69 /* Main.storyboard */; };
-		6FA1F7F326AF4DAA00FBEC69 /* NewHomeServiceView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6FA1F7F226AF4DAA00FBEC69 /* NewHomeServiceView.swift */; };
+		6FA1F7F326AF4DAA00FBEC69 /* NewHomeServiceVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6FA1F7F226AF4DAA00FBEC69 /* NewHomeServiceVC.swift */; };
 		6FA1F7F526AF4E6B00FBEC69 /* NewHomeServiceInteractor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6FA1F7F426AF4E6B00FBEC69 /* NewHomeServiceInteractor.swift */; };
 		6FA1F7F726AF4E7D00FBEC69 /* NewHomeServicePresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6FA1F7F626AF4E7D00FBEC69 /* NewHomeServicePresenter.swift */; };
 		6FA1F7F926AF4E9200FBEC69 /* NewHomeServiceEntity.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6FA1F7F826AF4E9200FBEC69 /* NewHomeServiceEntity.swift */; };
@@ -50,14 +50,14 @@
 		6FA1F7FD26AF4EC000FBEC69 /* NewHomeServiceProtocols.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6FA1F7FC26AF4EC000FBEC69 /* NewHomeServiceProtocols.swift */; };
 		6FA1F7FF26AF4ED500FBEC69 /* NewHomeServiceComponents.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6FA1F7FE26AF4ED500FBEC69 /* NewHomeServiceComponents.swift */; };
 		6FAC507F26B0F43700B1B8DD /* dateHistoryCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6FAC507E26B0F43700B1B8DD /* dateHistoryCell.swift */; };
-		6FADF93C26B3407400067CAF /* IntentionCalendarView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6FADF93B26B3407400067CAF /* IntentionCalendarView.swift */; };
+		6FADF93C26B3407400067CAF /* IntentionCalendarVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6FADF93B26B3407400067CAF /* IntentionCalendarVC.swift */; };
 		6FADF93E26B3409A00067CAF /* IntentionCalendarPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6FADF93D26B3409A00067CAF /* IntentionCalendarPresenter.swift */; };
 		6FADF94026B340AE00067CAF /* IntentionCalendarInteractor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6FADF93F26B340AE00067CAF /* IntentionCalendarInteractor.swift */; };
 		6FADF94226B340CA00067CAF /* IntentionCalendarEntity.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6FADF94126B340CA00067CAF /* IntentionCalendarEntity.swift */; };
 		6FADF94426B340DA00067CAF /* IntentionCalendarRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6FADF94326B340DA00067CAF /* IntentionCalendarRouter.swift */; };
 		6FADF94626B340F100067CAF /* IntentionCalendarProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6FADF94526B340F100067CAF /* IntentionCalendarProtocol.swift */; };
 		6FADF94826B3411500067CAF /* IntentionCalendarComponents.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6FADF94726B3411500067CAF /* IntentionCalendarComponents.swift */; };
-		6FAE875126B0570800A739BF /* NewListIntentionsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6FAE875026B0570800A739BF /* NewListIntentionsView.swift */; };
+		6FAE875126B0570800A739BF /* NewListIntentionsVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6FAE875026B0570800A739BF /* NewListIntentionsVC.swift */; };
 		6FAE875326B0573500A739BF /* NewListIntentionsInteractor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6FAE875226B0573500A739BF /* NewListIntentionsInteractor.swift */; };
 		6FAE875526B0575700A739BF /* NewListIntentionsPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6FAE875426B0575700A739BF /* NewListIntentionsPresenter.swift */; };
 		6FAE875726B0576400A739BF /* NewListIntentionsEntity.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6FAE875626B0576400A739BF /* NewListIntentionsEntity.swift */; };
@@ -67,7 +67,7 @@
 		6FAE876026B0584100A739BF /* CellIntentionDate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6FAE875F26B0584100A739BF /* CellIntentionDate.swift */; };
 		6FAE876226B0585500A739BF /* CellIntentionData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6FAE876126B0585500A739BF /* CellIntentionData.swift */; };
 		6FE719C8269F42A400211E3C /* DetailServiceEntity.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6FE719C7269F42A400211E3C /* DetailServiceEntity.swift */; };
-		6FF61E5126B0809E00B7E440 /* DetailIntentionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6FF61E5026B0809E00B7E440 /* DetailIntentionView.swift */; };
+		6FF61E5126B0809E00B7E440 /* DetailIntentionVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6FF61E5026B0809E00B7E440 /* DetailIntentionVC.swift */; };
 		6FF61E5326B0810100B7E440 /* DetailIntentionInteractor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6FF61E5226B0810100B7E440 /* DetailIntentionInteractor.swift */; };
 		6FF61E5526B0812B00B7E440 /* DetailIntentionPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6FF61E5426B0812B00B7E440 /* DetailIntentionPresenter.swift */; };
 		6FF61E5726B0817400B7E440 /* DetailIntentionEntity.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6FF61E5626B0817400B7E440 /* DetailIntentionEntity.swift */; };
@@ -98,7 +98,7 @@
 		82AA397025FBE9600072CAA9 /* ChurchRegisterWireFrame.swift in Sources */ = {isa = PBXBuildFile; fileRef = 82AA396325FBE9600072CAA9 /* ChurchRegisterWireFrame.swift */; };
 		82AA397125FBE9600072CAA9 /* ChurchRegisterProtocols.swift in Sources */ = {isa = PBXBuildFile; fileRef = 82AA396525FBE9600072CAA9 /* ChurchRegisterProtocols.swift */; };
 		82AA397225FBE9600072CAA9 /* ChurchRegisterPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 82AA396725FBE9600072CAA9 /* ChurchRegisterPresenter.swift */; };
-		82AA397325FBE9600072CAA9 /* ChurchRegisterView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 82AA396925FBE9600072CAA9 /* ChurchRegisterView.swift */; };
+		82AA397325FBE9600072CAA9 /* ChurchRegisterVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 82AA396925FBE9600072CAA9 /* ChurchRegisterVC.swift */; };
 		82AA397425FBE9600072CAA9 /* AddressTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 82AA396B25FBE9600072CAA9 /* AddressTableViewCell.xib */; };
 		82AA397525FBE9600072CAA9 /* AddressTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 82AA396C25FBE9600072CAA9 /* AddressTableViewCell.swift */; };
 		82AA397625FBE9600072CAA9 /* ChurchRegister.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 82AA396D25FBE9600072CAA9 /* ChurchRegister.storyboard */; };
@@ -142,14 +142,14 @@
 		D0E668572631E074006E2CEE /* DetailServicePresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = D0E668462631E074006E2CEE /* DetailServicePresenter.swift */; };
 		D0E668582631E074006E2CEE /* DetailServiceWireFrame.swift in Sources */ = {isa = PBXBuildFile; fileRef = D0E668482631E074006E2CEE /* DetailServiceWireFrame.swift */; };
 		D0E668592631E074006E2CEE /* DetailService.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = D0E6684A2631E074006E2CEE /* DetailService.storyboard */; };
-		D0E6685A2631E074006E2CEE /* DetailServiceViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D0E6684B2631E074006E2CEE /* DetailServiceViewController.swift */; };
+		D0E6685A2631E074006E2CEE /* DetailServiceVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = D0E6684B2631E074006E2CEE /* DetailServiceVC.swift */; };
 		D0E6685B2631E074006E2CEE /* DetailServiceProtocols.swift in Sources */ = {isa = PBXBuildFile; fileRef = D0E6684D2631E074006E2CEE /* DetailServiceProtocols.swift */; };
 		D0E6685C2631E074006E2CEE /* DetailServiceInteractor.swift in Sources */ = {isa = PBXBuildFile; fileRef = D0E6684F2631E074006E2CEE /* DetailServiceInteractor.swift */; };
 		D0E6685F2631E0B1006E2CEE /* Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = D0E6685E2631E0B1006E2CEE /* Extension.swift */; };
 		EE5199AF263C5A9C0061F099 /* ChurchesListEntity.swift in Sources */ = {isa = PBXBuildFile; fileRef = EE5199AE263C5A9C0061F099 /* ChurchesListEntity.swift */; };
 		EE5199BA263C87E60061F099 /* SacramentsPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = EE5199B4263C87E60061F099 /* SacramentsPresenter.swift */; };
 		EE5199BB263C87E60061F099 /* SacramentsRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = EE5199B5263C87E60061F099 /* SacramentsRouter.swift */; };
-		EE5199BC263C87E60061F099 /* SacramentsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = EE5199B6263C87E60061F099 /* SacramentsViewController.swift */; };
+		EE5199BC263C87E60061F099 /* SacramentsVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = EE5199B6263C87E60061F099 /* SacramentsVC.swift */; };
 		EE5199BD263C87E60061F099 /* SacramentsProtocols.swift in Sources */ = {isa = PBXBuildFile; fileRef = EE5199B7263C87E60061F099 /* SacramentsProtocols.swift */; };
 		EE5199BE263C87E60061F099 /* SacramentsInteractor.swift in Sources */ = {isa = PBXBuildFile; fileRef = EE5199B8263C87E60061F099 /* SacramentsInteractor.swift */; };
 		EE5199BF263C87E60061F099 /* SacramentsViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = EE5199B9263C87E60061F099 /* SacramentsViewController.xib */; };
@@ -159,7 +159,7 @@
 		EE5244C0263785960045E4EC /* EncuentroCatolicoVirtualLibrary.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = EE5244BF263785960045E4EC /* EncuentroCatolicoVirtualLibrary.framework */; };
 		EE933BAC26323558008D3C63 /* OtherServicesPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = EE933BA626323558008D3C63 /* OtherServicesPresenter.swift */; };
 		EE933BAD26323558008D3C63 /* OtherServicesRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = EE933BA726323558008D3C63 /* OtherServicesRouter.swift */; };
-		EE933BAE26323558008D3C63 /* OtherServicesViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = EE933BA826323558008D3C63 /* OtherServicesViewController.swift */; };
+		EE933BAE26323558008D3C63 /* OtherServicesVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = EE933BA826323558008D3C63 /* OtherServicesVC.swift */; };
 		EE933BAF26323558008D3C63 /* OtherServicesProtocols.swift in Sources */ = {isa = PBXBuildFile; fileRef = EE933BA926323558008D3C63 /* OtherServicesProtocols.swift */; };
 		EE933BB026323558008D3C63 /* OtherServicesInteractor.swift in Sources */ = {isa = PBXBuildFile; fileRef = EE933BAA26323558008D3C63 /* OtherServicesInteractor.swift */; };
 		EE933BB126323558008D3C63 /* OtherServicesViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = EE933BAB26323558008D3C63 /* OtherServicesViewController.xib */; };
@@ -169,7 +169,7 @@
 		EE933BC426334EDD008D3C63 /* SubOptionCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = EE933BC226334EDD008D3C63 /* SubOptionCell.xib */; };
 		EE933BCE263376BA008D3C63 /* ChurchesListPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = EE933BC8263376BA008D3C63 /* ChurchesListPresenter.swift */; };
 		EE933BCF263376BA008D3C63 /* ChurchesListRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = EE933BC9263376BA008D3C63 /* ChurchesListRouter.swift */; };
-		EE933BD0263376BA008D3C63 /* ChurchesListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = EE933BCA263376BA008D3C63 /* ChurchesListViewController.swift */; };
+		EE933BD0263376BA008D3C63 /* ChurchesListVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = EE933BCA263376BA008D3C63 /* ChurchesListVC.swift */; };
 		EE933BD1263376BA008D3C63 /* ChurchesListProtocols.swift in Sources */ = {isa = PBXBuildFile; fileRef = EE933BCB263376BA008D3C63 /* ChurchesListProtocols.swift */; };
 		EE933BD2263376BA008D3C63 /* ChurchesListInteractor.swift in Sources */ = {isa = PBXBuildFile; fileRef = EE933BCC263376BA008D3C63 /* ChurchesListInteractor.swift */; };
 		EE933BD3263376BA008D3C63 /* ChurchesListViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = EE933BCD263376BA008D3C63 /* ChurchesListViewController.xib */; };
@@ -178,7 +178,7 @@
 		EE933BDE26371E41008D3C63 /* OtherServicesEntity.swift in Sources */ = {isa = PBXBuildFile; fileRef = EE933BDD26371E41008D3C63 /* OtherServicesEntity.swift */; };
 		EEFAC9932638DA5200C58049 /* IntentionsPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = EEFAC98D2638DA5200C58049 /* IntentionsPresenter.swift */; };
 		EEFAC9942638DA5200C58049 /* IntentionsRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = EEFAC98E2638DA5200C58049 /* IntentionsRouter.swift */; };
-		EEFAC9952638DA5200C58049 /* IntentionsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = EEFAC98F2638DA5200C58049 /* IntentionsViewController.swift */; };
+		EEFAC9952638DA5200C58049 /* IntentionsVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = EEFAC98F2638DA5200C58049 /* IntentionsVC.swift */; };
 		EEFAC9962638DA5200C58049 /* IntentionsProtocols.swift in Sources */ = {isa = PBXBuildFile; fileRef = EEFAC9902638DA5200C58049 /* IntentionsProtocols.swift */; };
 		EEFAC9972638DA5200C58049 /* IntentionsInteractor.swift in Sources */ = {isa = PBXBuildFile; fileRef = EEFAC9912638DA5200C58049 /* IntentionsInteractor.swift */; };
 		EEFAC9982638DA5200C58049 /* IntentionsViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = EEFAC9922638DA5200C58049 /* IntentionsViewController.xib */; };
@@ -186,13 +186,13 @@
 		EEFAC99E2638E16C00C58049 /* FavoriteChurchCells.xib in Resources */ = {isa = PBXBuildFile; fileRef = EEFAC99C2638E16C00C58049 /* FavoriteChurchCells.xib */; };
 		EEFAC9F22639CB0600C58049 /* ScheduleMassPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = EEFAC9EC2639CB0600C58049 /* ScheduleMassPresenter.swift */; };
 		EEFAC9F32639CB0600C58049 /* ScheduleMassRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = EEFAC9ED2639CB0600C58049 /* ScheduleMassRouter.swift */; };
-		EEFAC9F42639CB0600C58049 /* ScheduleMassViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = EEFAC9EE2639CB0600C58049 /* ScheduleMassViewController.swift */; };
+		EEFAC9F42639CB0600C58049 /* ScheduleMassVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = EEFAC9EE2639CB0600C58049 /* ScheduleMassVC.swift */; };
 		EEFAC9F52639CB0600C58049 /* ScheduleMassProtocols.swift in Sources */ = {isa = PBXBuildFile; fileRef = EEFAC9EF2639CB0600C58049 /* ScheduleMassProtocols.swift */; };
 		EEFAC9F62639CB0600C58049 /* ScheduleMassInteractor.swift in Sources */ = {isa = PBXBuildFile; fileRef = EEFAC9F02639CB0600C58049 /* ScheduleMassInteractor.swift */; };
 		EEFAC9F72639CB0600C58049 /* ScheduleMassViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = EEFAC9F12639CB0600C58049 /* ScheduleMassViewController.xib */; };
 		EEFAC9FF2639D01E00C58049 /* ScheduleMassTimePresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = EEFAC9F92639D01E00C58049 /* ScheduleMassTimePresenter.swift */; };
 		EEFACA002639D01E00C58049 /* ScheduleMassTimeRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = EEFAC9FA2639D01E00C58049 /* ScheduleMassTimeRouter.swift */; };
-		EEFACA012639D01E00C58049 /* ScheduleMassTimeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = EEFAC9FB2639D01E00C58049 /* ScheduleMassTimeViewController.swift */; };
+		EEFACA012639D01E00C58049 /* ScheduleMassTimeVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = EEFAC9FB2639D01E00C58049 /* ScheduleMassTimeVC.swift */; };
 		EEFACA022639D01E00C58049 /* ScheduleMassTimeProtocols.swift in Sources */ = {isa = PBXBuildFile; fileRef = EEFAC9FC2639D01E00C58049 /* ScheduleMassTimeProtocols.swift */; };
 		EEFACA032639D01E00C58049 /* ScheduleMassTimeInteractor.swift in Sources */ = {isa = PBXBuildFile; fileRef = EEFAC9FD2639D01E00C58049 /* ScheduleMassTimeInteractor.swift */; };
 		EEFACA082639D66400C58049 /* MassTimeCVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = EEFACA062639D66400C58049 /* MassTimeCVC.swift */; };
@@ -219,7 +219,7 @@
 		6F38550A26B1DA23005174A3 /* acceptAlertService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = acceptAlertService.swift; sourceTree = "<group>"; };
 		6F38550C26B1DA75005174A3 /* yesNoAlertService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = yesNoAlertService.swift; sourceTree = "<group>"; };
 		6F4CA9CB26AFA89A0044C38E /* HomeServiceTableCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeServiceTableCell.swift; sourceTree = "<group>"; };
-		6F6ABF1426AFBE5200E9E870 /* ListServicesView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ListServicesView.swift; sourceTree = "<group>"; };
+		6F6ABF1426AFBE5200E9E870 /* ListServicesVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ListServicesVC.swift; sourceTree = "<group>"; };
 		6F6ABF1626AFBE7600E9E870 /* ListServicesInteractor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ListServicesInteractor.swift; sourceTree = "<group>"; };
 		6F6ABF1826AFBE8100E9E870 /* ListServicesPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ListServicesPresenter.swift; sourceTree = "<group>"; };
 		6F6ABF1A26AFBE8F00E9E870 /* ListServicesEntity.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ListServicesEntity.swift; sourceTree = "<group>"; };
@@ -229,7 +229,7 @@
 		6F6ABF2326AFC67700E9E870 /* ListDetailCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ListDetailCell.swift; sourceTree = "<group>"; };
 		6F8E044A26F2612000D006CD /* IntentionCellDetail.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IntentionCellDetail.swift; sourceTree = "<group>"; };
 		6F99884526E972A800967F99 /* IntentionsCommunities.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = IntentionsCommunities.storyboard; sourceTree = "<group>"; };
-		6F99884626E972A800967F99 /* IntentionsCommunitiesView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = IntentionsCommunitiesView.swift; sourceTree = "<group>"; };
+		6F99884626E972A800967F99 /* IntentionsCommunitiesVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = IntentionsCommunitiesVC.swift; sourceTree = "<group>"; };
 		6F99884726E972A800967F99 /* IntentionsCommunitiesComponents.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = IntentionsCommunitiesComponents.swift; sourceTree = "<group>"; };
 		6F99884826E972A800967F99 /* IntentionsCommunitiesEntity.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = IntentionsCommunitiesEntity.swift; sourceTree = "<group>"; };
 		6F99884926E972A800967F99 /* IntentionsCommunitiesPresenter.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = IntentionsCommunitiesPresenter.swift; sourceTree = "<group>"; };
@@ -237,7 +237,7 @@
 		6F99884B26E972A800967F99 /* IntentionCommunitiesInteractor.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = IntentionCommunitiesInteractor.swift; sourceTree = "<group>"; };
 		6F99884C26E972A800967F99 /* IntentionsCommunitiesProtocol.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = IntentionsCommunitiesProtocol.swift; sourceTree = "<group>"; };
 		6FA1F7EB26AF4D2F00FBEC69 /* Main.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Main.storyboard; sourceTree = "<group>"; };
-		6FA1F7F226AF4DAA00FBEC69 /* NewHomeServiceView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewHomeServiceView.swift; sourceTree = "<group>"; };
+		6FA1F7F226AF4DAA00FBEC69 /* NewHomeServiceVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewHomeServiceVC.swift; sourceTree = "<group>"; };
 		6FA1F7F426AF4E6B00FBEC69 /* NewHomeServiceInteractor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewHomeServiceInteractor.swift; sourceTree = "<group>"; };
 		6FA1F7F626AF4E7D00FBEC69 /* NewHomeServicePresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewHomeServicePresenter.swift; sourceTree = "<group>"; };
 		6FA1F7F826AF4E9200FBEC69 /* NewHomeServiceEntity.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewHomeServiceEntity.swift; sourceTree = "<group>"; };
@@ -245,14 +245,14 @@
 		6FA1F7FC26AF4EC000FBEC69 /* NewHomeServiceProtocols.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewHomeServiceProtocols.swift; sourceTree = "<group>"; };
 		6FA1F7FE26AF4ED500FBEC69 /* NewHomeServiceComponents.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewHomeServiceComponents.swift; sourceTree = "<group>"; };
 		6FAC507E26B0F43700B1B8DD /* dateHistoryCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = dateHistoryCell.swift; sourceTree = "<group>"; };
-		6FADF93B26B3407400067CAF /* IntentionCalendarView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IntentionCalendarView.swift; sourceTree = "<group>"; };
+		6FADF93B26B3407400067CAF /* IntentionCalendarVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IntentionCalendarVC.swift; sourceTree = "<group>"; };
 		6FADF93D26B3409A00067CAF /* IntentionCalendarPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IntentionCalendarPresenter.swift; sourceTree = "<group>"; };
 		6FADF93F26B340AE00067CAF /* IntentionCalendarInteractor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IntentionCalendarInteractor.swift; sourceTree = "<group>"; };
 		6FADF94126B340CA00067CAF /* IntentionCalendarEntity.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IntentionCalendarEntity.swift; sourceTree = "<group>"; };
 		6FADF94326B340DA00067CAF /* IntentionCalendarRouter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IntentionCalendarRouter.swift; sourceTree = "<group>"; };
 		6FADF94526B340F100067CAF /* IntentionCalendarProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IntentionCalendarProtocol.swift; sourceTree = "<group>"; };
 		6FADF94726B3411500067CAF /* IntentionCalendarComponents.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IntentionCalendarComponents.swift; sourceTree = "<group>"; };
-		6FAE875026B0570800A739BF /* NewListIntentionsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewListIntentionsView.swift; sourceTree = "<group>"; };
+		6FAE875026B0570800A739BF /* NewListIntentionsVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewListIntentionsVC.swift; sourceTree = "<group>"; };
 		6FAE875226B0573500A739BF /* NewListIntentionsInteractor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewListIntentionsInteractor.swift; sourceTree = "<group>"; };
 		6FAE875426B0575700A739BF /* NewListIntentionsPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewListIntentionsPresenter.swift; sourceTree = "<group>"; };
 		6FAE875626B0576400A739BF /* NewListIntentionsEntity.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewListIntentionsEntity.swift; sourceTree = "<group>"; };
@@ -262,7 +262,7 @@
 		6FAE875F26B0584100A739BF /* CellIntentionDate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CellIntentionDate.swift; sourceTree = "<group>"; };
 		6FAE876126B0585500A739BF /* CellIntentionData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CellIntentionData.swift; sourceTree = "<group>"; };
 		6FE719C7269F42A400211E3C /* DetailServiceEntity.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailServiceEntity.swift; sourceTree = "<group>"; };
-		6FF61E5026B0809E00B7E440 /* DetailIntentionView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailIntentionView.swift; sourceTree = "<group>"; };
+		6FF61E5026B0809E00B7E440 /* DetailIntentionVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailIntentionVC.swift; sourceTree = "<group>"; };
 		6FF61E5226B0810100B7E440 /* DetailIntentionInteractor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailIntentionInteractor.swift; sourceTree = "<group>"; };
 		6FF61E5426B0812B00B7E440 /* DetailIntentionPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailIntentionPresenter.swift; sourceTree = "<group>"; };
 		6FF61E5626B0817400B7E440 /* DetailIntentionEntity.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailIntentionEntity.swift; sourceTree = "<group>"; };
@@ -295,7 +295,7 @@
 		82AA396325FBE9600072CAA9 /* ChurchRegisterWireFrame.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ChurchRegisterWireFrame.swift; sourceTree = "<group>"; };
 		82AA396525FBE9600072CAA9 /* ChurchRegisterProtocols.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ChurchRegisterProtocols.swift; sourceTree = "<group>"; };
 		82AA396725FBE9600072CAA9 /* ChurchRegisterPresenter.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ChurchRegisterPresenter.swift; sourceTree = "<group>"; };
-		82AA396925FBE9600072CAA9 /* ChurchRegisterView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ChurchRegisterView.swift; sourceTree = "<group>"; };
+		82AA396925FBE9600072CAA9 /* ChurchRegisterVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ChurchRegisterVC.swift; sourceTree = "<group>"; };
 		82AA396B25FBE9600072CAA9 /* AddressTableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = AddressTableViewCell.xib; sourceTree = "<group>"; };
 		82AA396C25FBE9600072CAA9 /* AddressTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AddressTableViewCell.swift; sourceTree = "<group>"; };
 		82AA396D25FBE9600072CAA9 /* ChurchRegister.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = ChurchRegister.storyboard; sourceTree = "<group>"; };
@@ -337,14 +337,14 @@
 		D0E668462631E074006E2CEE /* DetailServicePresenter.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DetailServicePresenter.swift; sourceTree = "<group>"; };
 		D0E668482631E074006E2CEE /* DetailServiceWireFrame.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DetailServiceWireFrame.swift; sourceTree = "<group>"; };
 		D0E6684A2631E074006E2CEE /* DetailService.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = DetailService.storyboard; sourceTree = "<group>"; };
-		D0E6684B2631E074006E2CEE /* DetailServiceViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DetailServiceViewController.swift; sourceTree = "<group>"; };
+		D0E6684B2631E074006E2CEE /* DetailServiceVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DetailServiceVC.swift; sourceTree = "<group>"; };
 		D0E6684D2631E074006E2CEE /* DetailServiceProtocols.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DetailServiceProtocols.swift; sourceTree = "<group>"; };
 		D0E6684F2631E074006E2CEE /* DetailServiceInteractor.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DetailServiceInteractor.swift; sourceTree = "<group>"; };
 		D0E6685E2631E0B1006E2CEE /* Extension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Extension.swift; sourceTree = "<group>"; };
 		EE5199AE263C5A9C0061F099 /* ChurchesListEntity.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChurchesListEntity.swift; sourceTree = "<group>"; };
 		EE5199B4263C87E60061F099 /* SacramentsPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SacramentsPresenter.swift; sourceTree = "<group>"; };
 		EE5199B5263C87E60061F099 /* SacramentsRouter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SacramentsRouter.swift; sourceTree = "<group>"; };
-		EE5199B6263C87E60061F099 /* SacramentsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SacramentsViewController.swift; sourceTree = "<group>"; };
+		EE5199B6263C87E60061F099 /* SacramentsVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SacramentsVC.swift; sourceTree = "<group>"; };
 		EE5199B7263C87E60061F099 /* SacramentsProtocols.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SacramentsProtocols.swift; sourceTree = "<group>"; };
 		EE5199B8263C87E60061F099 /* SacramentsInteractor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SacramentsInteractor.swift; sourceTree = "<group>"; };
 		EE5199B9263C87E60061F099 /* SacramentsViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = SacramentsViewController.xib; sourceTree = "<group>"; };
@@ -354,7 +354,7 @@
 		EE5244BF263785960045E4EC /* EncuentroCatolicoVirtualLibrary.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = EncuentroCatolicoVirtualLibrary.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		EE933BA626323558008D3C63 /* OtherServicesPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OtherServicesPresenter.swift; sourceTree = "<group>"; };
 		EE933BA726323558008D3C63 /* OtherServicesRouter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OtherServicesRouter.swift; sourceTree = "<group>"; };
-		EE933BA826323558008D3C63 /* OtherServicesViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OtherServicesViewController.swift; sourceTree = "<group>"; };
+		EE933BA826323558008D3C63 /* OtherServicesVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OtherServicesVC.swift; sourceTree = "<group>"; };
 		EE933BA926323558008D3C63 /* OtherServicesProtocols.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OtherServicesProtocols.swift; sourceTree = "<group>"; };
 		EE933BAA26323558008D3C63 /* OtherServicesInteractor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OtherServicesInteractor.swift; sourceTree = "<group>"; };
 		EE933BAB26323558008D3C63 /* OtherServicesViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = OtherServicesViewController.xib; sourceTree = "<group>"; };
@@ -364,7 +364,7 @@
 		EE933BC226334EDD008D3C63 /* SubOptionCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = SubOptionCell.xib; sourceTree = "<group>"; };
 		EE933BC8263376BA008D3C63 /* ChurchesListPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChurchesListPresenter.swift; sourceTree = "<group>"; };
 		EE933BC9263376BA008D3C63 /* ChurchesListRouter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChurchesListRouter.swift; sourceTree = "<group>"; };
-		EE933BCA263376BA008D3C63 /* ChurchesListViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChurchesListViewController.swift; sourceTree = "<group>"; };
+		EE933BCA263376BA008D3C63 /* ChurchesListVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChurchesListVC.swift; sourceTree = "<group>"; };
 		EE933BCB263376BA008D3C63 /* ChurchesListProtocols.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChurchesListProtocols.swift; sourceTree = "<group>"; };
 		EE933BCC263376BA008D3C63 /* ChurchesListInteractor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChurchesListInteractor.swift; sourceTree = "<group>"; };
 		EE933BCD263376BA008D3C63 /* ChurchesListViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ChurchesListViewController.xib; sourceTree = "<group>"; };
@@ -373,7 +373,7 @@
 		EE933BDD26371E41008D3C63 /* OtherServicesEntity.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OtherServicesEntity.swift; sourceTree = "<group>"; };
 		EEFAC98D2638DA5200C58049 /* IntentionsPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IntentionsPresenter.swift; sourceTree = "<group>"; };
 		EEFAC98E2638DA5200C58049 /* IntentionsRouter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IntentionsRouter.swift; sourceTree = "<group>"; };
-		EEFAC98F2638DA5200C58049 /* IntentionsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IntentionsViewController.swift; sourceTree = "<group>"; };
+		EEFAC98F2638DA5200C58049 /* IntentionsVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IntentionsVC.swift; sourceTree = "<group>"; };
 		EEFAC9902638DA5200C58049 /* IntentionsProtocols.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IntentionsProtocols.swift; sourceTree = "<group>"; };
 		EEFAC9912638DA5200C58049 /* IntentionsInteractor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IntentionsInteractor.swift; sourceTree = "<group>"; };
 		EEFAC9922638DA5200C58049 /* IntentionsViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = IntentionsViewController.xib; sourceTree = "<group>"; };
@@ -381,13 +381,13 @@
 		EEFAC99C2638E16C00C58049 /* FavoriteChurchCells.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = FavoriteChurchCells.xib; sourceTree = "<group>"; };
 		EEFAC9EC2639CB0600C58049 /* ScheduleMassPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ScheduleMassPresenter.swift; sourceTree = "<group>"; };
 		EEFAC9ED2639CB0600C58049 /* ScheduleMassRouter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ScheduleMassRouter.swift; sourceTree = "<group>"; };
-		EEFAC9EE2639CB0600C58049 /* ScheduleMassViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ScheduleMassViewController.swift; sourceTree = "<group>"; };
+		EEFAC9EE2639CB0600C58049 /* ScheduleMassVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ScheduleMassVC.swift; sourceTree = "<group>"; };
 		EEFAC9EF2639CB0600C58049 /* ScheduleMassProtocols.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ScheduleMassProtocols.swift; sourceTree = "<group>"; };
 		EEFAC9F02639CB0600C58049 /* ScheduleMassInteractor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ScheduleMassInteractor.swift; sourceTree = "<group>"; };
 		EEFAC9F12639CB0600C58049 /* ScheduleMassViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ScheduleMassViewController.xib; sourceTree = "<group>"; };
 		EEFAC9F92639D01E00C58049 /* ScheduleMassTimePresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ScheduleMassTimePresenter.swift; sourceTree = "<group>"; };
 		EEFAC9FA2639D01E00C58049 /* ScheduleMassTimeRouter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ScheduleMassTimeRouter.swift; sourceTree = "<group>"; };
-		EEFAC9FB2639D01E00C58049 /* ScheduleMassTimeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ScheduleMassTimeViewController.swift; sourceTree = "<group>"; };
+		EEFAC9FB2639D01E00C58049 /* ScheduleMassTimeVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ScheduleMassTimeVC.swift; sourceTree = "<group>"; };
 		EEFAC9FC2639D01E00C58049 /* ScheduleMassTimeProtocols.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ScheduleMassTimeProtocols.swift; sourceTree = "<group>"; };
 		EEFAC9FD2639D01E00C58049 /* ScheduleMassTimeInteractor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ScheduleMassTimeInteractor.swift; sourceTree = "<group>"; };
 		EEFACA062639D66400C58049 /* MassTimeCVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MassTimeCVC.swift; sourceTree = "<group>"; };
@@ -464,7 +464,7 @@
 			isa = PBXGroup;
 			children = (
 				6F6ABF2226AFC64F00E9E870 /* CustomCellsList */,
-				6F6ABF1426AFBE5200E9E870 /* ListServicesView.swift */,
+				6F6ABF1426AFBE5200E9E870 /* ListServicesVC.swift */,
 				6F6ABF1626AFBE7600E9E870 /* ListServicesInteractor.swift */,
 				6F6ABF1826AFBE8100E9E870 /* ListServicesPresenter.swift */,
 				6F6ABF1A26AFBE8F00E9E870 /* ListServicesEntity.swift */,
@@ -496,7 +496,7 @@
 			isa = PBXGroup;
 			children = (
 				6F99884526E972A800967F99 /* IntentionsCommunities.storyboard */,
-				6F99884626E972A800967F99 /* IntentionsCommunitiesView.swift */,
+				6F99884626E972A800967F99 /* IntentionsCommunitiesVC.swift */,
 				6F99884726E972A800967F99 /* IntentionsCommunitiesComponents.swift */,
 				6F99884826E972A800967F99 /* IntentionsCommunitiesEntity.swift */,
 				6F99884926E972A800967F99 /* IntentionsCommunitiesPresenter.swift */,
@@ -511,7 +511,7 @@
 			isa = PBXGroup;
 			children = (
 				6F4CA9CA26AFA86F0044C38E /* CustomCells */,
-				6FA1F7F226AF4DAA00FBEC69 /* NewHomeServiceView.swift */,
+				6FA1F7F226AF4DAA00FBEC69 /* NewHomeServiceVC.swift */,
 				6FA1F7F426AF4E6B00FBEC69 /* NewHomeServiceInteractor.swift */,
 				6FA1F7F626AF4E7D00FBEC69 /* NewHomeServicePresenter.swift */,
 				6FA1F7F826AF4E9200FBEC69 /* NewHomeServiceEntity.swift */,
@@ -525,7 +525,7 @@
 		6FADF93A26B3402400067CAF /* IntentionCalendar */ = {
 			isa = PBXGroup;
 			children = (
-				6FADF93B26B3407400067CAF /* IntentionCalendarView.swift */,
+				6FADF93B26B3407400067CAF /* IntentionCalendarVC.swift */,
 				6FADF93F26B340AE00067CAF /* IntentionCalendarInteractor.swift */,
 				6FADF93D26B3409A00067CAF /* IntentionCalendarPresenter.swift */,
 				6FADF94126B340CA00067CAF /* IntentionCalendarEntity.swift */,
@@ -559,7 +559,7 @@
 			isa = PBXGroup;
 			children = (
 				6FAE875E26B0581000A739BF /* CustomCells */,
-				6FAE875026B0570800A739BF /* NewListIntentionsView.swift */,
+				6FAE875026B0570800A739BF /* NewListIntentionsVC.swift */,
 				6FAE875226B0573500A739BF /* NewListIntentionsInteractor.swift */,
 				6FAE875426B0575700A739BF /* NewListIntentionsPresenter.swift */,
 				6FAE875626B0576400A739BF /* NewListIntentionsEntity.swift */,
@@ -593,7 +593,7 @@
 			isa = PBXGroup;
 			children = (
 				6F8E044726F260AA00D006CD /* Cells */,
-				6FF61E5026B0809E00B7E440 /* DetailIntentionView.swift */,
+				6FF61E5026B0809E00B7E440 /* DetailIntentionVC.swift */,
 				6FF61E5226B0810100B7E440 /* DetailIntentionInteractor.swift */,
 				6FF61E5426B0812B00B7E440 /* DetailIntentionPresenter.swift */,
 				6FF61E5626B0817400B7E440 /* DetailIntentionEntity.swift */,
@@ -718,7 +718,7 @@
 		82AA396825FBE9600072CAA9 /* View */ = {
 			isa = PBXGroup;
 			children = (
-				82AA396925FBE9600072CAA9 /* ChurchRegisterView.swift */,
+				82AA396925FBE9600072CAA9 /* ChurchRegisterVC.swift */,
 				82AA396A25FBE9600072CAA9 /* Cell */,
 				82AA396D25FBE9600072CAA9 /* ChurchRegister.storyboard */,
 				82AA396E25FBE9600072CAA9 /* ChurchMark.swift */,
@@ -964,7 +964,7 @@
 			isa = PBXGroup;
 			children = (
 				D0E6684A2631E074006E2CEE /* DetailService.storyboard */,
-				D0E6684B2631E074006E2CEE /* DetailServiceViewController.swift */,
+				D0E6684B2631E074006E2CEE /* DetailServiceVC.swift */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -992,7 +992,7 @@
 				EE5199C1263C897D0061F099 /* SacramentsEntity.swift */,
 				EE5199B4263C87E60061F099 /* SacramentsPresenter.swift */,
 				EE5199B5263C87E60061F099 /* SacramentsRouter.swift */,
-				EE5199B6263C87E60061F099 /* SacramentsViewController.swift */,
+				EE5199B6263C87E60061F099 /* SacramentsVC.swift */,
 				EE5199B7263C87E60061F099 /* SacramentsProtocols.swift */,
 				EE5199B8263C87E60061F099 /* SacramentsInteractor.swift */,
 				EE5199B9263C87E60061F099 /* SacramentsViewController.xib */,
@@ -1016,7 +1016,7 @@
 				EE933BDD26371E41008D3C63 /* OtherServicesEntity.swift */,
 				EE933BA626323558008D3C63 /* OtherServicesPresenter.swift */,
 				EE933BA726323558008D3C63 /* OtherServicesRouter.swift */,
-				EE933BA826323558008D3C63 /* OtherServicesViewController.swift */,
+				EE933BA826323558008D3C63 /* OtherServicesVC.swift */,
 				EE933BA926323558008D3C63 /* OtherServicesProtocols.swift */,
 				EE933BAA26323558008D3C63 /* OtherServicesInteractor.swift */,
 				EE933BAB26323558008D3C63 /* OtherServicesViewController.xib */,
@@ -1058,7 +1058,7 @@
 				EE5199AE263C5A9C0061F099 /* ChurchesListEntity.swift */,
 				EE933BC8263376BA008D3C63 /* ChurchesListPresenter.swift */,
 				EE933BC9263376BA008D3C63 /* ChurchesListRouter.swift */,
-				EE933BCA263376BA008D3C63 /* ChurchesListViewController.swift */,
+				EE933BCA263376BA008D3C63 /* ChurchesListVC.swift */,
 				EE933BCB263376BA008D3C63 /* ChurchesListProtocols.swift */,
 				EE933BCC263376BA008D3C63 /* ChurchesListInteractor.swift */,
 				EE933BCD263376BA008D3C63 /* ChurchesListViewController.xib */,
@@ -1081,7 +1081,7 @@
 				EEFAC9992638E14200C58049 /* Cells */,
 				EEFAC98D2638DA5200C58049 /* IntentionsPresenter.swift */,
 				EEFAC98E2638DA5200C58049 /* IntentionsRouter.swift */,
-				EEFAC98F2638DA5200C58049 /* IntentionsViewController.swift */,
+				EEFAC98F2638DA5200C58049 /* IntentionsVC.swift */,
 				EEFAC9902638DA5200C58049 /* IntentionsProtocols.swift */,
 				EEFAC9912638DA5200C58049 /* IntentionsInteractor.swift */,
 				EEFAC9922638DA5200C58049 /* IntentionsViewController.xib */,
@@ -1112,7 +1112,7 @@
 			children = (
 				EEFAC9EC2639CB0600C58049 /* ScheduleMassPresenter.swift */,
 				EEFAC9ED2639CB0600C58049 /* ScheduleMassRouter.swift */,
-				EEFAC9EE2639CB0600C58049 /* ScheduleMassViewController.swift */,
+				EEFAC9EE2639CB0600C58049 /* ScheduleMassVC.swift */,
 				EEFAC9EF2639CB0600C58049 /* ScheduleMassProtocols.swift */,
 				EEFAC9F02639CB0600C58049 /* ScheduleMassInteractor.swift */,
 				EEFAC9F12639CB0600C58049 /* ScheduleMassViewController.xib */,
@@ -1128,7 +1128,7 @@
 				EEFACA052639D64000C58049 /* Cells */,
 				EEFAC9F92639D01E00C58049 /* ScheduleMassTimePresenter.swift */,
 				EEFAC9FA2639D01E00C58049 /* ScheduleMassTimeRouter.swift */,
-				EEFAC9FB2639D01E00C58049 /* ScheduleMassTimeViewController.swift */,
+				EEFAC9FB2639D01E00C58049 /* ScheduleMassTimeVC.swift */,
 				EEFAC9FC2639D01E00C58049 /* ScheduleMassTimeProtocols.swift */,
 				EEFAC9FD2639D01E00C58049 /* ScheduleMassTimeInteractor.swift */,
 				6DA58C3D266A88EA006522FE /* ScheduleMassTimeEntity.swift */,
@@ -1289,12 +1289,12 @@
 			files = (
 				6F2A395F26B044F9006BE525 /* NewDetailServiceComponents.swift in Sources */,
 				82AA39BB25FBEA750072CAA9 /* NetworkManager.swift in Sources */,
-				6F6ABF1526AFBE5200E9E870 /* ListServicesView.swift in Sources */,
+				6F6ABF1526AFBE5200E9E870 /* ListServicesVC.swift in Sources */,
 				82AA39C125FBEBAF0072CAA9 /* Constants.swift in Sources */,
 				82AA39D425FBEF790072CAA9 /* LoaderView.swift in Sources */,
-				82AA397325FBE9600072CAA9 /* ChurchRegisterView.swift in Sources */,
+				82AA397325FBE9600072CAA9 /* ChurchRegisterVC.swift in Sources */,
 				6F2A395B26B044CB006BE525 /* NewDetailServiceRouter.swift in Sources */,
-				EE933BAE26323558008D3C63 /* OtherServicesViewController.swift in Sources */,
+				EE933BAE26323558008D3C63 /* OtherServicesVC.swift in Sources */,
 				EE5199BA263C87E60061F099 /* SacramentsPresenter.swift in Sources */,
 				6F99885326E972A800967F99 /* IntentionCommunitiesInteractor.swift in Sources */,
 				EE5199BD263C87E60061F099 /* SacramentsProtocols.swift in Sources */,
@@ -1303,7 +1303,7 @@
 				EE933BAC26323558008D3C63 /* OtherServicesPresenter.swift in Sources */,
 				EEFAC9FF2639D01E00C58049 /* ScheduleMassTimePresenter.swift in Sources */,
 				EEFAC9F62639CB0600C58049 /* ScheduleMassInteractor.swift in Sources */,
-				EE933BD0263376BA008D3C63 /* ChurchesListViewController.swift in Sources */,
+				EE933BD0263376BA008D3C63 /* ChurchesListVC.swift in Sources */,
 				EE933BAF26323558008D3C63 /* OtherServicesProtocols.swift in Sources */,
 				EE933BCF263376BA008D3C63 /* ChurchesListRouter.swift in Sources */,
 				82AA39BA25FBEA750072CAA9 /* BaseRouter.swift in Sources */,
@@ -1349,11 +1349,11 @@
 				6FADF94826B3411500067CAF /* IntentionCalendarComponents.swift in Sources */,
 				7AE20E8F29410E120005DE0C /* Dencretial.swift in Sources */,
 				D0E668532631E074006E2CEE /* HomeServiceViewController.swift in Sources */,
-				D0E6685A2631E074006E2CEE /* DetailServiceViewController.swift in Sources */,
+				D0E6685A2631E074006E2CEE /* DetailServiceVC.swift in Sources */,
 				82AA39B525FBEA750072CAA9 /* ErrorEncuentro.swift in Sources */,
 				6FADF94226B340CA00067CAF /* IntentionCalendarEntity.swift in Sources */,
 				6DA58C40266A8936006522FE /* IntentionsEntity.swift in Sources */,
-				EEFACA012639D01E00C58049 /* ScheduleMassTimeViewController.swift in Sources */,
+				EEFACA012639D01E00C58049 /* ScheduleMassTimeVC.swift in Sources */,
 				82AA397525FBE9600072CAA9 /* AddressTableViewCell.swift in Sources */,
 				6F2A395D26B044E9006BE525 /* NewDetailServiceProtocols.swift in Sources */,
 				82AA397125FBE9600072CAA9 /* ChurchRegisterProtocols.swift in Sources */,
@@ -1363,7 +1363,7 @@
 				EE933BD926337A42008D3C63 /* ChurchCellCVC.swift in Sources */,
 				6FADF94026B340AE00067CAF /* IntentionCalendarInteractor.swift in Sources */,
 				6F4CA9CC26AFA89A0044C38E /* HomeServiceTableCell.swift in Sources */,
-				EE5199BC263C87E60061F099 /* SacramentsViewController.swift in Sources */,
+				EE5199BC263C87E60061F099 /* SacramentsVC.swift in Sources */,
 				7AE20E8D29410DE60005DE0C /* SecurityProvider.swift in Sources */,
 				6F99885026E972A800967F99 /* IntentionsCommunitiesEntity.swift in Sources */,
 				6F2A395526B0442F006BE525 /* NewDetailServiceInteractor.swift in Sources */,
@@ -1374,7 +1374,7 @@
 				82AA39B625FBEA750072CAA9 /* UserRouter.swift in Sources */,
 				7AE20E8B29410DA40005DE0C /* Info.swift in Sources */,
 				7AE20E8329410ADC0005DE0C /* DonationRequestP.swift in Sources */,
-				6FAE875126B0570800A739BF /* NewListIntentionsView.swift in Sources */,
+				6FAE875126B0570800A739BF /* NewListIntentionsVC.swift in Sources */,
 				6F38550D26B1DA75005174A3 /* yesNoAlertService.swift in Sources */,
 				7AE20E9229410E6F0005DE0C /* FileInfo.swift in Sources */,
 				D0E6685C2631E074006E2CEE /* DetailServiceInteractor.swift in Sources */,
@@ -1397,9 +1397,9 @@
 				6F8E044B26F2612000D006CD /* IntentionCellDetail.swift in Sources */,
 				6FA1F7FD26AF4EC000FBEC69 /* NewHomeServiceProtocols.swift in Sources */,
 				EEFAC99D2638E16C00C58049 /* FavoriteChurchCells.swift in Sources */,
-				6F99884E26E972A800967F99 /* IntentionsCommunitiesView.swift in Sources */,
+				6F99884E26E972A800967F99 /* IntentionsCommunitiesVC.swift in Sources */,
 				6FAE875326B0573500A739BF /* NewListIntentionsInteractor.swift in Sources */,
-				EEFAC9F42639CB0600C58049 /* ScheduleMassViewController.swift in Sources */,
+				EEFAC9F42639CB0600C58049 /* ScheduleMassVC.swift in Sources */,
 				6FADF94626B340F100067CAF /* IntentionCalendarProtocol.swift in Sources */,
 				82AA39B825FBEA750072CAA9 /* Api.swift in Sources */,
 				6DA58C42266A89F7006522FE /* UIImageView.swift in Sources */,
@@ -1416,17 +1416,17 @@
 				6F6ABF1F26AFBEA400E9E870 /* ListServicesProtocols.swift in Sources */,
 				D0E6685B2631E074006E2CEE /* DetailServiceProtocols.swift in Sources */,
 				6FA1F7FB26AF4EAB00FBEC69 /* NewHomeServiceRouter.swift in Sources */,
-				6FADF93C26B3407400067CAF /* IntentionCalendarView.swift in Sources */,
+				6FADF93C26B3407400067CAF /* IntentionCalendarVC.swift in Sources */,
 				6FF61E5326B0810100B7E440 /* DetailIntentionInteractor.swift in Sources */,
 				EE933BDE26371E41008D3C63 /* OtherServicesEntity.swift in Sources */,
 				6DE2E36F279B6FC1000ED1F0 /* APIType.swift in Sources */,
 				98BF4FA025E59AE100299001 /* (null) in Sources */,
-				6FA1F7F326AF4DAA00FBEC69 /* NewHomeServiceView.swift in Sources */,
+				6FA1F7F326AF4DAA00FBEC69 /* NewHomeServiceVC.swift in Sources */,
 				6FAE875926B0577300A739BF /* NewListIntentionsRouter.swift in Sources */,
 				D0E668502631E074006E2CEE /* HomeServicePresenter.swift in Sources */,
 				6F6ABF1726AFBE7600E9E870 /* ListServicesInteractor.swift in Sources */,
 				EE933BD1263376BA008D3C63 /* ChurchesListProtocols.swift in Sources */,
-				6FF61E5126B0809E00B7E440 /* DetailIntentionView.swift in Sources */,
+				6FF61E5126B0809E00B7E440 /* DetailIntentionVC.swift in Sources */,
 				6F99885426E972A800967F99 /* IntentionsCommunitiesProtocol.swift in Sources */,
 				98BF4F9825E59AD400299001 /* (null) in Sources */,
 				7A3BDF5B293FFA5A00603A28 /* ECDonationToMyChurchRouter.swift in Sources */,
@@ -1448,7 +1448,7 @@
 				6FADF94426B340DA00067CAF /* IntentionCalendarRouter.swift in Sources */,
 				6FA1F7F926AF4E9200FBEC69 /* NewHomeServiceEntity.swift in Sources */,
 				6FADF93E26B3409A00067CAF /* IntentionCalendarPresenter.swift in Sources */,
-				EEFAC9952638DA5200C58049 /* IntentionsViewController.swift in Sources */,
+				EEFAC9952638DA5200C58049 /* IntentionsVC.swift in Sources */,
 				7A3BDF55293FFA5A00603A28 /* ECDonationToMyChurchProtocols.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

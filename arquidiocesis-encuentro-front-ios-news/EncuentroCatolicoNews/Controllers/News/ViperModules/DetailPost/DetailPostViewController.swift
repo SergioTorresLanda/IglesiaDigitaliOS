@@ -55,7 +55,7 @@ public class DetailPostViewController: UIViewController, DetailPostViewProtocol 
     
     override public func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
-        
+        print("VC ECNews - DetailPostVC ")
         let tabBar = self.tabBarController as? SocialNetworkController
         tabBar?.tabBar.isHidden = true
         tabBar?.customTabBar.isHidden = true

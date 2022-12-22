@@ -89,6 +89,8 @@ class ProfileMapViewController: BaseViewController, ProfileMapViewProtocol, Util
     }
     
     override func viewWillAppear(_ animated: Bool) {
+        print("VC ECProfile - ProfileMapView ")
+
         presenter?.getLocations()
         setTitle("Localiza tu Iglesia o Comunidad")
         
@@ -240,7 +242,7 @@ extension ProfileMapViewController: MKMapViewDelegate {
             let nameChurch = annotationView?.title
             let urlChourch = annotationView?.image_url
             let select = selectMap(id: Int(idChurchAnn), name: nameChurch, url: urlChourch)
-            print(select)
+            //print(select)
             let singleton = ProfileMapViewController.singleton
             singleton.nameChurch = annotationView?.title ?? "Unspecified"
             singleton.idChurch = Int(idChurchAnn)

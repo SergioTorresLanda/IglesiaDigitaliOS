@@ -81,6 +81,7 @@ class LoginView: UIViewController {
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
+        print("VC ECLogin - LoginView")
         //  configureKeyboardObservables()
 //        validateButtonBiometric()
         biometricCanValidate()

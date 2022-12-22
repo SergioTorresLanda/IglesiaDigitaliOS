@@ -51,6 +51,10 @@ public class ReactionsModalViewController: UIViewController, ReactionsModalViewP
         presenter?.getPostsReactions(postId: postId)
     }
     
+    public override func viewWillAppear(_ animated: Bool) {
+        print("VC ECNews - RectionsModalVC ")
+    }
+    
     //MARK: - Methods
     private func setUpView() {
         

@@ -51,6 +51,10 @@ class NewAddMassesView: UIViewController {
         setupGetures()
 
     }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        print("VC ECChurch - ChurchDetail - NewAddMassesView ")
+    }
 
 // MARK: SETUP FUNCTIONS -
     private func setupUI() {

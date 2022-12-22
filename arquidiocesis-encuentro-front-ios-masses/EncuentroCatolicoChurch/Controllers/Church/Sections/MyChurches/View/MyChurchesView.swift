@@ -83,6 +83,7 @@ class MyChurchesViewController: BaseViewController {
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
+        print("VC ECChurch - MyChurches - MyChurchesView ")
         let idPriest =  UserDefaults.standard.integer(forKey: "id")
         print(idPriest)
         self.currentUser = idPriest

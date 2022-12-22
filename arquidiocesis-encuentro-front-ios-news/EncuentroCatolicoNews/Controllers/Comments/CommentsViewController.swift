@@ -39,6 +39,10 @@ class CommentsViewController: UIViewController, CommentsCellDelegate, RSComments
         setUpView()
     }
     
+    override func viewWillAppear(_ animated: Bool) {
+        print("VC ECNews - CommentsVC ")
+    }
+    
 // MARK: SETUP FUNC -
     private func setUpView(){
         self.presenter?.getComments(isFromPage: false, isRefresh: false, post: newPost)

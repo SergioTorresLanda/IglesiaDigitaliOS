@@ -69,6 +69,11 @@ class PrayerViewController: UIViewController, UICollectionViewDataSource, UIColl
         hideKeyboardWhenTappedAround()
     }
     
+    override func viewWillAppear(_ animated: Bool) {
+        print("VC ECPrayers -OracionesList- PrayerVC ")
+
+    }
+    
     func hideKeyboardWhenTappedAround(){
         let tap = UITapGestureRecognizer(target: self, action: #selector(dismissKeyboard))
         tap.cancelsTouchesInView = false

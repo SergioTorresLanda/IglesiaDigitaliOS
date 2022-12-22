@@ -39,6 +39,10 @@ public class FeelingsViewController: UIViewController, FeelingsViewProtocol {
         presenter?.getFeelings()
     }
     
+    public override func viewWillAppear(_ animated: Bool) {
+        print("VC ECNews - FeelingsVC ")
+    }
+    
     //MARK: - Methods
     private func setUpView() {
         containerView.roundCorners(corners: [.layerMinXMinYCorner, .layerMaxXMinYCorner], radius: 40)

@@ -53,6 +53,11 @@ class MassesListViewController: UIViewController, MassesListViewProtocol {
         self.presenter?.getChurches(name: "")
     }
     
+    override func viewWillAppear(_ animated: Bool) {
+        print("VC ECMyChurch - Masses - MassesListVC ")
+
+    }
+    
     func mostrarMSG(dtcAlerta: [String : String]) {
         alert.dismiss(animated: false, completion: {
             let alerta = UIAlertController(title: dtcAlerta["titulo"], message: dtcAlerta["cuerpo"], preferredStyle: .alert)

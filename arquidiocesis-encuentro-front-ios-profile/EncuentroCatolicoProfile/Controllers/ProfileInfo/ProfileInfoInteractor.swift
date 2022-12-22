@@ -89,7 +89,7 @@ class ProfileInfoInteractor: ProfileInfoInteractorInputProtocol {
                     let contResponse : ProfileDetailImg = try JSONDecoder().decode(ProfileDetailImg.self, from: data!)
                     print(contResponse)
                     print(response)
-                    self.presenter?.reponseDetailUser(responseCode: response as! HTTPURLResponse, dataResponse: contResponse)
+                    self.presenter?.responseDetailUser(responseCode: response as! HTTPURLResponse, dataResponse: contResponse)
                 }
                 
             }catch{
@@ -120,7 +120,6 @@ class ProfileInfoInteractor: ProfileInfoInteractorInputProtocol {
         let tarea = URLSession.shared.dataTask(with: request) { data, response, error in
             //print("->  respuesta Status Code: ", response as Any)
             //print("->  error: ", error as Any)
-            
             if error != nil {
                 print("Hubo un error")
                 return
@@ -129,9 +128,11 @@ class ProfileInfoInteractor: ProfileInfoInteractorInputProtocol {
             do {
                 
                 if data != nil {
+                    print(":::DATA:::")
+                    //print(data! as NSData)
                     let contResponse : DetailProfile = try JSONDecoder().decode(DetailProfile.self, from: data!)
                     print(contResponse, "####")
-                    self.presenter?.reponseAllDetailUser(responseCode: response as! HTTPURLResponse, dataResponse: contResponse)
+                    self.presenter?.responseAllDetailUser(responseCode: response as! HTTPURLResponse, dataResponse: contResponse)
                     
                 }
                 
@@ -372,6 +373,47 @@ class ProfileInfoInteractor: ProfileInfoInteractorInputProtocol {
         //        }
         let dictionary = request
         guard let endpoint: URL = URL(string: "\(API)/" + "user/update" ) else {
+            print("Error formando url religioso")
+            self.presenter?.responsePriest(errores: ServerErrors.ErrorServidor, data: nil)
+            return
+        }
+        
+        var request = URLRequest(url: endpoint)
+        request.httpMethod = "POST"
+        request.setValue("application/json", forHTTPHeaderField: "Content-Type")
+        let tksession = UserDefaults.standard.string(forKey: "idToken")
+        request.setValue("Bearer \( tksession ?? "")", forHTTPHeaderField: "Authorization")
+        let encoder = JSONEncoder()
+        encoder.outputFormatting = .prettyPrinted
+        guard let body = try? encoder.encode(dictionary) else { return  }
+        request.httpBody = body
+        let tarea = URLSession.shared.dataTask(with: request) { data, response, error in
+            //print("->  respuesta Status Code: ", response as Any)
+            //print("->  error: ", error as Any)
+            
+            if error != nil {
+                print("Hubo un error")
+                return
+            }
+            //print(response)
+            if (response as! HTTPURLResponse).statusCode == 200 {
+                self.presenter?.successPostLaicoReligioso()
+                
+            }else{
+                APIType.shared.refreshToken()
+                self.presenter?.failPostLaicoReligioso()
+            }
+        }
+        tarea.resume()
+    }
+    
+    func postState(request: ProfileState) {
+        //RequestManager.shared.perform(route: RegisterRouter.profileState(request: request)) {
+          //  [weak self] result, _ in
+            //self?.presenter?.responseState(result: result)
+        //}
+        let dictionary = request
+        guard let endpoint: URL = URL(string: "\(API)/" + "user/update" ) else {
             print("Error formando url")
             self.presenter?.responsePriest(errores: ServerErrors.ErrorServidor, data: nil)
             return
@@ -394,7 +436,7 @@ class ProfileInfoInteractor: ProfileInfoInteractorInputProtocol {
                 print("Hubo un error")
                 return
             }
-            print(response)
+            //print(response)
             if (response as! HTTPURLResponse).statusCode == 200 {
                 self.presenter?.successPostLaicoReligioso()
                 
@@ -404,6 +446,7 @@ class ProfileInfoInteractor: ProfileInfoInteractorInputProtocol {
             }
         }
         tarea.resume()
+        
     }
     
     func postSacerdote(request: ProfilePriest) {
@@ -413,15 +456,15 @@ class ProfileInfoInteractor: ProfileInfoInteractorInputProtocol {
         //        }
         let dictionary = request
         guard let endpoint: URL = URL(string: "\(API)/" + "user/update" ) else {
-            print("Error formando url")
+            print("Error formando url sacerdote")
             self.presenter?.responsePriest(errores: ServerErrors.ErrorServidor, data: nil)
             return
         }
         var request = URLRequest(url: endpoint)
+        request.httpMethod = "POST"
         request.setValue("application/json", forHTTPHeaderField: "Content-Type")
         let tksession = UserDefaults.standard.string(forKey: "idToken")
         request.setValue("Bearer \( tksession ?? "")", forHTTPHeaderField: "Authorization")
-        request.httpMethod = "POST"
         let encoder = JSONEncoder()
         encoder.outputFormatting = .prettyPrinted
         guard let body = try? encoder.encode(dictionary) else { return  }
@@ -444,12 +487,6 @@ class ProfileInfoInteractor: ProfileInfoInteractorInputProtocol {
         tarea.resume()
     }
     
-    func postState(request: ProfileState) {
-        RequestManager.shared.perform(route: RegisterRouter.profileState(request: request)) {
-            [weak self] result, _ in
-            self?.presenter?.responseState(result: result)
-        }
-    }
     
     func postCongregation(request: ProfileCongregation) {
         RequestManager.shared.perform(route: RegisterRouter.profileCongregation(request: request)) {

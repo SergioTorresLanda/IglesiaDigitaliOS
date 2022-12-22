@@ -16,7 +16,7 @@
 		3688602B260A454400B579EC /* PromisseViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 36886029260A454400B579EC /* PromisseViewCell.swift */; };
 		3688602C260A454400B579EC /* PromisseViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 3688602A260A454400B579EC /* PromisseViewCell.xib */; };
 		3688602F260A496400B579EC /* EditionPromisseMain.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3688602E260A496400B579EC /* EditionPromisseMain.swift */; };
-		36886032260A497600B579EC /* EditionPromisseViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 36886031260A497600B579EC /* EditionPromisseViewController.swift */; };
+		36886032260A497600B579EC /* EditionPromisseVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 36886031260A497600B579EC /* EditionPromisseVC.swift */; };
 		36886035260A498200B579EC /* EditionPromissePresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 36886034260A498200B579EC /* EditionPromissePresenter.swift */; };
 		36886038260A499F00B579EC /* EditionPromisseProtocols.swift in Sources */ = {isa = PBXBuildFile; fileRef = 36886037260A499F00B579EC /* EditionPromisseProtocols.swift */; };
 		36FCC024260A718C009688CA /* EditionPromisseInteractor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 36FCC023260A718C009688CA /* EditionPromisseInteractor.swift */; };
@@ -106,9 +106,9 @@
 		6FE7A0A82735C75D00970058 /* DetailAdminEntity.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6FE7A0A72735C75C00970058 /* DetailAdminEntity.swift */; };
 		82DBF04F25E87CEB00D7001F /* Imagenes.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 82DBF04E25E87CEB00D7001F /* Imagenes.xcassets */; };
 		980F759525E5888300B0DB0E /* EncuentroCatolicoProfile.h in Headers */ = {isa = PBXBuildFile; fileRef = 980F759325E5888300B0DB0E /* EncuentroCatolicoProfile.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		9D136C7F2644590D00E9F0E5 /* AdminModulesView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9D136C7D2644590D00E9F0E5 /* AdminModulesView.swift */; };
+		9D136C7F2644590D00E9F0E5 /* AdminModulesVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9D136C7D2644590D00E9F0E5 /* AdminModulesVC.swift */; };
 		9D136C802644590D00E9F0E5 /* AdminModulesView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 9D136C7E2644590D00E9F0E5 /* AdminModulesView.xib */; };
-		9DCA1B582644427600F76324 /* AdminListView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9DCA1B562644427600F76324 /* AdminListView.swift */; };
+		9DCA1B582644427600F76324 /* AdminListVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9DCA1B562644427600F76324 /* AdminListVC.swift */; };
 		9DCA1B592644427600F76324 /* AdminListView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 9DCA1B572644427600F76324 /* AdminListView.xib */; };
 		9DCA1B5E264442AB00F76324 /* AdminListCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9DCA1B5C264442AB00F76324 /* AdminListCell.swift */; };
 		9DCA1B5F264442AB00F76324 /* AdminListCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 9DCA1B5D264442AB00F76324 /* AdminListCell.xib */; };
@@ -119,10 +119,10 @@
 		D072347626445B18005C6028 /* ButtonCollectionViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = D072346E26445B18005C6028 /* ButtonCollectionViewCell.xib */; };
 		D072347726445B18005C6028 /* GenericCollectionViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = D072346F26445B18005C6028 /* GenericCollectionViewCell.xib */; };
 		D072347826445B18005C6028 /* ButtonCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = D072347026445B18005C6028 /* ButtonCollectionViewCell.swift */; };
-		D072347926445B18005C6028 /* FormularioConfig.swift in Sources */ = {isa = PBXBuildFile; fileRef = D072347126445B18005C6028 /* FormularioConfig.swift */; };
+		D072347926445B18005C6028 /* FormularioConfigVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = D072347126445B18005C6028 /* FormularioConfigVC.swift */; };
 		D08699EF2629034600C8F3ED /* ProfileEntity.swift in Sources */ = {isa = PBXBuildFile; fileRef = D08699EE2629034600C8F3ED /* ProfileEntity.swift */; };
 		D093D6D625EACDE80085C8FE /* register.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = D093D6D525EACDE80085C8FE /* register.storyboard */; };
-		D093D88A25EC02770085C8FE /* RegisterProfileViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D093D88925EC02770085C8FE /* RegisterProfileViewController.swift */; };
+		D093D88A25EC02770085C8FE /* RegisterProfileVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = D093D88925EC02770085C8FE /* RegisterProfileVC.swift */; };
 		D0BDCF7F25E9F76400C104AD /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = D0BDCF5925E9F76400C104AD /* Assets.xcassets */; };
 		D0BDCF8025E9F76400C104AD /* Colors.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = D0BDCF5A25E9F76400C104AD /* Colors.xcassets */; };
 		D0BDCF8125E9F76400C104AD /* Montserrat-LightItalic.ttf in Resources */ = {isa = PBXBuildFile; fileRef = D0BDCF5D25E9F76400C104AD /* Montserrat-LightItalic.ttf */; };
@@ -193,10 +193,10 @@
 		DF3FB99026449C5A0054642E /* InteractorAdminList.swift in Sources */ = {isa = PBXBuildFile; fileRef = DF3FB98F26449C5A0054642E /* InteractorAdminList.swift */; };
 		DF3FB99226449C6D0054642E /* PresenterAdminList.swift in Sources */ = {isa = PBXBuildFile; fileRef = DF3FB99126449C6D0054642E /* PresenterAdminList.swift */; };
 		DF3FB99526449C940054642E /* RouterAdminList.swift in Sources */ = {isa = PBXBuildFile; fileRef = DF3FB99426449C940054642E /* RouterAdminList.swift */; };
-		EE13C109261393ED00D72448 /* promisessListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = EE13C107261393ED00D72448 /* promisessListViewController.swift */; };
+		EE13C109261393ED00D72448 /* promisessListVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = EE13C107261393ED00D72448 /* promisessListVC.swift */; };
 		EE13C10A261393ED00D72448 /* promisessListViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = EE13C108261393ED00D72448 /* promisessListViewController.xib */; };
 		EE13C11A26139FEC00D72448 /* ProfileInfoView.xib in Resources */ = {isa = PBXBuildFile; fileRef = EE13C11426139FEC00D72448 /* ProfileInfoView.xib */; };
-		EE2FE2E62613A6FE00EF3841 /* ProfileInfoView.swift in Sources */ = {isa = PBXBuildFile; fileRef = EE2FE2E52613A6FE00EF3841 /* ProfileInfoView.swift */; };
+		EE2FE2E62613A6FE00EF3841 /* ProfileInfoVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = EE2FE2E52613A6FE00EF3841 /* ProfileInfoVC.swift */; };
 		EE2FE2E92613A74F00EF3841 /* ProfileInfoPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = EE2FE2E82613A74F00EF3841 /* ProfileInfoPresenter.swift */; };
 		EE2FE2EE2613A78100EF3841 /* ProfileInfoLocalDataManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = EE2FE2ED2613A78100EF3841 /* ProfileInfoLocalDataManager.swift */; };
 		EE2FE2F22613A81800EF3841 /* ProfileInfoProtocols.swift in Sources */ = {isa = PBXBuildFile; fileRef = EE2FE2F12613A81800EF3841 /* ProfileInfoProtocols.swift */; };
@@ -208,7 +208,7 @@
 		EEEA9782262501EF005430A8 /* ProfileUserInfoEntity.swift in Sources */ = {isa = PBXBuildFile; fileRef = EEEA9781262501EF005430A8 /* ProfileUserInfoEntity.swift */; };
 		EEEF378D261E77B9005516E4 /* ProfileUserInfoPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = EEEF3787261E77B9005516E4 /* ProfileUserInfoPresenter.swift */; };
 		EEEF378E261E77B9005516E4 /* ProfileUserInfoRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = EEEF3788261E77B9005516E4 /* ProfileUserInfoRouter.swift */; };
-		EEEF378F261E77B9005516E4 /* ProfileUserInfoViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = EEEF3789261E77B9005516E4 /* ProfileUserInfoViewController.swift */; };
+		EEEF378F261E77B9005516E4 /* ProfileUserInfoVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = EEEF3789261E77B9005516E4 /* ProfileUserInfoVC.swift */; };
 		EEEF3790261E77B9005516E4 /* ProfileUserInfoProtocols.swift in Sources */ = {isa = PBXBuildFile; fileRef = EEEF378A261E77B9005516E4 /* ProfileUserInfoProtocols.swift */; };
 		EEEF3791261E77B9005516E4 /* ProfileUserInfoInteractor.swift in Sources */ = {isa = PBXBuildFile; fileRef = EEEF378B261E77B9005516E4 /* ProfileUserInfoInteractor.swift */; };
 		EEEF3792261E77B9005516E4 /* ProfileUserInfoViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = EEEF378C261E77B9005516E4 /* ProfileUserInfoViewController.xib */; };
@@ -235,7 +235,7 @@
 		36886029260A454400B579EC /* PromisseViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PromisseViewCell.swift; sourceTree = "<group>"; };
 		3688602A260A454400B579EC /* PromisseViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = PromisseViewCell.xib; sourceTree = "<group>"; };
 		3688602E260A496400B579EC /* EditionPromisseMain.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EditionPromisseMain.swift; sourceTree = "<group>"; };
-		36886031260A497600B579EC /* EditionPromisseViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EditionPromisseViewController.swift; sourceTree = "<group>"; };
+		36886031260A497600B579EC /* EditionPromisseVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EditionPromisseVC.swift; sourceTree = "<group>"; };
 		36886034260A498200B579EC /* EditionPromissePresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EditionPromissePresenter.swift; sourceTree = "<group>"; };
 		36886037260A499F00B579EC /* EditionPromisseProtocols.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EditionPromisseProtocols.swift; sourceTree = "<group>"; };
 		36FCC023260A718C009688CA /* EditionPromisseInteractor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EditionPromisseInteractor.swift; sourceTree = "<group>"; };
@@ -328,10 +328,10 @@
 		980F759325E5888300B0DB0E /* EncuentroCatolicoProfile.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = EncuentroCatolicoProfile.h; sourceTree = "<group>"; };
 		980F759425E5888300B0DB0E /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		984F461D25F8623D006D709B /* EncuentroCatolicoLogin.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = EncuentroCatolicoLogin.framework; sourceTree = BUILT_PRODUCTS_DIR; };
-		9D136C7D2644590D00E9F0E5 /* AdminModulesView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AdminModulesView.swift; sourceTree = "<group>"; };
+		9D136C7D2644590D00E9F0E5 /* AdminModulesVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AdminModulesVC.swift; sourceTree = "<group>"; };
 		9D136C7E2644590D00E9F0E5 /* AdminModulesView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = AdminModulesView.xib; sourceTree = "<group>"; };
 		9D5B96372639EB53008EEDAC /* EncuentroCatolicoLogin.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = EncuentroCatolicoLogin.framework; sourceTree = BUILT_PRODUCTS_DIR; };
-		9DCA1B562644427600F76324 /* AdminListView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AdminListView.swift; sourceTree = "<group>"; };
+		9DCA1B562644427600F76324 /* AdminListVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AdminListVC.swift; sourceTree = "<group>"; };
 		9DCA1B572644427600F76324 /* AdminListView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = AdminListView.xib; sourceTree = "<group>"; };
 		9DCA1B5C264442AB00F76324 /* AdminListCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AdminListCell.swift; sourceTree = "<group>"; };
 		9DCA1B5D264442AB00F76324 /* AdminListCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = AdminListCell.xib; sourceTree = "<group>"; };
@@ -343,10 +343,10 @@
 		D072346E26445B18005C6028 /* ButtonCollectionViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ButtonCollectionViewCell.xib; sourceTree = "<group>"; };
 		D072346F26445B18005C6028 /* GenericCollectionViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = GenericCollectionViewCell.xib; sourceTree = "<group>"; };
 		D072347026445B18005C6028 /* ButtonCollectionViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ButtonCollectionViewCell.swift; sourceTree = "<group>"; };
-		D072347126445B18005C6028 /* FormularioConfig.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FormularioConfig.swift; sourceTree = "<group>"; };
+		D072347126445B18005C6028 /* FormularioConfigVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FormularioConfigVC.swift; sourceTree = "<group>"; };
 		D08699EE2629034600C8F3ED /* ProfileEntity.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ProfileEntity.swift; sourceTree = "<group>"; };
 		D093D6D525EACDE80085C8FE /* register.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = register.storyboard; sourceTree = "<group>"; };
-		D093D88925EC02770085C8FE /* RegisterProfileViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegisterProfileViewController.swift; sourceTree = "<group>"; };
+		D093D88925EC02770085C8FE /* RegisterProfileVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegisterProfileVC.swift; sourceTree = "<group>"; };
 		D0BDCF5925E9F76400C104AD /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		D0BDCF5A25E9F76400C104AD /* Colors.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Colors.xcassets; sourceTree = "<group>"; };
 		D0BDCF5D25E9F76400C104AD /* Montserrat-LightItalic.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Montserrat-LightItalic.ttf"; sourceTree = "<group>"; };
@@ -418,10 +418,10 @@
 		DF3FB98F26449C5A0054642E /* InteractorAdminList.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InteractorAdminList.swift; sourceTree = "<group>"; };
 		DF3FB99126449C6D0054642E /* PresenterAdminList.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PresenterAdminList.swift; sourceTree = "<group>"; };
 		DF3FB99426449C940054642E /* RouterAdminList.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RouterAdminList.swift; sourceTree = "<group>"; };
-		EE13C107261393ED00D72448 /* promisessListViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = promisessListViewController.swift; sourceTree = "<group>"; };
+		EE13C107261393ED00D72448 /* promisessListVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = promisessListVC.swift; sourceTree = "<group>"; };
 		EE13C108261393ED00D72448 /* promisessListViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = promisessListViewController.xib; sourceTree = "<group>"; };
 		EE13C11426139FEC00D72448 /* ProfileInfoView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ProfileInfoView.xib; sourceTree = "<group>"; };
-		EE2FE2E52613A6FE00EF3841 /* ProfileInfoView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileInfoView.swift; sourceTree = "<group>"; };
+		EE2FE2E52613A6FE00EF3841 /* ProfileInfoVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileInfoVC.swift; sourceTree = "<group>"; };
 		EE2FE2E82613A74F00EF3841 /* ProfileInfoPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileInfoPresenter.swift; sourceTree = "<group>"; };
 		EE2FE2ED2613A78100EF3841 /* ProfileInfoLocalDataManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileInfoLocalDataManager.swift; sourceTree = "<group>"; };
 		EE2FE2F12613A81800EF3841 /* ProfileInfoProtocols.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileInfoProtocols.swift; sourceTree = "<group>"; };
@@ -433,7 +433,7 @@
 		EEEA9781262501EF005430A8 /* ProfileUserInfoEntity.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileUserInfoEntity.swift; sourceTree = "<group>"; };
 		EEEF3787261E77B9005516E4 /* ProfileUserInfoPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileUserInfoPresenter.swift; sourceTree = "<group>"; };
 		EEEF3788261E77B9005516E4 /* ProfileUserInfoRouter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileUserInfoRouter.swift; sourceTree = "<group>"; };
-		EEEF3789261E77B9005516E4 /* ProfileUserInfoViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileUserInfoViewController.swift; sourceTree = "<group>"; };
+		EEEF3789261E77B9005516E4 /* ProfileUserInfoVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileUserInfoVC.swift; sourceTree = "<group>"; };
 		EEEF378A261E77B9005516E4 /* ProfileUserInfoProtocols.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileUserInfoProtocols.swift; sourceTree = "<group>"; };
 		EEEF378B261E77B9005516E4 /* ProfileUserInfoInteractor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileUserInfoInteractor.swift; sourceTree = "<group>"; };
 		EEEF378C261E77B9005516E4 /* ProfileUserInfoViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ProfileUserInfoViewController.xib; sourceTree = "<group>"; };
@@ -470,7 +470,7 @@
 				36FCC03A260AA34B009688CA /* Entities */,
 				36FCC026260A7775009688CA /* Models */,
 				3688602E260A496400B579EC /* EditionPromisseMain.swift */,
-				36886031260A497600B579EC /* EditionPromisseViewController.swift */,
+				36886031260A497600B579EC /* EditionPromisseVC.swift */,
 				36886034260A498200B579EC /* EditionPromissePresenter.swift */,
 				36886037260A499F00B579EC /* EditionPromisseProtocols.swift */,
 				36FCC023260A718C009688CA /* EditionPromisseInteractor.swift */,
@@ -872,7 +872,7 @@
 			isa = PBXGroup;
 			children = (
 				D093D6D525EACDE80085C8FE /* register.storyboard */,
-				D093D88925EC02770085C8FE /* RegisterProfileViewController.swift */,
+				D093D88925EC02770085C8FE /* RegisterProfileVC.swift */,
 			);
 			path = Register;
 			sourceTree = "<group>";
@@ -1088,7 +1088,7 @@
 			isa = PBXGroup;
 			children = (
 				D072346C26445B18005C6028 /* Cell */,
-				D072347126445B18005C6028 /* FormularioConfig.swift */,
+				D072347126445B18005C6028 /* FormularioConfigVC.swift */,
 				D072346926445B18005C6028 /* FormularioConfig.xib */,
 			);
 			path = View;
@@ -1130,7 +1130,7 @@
 			isa = PBXGroup;
 			children = (
 				48C5FBCA2683B9A4004EFA16 /* Cell */,
-				9D136C7D2644590D00E9F0E5 /* AdminModulesView.swift */,
+				9D136C7D2644590D00E9F0E5 /* AdminModulesVC.swift */,
 				9D136C7E2644590D00E9F0E5 /* AdminModulesView.xib */,
 			);
 			path = View;
@@ -1173,7 +1173,7 @@
 			isa = PBXGroup;
 			children = (
 				9DCA1B572644427600F76324 /* AdminListView.xib */,
-				9DCA1B562644427600F76324 /* AdminListView.swift */,
+				9DCA1B562644427600F76324 /* AdminListVC.swift */,
 				9DCA1B61264442B500F76324 /* cell */,
 			);
 			path = View;
@@ -1215,7 +1215,7 @@
 			isa = PBXGroup;
 			children = (
 				36886024260A44F200B579EC /* Cells */,
-				EE13C107261393ED00D72448 /* promisessListViewController.swift */,
+				EE13C107261393ED00D72448 /* promisessListVC.swift */,
 				EE13C108261393ED00D72448 /* promisessListViewController.xib */,
 				EE2FE3022613D9EB00EF3841 /* PromiseView.swift */,
 				EE2FE3052613D9F900EF3841 /* PromiseView.xib */,
@@ -1231,7 +1231,7 @@
 				EE2FE2F12613A81800EF3841 /* ProfileInfoProtocols.swift */,
 				EE2FE2E82613A74F00EF3841 /* ProfileInfoPresenter.swift */,
 				EE2FE2F42613A89200EF3841 /* ProfileInfoInteractor.swift */,
-				EE2FE2E52613A6FE00EF3841 /* ProfileInfoView.swift */,
+				EE2FE2E52613A6FE00EF3841 /* ProfileInfoVC.swift */,
 				EE13C11426139FEC00D72448 /* ProfileInfoView.xib */,
 				EE2FE2ED2613A78100EF3841 /* ProfileInfoLocalDataManager.swift */,
 				EE2FE2F72613A8E200EF3841 /* ProfileInfoRemoteDataManager.swift */,
@@ -1246,7 +1246,7 @@
 			children = (
 				EEEF3787261E77B9005516E4 /* ProfileUserInfoPresenter.swift */,
 				EEEF3788261E77B9005516E4 /* ProfileUserInfoRouter.swift */,
-				EEEF3789261E77B9005516E4 /* ProfileUserInfoViewController.swift */,
+				EEEF3789261E77B9005516E4 /* ProfileUserInfoVC.swift */,
 				EEEF378A261E77B9005516E4 /* ProfileUserInfoProtocols.swift */,
 				EEEF378B261E77B9005516E4 /* ProfileUserInfoInteractor.swift */,
 				EEEA9781262501EF005430A8 /* ProfileUserInfoEntity.swift */,
@@ -1461,10 +1461,10 @@
 				EEEA9782262501EF005430A8 /* ProfileUserInfoEntity.swift in Sources */,
 				DF3FB9832644991C0054642E /* InteractorAdminModules.swift in Sources */,
 				6F5681E926BDB8C60052E3F3 /* ProfileMapWireFrame.swift in Sources */,
-				9D136C7F2644590D00E9F0E5 /* AdminModulesView.swift in Sources */,
+				9D136C7F2644590D00E9F0E5 /* AdminModulesVC.swift in Sources */,
 				D0BDCFBB25E9F77500C104AD /* DatePickerTextField.swift in Sources */,
 				DF3FB99026449C5A0054642E /* InteractorAdminList.swift in Sources */,
-				D072347926445B18005C6028 /* FormularioConfig.swift in Sources */,
+				D072347926445B18005C6028 /* FormularioConfigVC.swift in Sources */,
 				6F5681F426BDB8C60052E3F3 /* AnnotationView.swift in Sources */,
 				48E7894826A0EBF900449858 /* TitleTableViewCell.swift in Sources */,
 				D0BDCFB925E9F77500C104AD /* BaseViewController.swift in Sources */,
@@ -1472,7 +1472,7 @@
 				0F06BD55262FF5DE00801068 /* RadioButton.swift in Sources */,
 				DF3FB96626439CC40054642E /* InternetConnection.swift in Sources */,
 				EE2FE3032613D9EB00EF3841 /* PromiseView.swift in Sources */,
-				36886032260A497600B579EC /* EditionPromisseViewController.swift in Sources */,
+				36886032260A497600B579EC /* EditionPromisseVC.swift in Sources */,
 				DF3FB98E26449C4C0054642E /* ProtocolosAdminList.swift in Sources */,
 				6F53490926EF93DA005571E4 /* OnboardingCollectionCell.swift in Sources */,
 				DF3FB95B26439AFD0054642E /* AdminInteractor.swift in Sources */,
@@ -1482,7 +1482,7 @@
 				EEEF3791261E77B9005516E4 /* ProfileUserInfoInteractor.swift in Sources */,
 				6F5348F926EF9119005571E4 /* NewOnboardingsView.swift in Sources */,
 				6F5681E226BDB8C60052E3F3 /* LocationRouter.swift in Sources */,
-				EE2FE2E62613A6FE00EF3841 /* ProfileInfoView.swift in Sources */,
+				EE2FE2E62613A6FE00EF3841 /* ProfileInfoVC.swift in Sources */,
 				DF3FB96926439CC40054642E /* ResponseDispatcher.swift in Sources */,
 				EE2FE2F82613A8E200EF3841 /* ProfileInfoRemoteDataManager.swift in Sources */,
 				D0BDCFBA25E9F77500C104AD /* PickerViewTextField.swift in Sources */,
@@ -1497,7 +1497,7 @@
 				D08699EF2629034600C8F3ED /* ProfileEntity.swift in Sources */,
 				DF3FB99226449C6D0054642E /* PresenterAdminList.swift in Sources */,
 				6FD25D8A26EE7CA4008FC574 /* ChurhesCardCellDiacono.swift in Sources */,
-				D093D88A25EC02770085C8FE /* RegisterProfileViewController.swift in Sources */,
+				D093D88A25EC02770085C8FE /* RegisterProfileVC.swift in Sources */,
 				6F31EDC626EDA16E0099408F /* CongregationsPresenter.swift in Sources */,
 				DF3FB96826439CC40054642E /* ConnectionManager.swift in Sources */,
 				3688602F260A496400B579EC /* EditionPromisseMain.swift in Sources */,
@@ -1530,7 +1530,7 @@
 				6F5681ED26BDB8C60052E3F3 /* ChurchDummyData.swift in Sources */,
 				6F5681F226BDB8C60052E3F3 /* AddressTableViewCell.swift in Sources */,
 				4823876426865B07001756E6 /* ServiceList.swift in Sources */,
-				EEEF378F261E77B9005516E4 /* ProfileUserInfoViewController.swift in Sources */,
+				EEEF378F261E77B9005516E4 /* ProfileUserInfoVC.swift in Sources */,
 				481E27E2268B7D7200BC7D2D /* MudulesLocationStruct.swift in Sources */,
 				48D9C2272685453700E880F0 /* SellectedModulesTableViewCell.swift in Sources */,
 				9DCA1B5E264442AB00F76324 /* AdminListCell.swift in Sources */,
@@ -1556,7 +1556,7 @@
 				6F53490426EF91B6005571E4 /* NewOnboardingProtocols.swift in Sources */,
 				481E27E0268A28BD00BC7D2D /* NavigationBar.swift in Sources */,
 				6FE7A0A82735C75D00970058 /* DetailAdminEntity.swift in Sources */,
-				9DCA1B582644427600F76324 /* AdminListView.swift in Sources */,
+				9DCA1B582644427600F76324 /* AdminListVC.swift in Sources */,
 				0FE42319262758AE0076366A /* LineLabelTextField.swift in Sources */,
 				D0BDCFB625E9F77500C104AD /* API.swift in Sources */,
 				D0BDCFB725E9F77500C104AD /* RegisterRouter.swift in Sources */,
@@ -1564,7 +1564,7 @@
 				DF3FB9872644999A0054642E /* PresenterAdminModules.swift in Sources */,
 				6F5681EA26BDB8C60052E3F3 /* Church.swift in Sources */,
 				DF3FB981264498490054642E /* ProtocolosAdminModules.swift in Sources */,
-				EE13C109261393ED00D72448 /* promisessListViewController.swift in Sources */,
+				EE13C109261393ED00D72448 /* promisessListVC.swift in Sources */,
 				0F8C8114262A5F5B00AA981A /* String+Extensions.swift in Sources */,
 				DF3FB978264491A90054642E /* PresenterAdminFormulario.swift in Sources */,
 				EEEF378E261E77B9005516E4 /* ProfileUserInfoRouter.swift in Sources */,

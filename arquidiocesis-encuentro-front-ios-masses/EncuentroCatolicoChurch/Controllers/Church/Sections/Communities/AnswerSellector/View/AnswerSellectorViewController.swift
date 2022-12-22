@@ -13,5 +13,9 @@ class AnswerSellectorViewController: UIViewController {
         super.viewDidLoad()
 
     }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        print("VC ECChurch - AnswerSellector - AnswerSelectorVC")
+    }
 
 }

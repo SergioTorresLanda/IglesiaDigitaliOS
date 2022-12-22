@@ -61,6 +61,10 @@ class MapDonationsView: UIViewController, MapDonationsViewProtocol {
             self?.removeLoader()*/
         
     }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        print("VC ECDonations - MapDonations")
+    }
         
 // MARK: SETUP FUNCTIONS -
     private func setupUI() {

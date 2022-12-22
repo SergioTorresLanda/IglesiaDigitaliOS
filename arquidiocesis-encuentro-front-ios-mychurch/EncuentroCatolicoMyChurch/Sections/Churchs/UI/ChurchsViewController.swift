@@ -25,6 +25,11 @@ class ChurchsViewController: UIViewController {
         presenter?.onViewDidLoad()
     }
     
+    override func viewWillAppear(_ animated: Bool) {
+        print("VC ECMyChurch - Churchs - ChurchsVC ")
+
+    }
+    
     private func configureUI() {
         view.backgroundColor = .white // PrimaryColor().blue
         

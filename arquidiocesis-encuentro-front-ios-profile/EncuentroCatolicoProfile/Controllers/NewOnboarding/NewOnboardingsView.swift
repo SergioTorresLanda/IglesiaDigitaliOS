@@ -38,6 +38,11 @@ class NewOnboardingsView: UIViewController, NewOnboardingViewProtocol {
 
     }
     
+    override func viewWillAppear(_ animated: Bool) {
+        print("VC ECProfile - NewonboardingsV ")
+
+    }
+    
     func validateFormView(typeView: String) {
         let nombre = defaults.string(forKey: "nombre") ?? ""
         if nombre != "" {

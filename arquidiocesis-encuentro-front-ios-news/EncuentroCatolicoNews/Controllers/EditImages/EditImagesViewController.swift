@@ -35,6 +35,10 @@ public class EditImagesViewController: UIViewController, EditImagesViewProtocol 
         setUpView()
     }
     
+    public override func viewWillAppear(_ animated: Bool) {
+        print("VC ECNews - EditImagesVC ")
+    }
+    
     //MARK: - Methods
     private func setUpView() {        
         tableView.dataSource = self

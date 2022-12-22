@@ -38,6 +38,10 @@ public class ImagePresenterViewController: UIViewController, ImagePresenterViewP
         pageControl.numberOfPages = media.count
     }
     
+    public override func viewWillAppear(_ animated: Bool) {
+        print("VC ECNews - ImagePresenterVC ")
+    }
+    
     public override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(animated)
         

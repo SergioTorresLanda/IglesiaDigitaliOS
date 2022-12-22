@@ -55,6 +55,10 @@ class CommunitiesFormularyViewController: UIViewController, CommunitiesFormulary
         upLoadImageView.isUserInteractionEnabled = true
        setUpPockers()
     }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        print("VC ECChurch - Communities - CommunitiesFormularyVC ")
+    }
     func setUpPockers() {
         pickercommunity.delegate = self
         pickelvFrom.delegate = self

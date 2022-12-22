@@ -95,13 +95,12 @@ struct ProfileState: Codable {
     var location_id: Int?
     var is_admin: Bool?
     var life_status: Status?
-    var prefix: Prefix?
     var interest_topics: [Topics]?
     var services_provided: [Service]?
 }
 
 struct ProfileCongregation: Codable {
-    var username: String
+    var username: String?
     var id: Int
     var name, first_surname, second_surname, phone_number: String?
     var location_id: Int?

@@ -82,6 +82,10 @@ class AnswerFoemularyViewController: UIViewController, AnswerFoemularyViewProtoc
        
     }
     
+    override func viewWillAppear(_ animated: Bool) {
+        print("VC ECChurch - Communities - AnswerForularyVC ")
+    }
+    
     private func setupGestures() {
         let tapSuperview = UITapGestureRecognizer(target: self, action: #selector(TapSuperview))
         self.view.addGestureRecognizer(tapSuperview)

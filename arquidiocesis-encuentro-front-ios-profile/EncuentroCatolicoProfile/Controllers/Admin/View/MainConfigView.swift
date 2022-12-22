@@ -86,6 +86,8 @@ class MainConfigView: UIViewController {
         loadUserAttributs()
     }
     override func viewWillAppear(_ animated: Bool) {
+        print("VC ECProfile - Admin - MainConfigVC ")
+
         presenter?.getData(id: userId)
     }
     override func viewDidAppear(_ animated: Bool) {

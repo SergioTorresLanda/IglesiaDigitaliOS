@@ -17,5 +17,9 @@ class MyCommunitiesViewController: UIViewController, MyCommunitiesViewProtocol {
 
         
     }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        print("VC ECChurch - Communities - MyCommunitiesVC ")
+    }
 
 }

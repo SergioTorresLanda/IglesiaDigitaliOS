@@ -12,6 +12,9 @@
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="ProfileInfoView" customModule="EncuentroCatolicoProfile" customModuleProvider="target">
             <connections>
                 <outlet property="activityCollection" destination="D8U-y2-fsE" id="q2Z-hC-Yxp"/>
+                <outlet property="alertBtn" destination="24c-WL-YeM" id="0m4-5O-gHk"/>
+                <outlet property="alertTitle" destination="UAk-4s-Ntt" id="PcP-mE-BLc"/>
+                <outlet property="alertView" destination="DXo-Pg-azB" id="eVS-KK-w0T"/>
                 <outlet property="btnChangePhoto" destination="NG7-O8-rwZ" id="2hQ-hJ-bTJ"/>
                 <outlet property="btnDelete" destination="omI-qT-thq" id="E4i-hq-BRT"/>
                 <outlet property="btnGear" destination="X7f-lI-VkS" id="202-R1-P4a"/>
@@ -255,8 +258,9 @@
                                             <color key="textColor" name="eMainBlue"/>
                                             <nil key="highlightedColor"/>
                                         </label>
-                                        <textField opaque="NO" userInteractionEnabled="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="Escribe aqui..." textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="wY6-oO-p9b">
+                                        <textField opaque="NO" userInteractionEnabled="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="wY6-oO-p9b">
                                             <rect key="frame" x="0.0" y="188" width="373" height="34"/>
+                                            <color key="backgroundColor" name="eLightGray"/>
                                             <constraints>
                                                 <constraint firstAttribute="height" constant="34" id="PHI-Bf-22w"/>
                                             </constraints>
@@ -279,8 +283,9 @@
                                             <color key="textColor" name="eMainBlue"/>
                                             <nil key="highlightedColor"/>
                                         </label>
-                                        <textField opaque="NO" userInteractionEnabled="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="Escribe aqui..." textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="okO-xn-ZxO">
+                                        <textField opaque="NO" userInteractionEnabled="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="okO-xn-ZxO">
                                             <rect key="frame" x="0.0" y="286" width="373" height="34"/>
+                                            <color key="backgroundColor" name="eLightGray"/>
                                             <constraints>
                                                 <constraint firstAttribute="height" constant="34" id="Ez1-GH-csL"/>
                                             </constraints>
@@ -542,7 +547,7 @@
                                                     <color key="textColor" name="eMainBlue"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
-                                                <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="arrow_drop_down_24px" translatesAutoresizingMaskIntoConstraints="NO" id="zsC-XN-ZtY">
+                                                <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="flechaAbajo" translatesAutoresizingMaskIntoConstraints="NO" id="zsC-XN-ZtY">
                                                     <rect key="frame" x="343" y="44" width="20" height="20"/>
                                                     <constraints>
                                                         <constraint firstAttribute="width" constant="20" id="3KV-8c-fxC"/>
@@ -639,19 +644,40 @@
                                                 <inset key="sectionInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
                                             </collectionViewFlowLayout>
                                         </collectionView>
-                                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="4SO-RD-lOM">
+                                        <stackView opaque="NO" contentMode="scaleToFill" distribution="equalSpacing" translatesAutoresizingMaskIntoConstraints="NO" id="1ee-NV-yNK">
                                             <rect key="frame" x="0.0" y="547" width="373" height="50"/>
-                                            <color key="backgroundColor" name="eMainBlue"/>
-                                            <constraints>
-                                                <constraint firstAttribute="height" constant="50" id="WPU-av-YHu"/>
-                                            </constraints>
-                                            <state key="normal" title="Guardar">
-                                                <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                            </state>
-                                            <connections>
-                                                <action selector="saveAction:" destination="-1" eventType="touchUpInside" id="8gD-E8-0OA"/>
-                                            </connections>
-                                        </button>
+                                            <subviews>
+                                                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="AxD-5l-Aiz">
+                                                    <rect key="frame" x="0.0" y="0.0" width="1" height="50"/>
+                                                    <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                    <constraints>
+                                                        <constraint firstAttribute="width" constant="1" id="D8t-jb-Ddj"/>
+                                                    </constraints>
+                                                </view>
+                                                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="4SO-RD-lOM">
+                                                    <rect key="frame" x="61.5" y="0.0" width="250" height="50"/>
+                                                    <color key="backgroundColor" name="eMainBlue"/>
+                                                    <constraints>
+                                                        <constraint firstAttribute="height" constant="50" id="WPU-av-YHu"/>
+                                                        <constraint firstAttribute="width" constant="250" id="dMW-Gb-KKP"/>
+                                                    </constraints>
+                                                    <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="15"/>
+                                                    <state key="normal" title="     Guardar     ">
+                                                        <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                    </state>
+                                                    <connections>
+                                                        <action selector="saveAction:" destination="-1" eventType="touchUpInside" id="8gD-E8-0OA"/>
+                                                    </connections>
+                                                </button>
+                                                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="DuC-s1-Xrp">
+                                                    <rect key="frame" x="372" y="0.0" width="1" height="50"/>
+                                                    <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                    <constraints>
+                                                        <constraint firstAttribute="width" constant="1" id="eou-ES-B22"/>
+                                                    </constraints>
+                                                </view>
+                                            </subviews>
+                                        </stackView>
                                     </subviews>
                                 </stackView>
                             </subviews>
@@ -676,6 +702,59 @@
                     <viewLayoutGuide key="contentLayoutGuide" id="S5n-Zc-65h"/>
                     <viewLayoutGuide key="frameLayoutGuide" id="gMQ-oF-nHM"/>
                 </scrollView>
+                <view hidden="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="DXo-Pg-azB">
+                    <rect key="frame" x="57" y="380" width="300" height="136.5"/>
+                    <subviews>
+                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Titulo" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="5" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="UAk-4s-Ntt">
+                            <rect key="frame" x="26" y="46" width="248" height="19.5"/>
+                            <fontDescription key="fontDescription" type="system" weight="medium" pointSize="16"/>
+                            <color key="textColor" name="eMainBlue"/>
+                            <nil key="highlightedColor"/>
+                        </label>
+                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="24c-WL-YeM">
+                            <rect key="frame" x="108" y="83.5" width="84" height="40"/>
+                            <color key="backgroundColor" name="eMainBlue"/>
+                            <constraints>
+                                <constraint firstAttribute="height" constant="40" id="8QU-bi-YV7"/>
+                                <constraint firstAttribute="width" constant="84" id="S7Y-o8-AgW"/>
+                            </constraints>
+                            <color key="tintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                            <state key="normal" title="Button"/>
+                            <buttonConfiguration key="configuration" style="plain">
+                                <attributedString key="attributedTitle">
+                                    <fragment content="Aceptar">
+                                        <attributes>
+                                            <font key="NSFont" size="14" name="Helvetica-Bold"/>
+                                        </attributes>
+                                    </fragment>
+                                </attributedString>
+                            </buttonConfiguration>
+                            <connections>
+                                <action selector="alertBtnClick:" destination="-1" eventType="touchUpInside" id="A0x-gE-gxZ"/>
+                            </connections>
+                        </button>
+                        <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="Icono_encuentro" translatesAutoresizingMaskIntoConstraints="NO" id="PrL-8t-tIh">
+                            <rect key="frame" x="8" y="8" width="21" height="28"/>
+                            <constraints>
+                                <constraint firstAttribute="width" constant="21" id="JHY-tZ-9mn"/>
+                                <constraint firstAttribute="height" constant="28" id="Upw-zZ-VfZ"/>
+                            </constraints>
+                        </imageView>
+                    </subviews>
+                    <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                    <constraints>
+                        <constraint firstAttribute="bottom" secondItem="UAk-4s-Ntt" secondAttribute="bottom" constant="71" id="403-jM-Efy"/>
+                        <constraint firstAttribute="width" constant="300" id="H8T-hg-dA7"/>
+                        <constraint firstItem="PrL-8t-tIh" firstAttribute="top" secondItem="DXo-Pg-azB" secondAttribute="top" constant="8" id="HQM-Jh-Hj4"/>
+                        <constraint firstItem="UAk-4s-Ntt" firstAttribute="centerX" secondItem="DXo-Pg-azB" secondAttribute="centerX" id="Ja8-OE-EKU"/>
+                        <constraint firstItem="24c-WL-YeM" firstAttribute="centerX" secondItem="DXo-Pg-azB" secondAttribute="centerX" id="OCz-yQ-rrV"/>
+                        <constraint firstItem="PrL-8t-tIh" firstAttribute="leading" secondItem="DXo-Pg-azB" secondAttribute="leading" constant="8" id="SI9-X1-kgu"/>
+                        <constraint firstAttribute="trailing" secondItem="UAk-4s-Ntt" secondAttribute="trailing" constant="26" id="cqF-73-ZU4"/>
+                        <constraint firstItem="24c-WL-YeM" firstAttribute="top" secondItem="UAk-4s-Ntt" secondAttribute="bottom" constant="18" id="osr-y6-cOH"/>
+                        <constraint firstItem="UAk-4s-Ntt" firstAttribute="top" secondItem="DXo-Pg-azB" secondAttribute="top" constant="46" id="u8E-71-wqU"/>
+                        <constraint firstItem="UAk-4s-Ntt" firstAttribute="leading" secondItem="DXo-Pg-azB" secondAttribute="leading" constant="26" id="wHc-4A-msd"/>
+                    </constraints>
+                </view>
             </subviews>
             <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
             <constraints>
@@ -683,16 +762,19 @@
                 <constraint firstAttribute="bottom" secondItem="CeH-1j-Ogv" secondAttribute="bottom" constant="85" id="E6h-se-dgt"/>
                 <constraint firstAttribute="trailing" secondItem="CeH-1j-Ogv" secondAttribute="trailing" id="Eia-zE-CP3"/>
                 <constraint firstItem="2S7-wP-s15" firstAttribute="top" secondItem="i5M-Pr-FkT" secondAttribute="top" id="PAt-MZ-kzK"/>
+                <constraint firstItem="DXo-Pg-azB" firstAttribute="centerX" secondItem="i5M-Pr-FkT" secondAttribute="centerX" id="QcR-vn-vKX"/>
                 <constraint firstItem="2S7-wP-s15" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" id="Qcs-hG-Es8"/>
                 <constraint firstAttribute="trailing" secondItem="2S7-wP-s15" secondAttribute="trailing" id="cyN-Iy-lIT"/>
                 <constraint firstItem="CeH-1j-Ogv" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" id="oPZ-G0-075"/>
+                <constraint firstItem="DXo-Pg-azB" firstAttribute="centerY" secondItem="i5M-Pr-FkT" secondAttribute="centerY" id="qfL-8K-KW0"/>
             </constraints>
             <point key="canvasLocation" x="-149.27536231884059" y="-70.3125"/>
         </view>
     </objects>
     <resources>
-        <image name="arrow_drop_down_24px" width="24" height="24"/>
-        <image name="magnifyingglass" catalog="system" width="128" height="115"/>
+        <image name="Icono_encuentro" width="23" height="30"/>
+        <image name="flechaAbajo" width="24" height="24"/>
+        <image name="magnifyingglass" catalog="system" width="32" height="32"/>
         <image name="profile_icon" width="168" height="168"/>
         <image name="tool_image" width="20" height="20"/>
         <namedColor name="eBackgroundGray">
@@ -700,6 +782,9 @@
         </namedColor>
         <namedColor name="eLightBlack">
             <color red="0.0" green="0.0" blue="0.0" alpha="0.60000002384185791" colorSpace="custom" customColorSpace="sRGB"/>
+        </namedColor>
+        <namedColor name="eLightGray">
+            <color red="0.77600002288818359" green="0.78799998760223389" blue="0.81199997663497925" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </namedColor>
         <namedColor name="eLightPinkishGray">
             <color red="0.72549019607843135" green="0.72549019607843135" blue="0.72549019607843135" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>

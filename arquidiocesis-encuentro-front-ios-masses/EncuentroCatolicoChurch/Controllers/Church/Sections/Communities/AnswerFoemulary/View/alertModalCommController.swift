@@ -23,6 +23,10 @@ class alertModalCommController: UIViewController {
            setupUI()
     }
     
+    override func viewWillAppear(_ animated: Bool) {
+        print("VC ECChurch - Communities - alertModalCommC ")
+    }
+    
 // MARK: SETUP FUNCTIONS -
     private func setupUI() {
         DispatchQueue.main.asyncAfter(deadline: .now() + 0.2) {

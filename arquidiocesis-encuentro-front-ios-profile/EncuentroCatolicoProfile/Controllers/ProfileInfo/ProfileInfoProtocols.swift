@@ -1,7 +1,7 @@
 import Foundation
 import UIKit
 
-protocol ProfileInfoViewProtocol: class {
+protocol ProfileInfoViewProtocol: AnyObject {
     // PRESENTER -> VIEW
     var presenter: ProfileInfoPresenterProtocol? { get set }
     func mostrarMSG(dtcAlerta: [String:String])
@@ -34,7 +34,7 @@ protocol ProfileInfoViewProtocol: class {
     func isSuccesDelete(result: Bool)
 }
 
-protocol ProfileInfoWireFrameProtocol: class {
+protocol ProfileInfoWireFrameProtocol: AnyObject {
     // PRESENTER -> WIREFRAME
     static func createModule() -> UIViewController
     func showConfiguraciones()
@@ -46,7 +46,7 @@ protocol ProfileInfoWireFrameProtocol: class {
     func pushToConfig(from contoller: AnyObject)
 }
 
-protocol ProfileInfoPresenterProtocol: class {
+protocol ProfileInfoPresenterProtocol: AnyObject {
     // VIEW -> PRESENTER
     var view: ProfileInfoViewProtocol? { get set }
     var interactor: ProfileInfoInteractorInputProtocol? { get set }
@@ -91,7 +91,7 @@ protocol ProfileInfoPresenterProtocol: class {
     
 }
 
-protocol ProfileInfoInteractorOutputProtocol: class {
+protocol ProfileInfoInteractorOutputProtocol: AnyObject {
 // INTERACTOR -> PRESENTER
     func respuestaValidacion(error: ErroresProfile)
     func responseOffice(result: Result<Array<ActivitiesResponse>,ErrorEncuentro>)
@@ -108,7 +108,7 @@ protocol ProfileInfoInteractorOutputProtocol: class {
     func obtieneRespuetaUsuario(errores: ErroresServidorProfile, user: UserRespProfile?)
     func responseDetalles(result: Result<DetailProfile,ErrorEncuentro>)
     func responseUpload64(responseCode: HTTPURLResponse, responseData: UploadImageData)
-    func reponseDetailUser(responseCode: HTTPURLResponse, dataResponse: ProfileDetailImg)
+    func responseDetailUser(responseCode: HTTPURLResponse, dataResponse: ProfileDetailImg)
     func responsePriest(errores: ServerErrors, data: String?)
     func responseDiac(errores: ServerErrors, data: String?)
     
@@ -116,13 +116,13 @@ protocol ProfileInfoInteractorOutputProtocol: class {
     func failPostLaicoReligioso()
     func successPostDiacano()
     func failPostDiacano()
-    func reponseAllDetailUser(responseCode: HTTPURLResponse, dataResponse: DetailProfile)
+    func responseAllDetailUser(responseCode: HTTPURLResponse, dataResponse: DetailProfile)
     func onSuccessPrefix(data: PrefixResponse, response: HTTPURLResponse) 
     func onFailPrefix(error: Error)
     
 }
 
-protocol ProfileInfoInteractorInputProtocol: class {
+protocol ProfileInfoInteractorInputProtocol: AnyObject {
     // PRESENTER -> INTERACTOR
     var presenter: ProfileInfoInteractorOutputProtocol? { get set }
     var localDatamanager: ProfileInfoLocalDataManagerInputProtocol? { get set }
@@ -151,23 +151,23 @@ protocol ProfileInfoInteractorInputProtocol: class {
     func postLaicoReligioso(request: ProfileCongregation)
 }
 
-protocol ProfileInfoDataManagerInputProtocol: class {
+protocol ProfileInfoDataManagerInputProtocol: AnyObject {
     // INTERACTOR -> DATAMANAGER
     var presenter: ProfileInfoPresenterProtocol?  { get set }
     
 }
 
-protocol ProfileInfoRemoteDataManagerInputProtocol: class {
+protocol ProfileInfoRemoteDataManagerInputProtocol: AnyObject {
     // INTERACTOR -> REMOTEDATAMANAGER
     var remoteRequestHandler: ProfileInfoRemoteDataManagerOutputProtocol? { get set }
     func cargarInformacion()
     func guardarinformacion(cel: String, fecha: String, email: String, edoCivil: String)
 }
 
-protocol ProfileInfoRemoteDataManagerOutputProtocol: class {
+protocol ProfileInfoRemoteDataManagerOutputProtocol: AnyObject {
     // REMOTEDATAMANAGER -> INTERACTOR
 }
 
-protocol ProfileInfoLocalDataManagerInputProtocol: class {
+protocol ProfileInfoLocalDataManagerInputProtocol: AnyObject {
     // INTERACTOR -> LOCALDATAMANAGER
 }

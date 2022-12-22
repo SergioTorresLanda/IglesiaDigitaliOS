@@ -68,6 +68,10 @@ class LiveViewController: UIViewController, LiveViewProtocol {
         
     }
     
+    override func viewWillAppear(_ animated: Bool) {
+        print("VC ECLive - LiveVC")
+    }
+    
     func loadContent(data: [LiveModel]) {
         print("^^", data)
         allData = data

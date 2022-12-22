@@ -96,6 +96,10 @@ class CommentsViewController: UIViewController, CommentsViewProtocol {
         
     }
     
+    override func viewWillAppear(_ animated: Bool) {
+        print("VC ECChurch - Communities - CommentsVC")
+    }
+    
     func showLoading() {
         let imageView = UIImageView(frame: CGRect(x: 75, y: 25, width: 140, height: 60))
         imageView.image = UIImage(named: "logoEncuentro", in: Bundle.local, compatibleWith: nil)

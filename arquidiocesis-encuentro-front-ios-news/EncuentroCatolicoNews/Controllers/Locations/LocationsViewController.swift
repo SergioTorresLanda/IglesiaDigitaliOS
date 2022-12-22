@@ -42,6 +42,10 @@ public class LocationsViewController: UIViewController, LocationsViewProtocol {
         setUpView()
     }
     
+    public override func viewWillAppear(_ animated: Bool) {
+        print("VC ECNews - LocationsVC ")
+    }
+    
     //MARK: - Methods
     private func setUpView() {
         searchCompleter.queryFragment = "Torre Grupo Salinas"
