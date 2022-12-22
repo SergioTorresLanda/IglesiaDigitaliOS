@@ -348,36 +348,35 @@ extension ProfileInfoView: UIPickerViewDelegate, UIPickerViewDataSource {
 extension ProfileInfoView: ProfileInfoViewProtocol {
    
     func showStatesResponnse() {
-        loadingAlert.dismiss(animated: false, completion: nil)
-        DispatchQueue.main.asyncAfter(deadline: .now() + 0.5) {
+        hideLoading()
+        alertView.isHidden=false
+        alertTitle.text="Datos guardados exitosamente"
+        /*DispatchQueue.main.asyncAfter(deadline: .now() + 0.5) {
             self.view.makeToast("Datos Guardados Exitosamente", duration: 3.0, position: .top)
-        }
-     
+        }*/
     }
     
     func showCongregationResponse() {
-        loadingAlert.dismiss(animated: false, completion: nil)
-        DispatchQueue.main.asyncAfter(deadline: .now() + 0.5) {
-            self.view.makeToast("Datos Guardados Exitosamente", duration: 3.0, position: .top)
-        }
+        hideLoading()
+        alertView.isHidden=false
+        alertTitle.text="Datos guardados exitosamente"
     }
     
     func showSacerdoteResponse() {
-        loadingAlert.dismiss(animated: false, completion: nil)
-        DispatchQueue.main.asyncAfter(deadline: .now() + 0.5) {
-            self.view.makeToast("Datos Guardados Exitosamente", duration: 3.0, position: .top)
-        }
+        hideLoading()
+        alertView.isHidden=false
+        alertTitle.text="Datos guardados exitosamente"
     }
     
     func showDiaconoResponse() {
-        loadingAlert.dismiss(animated: false, completion: nil)
-        DispatchQueue.main.asyncAfter(deadline: .now() + 0.4) {
-            self.view.makeToast("Datos Guardados Exitosamente", duration: 3.0, position: .top)
-        }
+        hideLoading()
+        alertView.isHidden=false
+        alertTitle.text="Datos guardados exitosamente"
     }
     
     func showDetalles(detail: DetailProfile) {
-        print("çççç", detail)
+        //print("çççç", detail)
+        print("showDetalles return")
         // New Code
         lifeStatusSingleton = detail.data?.User?.life_status?.name ?? ""
         lblUserName.text = "\(detail.data?.User?.name ?? "Unspecified") \(detail.data?.User?.first_surname ?? "Unspecified") \(detail.data?.User?.second_surname ?? " ")"
@@ -456,7 +455,9 @@ extension ProfileInfoView: ProfileInfoViewProtocol {
             cardLaico2.isHidden = true
             hideOrShowPrefix(isShow: true)
             radioBtnCollection.isHidden = false
-            
+            lblLaicoAsk.isHidden = false
+            print("IS PROVIDER IS PROVIDER IS PROVIDER IS PROVIDER")
+            print(detail.data?.User?.is_provider ?? "WASs")
             switch detail.data?.User?.is_provider {
             case "CHURCH":
                 arrayIsActive[0] = true
@@ -616,11 +617,13 @@ extension ProfileInfoView: ProfileInfoViewProtocol {
         }else{
            // mainContentHeight.constant += 60
         }
+        
+        self.hideLoading()
     
     }
     
     func showLifeStates(lifeStates: StatesResponse) {
-        print(lifeStates)
+        //print(lifeStates)
         lifeStatesArray = lifeStates.data
         lifeStates.data.forEach { state in
             switch state.name {
@@ -637,7 +640,7 @@ extension ProfileInfoView: ProfileInfoViewProtocol {
     }
     
     func showTopics(topics: TopicsResponse) {
-        print(topics)
+        //print(topics)
         topicsArray = topics.data
         topics.data.forEach { topic in
             topicsList.append(topic.description)
@@ -650,8 +653,8 @@ extension ProfileInfoView: ProfileInfoViewProtocol {
     }
     
     func showServices(services: ServiceResponse) {
-        print("ççççç")
-        print(services)
+        //print("XXXXXXXXX")
+        //print(services)
         
         var servicesData: [ProvidedService] = []
         services.data.forEach { service in
@@ -678,11 +681,8 @@ extension ProfileInfoView: ProfileInfoViewProtocol {
     }
     
     func showError(error: String) {
-        loadingAlert.dismiss(animated: true, completion: { [self] in
-            let alert = UIAlertController(title: "Error", message: error, preferredStyle: .alert)
-            alert.addAction(UIAlertAction(title: "Aceptar", style: .default, handler: nil))
-            self.present(alert, animated: true, completion: nil)
-        })
+        hideLoading()
+        showCanonAlert(text: error)
     }
     
     func showRegisterResponse(response: RegisterPriestResponse) {
@@ -900,10 +900,10 @@ extension ProfileInfoView: UICollectionViewDataSource, UICollectionViewDelegate,
         switch nameTopics.count {
         case 3:
             //  mainContentHeight.constant -= 50
-            print("")
+            print("3")
         case 6:
             // mainContentHeight.constant -= 50
-            print("")
+            print("6")
         default:
             break
         }
@@ -1057,6 +1057,8 @@ extension ProfileInfoView {
     }
     
     func failGetDataProfile() {
+        hideLoading()
+        showCanonAlert(text: "Error obteniendo tus datos, contacta al administrador.")
     }
     
 }

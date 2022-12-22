@@ -37,7 +37,7 @@ public class InitViewViewController: UIViewController, InitViewViewProtocol {
     
     override public func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
-        
+        print("VC ECNews - InitViewVC ")
         loadNavigationController()
     }
     

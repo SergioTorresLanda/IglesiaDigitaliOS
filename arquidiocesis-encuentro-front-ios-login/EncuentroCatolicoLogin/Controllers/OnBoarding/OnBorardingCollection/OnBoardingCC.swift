@@ -22,6 +22,10 @@ class OnBoardingCC: UIViewController {
         
     }
     
+    override func viewWillAppear(_ animated: Bool) {
+        print("VC ECLogin - OnBoardingCC")
+    }
+    
     func scrollViewWillEndDragging(_ scrollView: UIScrollView, withVelocity velocity: CGPoint, targetContentOffset: UnsafeMutablePointer<CGPoint>) {
         let x = targetContentOffset.pointee.x
         obPageControl.currentPage = Int(x / onBoardingCV.frame.width)

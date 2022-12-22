@@ -25,6 +25,10 @@ class ViewController: UIViewController {
             button.centerXAnchor.constraint(equalTo: self.view.centerXAnchor)
         ])
     }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        print("VC FormacionApp")
+    }
 
     @objc func action(){
         guard let navigation = self.navigationController else { debugPrint("Can't create navigation"); return }

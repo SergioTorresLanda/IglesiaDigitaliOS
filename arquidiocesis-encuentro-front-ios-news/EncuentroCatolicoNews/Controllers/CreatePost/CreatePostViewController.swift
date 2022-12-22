@@ -210,6 +210,10 @@ public class CreatePostViewController: UIViewController, CreatePostViewProtocol 
         presenter?.requestRelations(SNId: UserDefaults.standard.integer(forKey: "SNId"))
     }
     
+    public override func viewWillAppear(_ animated: Bool) {
+        print("VC ECNews - CreatePostVC ")
+    }
+    
     override public func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(animated)
         

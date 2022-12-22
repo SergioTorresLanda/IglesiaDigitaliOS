@@ -129,7 +129,7 @@
 		6FE719CB26A0D7B900211E3C /* EntityPriestNames.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6FE719CA26A0D7B900211E3C /* EntityPriestNames.swift */; };
 		6FECB665267ABB990043EFA9 /* UnionCellHelp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6FECB664267ABB990043EFA9 /* UnionCellHelp.swift */; };
 		6FFF7DC926F139B6004EABF1 /* Tutorial.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 6FFF7DC826F139B6004EABF1 /* Tutorial.storyboard */; };
-		6FFF7DCB26F13A9F004EABF1 /* TutorialView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6FFF7DCA26F13A9F004EABF1 /* TutorialView.swift */; };
+		6FFF7DCB26F13A9F004EABF1 /* TutorialVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6FFF7DCA26F13A9F004EABF1 /* TutorialVC.swift */; };
 		9837C20825E80FA3005A200F /* EncuentroCatolicoVirtualLibrary.h in Headers */ = {isa = PBXBuildFile; fileRef = 9837C20625E80FA3005A200F /* EncuentroCatolicoVirtualLibrary.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		983AAEA46BF49C28EC4588B9 /* Pods_EncuentroCatolicoVirtualLibrary.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8A7A505ED1F7867D95CEA44B /* Pods_EncuentroCatolicoVirtualLibrary.framework */; };
 		98ABEB8225E866DE005725F3 /* Bundle.swift in Sources */ = {isa = PBXBuildFile; fileRef = 98ABEB8125E866DE005725F3 /* Bundle.swift */; };
@@ -361,7 +361,7 @@
 		6FE719CA26A0D7B900211E3C /* EntityPriestNames.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EntityPriestNames.swift; sourceTree = "<group>"; };
 		6FECB664267ABB990043EFA9 /* UnionCellHelp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UnionCellHelp.swift; sourceTree = "<group>"; };
 		6FFF7DC826F139B6004EABF1 /* Tutorial.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Tutorial.storyboard; sourceTree = "<group>"; };
-		6FFF7DCA26F13A9F004EABF1 /* TutorialView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TutorialView.swift; sourceTree = "<group>"; };
+		6FFF7DCA26F13A9F004EABF1 /* TutorialVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TutorialVC.swift; sourceTree = "<group>"; };
 		88E48CCE1E574E562B3732B9 /* Pods-EncuentroCatolicoVirtualLibrary.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-EncuentroCatolicoVirtualLibrary.debug.xcconfig"; path = "Target Support Files/Pods-EncuentroCatolicoVirtualLibrary/Pods-EncuentroCatolicoVirtualLibrary.debug.xcconfig"; sourceTree = "<group>"; };
 		8A7A505ED1F7867D95CEA44B /* Pods_EncuentroCatolicoVirtualLibrary.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_EncuentroCatolicoVirtualLibrary.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		9837C20325E80FA3005A200F /* EncuentroCatolicoVirtualLibrary.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = EncuentroCatolicoVirtualLibrary.framework; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -931,7 +931,7 @@
 			children = (
 				6F80C5B52717766C000170A9 /* TutotialCell */,
 				6FFF7DC826F139B6004EABF1 /* Tutorial.storyboard */,
-				6FFF7DCA26F13A9F004EABF1 /* TutorialView.swift */,
+				6FFF7DCA26F13A9F004EABF1 /* TutorialVC.swift */,
 			);
 			path = Tutorial;
 			sourceTree = "<group>";
@@ -1749,7 +1749,7 @@
 				6FD407C526A737D8003300F5 /* UncionMapComponents.swift in Sources */,
 				DF5920CB2609366700E05CD6 /* ConnectionManager.swift in Sources */,
 				6F7DF576268AE018006A29B9 /* PriestContactEntity.swift in Sources */,
-				6FFF7DCB26F13A9F004EABF1 /* TutorialView.swift in Sources */,
+				6FFF7DCB26F13A9F004EABF1 /* TutorialVC.swift in Sources */,
 				DF5920CD2609366700E05CD6 /* RequestType.swift in Sources */,
 				6F0167FD268B77D900DABD63 /* PriestDetailPresenter.swift in Sources */,
 				DFE4BC1E26389C3200A0D298 /* HeaderNotificationsView.swift in Sources */,

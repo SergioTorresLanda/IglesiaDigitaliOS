@@ -59,7 +59,7 @@ public class FeedViewController: UIViewController, FeedViewProtocol, FeedViewCon
     
     override public func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
-        
+        print("VC ECNews - FeedVC ")
         let tabBar = self.tabBarController as? SocialNetworkController
         tabBar?.tabBar.isHidden = true
         tabBar?.customTabBar.isHidden = false
@@ -206,7 +206,7 @@ public class FeedViewController: UIViewController, FeedViewProtocol, FeedViewCon
     
     func reloadTblData() {
         
-        self.presenter?.getNewPosts(isFromPage: false, isRefresh: true)
+        //self.presenter?.getNewPosts(isFromPage: false, isRefresh: true)
         tableView.reloadData()
     }
 }

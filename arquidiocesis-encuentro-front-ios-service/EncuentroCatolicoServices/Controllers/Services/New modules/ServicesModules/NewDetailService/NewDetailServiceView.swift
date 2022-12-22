@@ -56,6 +56,11 @@ class NewDetailServiceView: UIViewController, NewDetailServiceViewProtocol {
         presenter?.callRequestDertailService(serviceID: "\(idService ?? 0)")
     }
     
+    override func viewWillAppear(_ animated: Bool) {
+        print("VC ECServices - NewDetailServiceVC ")
+
+    }
+    
 // MARK: SETUP FUNCS -
     private func setupUI() {
         customNavBar.layer.cornerRadius = 20

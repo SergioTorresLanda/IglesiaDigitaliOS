@@ -46,6 +46,10 @@ class NewAddSocialController: UIViewController {
         
     }
     
+    override func viewWillAppear(_ animated: Bool) {
+        print("VC ECChurch - AddSocial - NewAddSocialVC")
+    }
+    
 // MARK: SETUP FUNCTIONS -
     private func setupUI() {
         DispatchQueue.main.asyncAfter(deadline: .now() + 0.3) {

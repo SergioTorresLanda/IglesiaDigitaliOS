@@ -18,4 +18,9 @@ class ECDonationToMyChurchVC: UIViewController,ECDonationToMyChurchVCProtocol  {
         super.viewDidLoad()
         
     }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        print("VC ECServices - ECDonationToMyChurchVC ")
+
+    }
 }

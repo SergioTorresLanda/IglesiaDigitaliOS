@@ -26,6 +26,10 @@ class PaymentViewController: UIViewController, PaymentViewProtocol {
         showShimmer()
     }
     
+    override func viewWillAppear(_ animated: Bool) {
+        print("VC ECPayment - PaymentVC ")
+    }
+    
     func showShimmer() {
         if loader == nil {
             loader = UILoader(superviewForIndicatorActivity: view)

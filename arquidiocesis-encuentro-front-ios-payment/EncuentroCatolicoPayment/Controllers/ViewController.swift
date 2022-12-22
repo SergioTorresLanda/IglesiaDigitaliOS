@@ -17,5 +17,9 @@ class ViewController: UIViewController {
         
         print(CipherUtil.encryptJSON(text: "data") ?? "Sin data")
     }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        print("VC ECPayment - VC ")
+    }
 }
 

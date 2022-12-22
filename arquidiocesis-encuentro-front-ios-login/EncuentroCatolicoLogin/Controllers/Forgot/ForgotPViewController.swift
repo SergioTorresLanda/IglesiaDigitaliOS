@@ -59,6 +59,10 @@ class ForgotPViewController: UIViewController, ForgotViewProtocol {
         self.view.addGestureRecognizer(tapSuperview)
     }
     
+    override func viewWillAppear(_ animated: Bool) {
+        print("VC ECLogin - ForgotPVC")
+    }
+    
     @objc func TapSuperview() {
         self.view.endEditing(true)
     }

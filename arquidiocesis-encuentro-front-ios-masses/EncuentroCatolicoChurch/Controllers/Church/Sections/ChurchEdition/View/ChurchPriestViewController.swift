@@ -205,6 +205,10 @@ class ChurchPriestViewController: BaseViewController {
         
     }
     
+    override func viewWillAppear(_ animated: Bool) {
+        print("VC ECChurch - ChurchEdition - ChurchPriestVC ")
+    }
+    
     override func viewWillLayoutSubviews() {
         super.viewWillLayoutSubviews()
     

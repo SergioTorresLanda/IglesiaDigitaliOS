@@ -26,5 +26,9 @@ public class VideoPresenterViewController: AVPlayerViewController, VideoPresente
         player.playImmediately(atRate: 1.0)
         self.player = player
     }
+    
+    public override func viewWillAppear(_ animated: Bool) {
+        print("VC ECNews - VideoPresenterVC ")
+    }
 
 }

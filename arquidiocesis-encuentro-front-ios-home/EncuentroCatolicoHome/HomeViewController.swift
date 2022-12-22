@@ -89,6 +89,7 @@ class HomeViewController: UIViewController, HomeViewProtocol, UITextFieldDelegat
         collectionRegister()
         setupBarra()
         setupNewUI()
+        //addTapGestures()
         //validateUserColors()
         profileStackView.addGestureRecognizer(UITapGestureRecognizer(target: self, action: #selector(notifyTap(_:))))
         DispatchQueue.main.asyncAfter(deadline: .now() + 2, execute: {
@@ -199,6 +200,7 @@ class HomeViewController: UIViewController, HomeViewProtocol, UITextFieldDelegat
     
     override public func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
+        print("VC ECHome - HomeVC ")
 
         presenter?.cargarDatosUsuario()
         presenter?.requestStreaming()
@@ -688,7 +690,13 @@ class HomeViewController: UIViewController, HomeViewProtocol, UITextFieldDelegat
     }
     
     @objc func notifyTap(_ sender: UITapGestureRecognizer){
-        //        NotificationCenter.default.post(name: Notification.Name("handleSuperTap"), object: nil)
+        print("PERFIL CLICKKKKKK")
+        //let tabBar = TabNavigationMenu(frame: <#CGRect#>)
+        //tabBar?.tabBar.selectedItem = 2
+        //tabBar?.customTabBar.selectedIndex=2
+        //self.tabBarController?.selectedIndex = 2
+       // tabBar?.selectedIndex=2
+        NotificationCenter.default.post(name: Notification.Name("handleSuperTap"), object: nil)
         let view = ProfileInfoRouter.createModule()
         self.navigationController?.pushViewController(view, animated: true)
     }
@@ -744,7 +752,9 @@ class HomeViewController: UIViewController, HomeViewProtocol, UITextFieldDelegat
     }
     
     @IBAction func goToProfile(_ sender: Any){
+        print("goToProfile")
         // NotificationCenter.default.post(name: Notification.Name("handleSuperTap"), object: nil)
+        //self.tabBarController?.selectedIndex = 2 //ir a perfil
         let view = ProfileInfoRouter.createModule()
         self.navigationController?.pushViewController(view, animated: true)
     }

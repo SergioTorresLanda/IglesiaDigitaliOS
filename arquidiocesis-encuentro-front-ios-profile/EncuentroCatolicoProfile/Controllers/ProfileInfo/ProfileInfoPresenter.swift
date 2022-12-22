@@ -18,12 +18,15 @@ class ProfileInfoPresenter {
     }
     
     func successPostLaicoReligioso() {
+        print("SUCCES POST LAICO")
+
         DispatchQueue.main.async {
             self.view?.successLaicoReligioso()
         }
     }
     
     func failPostLaicoReligioso() {
+        print("FAIL POST LAICO")
         DispatchQueue.main.async {
             self.view?.failLaicoReligioso()
         }
@@ -113,13 +116,17 @@ class ProfileInfoPresenter {
     }
 
     func responseState(result: Result<ResponseState, ErrorEncuentro>) {
-        view?.showStatesResponnse()
-//        switch result {
-//        case .success(_):
-//            view?.showStatesResponnse()
-//        case .failure(let error):
-//            view?.showError(error: error.errorDescription)
-//        }
+        //view?.showStatesResponnse()
+        switch result {
+        case .success(_):
+            print("::::::::SUCCESS RESPONSE STATE::::: ")
+            view?.showStatesResponnse()
+        case .failure(let error):
+            print("::::::::FAIL RESPONSE STATE::::: ")
+            //view?.showError(error: error.errorDescription)
+            print(error.errorDescription)
+            view?.showError(error: "Ocurrió un error, contacta al administrador")
+        }
         
     }
     func responseDeleteByEmail(status: Bool) {
@@ -172,6 +179,7 @@ class ProfileInfoPresenter {
     }
 
     func responseDetalles(result: Result<DetailProfile, ErrorEncuentro>) {
+        print("Volvio de responseDetalles")
         switch result {
         case let .success(response):
             view?.showDetalles(detail: response)
@@ -321,9 +329,9 @@ extension ProfileInfoPresenter: ProfileInfoInteractorOutputProtocol {
     func responsePriest(errores: ServerErrors, data: String?) {
         switch errores {
         case .ErrorInterno:
-            view?.showError(error: "")
+            view?.showError(error: "Error Interno")
         case .ErrorServidor:
-            view?.showError(error: "")
+            view?.showError(error: "Error Servidor")
         case .OK:
             view?.showSacerdoteResponse()
         }
@@ -364,7 +372,7 @@ extension ProfileInfoPresenter: ProfileInfoInteractorOutputProtocol {
         }
     }
     
-    func reponseDetailUser(responseCode: HTTPURLResponse, dataResponse: ProfileDetailImg) {
+    func responseDetailUser(responseCode: HTTPURLResponse, dataResponse: ProfileDetailImg) {
         DispatchQueue.main.async {
             if responseCode.statusCode == 200 {
                 self.view?.succesGetDetailProfile(responseData: dataResponse)
@@ -374,7 +382,7 @@ extension ProfileInfoPresenter: ProfileInfoInteractorOutputProtocol {
         }
     }
     
-    func reponseAllDetailUser(responseCode: HTTPURLResponse, dataResponse: DetailProfile) {
+    func responseAllDetailUser(responseCode: HTTPURLResponse, dataResponse: DetailProfile) {
         DispatchQueue.main.async {
             if responseCode.statusCode == 200 {
                 self.view?.showDetalles(detail: dataResponse)

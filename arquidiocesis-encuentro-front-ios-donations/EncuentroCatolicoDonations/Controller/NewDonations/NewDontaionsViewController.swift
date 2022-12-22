@@ -225,6 +225,10 @@ class NewDontaionsViewController: BaseVC, NewDontaionsViewProtocol {
         setupFields()
     }
     
+    override func viewWillAppear(_ animated: Bool) {
+        print("VC ECDonations - NewDonations")
+    }
+    
     // MARK: SETUP FUNCTIONS -
     private func setupUI() {
         customNavbar.layer.cornerRadius = 20

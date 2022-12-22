@@ -257,13 +257,20 @@ class prayerChain: UIViewController {
     }
     
     @objc func reactToPromise(sender: UIButton) {
+        print(":::TAGG:::")
         print(sender.tag)
-        let index = Int(sender.accessibilityLabel ?? "0")
-        if statePray[index ?? 0] == false {
-            statePray[index ?? 0] = true
+     
+        let indexNeg = Int(sender.accessibilityLabel ?? "0")
+        let index = indexNeg!+1
+        print(":::INDEX:::")
+        print(String(index))
+        print(":::state count:::")
+        print(statePray.count)
+        /*if statePray[index] == false {
+            statePray[index] = true
         }else{
-            statePray[index ?? 0] = false
-        }
+            statePray[index] = false
+        }*/
         
         print(sender.title(for: .normal) ?? "SIN TITULO")
         let cell = self.collection.cellForItem(at: [0,Int(sender.accessibilityHint ?? "1")!]) as! prayerCell
@@ -271,12 +278,12 @@ class prayerChain: UIViewController {
         cell.loading.startAnimating()
         sender.isUserInteractionEnabled = false
         
-        var react = true
-        if sender.accessibilityLabel == "Reacted"{
+        //var react = true
+        /*if sender.accessibilityLabel == "Reacted"{
             react = false
-        }
+        }*/
         
-        let id = self.dbPrayers[Int(sender.accessibilityLabel!)!].id
+        let id = self.dbPrayers[index].id
         let item = self.realm.objects(prayerChainModel.self).filter("id = %@", id).first!
         
 //        let endpoint: URL = URL(string: "https://api-develop.arquidiocesis.mx/prayers/\(sender.tag)/reaction")!
@@ -325,6 +332,7 @@ class prayerChain: UIViewController {
                             try! realm.write {
                                 workout.people = String(Int(workout.people)! - 1)
                                 workout.reaction = false
+                                self.statePray[index] = false
                             }
                         }
                         print("*****")
@@ -345,6 +353,7 @@ class prayerChain: UIViewController {
                             try! realm.write {
                                 workout.people = String(Int(workout.people)! + 1)
                                 workout.reaction = true
+                                self.statePray[index] = true
                             }
                         }
                     }

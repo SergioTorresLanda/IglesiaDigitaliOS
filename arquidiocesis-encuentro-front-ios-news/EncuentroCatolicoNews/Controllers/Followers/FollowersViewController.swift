@@ -65,6 +65,11 @@ class FollowersViewController: UIViewController {
         }
     }
     
+    override func viewWillAppear(_ animated: Bool) {
+        print("VC ECNews - FollowersVC ")
+
+    }
+    
     @IBAction func popView(_ sender: UIButton) {
         _ = navigationController?.popViewController(animated: true)
         RealmManager.clearDataBase()

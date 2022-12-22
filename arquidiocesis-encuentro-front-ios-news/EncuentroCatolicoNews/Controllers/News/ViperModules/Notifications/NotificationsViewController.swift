@@ -36,6 +36,10 @@ public class NotificationsViewController: UIViewController, NotificationsViewPro
         setUpView()
     }
     
+    public override func viewWillAppear(_ animated: Bool) {
+        print("VC ECNews - NotificationsVC ")
+    }
+    
     //MARK: - Methods
     private func setUpView() {
         tableView.dataSource = self

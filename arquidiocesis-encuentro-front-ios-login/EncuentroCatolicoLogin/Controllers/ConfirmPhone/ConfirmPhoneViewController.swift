@@ -84,6 +84,9 @@ class ConfirmPhoneViewController: UIViewController {
         getOTP()
     }
 
+    override func viewWillAppear(_ animated: Bool) {
+        print("VC ECLogin - ConfirmPhoneVC")
+    }
     
     override func viewWillDisappear(_ animated: Bool) {
         

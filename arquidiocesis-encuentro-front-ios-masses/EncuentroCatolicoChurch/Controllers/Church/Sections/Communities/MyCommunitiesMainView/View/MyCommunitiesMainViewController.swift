@@ -52,6 +52,7 @@ class MyCommunitiesMainViewController: UIViewController, MyCommunitiesMainViewPr
         setupLocation()
     }
     override func viewWillAppear(_ animated: Bool) {
+        print("VC ECChurch - MyCommunitiesMV- MyCommunitiesVC")
         presenter?.getCommunitiesData(id: id)
         self.showLoading()
     }

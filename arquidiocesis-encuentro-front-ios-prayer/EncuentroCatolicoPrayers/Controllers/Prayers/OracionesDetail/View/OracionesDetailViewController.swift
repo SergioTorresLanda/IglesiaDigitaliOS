@@ -53,6 +53,11 @@ class OracionesDetailViewController: UIViewController {
 //        })
     }
     
+    override func viewWillAppear(_ animated: Bool) {
+        print("VC ECPrayers -OracionesDetail- OracionesDetailVC ")
+
+    }
+    
     private var datasource: DetailViewModel?
     
     private func initUI() {

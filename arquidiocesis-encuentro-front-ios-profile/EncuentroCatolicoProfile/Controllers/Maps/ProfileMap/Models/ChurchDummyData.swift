@@ -17,7 +17,7 @@ class DummyData {
     
     func getChurchesData(completion: @escaping (Array<LocationResponse>) -> Void) {
         if churches.isEmpty {
-            
+            print("Churches empty")
 //            completion(Church.getDummyChurches())
             
             RequestManager.shared.perform(route: LocationRouter.location) {
@@ -26,12 +26,16 @@ class DummyData {
                 switch result {
                 case .success(let response):
                     self?.churches = response
+                    print("Churches SUCCESS: ")
+                    print(response)
                     completion(response)
                 case .failure:
+                    print("Churches FAIL: ")
                     completion(Array())
                 }
             }
         } else {
+            print("Churches NOT empty")
             completion(churches)
         }
     }

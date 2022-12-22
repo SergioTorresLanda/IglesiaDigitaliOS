@@ -37,6 +37,10 @@ public class NotificationsModalViewController: UIViewController, NotificationsMo
         setUpView()
     }
     
+    public override func viewWillAppear(_ animated: Bool) {
+        print("VC ECNews - NotificationsModalVC ")
+    }
+    
     //MARK: - Methods
     private func setUpView() {
         viewPanIndicator.setCorner(cornerRadius: 2)

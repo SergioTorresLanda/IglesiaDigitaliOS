@@ -26,6 +26,11 @@ class HomeServiceViewController: BaseViewController,HomeServiceViewProtocol, UIT
         
     }
     
+    override func viewWillAppear(_ animated: Bool) {
+        print("VC ECServices - HomeServiceVC ")
+
+    }
+    
     private func setImage() {
         if #available(iOS 13.0, *) {
             imageDat = [

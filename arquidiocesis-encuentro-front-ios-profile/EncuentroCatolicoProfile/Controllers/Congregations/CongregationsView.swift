@@ -42,6 +42,11 @@ class CongregationsView: UIViewController, CongregationsViewProtocol {
 
     }
     
+    override func viewWillAppear(_ animated: Bool) {
+        print("VC ECProfile - congregationsView ")
+
+    }
+    
     private func setupUI() {
         contentCard.layer.cornerRadius = 6
         contentCard.clipsToBounds = true

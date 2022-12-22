@@ -57,6 +57,10 @@ class DonativoView: UIViewController {
         txtTarjeta.delegate = self
     }
     
+    override func viewWillAppear(_ animated: Bool) {
+        print("VC ECDonations - Donativo")
+    }
+    
     private func cambioTextos() {
         txtTitular.addTarget(self, action: #selector(textFieldDidChangeTitular(textField:)), for: .editingChanged)
         txtTarjeta.addTarget(self, action: #selector(textFieldDidChangeTarjeta(textField:)), for: .editingChanged)

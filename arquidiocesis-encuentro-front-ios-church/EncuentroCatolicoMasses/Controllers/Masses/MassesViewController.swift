@@ -18,5 +18,9 @@ class MassesViewController: UIViewController, MassesViewProtocol {
         super.viewDidLoad()
         
     }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        print("VC ECMasses")
+    }
 
 }

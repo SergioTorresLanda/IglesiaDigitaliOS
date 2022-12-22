@@ -177,6 +177,7 @@ class CommunitiesMainViewController: UIViewController, CommunitiesMainViewProtoc
     // MARK: LIFE CYCLE VIEW FUNCTIONS -
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(true)
+        print("VC ECChurch - CommunitiesMV- CommunitiesVC")
         //        self.addCommunitiesCollectionView.addObserver(self, forKeyPath: "contentSize", options: NSKeyValueObservingOptions.old, context: nil)
         activityEditNew.removeAll()
         activityFinishNew.removeAll()
