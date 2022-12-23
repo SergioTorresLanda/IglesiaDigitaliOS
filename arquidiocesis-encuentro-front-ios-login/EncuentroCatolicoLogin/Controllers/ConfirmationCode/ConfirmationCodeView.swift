@@ -23,7 +23,6 @@ class ConfirmationCodeView: UIViewController, ConfirmationCodeViewProtocol {
     var mensaje = ""
     var alertFields : AcceptAlert? //= AcceptAlert.showAlert(titulo: "Atención", mensaje: "")
     let alertSuccess = UIAlertController(title: "", message: "Tu contraseña se cambio con éxito", preferredStyle: .alert)
-//    let alertError = UIAlertController(title: "", message: "Datos incorrectos, intente de nuevo", preferredStyle: .alert)
     
     let alertSuccessResend = UIAlertController(title: "", message: "Se envío un código a tu número de telefono, por favor verifica tu bandeja de mensajes", preferredStyle: .alert)
     let alertLoader = UIAlertController(title: "", message: "\n \n \n \n \nCargando...", preferredStyle: .alert)

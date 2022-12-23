@@ -3,6 +3,8 @@ import UIKit
 import EncuentroCatolicoHome
 import EncuentroCatolicoProfile
 import AuthenticationServices
+import EncuentroCatolicoVirtualLibrary
+import EncuentroCatolicoUtils
 
 class LoginView: UIViewController {
     
@@ -38,7 +40,8 @@ class LoginView: UIViewController {
     var version: Double = 0.0
     var biometricButton: Bool = UserDefaults.standard.bool(forKey: "biometricEnable")
     let loadingAlert = UIAlertController(title: "", message: "\n \n \n \n \nCargando...", preferredStyle: .alert)
-    
+    var alertFields : AcceptAlert? //= AcceptAlert.showAlert(titulo: "Atención", mensaje: "")
+
     //    // MARK: Lifecycle
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -249,6 +252,7 @@ class LoginView: UIViewController {
         
         guard userValue != "",
               drws != ""   else {
+            print("CONDICION 1 ELSE")
             btnBiometric.isHidden = true
             btnRegistar.backgroundColor = UIColor.init(red: 17/255, green: 33/255, blue: 129/255, alpha: 1)
             btnRegistar.setTitleColor(UIColor.white, for: UIControl.State())
@@ -262,6 +266,7 @@ class LoginView: UIViewController {
         }
         
         biometric.canEvaluate { (canEvaluate, typeBio, canEvaluateError) in
+            print("CONDICION 2 ELSE")
             switch typeBio {
             case .none, .unknown:
                 btnBiometric.isHidden = true
@@ -273,25 +278,20 @@ class LoginView: UIViewController {
                 btnLogIn.setTitleColor(UIColor.init(red: 17/255, green: 33/255, blue: 129/255, alpha: 1), for: UIControl.State())
                 btnLogIn.layer.borderWidth = 1
                 btnLogIn.layer.borderColor = UIColor(red: 25/255, green: 42/255, blue: 115/255, alpha: 1).cgColor
+                print("CONDICION 2.1 ELSE")
                 return
             case .touchID, .faceID:
                 break
             }
             
-            guard canEvaluate else {
+            if canEvaluate {
+                btnBiometric.isHidden = false
+            }else {
+                print("CONDICION 2 ELSE")
                 btnBiometric.isHidden = true
-                btnRegistar.backgroundColor = UIColor.init(red: 17/255, green: 33/255, blue: 129/255, alpha: 1)
-                btnRegistar.setTitleColor(UIColor.white, for: UIControl.State())
-                
-               
-                btnLogIn.backgroundColor = UIColor.clear
-                btnLogIn.setTitleColor(UIColor.init(red: 17/255, green: 33/255, blue: 129/255, alpha: 1), for: UIControl.State())
-                btnLogIn.layer.borderWidth = 1
-                btnLogIn.layer.borderColor = UIColor(red: 25/255, green: 42/255, blue: 115/255, alpha: 1).cgColor
-                return
             }
         
-            btnBiometric.isHidden = false
+            //pinta botones login
             btnLogIn.backgroundColor = UIColor.init(red: 17/255, green: 33/255, blue: 129/255, alpha: 1)
             btnLogIn.setTitleColor(UIColor.white, for: UIControl.State())
            
@@ -403,9 +403,10 @@ extension LoginView: LoginViewProtocol {
             self.btnRegistar.isEnabled = true
             self.spinner.stopAnimating()
             self.spinner.isHidden = true
-            let alerta = UIAlertController(title: dtcAlerta["titulo"], message: dtcAlerta["cuerpo"], preferredStyle: .alert)
-            alerta.addAction(UIAlertAction(title: "Aceptar", style: .default, handler: nil))
-            self.present(alerta, animated: true, completion: nil)
+           
+            self.alertFields = AcceptAlert.showAlert(titulo: dtcAlerta["titulo"]!, mensaje: dtcAlerta["cuerpo"]!)
+            self.alertFields!.view.backgroundColor = .clear
+            self.present(self.alertFields!, animated: true)
         })
     }
     func retryRegister(dtcAlerta: [String : String]) {

@@ -91,7 +91,7 @@ class ProfileInfoView: UIViewController {
     var arrayIsActive = [false, false, false]
     var serviceProvider = "Unspecified"
     var nameService = [String]()
-    
+    var alertFields : AcceptAlert?
     
     static let singleton = ProfileInfoView()
     
@@ -269,7 +269,7 @@ class ProfileInfoView: UIViewController {
     @IBAction func actionBtnDelete(_ sender: UIButton) {
         let correo = fieldsCollection[4].text ?? ""
         guard correo.isValidEmailSP() else{
-            showCanonAlert(text: "Favor de validar su correo y guardar cambios.")
+            showCanonAlert(title: "Atención", msg: "Favor de validar su correo y guardar cambios.")
             //showAlert(str: "Favor de validar su correo y guardar cambios.")
             return
         }
@@ -308,8 +308,7 @@ class ProfileInfoView: UIViewController {
                 alert.addAction(cancelAction)
                 self.present(alert, animated: true)
             }else {
-                self.showCanonAlert(text: "No fue posible eliminar tu cuenta, intente más tarde.")
-                //self.showAlert(str: "No fue posible eliminar tu cuenta, intente más tarde.")
+                self.showCanonAlert(title:"Error", msg: "No fue posible eliminar tu cuenta, intenta más tarde.")
             }
         }
     }
@@ -855,7 +854,7 @@ class ProfileInfoView: UIViewController {
          //   print(registerDiacono, fieldsCollection[6].text)
             if fieldsCollection[6].text == "" {
                 hideLoading()
-                showCanonAlert(text: "Selecciona una iglesia")
+                showCanonAlert(title:"Error", msg: "Selecciona una iglesia")
             }else{
                 presenter?.postDiacono(request: registerDiacono)
             }
@@ -869,7 +868,7 @@ class ProfileInfoView: UIViewController {
             break
             
         default:
-            showCanonAlert(text: "Llena correctamente los datos")
+            showCanonAlert(title:"Error", msg: "Llena correctamente los datos")
         }
     }
     
@@ -877,29 +876,32 @@ class ProfileInfoView: UIViewController {
         alertView.isHidden=true
     }
     
-    func showCanonAlert(text:String){
-        alertView.isHidden=false
-        alertTitle.text=text
+    func showCanonAlert(title:String, msg:String){
+        alertFields = AcceptAlert.showAlert(titulo: title, mensaje: msg)
+        alertFields!.view.backgroundColor = .clear
+        present(self.alertFields!, animated: true)
+        //alertView.isHidden=false
+        //alertTitle.text=text
     }
     
     func successLaicoReligioso() {
         hideLoading()
-        showCanonAlert(text: "Datos guardados exitosamente")
+        showCanonAlert(title:"Éxito", msg: "Datos guardados correctamente")
     }
     
     func failLaicoReligioso() {
         hideLoading()
-        showCanonAlert(text: "Hubo un error, póngase en contacto con el administrador")
+        showCanonAlert(title:"Error",msg: "Hubo un error, póngase en contacto con el administrador")
     }
     
     func successDiacano() {
         hideLoading()
-        showCanonAlert(text: "Datos guardados exitosamente")
+        showCanonAlert(title:"Éxito", msg: "Datos guardados correctamente")
     }
     
     func failDiacano() {
         hideLoading()
-        showCanonAlert(text: "Hubo un error, póngase en contacto con el administrador")
+        showCanonAlert(title:"Error", msg: "Hubo un error, póngase en contacto con el administrador")
     }
     
     private func selectTopicLogic() {
@@ -928,7 +930,7 @@ class ProfileInfoView: UIViewController {
         }
         let ids = nameTopics.map({$0})
         if ids.contains(name) {
-            showCanonAlert(text: "La actividad ya se encuetra agregada")
+            showCanonAlert(title:"Atención", msg: "La actividad ya se encuetra agregada")
         }else{
             let topic1 = Topics(id: topicId)
             nameTopics.append(name)
@@ -1300,7 +1302,7 @@ class ProfileInfoView: UIViewController {
             
             break
         default:
-            showCanonAlert(text: "Llena correctamente los datos")
+            showCanonAlert(title:"Error",msg: "Llena correctamente los datos")
         }
     }
     

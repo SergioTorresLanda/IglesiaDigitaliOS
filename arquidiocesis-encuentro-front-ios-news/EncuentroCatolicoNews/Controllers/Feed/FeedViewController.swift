@@ -131,13 +131,10 @@ public class FeedViewController: UIViewController, FeedViewProtocol, FeedViewCon
         tableView.setContentOffset(.zero, animated: true)
     }
     
-    
-    
-    
     @objc func refresh(_ sender: UIRefreshControl) {
         storedData.skip = 0
         presenter?.getNewPosts(isFromPage: false, isRefresh: true) //--> Nuevo
-//        presenter?.getPosts(isFromPage: false) //--> se comenta
+        //presenter?.getPosts(isFromPage: false) //--> se comenta
         shimmer.startLoader(view: self.view, rows: [75, 200, 100, 200
                                                     , 220])
     }

@@ -75,22 +75,22 @@ extension LoginPresenter: LoginInteractorOutputProtocol {
                     
                 })
             case .DatosVacios:
-                let msg = ["titulo": "Atención", "cuerpo": "Debes llenar todos los campos"]
+                let msg = ["titulo": "Atención", "cuerpo": "Debes llenar todos los campos."]
                 self.view?.mostrarMSG(dtcAlerta: msg)
             case .CelDigitos:
-                let msg = ["titulo": "Atención", "cuerpo": "El celular es a 10 digitos"]
+                let msg = ["titulo": "Atención", "cuerpo": "El celular es a 10 dígitos."]
                 self.view?.mostrarMSG(dtcAlerta: msg)
             case .EmailIncorrecto:
-                let msg = ["titulo": "Atención", "cuerpo": "Favor de validar el email"]
+                let msg = ["titulo": "Atención", "cuerpo": "El usuario ingresado no existe, por favor verifíquelo."]
                 self.view?.mostrarMSG(dtcAlerta: msg)
             case .usuarioPasswordIncorrecto:
-                let msg = ["titulo": "Atención", "cuerpo": "El usuario y/o contraseña son incorrectos"]
+                let msg = ["titulo": "Atención", "cuerpo": "La contraseña ingresada es incorrecta, por favor verifíquela."]
                 self.view?.mostrarMSG(dtcAlerta: msg)
             case .ErrorServidor:
-                let msg = ["titulo":"Error", "cuerpo": LoginPresenter.strError]
+                let msg = ["titulo":"Atención", "cuerpo": "El usuario ingresado no existe, por favor verifíquelo."]//LoginPresenter.strError]
                 self.view?.mostrarMSG(dtcAlerta: msg)
             case .usuarioNoExiste:
-                let msg = ["titulo":"Aviso", "cuerpo": "Te invitamos a terminar el registro, por favor solicita un código de acceso"]
+                let msg = ["titulo":"Atención", "cuerpo": "Te invitamos a terminar el registro, por favor solicita un código de acceso."]
                 self.view?.retryRegister(dtcAlerta: msg)
             }
         }

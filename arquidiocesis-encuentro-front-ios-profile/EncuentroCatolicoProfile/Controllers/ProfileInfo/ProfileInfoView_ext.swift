@@ -682,7 +682,7 @@ extension ProfileInfoView: ProfileInfoViewProtocol {
     
     func showError(error: String) {
         hideLoading()
-        showCanonAlert(text: error)
+        showCanonAlert(title:"Error", msg: error)
     }
     
     func showRegisterResponse(response: RegisterPriestResponse) {
@@ -1058,7 +1058,7 @@ extension ProfileInfoView {
     
     func failGetDataProfile() {
         hideLoading()
-        showCanonAlert(text: "Error obteniendo tus datos, contacta al administrador.")
+        showCanonAlert(title:"Error",msg: "Error obteniendo tus datos, contacta al administrador.")
     }
     
 }
