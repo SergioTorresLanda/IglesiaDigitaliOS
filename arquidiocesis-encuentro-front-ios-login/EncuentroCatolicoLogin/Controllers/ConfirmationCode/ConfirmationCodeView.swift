@@ -66,6 +66,9 @@ class ConfirmationCodeView: UIViewController, ConfirmationCodeViewProtocol {
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        self.lblDescTimer.text = "No podrás solicitar otro código \n hasta pasando tres minutos"
+        eyeCollectionIcons[0].tintColor = .gray
+        eyeCollectionIcons[1].tintColor = .gray
         if emailUser.contains("@") == true {
             presenter?.requestUserInfo(email: emailUser)
         }else{
