@@ -635,7 +635,7 @@ extension ProfileInfoView: ProfileInfoViewProtocol {
             }
             
         }
-        print("(((", codesLifeStatus)
+        print("CODE LIFE STATUS: ", codesLifeStatus)
         createPicker(texfield: lifeStateTextField, tag: 1, with: #selector(didSelectLifeState))
     }
     
@@ -681,7 +681,7 @@ extension ProfileInfoView: ProfileInfoViewProtocol {
     }
     
     func showError(error: String) {
-        hideLoading()
+        print("SHOW Error")
         showCanonAlert(title:"Error", msg: error)
     }
     
@@ -1057,7 +1057,6 @@ extension ProfileInfoView {
     }
     
     func failGetDataProfile() {
-        hideLoading()
         showCanonAlert(title:"Error",msg: "Error obteniendo tus datos, contacta al administrador.")
     }
     

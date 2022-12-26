@@ -52,6 +52,7 @@ class ProfileInfoView: UIViewController {
     @IBOutlet weak var alertView: UIView!
     @IBOutlet weak var alertTitle: UILabel!
     @IBOutlet weak var alertBtn: UIButton!
+    @IBOutlet weak var alertText: UILabel!
     
     
     static let sinleton = ProfileInfoView()
@@ -215,11 +216,13 @@ class ProfileInfoView: UIViewController {
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         print("VC ECProfile - ProfileInfoVC ")
-        
         //reset lists
         topicsList=[]
         arrayDictionariesTopics=[]
         nameTopics=[]
+        lifeStyleList=[]
+        codesLifeStatus=[]
+        
         showLoading()
         //DispatchQueue.main.asyncAfter(deadline: .now() + 2, execute: {
             //self.hideLoading()
@@ -829,6 +832,11 @@ class ProfileInfoView: UIViewController {
             print("::::::::SERVICE PROVIDER::::: "+serviceProvider)
             switch serviceProvider {
             case "CHURCH":
+                
+                if(services.isEmpty){
+                    showCanonAlert(title: "Atención", msg: "Selecciona la iglesia a la que prestas el servicio.")
+                    return
+                }
                 registerNewLaico = ProfileState(username: fieldsCollection[4].text ?? "", id: idGlobal, name: fieldsCollection[0].text ?? "", first_surname: fieldsCollection[1].text ?? "", second_surname: fieldsCollection[2].text ?? "", phone_number: fieldsCollection[3].text ?? "", email: fieldsCollection[4].text ?? "", service_provider: serviceProvider, location_id: idChurchLaico, is_admin: false, life_status: life, interest_topics: topicArray, services_provided: services)
                 
             case "COMMUNITY":
@@ -853,8 +861,7 @@ class ProfileInfoView: UIViewController {
             }
          //   print(registerDiacono, fieldsCollection[6].text)
             if fieldsCollection[6].text == "" {
-                hideLoading()
-                showCanonAlert(title:"Error", msg: "Selecciona una iglesia")
+                showCanonAlert(title:"Error", msg: "Selecciona una iglesia.")
             }else{
                 presenter?.postDiacono(request: registerDiacono)
             }
@@ -868,7 +875,7 @@ class ProfileInfoView: UIViewController {
             break
             
         default:
-            showCanonAlert(title:"Error", msg: "Llena correctamente los datos")
+            showCanonAlert(title:"Error", msg: "Llena correctamente los datos.")
         }
     }
     
@@ -877,31 +884,34 @@ class ProfileInfoView: UIViewController {
     }
     
     func showCanonAlert(title:String, msg:String){
-        alertFields = AcceptAlert.showAlert(titulo: title, mensaje: msg)
-        alertFields!.view.backgroundColor = .clear
-        present(self.alertFields!, animated: true)
+        hideLoading()
+        print("SHOW CANON ALERT")
+        print(msg)
+        DispatchQueue.main.asyncAfter(deadline: .now() + 0.5, execute: {
+            self.alertFields = AcceptAlert.showAlert(titulo: title, mensaje: msg)
+            self.alertFields!.view.backgroundColor = .clear
+            self.present(self.alertFields!, animated: true)
+         })
         //alertView.isHidden=false
-        //alertTitle.text=text
+        //alertTitle.text=title
+        //alertText.text=msg
+        
     }
     
     func successLaicoReligioso() {
-        hideLoading()
-        showCanonAlert(title:"Éxito", msg: "Datos guardados correctamente")
+        showCanonAlert(title:"Éxito", msg: "Datos guardados correctamente.")
     }
     
     func failLaicoReligioso() {
-        hideLoading()
-        showCanonAlert(title:"Error",msg: "Hubo un error, póngase en contacto con el administrador")
+        showCanonAlert(title:"Error",msg: "Hubo un error, póngase en contacto con el administrador.")
     }
     
     func successDiacano() {
-        hideLoading()
-        showCanonAlert(title:"Éxito", msg: "Datos guardados correctamente")
+        showCanonAlert(title:"Éxito", msg: "Datos guardados correctamente.")
     }
     
     func failDiacano() {
-        hideLoading()
-        showCanonAlert(title:"Error", msg: "Hubo un error, póngase en contacto con el administrador")
+        showCanonAlert(title:"Error", msg: "Hubo un error, póngase en contacto con el administrador.")
     }
     
     private func selectTopicLogic() {
@@ -930,7 +940,7 @@ class ProfileInfoView: UIViewController {
         }
         let ids = nameTopics.map({$0})
         if ids.contains(name) {
-            showCanonAlert(title:"Atención", msg: "La actividad ya se encuetra agregada")
+            showCanonAlert(title:"Atención", msg: "La actividad ya se encuetra agregada.")
         }else{
             let topic1 = Topics(id: topicId)
             nameTopics.append(name)
@@ -1268,7 +1278,7 @@ class ProfileInfoView: UIViewController {
             stateId = 3
         case "Laico":
             stateId = 4
-        case "Religioso":
+        case "Religioso (a)":
             stateId = 5
         case "Díacono(Transitorio o permanente)":
             stateId = 6
@@ -1284,7 +1294,7 @@ class ProfileInfoView: UIViewController {
         case "Sacerdote":
             let view = ProfileInfoRouter.createModuleTwo()
             navigationController?.pushViewController(view, animated: true)
-        case "Díacono(Transitorio o permanente)", "Religioso":
+        case "Díacono(Transitorio o permanente)", "Religioso (a)":
             let registerDiacono: ProfileDiacono = ProfileDiacono(username: fieldsCollection[4].text ?? "", id: idGlobal, name: fieldsCollection[0].text ?? "", first_surname: fieldsCollection[1].text ?? "", second_surname: fieldsCollection[2].text ?? "", phone_number: fieldsCollection[3].text ?? "" , email: fieldsCollection[4].text ?? "", life_status: life, interest_topics: topicArray , locations: loca)
             print(registerDiacono)
            // presenter?.postDiacono(request: registerDiacono)
@@ -1302,7 +1312,7 @@ class ProfileInfoView: UIViewController {
             
             break
         default:
-            showCanonAlert(title:"Error",msg: "Llena correctamente los datos")
+            showCanonAlert(title:"Error",msg: "Llena correctamente los datos.")
         }
     }
     
@@ -1390,13 +1400,10 @@ class ProfileInfoView: UIViewController {
         radioButtonNo.topAnchor(equalTo: lifeStateTextField.bottomAnchor, constant: 35)
         radioButtonNo.leadingAnchor(equalTo: radioButtonYes.trailingAnchor, constant: 50)
         
-        
         topicCollectionView.topAnchor(equalTo: topicsTextField.bottomAnchor, constant: 25)
         topicCollectionView.heightAnchor(equalTo: 140)
         topicCollectionView.widthAnchor(equalTo: 355)
         topicCollectionView.trailingAnchor(equalTo: containerView.trailingAnchor, constant: -20)
-        
-        
         
         saveButton.topAnchor(equalTo: topicCollectionView.bottomAnchor, constant: 25)
         saveButton.heightAnchor(equalTo: 48)
@@ -1423,7 +1430,6 @@ class ProfileInfoView: UIViewController {
         profileUserInfoView.view.leadingAnchor(equalTo: containerView.leadingAnchor, constant: 20)
         profileUserInfoView.view.trailingAnchor(equalTo: containerView.trailingAnchor, constant: 20)
         
-
         topicCollectionView.topAnchor(equalTo: topicsTextField.bottomAnchor, constant: 25)
         topicCollectionView.heightAnchor(equalTo: 140)
         topicCollectionView.widthAnchor(equalTo: 355)
