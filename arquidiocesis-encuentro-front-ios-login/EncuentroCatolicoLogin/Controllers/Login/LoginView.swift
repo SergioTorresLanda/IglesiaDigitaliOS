@@ -197,7 +197,7 @@ class LoginView: UIViewController {
         btnRegistar.layer.borderColor = UIColor(red: 25/255, green: 42/255, blue: 115/255, alpha: 1).cgColor
         
         btnForgot.underlineButtonsWithFont(sizeFont: 13, textColor: colorBlue, text: "Olvidé contraseña", font: "SEMI")
-        btnBiometric.underlineButtonsWithFont(sizeFont: 13, textColor: colorBlue, text: "inicio de sesión biométrica", font: "SEMI")
+        btnBiometric.underlineButtonsWithFont(sizeFont: 13, textColor: colorBlue, text: "Inicio de sesión biométrico", font: "SEMI")
         btnTerms.underlineButtons(sizeFont: 11, textColor: colorBlue, text: "Términos y condiciones")
         btnPolicity.underlineButtons(sizeFont: 11, textColor: colorBlue, text: "Política de privacidad")
         btnEtich.underlineButtons(sizeFont: 11, textColor: colorBlue, text: "Código de ética")

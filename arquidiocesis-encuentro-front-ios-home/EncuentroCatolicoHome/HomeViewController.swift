@@ -691,11 +691,6 @@ class HomeViewController: UIViewController, HomeViewProtocol, UITextFieldDelegat
     
     @objc func notifyTap(_ sender: UITapGestureRecognizer){
         print("PERFIL CLICKKKKKK")
-        //let tabBar = TabNavigationMenu(frame: <#CGRect#>)
-        //tabBar?.tabBar.selectedItem = 2
-        //tabBar?.customTabBar.selectedIndex=2
-        //self.tabBarController?.selectedIndex = 2
-       // tabBar?.selectedIndex=2
         NotificationCenter.default.post(name: Notification.Name("handleSuperTap"), object: nil)
         let view = ProfileInfoRouter.createModule()
         self.navigationController?.pushViewController(view, animated: true)

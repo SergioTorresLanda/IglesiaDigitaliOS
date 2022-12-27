@@ -39,22 +39,18 @@ class ConfirmationCodeInteractor: ConfirmationCodeInteractorProtocol {
                 presenter?.getStatusPost()
                 guard let allData = data else { return }
                 do {
-                    
                     let resp = try JSONSerialization.jsonObject(with: allData, options: .allowFragments)
                     // let contentResponse : [PModelSOS] = try JSONDecoder().decode([PModelSOS].self, from: data!)
                     print(resp)
-                    
                 }catch{
                     APIType.shared.refreshToken()
                     print("error", error.localizedDescription)
                 }
-                
             } else if (response as! HTTPURLResponse).statusCode == 401 {
                 APIType.shared.refreshToken()
                 presenter?.getErrorPost()
                 print("Error al llamar ep", (response as! HTTPURLResponse).statusCode)
-            }
-            else {
+            }else{
                 APIType.shared.refreshToken()
                 presenter?.getErrorPost()
                 print("Error al llamar ep", (response as! HTTPURLResponse).statusCode)

@@ -473,20 +473,20 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="iy2-xM-V9w">
-                                <rect key="frame" x="0.0" y="168" width="414" height="648"/>
+                                <rect key="frame" x="10" y="168" width="394" height="648"/>
                                 <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
-                                <collectionViewFlowLayout key="collectionViewLayout" minimumLineSpacing="10" minimumInteritemSpacing="10" id="RVI-BC-pMl">
-                                    <size key="itemSize" width="128" height="128"/>
+                                <collectionViewFlowLayout key="collectionViewLayout" automaticEstimatedItemSize="YES" minimumLineSpacing="10" minimumInteritemSpacing="10" id="RVI-BC-pMl">
+                                    <size key="itemSize" width="0.0" height="0.0"/>
                                     <size key="headerReferenceSize" width="0.0" height="0.0"/>
                                     <size key="footerReferenceSize" width="0.0" height="0.0"/>
                                     <inset key="sectionInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
                                 </collectionViewFlowLayout>
                                 <cells>
                                     <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" id="2VP-WZ-lVC">
-                                        <rect key="frame" x="0.0" y="0.0" width="128" height="128"/>
+                                        <rect key="frame" x="0.0" y="0.0" width="0.0" height="128"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                        <collectionViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" id="1m8-QL-md0">
-                                            <rect key="frame" x="0.0" y="0.0" width="128" height="128"/>
+                                        <collectionViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" ambiguous="YES" insetsLayoutMarginsFromSafeArea="NO" id="1m8-QL-md0">
+                                            <rect key="frame" x="0.0" y="0.0" width="0.0" height="128"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                         </collectionViewCellContentView>
                                     </collectionViewCell>
@@ -605,11 +605,11 @@
                         <viewLayoutGuide key="safeArea" id="psM-Bf-3ED"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
+                            <constraint firstItem="iy2-xM-V9w" firstAttribute="leading" secondItem="psM-Bf-3ED" secondAttribute="leading" constant="10" id="6SH-LM-j9c"/>
                             <constraint firstItem="QE7-fX-75z" firstAttribute="top" secondItem="ZTi-ex-NFt" secondAttribute="bottom" constant="20" id="Clg-1a-qwg"/>
                             <constraint firstAttribute="bottom" secondItem="iy2-xM-V9w" secondAttribute="bottom" constant="80" id="M0v-uT-qjc"/>
                             <constraint firstItem="iy2-xM-V9w" firstAttribute="top" secondItem="QE7-fX-75z" secondAttribute="bottom" id="M9h-wj-lkI"/>
-                            <constraint firstItem="psM-Bf-3ED" firstAttribute="trailing" secondItem="iy2-xM-V9w" secondAttribute="trailing" id="ZpY-xy-zOz"/>
-                            <constraint firstItem="iy2-xM-V9w" firstAttribute="leading" secondItem="psM-Bf-3ED" secondAttribute="leading" id="awb-2m-bha"/>
+                            <constraint firstItem="psM-Bf-3ED" firstAttribute="trailing" secondItem="iy2-xM-V9w" secondAttribute="trailing" constant="10" id="PNU-Tt-5af"/>
                             <constraint firstItem="QE7-fX-75z" firstAttribute="leading" secondItem="psM-Bf-3ED" secondAttribute="leading" id="fWR-kk-lcN"/>
                             <constraint firstItem="ZTi-ex-NFt" firstAttribute="top" secondItem="QPr-gK-CP6" secondAttribute="top" constant="-20" id="jwJ-If-VoO"/>
                             <constraint firstItem="psM-Bf-3ED" firstAttribute="trailing" secondItem="ZTi-ex-NFt" secondAttribute="trailing" constant="-20" id="lec-fS-XBh"/>
@@ -636,9 +636,9 @@
         <image name="Icono_encuentro" width="23" height="30"/>
         <image name="Pluse" width="14" height="14"/>
         <image name="back" width="125" height="202"/>
-        <image name="multiply" catalog="system" width="128" height="111"/>
+        <image name="multiply" catalog="system" width="32" height="32"/>
         <image name="profileIcon" width="379" height="524"/>
-        <image name="xmark.circle.fill" catalog="system" width="128" height="121"/>
+        <image name="xmark.circle.fill" catalog="system" width="32" height="32"/>
         <namedColor name="AccentColor">
             <color red="0.0" green="0.46000000000000002" blue="0.89000000000000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </namedColor>

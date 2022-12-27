@@ -438,24 +438,27 @@ extension prayerChain:  UICollectionViewDelegate, UICollectionViewDataSource, UI
                 //                cell.reactionImage.image = UIImage(named: "orar", in: Bundle.local, compatibleWith: nil)
                 //    cell.reactionImage2.image = UIImage(named: "Icono_manos", in: Bundle.local, compatibleWith: nil)
                 
-                if Int(prayer.people) == 1 {
-                    //Reaccion solo mia
+                if persons == 1 {//Reaccion solo mia
                     cell.prayLabel.text = "" + String(Int(prayer.people)! ) + " persona orando"
-                } else {
-                    //Reaccion no solo mia o no hay
+                    cell.reactionImage.image = handsOn
+                } else if persons == 0 {//NO hay
                     cell.prayLabel.text = "" + String(Int(prayer.people)!) + " personas orando"
+                    cell.reactionImage.image = handsOff
+                }else{//Reaccion mia y mas
+                    cell.prayLabel.text = "" + String(Int(prayer.people)!) + " personas orando"
+                    cell.reactionImage.image = handsOn
                 }
                 
             }else{
+                cell.reactionImage.image = handsOff
                 
                 //                cell.prayLabel.textColor = UIColor.lightGray
                 //                cell.lblStatus.textColor = UIColor.lightGray
                 //                cell.reactionImage.image = UIImage(named: "reactionG", in: Bundle.local, compatibleWith: nil)
                 //                cell.reactionImage2.image = UIImage(named: "reactionG", in: Bundle.local, compatibleWith: nil)
-                if  persons > 1 {
-                    cell.prayLabel.text = "" + String(Int(prayer.people)!) + " personas orando"
-                }
-                else {
+                if  persons == 1 {
+                    cell.prayLabel.text = "" + String(Int(prayer.people)!) + " persona orando"
+                }else{
                     cell.prayLabel.text = "" + String(Int(prayer.people)!) + " personas orando"
                 }
                 
