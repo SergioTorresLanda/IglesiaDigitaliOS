@@ -511,7 +511,8 @@ class HomeViewController: UIViewController, HomeViewProtocol, UITextFieldDelegat
                     if #available(iOS 13.0, *) {
                         //view.isModalInPresentation = true // available in IOS13
                     }
-                    self.present(view, animated: true, completion: nil)
+//                    self.present(view, animated: true, completion: nil)
+                    self.navigationController?.pushViewController(view, animated: true)
                 }else{
                     let singleton = HomeViewController.singleton
                     singleton.isFromPrayModal = "OTHER"

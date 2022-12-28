@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="20037" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="dG2-hI-yq3">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="19529" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="dG2-hI-yq3">
     <device id="retina4_0" orientation="portrait" appearance="light"/>
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="20020"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="19519"/>
         <capability name="Named colors" minToolsVersion="9.0"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="System colors in document resources" minToolsVersion="11.0"/>
@@ -290,7 +290,7 @@
                                 <viewLayoutGuide key="frameLayoutGuide" id="YWg-DN-Hcd"/>
                             </scrollView>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="1gq-S7-hMQ">
-                                <rect key="frame" x="160" y="513" width="144" height="37"/>
+                                <rect key="frame" x="160" y="461" width="144" height="37"/>
                                 <color key="backgroundColor" name="eMainBlue"/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="144" id="5Kj-2s-tbG"/>
@@ -316,7 +316,7 @@
                             <constraint firstItem="cbI-We-N0j" firstAttribute="trailing" secondItem="mmb-vq-o7n" secondAttribute="trailing" id="HlG-eJ-c4f"/>
                             <constraint firstItem="PDM-8t-Qad" firstAttribute="leading" secondItem="mGB-hC-3yV" secondAttribute="leading" id="Krg-xh-doN"/>
                             <constraint firstAttribute="bottom" secondItem="CQX-M0-g8i" secondAttribute="bottom" id="PzI-dk-eKv"/>
-                            <constraint firstItem="mmb-vq-o7n" firstAttribute="bottom" secondItem="1gq-S7-hMQ" secondAttribute="bottom" constant="18" id="SaN-3w-GeU"/>
+                            <constraint firstItem="mmb-vq-o7n" firstAttribute="bottom" secondItem="1gq-S7-hMQ" secondAttribute="bottom" constant="70" id="SaN-3w-GeU"/>
                             <constraint firstItem="cbI-We-N0j" firstAttribute="leading" secondItem="mmb-vq-o7n" secondAttribute="leading" id="TaP-Qa-uMh"/>
                             <constraint firstAttribute="trailing" secondItem="PDM-8t-Qad" secondAttribute="trailing" id="Txy-M8-Uky"/>
                             <constraint firstItem="GpX-SE-Ex5" firstAttribute="leading" secondItem="7eV-U0-YRS" secondAttribute="trailing" constant="14" id="e43-1f-WhB"/>
@@ -628,10 +628,10 @@
     </scenes>
     <resources>
         <image name="back" width="125" height="202"/>
-        <image name="chevron.right" catalog="system" width="32" height="32"/>
+        <image name="chevron.right" catalog="system" width="96" height="128"/>
         <image name="grupo7191" width="393" height="108"/>
         <image name="iconA" width="8" height="13.5"/>
-        <image name="iconoAtrS" width="11" height="18"/>
+        <image name="iconoAtrS" width="8" height="13.5"/>
         <namedColor name="eBlack">
             <color red="0.12156862745098039" green="0.12156862745098039" blue="0.12156862745098039" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </namedColor>
