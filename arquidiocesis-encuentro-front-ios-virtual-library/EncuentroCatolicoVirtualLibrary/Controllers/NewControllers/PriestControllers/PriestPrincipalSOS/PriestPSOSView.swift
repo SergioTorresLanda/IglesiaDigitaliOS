@@ -54,6 +54,8 @@ class PriestPSOSView: UIViewController, PriestPSOSViewProtocol {
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
+        
+        print("EC virtualLibrary - NewControllers - Priest Controllers - PriestPrincipalSOS")
         DispatchQueue.main.asyncAfter(deadline: .now() + 0.5) {
              self.showLoading()
         }

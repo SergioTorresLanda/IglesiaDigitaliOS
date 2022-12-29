@@ -75,6 +75,11 @@ class UncionSOSView: UIViewController, UncionViewProtocol, CollectionCellDelegat
         
     }
     
+    override func viewWillAppear(_ animated: Bool) {
+        print("ECVirualLibrary - NewControllers - UncionSOS - UncionSOS")
+
+    }
+    
 // MARK: UI FUNCTIONS -
     func setupViewALert(){
         let imageView = UIImageView(frame: CGRect(x: 75, y: 25, width: 140, height: 60))

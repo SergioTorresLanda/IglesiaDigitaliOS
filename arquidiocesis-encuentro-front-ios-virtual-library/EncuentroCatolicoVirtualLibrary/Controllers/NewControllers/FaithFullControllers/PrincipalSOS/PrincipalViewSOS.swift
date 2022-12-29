@@ -55,6 +55,11 @@ class PrincipalViewSOS: UIViewController, PrincipalViewProtocol, UIViewControlle
         
     }
     
+    override func viewWillAppear(_ animated: Bool) {
+        print("ECVirualLibrary - NewControllers - PrincipalSOS")
+
+    }
+    
 // MARK: UI FUNCTIONS -
     
     func showLoading(){

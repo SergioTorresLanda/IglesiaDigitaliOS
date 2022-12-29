@@ -62,6 +62,10 @@ class UncionServiceSOSView: UIViewController, UncionServiceViewProtocol {
         
     }
     
+    override func viewWillAppear(_ animated: Bool) {
+        print("ECVirualLibrary - NewControllers - FaithFull - UncionServiceSOS")
+    }
+    
     override func viewDidDisappear(_ animated: Bool) {
         super.viewDidDisappear(animated)
         self.navigationController?.popToRootViewController(animated: true)

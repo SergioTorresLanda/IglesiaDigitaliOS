@@ -953,7 +953,7 @@ de tu servicio/funeraria</string>
                                 <nil key="highlightedColor"/>
                             </label>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="dI3-zS-nZ4">
-                                <rect key="frame" x="20" y="736" width="388" height="46"/>
+                                <rect key="frame" x="20" y="756" width="388" height="46"/>
                                 <color key="backgroundColor" name="eMainGold"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="46" id="vUK-bf-4s9"/>
@@ -967,7 +967,7 @@ de tu servicio/funeraria</string>
                                 </connections>
                             </button>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="none" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="g6R-FG-1fO">
-                                <rect key="frame" x="0.0" y="357" width="428" height="371"/>
+                                <rect key="frame" x="0.0" y="357" width="428" height="391"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <prototypes>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="SOSCELLP" rowHeight="112" id="nKR-0h-tRS" customClass="PrincipalSOSCell" customModule="EncuentroCatolicoVirtualLibrary" customModuleProvider="target">
@@ -1058,7 +1058,7 @@ de tu servicio/funeraria</string>
                             <constraint firstItem="Iuf-SZ-ZzM" firstAttribute="trailing" secondItem="YND-TR-kQT" secondAttribute="trailing" constant="70" id="Mlz-kP-bAR"/>
                             <constraint firstItem="g6R-FG-1fO" firstAttribute="trailing" secondItem="Iuf-SZ-ZzM" secondAttribute="trailing" id="ORK-rK-t36"/>
                             <constraint firstItem="kNQ-fn-AIK" firstAttribute="leading" secondItem="Iuf-SZ-ZzM" secondAttribute="leading" constant="68" id="PZA-Xn-yKC"/>
-                            <constraint firstItem="Iuf-SZ-ZzM" firstAttribute="bottom" secondItem="dI3-zS-nZ4" secondAttribute="bottom" constant="110" id="a1J-Bv-8y0"/>
+                            <constraint firstItem="Iuf-SZ-ZzM" firstAttribute="bottom" secondItem="dI3-zS-nZ4" secondAttribute="bottom" constant="90" id="a1J-Bv-8y0"/>
                             <constraint firstItem="376-pL-c5K" firstAttribute="trailing" secondItem="Iuf-SZ-ZzM" secondAttribute="trailing" id="aXZ-Xq-tFh"/>
                             <constraint firstItem="lYv-qQ-nFb" firstAttribute="centerX" secondItem="bNA-9K-k5X" secondAttribute="centerX" constant="3" id="mKJ-zs-3DI"/>
                             <constraint firstItem="kNQ-fn-AIK" firstAttribute="top" secondItem="YND-TR-kQT" secondAttribute="bottom" constant="7" id="mTu-Vk-g1N"/>
@@ -1130,7 +1130,7 @@ de tu servicio/funeraria</string>
                                 </constraints>
                             </view>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="none" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="beV-1M-kQo">
-                                <rect key="frame" x="0.0" y="160" width="418" height="632"/>
+                                <rect key="frame" x="0.0" y="160" width="418" height="652"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <prototypes>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="CELLPRIEST" rowHeight="114" id="ZZ4-rE-ygH" customClass="PriestPTableCell" customModule="EncuentroCatolicoVirtualLibrary" customModuleProvider="target">
@@ -1227,7 +1227,7 @@ de tu servicio/funeraria</string>
                             <constraint firstItem="aUk-Lv-Gke" firstAttribute="centerX" secondItem="iuT-Km-5WZ" secondAttribute="centerX" constant="-5" id="TwH-V1-cK8"/>
                             <constraint firstItem="beV-1M-kQo" firstAttribute="trailing" secondItem="ciy-4H-wOw" secondAttribute="trailing" constant="-10" id="YGO-FV-4ln"/>
                             <constraint firstItem="aUk-Lv-Gke" firstAttribute="top" secondItem="N3o-y1-kQE" secondAttribute="bottom" constant="25" id="ams-sY-V5k"/>
-                            <constraint firstItem="ciy-4H-wOw" firstAttribute="bottom" secondItem="beV-1M-kQo" secondAttribute="bottom" constant="100" id="fRO-Ho-Ffk"/>
+                            <constraint firstItem="ciy-4H-wOw" firstAttribute="bottom" secondItem="beV-1M-kQo" secondAttribute="bottom" constant="80" id="fRO-Ho-Ffk"/>
                             <constraint firstItem="ciy-4H-wOw" firstAttribute="trailing" secondItem="ygk-Ju-ceb" secondAttribute="trailing" id="heH-5H-Lea"/>
                             <constraint firstItem="beV-1M-kQo" firstAttribute="leading" secondItem="ciy-4H-wOw" secondAttribute="leading" id="sgg-Rg-6aj"/>
                             <constraint firstItem="ygk-Ju-ceb" firstAttribute="leading" secondItem="ciy-4H-wOw" secondAttribute="leading" id="w5v-Sg-H5X"/>
@@ -1323,7 +1323,7 @@ de tu servicio/funeraria</string>
                                 </subviews>
                             </stackView>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="none" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="4I1-qH-0Uj">
-                                <rect key="frame" x="0.0" y="176" width="428" height="626"/>
+                                <rect key="frame" x="0.0" y="176" width="428" height="646"/>
                                 <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                                 <prototypes>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="CELLSOSMAIN" rowHeight="138" id="9Y2-pf-Yv1" customClass="MainTableCell" customModule="EncuentroCatolicoVirtualLibrary" customModuleProvider="target">
@@ -1727,9 +1727,9 @@ de tu servicio/funeraria</string>
                             <constraint firstItem="o85-xB-4Gx" firstAttribute="leading" secondItem="Az2-gr-Agy" secondAttribute="leading" id="2ml-nn-VuW"/>
                             <constraint firstItem="4I1-qH-0Uj" firstAttribute="top" secondItem="VKi-TZ-pRK" secondAttribute="bottom" constant="20" id="4uo-Zp-aQF"/>
                             <constraint firstItem="mfk-IY-QkQ" firstAttribute="top" secondItem="VKi-TZ-pRK" secondAttribute="bottom" constant="10" id="77g-d3-0AK"/>
-                            <constraint firstItem="Az2-gr-Agy" firstAttribute="bottom" secondItem="mfk-IY-QkQ" secondAttribute="bottom" constant="95" id="7bh-Kt-GSY"/>
+                            <constraint firstItem="Az2-gr-Agy" firstAttribute="bottom" secondItem="mfk-IY-QkQ" secondAttribute="bottom" constant="75" id="7bh-Kt-GSY"/>
                             <constraint firstItem="Az2-gr-Agy" firstAttribute="trailing" secondItem="VKi-TZ-pRK" secondAttribute="trailing" constant="62" id="BOE-1e-XRb"/>
-                            <constraint firstItem="Az2-gr-Agy" firstAttribute="bottom" secondItem="4I1-qH-0Uj" secondAttribute="bottom" constant="90" id="Fdh-r8-kgF"/>
+                            <constraint firstItem="Az2-gr-Agy" firstAttribute="bottom" secondItem="4I1-qH-0Uj" secondAttribute="bottom" constant="70" id="Fdh-r8-kgF"/>
                             <constraint firstItem="aom-Fp-MYa" firstAttribute="leading" secondItem="Az2-gr-Agy" secondAttribute="leading" id="IOE-mP-Kk7"/>
                             <constraint firstItem="VKi-TZ-pRK" firstAttribute="top" secondItem="4si-Nk-1gW" secondAttribute="bottom" constant="6" id="NNP-IA-LX1"/>
                             <constraint firstItem="4si-Nk-1gW" firstAttribute="top" secondItem="o85-xB-4Gx" secondAttribute="bottom" constant="27" id="V1j-0e-Wnl"/>
@@ -1742,7 +1742,7 @@ de tu servicio/funeraria</string>
                             <constraint firstItem="o85-xB-4Gx" firstAttribute="trailing" secondItem="Az2-gr-Agy" secondAttribute="trailing" id="pcH-T9-CIP"/>
                             <constraint firstItem="Goi-Vu-bvK" firstAttribute="leading" secondItem="Az2-gr-Agy" secondAttribute="leading" constant="15" id="sVE-mK-KXG"/>
                             <constraint firstItem="aom-Fp-MYa" firstAttribute="trailing" secondItem="Az2-gr-Agy" secondAttribute="trailing" id="saq-lw-Ahf"/>
-                            <constraint firstItem="Az2-gr-Agy" firstAttribute="bottom" secondItem="aom-Fp-MYa" secondAttribute="bottom" constant="90" id="so4-Kz-mOb"/>
+                            <constraint firstItem="Az2-gr-Agy" firstAttribute="bottom" secondItem="aom-Fp-MYa" secondAttribute="bottom" constant="70" id="so4-Kz-mOb"/>
                             <constraint firstAttribute="trailing" secondItem="Goi-Vu-bvK" secondAttribute="trailing" constant="15" id="vTz-Dr-c8h"/>
                             <constraint firstItem="4I1-qH-0Uj" firstAttribute="leading" secondItem="Fty-Ul-gAq" secondAttribute="leading" id="xT9-jM-ngv"/>
                             <constraint firstItem="Goi-Vu-bvK" firstAttribute="top" secondItem="VKi-TZ-pRK" secondAttribute="bottom" constant="23" id="yuF-sx-B98"/>
@@ -2592,7 +2592,7 @@ de tu servicio/funeraria</string>
                                 </constraints>
                             </view>
                             <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="4MA-UW-tuD">
-                                <rect key="frame" x="0.0" y="108" width="428" height="723"/>
+                                <rect key="frame" x="0.0" y="108" width="428" height="743"/>
                                 <subviews>
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Kab-Bj-lQ6">
                                         <rect key="frame" x="0.0" y="0.0" width="428" height="678.66666666666663"/>
@@ -2745,7 +2745,7 @@ de tu servicio/funeraria</string>
                                         </subviews>
                                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                                         <constraints>
-                                            <constraint firstAttribute="height" priority="250" constant="659" id="C3v-dp-DvI"/>
+                                            <constraint firstAttribute="height" priority="250" constant="679" id="C3v-dp-DvI"/>
                                             <constraint firstAttribute="bottom" secondItem="GE3-36-1gT" secondAttribute="bottom" constant="15" id="DUN-OH-Ldc"/>
                                             <constraint firstAttribute="trailing" secondItem="p6a-6O-Abv" secondAttribute="trailing" constant="60" id="QeL-AL-el4"/>
                                             <constraint firstItem="BYl-UL-fvW" firstAttribute="leading" secondItem="Kab-Bj-lQ6" secondAttribute="leading" constant="22" id="d0C-Zt-9lY"/>
@@ -2815,7 +2815,7 @@ de tu servicio/funeraria</string>
                         <constraints>
                             <constraint firstItem="SgV-vY-1I6" firstAttribute="trailing" secondItem="vsv-Al-uvf" secondAttribute="trailing" id="Bs2-P0-NGK"/>
                             <constraint firstItem="4MA-UW-tuD" firstAttribute="trailing" secondItem="vsv-Al-uvf" secondAttribute="trailing" id="HE6-gF-MsM"/>
-                            <constraint firstAttribute="bottom" secondItem="4MA-UW-tuD" secondAttribute="bottom" constant="95" id="KbB-h0-BSX"/>
+                            <constraint firstAttribute="bottom" secondItem="4MA-UW-tuD" secondAttribute="bottom" constant="75" id="KbB-h0-BSX"/>
                             <constraint firstItem="4MA-UW-tuD" firstAttribute="top" secondItem="SgV-vY-1I6" secondAttribute="bottom" constant="8" id="NZW-Hp-apw"/>
                             <constraint firstItem="SgV-vY-1I6" firstAttribute="leading" secondItem="vsv-Al-uvf" secondAttribute="leading" id="QaF-yn-ui0"/>
                             <constraint firstItem="4MA-UW-tuD" firstAttribute="leading" secondItem="vsv-Al-uvf" secondAttribute="leading" id="Xpy-iD-6ci"/>
@@ -2908,10 +2908,10 @@ de tu servicio/funeraria</string>
                                 </constraints>
                             </view>
                             <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Zlf-ks-xW1">
-                                <rect key="frame" x="0.0" y="100" width="428" height="702"/>
+                                <rect key="frame" x="0.0" y="100" width="428" height="722"/>
                                 <subviews>
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="a0f-u9-TDh">
-                                        <rect key="frame" x="0.0" y="0.0" width="428" height="672"/>
+                                        <rect key="frame" x="0.0" y="0.0" width="428" height="692"/>
                                         <subviews>
                                             <imageView clipsSubviews="YES" userInteractionEnabled="NO" alpha="0.0" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="mappin.slash" catalog="system" translatesAutoresizingMaskIntoConstraints="NO" id="b0z-3Y-KrQ">
                                                 <rect key="frame" x="164" y="385.66666666666663" width="100" height="99.333333333333314"/>
@@ -3032,7 +3032,7 @@ de tu servicio/funeraria</string>
                                             <constraint firstItem="b0z-3Y-KrQ" firstAttribute="centerX" secondItem="a0f-u9-TDh" secondAttribute="centerX" id="kY6-UI-fT6"/>
                                             <constraint firstItem="hHE-go-T7l" firstAttribute="leading" secondItem="a0f-u9-TDh" secondAttribute="leading" constant="16" id="mAR-9l-yBJ"/>
                                             <constraint firstAttribute="trailing" secondItem="hHE-go-T7l" secondAttribute="trailing" constant="31" id="wrg-0I-cw2"/>
-                                            <constraint firstAttribute="height" constant="672" id="yS1-Gy-MEo"/>
+                                            <constraint firstAttribute="height" constant="692" id="yS1-Gy-MEo"/>
                                             <constraint firstItem="b0z-3Y-KrQ" firstAttribute="top" secondItem="ET3-ox-6A5" secondAttribute="bottom" constant="155" id="zZ6-Ql-yWh"/>
                                         </constraints>
                                     </view>
@@ -3052,7 +3052,7 @@ de tu servicio/funeraria</string>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                         <constraints>
                             <constraint firstItem="Zlf-ks-xW1" firstAttribute="top" secondItem="XPn-eg-vqh" secondAttribute="bottom" id="BU1-sS-RVd"/>
-                            <constraint firstItem="hn4-24-YOh" firstAttribute="bottom" secondItem="Zlf-ks-xW1" secondAttribute="bottom" constant="90" id="CRi-Mc-ZaV"/>
+                            <constraint firstItem="hn4-24-YOh" firstAttribute="bottom" secondItem="Zlf-ks-xW1" secondAttribute="bottom" constant="70" id="CRi-Mc-ZaV"/>
                             <constraint firstItem="XPn-eg-vqh" firstAttribute="top" secondItem="Vxi-hK-WYY" secondAttribute="top" id="Srq-Gw-38G"/>
                             <constraint firstItem="XPn-eg-vqh" firstAttribute="trailing" secondItem="hn4-24-YOh" secondAttribute="trailing" id="VQR-b4-5Ul"/>
                             <constraint firstItem="XPn-eg-vqh" firstAttribute="leading" secondItem="hn4-24-YOh" secondAttribute="leading" id="bGb-fd-fNq"/>
@@ -3094,16 +3094,16 @@ de tu servicio/funeraria</string>
         <image name="Icono_encuentro" width="23" height="30"/>
         <image name="arrow_drop_down_24px" width="24" height="24"/>
         <image name="back" width="125" height="202"/>
-        <image name="circle" catalog="system" width="128" height="121"/>
-        <image name="circle.fill" catalog="system" width="128" height="121"/>
-        <image name="headphones.circle.fill" catalog="system" width="128" height="121"/>
+        <image name="circle" catalog="system" width="32" height="32"/>
+        <image name="circle.fill" catalog="system" width="32" height="32"/>
+        <image name="headphones.circle.fill" catalog="system" width="32" height="32"/>
         <image name="logoIcon" width="185" height="185"/>
         <image name="logoIconNew" width="241" height="241"/>
-        <image name="magnifyingglass" catalog="system" width="128" height="115"/>
-        <image name="mappin.slash" catalog="system" width="102" height="128"/>
-        <image name="phone.circle.fill" catalog="system" width="128" height="121"/>
-        <image name="square.and.arrow.up" catalog="system" width="115" height="128"/>
-        <image name="star" catalog="system" width="128" height="116"/>
+        <image name="magnifyingglass" catalog="system" width="32" height="32"/>
+        <image name="mappin.slash" catalog="system" width="32" height="32"/>
+        <image name="phone.circle.fill" catalog="system" width="32" height="32"/>
+        <image name="square.and.arrow.up" catalog="system" width="32" height="32"/>
+        <image name="star" catalog="system" width="32" height="32"/>
         <namedColor name="eBackgroundGray">
             <color red="0.96078431372549022" green="0.96078431372549022" blue="0.96078431372549022" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </namedColor>

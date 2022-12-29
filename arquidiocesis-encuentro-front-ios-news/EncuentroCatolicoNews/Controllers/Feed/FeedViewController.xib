@@ -27,20 +27,13 @@
             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
             <subviews>
                 <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" showsHorizontalScrollIndicator="NO" showsVerticalScrollIndicator="NO" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="HKr-RV-DnL">
-                    <rect key="frame" x="0.0" y="177" width="375" height="411"/>
+                    <rect key="frame" x="0.0" y="182" width="375" height="415"/>
                     <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                     <constraints>
-                        <constraint firstAttribute="height" constant="411" id="m96-SM-9KD"/>
+                        <constraint firstAttribute="height" constant="415" id="m96-SM-9KD"/>
                     </constraints>
                 </tableView>
-                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Mxq-bG-jRH">
-                    <rect key="frame" x="0.0" y="647" width="375" height="60"/>
-                    <color key="backgroundColor" systemColor="systemBackgroundColor"/>
-                    <constraints>
-                        <constraint firstAttribute="height" constant="60" id="MVa-zU-4NK"/>
-                    </constraints>
-                </view>
-                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="HTT-HB-Glz">
+                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="HTT-HB-Glz" userLabel="ViewHead">
                     <rect key="frame" x="0.0" y="0.0" width="375" height="65"/>
                     <subviews>
                         <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="WvN-Du-SE3">
@@ -89,14 +82,6 @@
                             <color key="value" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         </userDefinedRuntimeAttribute>
                     </userDefinedRuntimeAttributes>
-                </view>
-                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="O6W-ld-FbT">
-                    <rect key="frame" x="0.0" y="0.0" width="375" height="0.0"/>
-                    <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                </view>
-                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="f9L-9p-Jth">
-                    <rect key="frame" x="0.0" y="0.0" width="375" height="0.0"/>
-                    <color key="backgroundColor" name="eMainBlue"/>
                 </view>
                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="5FC-Yc-Ffy">
                     <rect key="frame" x="0.0" y="73" width="375" height="96"/>
@@ -195,25 +180,14 @@
             <constraints>
                 <constraint firstItem="HTT-HB-Glz" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" id="1jF-OC-PiH"/>
                 <constraint firstItem="5FC-Yc-Ffy" firstAttribute="trailing" secondItem="y1Z-e5-Obm" secondAttribute="trailing" id="2UP-U0-Pxh"/>
+                <constraint firstItem="HKr-RV-DnL" firstAttribute="top" secondItem="5FC-Yc-Ffy" secondAttribute="bottom" constant="13" id="3zS-sa-7pP"/>
                 <constraint firstItem="HKr-RV-DnL" firstAttribute="trailing" secondItem="y1Z-e5-Obm" secondAttribute="trailing" id="4Yg-eS-bAF"/>
-                <constraint firstItem="O6W-ld-FbT" firstAttribute="top" secondItem="i5M-Pr-FkT" secondAttribute="top" id="Fi8-SX-l57"/>
-                <constraint firstAttribute="trailing" secondItem="O6W-ld-FbT" secondAttribute="trailing" id="Hp6-gu-717"/>
-                <constraint firstItem="HKr-RV-DnL" firstAttribute="top" secondItem="5FC-Yc-Ffy" secondAttribute="bottom" constant="8" symbolic="YES" id="KvB-6c-sSk"/>
-                <constraint firstItem="y1Z-e5-Obm" firstAttribute="trailing" secondItem="Mxq-bG-jRH" secondAttribute="trailing" id="PBz-A8-yNr"/>
-                <constraint firstItem="HTT-HB-Glz" firstAttribute="top" secondItem="O6W-ld-FbT" secondAttribute="bottom" id="V2f-l6-jd4"/>
                 <constraint firstItem="HKr-RV-DnL" firstAttribute="leading" secondItem="y1Z-e5-Obm" secondAttribute="leading" id="WGq-eK-cPa"/>
-                <constraint firstItem="O6W-ld-FbT" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" id="Ylw-wf-gOw"/>
                 <constraint firstItem="5FC-Yc-Ffy" firstAttribute="top" secondItem="HTT-HB-Glz" secondAttribute="bottom" constant="8" symbolic="YES" id="aBI-zB-OyD"/>
                 <constraint firstItem="5FC-Yc-Ffy" firstAttribute="leading" secondItem="y1Z-e5-Obm" secondAttribute="leading" id="aU9-on-k3h"/>
-                <constraint firstItem="Mxq-bG-jRH" firstAttribute="leading" secondItem="y1Z-e5-Obm" secondAttribute="leading" id="f6X-RA-Nc4"/>
                 <constraint firstAttribute="trailing" secondItem="HTT-HB-Glz" secondAttribute="trailing" id="fy4-Ig-g2M"/>
-                <constraint firstItem="y1Z-e5-Obm" firstAttribute="bottom" secondItem="Mxq-bG-jRH" secondAttribute="bottom" constant="-40" id="gu0-Dd-0Xe"/>
-                <constraint firstItem="y1Z-e5-Obm" firstAttribute="bottom" secondItem="HKr-RV-DnL" secondAttribute="bottom" constant="79" id="how-Zd-sEi"/>
-                <constraint firstItem="y1Z-e5-Obm" firstAttribute="top" secondItem="f9L-9p-Jth" secondAttribute="bottom" id="mQT-aE-hhI"/>
-                <constraint firstItem="f9L-9p-Jth" firstAttribute="leading" secondItem="y1Z-e5-Obm" secondAttribute="leading" id="oKT-Vl-JGg"/>
-                <constraint firstItem="y1Z-e5-Obm" firstAttribute="trailing" secondItem="f9L-9p-Jth" secondAttribute="trailing" id="qbv-CR-3Bh"/>
+                <constraint firstItem="y1Z-e5-Obm" firstAttribute="bottom" secondItem="HKr-RV-DnL" secondAttribute="bottom" constant="70" id="how-Zd-sEi"/>
                 <constraint firstItem="HTT-HB-Glz" firstAttribute="top" secondItem="y1Z-e5-Obm" secondAttribute="top" id="xeR-08-xCw"/>
-                <constraint firstItem="f9L-9p-Jth" firstAttribute="top" secondItem="i5M-Pr-FkT" secondAttribute="top" id="xxC-BQ-BRA"/>
             </constraints>
             <nil key="simulatedBottomBarMetrics"/>
             <point key="canvasLocation" x="130.40000000000001" y="151.57421289355324"/>
@@ -222,9 +196,6 @@
     <resources>
         <image name="back" width="125" height="202"/>
         <image name="iconCreatePost" width="14" height="14"/>
-        <namedColor name="eMainBlue">
-            <color red="0.0039215686274509803" green="0.12549019607843137" blue="0.40784313725490196" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-        </namedColor>
         <namedColor name="ePrimary">
             <color red="0.0040000001899898052" green="0.125" blue="0.40799999237060547" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </namedColor>

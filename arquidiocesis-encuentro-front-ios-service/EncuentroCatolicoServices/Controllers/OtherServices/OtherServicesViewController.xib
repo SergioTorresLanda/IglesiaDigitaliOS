@@ -53,7 +53,7 @@
                     </constraints>
                 </view>
                 <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" translatesAutoresizingMaskIntoConstraints="NO" id="kZp-mB-uLa">
-                    <rect key="frame" x="0.0" y="108" width="375" height="459"/>
+                    <rect key="frame" x="0.0" y="108" width="375" height="489"/>
                     <subviews>
                         <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="pd2-Wo-EVr">
                             <rect key="frame" x="0.0" y="0.0" width="375" height="85"/>
@@ -97,7 +97,7 @@
                             </constraints>
                         </view>
                         <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" style="plain" separatorStyle="none" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="N7P-SO-1k4">
-                            <rect key="frame" x="0.0" y="115" width="375" height="344"/>
+                            <rect key="frame" x="0.0" y="115" width="375" height="374"/>
                             <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                         </tableView>
                     </subviews>
@@ -110,7 +110,7 @@
                 <constraint firstAttribute="trailing" secondItem="kZp-mB-uLa" secondAttribute="trailing" id="UmW-Pe-gj6"/>
                 <constraint firstItem="v85-kI-VvH" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" id="gWV-e8-vz3"/>
                 <constraint firstItem="v85-kI-VvH" firstAttribute="top" secondItem="i5M-Pr-FkT" secondAttribute="top" id="gx9-W0-mYx"/>
-                <constraint firstAttribute="bottom" secondItem="N7P-SO-1k4" secondAttribute="bottom" constant="100" id="iXV-eF-9lf"/>
+                <constraint firstAttribute="bottom" secondItem="N7P-SO-1k4" secondAttribute="bottom" constant="70" id="iXV-eF-9lf"/>
                 <constraint firstAttribute="trailing" secondItem="v85-kI-VvH" secondAttribute="trailing" id="oTD-zX-sBd"/>
             </constraints>
             <point key="canvasLocation" x="136.80000000000001" y="77.811094452773617"/>
@@ -118,7 +118,7 @@
     </objects>
     <resources>
         <image name="back" width="125" height="202"/>
-        <image name="info.circle" catalog="system" width="128" height="121"/>
+        <image name="info.circle" catalog="system" width="32" height="32"/>
         <systemColor name="systemBackgroundColor">
             <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
         </systemColor>
