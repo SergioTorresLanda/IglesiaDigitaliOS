@@ -19,10 +19,10 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="pAX-oq-M0T">
-                                <rect key="frame" x="0.0" y="-30" width="434" height="138"/>
+                                <rect key="frame" x="0.0" y="-30" width="434" height="130"/>
                                 <subviews>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="I4U-2Z-DVa">
-                                        <rect key="frame" x="0.0" y="59" width="53" height="79.5"/>
+                                        <rect key="frame" x="0.0" y="59" width="53" height="71.5"/>
                                         <constraints>
                                             <constraint firstAttribute="width" constant="53" id="H6l-fV-94K"/>
                                         </constraints>
@@ -45,12 +45,12 @@
                                     <constraint firstItem="I4U-2Z-DVa" firstAttribute="leading" secondItem="pAX-oq-M0T" secondAttribute="leading" id="FRe-pj-dS3"/>
                                     <constraint firstItem="kyK-zX-XDh" firstAttribute="top" secondItem="pAX-oq-M0T" secondAttribute="top" constant="87" id="VDe-uD-B0t"/>
                                     <constraint firstAttribute="trailing" secondItem="kyK-zX-XDh" secondAttribute="trailing" constant="171" id="WHG-jd-lpI"/>
-                                    <constraint firstAttribute="height" constant="138" id="yWl-pB-Tmw"/>
+                                    <constraint firstAttribute="height" constant="130" id="yWl-pB-Tmw"/>
                                     <constraint firstItem="kyK-zX-XDh" firstAttribute="leading" secondItem="pAX-oq-M0T" secondAttribute="leading" constant="153.5" id="z8g-eJ-Rxf"/>
                                 </constraints>
                             </view>
                             <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="rVq-eD-A8q">
-                                <rect key="frame" x="0.0" y="108" width="414" height="664"/>
+                                <rect key="frame" x="0.0" y="100" width="414" height="692"/>
                                 <subviews>
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Emr-Eb-UqV">
                                         <rect key="frame" x="0.0" y="0.0" width="414" height="1577"/>
@@ -832,7 +832,7 @@
                             <constraint firstItem="pAX-oq-M0T" firstAttribute="leading" secondItem="5EZ-qb-Rvc" secondAttribute="leading" id="K0w-Th-Pp9"/>
                             <constraint firstItem="rVq-eD-A8q" firstAttribute="top" secondItem="pAX-oq-M0T" secondAttribute="bottom" id="Pxo-ju-9US"/>
                             <constraint firstItem="pAX-oq-M0T" firstAttribute="top" secondItem="5EZ-qb-Rvc" secondAttribute="top" constant="-30" id="YKj-0j-jtx"/>
-                            <constraint firstItem="vDu-zF-Fre" firstAttribute="bottom" secondItem="rVq-eD-A8q" secondAttribute="bottom" constant="90" id="aG6-lz-tXA"/>
+                            <constraint firstItem="vDu-zF-Fre" firstAttribute="bottom" secondItem="rVq-eD-A8q" secondAttribute="bottom" constant="70" id="aG6-lz-tXA"/>
                             <constraint firstAttribute="trailing" secondItem="pAX-oq-M0T" secondAttribute="trailing" constant="-20" id="bnA-gW-LI0"/>
                         </constraints>
                         <variation key="default">

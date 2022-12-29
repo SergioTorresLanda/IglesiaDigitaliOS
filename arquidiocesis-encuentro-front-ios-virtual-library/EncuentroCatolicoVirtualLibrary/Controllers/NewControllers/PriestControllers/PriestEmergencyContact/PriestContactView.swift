@@ -50,6 +50,11 @@ class PriestContactView: UIViewController, PriestContactViewProtocol, UIViewCont
                 
     }
     
+    override func viewWillAppear(_ animated: Bool) {
+        print("EC virtualLibrary - NewControllers - Priest Controllers - PriestemergencyContact")
+
+    }
+    
 // MARK: SETUP FUNCS -
 
     func setupUI() {

@@ -28,14 +28,14 @@
                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="GFA-m3-lt8">
                         <rect key="frame" x="30" y="15" width="353" height="207"/>
                         <subviews>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Sugerencias para ti" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="S5F-cG-Ft1">
-                                <rect key="frame" x="12" y="12" width="329" height="16"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="13"/>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Sugerencias para ti" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="S5F-cG-Ft1">
+                                <rect key="frame" x="12" y="10" width="329" height="17"/>
+                                <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="14"/>
                                 <color key="textColor" name="eMainBlue"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" pagingEnabled="YES" showsHorizontalScrollIndicator="NO" showsVerticalScrollIndicator="NO" dataMode="none" translatesAutoresizingMaskIntoConstraints="NO" id="HuR-Zr-jZc">
-                                <rect key="frame" x="0.0" y="37" width="353" height="155"/>
+                                <rect key="frame" x="0.0" y="32" width="353" height="157"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <collectionViewFlowLayout key="collectionViewLayout" scrollDirection="horizontal" minimumLineSpacing="10" minimumInteritemSpacing="10" id="ihP-9N-Ss6">
                                     <size key="itemSize" width="128" height="128"/>
@@ -45,7 +45,7 @@
                                 </collectionViewFlowLayout>
                             </collectionView>
                             <pageControl opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" numberOfPages="5" translatesAutoresizingMaskIntoConstraints="NO" id="2e7-8Z-mQo">
-                                <rect key="frame" x="101.5" y="178" width="150.5" height="26"/>
+                                <rect key="frame" x="101.5" y="179" width="150.5" height="26"/>
                                 <color key="pageIndicatorTintColor" name="eLightGray"/>
                                 <color key="currentPageIndicatorTintColor" red="0.37055522200000002" green="0.37056469920000001" blue="0.37055957319999999" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                             </pageControl>
@@ -53,15 +53,15 @@
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
                             <constraint firstItem="S5F-cG-Ft1" firstAttribute="leading" secondItem="GFA-m3-lt8" secondAttribute="leading" constant="12" id="32Z-Z4-9Of"/>
-                            <constraint firstItem="S5F-cG-Ft1" firstAttribute="top" secondItem="GFA-m3-lt8" secondAttribute="top" constant="12" id="51h-kD-nfo"/>
+                            <constraint firstItem="S5F-cG-Ft1" firstAttribute="top" secondItem="GFA-m3-lt8" secondAttribute="top" constant="10" id="51h-kD-nfo"/>
                             <constraint firstAttribute="height" constant="207" id="BlE-ZF-F8h"/>
                             <constraint firstAttribute="trailing" secondItem="HuR-Zr-jZc" secondAttribute="trailing" id="J0x-4H-MYa"/>
-                            <constraint firstAttribute="bottom" secondItem="HuR-Zr-jZc" secondAttribute="bottom" constant="15" id="QLz-iI-oOl"/>
+                            <constraint firstAttribute="bottom" secondItem="2e7-8Z-mQo" secondAttribute="bottom" constant="2" id="JPR-b6-zNo"/>
+                            <constraint firstAttribute="bottom" secondItem="HuR-Zr-jZc" secondAttribute="bottom" constant="18" id="QLz-iI-oOl"/>
                             <constraint firstItem="HuR-Zr-jZc" firstAttribute="leading" secondItem="GFA-m3-lt8" secondAttribute="leading" id="RF7-LZ-SQN"/>
                             <constraint firstAttribute="trailing" secondItem="S5F-cG-Ft1" secondAttribute="trailing" constant="12" id="URe-f4-5Nm"/>
                             <constraint firstItem="2e7-8Z-mQo" firstAttribute="centerX" secondItem="GFA-m3-lt8" secondAttribute="centerX" id="WaM-fR-vxr"/>
-                            <constraint firstItem="HuR-Zr-jZc" firstAttribute="top" secondItem="S5F-cG-Ft1" secondAttribute="bottom" constant="9" id="fxV-ib-YIe"/>
-                            <constraint firstAttribute="bottom" secondItem="2e7-8Z-mQo" secondAttribute="bottom" constant="3" id="nVQ-cC-u0D"/>
+                            <constraint firstItem="HuR-Zr-jZc" firstAttribute="top" secondItem="S5F-cG-Ft1" secondAttribute="bottom" constant="5" id="fxV-ib-YIe"/>
                         </constraints>
                     </view>
                 </subviews>

@@ -56,6 +56,11 @@ class UncionMapView: UIViewController, UncionMapViewProtocol {
         
     }
     
+    override func viewWillAppear(_ animated: Bool) {
+        print("ECVirualLibrary - NewControllers - UncionMapSOS - UncionMapView")
+
+    }
+    
 // MARK: PRIVATE SETUP FUNCS -
     private func setupUI() {
         cardLocations.layer.cornerRadius = 12

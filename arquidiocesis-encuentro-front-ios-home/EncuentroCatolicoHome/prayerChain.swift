@@ -43,23 +43,30 @@ class prayerChain: UIViewController {
         collection.register(UINib(nibName: "prayerCell", bundle: Bundle.local), forCellWithReuseIdentifier: "prayerCell")
         collection.register(UINib(nibName: "newPrayerCell", bundle: Bundle.local), forCellWithReuseIdentifier: "newPrayerCell")
         NotificationCenter.default.addObserver(self, selector: #selector(getPrayers), name: NSNotification.Name(rawValue: "PrayerSend"), object: nil)
+        try! realm.write {
+          realm.deleteAll()
+        }
         dbPrayers = realm.objects(prayerChainModel.self).sorted(byKeyPath: "id", ascending: false)
-        DispatchQueue.main.asyncAfter(deadline: .now() + 3, execute: {
-            self.alert.dismiss(animated: true, completion: nil)
-        })
         getPrayers()
     }
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
+       
+        //dbPrayers = realm.objects(prayerChainModel.self).sorted(byKeyPath: "id", ascending: false)
+        DispatchQueue.main.asyncAfter(deadline: .now() + 6, execute: {
+            print(":::::::: HAY " + String(self.dbPrayers!.count) + " ELEMENTOSS ::::::")
+            
+        })
         refreshControl.addTarget(self, action: #selector(refresh), for: .valueChanged)
         collection.refreshControl = refreshControl
+    
     }
     
     @objc func getPrayers(){
         showLoading()
-//        sendRESTRequest(endPoint: "https://api-develop.arquidiocesis.mx/prayers", parameters: [:])
-        sendRESTRequest(endPoint: "\(APIType.shared.User())/prayers", parameters: [:])
+        statePray=[]
+        sendRESTRequest2(endPoint: "\(APIType.shared.User())/prayers", parameters: [:])
     }
     
     private func setupCollectionDelegate() {
@@ -130,7 +137,7 @@ class prayerChain: UIViewController {
                 DispatchQueue.main.async {
                     self.alert.dismiss(animated: true, completion: nil)
 //                    self.sendRESTRequest(endPoint: "https://api-develop.arquidiocesis.mx/prayers", parameters: [:])
-                    self.sendRESTRequest(endPoint: "\(APIType.shared.User())/prayers", parameters: [:])
+                    self.getPrayers()
                     // self.hideLoading(error: nil)
                     APIType.shared.refreshToken()
                 }
@@ -152,7 +159,7 @@ class prayerChain: UIViewController {
                         msgError = "Ocurrió un error desconocido, intente más tarde"
                     }
                     self.alert.dismiss(animated: true, completion: nil)
-                    
+                    print(msgError)
                     // self.hideLoading(error: msgError)
                     APIType.shared.refreshToken()
                     
@@ -162,52 +169,50 @@ class prayerChain: UIViewController {
         tarea.resume()
     }
     
-    func sendRESTRequest(endPoint: String, parameters: [String: Any]){
+    func sendRESTRequest2(endPoint: String, parameters: [String: Any]){
+        DispatchQueue.main.asyncAfter(deadline: .now() + 5, execute: {
+            print("SendREST 2 SendREST 2 SendREST 2 SendREST 2 SendREST 2 SendREST 2 SendREST 2 ")
+            
+        })
         arrayMyPraye.removeAll()
         let endpoint: URL = URL(string: endPoint)!
         var request = URLRequest(url: endpoint)
-        request.timeoutInterval = 3
+        request.timeoutInterval = 4
         let tksession = UserDefaults.standard.string(forKey: "idToken")
         request.setValue("Bearer \( tksession ?? "")", forHTTPHeaderField: "Authorization")
         request.httpMethod = "GET"
         let tarea = URLSession.shared.dataTask(with: request) { data, response, error in
-            //print("->>  data: ", data)
-            //print("->>  response: ", response)
-            //print("->>  error: ", error)
-
             if error != nil {
                 print("Error")
                 return
             }
             
             if (response as! HTTPURLResponse).statusCode == 200 {
+            
                 DispatchQueue.main.async {
-                    
                     guard let allData = data else { return }
                     guard let userHome: prayerDataStruct = try? JSONDecoder().decode(prayerDataStruct.self, from: allData) else { return }
                     self.allData = userHome
-                    
                     for element in userHome.data {
-                                                
-                        self.statePray.append(false)
-                        let item = self.realm.objects(prayerChainModel.self).filter("id = %@", element.id)
+                        //let item = self.realm.objects(prayerChainModel.self).filter("id = %@", element.id)
                         let dbModel = prayerChainModel()
-                        
                         dbModel.prayer = element.datumDescription
                         dbModel.id = element.id
                         dbModel.title = element.fielName
                         dbModel.people = String(element.reaction.like)
                         dbModel.date = element.creationDate
                         dbModel.imageFiel = element.imageName ?? " "
-                        dbModel.reaction = item.first?.reaction ?? false
+                        //dbModel.reaction = item.first?.reaction ?? false
+                        dbModel.reaction = (element.praying != 0)
                         
-                        let valueOfText = UserDefaults.standard.string(forKey: "COMPLETENAME")
+                        let valueOfText = UserDefaults.standard.string(forKey: "COMPLETENAME") ?? "NOVALUE"
+                        self.statePray.append((element.praying != 0))
+                        
                         if valueOfText == element.fielName {
                             self.arrayMyPraye.append(element)
                             print("se va agregar un elemento", valueOfText, element.fielName)
-                        }else{
-                            print("No se va a agregar nada bro", valueOfText, element.fielName)
                         }
+                        
                         try! self.realm.write {
                             self.realm.add(dbModel, update: .modified)
                         }
@@ -217,7 +222,13 @@ class prayerChain: UIViewController {
                     self.collection.reloadData()
                     self.hideLoading(error: nil)
                 }
+                DispatchQueue.main.asyncAfter(deadline: .now() + 5, execute: {
+                    print("STATUS 200 PRAYERS STATUS 200 PRAYERSSTATUS 200 PRAYERSSTATUS 200 PRAYERSSTATUS 200 PRAYERS")
+                    //guard let userHome2: prayerDataStruct = try? JSONDecoder().decode(prayerDataStruct.self, from: data!) else { return }
+                    //print(userHome2)
+                })
             } else {
+                
                 DispatchQueue.main.async{
                     var msgError = ""
                     switch (response as! HTTPURLResponse).statusCode {
@@ -237,6 +248,10 @@ class prayerChain: UIViewController {
                     self.hideLoading(error: msgError)
                     APIType.shared.refreshToken()
                 }
+                DispatchQueue.main.asyncAfter(deadline: .now() + 5, execute: {
+                    print("NO STATUS 200 NO PRAYERS STATUS NO 200 PRAYERS NO STATUS 200 PRAYER NO STATUS 200 PRAYERS NO STATUS 200 PRAYERS:::;;;;;;;;")
+                    print(String((response as! HTTPURLResponse).statusCode))
+                 })
             }
         }
         tarea.resume()
@@ -259,20 +274,23 @@ class prayerChain: UIViewController {
     @objc func reactToPromise(sender: UIButton) {
         print(":::TAGG:::")
         print(sender.tag)
-     
-        let indexNeg = Int(sender.accessibilityLabel ?? "0")
-        let index = indexNeg!+1
+        
+        let index0 = Int(sender.accessibilityLabel ?? "0")
+        let index = index0!
+        //let index = indexNeg!+1
+      
         print(":::INDEX:::")
         print(String(index))
         print(":::state count:::")
         print(statePray.count)
+        print(":::new taggg:::")
+        //let newtag = String(693-index)
         /*if statePray[index] == false {
             statePray[index] = true
         }else{
             statePray[index] = false
         }*/
-        
-        print(sender.title(for: .normal) ?? "SIN TITULO")
+        //print(sender.title(for: .normal) ?? "SIN TITULO")
         let cell = self.collection.cellForItem(at: [0,Int(sender.accessibilityHint ?? "1")!]) as! prayerCell
         cell.loading.isHidden = false
         cell.loading.startAnimating()
@@ -288,6 +306,11 @@ class prayerChain: UIViewController {
         
 //        let endpoint: URL = URL(string: "https://api-develop.arquidiocesis.mx/prayers/\(sender.tag)/reaction")!
         let endpoint: URL = URL(string: "\(APIType.shared.User())/prayers/\(sender.tag)/reaction")!
+      
+        DispatchQueue.main.asyncAfter(deadline: .now() + 5, execute: {
+            print("URLL:::;;;;;;;")
+            print("\(APIType.shared.User())/prayers/\(sender.tag)/reaction")
+         })
         var request = URLRequest(url: endpoint)
         request.timeoutInterval = 3
         request.setValue("application/json", forHTTPHeaderField: "Content-Type")
@@ -296,6 +319,8 @@ class prayerChain: UIViewController {
             "fiel_name" : UserDefaults.standard.value(forKey: "email") ?? "?",
             "reaction" : !item.reaction
         ]
+        print("BODYYYYYY:::;;;;;;;")
+        print(parameterDictionary)
         guard let httpBody = try? JSONSerialization.data(withJSONObject: parameterDictionary, options: []) else {
             return
         }
@@ -314,18 +339,15 @@ class prayerChain: UIViewController {
             }
 
             if (response as! HTTPURLResponse).statusCode == 200 {
+                DispatchQueue.main.asyncAfter(deadline: .now() + 5, execute: {
+                    print("status 2000 status 2000 status 2000 status 2000 status 2000")
+                 })
+           
                 DispatchQueue.main.async {
 
                     if item.reaction {
                         sender.accessibilityLabel = "Cancel React"
-                      //  usersCount! -= 1
-                      //  self.itemHasReact.updateValue(false, forKey: Int(sender.accessibilityHint ?? "1")!)
-                        let cell = self.collection.cellForItem(at: [0,Int(sender.accessibilityHint ?? "1")!]) as! prayerCell
-                       // cell.prayLabel.textColor = UIColor.lightGray
-                      //  cell.lblStatus.textColor = UIColor.lightGray
-                      //  cell.reactionImage.image = UIImage(named: "reactionG", in: Bundle.local, compatibleWith: nil)
-                       // cell.reactionImage2.image = UIImage(named: "reactionG", in: Bundle.local, compatibleWith: nil)
-                        
+                        //let cell = self.collection.cellForItem(at: [0,Int(sender.accessibilityHint ?? "1")!]) as! prayerCell
                         let item = self.realm.objects(prayerChainModel.self).filter("id = %@", sender.tag)
                         let realm = try! Realm()
                         if let workout = item.first {
@@ -335,18 +357,10 @@ class prayerChain: UIViewController {
                                 self.statePray[index] = false
                             }
                         }
-                        print("*****")
                     }else{
-                        print("^^^^")
                         sender.accessibilityLabel = "Reacted"
-                       // self.itemHasReact.updateValue(true, forKey: Int(sender.accessibilityHint ?? "1")!)
-                        let cell = self.collection.cellForItem(at: [0,Int(sender.accessibilityHint ?? "1")!]) as! prayerCell
-                       // cell.reactionImage.image = UIImage(named: "Icono_manos")
-                      //  cell.prayLabel.textColor = UIColor(red: 0.10, green: 0.16, blue: 0.45, alpha: 1.00)
-                       // cell.lblStatus.textColor = UIColor(red: 0.10, green: 0.16, blue: 0.45, alpha: 1.00)
-                      //  cell.reactionImage.image = UIImage(named: "Icono_manos", in: Bundle.local, compatibleWith: nil)
-                       // cell.reactionImage2.image = UIImage(named: "orar", in: Bundle.local, compatibleWith: nil)
-                        
+                        //let cell = self.collection.cellForItem(at: [0,Int(sender.accessibilityHint ?? "1")!]) as! prayerCell
+                   
                         let item = self.realm.objects(prayerChainModel.self).filter("id = %@", sender.tag)
                         let realm = try! Realm()
                         if let workout = item.first {
@@ -358,7 +372,6 @@ class prayerChain: UIViewController {
                         }
                     }
                     
-
                     cell.loading.stopAnimating()
                     cell.loading.isHidden = true
                     sender.isUserInteractionEnabled = true
@@ -366,12 +379,19 @@ class prayerChain: UIViewController {
                     print("Reacción completada")
                 }
             } else {
+                DispatchQueue.main.asyncAfter(deadline: .now() + 5, execute: {
+                    print("status NO 2000 status NO 2000 status NO 2000 status NO 2000 status 2000")
+                    guard let s = (response as? HTTPURLResponse)?.statusCode else {return}
+                    print("STATUSSS ::: ")
+                    print(String(s))
+                 })
                 DispatchQueue.main.async{
                     cell.loading.stopAnimating()
                     cell.loading.isHidden = true
                     sender.isUserInteractionEnabled = true
                     APIType.shared.refreshToken()
                 }
+             
             }
         }
         tarea.resume()
@@ -397,65 +417,44 @@ extension prayerChain:  UICollectionViewDelegate, UICollectionViewDataSource, UI
         } else {
             self.collection.restore()
         }
+        DispatchQueue.main.asyncAfter(deadline: .now() + 6, execute: {
+            print(":::::::: HAY " + String(self.dbPrayers!.count) + " ORACIONESS ::::::")
+            print(":::::::: HAY " + String(self.statePray.count) + " STATEPRAYY ::::::")
+            
+        })
         return dbPrayers!.count //+ 1
     }
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
-       /* if indexPath.row == 0 {
-            // let cell = collection.dequeueReusableCell(withReuseIdentifier: "newPrayerCell", for: indexPath) as! newPrayerCell
-            let cell = cardsCollection.dequeueReusableCell(withReuseIdentifier: "MyPray", for: indexPath) as! MyPrayerCell
-            guard let dataPray = allData else { return cell}
-            //cell.setupSliderColletcion(data: arrayMyPraye)
-            return cell
-            
-        }else{ */
+       
             let cell = collection.dequeueReusableCell(withReuseIdentifier: "prayerCell", for: indexPath) as! prayerCell
             let handsOff = UIImage(named: "handsOff", in: Bundle.local, compatibleWith: nil)
             let handsOn = UIImage(named: "handsOn", in: Bundle.local, compatibleWith: nil)
             let prayer = dbPrayers[indexPath.item]//dbPrayers[indexPath.row - 1] todos los index llevaban - 1 si se muestran mis oracciones
             let persons = Int(prayer.people) ?? 0
-            if let imgURL = prayer.imageFiel as? String {
-                let url = URL(string: imgURL)
-                if let url = url {
-                    cell.imgIcon.af.setImage(withURL: url)
-                }
+            if let url = URL(string: prayer.imageFiel) {
+                cell.imgIcon.af.setImage(withURL: url)
             }
             
             cell.lblPrayer.adjustsFontSizeToFitWidth = true
             cell.lblStatus.adjustsFontSizeToFitWidth = true
             
             if statePray.count != 0 {
-                if statePray[indexPath.item] == true {
+                if statePray[indexPath.item] {
                     cell.reactionImage.image = handsOn
                 }else{
                     cell.reactionImage.image = handsOff
                 }
             }
-            
             if prayer.reaction {
-                //                cell.prayLabel.textColor = UIColor(red: 0.10, green: 0.16, blue: 0.45, alpha: 1.00)
-                //                cell.lblStatus.textColor = UIColor(red: 0.10, green: 0.16, blue: 0.45, alpha: 1.00)
-                //                cell.reactionImage.image = UIImage(named: "orar", in: Bundle.local, compatibleWith: nil)
-                //    cell.reactionImage2.image = UIImage(named: "Icono_manos", in: Bundle.local, compatibleWith: nil)
-                
+                cell.reactionImage.image = handsOn
                 if persons == 1 {//Reaccion solo mia
                     cell.prayLabel.text = "" + String(Int(prayer.people)! ) + " persona orando"
-                    cell.reactionImage.image = handsOn
-                } else if persons == 0 {//NO hay
-                    cell.prayLabel.text = "" + String(Int(prayer.people)!) + " personas orando"
-                    cell.reactionImage.image = handsOff
                 }else{//Reaccion mia y mas
                     cell.prayLabel.text = "" + String(Int(prayer.people)!) + " personas orando"
-                    cell.reactionImage.image = handsOn
                 }
-                
             }else{
                 cell.reactionImage.image = handsOff
-                
-                //                cell.prayLabel.textColor = UIColor.lightGray
-                //                cell.lblStatus.textColor = UIColor.lightGray
-                //                cell.reactionImage.image = UIImage(named: "reactionG", in: Bundle.local, compatibleWith: nil)
-                //                cell.reactionImage2.image = UIImage(named: "reactionG", in: Bundle.local, compatibleWith: nil)
                 if  persons == 1 {
                     cell.prayLabel.text = "" + String(Int(prayer.people)!) + " persona orando"
                 }else{
@@ -465,17 +464,13 @@ extension prayerChain:  UICollectionViewDelegate, UICollectionViewDataSource, UI
             }
             cell.btnPersonsPraying.tag = indexPath.item
             //cell.btnPersonsPraying.addTarget(self, action: #selector(showPersonList), for: .touchUpInside)
-
             if prayer.imageFiel == "s/n" {
                 cell.imgIcon.image = UIImage(named: "userImage",
                                              in: Bundle(for: type(of:self)),
                                              compatibleWith: nil)
             } else {
-                if let imgURL = prayer.imageFiel as? String {
-                    let url = URL(string: imgURL)
-                    if let url = url {
-                        cell.imgIcon.af.setImage(withURL: url)
-                    }
+                if let url = URL(string: prayer.imageFiel) {
+                    cell.imgIcon.af.setImage(withURL: url)
                 }
             }
 
@@ -496,7 +491,6 @@ extension prayerChain:  UICollectionViewDelegate, UICollectionViewDataSource, UI
             cell.btnPray.tag = prayer.id
             cell.btnPray.accessibilityLabel = "\(indexPath.item)" //  menos este (-1)
             cell.btnPray.accessibilityHint = String(indexPath.item) // menos este (-1)
-            cell.btnPray.accessibilityLabel = String(indexPath.item - 1)
             cell.btnPray.addTarget(self, action: #selector(reactToPromise), for: .touchUpInside)
             return cell
         //}

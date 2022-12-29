@@ -42,7 +42,7 @@ open class TutorialView: UIViewController {
     }
     
     open override func viewWillAppear(_ animated: Bool) {
-        print("VC ECVirtualLibrary - TutorialVC ")
+        print("VC ECVirtualLibrary - TutorialVC xx ")
 
     }
     

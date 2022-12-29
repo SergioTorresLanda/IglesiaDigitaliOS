@@ -304,7 +304,7 @@ extension YoungView_Controller {
         tableYoung.dataSource = self
         tableYoung.register(InfoView_Cell.self, forCellReuseIdentifier: "cell")
         tableYoung.separatorColor = UIColor.clear
-        tableYoung.contentInset = UIEdgeInsets(top: 0, left: 0, bottom: 100, right: 0)
+        tableYoung.contentInset = UIEdgeInsets(top: 0, left: 0, bottom: 20, right: 0)
         tableYoung.backgroundColor = colorBackground
         
         fileTypeList.backgroundColor = .clear
@@ -340,7 +340,7 @@ extension YoungView_Controller {
             tableYoung.topAnchor.constraint(equalTo: fileTypeList.bottomAnchor, constant: 8),
             tableYoung.rightAnchor.constraint(equalTo: self.view.rightAnchor, constant: -17),
             tableYoung.leftAnchor.constraint(equalTo: self.view.leftAnchor, constant: 17),
-            tableYoung.bottomAnchor.constraint(equalTo: self.view.bottomAnchor, constant: -90),
+            tableYoung.bottomAnchor.constraint(equalTo: self.view.bottomAnchor, constant: -70),
         ])
     }
     

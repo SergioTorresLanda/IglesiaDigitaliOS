@@ -35,7 +35,7 @@ public class APIType {
     
     func User()-> String{
         
-        if staged == "Qa" {
+        if staged == "Qa" {//https://o01wjuhwec.execute-api.us-east-1.amazonaws.com/qa/prayers
             API = "https://api.qa-iglesia-digital.com/arquidiocesis/encuentro/v1"
         }else if staged == "Prod" {
             API = "https://api.iglesia-digital.com.mx/arquidiocesis/encuentro/v1"

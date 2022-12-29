@@ -59,6 +59,11 @@ class PriestDetailView: UIViewController, PriestDetailViewProtocol {
         presenter?.requestDetailService(idService: singleton.idService) //708
     
     }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        print("EC virtualLibrary - NewControllers - Priest Controllers - PriestEmergencyDetail")
+
+    }
 
     func setupUI() {
         customNavBar.ShadowNavBar()
