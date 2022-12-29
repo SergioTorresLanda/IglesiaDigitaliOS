@@ -86,6 +86,8 @@ class ProfileMapViewController: BaseViewController, ProfileMapViewProtocol, Util
             self?.setCurrentLocationMap()
             self?.removeLoader()
         }
+        let tap = UITapGestureRecognizer(target: self, action: #selector(hideKeyBoard))
+        view.addGestureRecognizer(tap)
     }
     
     override func viewWillAppear(_ animated: Bool) {
@@ -190,6 +192,11 @@ class ProfileMapViewController: BaseViewController, ProfileMapViewProtocol, Util
     @objc func calloutTapped(sender:UITapGestureRecognizer) {
         
     }
+    
+    @objc private func hideKeyBoard() {
+        view.endEditing(true)
+    }
+    
     func didPressUtilsDetalButton(_ tag: Int) {
         if isPrincipal == 4 {
             let locationId: [String: Int] = ["locationId": idChurchFinal]

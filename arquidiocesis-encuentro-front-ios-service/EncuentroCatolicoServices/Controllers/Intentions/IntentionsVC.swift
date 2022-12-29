@@ -80,6 +80,8 @@ class IntentionsViewController: UIViewController {
         DispatchQueue.main.asyncAfter(deadline: .now() + 0.5, execute: {
             self.alert.dismiss(animated: true, completion: nil)
         })
+        let tap = UITapGestureRecognizer(target: self, action: #selector(hideKeyBoard))
+        view.addGestureRecognizer(tap)
         presenter?.requestlocations()
     }
     
@@ -100,6 +102,10 @@ class IntentionsViewController: UIViewController {
     
     @IBAction func close(_ sender: Any){
         self.navigationController?.popViewController(animated: true)
+    }
+    
+    @objc private func hideKeyBoard() {
+        view.endEditing(true)
     }
     
     func showLoading() {

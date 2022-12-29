@@ -216,6 +216,10 @@ class ProfileInfoView: UIViewController {
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         print("VC ECProfile - ProfileInfoVC ")
+        for i in 0...arrayIsActive.count - 1{
+            print(i)
+            arrayIsActive[i] = false
+        }
         //reset lists
         topicsList=[]
         arrayDictionariesTopics=[]

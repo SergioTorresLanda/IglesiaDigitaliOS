@@ -79,6 +79,8 @@ class MyChurchesViewController: BaseViewController {
         self.addSearchBar()
         otherChurchesCollectionView.isSkeletonable = true
         //setRole()
+        let tap = UITapGestureRecognizer(target: self, action: #selector(hideKeyBoard))
+        view.addGestureRecognizer(tap)
     }
     
     override func viewWillAppear(_ animated: Bool) {
@@ -151,6 +153,11 @@ class MyChurchesViewController: BaseViewController {
         print("Tap en el btn del collectionview favoritos")
         presenter?.goToChourchMap(id: 1, selector: 1)
     }
+    
+    @objc private func hideKeyBoard() {
+        view.endEditing(true)
+    }
+
     
 }
 
