@@ -83,7 +83,7 @@ public class APIType {
                            return
                        }
                        user.set(resp.IdToken, forKey: "idToken")
-                       print(resp)
+                       //print(resp)
                    } catch {
                        print(error)
                    }

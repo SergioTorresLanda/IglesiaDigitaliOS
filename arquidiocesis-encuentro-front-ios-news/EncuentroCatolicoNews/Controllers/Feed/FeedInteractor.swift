@@ -86,8 +86,10 @@ public class FeedInteractor: FeedInteractorProtocol {
     var numPosts = 0
     let SNId = UserDefaults.standard.integer(forKey: "SNId")
     func callService(nxtPage: String?, userId: String, params: Timeline?, isFromPage: Bool, isPagination: Bool, isRefresh: Bool){
+        print(":::::::: CALL SERVICE ;;;;;;;;;;")
         let stUrl = "\(APIType.shared.SN())/users/\(SNId)/timeline"
-        let request = snService.getRequestRS(strUrl: stUrl, pagination: nxtPage ?? "", method: .publicationsAll, params: params)
+        var request = snService.getRequestRS(strUrl: stUrl, pagination: nxtPage ?? "", method: .publicationsAll, params: params)
+        request.timeoutInterval = 20
         snService.makeRequest(request: request) { (data, error) in
             if let error = error{
                 self.presenter?.didFinishGettingPostsWithErrors(error: error)
@@ -112,9 +114,9 @@ public class FeedInteractor: FeedInteractorProtocol {
                     let arr = responseModel.result?.posts
                     let dctResult = someDictionaryFromJSON["result"] as? [String: Any]
                     let dctPagination = dctResult?["pagination"] as? [String: Any]
-                    let hasMore = dctPagination?["hasMore"] as? Bool
+                    let hasMore = false //dctPagination?["hasMore"] as? Bool
                     let stNextPag = dctPagination?["next"] as? String
-                    if hasMore ?? false && self.numPosts < 5{
+                    if hasMore && self.numPosts < 5{
                         self.numPosts += 1
                         if let arr = arr{
                             for postss in arr{

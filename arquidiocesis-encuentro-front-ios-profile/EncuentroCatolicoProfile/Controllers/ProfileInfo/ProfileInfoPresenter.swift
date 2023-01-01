@@ -89,6 +89,7 @@ class ProfileInfoPresenter {
         case let .success(response):
             view?.showRegisterResponse(response: response)
         case let .failure(error):
+            print("::::;;;;;   respondeRegister FAIL  :::::::;;;;;;")
             view?.showError(error: error.errorDescription)
             print(error)
         }
@@ -97,26 +98,13 @@ class ProfileInfoPresenter {
     func responseDiacono(result: Result<ResponseDiacono, ErrorEncuentro>) {
         view?.showDiaconoResponse()
 
-//        switch result {
-//        case .success(_):
-//            view?.showDiaconoResponse()
-//        case .failure(let error):
-//        view?.showError(error: error.errorDescription)
-//        }
     }
 
     func responseSacerdote(result: Result<ResponseSacerdote, ErrorEncuentro>) {
         view?.showSacerdoteResponse()
-//        switch result {
-//        case .success(_):
-//            view?.showSacerdoteResponse()
-//        case .failure(let error):
-//        view?.showError(error: error.errorDescription)
-//        }
     }
 
     func responseState(result: Result<ResponseState, ErrorEncuentro>) {
-        //view?.showStatesResponnse()
         switch result {
         case .success(_):
             print("::::::::SUCCESS RESPONSE STATE::::: ")
@@ -129,9 +117,11 @@ class ProfileInfoPresenter {
         }
         
     }
+    
     func responseDeleteByEmail(status: Bool) {
         self.view?.isSuccesDelete(result: status)
     }
+    
     func responseCongregation(result: Result<ResponseCongregation, ErrorEncuentro>) {
         view?.showCongregationResponse()
     }
@@ -165,6 +155,7 @@ class ProfileInfoPresenter {
         case let .success(response):
             view?.showOffice(offices: response)
         case let .failure(error):
+            print("::::;;;;;   responseOffice FAIL  :::::::;;;;;;")
             view?.showError(error: error.errorDescription)
         }
     }
@@ -174,6 +165,7 @@ class ProfileInfoPresenter {
         case let .success(response):
             view?.showCongregations(congregation: response)
         case let .failure(error):
+            print("::::;;;;;   respondeCongregations FAIL  :::::::;;;;;;")
             view?.showError(error: error.errorDescription)
         }
     }
@@ -184,6 +176,7 @@ class ProfileInfoPresenter {
         case let .success(response):
             view?.showDetalles(detail: response)
         case let .failure(error):
+            print("::::;;;;;   respondeDetalles FAIL  :::::::;;;;;;")
             view?.showError(error: error.errorDescription)
         }
     }
@@ -193,6 +186,7 @@ class ProfileInfoPresenter {
         case let .success(response):
             view?.showLifeStates(lifeStates: response)
         case let .failure(error):
+            print("::::;;;;;   responseLifeStates FAIL  :::::::;;;;;;")
             view?.showError(error: error.errorDescription)
         }
     }
@@ -202,6 +196,7 @@ class ProfileInfoPresenter {
         case let .success(response):
             view?.showTopics(topics: response)
         case let .failure(error):
+            print("::::;;;;;   responseTopics FAIL  :::::::;;;;;;")
             view?.showError(error: error.errorDescription)
         }
     }
@@ -211,6 +206,7 @@ class ProfileInfoPresenter {
         case let .success(response):
             view?.showServices(services: response)
         case let .failure(error):
+            print("::::;;;;;   responseServices FAIL  :::::::;;;;;;")
             view?.showError(error: error.errorDescription)
         }
     }
@@ -318,8 +314,10 @@ extension ProfileInfoPresenter: ProfileInfoInteractorOutputProtocol {
     func responseDiac(errores: ServerErrors, data: String?) {
         switch errores {
         case .ErrorInterno:
+            print("::::;;;;;   responseDiac FAIL  interno :::::::;;;;;;")
             view?.showError(error: "")
         case .ErrorServidor:
+            print("::::;;;;;   responseDiac FAIL  servidor :::::::;;;;;;")
             view?.showError(error: "")
         case .OK:
             view?.showDiaconoResponse()
@@ -329,8 +327,10 @@ extension ProfileInfoPresenter: ProfileInfoInteractorOutputProtocol {
     func responsePriest(errores: ServerErrors, data: String?) {
         switch errores {
         case .ErrorInterno:
+            print("::::;;;;;   responsePriest FAIL  interno :::::::;;;;;;")
             view?.showError(error: "Error Interno")
         case .ErrorServidor:
+            print("::::;;;;;   responsePriest FAIL  servidor :::::::;;;;;;")
             view?.showError(error: "Error Servidor")
         case .OK:
             view?.showSacerdoteResponse()

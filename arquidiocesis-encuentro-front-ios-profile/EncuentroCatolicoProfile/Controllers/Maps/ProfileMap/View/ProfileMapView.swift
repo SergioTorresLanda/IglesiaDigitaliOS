@@ -56,7 +56,13 @@ class ProfileMapViewController: BaseViewController, ProfileMapViewProtocol, Util
         var url: String?
     }
     weak var annotation: MKAnnotation?
-    
+    var annotationsG : [UInt:Int] = [:]
+    /*if staged == "Qa" {
+        API = "https://api.qa-iglesia-digital.com/arquidiocesis/encuentro/v1"
+    }else if staged == "Prod" {
+        API = "https://api.iglesia-digital.com.mx/arquidiocesis/encuentro/v1"*/
+    // /locations?type_location=CHURCH  (IGLESIAS)
+    // /locations  (comunidades + iglesias)
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -91,7 +97,7 @@ class ProfileMapViewController: BaseViewController, ProfileMapViewProtocol, Util
     override func viewWillAppear(_ animated: Bool) {
         print("VC ECProfile - ProfileMapView ")
 
-        presenter?.getLocations()
+        presenter?.getLocations() //Comunidades
         setTitle("Localiza tu Iglesia o Comunidad")
         
         Church.getMyChurch() {
@@ -212,10 +218,7 @@ extension ProfileMapViewController: MKMapViewDelegate {
         }
     }
     func mapView(_ mapView: MKMapView, didSelect view: MKAnnotationView) {
-        if view.annotation is MKUserLocation
-        {
-            return
-        }
+        if view.annotation is MKUserLocation {return}
         let annotationView = view.annotation as? ChuckMark
         let views = Bundle.loadView(fromNib: "ChurchCustomeAnotation", withType: ChurchCustomeAnotation.self)
         views.churchLabel.text = annotationView?.title
@@ -242,7 +245,8 @@ extension ProfileMapViewController: MKMapViewDelegate {
             let nameChurch = annotationView?.title
             let urlChourch = annotationView?.image_url
             let select = selectMap(id: Int(idChurchAnn), name: nameChurch, url: urlChourch)
-            //print(select)
+            print("::SELECT::")
+            print(select)
             let singleton = ProfileMapViewController.singleton
             singleton.nameChurch = annotationView?.title ?? "Unspecified"
             singleton.idChurch = Int(idChurchAnn)
@@ -250,15 +254,6 @@ extension ProfileMapViewController: MKMapViewDelegate {
             UserDefaults.standard.set(annotationView?.title ?? "", forKey: "nameChurchDon")
             UserDefaults.standard.set(annotationView?.image_url ?? "", forKey: "imgChurchDon")
             UserDefaults.standard.set(annotationView?.id, forKey: "idChurchDon")
-            //  self.dismiss(animated: true, completion: nil)
-            //
-            //            self.churchDetail = Int(idChurch ?? 0)
-            //            Church.getChurch(id: id) { [weak self] church in
-            //                self?.removeLoader()
-            //                if let church = church {
-            //                    self?.goToChurch(church)
-            //                }
-            //            }
         }
     }
     
@@ -279,6 +274,7 @@ extension ProfileMapViewController: MKMapViewDelegate {
         }
         return annotationView
     }
+    
     func mapView(_ mapView: MKMapView, annotationView view: MKAnnotationView, calloutAccessoryControlTapped control: UIControl) {
         print("mapView(_:annotationView:calloutAccessoryControlTapped)")
     }
@@ -451,56 +447,27 @@ extension ProfileMapViewController: UITableViewDelegate, UITableViewDataSource {
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         tableView.deselectRow(at: indexPath, animated: true)
-        
         cancelAutoCompletion()
         addressTextField.resignFirstResponder()
         addressResultTableView.isHidden = true
-        
+        //Ir al lugar
         let dortmundLocation = CLLocation(latitude: locationsData[indexPath.row].latitude ?? 0.0, longitude: locationsData[indexPath.row].longitude ?? 0.0)
         let dortmunRegion = MKCoordinateRegion(center: CLLocationCoordinate2D(latitude: dortmundLocation.coordinate.latitude, longitude: dortmundLocation.coordinate.longitude), span: MKCoordinateSpan(latitudeDelta: 0.01, longitudeDelta: 0.01))
         self.mapKit.setRegion(dortmunRegion, animated: true)
-//        if loadSubresults {
-//            selectedPlace = subResults[indexPath.row]
-//            clearTable()
-//        } else {
-//            showLoader()
-//            let selection = locationsData[indexPath.row]
-//            let searchRequest = MKLocalSearch.Request(completion: selection)
-//            if #available(iOS 13.0, *) {
-//                searchRequest.resultTypes = [.pointOfInterest, .address]
-//            }
-//            let search = MKLocalSearch(request: searchRequest)
-//            search.start {
-//                [weak self]
-//                response, error in
-//                guard let response = response else {
-//                    print("Error: \(error?.localizedDescription ?? "Unknown error").")
-//                    return
-//                }
-//
-//                self?.cancelAutoCompletion()
-//
-//                if response.mapItems.isEmpty {
-//                    self?.showMessage("No se pudo obtener la direccion")
-//                } else if response.mapItems.count == 1 {
-//                    self?.selectedPlace = response.mapItems.first
-//                    self?.clearTable()
-//                    if let coordinates = response.mapItems.first?.placemark.location?.coordinate {
-//                        let span = MKCoordinateSpan(latitudeDelta: 0.01, longitudeDelta: 0.01)
-//                        let region = MKCoordinateRegion(center: coordinates, span: span)
-//                        self?.mapKit.setRegion(region, animated: true)
-//                    }
-//                } else {
-//                    self?.addressTextField.becomeFirstResponder()
-//                    self?.subResults = response.mapItems
-//                    self?.loadSubresults = true
-//                    self?.addressResultTableView.reloadData()
-//                    self?.addressResultTableView.isHidden = true
-//                }
-//
-//                self?.removeLoader()
-//            }
-//        }
+        //Liberar tarjeta.
+        for x in fillLocationData {
+            print(x.name! + String(x.id!))
+        }
+        let idChurchAnn = locationsData[indexPath.row].id ?? 1
+        let nameX = locationsData[indexPath.row].name ?? "No Name"
+
+        print(":::::::: ID::  " + String(idChurchAnn) + ":::::::::::::")
+        let indexGod = fillLocationData.firstIndex(where: {$0.id == idChurchAnn}) ?? 1
+        print(":::::::: INDEX GOD::  " + String(indexGod) + ":::::::::::::")
+        print("::::::::  FILL LOC COUNT ::  " + String(fillLocationData.count) + ":::::::::::::")
+        print("::::::::  ANNOTATIONS COUNT ::  " + String(mapKit.annotations.count) + ":::::::::::::")
+
+        self.mapKit.selectAnnotation(mapKit.annotations.first(where: {$0.title == nameX})!, animated: true)
     }
 }
 

@@ -27,7 +27,7 @@ class DummyData {
                 case .success(let response):
                     self?.churches = response
                     print("Churches SUCCESS: ")
-                    print(response)
+                    //print(response)
                     completion(response)
                 case .failure:
                     print("Churches FAIL: ")

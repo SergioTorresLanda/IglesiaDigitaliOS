@@ -336,7 +336,6 @@ extension YoungView_Controller {
             fileTypeList.rightAnchor.constraint(equalTo: safeArea.rightAnchor, constant: 0),
             fileTypeList.leftAnchor.constraint(equalTo: safeArea.leftAnchor, constant: 0),
             
-            
             tableYoung.topAnchor.constraint(equalTo: fileTypeList.bottomAnchor, constant: 8),
             tableYoung.rightAnchor.constraint(equalTo: self.view.rightAnchor, constant: -17),
             tableYoung.leftAnchor.constraint(equalTo: self.view.leftAnchor, constant: 17),

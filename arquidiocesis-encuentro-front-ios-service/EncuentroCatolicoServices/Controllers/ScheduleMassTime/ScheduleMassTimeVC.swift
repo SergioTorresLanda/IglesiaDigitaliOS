@@ -18,7 +18,7 @@ import CryptoSwift
 
 
 class ScheduleMassTimeViewController: UIViewController, ScheduleMassTimeViewProtocol, accpetAlertActionDelegate {
-    
+  
     @IBOutlet weak var containerViewIntention: UIView!
     @IBOutlet weak var lblDate: UILabel!
     @IBOutlet weak var collection: UICollectionView!
@@ -29,8 +29,7 @@ class ScheduleMassTimeViewController: UIViewController, ScheduleMassTimeViewProt
     @IBOutlet weak var otherAmountField: UITextField!
     @IBOutlet weak var btnNext: UIButton!
     
-    @IBOutlet weak var btnClose: UIButton!
-    
+    @IBOutlet weak var btnBack: UIButton!
     //PAYMENT
     @IBOutlet weak var contentViewPayment: UIView!
     @IBOutlet weak var firstTimerView: UIView!
@@ -41,26 +40,22 @@ class ScheduleMassTimeViewController: UIViewController, ScheduleMassTimeViewProt
     @IBOutlet weak var thirdLblTimer: UILabel!
     @IBOutlet weak var lblCOffering: UILabel!
     @IBOutlet weak var lblAOffering: UILabel!
-    
     @IBOutlet weak var webViewContainer: UIView!
-    
     @IBOutlet weak var btnCancelar: UIButton!
     
-   
+    @IBOutlet weak var scrollView: UIScrollView!
+    @IBOutlet weak var containerView: UIView!
     
     var miliSeconds = 99
     var seconds = 59
     var minutes = 4
     var timeLapse : Timer?
-    
     var flowId = 0
     var myWebView = WKWebView()
     let defaults = UserDefaults.standard
-//    
     let viewBundle = Bundle.init(identifier: "mx.arquidiocesis.EncuentroCatolicoServices")
     var presenter: ScheduleMassTimePresenterProtocol?
     var maseDate: Date!
-    
     var location: Assigned!
     let picker = UIPickerView()
     let pickerAmount = UIPickerView()
@@ -86,7 +81,6 @@ class ScheduleMassTimeViewController: UIViewController, ScheduleMassTimeViewProt
     let alert = UIAlertController(title: "", message: "\n \n \n \n \nCargando...", preferredStyle: .alert)
     let accptaAlert = AcceptAlert.showAlert(titulo: "Aviso", mensaje: "No se cuenta con horarios disponibles")
     let transition = SlideTransition()
-  
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -101,8 +95,6 @@ class ScheduleMassTimeViewController: UIViewController, ScheduleMassTimeViewProt
         txtIntention.inputView = picker
         picker.delegate = self
         txtIntention.addBottomBorderWithColor(color: UIColor(red: 175/255, green: 175/255, blue: 175/255, alpha: 1.0), width: 1.0)
-        btnClose.setTitle("", for: .normal)
-        btnClose.image(for: .normal)
         txtSendTo.addBottomBorderWithColor(color: UIColor(red: 175/255, green: 175/255, blue: 175/255, alpha: 1.0), width: 1.0)
         txtSendTo.delegate = self
         
@@ -134,15 +126,18 @@ class ScheduleMassTimeViewController: UIViewController, ScheduleMassTimeViewProt
     
     override func viewWillAppear(_ animated: Bool) {
         print("VC ECServices - ScheduleMassTimeVC ")
-
         //newArray = []
     }
     
-    func didPressAcccept() {
-        
+    override func viewDidLayoutSubviews() {
+        //btnBack.image(for: .normal)
+        //btnBack.setTitle("", for: .normal)
     }
     
-    //FPM
+    func didPressAcccept() {
+        print("METODO NECESARIO")
+    }
+    
     private func setupUI() {
         contentViewPayment.isHidden = true
         firstTimerView.layer.cornerRadius = 8
@@ -158,10 +153,12 @@ class ScheduleMassTimeViewController: UIViewController, ScheduleMassTimeViewProt
         secondTimerView.ShadowCard()
         thirdTimerView.ShadowCard()
         
-        
-        btnCancelar.layer.cornerRadius = 8
+        btnCancelar.layer.cornerRadius = 10
         btnCancelar.layer.borderWidth = 0.5
         btnCancelar.layer.borderColor = UIColor(red: 25/255, green: 42/255, blue: 115/255, alpha: 1).cgColor
+        NSLayoutConstraint.activate([
+        btnCancelar.bottomAnchor.constraint(equalTo: self.scrollView.bottomAnchor, constant: -10)
+        ])
     }
    
     @objc func handleTimer() {
@@ -174,19 +171,18 @@ class ScheduleMassTimeViewController: UIViewController, ScheduleMassTimeViewProt
             firstLblTimer.text = "05"
             secondLblTimer.text = "00"
             thirdLblTimer.text = "00"
-            let alert = UIAlertController(title: "Aviso", message: "Se agotó el tiempo de espera para realizar el pago, por favor vuelve a intentarlo", preferredStyle: .alert)
+            showCanonAlert(title: "¡Ups!", msg: "Se agotó el tiempo de espera para realizar el pago, por favor vuelve a intentarlo.")
+            /*let alert = UIAlertController(title: "Aviso", message: "Se agotó el tiempo de espera para realizar el pago, por favor vuelve a intentarlo", preferredStyle: .alert)
             let cancelAction = UIAlertAction(title: "Entendido", style: .cancel){
                 [weak self] _ in
                 guard let self = self else {return}
                 self.dismiss(animated: true, completion: nil)
                 //self.navigationController?.popViewController(animated: true)
-                
             }
             alert.addAction(cancelAction)
-            
-            self.present(alert, animated: true)
-            
-            
+            self.present(alert, animated: true)*/
+            self.navigationController?.popViewController(animated: true)
+         
         }else{
             if seconds == 0 {
                 minutes -= 1
@@ -212,14 +208,23 @@ class ScheduleMassTimeViewController: UIViewController, ScheduleMassTimeViewProt
             }
             miliSeconds -= 1
         }
-        
+    }
+    
+    var alertFields : AcceptAlert?
+    func showCanonAlert(title:String, msg:String){
+        //hideLoading()
+        print("SHOW CANON ALERT : "+msg)
+        //DispatchQueue.main.asyncAfter(deadline: .now() + 0.5, execute: {
+            self.alertFields = AcceptAlert.showAlert(titulo: title, mensaje: msg)
+            self.alertFields!.view.backgroundColor = .clear
+            self.present(self.alertFields!, animated: true)
+         //})
     }
     
     func startTimer() {
         timeLapse = Timer.scheduledTimer(timeInterval: 0.01, target: self, selector: #selector(handleTimer), userInfo: nil, repeats: true)
     }
 
-    
     private func setupWebView() {
         print("segunda etapa")
         let contentController = WKUserContentController()
@@ -230,20 +235,20 @@ class ScheduleMassTimeViewController: UIViewController, ScheduleMassTimeViewProt
         myWebView = WKWebView(frame: webViewContainer.frame, configuration: config)
         webViewContainer.addSubview(myWebView)
         myWebView.translatesAutoresizingMaskIntoConstraints = false
-        
+        NSLayoutConstraint.activate([
+        myWebView.bottomAnchor.constraint(equalTo: self.scrollView.bottomAnchor, constant: -10)
+        ])
+       
         let leading = myWebView.leadingAnchor.constraint(equalTo: webViewContainer.leadingAnchor)
         let trailing = myWebView.trailingAnchor.constraint(equalTo: webViewContainer.trailingAnchor)
         let top = myWebView.topAnchor.constraint(equalTo: webViewContainer.topAnchor)
         let bottom = myWebView.bottomAnchor.constraint(equalTo: webViewContainer.bottomAnchor)
-        
         webViewContainer.addConstraints([leading, top, trailing, bottom])
         guard let url = URL(string: setSecureURL() ?? "") else { return }
         print("URLWEBPAY👹",url)
         myWebView.load(URLRequest(url: url))
-        webViewContainer.addConstraints([leading, top, trailing, bottom])
-    
+        //webViewContainer.addConstraints([leading, top, trailing, bottom])
     }
-    
     
     private func setSecureURL() -> String? {
         var amount = amountField.text?.replacingOccurrences(of: "$", with: "") ?? ""
@@ -309,11 +314,7 @@ class ScheduleMassTimeViewController: UIViewController, ScheduleMassTimeViewProt
     }
 
     @IBAction func btnPayCancel(_ sender: Any) {
-        /*let alert = AcceptAlertDonations.showAlert(title: "Advertencia",message: "Estas seguro que deseas salir, se perderá todo el proceso.", btnTitle: "Cancelar")
-        alert.delegate = self
-        alert.btnTitleStr = "cancel"
-        alert.modalPresentationStyle = .overFullScreen
-        self.present(alert, animated: true, completion: nil)*/
+     
         let alert = UIAlertController(title: "Advertencia", message: "Estas seguro que deseas salir, se perderá todo el proceso", preferredStyle: UIAlertController.Style.alert)
         alert.view.subviews.first?.subviews.first?.subviews.first?.backgroundColor = UIColor.white
 
@@ -336,21 +337,6 @@ class ScheduleMassTimeViewController: UIViewController, ScheduleMassTimeViewProt
                    self.flowId = 0
                }))
                self.present(alert, animated: true, completion: nil)
-           
-        
-        /*let alert = UIAlertController(title: "Advertencia", message: "Estas seguro que deseas salir, se perderá todo el proceso", preferredStyle: .alert)
-        let cancelAction = UIAlertAction(title: "Aceptar", style: .cancel){
-            [weak self] _ in
-            guard let self = self else {return}
-            self.dismiss(animated: true, completion: nil)
-            //self.navigationController?.popViewController(animated: true)
-            
-        }
-        alert.addAction(cancelAction)
-        
-        self.present(alert, animated: true)*/
-        
-        
     }
     
     @IBAction func close(_ sender: Any) {

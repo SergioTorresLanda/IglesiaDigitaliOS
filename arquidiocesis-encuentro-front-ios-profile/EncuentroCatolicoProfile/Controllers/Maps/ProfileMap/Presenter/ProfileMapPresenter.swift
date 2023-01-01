@@ -26,7 +26,7 @@ class ProfileMapPresenter: ProfileMapPresenterProtocol, ProfileMapInteractorOutp
     var wireFrame: ProfileMapWireFrameProtocol?
     
     
-    func getLocations() {
+    func getLocations() {//Comunidades
         interactor?.requestLocations()
     }
     

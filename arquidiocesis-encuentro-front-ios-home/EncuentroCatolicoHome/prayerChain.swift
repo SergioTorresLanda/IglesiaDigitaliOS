@@ -319,7 +319,7 @@ class prayerChain: UIViewController {
             "fiel_name" : UserDefaults.standard.value(forKey: "email") ?? "?",
             "reaction" : !item.reaction
         ]
-        print("BODYYYYYY:::;;;;;;;")
+        print(":::BODYYYYYY:::")
         print(parameterDictionary)
         guard let httpBody = try? JSONSerialization.data(withJSONObject: parameterDictionary, options: []) else {
             return

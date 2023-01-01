@@ -12,8 +12,9 @@ class ProfileMapInteractor: ProfileMapInteractorInputProtocol {
     
     weak var presenter: ProfileMapInteractorOutputProtocol?
     
-    func requestLocations() {
+    func requestLocations() {//Comunidades
         doGetLocations.init().execute { (result) in
+            //print(result)
             self.presenter?.responseLocations(result: result)
         } onError: { error, msg in
             self.presenter?.errorGetLocations(msg: msg)
@@ -26,6 +27,7 @@ struct doGetLocations: ResponseDispatcher {
     var urlOptional: String?
     var parameters: [String : Any]?
     var data: RequestType {
-        return RequestType(path: "/locations" , method: .get, params: nil, url:Endpoints.urlGlobalApp)
+        return RequestType(path: "/locations?type_location=CHURCH" , method: .get, params: nil, url:Endpoints.urlGlobalApp)
+        //return RequestType(path: "/locations" , method: .get, params: nil, url:Endpoints.urlGlobalApp)
     }
 }

@@ -8,22 +8,21 @@
 import Foundation
 import UIKit
 import IQKeyboardManagerSwift
+import EncuentroCatolicoVirtualLibrary
+
 
 class RegisterProfileViewController: BaseViewController, ProfileInfoViewProtocol{
     func isSuccesDelete(result: Bool) {
     }
-    
     
     func successPrefix(data: PrefixResponse) {
         print(data)
     }
     
     func failPrefix(message: String) {
-        
     }
 
     func successDiacano() {
-        
     }
     
     func failDiacano() {
@@ -38,56 +37,43 @@ class RegisterProfileViewController: BaseViewController, ProfileInfoViewProtocol
     func showServices(services: ServiceResponse) {
     }
     
-    
     func showStatesResponnse() {
     }
     
     func showCongregationResponse() {
     }
-
     
     func showLifeStates(lifeStates: StatesResponse) {
-        //
     }
     
     func showTopics(topics: TopicsResponse) {
-        //
     }
     
     func reloadPromisse(promisse: [PromiseModel]) {
-        
     }
     
     func reloadPromisse() {
-        
     }
     
     func mostrarInfo(dtcAlerta: [String : String]?, user: UserRespProfile?) {
-        
     }
     
     func showUserInfo(user: UserRespProfile) {
-        
     }
 
     func mostrarMSG(dtcAlerta: [String : String]) {
-        
     }
     
     func succesUpload64(responseData: UploadImageData) {
-        
     }
     
     func failUpload64() {
-        
     }
     
     func succesGetDetailProfile(responseData: ProfileDetailImg) {
-        
     }
     
     func failGetDataProfile() {
-        
     }
     
     //MARK: - IBOutlets
@@ -122,7 +108,7 @@ class RegisterProfileViewController: BaseViewController, ProfileInfoViewProtocol
     }
     
     @IBAction func saveButton(_ sender: Any) {
-        let alert = UIAlertController(title: "App Encuentro", message: "Se modificaran tus datos", preferredStyle: .actionSheet)
+        /*let alert = UIAlertController(title: "App Encuentro", message: "Se modificaran tus datos", preferredStyle: .actionSheet)
         
         let cancel = UIAlertAction(title: "Cancelar", style: .cancel)
         
@@ -134,7 +120,9 @@ class RegisterProfileViewController: BaseViewController, ProfileInfoViewProtocol
         
         alert.addAction(accept)
         alert.addAction(cancel)
-        present(alert, animated: true)
+        present(alert, animated: true)*/
+        
+        updateData()
     }
     
     @IBAction func religiosoAction(_ sender: Any) {
@@ -198,6 +186,8 @@ class RegisterProfileViewController: BaseViewController, ProfileInfoViewProtocol
     var congregationNewArray: Array<CongregationsResponse> = Array()
     var congregationNewIdArray: [CongregationsResponse] = []
     var congregationNewSeleted: Array<CongregationsResponse>?
+    let loadingAlert = UIAlertController(title: "", message: "\n \n \n \n \nCargando...", preferredStyle: .alert)
+    
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -342,26 +332,44 @@ class RegisterProfileViewController: BaseViewController, ProfileInfoViewProtocol
         }
         activitesPicker.resignFirstResponder()
     }
-    
+    func showLoading() {
+        let imageView = UIImageView(frame: CGRect(x: 75, y: 25, width: 140, height: 60))
+        imageView.image = UIImage(named: "logoEncuentro", in: Bundle.local, compatibleWith: nil)
+        loadingAlert.view.addSubview(imageView)
+        present(loadingAlert, animated: true, completion: nil)
+    }
+    func hideLoading() {
+        loadingAlert.dismiss(animated: true, completion: nil)
+    }
+    var alertFields : AcceptAlert?
     func showError(error: String) {
-        DispatchQueue.main.async { [self] in
+        hideLoading()
+        print("SHOW CANON ALERT")
+        print(error)
+        DispatchQueue.main.asyncAfter(deadline: .now() + 0.5, execute: {
+            self.alertFields = AcceptAlert.showAlert(titulo: "Error", mensaje: "Verifica que cancillería tenga tus datos, en caso de duda o aclaración enviar correo electrónico a la siguiente dirección cancilleria@arquidiocesismexico.org para que se autorice tu registro")
+            self.alertFields!.view.backgroundColor = .clear
+            self.present(self.alertFields!, animated: true)
+         })
+        /*DispatchQueue.main.async { [self] in
             let alert = UIAlertController(title: "App Encuentro", message: "Verifica que cancillería tenga tus datos, en caso de duda o aclaración enviar correo electrónico a la siguiente dirección cancilleria@arquidiocesismexico.org para que se autorice tu registro", preferredStyle: .alert)
             let accept = UIAlertAction(title: "Aceptar", style: .default)
             alert.addAction(accept)
             present(alert, animated: true)
-        }
+        }*/
     }
     
     private func updateData() {
+        showLoading()
         if let name = nameTextField.text, !name.isEmpty,
            let firstLastName = firstLastNameTextField.text, !firstLastName.isEmpty,
            let secondLastName = secondLastNameTextField.text, !secondLastName.isEmpty,
-           let description = descriptionTextOutlet.text,
+           //let description = descriptionTextOutlet.text,
            let birthDate = birthdayPicker.text, !birthDate.isEmpty,
            let ordinationDate = orditionPicker.text, !ordinationDate.isEmpty,
            let email = emailTextField.text, !email.isEmpty,
-           let activities = activitesPicker.text, !activities.isEmpty,
-           let url = urlTextField.text
+           let activities = activitesPicker.text, !activities.isEmpty
+           //let url = urlTextField.text
         {
             
             var birthDate: Date!
@@ -419,6 +427,7 @@ class RegisterProfileViewController: BaseViewController, ProfileInfoViewProtocol
 
         }
         else {
+            hideLoading()
             if let name = nameTextField.text, name.isEmpty{
                 nameRequired.isHidden = false
             }

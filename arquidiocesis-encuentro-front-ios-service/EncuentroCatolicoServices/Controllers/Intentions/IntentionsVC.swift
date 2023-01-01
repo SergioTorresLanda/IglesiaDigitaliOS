@@ -34,7 +34,7 @@ class IntentionsViewController: UIViewController {
     }()
     
     lazy var searchBarF: UISearchBar = {
-        let searchBar:UISearchBar = UISearchBar(frame: CGRect(x: 0, y: 110, width: self.view.frame.width, height: self.view.frame.height))
+        let searchBar:UISearchBar = UISearchBar(frame: CGRect(x: 0, y: 80, width: self.view.frame.width, height: self.view.frame.height))
         searchBar.searchBarStyle = UISearchBar.Style.prominent
         searchBar.placeholder = "Busca iglesia"
         searchBar.sizeToFit()

@@ -392,6 +392,7 @@ class ProfileInfoInteractor: ProfileInfoInteractorInputProtocol {
             //print("->  error: ", error as Any)
             
             if error != nil {
+                self.presenter?.failPostLaicoReligioso()
                 print("Hubo un error")
                 return
             }
@@ -400,6 +401,8 @@ class ProfileInfoInteractor: ProfileInfoInteractorInputProtocol {
                 self.presenter?.successPostLaicoReligioso()
                 
             }else{
+                print("STATUSSSs ::::::  ")
+                print(String((response as! HTTPURLResponse).statusCode))
                 APIType.shared.refreshToken()
                 self.presenter?.failPostLaicoReligioso()
             }
@@ -434,6 +437,7 @@ class ProfileInfoInteractor: ProfileInfoInteractorInputProtocol {
             
             if error != nil {
                 print("Hubo un error")
+                self.presenter?.successPostLaicoReligioso()
                 return
             }
             //print(response)
@@ -441,6 +445,8 @@ class ProfileInfoInteractor: ProfileInfoInteractorInputProtocol {
                 self.presenter?.successPostLaicoReligioso()
                 
             }else{
+                print("STATUSSSs ::::::  ")
+                print(String((response as! HTTPURLResponse).statusCode))
                 APIType.shared.refreshToken()
                 self.presenter?.failPostLaicoReligioso()
             }
@@ -450,10 +456,7 @@ class ProfileInfoInteractor: ProfileInfoInteractorInputProtocol {
     }
     
     func postSacerdote(request: ProfilePriest) {
-        //        RequestManager.shared.perform(route: RegisterRouter.profilePriest(request: request)) {
-        //            [weak self] result, _ in
-        //            self?.presenter?.responseSacerdote(result: result)
-        //        }
+       
         let dictionary = request
         guard let endpoint: URL = URL(string: "\(API)/" + "user/update" ) else {
             print("Error formando url sacerdote")
@@ -478,8 +481,11 @@ class ProfileInfoInteractor: ProfileInfoInteractorInputProtocol {
                 return
             }
             if (response as! HTTPURLResponse).statusCode == 200 {
+                print(":;;;;;;;STATUS 200 SACERRRRR :::::")
                 self.presenter?.responsePriest(errores: ServerErrors.OK, data: nil)
             }else{
+                print(":;;;;;;;ERROR STATUS SACERRRRR :::::")
+                print(String((response as! HTTPURLResponse).statusCode))
                 APIType.shared.refreshToken()
                 self.presenter?.responsePriest(errores: ServerErrors.ErrorInterno, data: nil)
             }

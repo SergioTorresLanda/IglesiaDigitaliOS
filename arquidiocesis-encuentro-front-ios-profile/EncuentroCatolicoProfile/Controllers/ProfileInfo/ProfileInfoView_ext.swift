@@ -655,7 +655,6 @@ extension ProfileInfoView: ProfileInfoViewProtocol {
     func showServices(services: ServiceResponse) {
         //print("XXXXXXXXX")
         //print(services)
-        
         var servicesData: [ProvidedService] = []
         services.data.forEach { service in
             serviceCongList.append(service.description)

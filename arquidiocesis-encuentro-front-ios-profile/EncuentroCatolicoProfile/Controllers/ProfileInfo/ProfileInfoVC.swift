@@ -222,6 +222,9 @@ class ProfileInfoView: UIViewController {
         nameTopics=[]
         lifeStyleList=[]
         codesLifeStatus=[]
+        serviceCongList=[]
+        serviceListID=[]
+        AllServicesData=[]
         
         showLoading()
         //DispatchQueue.main.asyncAfter(deadline: .now() + 2, execute: {
@@ -748,11 +751,12 @@ class ProfileInfoView: UIViewController {
         
         if singleton.idChurch != nil {
             print(singleton2.selectedServiceID, serviceListID)
+            if singleton2.selectedServiceID == 0 {
+                showCanonAlert(title: "¡Atención!", msg: "Selecciona el servicio que prestas.")
+                return
+            }
             let services1 = Service(location_id: singleton.idChurch, service_id: singleton2.selectedServiceID)
             services.append(services1)
-            
-           // let services1 = Service(location_id: singleton.idChurch, service_id: serviceListID[singleton2.selectedServiceID])
-           // services.append(services1)
         }
         
         var congregationA: [Congregation] = []
@@ -788,8 +792,11 @@ class ProfileInfoView: UIViewController {
         print("VALID PRAYER::  " + validPrayer!)
         switch validPrayer {
         case "Sacerdote":
-            let view = ProfileInfoRouter.createModuleTwo()
-            navigationController?.pushViewController(view, animated: true)
+            hideLoading()
+            DispatchQueue.main.asyncAfter(deadline: .now() + 0.5, execute: {
+                let view = ProfileInfoRouter.createModuleTwo()
+                self.navigationController?.pushViewController(view, animated: true)
+             })
         case "Religioso (a)":
             //showLoading()
             var idChurchReligioso = singleton.idChurch
@@ -892,10 +899,6 @@ class ProfileInfoView: UIViewController {
             self.alertFields!.view.backgroundColor = .clear
             self.present(self.alertFields!, animated: true)
          })
-        //alertView.isHidden=false
-        //alertTitle.text=title
-        //alertText.text=msg
-        
     }
     
     func successLaicoReligioso() {
