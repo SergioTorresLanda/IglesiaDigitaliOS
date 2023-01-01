@@ -121,7 +121,11 @@ class OracionesDetailViewController: UIViewController {
     }
     
     @IBAction func seeMoreAction(_ sender: Any) {
-        self.dismiss(animated: true, completion: nil)
+//        self.dismiss(animated: true, completion: nil)
+        //self.navigationController?.popViewController(animated: true)
+        let view = OracionesRouter.getController()
+        self.navigationController?.pushViewController(view, animated: true)
+        
     }
     
     func showLoading(){
