@@ -83,8 +83,6 @@ class HomePresenter: HomePresenterProtocol {
         interactor?.getSaintOfDay(type: type, date: date)
     }
     
-    
-    
     func trasportResponseHome(response: HTTPURLResponse, data: [HomeSaintOfDay], type: String) {
         DispatchQueue.main.async {
             if response.statusCode == 200 {

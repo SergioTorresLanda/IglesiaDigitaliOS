@@ -640,7 +640,7 @@ extension UIImageView {
                     DispatchQueue.main.async {
                         self.image = UIImage(data: data)
                        
-                        print("Fin del hilo imagen muestra")
+                        //print("Fin del hilo imagen muestra")
                     }
                     
                 }else {

@@ -19,6 +19,8 @@ class HomeSliderCell: UITableViewCell, UICollectionViewDataSource, UICollectionV
     var delegate:YourCellDelegate!
     
     var allData: [HomeSuggestions] = []
+    var allData2: [HomeSaintOfDay] = []
+    var disc=0
     
     override func awakeFromNib() {
         super.awakeFromNib()
@@ -32,7 +34,18 @@ class HomeSliderCell: UITableViewCell, UICollectionViewDataSource, UICollectionV
     }
     
     func setupSlider(data: [HomeSuggestions]) {
+        lblTitle.text=" Sugerencias para ti "
         allData = data
+        pagesControl.numberOfPages = data.count
+        suggestionsCV.dataSource = self
+        suggestionsCV.delegate = self
+        suggestionsCV.register(UINib(nibName: "SliderCollectionCell", bundle: Bundle.local), forCellWithReuseIdentifier: "CELLCOLSD")
+    }
+    
+    func setupSlider2(data: [HomeSaintOfDay]) {
+        disc=1
+        lblTitle.text=" Desde la fe "
+        allData2 = data
         pagesControl.numberOfPages = data.count
         suggestionsCV.dataSource = self
         suggestionsCV.delegate = self
@@ -49,19 +62,36 @@ class HomeSliderCell: UITableViewCell, UICollectionViewDataSource, UICollectionV
         delegate.didPressButton(sender.tag, type: allData[sender.tag].type ?? "", library: allData[sender.tag].category ?? "", url: allData[sender.tag].article_url ?? "", id: allData[sender.tag].id ?? 1)
     }
     
+    @objc func postAction(sender: UIButton) {
+        print("POST cLIcK::;;"+String(sender.tag))
+        delegate.didPressButtonPost(url: allData2[sender.tag].publish_url ?? "Unspecified")
+    }
+    
 // MARK: COLLECTION VEWI DELEGATE & DATA SOURCE -
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        return allData.count
+        if disc==0{
+            return allData.count
+        }else{
+            return allData2.count
+        }
     }
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "CELLCOLSD", for: indexPath) as! SliderCollectionCell
         cell.imgCustom.layer.cornerRadius = 10
-        cell.imgCustom.DownloadStaticImageH(allData[indexPath.item].image_url ?? "")
         cell.lblCustom.adjustsFontSizeToFitWidth = true
+        if disc==0{
+        cell.imgCustom.DownloadStaticImageH(allData[indexPath.item].image_url ?? "")
         cell.lblCustom.text = allData[indexPath.item].title ?? ""
         cell.btnCell.addTarget(self, action: #selector(suggestionAction), for: .touchUpInside)
-        cell.btnCell.tag = indexPath.item
+            cell.btnCell.tag = indexPath.item
+            
+        }else{
+            cell.imgCustom.DownloadStaticImageH(allData2[indexPath.item].image_url ?? "")
+            cell.lblCustom.text = allData2[indexPath.item].title ?? ""
+            cell.btnCell.addTarget(self, action: #selector(postAction), for: .touchUpInside)
+                cell.btnCell.tag = indexPath.item
+        }
         return cell
         
     }

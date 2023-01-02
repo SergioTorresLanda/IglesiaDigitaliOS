@@ -145,7 +145,6 @@ extension HomeViewController: UICollectionViewDataSource {
             cell.imageMenu.image  = UIImage(named:"oraciones", in: Bundle.local, compatibleWith: nil)
             cell.containerButton.layer.cornerRadius = 10
             //  cell.containerButton.addShadow()
-            
             return cell
         }
     }
@@ -160,9 +159,6 @@ extension HomeViewController: UICollectionViewDelegate {
             let vc = storyboard.instantiateViewController(withIdentifier: "prayerChainFeed") as! prayerChain
             vc.userName = nombrePersona.text!
             self.navigationController?.pushViewController(vc, animated: true)
-            
-//            let view = AcceptAlert.showAlert(titulo: "Aviso", mensaje: "Esta sección se trabajara con la gente de Banco Azteca")
-//            self.present(view, animated: true, completion: nil)
         case 1:
             let view = MyChurchesWireFrame.getController()
             self.navigationController?.pushViewController(view, animated: true)
@@ -172,16 +168,13 @@ extension HomeViewController: UICollectionViewDelegate {
         case 3:
             let view = OracionesRouter.getController()
             self.navigationController?.pushViewController(view, animated: true)
-            
         case 4:
             let view = HomeServiceWireFrame.createModule()
             self.navigationController?.pushViewController(view, animated: true)
-            
         case 5:
             let instance = SocialNetworkConstant.shared.instance
             let view =  SocialNetworkNews.openSocialNetowrk(firebaseApp: instance)
             self.navigationController?.pushViewController(view, animated: true)
-           
         case 6:
             let view = MyCommunitiesMainViewwWireFrame.getController()
             self.navigationController?.pushViewController(view, animated: true)
@@ -194,10 +187,8 @@ extension HomeViewController: UICollectionViewDelegate {
 //MARK: - UICollectionViewDelegateFlowLayout
 extension HomeViewController: UICollectionViewDelegateFlowLayout {
     public func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
-        
         let widthScreen = UIScreen.main.bounds.width
-        
-        return CGSize(width: 83, height: 124)
+        return CGSize(width: 83, height: 124) //height: 124)
     }
     
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, minimumInteritemSpacingForSectionAt section: Int) -> CGFloat {
@@ -251,7 +242,7 @@ extension HomeViewController: UITableViewDelegate, UITableViewDataSource {
         default:
                         
             if let section = allSections[indexPath.row] as? [HomeSaintOfDay] {
-                let cell = tableView.dequeueReusableCell(withIdentifier: "HOMECELLT", for: indexPath) as! HomeMainCell
+                /*let cell = tableView.dequeueReusableCell(withIdentifier: "HOMECELLT", for: indexPath) as! HomeMainCell
                 print("&&&", allSections, allSections.count)
                 cell.subCardView.layer.cornerRadius = 10
                 cell.subCardView.ShadowCard()
@@ -263,7 +254,20 @@ extension HomeViewController: UITableViewDelegate, UITableViewDataSource {
                 cell.lblCard.adjustsFontSizeToFitWidth = true
                 cell.lblCard.text = section[0].title ?? ""
                 
-                return cell
+                return cell*/
+                let cellSlider = tableView.dequeueReusableCell(withIdentifier: "SLIDERCELL", for: indexPath) as! HomeSliderCell
+                cellSlider.delegate = self
+                cellSlider.setupSlider2(data: realesesPost)
+                cellSlider.subCardView.layer.cornerRadius = 10
+                cellSlider.subCardView.ShadowCard()
+                cellSlider.contentCardView.layer.cornerRadius = 10
+                cellSlider.contentCardView.clipsToBounds = true
+                cellSlider.selectionStyle = .none
+               
+                let count = allSections.count
+                heightMainTable.constant = cellSlider.frame.height * CGFloat(count)
+                
+                return cellSlider
                 
             }else{
                 
@@ -294,10 +298,12 @@ extension HomeViewController: UITableViewDelegate, UITableViewDataSource {
             break
             
         default:
+            /*
             if let section = allSections[indexPath.row] as? [HomeSaintOfDay] {
                 let view = ModalWebViewController.showWebModal(url: section[0].publish_url ?? "Unspecified", type: "OTHER")
                 self.present(view, animated: true, completion: nil)
-            }
+            }*/
+            break
         }
         
     }

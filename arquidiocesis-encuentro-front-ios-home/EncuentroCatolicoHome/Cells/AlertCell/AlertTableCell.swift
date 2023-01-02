@@ -9,6 +9,8 @@ import UIKit
 
 protocol YourCellDelegate : AnyObject {
     func didPressButton(_ tag: Int, type: String, library: String, url: String, id: Int)
+    func didPressButtonPost(url: String)
+
 }
 
 class AlertTableCell: UITableViewCell {

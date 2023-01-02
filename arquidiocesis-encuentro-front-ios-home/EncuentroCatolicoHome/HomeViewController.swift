@@ -24,7 +24,7 @@ import EncuentroCatolicoNewFormation
 
 class HomeViewController: UIViewController, HomeViewProtocol, UITextFieldDelegate, UNUserNotificationCenterDelegate, YourCellDelegate, MyCellDelegate {
     func didPressCell(sender: Any) {
-        print("Hola Bro ya casi acabas")
+        print("HomeVC Did press cell")
     }
     
     var presenter: HomePresenterProtocol?
@@ -109,13 +109,7 @@ class HomeViewController: UIViewController, HomeViewProtocol, UITextFieldDelegat
     }
     
     override func viewDidAppear(_ animated: Bool) {
-        //        if let imageData = UserDefaults.standard.data(forKey: "userImage"), let image = UIImage(data: imageData) {
-        //            userImage.image = image
-        //        }else{
-        //
-        //            presenter?.requestUserDetail()
-        //
-        //        }
+
         let tabBar = self.tabBarController as? SocialNetworkController
         tabBar?.tabBar.isHidden = true
         tabBar?.customTabBar.isHidden = false
@@ -128,27 +122,20 @@ class HomeViewController: UIViewController, HomeViewProtocol, UITextFieldDelegat
     func loadUserAttributs() {
         switch data?.UserAttributes.role {
         case UserRoleEnum.fiel.rawValue:
-            print("")
+            print("fiel")
         case UserRoleEnum.fieladministrador.rawValue:
-            print("")
+            print("fiel admin")
         case UserRoleEnum.sacerdote.rawValue:
-            print("")
+            print("sacer")
         case UserRoleEnum.Sacerdoteadministrador.rawValue:
-            print("")
+            print("sacer admin")
         case UserRoleEnum.Sacerdotedecano.rawValue:
-            print("")
+            print("sacer decano")
         default:
             break
         }
     }
-    //    func successLoadImg(dataResponse: ProfileDetailImgH) {
-    //        if dataResponse.data?.User?.image == nil {
-    //            userImage.image = UIImage(named: "userImage", in: Bundle.local, compatibleWith: nil)
-    //        }else{
-    //            userImage.DownloadStaticImageH(dataResponse.data?.User?.image ?? "nil")
-    //        }
-    //    }
-    //
+
     func failLoadImg() {
         
     }
@@ -248,7 +235,7 @@ class HomeViewController: UIViewController, HomeViewProtocol, UITextFieldDelegat
         modulesList = dataResponse.data?.User?.location_modules ?? modulesList
         modulesList.forEach({ item in
             if let array = item.modules {
-                print(array)
+                //print(array)
                 array.forEach { sub in
                     switch sub{
                     case "LOCATION_INFORMATION":
@@ -479,6 +466,11 @@ class HomeViewController: UIViewController, HomeViewProtocol, UITextFieldDelegat
         
     }
     
+    func didPressButtonPost(url: String){
+        let view = ModalWebViewController.showWebModal(url: url , type: "OTHER")
+        self.present(view, animated: true, completion: nil)
+    }
+    
     func didPressButton(_ tag: Int, type: String, library: String, url: String, id: Int) {
         print("&&&", tag)
         switch tag {
@@ -496,9 +488,6 @@ class HomeViewController: UIViewController, HomeViewProtocol, UITextFieldDelegat
                 let view = ModalWebViewController.showWebModal(url: url.absoluteString.embedAndPlayYoutubeURL(), type: "VIDEO")
                 view.transitioningDelegate = self
                 view.modalPresentationStyle = .overFullScreen
-                if #available(iOS 13.0, *) {
-                   // view.isModalInPresentation = true // available in IOS13
-                }
                 self.present(view, animated: true, completion: nil)
 
             case "LINK":
@@ -508,19 +497,12 @@ class HomeViewController: UIViewController, HomeViewProtocol, UITextFieldDelegat
                     let view = OracionesDetailRouter.getDetailView(id: id)
                     view.transitioningDelegate = self
                     view.modalPresentationStyle = .overFullScreen
-                    if #available(iOS 13.0, *) {
-                        //view.isModalInPresentation = true // available in IOS13
-                    }
-//                    self.present(view, animated: true, completion: nil)
                     self.navigationController?.pushViewController(view, animated: true)
                 }else{
                     let singleton = HomeViewController.singleton
                     singleton.isFromPrayModal = "OTHER"
                     let view = ModalWebViewController.showWebModal(url: url, type: "OTHER")
                     view.modalPresentationStyle = .overFullScreen
-                    if #available(iOS 13.0, *) {
-                       // view.isModalInPresentation = true // available in IOS13
-                    }
                     self.present(view, animated: true, completion: nil)
                 }
                 
@@ -535,11 +517,13 @@ class HomeViewController: UIViewController, HomeViewProtocol, UITextFieldDelegat
     func succesGetHome(data: [HomeSaintOfDay], type: String) {
         switch type {
         case "SAINT":
+            DispatchQueue.main.asyncAfter(deadline: .now() + 3, execute: {
+                print("::::::succesGetHome SAINT::;;;")
+             })
             saintOfDay = data
             if saintOfDay.count != 0 {
                 allSections.append(saintOfDay)
             }
-            
             //print("----", saintOfDay)
             if data.count != 0 {
                 arraySections.append(true)
@@ -553,13 +537,13 @@ class HomeViewController: UIViewController, HomeViewProtocol, UITextFieldDelegat
             self.presenter?.requestHomeData(type: "RELEASE", date: "\(dateString)")
             
         default:
-            
+            DispatchQueue.main.asyncAfter(deadline: .now() + 3, execute: {
+                print("::::::succesGetHome Default::;;;")
+             })
             realesesPost = data
             if realesesPost.count != 0 {
                 allSections.append(realesesPost)
             }
-            
-            //print("---", realesesPost)
             if data.count != 0 {
                 arraySections.append(true)
             }else{
@@ -567,27 +551,27 @@ class HomeViewController: UIViewController, HomeViewProtocol, UITextFieldDelegat
             }
             
             self.presenter?.requestSuggestions(type: "SUGGESTIONS")
-            
         }
-        
-    }
-    
-    func failGetHome(message: String) {
-        arraySections.append(false)
     }
     
     func onSuccessGetSuggestions(data: [HomeSuggestions]) {
+        DispatchQueue.main.asyncAfter(deadline: .now() + 3, execute: {
+            print("::::::onSuccessGetSuggestions::;;;")
+         })
         suggestions = data
         if suggestions.count != 0 {
             allSections.append(suggestions)
         }
         
         setupTableView()
-        
+    }
+    
+    func failGetHome(message: String) {
+        arraySections.append(false)
     }
     
     func onFialGetSuggestions(message: String) {
-        print(message)
+        print("Error HomeVC: "+message)
     }
     
     func successStreaming(data: [LiveModel]) {
@@ -603,7 +587,7 @@ class HomeViewController: UIViewController, HomeViewProtocol, UITextFieldDelegat
     }
     
     func failStreaming(message: String) {
-        print(message)
+        print("Error Streming Home : "+message)
         emptyStreaming = false
     }
     
@@ -629,20 +613,15 @@ class HomeViewController: UIViewController, HomeViewProtocol, UITextFieldDelegat
             switch UIScreen.main.nativeBounds.height {
             case 1334:
                 print("iPhone 6/6S/7/8")
-                //                donatiosButtonSpace.constant = 91.0
+                //donatiosButtonSpace.constant = 91.0
             default:
-                //                donatiosButtonSpace.constant = 73.0
+                //donatiosButtonSpace.constant = 73.0
                 print("Default case")
             }
         }
         
         viewArriba.layer.cornerRadius = 20
         viewArriba.ShadowNavBar()
-        //        viewArriba.layer.shadowRadius = 5
-        //        viewArriba.layer.shadowOpacity = 0.5
-        //        viewArriba.layer.shadowColor = UIColor.black.cgColor
-        //        viewArriba.layer.maskedCorners = [.layerMinXMaxYCorner, .layerMaxXMaxYCorner]
-        //remoteConfig()
     }
     
     func animateViewMoving (up:Bool, moveValue :CGFloat){
@@ -691,7 +670,7 @@ class HomeViewController: UIViewController, HomeViewProtocol, UITextFieldDelegat
     }
     
     @objc func notifyTap(_ sender: UITapGestureRecognizer){
-        print("PERFIL CLICKKKKKK")
+        print("HomeVC PERFIL CLICK")
         NotificationCenter.default.post(name: Notification.Name("handleSuperTap"), object: nil)
         let view = ProfileInfoRouter.createModule()
         self.navigationController?.pushViewController(view, animated: true)
@@ -748,9 +727,6 @@ class HomeViewController: UIViewController, HomeViewProtocol, UITextFieldDelegat
     }
     
     @IBAction func goToProfile(_ sender: Any){
-        print("goToProfile")
-        // NotificationCenter.default.post(name: Notification.Name("handleSuperTap"), object: nil)
-        //self.tabBarController?.selectedIndex = 2 //ir a perfil
         let view = ProfileInfoRouter.createModule()
         self.navigationController?.pushViewController(view, animated: true)
     }

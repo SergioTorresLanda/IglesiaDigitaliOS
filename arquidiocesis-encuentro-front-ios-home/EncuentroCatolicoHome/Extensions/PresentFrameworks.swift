@@ -24,14 +24,12 @@ extension UIImageView {
         let task = URLSession.shared.dataTask(with: url) {responseData,response,error in
             //print("->>  response: ", response)
             //print("->>  error: ", error)
-
             if error == nil {
                 if let data = responseData {
                     
                     DispatchQueue.main.async {
                         self.image = UIImage(data: data)
-                       
-                        print("Fin del hilo imagen muestra")
+                        //print("Fin del hilo imagen muestra")
                     }
                     
                 }else {
