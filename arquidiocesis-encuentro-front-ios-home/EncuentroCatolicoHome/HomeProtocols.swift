@@ -11,11 +11,11 @@
 import Foundation
 
 //MARK: Wireframe -
-protocol HomeWireframeProtocol: class {
+protocol HomeWireframeProtocol: AnyObject {
 }
 
 //MARK: Presenter -
-protocol HomePresenterProtocol: class {
+protocol HomePresenterProtocol: AnyObject {
     func cargarDatosUsuario()
     
     func obtieneRespuetaUsuario(errores: ErroresServidorHome, user: UserRespHome?)
@@ -33,7 +33,7 @@ protocol HomePresenterProtocol: class {
 }
 
 //MARK: Interactor -
-protocol HomeInteractorProtocol: class {
+protocol HomeInteractorProtocol: AnyObject {
 
     var presenter: HomePresenterProtocol?  { get set }
     func cargarDatosPersona()
@@ -44,7 +44,7 @@ protocol HomeInteractorProtocol: class {
 }
 
 //MARK: View -
-protocol HomeViewProtocol: class {
+protocol HomeViewProtocol: AnyObject {
 
     var presenter: HomePresenterProtocol?  { get set }
     func mostrarInfo(dtcAlerta: [String:String]?, user: UserRespHome?)

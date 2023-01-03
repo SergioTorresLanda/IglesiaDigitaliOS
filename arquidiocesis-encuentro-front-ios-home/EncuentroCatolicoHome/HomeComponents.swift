@@ -214,7 +214,7 @@ extension HomeViewController: UITableViewDelegate, UITableViewDataSource {
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        
+       
         switch flagState {
         case "PENDING_COMPLETION":
             let cellAlert = tableView.dequeueReusableCell(withIdentifier: "ALERTCELL", for: indexPath) as! AlertTableCell
@@ -240,51 +240,38 @@ extension HomeViewController: UITableViewDelegate, UITableViewDataSource {
             return cellAlert2
             
         default:
-                        
-            if let section = allSections[indexPath.row] as? [HomeSaintOfDay] {
-                /*let cell = tableView.dequeueReusableCell(withIdentifier: "HOMECELLT", for: indexPath) as! HomeMainCell
-                print("&&&", allSections, allSections.count)
-                cell.subCardView.layer.cornerRadius = 10
-                cell.subCardView.ShadowCard()
-                cell.contentCardView.layer.cornerRadius = 10
-                cell.contentCardView.clipsToBounds = true
-                cell.selectionStyle = .none
-                
-                cell.imgCard.DownloadStaticImageH(section[0].image_url ?? "")
-                cell.lblCard.adjustsFontSizeToFitWidth = true
-                cell.lblCard.text = section[0].title ?? ""
-                
-                return cell*/
-                let cellSlider = tableView.dequeueReusableCell(withIdentifier: "SLIDERCELL", for: indexPath) as! HomeSliderCell
-                cellSlider.delegate = self
-                cellSlider.setupSlider2(data: realesesPost)
-                cellSlider.subCardView.layer.cornerRadius = 10
-                cellSlider.subCardView.ShadowCard()
-                cellSlider.contentCardView.layer.cornerRadius = 10
-                cellSlider.contentCardView.clipsToBounds = true
-                cellSlider.selectionStyle = .none
-               
-                let count = allSections.count
-                heightMainTable.constant = cellSlider.frame.height * CGFloat(count)
-                
-                return cellSlider
-                
+            let cellSlider = tableView.dequeueReusableCell(withIdentifier: "SLIDERCELL", for: indexPath) as! HomeSliderCell
+            if indexPath.row >= allSections.startIndex && indexPath.row < allSections.endIndex {
+                if allSections[indexPath.row] is [HomeSaintOfDay] {
+                    //Desde la fe
+                    cellSlider.delegate = self
+                    cellSlider.setupSlider2(data: realesesPost)
+                    cellSlider.subCardView.layer.cornerRadius = 10
+                    cellSlider.subCardView.ShadowCard()
+                    cellSlider.contentCardView.layer.cornerRadius = 10
+                    cellSlider.contentCardView.clipsToBounds = true
+                    cellSlider.selectionStyle = .none
+                   
+                    let count = allSections.count
+                    heightMainTable.constant = cellSlider.frame.height * CGFloat(count)
+                }else{
+                    //Sugerencias
+                    cellSlider.delegate = self
+                    cellSlider.setupSlider(data: suggestions)
+                    cellSlider.subCardView.layer.cornerRadius = 10
+                    cellSlider.subCardView.ShadowCard()
+                    cellSlider.contentCardView.layer.cornerRadius = 10
+                    cellSlider.contentCardView.clipsToBounds = true
+                    cellSlider.selectionStyle = .none
+                   
+                    let count = allSections.count
+                    heightMainTable.constant = cellSlider.frame.height * CGFloat(count)
+                    //return cellSlider
+                }
             }else{
-                
-                let cellSlider = tableView.dequeueReusableCell(withIdentifier: "SLIDERCELL", for: indexPath) as! HomeSliderCell
-                cellSlider.delegate = self
-                cellSlider.setupSlider(data: suggestions)
-                cellSlider.subCardView.layer.cornerRadius = 10
-                cellSlider.subCardView.ShadowCard()
-                cellSlider.contentCardView.layer.cornerRadius = 10
-                cellSlider.contentCardView.clipsToBounds = true
-                cellSlider.selectionStyle = .none
-               
-                let count = allSections.count
-                heightMainTable.constant = cellSlider.frame.height * CGFloat(count)
-                
-                return cellSlider
+                print("ERROR INDEX PATH: "+String(indexPath.row))
             }
+            return cellSlider
             
         }
         
@@ -309,3 +296,20 @@ extension HomeViewController: UITableViewDelegate, UITableViewDataSource {
     }
     
 }
+ /*Antes Seccion Desde la fe
+  
+  /*let cell = tableView.dequeueReusableCell(withIdentifier: "HOMECELLT", for: indexPath) as! HomeMainCell
+  print("&&&", allSections, allSections.count)
+  cell.subCardView.layer.cornerRadius = 10
+  cell.subCardView.ShadowCard()
+  cell.contentCardView.layer.cornerRadius = 10
+  cell.contentCardView.clipsToBounds = true
+  cell.selectionStyle = .none
+  
+  cell.imgCard.DownloadStaticImageH(section[0].image_url ?? "")
+  cell.lblCard.adjustsFontSizeToFitWidth = true
+  cell.lblCard.text = section[0].title ?? ""
+  
+  return cell*/
+  
+  */
