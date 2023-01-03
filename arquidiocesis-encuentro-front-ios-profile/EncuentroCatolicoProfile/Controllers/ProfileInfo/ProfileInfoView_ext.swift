@@ -349,8 +349,6 @@ extension ProfileInfoView: ProfileInfoViewProtocol {
    
     func showStatesResponnse() {
         hideLoading()
-        alertView.isHidden=false
-        alertTitle.text="Datos guardados exitosamente"
         /*DispatchQueue.main.asyncAfter(deadline: .now() + 0.5) {
             self.view.makeToast("Datos Guardados Exitosamente", duration: 3.0, position: .top)
         }*/
@@ -358,20 +356,14 @@ extension ProfileInfoView: ProfileInfoViewProtocol {
     
     func showCongregationResponse() {
         hideLoading()
-        alertView.isHidden=false
-        alertTitle.text="Datos guardados exitosamente"
     }
     
     func showSacerdoteResponse() {
         hideLoading()
-        alertView.isHidden=false
-        alertTitle.text="Datos guardados exitosamente"
     }
     
     func showDiaconoResponse() {
         hideLoading()
-        alertView.isHidden=false
-        alertTitle.text="Datos guardados exitosamente"
     }
     
     func showDetalles(detail: DetailProfile) {
@@ -460,6 +452,7 @@ extension ProfileInfoView: ProfileInfoViewProtocol {
             print(detail.data?.User?.is_provider ?? "WASs")
             switch detail.data?.User?.is_provider {
             case "CHURCH":
+                typeService="iglesia"
                 arrayIsActive[0] = true
                 isLaico = false
                 btnSave.setTitle("Guardar", for: .normal)
@@ -498,6 +491,7 @@ extension ProfileInfoView: ProfileInfoViewProtocol {
                 serviceProvider = "CHURCH"
                 
             case "COMMUNITY":
+                typeService="comunidad"
                 arrayIsActive[1] = true
                 isLaico = true
                 switchResponsable.isOn = false
@@ -811,7 +805,7 @@ extension ProfileInfoView: UICollectionViewDataSource, UICollectionViewDelegate,
                     cellChurch.fieldServices.text = nameService[indexPath.row]
                 }
             }
-            cellChurch.setupPickerField(vc: self, dataNames: serviceCongList, dataId: serviceListID)
+            cellChurch.setupPickerField(vc: self, dataNames: serviceCongList, dataId: serviceListID,type: typeService)
             //            cellChurch.fieldServices.text = "Sacristán"
             
             return cellChurch

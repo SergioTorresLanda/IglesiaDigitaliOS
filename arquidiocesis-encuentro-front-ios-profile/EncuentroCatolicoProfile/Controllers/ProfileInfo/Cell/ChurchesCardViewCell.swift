@@ -30,13 +30,14 @@ class ChurchesCardViewCell: UICollectionViewCell {
         // Initialization code
     }
     
-    func setupPickerField(vc: AnyObject, dataNames: [String], dataId: [Int]) {
+    func setupPickerField(vc: AnyObject, dataNames: [String], dataId: [Int], type:String) {
+        print("SEtUP PICKER:: " + type)
         arrayNames = dataNames
         arrayIds = dataId
         fieldServices.delegate = self
         picker = UIPickerView(frame: CGRect(x: 0, y: 200, width: cardView.frame.width, height: 200)) 
         picker.showsSelectionIndicator = true
-        
+        //lblAsk.text="Qué servicio prestas a la "+type
         let toolBar = UIToolbar()
         toolBar.barStyle = UIBarStyle.default
         toolBar.isTranslucent = true
@@ -72,7 +73,7 @@ class ChurchesCardViewCell: UICollectionViewCell {
 
 }
 
-extension ChurchesCardViewCell: UIPickerViewDelegate, UIPickerViewDataSource {
+extension ChurchesCardViewCell: UIPickerViewDelegate, UIPickerViewDataSource{
     func numberOfComponents(in pickerView: UIPickerView) -> Int {
         return 1
     }
