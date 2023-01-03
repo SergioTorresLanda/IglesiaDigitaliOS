@@ -48,12 +48,6 @@ class ProfileInfoView: UIViewController {
     @IBOutlet weak var prefixField: UITextField!
     @IBOutlet weak var prefixView: UIView!
     @IBOutlet weak var btnDelete: UIButton!
-    //ALERTA
-    @IBOutlet weak var alertView: UIView!
-    @IBOutlet weak var alertTitle: UILabel!
-    @IBOutlet weak var alertBtn: UIButton!
-    @IBOutlet weak var alertText: UILabel!
-    
     
     static let sinleton = ProfileInfoView()
 // MARK: NEW GLOBAL VAR -
@@ -93,6 +87,7 @@ class ProfileInfoView: UIViewController {
     var serviceProvider = "Unspecified"
     var nameService = [String]()
     var alertFields : AcceptAlert?
+    var typeService="iglesia"
     
     static let singleton = ProfileInfoView()
     
@@ -203,13 +198,6 @@ class ProfileInfoView: UIViewController {
     }
     
     override func viewDidLayoutSubviews() {
-        alertView.layer.cornerRadius = 10
-        alertView.layer.borderWidth = 2
-        alertView.layer.borderColor = UIColor.eMainBlue.cgColor
-        let rB = CAShapeLayer()
-        rB.bounds = rB.frame
-        rB.path = UIBezierPath(roundedRect: self.alertBtn.bounds, byRoundingCorners: [.bottomLeft , .bottomRight, .topLeft, .topRight], cornerRadii: CGSize(width: 20, height: 20)).cgPath
-        alertBtn.layer.mask = rB
         
     }
     
@@ -720,7 +708,7 @@ class ProfileInfoView: UIViewController {
                 miniContentSwitch.isHidden = true
                 serachStack.isHidden = true
                 lineasViewCollection[6].isHidden = true
-                miniContentCongregation.isHidden = false
+                miniContentCongregation.isHidden = true
                 lblYouCan.isHidden = true
                 cardLaico.isHidden = false
                 cardLaico2.isHidden = false
@@ -904,10 +892,6 @@ class ProfileInfoView: UIViewController {
         }
     }
     
-    @IBAction func alertBtnClick(_ sender: Any) {
-        alertView.isHidden=true
-    }
-    
     func showCanonAlert(title:String, msg:String){
         hideLoading()
         print("SHOW CANON ALERT")
@@ -1022,11 +1006,6 @@ class ProfileInfoView: UIViewController {
         toolButton.trailingAnchor(equalTo: view.trailingAnchor, constant: -65)
         toolButton.widthAnchor(equalTo: 20)
         toolButton.heightAnchor(equalTo: 20)
-        
-//        logoutButton.topAnchor(equalTo: view.safeTopAnchor, constant: 10)
-//        logoutButton.trailingAnchor(equalTo: view.trailingAnchor, constant: -25)
-//        logoutButton.widthAnchor(equalTo: 20)
-//        logoutButton.heightAnchor(equalTo: 20)
         
         userImageView.widthAnchor(equalTo: 130)
         userImageView.heightAnchor(equalTo: 130)
@@ -1216,32 +1195,9 @@ class ProfileInfoView: UIViewController {
     }
     
     @IBAction func informationAction(_ sender: Any) {
-        //        flag = false
-        //        withoutPromisseView.isHidden = true
-        //        promisseTemporalView.isHidden = true
-        //        UIView.animate(withDuration: 0.3, delay: 0, options: [.curveEaseInOut]) {
-        //
-        //            self.view.layoutIfNeeded()
-        //        } completion: { (isAnimated) in
-        //
-        //        }
     }
     
     @IBAction func donacionesAction(_ sender: Any) {
-        //        flag = true
-        //        hideKeyBoard()
-        //        UIView.animate(withDuration: 0.3, delay: 0, options: [.curveEaseInOut]) {
-        //            self.view.layoutIfNeeded()
-        //        } completion: { (isAnimated) in
-        //
-        //        }
-        //        if(promisses.count == 0){
-        //            withoutPromisseView.isHidden = false
-        //            promisseTemporalView.isHidden = true
-        //        }else{
-        //            withoutPromisseView.isHidden = true
-        //            promisseTemporalView.isHidden = false
-        //        }
     }
     
     @objc func changeImage(_ sender: UIButton) {

@@ -60,7 +60,6 @@ class HomeSliderCell: UITableViewCell, UICollectionViewDataSource, UICollectionV
     
     @objc func suggestionAction(sender: UIButton) {
         print(":::::::::IMAGE URL:::::::")
-        print(allData[sender.tag].image_url!)
         delegate.didPressButton(sender.tag, type: allData[sender.tag].type ?? "", library: allData[sender.tag].category ?? "", url: allData[sender.tag].article_url ?? "", id: allData[sender.tag].id ?? 1)
     }
     

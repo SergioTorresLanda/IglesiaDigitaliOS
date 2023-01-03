@@ -19,6 +19,7 @@ public class TabNavigationMenu: UIImageView {
         super.init(frame: frame)
         NotificationCenter.default.addObserver(self, selector: #selector(handleProfileTap), name: NSNotification.Name(rawValue: "handleSuperTap"), object: nil)
         NotificationCenter.default.addObserver(self, selector: #selector(handleHomeTap), name: NSNotification.Name(rawValue: "SOSCreated"), object: nil)
+        NotificationCenter.default.addObserver(self, selector: #selector(handleProfileTapVirtual), name: NSNotification.Name(rawValue: "handleSuperTapVirtual"), object: nil)
     }
     
     required public init?(coder aDecoder: NSCoder) {
@@ -137,6 +138,9 @@ public class TabNavigationMenu: UIImageView {
     @objc private func handleProfileTap(){
         switchTab(from: activeItem, to: 2)
     }
+    @objc private func handleProfileTapVirtual(){
+        switchTabVirtual(from: activeItem, to: 2)
+    }
     
     @objc private func handleHomeTap(){
         switchTab(from: activeItem, to: 0)
@@ -153,6 +157,11 @@ public class TabNavigationMenu: UIImageView {
     private func switchTab(from: Int, to: Int) {
         deactivateTab(tab: from)
         activateTab(tab: to)
+    }
+    
+    private func switchTabVirtual(from: Int, to: Int) {
+        deactivateTab(tab: from)
+        activateTabVirtual(tab: to)
     }
     
     private func activateTab(tab: Int) {
@@ -190,6 +199,43 @@ public class TabNavigationMenu: UIImageView {
         
         itemTapped?(tab)
         activeItem = tab
+    }
+    
+    private func activateTabVirtual(tab: Int) {
+        let tabToActivate = self.subviews[tab]
+        tabToActivate.viewWithTag(13)?.isHidden = false
+        
+        UIView.animate(withDuration: 0.25, animations: {
+            tabToActivate.viewWithTag(13)?.transform = CGAffineTransform(scaleX: 1, y: 1)
+            //tabToActivate.viewWithTag(12)?.tintColor = UIColor(red: 0.15, green: 0.55, blue: 0.82, alpha: 1.00)
+            
+            if tabToActivate.viewWithTag(12) is UIImageView {
+                let imgView = tabToActivate.viewWithTag(12) as! UIImageView
+                switch imgView.accessibilityHint{
+                case "Inicio":
+                    imgView.image = UIImage(named: "homeIcon", in: Bundle.local, compatibleWith: nil)
+                case "Ayuda":
+                    imgView.image = UIImage(named: "SOS_selected", in: Bundle.local, compatibleWith: nil)
+                case "Perfil":
+                    imgView.image = UIImage(named: "profile_selected", in: Bundle.local, compatibleWith: nil)
+                case .none:
+                    print("None case")
+                case .some(_):
+                    print("some case")
+                }
+            }
+            
+            if tabToActivate.viewWithTag(14) is UILabel{
+              let label = tabToActivate.viewWithTag(14) as! UILabel
+                label.textColor = UIColor(hue: 0.6056, saturation: 0.78, brightness: 0.64, alpha: 1.0)
+            }
+            self.layoutIfNeeded()
+        }) { (Bool) in
+            tabToActivate.viewWithTag(13)?.isHidden = false
+        }
+        
+        //itemTapped?(tab)
+        //activeItem = tab
     }
     
     private func deactivateTab(tab: Int) {

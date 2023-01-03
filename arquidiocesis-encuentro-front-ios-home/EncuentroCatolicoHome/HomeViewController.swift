@@ -681,7 +681,7 @@ class HomeViewController: UIViewController, HomeViewProtocol, UITextFieldDelegat
     
     @objc func notifyTap(_ sender: UITapGestureRecognizer){
         print("HomeVC PERFIL CLICK")
-        NotificationCenter.default.post(name: Notification.Name("handleSuperTap"), object: nil)
+        NotificationCenter.default.post(name: Notification.Name("handleSuperTapVirtual"), object: nil)
         let view = ProfileInfoRouter.createModule()
         self.navigationController?.pushViewController(view, animated: true)
     }
