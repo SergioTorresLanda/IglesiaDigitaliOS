@@ -470,6 +470,7 @@ extension ProfileInfoView: ProfileInfoViewProtocol {
                 lineasViewCollection[6].isHidden = false
                 hideOrShowPrefix(isShow: true)
                 isCongregation = false
+                //funcion
                 fieldsCollection[6].placeholder = "¿En qué iglesia prestas el servicio?"
                 fieldsCollection[6].text = detail.data?.User?.services_provided?.first?.location_name
                 arrayChurches.removeAll()
@@ -481,6 +482,7 @@ extension ProfileInfoView: ProfileInfoViewProtocol {
                 })
                 churchCollection.reloadData()
                 churchCollection.isHidden = false
+                //
                 let heightC = churchCollection.collectionViewLayout.collectionViewContentSize.height
                 heightChurchCollection.constant = heightC
                 self.view.layoutIfNeeded()
@@ -488,11 +490,8 @@ extension ProfileInfoView: ProfileInfoViewProtocol {
                 
                 cardLaico.isHidden = true
                 cardLaico2.isHidden = true
-              //  serachStack.isHidden = true
                 miniContentCongregation.isHidden = true
                 miniContentSwitch.isHidden = true
-//                serachStack.isHidden = true
-//                lineasViewCollection[6].isHidden = true
                 let height = activityCollection.collectionViewLayout.collectionViewContentSize.height
                 heightTopicColection.constant = height
                 self.view.layoutIfNeeded()
@@ -506,7 +505,18 @@ extension ProfileInfoView: ProfileInfoViewProtocol {
                 lblStateResp.text = "No"
                 switchResponsable.isOn = false
                 btnSave.setTitle("Guardar", for: .normal)
-                churchCollection.isHidden = true
+                //funcion
+                fieldsCollection[6].text = detail.data?.User?.services_provided?.first?.location_name
+                arrayChurches.removeAll()
+                arrayImgchurches.removeAll()
+                detail.data?.User?.services_provided?.forEach({ item in
+                    arrayChurches.append(item.location_name ?? "")
+                    arrayImgchurches.append("unspecified")
+                    nameService.append(item.service_name ?? "")
+                })
+                churchCollection.reloadData()
+                churchCollection.isHidden = false
+                //
                 fieldsCollection[6].placeholder = "Congregación a la que perteneces"
                 selectedPrefixID = 0
                 prefixField.text = "N/A"
@@ -538,14 +548,6 @@ extension ProfileInfoView: ProfileInfoViewProtocol {
             }
             
         case "Diácono (Transitorio o permanente)":
-//            isLaico = false
-//            isCongregation = false
-//            fieldsCollection[6].placeholder = "¿En qué iglesia prestas el servicio?"
-//            serachStack.isHidden = false
-//            miniContentCongregation.isHidden = true
-//            lineasViewCollection[6].isHidden = true
-//            miniContentSwitch.isHidden = true
-//            lblYouCan.isHidden = false
             isCongregation = false
             isLaico = false
             fieldsCollection[6].placeholder = "¿En qué iglesia prestas el servicio?"
@@ -1072,7 +1074,21 @@ extension ProfileInfoView: UIViewControllerTransitioningDelegate {
                     if indexFlow == 0 {
                         let singleton = ProfileMapViewController.singleton
                         if singleton.nameChurch != "Unspecified" {
+                            arrayChurches.removeAll()
+                            arrayImgchurches.removeAll()
+                            arrayChurches.append(singleton.nameChurch)
+                            arrayImgchurches.append(singleton.urlImgChurch)
+                            fieldsCollection[6].text = singleton.nameChurch
+                            churchCollection.reloadData()
+                            let height = churchCollection.collectionViewLayout.collectionViewContentSize.height
+                            heightChurchCollection.constant = height
+                            self.view.layoutIfNeeded()
+                            print(heightChurchCollection.constant)
+                            
                             churchRespField.text = singleton.nameChurch
+                            //miniContentCongregation.isHidden=false
+                            churchCollection.isHidden = false
+                            print("IsCong True")
                         }else{
                             print("Is not a church from laico")
                         }
@@ -1081,9 +1097,23 @@ extension ProfileInfoView: UIViewControllerTransitioningDelegate {
                         fieldsCollection[6].text = singleton.selectedCong
                     }
                 }else{
+                    print("IsCong False")
                     let singleton = ProfileMapViewController.singleton
                     if singleton.nameChurch != "Unspecified" {
+                        arrayChurches.removeAll()
+                        arrayImgchurches.removeAll()
+                        arrayChurches.append(singleton.nameChurch)
+                        arrayImgchurches.append(singleton.urlImgChurch)
+                        fieldsCollection[6].text = singleton.nameChurch
+                        churchCollection.reloadData()
+                        let height = churchCollection.collectionViewLayout.collectionViewContentSize.height
+                        heightChurchCollection.constant = height
+                        self.view.layoutIfNeeded()
+                        print(heightChurchCollection.constant)
+                        
                         churchRespField.text = singleton.nameChurch
+                        //miniContentCongregation.isHidden=false
+                        churchCollection.isHidden = false
                     }else{
                         print("Is not a church from laico")
                     }

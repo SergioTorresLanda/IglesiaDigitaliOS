@@ -328,6 +328,7 @@ class ProfileInfoView: UIViewController {
         alerta.addAction(UIAlertAction(title: "Aceptar", style: .default, handler: nil))
         self.present(alerta, animated: true, completion: nil)
     }
+    
     private func setupPickerField(_ picker: UIPickerView, tagPiker: Int, pos: Int) {
         picker.frame = CGRect(x: 0, y: 200, width: view.frame.width, height: 200)
         picker.tag = tagPiker
@@ -403,6 +404,7 @@ class ProfileInfoView: UIViewController {
         
         switch selectedRow {
         case 0:
+            print("ACCEPT PIcKer 0")
             isLaico = true
             switchResponsable.isOn = true
             isCongregation = true
@@ -432,7 +434,9 @@ class ProfileInfoView: UIViewController {
             presenter?.requestPrefixes(code: selectedCode)
             
         case 1:
+            print("ACCEPT PIcKer 1")
             isLaico = false
+            //churchCollection.isHidden = false
             btnSave.setTitle("Guardar", for: .normal)
             isCongregation = true
             radioBtnCollection.isHidden = true
@@ -461,7 +465,7 @@ class ProfileInfoView: UIViewController {
             hideOrShowPrefix(isShow: false)
         
         case 2:
-            
+            print("ACCEPT PIcKer 2")
             isLaico = false
             btnSave.setTitle("Guardar", for: .normal)
             churchCollection.isHidden = true
@@ -495,6 +499,7 @@ class ProfileInfoView: UIViewController {
             presenter?.requestPrefixes(code: selectedCode)
        
         case 3:
+            print("ACCEPT PIcKer 3")
             isLaico = false
             btnSave.setTitle("Continuar", for: .normal)
             isCongregation = true
@@ -523,12 +528,15 @@ class ProfileInfoView: UIViewController {
             presenter?.requestPrefixes(code: selectedCode)
          
         case 100:
+            print("ACCEPT PIcKer 100")
             break
             
         case 101:
+            print("ACCEPT PIcKer 101")
             selectTopicLogic()
             
         default:
+            print("ACCEPT PIcKer def")
             btnSave.setTitle("Guardar", for: .normal)
             switchState.setOn(false, animated: true)
             lblState.text = "No"
@@ -564,16 +572,14 @@ class ProfileInfoView: UIViewController {
     }
     
     @objc func TextBoxOn(_ textField: UITextField) {
-        
+        self.view.endEditing(true)
         if isCongregation == false {
-            self.view.endEditing(true)
+            lifeStatusSingleton="Laico"
             let view = ProfileMapWireFrame.createModuleMap(mapType: lifeStatusSingleton)
             view.modalPresentationStyle = .overFullScreen
             view.transitioningDelegate = self
             self.present(view, animated: true, completion: nil)
-                        
         }else{
-            self.view.endEditing(true)
             let view = CongregationRouter.createModule()
             view.modalPresentationStyle = .overFullScreen
             view.transitioningDelegate = self
@@ -588,6 +594,7 @@ class ProfileInfoView: UIViewController {
         indexFlow = 0
         churchRespField.text = ""
         self.view.endEditing(true)
+        lifeStatusSingleton="Laico"
         let view = ProfileMapWireFrame.createModuleMap(mapType: lifeStatusSingleton)
         view.modalPresentationStyle = .overFullScreen
         view.transitioningDelegate = self
@@ -643,6 +650,7 @@ class ProfileInfoView: UIViewController {
         let index = sender.tag
         
         if arrayIsActive[index] == true {
+            print("ARRAY IS ACTIVE")
             for i in 0...arrayIsActive.count - 1{
                 print(i)
                 arrayIsActive[i] = false
@@ -665,6 +673,8 @@ class ProfileInfoView: UIViewController {
             cardLaico2.isHidden = true
             
         }else{
+            print("ARRAY NOT ACTIVE")
+
             for i in 0...arrayIsActive.count - 1{
                 print(i)
                 arrayIsActive[i] = false
@@ -710,7 +720,7 @@ class ProfileInfoView: UIViewController {
                 miniContentSwitch.isHidden = true
                 serachStack.isHidden = true
                 lineasViewCollection[6].isHidden = true
-                miniContentCongregation.isHidden = true
+                miniContentCongregation.isHidden = false
                 lblYouCan.isHidden = true
                 cardLaico.isHidden = false
                 cardLaico2.isHidden = false
@@ -753,7 +763,7 @@ class ProfileInfoView: UIViewController {
         
         var services: [Service] = []
         
-        if singleton.idChurch != nil {
+        if singleton.idChurch != nil{
             print(singleton2.selectedServiceID, serviceListID)
             if singleton2.selectedServiceID == 0 {
                 showCanonAlert(title: "¡Atención!", msg: "Selecciona el servicio que prestas.")
@@ -851,6 +861,10 @@ class ProfileInfoView: UIViewController {
                 registerNewLaico = ProfileState(username: fieldsCollection[4].text ?? "", id: idGlobal, name: fieldsCollection[0].text ?? "", first_surname: fieldsCollection[1].text ?? "", second_surname: fieldsCollection[2].text ?? "", phone_number: fieldsCollection[3].text ?? "", email: fieldsCollection[4].text ?? "", service_provider: serviceProvider, location_id: idChurchLaico, is_admin: false, life_status: life, interest_topics: topicArray, services_provided: services)
                 
             case "COMMUNITY":
+                if(!churchRespField.hasText){
+                    showCanonAlert(title: "Atención", msg: "Selecciona la comunidad a la que prestas el servicio.")
+                    return
+                }
                 registerNewLaico = ProfileState(username: fieldsCollection[4].text ?? "", id: idGlobal, name: fieldsCollection[0].text ?? "", first_surname: fieldsCollection[1].text ?? "", second_surname: fieldsCollection[2].text ?? "", phone_number: fieldsCollection[3].text ?? "", email: fieldsCollection[4].text ?? "", service_provider: serviceProvider, location_id: idChurchLaico, is_admin: isAdmin, life_status: life, interest_topics: topicArray, services_provided: [])
                 
             case "NO":
@@ -1128,20 +1142,11 @@ class ProfileInfoView: UIViewController {
             serachStack.isHidden = false
             lineasViewCollection[6].isHidden = false
             lblState.text = "Sí"
-          //  mainContentHeight.constant += 64
-          //  oldValueTopic = mainContentHeight.constant
         }else{
             serachStack.isHidden = true
             lineasViewCollection[6].isHidden = true
             lblState.text = "No"
-            if churchCollection.isHidden == true {
-           //     mainContentHeight.constant -= 64
-            }else{
-              //  mainContentHeight.constant -= 289
-            }
-            
             churchCollection.isHidden = true
-           // oldValueTopic = mainContentHeight.constant
         }
     }
     
@@ -1195,10 +1200,8 @@ class ProfileInfoView: UIViewController {
         isLaico = true
         indexFlow = 0
         churchRespField.text = ""
-        self.view.endEditing(true)
-        if lifeStatusSingleton == "" {
-            lifeStatusSingleton = "Laico"
-        }
+        lifeStatusSingleton = "LaicoCom"
+      
         let view = ProfileMapWireFrame.createModuleMap(mapType: lifeStatusSingleton)
         view.modalPresentationStyle = .overFullScreen
         view.transitioningDelegate = self

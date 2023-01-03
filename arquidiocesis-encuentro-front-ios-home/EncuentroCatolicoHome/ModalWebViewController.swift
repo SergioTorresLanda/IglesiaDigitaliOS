@@ -33,6 +33,9 @@ open class ModalWebViewController: UIViewController {
         myWebView.contentMode = .scaleToFill
         myWebView.load(NSURLRequest(url: NSURL(string: webURL)! as URL) as URLRequest)
         seeMoreBtn.layer.cornerRadius = 8
+        if #available(iOS 15.0, *) {
+            myWebView.setAllMediaPlaybackSuspended(true) { }
+        }
     }
     
     private func setupGestures() {

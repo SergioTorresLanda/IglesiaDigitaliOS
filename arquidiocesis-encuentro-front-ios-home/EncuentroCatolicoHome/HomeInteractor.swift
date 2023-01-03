@@ -129,13 +129,11 @@ class HomeInteractor: HomeInteractorProtocol {
         let idUser = defaults.integer(forKey: "id")
         request.httpMethod = "GET"
         request.setValue("Bearer \( tksession ?? "")", forHTTPHeaderField: "Authorization")
-//        request.setValue("application/json", forHTTPHeaderField: "Content-Type")
         request.setValue("\(idUser)", forHTTPHeaderField: "X-User-Id")
         
         let work = URLSession.shared.dataTask(with: request) { data, response, error in
             //print("->  respuesta Status Code: ", response as Any)
             //print("->  error: ", error as Any)
-
             guard let datamodel = data else{
                 return
             }

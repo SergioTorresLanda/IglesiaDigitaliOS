@@ -9,7 +9,7 @@
 import Foundation
 import UIKit
 
-protocol ProfileMapViewProtocol: class {
+protocol ProfileMapViewProtocol: AnyObject {
     var presenter: ProfileMapPresenterProtocol? { get set }
     /**
     * Add here your methods for communication PRESENTER -> VIEW
@@ -18,7 +18,7 @@ protocol ProfileMapViewProtocol: class {
     func showError(error: String)
 }
 
-protocol ProfileMapWireFrameProtocol: class {
+protocol ProfileMapWireFrameProtocol: AnyObject {
     static func presentProfileMapModule(selector: Int, from contoller: AnyObject, mapType: String)
     /**
     * Add here your methods for communication PRESENTER -> WIREFRAME
@@ -27,7 +27,7 @@ protocol ProfileMapWireFrameProtocol: class {
     
 }
 
-protocol ProfileMapPresenterProtocol: class {
+protocol ProfileMapPresenterProtocol: AnyObject {
     var view: ProfileMapViewProtocol? { get set }
     var interactor: ProfileMapInteractorInputProtocol? { get set }
     var wireFrame: ProfileMapWireFrameProtocol? { get set }
@@ -35,11 +35,12 @@ protocol ProfileMapPresenterProtocol: class {
     * Add here your methods for communication VIEW -> PRESENTER
     */
     func getLocations()
+    func getLocationsCom()
     func goToChurchDetailMap(id: Int, selector: Int)
     func dismissMapModule(id: Int, name: String, url: String, from: AnyObject)
 }
 
-protocol ProfileMapInteractorOutputProtocol: class {
+protocol ProfileMapInteractorOutputProtocol: AnyObject {
     /**
     * Add here your methods for communication INTERACTOR -> PRESENTER
     */
@@ -47,11 +48,10 @@ protocol ProfileMapInteractorOutputProtocol: class {
     func errorGetLocations(msg: String)
 }
 
-protocol ProfileMapInteractorInputProtocol: class
+protocol ProfileMapInteractorInputProtocol: AnyObject
 {
     var presenter: ProfileMapInteractorOutputProtocol? { get set }
-    /**
-    * Add here your methods for communication PRESENTER -> INTERACTOR
-    */
+  
     func requestLocations()
+    func requestLocationsCom()
 }

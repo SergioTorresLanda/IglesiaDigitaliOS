@@ -79,11 +79,12 @@ class HomeViewController: UIViewController, HomeViewProtocol, UITextFieldDelegat
         //presenter?.cargarDatosUsuario()
         presenter?.requestUserDetail()
         lblMessage.text = setMessageHour()
-        let formatter = DateFormatter()
-        formatter.dateFormat = "yyyy-MM-dd"
-        let now = Date()
-        let dateString = formatter.string(from: now)
-        self.presenter?.requestHomeData(type: "SAINT", date: "\(dateString)")
+        //let formatter = DateFormatter()
+        //formatter.dateFormat = "yyyy-MM-dd"
+        //let now = Date()
+        //let dateString = formatter.string(from: now)
+        //self.presenter?.requestHomeData(type: "SAINT", date: "\(dateString)")
+        
         //2021-07-27 2021-12-12
         self.hideKeyboardWhenTappedAround()
         collectionRegister()
@@ -188,7 +189,16 @@ class HomeViewController: UIViewController, HomeViewProtocol, UITextFieldDelegat
     override public func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         print("VC ECHome - HomeVC ")
-
+        
+        realesesPost=[]
+        allSections=[]
+        arraySections=[]
+        let formatter = DateFormatter()
+        formatter.dateFormat = "yyyy-MM-dd"
+        let now = Date()
+        let dateString = formatter.string(from: now)
+        self.presenter?.requestHomeData(type: "SAINT", date: "\(dateString)")
+        
         presenter?.cargarDatosUsuario()
         presenter?.requestStreaming()
         if let imageData = UserDefaults.standard.data(forKey: "userImage"), let image = UIImage(data: imageData) {
@@ -537,10 +547,11 @@ class HomeViewController: UIViewController, HomeViewProtocol, UITextFieldDelegat
             self.presenter?.requestHomeData(type: "RELEASE", date: "\(dateString)")
             
         default:
+            realesesPost = data
             DispatchQueue.main.asyncAfter(deadline: .now() + 3, execute: {
                 print("::::::succesGetHome Default::;;;")
+                print(String(self.realesesPost.count))
              })
-            realesesPost = data
             if realesesPost.count != 0 {
                 allSections.append(realesesPost)
             }
@@ -555,14 +566,13 @@ class HomeViewController: UIViewController, HomeViewProtocol, UITextFieldDelegat
     }
     
     func onSuccessGetSuggestions(data: [HomeSuggestions]) {
+        suggestions = data
         DispatchQueue.main.asyncAfter(deadline: .now() + 3, execute: {
             print("::::::onSuccessGetSuggestions::;;;")
          })
-        suggestions = data
         if suggestions.count != 0 {
             allSections.append(suggestions)
         }
-        
         setupTableView()
     }
     

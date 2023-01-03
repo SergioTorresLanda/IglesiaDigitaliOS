@@ -66,7 +66,7 @@ class ProfileMapViewController: BaseViewController, ProfileMapViewProtocol, Util
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        validateTypeView(type: mapType)
+        //validateTypeView(type: mapType)
         navigationController?.setNavigationBarHidden(false, animated: true)
 //        locationManager.requestWhenInUseAuthorization()
         locationManager.desiredAccuracy = kCLLocationAccuracyBest
@@ -85,23 +85,22 @@ class ProfileMapViewController: BaseViewController, ProfileMapViewProtocol, Util
         
         initView()
         showLoader()
-        Church.getMapItemChurches {
+        /*Church.getMapItemChurches {
             [weak self]
             annotations in
             self?.mapKit.addAnnotations(annotations)
             self?.setCurrentLocationMap()
             self?.removeLoader()
-        }
-        let tap = UITapGestureRecognizer(target: self, action: #selector(hideKeyBoard))
-        view.addGestureRecognizer(tap)
+        }*/
+        //let tap = UITapGestureRecognizer(target: self, action: #selector(hideKeyBoard))
+        //view.addGestureRecognizer(tap)
     }
     
     override func viewWillAppear(_ animated: Bool) {
         print("VC ECProfile - ProfileMapView ")
-
-        presenter?.getLocations() //Comunidades
-        setTitle("Localiza tu Iglesia o Comunidad")
-        
+        validateTypeView(type: mapType)
+        lookFor()
+        //presenter?.getLocations()
         Church.getMyChurch() {
             [weak self]
             favourite in
@@ -124,8 +123,31 @@ class ProfileMapViewController: BaseViewController, ProfileMapViewProtocol, Util
     private func validateTypeView(type: String) {
         switch type {
         case "Religioso", "Laico":
+            print("Validate LAICO")
+            btnNoCommunity.isHidden = true
+            btnNoCommunity.setTitle("No encuentro mi iglesia", for: .normal)
+            lblNavTitle.text="Localiza tu iglesia"
+            Church.getMapItemChurches {
+                [weak self]
+                annotations in
+                self?.mapKit.addAnnotations(annotations)
+                self?.setCurrentLocationMap()
+                self?.removeLoader()
+            }
+        case "LaicoCom":
+            print("Validate LAICOCOM")
             btnNoCommunity.isHidden = false
+            btnNoCommunity.setTitle("No encuentro mi comunidad", for: .normal)
+            lblNavTitle.text="Localiza tu comunidad"
+            Church.getMapItemComs {
+                [weak self]
+                annotations in
+                self?.mapKit.addAnnotations(annotations)
+                self?.setCurrentLocationMap()
+                self?.removeLoader()
+            }
         case "Donations":
+            print("Validate DONS")
             btnNoCommunity.isHidden = true
             navImg.isHidden = true
             lblNavTitle.text = "Mi ofrenda"
@@ -134,7 +156,25 @@ class ProfileMapViewController: BaseViewController, ProfileMapViewProtocol, Util
             self.view.backgroundColor = UIColor.init(red: 25/255, green: 42/255, blue: 115/255, alpha: 1)
             
         default:
+            print("Validate "+mapType)
             btnNoCommunity.isHidden = true
+        }
+    }
+    
+    private func lookFor() {
+        switch mapType {
+        case "Religioso", "Laico":
+            print("LOOKFOR LAIcO")
+            presenter?.getLocations()
+        case "LaicoCom":
+            print("LOOKFOR LAICOCOM")
+            presenter?.getLocationsCom()
+        case "Donations":
+            presenter?.getLocations()
+            print("LOOKFOR DONS")
+        default:
+            presenter?.getLocations()
+            print("LOOKFOR " + mapType)
         }
     }
     
@@ -462,9 +502,7 @@ extension ProfileMapViewController: UITableViewDelegate, UITableViewDataSource {
         let dortmunRegion = MKCoordinateRegion(center: CLLocationCoordinate2D(latitude: dortmundLocation.coordinate.latitude, longitude: dortmundLocation.coordinate.longitude), span: MKCoordinateSpan(latitudeDelta: 0.01, longitudeDelta: 0.01))
         self.mapKit.setRegion(dortmunRegion, animated: true)
         //Liberar tarjeta.
-        for x in fillLocationData {
-            print(x.name! + String(x.id!))
-        }
+      
         let idChurchAnn = locationsData[indexPath.row].id ?? 1
         let nameX = locationsData[indexPath.row].name ?? "No Name"
 
@@ -475,6 +513,8 @@ extension ProfileMapViewController: UITableViewDelegate, UITableViewDataSource {
         print("::::::::  ANNOTATIONS COUNT ::  " + String(mapKit.annotations.count) + ":::::::::::::")
 
         self.mapKit.selectAnnotation(mapKit.annotations.first(where: {$0.title == nameX})!, animated: true)
+        //self.mapKit.selectAnnotation(mapKit.annotations.first(where: {$0. == nameX})!, animated: true)
+
     }
 }
 

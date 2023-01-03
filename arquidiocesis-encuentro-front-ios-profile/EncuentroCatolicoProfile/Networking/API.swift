@@ -35,7 +35,8 @@ struct API {
             static let registrer = "user/registry"
             static let churches = "https://zoh3vla2n7.execute-api.us-east-1.amazonaws.com/default/ms-church-service/churchs"
             static let locations = "/locations?type_location=CHURCH"
-            
+            static let locationsCom = "/locations?type_location=COMMUNITY"
+
         }
         
         //old
@@ -78,6 +79,9 @@ struct API {
         
         static func locations() -> String {
             return newHost + EndPoint.locations
+        }
+        static func locationsCom() -> String {
+            return newHost + EndPoint.locationsCom
         }
         
         static func urlInicioDeSesion() -> String {

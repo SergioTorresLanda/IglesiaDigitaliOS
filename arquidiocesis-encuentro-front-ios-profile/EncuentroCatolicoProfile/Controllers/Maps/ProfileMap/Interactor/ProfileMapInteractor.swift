@@ -20,6 +20,15 @@ class ProfileMapInteractor: ProfileMapInteractorInputProtocol {
             self.presenter?.errorGetLocations(msg: msg)
         }
     }
+    
+    func requestLocationsCom() {//Comunidades
+        doGetLocationsCom.init().execute { (result) in
+            //print(result)
+            self.presenter?.responseLocations(result: result)
+        } onError: { error, msg in
+            self.presenter?.errorGetLocations(msg: msg)
+        }
+    }
 }
 
 struct doGetLocations: ResponseDispatcher {
@@ -28,6 +37,16 @@ struct doGetLocations: ResponseDispatcher {
     var parameters: [String : Any]?
     var data: RequestType {
         return RequestType(path: "/locations?type_location=CHURCH" , method: .get, params: nil, url:Endpoints.urlGlobalApp)
+        //return RequestType(path: "/locations" , method: .get, params: nil, url:Endpoints.urlGlobalApp)
+    }
+}
+
+struct doGetLocationsCom: ResponseDispatcher {
+    typealias ResponseType = [LocationResponse]
+    var urlOptional: String?
+    var parameters: [String : Any]?
+    var data: RequestType {
+        return RequestType(path: "/locations?type_location=COMMUNITY" , method: .get, params: nil, url:Endpoints.urlGlobalApp)
         //return RequestType(path: "/locations" , method: .get, params: nil, url:Endpoints.urlGlobalApp)
     }
 }

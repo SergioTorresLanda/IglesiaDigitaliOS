@@ -54,6 +54,17 @@ public struct Church: Codable {
         }
     }
     
+    static func getMapItemComs(completion: @escaping (Array<ChuckMark>) -> Void) {
+        DummyData.shared.getComsData {
+            churches in
+            let markItems = churches.map({ChuckMark(title: $0.name,
+                                                    coordinate: CLLocationCoordinate2D(latitude: $0.latitude ?? 0.0,
+                                                                                       longitude: $0.longitude ?? 0.0),
+                                                    id: $0.id ?? 0, url: $0.image_url ?? "")})
+            completion(markItems)
+        }
+    }
+    
     static func getFavouriteChurches(completion: @escaping (Array<LocationResponse>) -> Void) {
 //        DummyData.shared.getChurchesData {
 //            churches in

@@ -17,14 +17,16 @@ struct LocationResponse: Codable {
     var address: String?
 }
 
-
 enum LocationRouter: BaseRouter {
     
     case location
+    case locationCom
     
     var method: HTTPMethod {
         switch self {
         case .location:
+            return .get
+        case .locationCom:
             return .get
         }
     }
@@ -33,6 +35,8 @@ enum LocationRouter: BaseRouter {
         switch self {
         case .location:
             return API.URLProvider.locations()
+        case .locationCom:
+            return API.URLProvider.locationsCom()
         }
     }
     
@@ -47,6 +51,8 @@ enum LocationRouter: BaseRouter {
     var body: Any? {
         switch self {
         case .location:
+            return nil
+        case .locationCom:
             return nil
         }
     }

@@ -29,6 +29,9 @@ class ProfileMapPresenter: ProfileMapPresenterProtocol, ProfileMapInteractorOutp
     func getLocations() {//Comunidades
         interactor?.requestLocations()
     }
+    func getLocationsCom() {//Comunidades
+        interactor?.requestLocationsCom()
+    }
     
     func responseLocations(result: [LocationResponse]) {
         view?.showLocation(location: result)
