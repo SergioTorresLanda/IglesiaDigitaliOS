@@ -5,8 +5,12 @@ import EncuentroCatolicoProfile
 import AuthenticationServices
 import EncuentroCatolicoVirtualLibrary
 import EncuentroCatolicoUtils
+import Network
 
 class LoginView: UIViewController {
+    
+    let monitor = NWPathMonitor()
+    var isInternet=false
     
     // MARK: Properties
     var presenter: LoginPresenterProtocol?
@@ -67,6 +71,17 @@ class LoginView: UIViewController {
                 self.present(alert, animated: true, completion: nil)
             }
         }
+        monitor.pathUpdateHandler = { pathUpdateHandler in
+            if pathUpdateHandler.status == .satisfied {
+                print("Internet connection is on.")
+                self.isInternet=true
+            } else {
+                print("There's no internet connection.")
+                self.isInternet=false
+            }
+        }
+        let queue = DispatchQueue(label: "Network")
+        monitor.start(queue: queue)
     }
     
     override func viewDidAppear(_ animated: Bool) {
@@ -326,11 +341,17 @@ class LoginView: UIViewController {
     @IBAction func login(_ sender: Any) {
         let validatedData = validatePhoneMail(toValidate: txtUser.text ?? "")
         btnRegistar.isEnabled = false
-        spinner.isHidden = false
-        spinner.startAnimating()
-        showLoading()
-        presenter?.controla = self
-        presenter?.login(user: validatedData, password: txtPassword.text ?? "")
+        if isInternet {
+            spinner.isHidden = false
+            spinner.startAnimating()
+            showLoading()
+            presenter?.controla = self
+            presenter?.login(user: validatedData, password: txtPassword.text ?? "")
+        } else {
+            self.alertFields = AcceptAlert.showAlert(titulo: " ¡Atención!", mensaje: "No tienes conexión a internet")
+            self.alertFields!.view.backgroundColor = .clear
+            self.present(self.alertFields!, animated: true)
+        }
     }
     
     @IBAction func loginInvitado(_ sender: Any) {
@@ -369,7 +390,13 @@ class LoginView: UIViewController {
     
     
     @IBAction func biometricLogin(_ sender: Any) {
-        biometricValidations()
+        if isInternet{
+            biometricValidations()
+        } else {
+            self.alertFields = AcceptAlert.showAlert(titulo: " ¡Atención!", mensaje: "No tienes conexión a internet")
+            self.alertFields!.view.backgroundColor = .clear
+            self.present(self.alertFields!, animated: true)
+        }
         
     }
     
