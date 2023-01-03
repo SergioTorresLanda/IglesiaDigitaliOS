@@ -92,6 +92,9 @@ public class FeedInteractor: FeedInteractorProtocol {
         request.timeoutInterval = 20
         snService.makeRequest(request: request) { (data, error) in
             if let error = error{
+                DispatchQueue.main.asyncAfter(deadline: .now() + 3, execute: {
+                    print("::::ERROR CALL SERVICE::: "+error.message)
+                })
                 self.presenter?.didFinishGettingPostsWithErrors(error: error)
             }else{
                 do {
@@ -135,6 +138,9 @@ public class FeedInteractor: FeedInteractorProtocol {
                         self.presenter?.didFinishGettingPosts(isFromPage: isFromPage, posts: self.arPostGral)
                     }
                 }catch{
+                    DispatchQueue.main.asyncAfter(deadline: .now() + 3, execute: {
+                        print("::::CATCH CALL SERVICE::: ")
+                    })
                     self.presenter?.didFinishGettingPostsWithErrors(error: SocialNetworkErrors.ResponseError)
                 }
             }

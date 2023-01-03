@@ -99,86 +99,8 @@ extension FeedViewController: UITableViewDataSource {
             }else{
                 cell.collectionViewHeight.constant = 0
             }
-
             cell.tag = newPosts[indexPath.row].id ?? 0
-            
-//            if let post = posts?[indexPath.row] {
-//                cell.btnMoreActions.tag = indexPath.row
-//                cell.delegate = self
-//                let userName = post.area?.name
-//                //Name
-//                cell.nameLabel.text = userName
-//                if post.asParam == "User" {
-//                    cell.nameLabel.text = post.autor?.nombre
-//                    //                    cell.editPostView.isHidden = SocialNetworkConstant.shared.userId == post.autor?.FIIDEMPLEADO ? false : true
-//                } else {
-//                    //                    cell.editPostView.showEditView(groupId: post.area?.id)
-//                }
-//                //Imagen
-//                cell.userImage.setImage(name: userName, image: post.area?.img)
-//                //Location
-//                if let location = post.location, let locationName = location.nameLocation {
-//                    cell.nameLabel.addMoreInfo(locationName)
-//                }
-//                //Feeling
-//                if let feeling = post.feeling, let url = URL(string: feeling.img) {
-//                    UIImageView().sd_setHighlightedImage(with: url, options: .refreshCached) { (image, error, _, _) in
-//                        cell.nameLabel.addMoreInfo(feeling.type, index: cell.nameLabel.text?.count, image: image, text: "se siente")
-//                    }
-//                }
-//
-//                //Date
-//                cell.dateLabel.text = Date(timeIntervalSince1970: TimeInterval(post.created)).formatRelativeString()
-//
-//                //Content
-//                cell.contentLabel.text = post.content
-//                cell.contentLabel.handleURLTap { (url) in
-//                    UIApplication.shared.open(url.formattedURL(), options: [:]) { (isOpen) in
-//                        print(isOpen)
-//                    }
-//                }
-//
-//                //ReactionCount
-//                cell.reactionsCountLabel.text = nil
-//                if post.countReact != 0 {
-//                    if post.countReact - 1 == 0 {
-//                        cell.reactionsCountLabel.text = "Tu oración"
-//                    } else {
-//                        cell.reactionsCountLabel.text = "Tu oración y " + String(post.countReact - 1) + " más"
-//                    }
-//                }else{
-//                    cell.reactionsCountLabel.text = String(post.countReact)
-//                }
-//
-//
-//
-//                //Reaction
-//                cell.reactionImageContainerView.isHidden = false
-//                if post.myReaction == nil {
-//                    cell.reactionImage.image = UIImage(named: "reactionG", in: Bundle.local, compatibleWith: nil)
-//                    cell.reactionsCountLabel.textColor = UIColor.lightGray
-//                } else {
-//                    cell.reactionImage.image = UIImage(named: "orar", in: Bundle.local, compatibleWith: nil)
-//                    cell.reactionsCountLabel.textColor = UIColor(red: 0.10, green: 0.16, blue: 0.45, alpha: 1.00)
-//                }
-//
-//
-//                //                if let myReaction = post.myReaction, let url = URL(string: myReaction.img) {
-//                //                    cell.reactionImageContainerView.isHidden = false
-//                //
-//                //                    cell.reactionImage.sd_setImage(with: url, placeholderImage: nil, options: .refreshCached, context: nil)
-//                //                }
-//
-//                cell.post = post
-//                if !post.mediaList.isEmpty {
-//                    cell.collectionViewHeight.constant = 220
-//                } else {
-//                    cell.collectionViewHeight.constant = 0
-//                }
-//
-//                cell.tag = post.id
-//            }
-            
+        
             return cell
         }
     }
@@ -221,6 +143,7 @@ extension FeedViewController: UITableViewDelegate {
     }
     
     public func tableView(_ tableView: UITableView, willDisplay cell: UITableViewCell, forRowAt indexPath: IndexPath) {
+        
         if indexPath.row != 0 {
             let pages = storedData.pages
             let pagesDifference = pages - storedData.skip
@@ -247,18 +170,19 @@ extension FeedViewController: UITableViewDelegate {
             presenter?.showPostDetail(navController: self.navigationController, post: post)
         }
     }
+    
 }
 
 //MARK: - UITableViewDataSourcePrefetching
 extension FeedViewController: UITableViewDataSourcePrefetching {
     public func tableView(_ tableView: UITableView, prefetchRowsAt indexPaths: [IndexPath]) {
+        
         let pagesDifference = storedData.pages - storedData.skip
         let lastRowIndex = tableView.numberOfRows(inSection: 0)
         if indexPaths.contains(IndexPath(row: lastRowIndex, section: 0)) && isPrefetching == false && pagesDifference > 1 {
             storedData.skip = storedData.skip + 1
             isPrefetching = true
-            presenter?.getNewPosts(isFromPage: true, isRefresh: false) //--> nuevo
-//            presenter?.getPosts(isFromPage: true) //--> se comenta
+            presenter?.getNewPosts(isFromPage: true, isRefresh: false)
         }
     }
     
