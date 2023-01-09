@@ -383,6 +383,7 @@ extension ProfileInfoPresenter: ProfileInfoInteractorOutputProtocol {
     }
     
     func responseAllDetailUser(responseCode: HTTPURLResponse, dataResponse: DetailProfile) {
+        print("Volvio de responseAllDetailUser")
         DispatchQueue.main.async {
             if responseCode.statusCode == 200 {
                 self.view?.showDetalles(detail: dataResponse)

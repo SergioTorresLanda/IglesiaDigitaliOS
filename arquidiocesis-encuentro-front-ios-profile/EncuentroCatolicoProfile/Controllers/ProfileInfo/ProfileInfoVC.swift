@@ -574,7 +574,6 @@ class ProfileInfoView: UIViewController {
             self.present(view, animated: true, completion: nil)
             indexFlow = 1
         }
-        
     }
     
     @objc func TextBoxOnResp(_ texfield: UITextField) {
@@ -694,6 +693,8 @@ class ProfileInfoView: UIViewController {
                 serviceProvider = "CHURCH"
                 
             case 1:
+                let singleton = ProfileMapViewController.singleton
+                singleton.idChurch = nil
                 isLaico = true
                 switchResponsable.isOn = false
                 isCongregation = false
@@ -741,6 +742,7 @@ class ProfileInfoView: UIViewController {
     
 // MARK: GENERAL FUNCS -
      func saveChanges() {
+         print("SAVE CHANGESS")
         let singleton = ProfileMapViewController.singleton
         let singleton2 = ProfileInfoView.singleton
         let singleton3 = CongregationsView.singleton
@@ -757,8 +759,12 @@ class ProfileInfoView: UIViewController {
                 showCanonAlert(title: "¡Atención!", msg: "Selecciona el servicio que prestas.")
                 return
             }
-            let services1 = Service(location_id: singleton.idChurch, service_id: singleton2.selectedServiceID)
-            services.append(services1)
+            print("::::;;SINGLETON::::::")
+            let s1 = Service(location_id: singleton.idChurch, service_id: singleton2.selectedServiceID)
+            print(s1)
+            services.append(s1)
+        }else{
+            print("::::;;SINGLETON NIL::::::")
         }
         
         var congregationA: [Congregation] = []
@@ -841,7 +847,6 @@ class ProfileInfoView: UIViewController {
             print("::::::::SERVICE PROVIDER::::: "+serviceProvider)
             switch serviceProvider {
             case "CHURCH":
-                
                 if(services.isEmpty){
                     showCanonAlert(title: "Atención", msg: "Selecciona la iglesia a la que prestas el servicio.")
                     return
@@ -853,7 +858,7 @@ class ProfileInfoView: UIViewController {
                     showCanonAlert(title: "Atención", msg: "Selecciona la comunidad a la que prestas el servicio.")
                     return
                 }
-                registerNewLaico = ProfileState(username: fieldsCollection[4].text ?? "", id: idGlobal, name: fieldsCollection[0].text ?? "", first_surname: fieldsCollection[1].text ?? "", second_surname: fieldsCollection[2].text ?? "", phone_number: fieldsCollection[3].text ?? "", email: fieldsCollection[4].text ?? "", service_provider: serviceProvider, location_id: idChurchLaico, is_admin: isAdmin, life_status: life, interest_topics: topicArray, services_provided: [])
+                registerNewLaico = ProfileState(username: fieldsCollection[4].text ?? "", id: idGlobal, name: fieldsCollection[0].text ?? "", first_surname: fieldsCollection[1].text ?? "", second_surname: fieldsCollection[2].text ?? "", phone_number: fieldsCollection[3].text ?? "", email: fieldsCollection[4].text ?? "", service_provider: serviceProvider, location_id: idChurchLaico, is_admin: isAdmin, life_status: life, interest_topics: topicArray, services_provided: services)
                 
             case "NO":
                 registerNewLaico = ProfileState(username: fieldsCollection[4].text ?? "", id: idGlobal, name: fieldsCollection[0].text ?? "", first_surname: fieldsCollection[1].text ?? "", second_surname: fieldsCollection[2].text ?? "", phone_number: fieldsCollection[3].text ?? "", email: fieldsCollection[4].text ?? "", service_provider: serviceProvider, life_status: life, interest_topics: topicArray)
@@ -1268,6 +1273,7 @@ class ProfileInfoView: UIViewController {
             
         case "Laico":
             let registerDiacono: ProfileDiacono = ProfileDiacono(username: fieldsCollection[4].text ?? "", id: idGlobal, name: fieldsCollection[0].text ?? "", first_surname: fieldsCollection[1].text ?? "", second_surname: fieldsCollection[2].text ?? "", phone_number: fieldsCollection[3].text ?? "" , email: fieldsCollection[4].text ?? "", life_status: life, interest_topics: topicArray , locations: loca, services_provided: services)
+            print("REGISTER FROM DidSaveAction")
             print(registerDiacono)
            // presenter?.postDiacono(request: registerDiacono)
             break

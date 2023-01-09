@@ -136,7 +136,7 @@ class ProfileMapViewController: BaseViewController, ProfileMapViewProtocol, Util
             }
         case "LaicoCom":
             print("Validate LAICOCOM")
-            btnNoCommunity.isHidden = false
+            btnNoCommunity.isHidden = true
             btnNoCommunity.setTitle("No encuentro mi comunidad", for: .normal)
             lblNavTitle.text="Localiza tu comunidad"
             Church.getMapItemComs {
@@ -149,12 +149,15 @@ class ProfileMapViewController: BaseViewController, ProfileMapViewProtocol, Util
         case "Donations":
             print("Validate DONS")
             btnNoCommunity.isHidden = true
-            navImg.isHidden = true
             lblNavTitle.text = "Mi ofrenda"
-            lblNavTitle.textColor = .white
-            btnBack.imageView?.setImageColor(color: .white)
             self.view.backgroundColor = UIColor.init(red: 25/255, green: 42/255, blue: 115/255, alpha: 1)
-            
+            Church.getMapItemChurches {
+                [weak self]
+                annotations in
+                self?.mapKit.addAnnotations(annotations)
+                self?.setCurrentLocationMap()
+                self?.removeLoader()
+            }
         default:
             print("Validate "+mapType)
             btnNoCommunity.isHidden = true

@@ -496,20 +496,24 @@
                                 <rect key="frame" x="0.0" y="-20" width="434" height="128"/>
                                 <subviews>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Cadena de oración" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ThI-1H-zxo">
-                                        <rect key="frame" x="127" y="78.5" width="156.5" height="21.5"/>
+                                        <rect key="frame" x="139" y="78.5" width="156.5" height="21.5"/>
                                         <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="18"/>
                                         <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         <nil key="highlightedColor"/>
                                     </label>
                                     <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="back" translatesAutoresizingMaskIntoConstraints="NO" id="HFN-gc-uRT">
-                                        <rect key="frame" x="22" y="77.5" width="11.5" height="22"/>
+                                        <rect key="frame" x="22" y="78.5" width="14" height="22"/>
                                         <constraints>
                                             <constraint firstAttribute="height" constant="22" id="56m-KF-BSa"/>
-                                            <constraint firstAttribute="width" constant="11.5" id="ZKt-ZH-xtC"/>
+                                            <constraint firstAttribute="width" constant="14" id="ZKt-ZH-xtC"/>
                                         </constraints>
                                     </imageView>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="3VZ-QI-GXV">
-                                        <rect key="frame" x="0.0" y="59.5" width="53.5" height="50.5"/>
+                                        <rect key="frame" x="0.0" y="58" width="70" height="70"/>
+                                        <constraints>
+                                            <constraint firstAttribute="width" constant="70" id="Zbq-r0-6OJ"/>
+                                            <constraint firstAttribute="height" constant="70" id="r25-S2-yRe"/>
+                                        </constraints>
                                         <connections>
                                             <action selector="close:" destination="CDF-NV-70P" eventType="touchUpInside" id="ZHv-ZR-YxO"/>
                                         </connections>
@@ -519,13 +523,11 @@
                                 <constraints>
                                     <constraint firstItem="HFN-gc-uRT" firstAttribute="leading" secondItem="ZTi-ex-NFt" secondAttribute="leading" constant="22" id="Cc0-gZ-AP7"/>
                                     <constraint firstAttribute="height" constant="128" id="G9g-Td-lvs"/>
-                                    <constraint firstItem="3VZ-QI-GXV" firstAttribute="top" secondItem="HFN-gc-uRT" secondAttribute="top" constant="-17.999999999999972" id="Lzn-hu-7ur"/>
-                                    <constraint firstItem="3VZ-QI-GXV" firstAttribute="trailing" secondItem="HFN-gc-uRT" secondAttribute="trailing" constant="20" id="SOq-bc-vWj"/>
                                     <constraint firstAttribute="bottom" secondItem="ThI-1H-zxo" secondAttribute="bottom" constant="27.999999999999957" id="XkM-Q1-d5e"/>
                                     <constraint firstItem="3VZ-QI-GXV" firstAttribute="leading" secondItem="ZTi-ex-NFt" secondAttribute="leading" id="ceo-t3-Vt7"/>
-                                    <constraint firstItem="HFN-gc-uRT" firstAttribute="centerY" secondItem="ThI-1H-zxo" secondAttribute="centerY" constant="-0.83333333333331439" id="lDB-G0-VD1"/>
-                                    <constraint firstAttribute="bottom" secondItem="3VZ-QI-GXV" secondAttribute="bottom" constant="17.999999999999972" id="mbe-6K-AE9"/>
-                                    <constraint firstItem="ThI-1H-zxo" firstAttribute="centerX" secondItem="ZTi-ex-NFt" secondAttribute="centerX" constant="-11.83" id="oyg-xk-4qQ"/>
+                                    <constraint firstItem="HFN-gc-uRT" firstAttribute="centerY" secondItem="ThI-1H-zxo" secondAttribute="centerY" id="lDB-G0-VD1"/>
+                                    <constraint firstAttribute="bottom" secondItem="3VZ-QI-GXV" secondAttribute="bottom" id="mbe-6K-AE9"/>
+                                    <constraint firstItem="ThI-1H-zxo" firstAttribute="centerX" secondItem="ZTi-ex-NFt" secondAttribute="centerX" id="oyg-xk-4qQ"/>
                                 </constraints>
                             </view>
                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="23" translatesAutoresizingMaskIntoConstraints="NO" id="QE7-fX-75z">
@@ -636,9 +638,9 @@
         <image name="Icono_encuentro" width="23" height="30"/>
         <image name="Pluse" width="14" height="14"/>
         <image name="back" width="125" height="202"/>
-        <image name="multiply" catalog="system" width="32" height="32"/>
+        <image name="multiply" catalog="system" width="128" height="111"/>
         <image name="profileIcon" width="379" height="524"/>
-        <image name="xmark.circle.fill" catalog="system" width="32" height="32"/>
+        <image name="xmark.circle.fill" catalog="system" width="128" height="121"/>
         <namedColor name="AccentColor">
             <color red="0.0" green="0.46000000000000002" blue="0.89000000000000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </namedColor>

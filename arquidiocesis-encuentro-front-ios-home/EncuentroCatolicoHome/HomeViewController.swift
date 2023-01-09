@@ -462,9 +462,9 @@ class HomeViewController: UIViewController, HomeViewProtocol, UITextFieldDelegat
                 flagState = "PENDING_COMPLETION"
                 
             case nil:
-                let view = AnswerFoemularyWireFrame.createModule()
-                 present(view, animated: true, completion: nil)
-                
+                //let view = AnswerFoemularyWireFrame.createModule()
+                 //present(view, animated: true, completion: nil)
+                print("mostrar resgistro nueva comunidad")
             default:
                 break
             }

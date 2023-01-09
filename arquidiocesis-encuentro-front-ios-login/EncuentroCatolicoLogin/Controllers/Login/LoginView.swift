@@ -5,6 +5,7 @@ import EncuentroCatolicoProfile
 import AuthenticationServices
 import EncuentroCatolicoVirtualLibrary
 import EncuentroCatolicoUtils
+import Network
 
 class LoginView: UIViewController {
     
@@ -28,8 +29,6 @@ class LoginView: UIViewController {
     
     @IBOutlet weak var contentViewTerminos: UIView!
     @IBOutlet weak var btnLogIn: UIButton!
-    
-    
     @IBOutlet weak var contentViewIniSes: UIView!
     
     @IBOutlet weak var btnBack: UIButton!
@@ -40,8 +39,9 @@ class LoginView: UIViewController {
     var version: Double = 0.0
     var biometricButton: Bool = UserDefaults.standard.bool(forKey: "biometricEnable")
     let loadingAlert = UIAlertController(title: "", message: "\n \n \n \n \nCargando...", preferredStyle: .alert)
-    var alertFields : AcceptAlert? //= AcceptAlert.showAlert(titulo: "Atención", mensaje: "")
-
+    var alertFields : AcceptAlert?
+    let monitor = NWPathMonitor()
+    var isInternet=false
     //    // MARK: Lifecycle
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -50,7 +50,25 @@ class LoginView: UIViewController {
 //        validateButtonBiometric()
         self.hideKeyboardWhenTappedAround()
         print("RemoteConfig: didLoad \(forceUpdate)")
-        
+        forceUpdateF()
+        setupInternetObserver()
+    }
+    
+    func setupInternetObserver(){
+        monitor.pathUpdateHandler = { pathUpdateHandler in
+                   if pathUpdateHandler.status == .satisfied {
+                       print("Internet connection is on.")
+                       self.isInternet=true
+                   } else {
+                       print("There's no internet connection.")
+                       self.isInternet=false
+                   }
+               }
+               let queue = DispatchQueue(label: "Network")
+               monitor.start(queue: queue)
+    }
+    
+    func forceUpdateF(){
         if forceUpdate {
             if version > Double(getInstalledVersion() ?? "") ?? 0.0 {
                 let alert = UIAlertController(title: "Aviso", message: "Es Necesario Actualizar", preferredStyle: .alert)
@@ -70,8 +88,6 @@ class LoginView: UIViewController {
     }
     
     override func viewDidAppear(_ animated: Bool) {
-        let defaults = UserDefaults.standard
-        let newUser = defaults.bool(forKey: "isNewUser")
         biometricCanValidate()
 //        validateButtonBiometric()
         self.btnRegistar.isEnabled = true
@@ -85,8 +101,7 @@ class LoginView: UIViewController {
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         print("VC ECLogin - LoginView")
-        //  configureKeyboardObservables()
-//        validateButtonBiometric()
+        //configureKeyboardObservables()
         biometricCanValidate()
         let newUser = UserDefaults.standard.bool(forKey: "isNewUser")
         if newUser == false {
@@ -145,34 +160,6 @@ class LoginView: UIViewController {
         return nil
     }
     
-    //    func remoteConfig() {
-    //
-    //           guard let url = URL(string: "https://arquidiocesis-public-files.s3.amazonaws.com/1_5066777712274702937.json"),
-    //                 let urlData = try? Data(contentsOf: url, options: .mappedIfSafe),
-    //                 let data = try? JSONDecoder().decode(ChurchRemoteInfo.self, from: urlData)  else {
-    //               return
-    //           }
-    //        if data.forceUpdateIOS {
-    //            if data.versionIOS > Double(getInstalledVersion() ?? "") ?? 0.0 {
-    //
-    //                let alert = UIAlertController(title: "Aviso", message: "Actualiza tu aplicación", preferredStyle: .alert)
-    //                               let cancelAction = UIAlertAction(title: "Aceptar", style: .cancel){
-    //                                   [weak self] _ in
-    //                                   guard let self = self else {return}
-    //                                   if let url = URL(string: "itms-apps://itunes.apple.com/app/id1559605584"),
-    //                                                      UIApplication.shared.canOpenURL(url) {
-    //                                                       UIApplication.shared.open(url, options: [:], completionHandler: nil)
-    //                                                   }
-    //                                   }
-    //                               alert.addAction(cancelAction)
-    //
-    //                               self.present(alert, animated: true)
-    //
-    //            }
-    //        }
-    
-    //}
-    
     @objc func popViews(){
         for controller in self.navigationController!.viewControllers as Array {
             if controller.isKind(of: LoginView.self) {
@@ -181,6 +168,7 @@ class LoginView: UIViewController {
             }
         }
     }
+    
     private func setupView(){
         contentViewTerminos.isHidden = false
         contentViewIniSes.isHidden = true
@@ -326,12 +314,18 @@ class LoginView: UIViewController {
     @IBAction func login(_ sender: Any) {
         let validatedData = validatePhoneMail(toValidate: txtUser.text ?? "")
         btnRegistar.isEnabled = false
-        spinner.isHidden = false
-        spinner.startAnimating()
-        showLoading()
-        presenter?.controla = self
-        presenter?.login(user: validatedData, password: txtPassword.text ?? "")
-    }
+        if isInternet {
+             spinner.isHidden = false
+             spinner.startAnimating()
+             showLoading()
+             presenter?.controla = self
+             presenter?.login(user: validatedData, password: txtPassword.text ?? "")
+         } else {
+             self.alertFields = AcceptAlert.showAlert(titulo: " ¡Atención!", mensaje: "No tienes conexión a internet.")
+             self.alertFields!.view.backgroundColor = .clear
+             self.present(self.alertFields!, animated: true)
+         }
+   }
     
     @IBAction func loginInvitado(_ sender: Any) {
         presenter?.loginInvitado(controller: self)
@@ -369,8 +363,13 @@ class LoginView: UIViewController {
     
     
     @IBAction func biometricLogin(_ sender: Any) {
-        biometricValidations()
-        
+        if isInternet{
+              biometricValidations()
+          } else {
+              self.alertFields = AcceptAlert.showAlert(titulo: " ¡Atención!", mensaje: "No tienes conexión a internet")
+              self.alertFields!.view.backgroundColor = .clear
+              self.present(self.alertFields!, animated: true)
+          }
     }
     
     @objc private func keyboardWillShow(notification: NSNotification) {
