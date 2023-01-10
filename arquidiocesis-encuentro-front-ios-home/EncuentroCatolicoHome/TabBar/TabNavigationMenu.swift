@@ -234,8 +234,8 @@ public class TabNavigationMenu: UIImageView {
             tabToActivate.viewWithTag(13)?.isHidden = false
         }
         
-        //itemTapped?(tab)
-        //activeItem = tab
+        itemTapped?(tab)
+        activeItem = tab
     }
     
     private func deactivateTab(tab: Int) {

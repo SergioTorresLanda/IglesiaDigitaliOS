@@ -24,7 +24,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <mapView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" mapType="standard" translatesAutoresizingMaskIntoConstraints="NO" id="ceo-38-lRJ">
-                                <rect key="frame" x="0.0" y="35" width="375" height="632"/>
+                                <rect key="frame" x="0.0" y="69.5" width="375" height="597.5"/>
                             </mapView>
                             <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="navBarBlue" translatesAutoresizingMaskIntoConstraints="NO" id="r1C-Xy-ZN8">
                                 <rect key="frame" x="-11" y="-3" width="401" height="79"/>
@@ -111,7 +111,7 @@
                                 </userDefinedRuntimeAttributes>
                             </tableView>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Localiza tu Iglesia/Comunidad" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="fua-6c-xqr">
-                                <rect key="frame" x="10" y="10" width="355" height="21.5"/>
+                                <rect key="frame" x="10" y="44" width="355" height="21.5"/>
                                 <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="18"/>
                                 <color key="textColor" red="0.06847123057" green="0.1287259758" blue="0.5059124827" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                                 <nil key="highlightedColor"/>
@@ -136,7 +136,7 @@
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Rjc-qQ-D80">
-                                <rect key="frame" x="20" y="5" width="30" height="30"/>
+                                <rect key="frame" x="20" y="39.5" width="30" height="30"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="30" id="v1h-WT-ZpL"/>
                                     <constraint firstAttribute="width" constant="30" id="whF-Yp-BdH"/>
@@ -174,6 +174,7 @@
                             <constraint firstItem="2y7-WM-yv9" firstAttribute="top" secondItem="xXh-sh-RQG" secondAttribute="top" id="1et-Yw-tFp"/>
                             <constraint firstItem="cma-42-yUK" firstAttribute="trailing" secondItem="xI1-J6-By0" secondAttribute="trailing" constant="16" id="3cz-Oh-eMP"/>
                             <constraint firstItem="Ftr-Mj-1HX" firstAttribute="leading" secondItem="KHd-il-ZL3" secondAttribute="leading" id="4m3-dG-QX1"/>
+                            <constraint firstItem="fua-6c-xqr" firstAttribute="centerY" secondItem="2y7-WM-yv9" secondAttribute="centerY" id="6hU-sg-2sB"/>
                             <constraint firstItem="cma-42-yUK" firstAttribute="bottom" secondItem="xI1-J6-By0" secondAttribute="bottom" constant="68" id="9T8-wp-rSJ"/>
                             <constraint firstItem="Ftr-Mj-1HX" firstAttribute="top" secondItem="KHd-il-ZL3" secondAttribute="bottom" constant="4" id="EpS-PA-fTE"/>
                             <constraint firstItem="ceo-38-lRJ" firstAttribute="top" secondItem="Rjc-qQ-D80" secondAttribute="bottom" id="FJx-ye-kSe"/>
@@ -183,13 +184,12 @@
                             <constraint firstItem="r1C-Xy-ZN8" firstAttribute="top" secondItem="cma-42-yUK" secondAttribute="top" constant="-3" id="Khw-du-at8"/>
                             <constraint firstAttribute="bottom" secondItem="ceo-38-lRJ" secondAttribute="bottom" id="OLv-yz-iHc"/>
                             <constraint firstItem="Ftr-Mj-1HX" firstAttribute="trailing" secondItem="KHd-il-ZL3" secondAttribute="trailing" id="Pip-lu-dfZ"/>
-                            <constraint firstItem="fua-6c-xqr" firstAttribute="top" secondItem="cma-42-yUK" secondAttribute="top" constant="10" id="Rzj-Yt-eVt"/>
-                            <constraint firstItem="Rjc-qQ-D80" firstAttribute="top" secondItem="cma-42-yUK" secondAttribute="top" constant="5" id="Tmq-RD-Mdb"/>
                             <constraint firstItem="KHd-il-ZL3" firstAttribute="top" secondItem="2y7-WM-yv9" secondAttribute="bottom" constant="-15" id="XaQ-EI-LXv"/>
                             <constraint firstItem="2y7-WM-yv9" firstAttribute="leading" secondItem="cma-42-yUK" secondAttribute="leading" id="a41-vD-1C6"/>
                             <constraint firstItem="ceo-38-lRJ" firstAttribute="trailing" secondItem="cma-42-yUK" secondAttribute="trailing" id="cec-xr-dlw"/>
                             <constraint firstItem="fua-6c-xqr" firstAttribute="centerX" secondItem="2y7-WM-yv9" secondAttribute="centerX" id="d8w-FB-X7I"/>
                             <constraint firstItem="S4q-IR-3zS" firstAttribute="top" secondItem="5Ce-dC-4Kr" secondAttribute="bottom" constant="16" id="dJH-CJ-daR"/>
+                            <constraint firstItem="Rjc-qQ-D80" firstAttribute="centerY" secondItem="2y7-WM-yv9" secondAttribute="centerY" id="e2L-ET-88g"/>
                             <constraint firstItem="cma-42-yUK" firstAttribute="trailing" secondItem="fua-6c-xqr" secondAttribute="trailing" constant="10" id="gJN-hH-CEc"/>
                             <constraint firstItem="KHd-il-ZL3" firstAttribute="leading" secondItem="cma-42-yUK" secondAttribute="leading" constant="21" id="hd1-Lw-dyK"/>
                             <constraint firstItem="cma-42-yUK" firstAttribute="bottom" secondItem="S4q-IR-3zS" secondAttribute="bottom" constant="60" id="lhg-Hp-rau"/>

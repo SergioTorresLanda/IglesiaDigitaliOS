@@ -73,12 +73,17 @@ class newPrayer: UIViewController {
     
     func hideLoading(error: String?){
         if error != nil{
+            DispatchQueue.main.asyncAfter(deadline: .now() + 3, execute: {
+            print(":;;;;;;;;;;;;;ERROR NNO NIL :;;;;;;;;;;;;;;")
+            })
             self.alert.dismiss(animated: false, completion: {
                 let errorAlert = UIAlertController(title: "Alerta", message: error!, preferredStyle: .alert)
                 errorAlert.addAction(UIAlertAction(title: "Aceptar", style: .default, handler: nil))
                 self.present(errorAlert, animated: true, completion: nil)
             })
         }else{
+                DispatchQueue.main.asyncAfter(deadline: .now() + 3, execute: {
+                    print(":;;;;;;;;;;;;;ERROR NIL :;;;;;;;;;;;;;;")})
             self.alert.dismiss(animated: false, completion: {
                 self.closeView()
             })
@@ -86,6 +91,8 @@ class newPrayer: UIViewController {
     }
     
     func sendRESTRequest(endPoint: String) {
+        DispatchQueue.main.asyncAfter(deadline: .now() + 3, execute: {
+            print("SEND REST request Prayyy")})
         let endpoint: URL = URL(string: endPoint)!
         var request = URLRequest(url: endpoint)
         request.timeoutInterval = 10
@@ -106,20 +113,21 @@ class newPrayer: UIViewController {
         
         request.httpBody = httpBody
         let tarea = URLSession.shared.dataTask(with: request) { data, response, error in
-            
             //print("->  respuesta Status Code: ", response as Any)
             //print("->  error: ", error as Any)
-
             if error != nil {
                 print("Error")
                 return
             }
-            
             if (response as! HTTPURLResponse).statusCode == 200 {
+                print(":;;;;;;;;;;;;;STATUS 200 :;;;;;;;;;;;;;;")
+
                 DispatchQueue.main.async {
                     self.hideLoading(error: nil)
                 }
             } else {
+                print(":;;;;;;;;;;;;;STATUS NO 200 :;;;;;;;;;;;;;;")
+
                 DispatchQueue.main.async{
                     var msgError = ""
                     switch (response as! HTTPURLResponse).statusCode {

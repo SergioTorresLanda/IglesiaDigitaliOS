@@ -19,7 +19,7 @@ protocol FeedViewControllerDelegate{
 public class FeedViewController: UIViewController, FeedViewProtocol, FeedViewControllerDelegate {
     
     var presenter: FeedPresenterProtocol?
-    private let shimmer = Shimmer()
+    let shimmer = Shimmer()
     
     //MARK: - @IBoutlets
     @IBOutlet public weak var notificationView: UIView!
@@ -30,6 +30,8 @@ public class FeedViewController: UIViewController, FeedViewProtocol, FeedViewCon
     @IBOutlet weak var txfSearch: UITextField!
     @IBOutlet weak var btnCreatePost: UIButton!
     @IBOutlet weak var imgProfile: UIImageView!
+    @IBOutlet weak var viewS: UIView!
+    
     
     @IBOutlet weak var btnGoTo: UIButton!
     @IBOutlet public weak var notificationImage: UIImageView!  = {
@@ -54,24 +56,35 @@ public class FeedViewController: UIViewController, FeedViewProtocol, FeedViewCon
     //MARK: - Life cycle
     override public func viewDidLoad() {
         super.viewDidLoad()
+        NotificationCenter.default.addObserver(self, selector: #selector(self.methodOfReceivedNotification(notification:)), name: Notification.Name("NotificationFeed"), object: nil)
+        
         setUpView()
     }
     
     override public func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         print("VC ECNews - FeedVC ")
+        setupTabBar()
+        presenter?.getNewPosts(isFromPage: false, isRefresh: false)
+    }
+    
+    override public func viewDidAppear(_ animated: Bool) {
+        super.viewDidAppear(animated)
+        //tableView.reloadData()
+    }
+
+    
+    //MARK: - Methods
+    func setupTabBar(){
         let tabBar = self.tabBarController as? SocialNetworkController
         tabBar?.tabBar.isHidden = true
         tabBar?.customTabBar.isHidden = false
     }
     
-    override public func viewDidAppear(_ animated: Bool) {
-        super.viewDidAppear(animated)
-        tableView.reloadData()
+    func startShimmer(){
+        shimmer.startLoader(view: viewS, rows: [100, 200, 100, 200, 100])
     }
-
     
-    //MARK: - Methods
     private func setUpView() {
         
         let img = UIImage(named: "iconSearch", in: Bundle(for: FeedViewController.self), compatibleWith: nil)
@@ -88,21 +101,9 @@ public class FeedViewController: UIViewController, FeedViewProtocol, FeedViewCon
         barraNavegacion.layer.shadowColor = UIColor.black.cgColor
         barraNavegacion.layer.maskedCorners = [.layerMinXMaxYCorner, .layerMaxXMaxYCorner]
         
-        NotificationCenter.default.addObserver(self, selector: #selector(self.methodOfReceivedNotification(notification:)), name: Notification.Name("NotificationFeed"), object: nil)
-        
-        shimmer.startLoader(view: self.view, rows: [75, 200, 100, 200
-                                                    , 220])
-        
-        
-        self.presenter?.getNewPosts(isFromPage: false, isRefresh: false) //--> Nuevo
-//        self.presenter?.getPosts(isFromPage: false)   // --> Se comento
-        self.presenter?.createObserver(userId: SocialNetworkConstant.shared.userId)
-        
-        
         refreshControl.addTarget(self, action: #selector(refresh(_:)), for: .valueChanged)
         
         tableView.addSubview(refreshControl)
-        
         tableView.prefetchDataSource = self
         tableView.dataSource = self
         tableView.delegate = self
@@ -133,10 +134,8 @@ public class FeedViewController: UIViewController, FeedViewProtocol, FeedViewCon
     
     @objc func refresh(_ sender: UIRefreshControl) {
         storedData.skip = 0
+        startShimmer()
         presenter?.getNewPosts(isFromPage: false, isRefresh: true) //--> Nuevo
-        //presenter?.getPosts(isFromPage: false) //--> se comenta
-        shimmer.startLoader(view: self.view, rows: [75, 200, 100, 200
-                                                    , 220])
     }
     
     func didFinishGettingPosts(isFromPage: Bool, posts: [Posts]) {
@@ -144,12 +143,12 @@ public class FeedViewController: UIViewController, FeedViewProtocol, FeedViewCon
             isPrefetching = false
         } else {
             refreshControl.endRefreshing()
-            shimmer.stopLoader()
         }
+        shimmer.stopLoader()
         
         newPosts = posts
         tableView.reloadData()
-//        posts = retrieveFromRealm()
+        //posts = retrieveFromRealm()
     }
     
     func didFinishGettingPostsWithErrors(error: SocialNetworkErrors) {
@@ -202,7 +201,6 @@ public class FeedViewController: UIViewController, FeedViewProtocol, FeedViewCon
     }
     
     func reloadTblData() {
-        
         //self.presenter?.getNewPosts(isFromPage: false, isRefresh: true)
         tableView.reloadData()
     }

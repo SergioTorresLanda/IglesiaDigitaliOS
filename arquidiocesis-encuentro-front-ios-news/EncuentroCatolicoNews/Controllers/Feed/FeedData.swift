@@ -36,14 +36,18 @@ extension FeedViewController: UITableViewDataSource {
             
             return cell
         }else{
-            
-            if newPosts.count > 9 {
-                if indexPath.row == newPosts.count - 1 {
+            /*if newPosts.count > 9 {
+                
+                if indexPath.row == newPosts.count {
+                    print("GET NEW POST PAGIN")
+                    print(String(indexPath.row))
+                    print("newposts.count: 15")
+                    self.shimmer.startLoader(view: self.view, rows: [75, 200, 100, 200
+                                                                , 220])
                     self.presenter?.getNewPostPagin(isFromPage: true, posts: newPosts, nxtPag: UserDefaults.standard.string(forKey: "nextPageTL") ?? "")
                     tableView.reloadData()
                 }
-            }
-            
+            }*/
             guard let cell = tableView.dequeueReusableCell(withIdentifier: "FeedTVC", for: indexPath) as? FeedTVC else {
                 return UITableViewCell()
             }
@@ -145,21 +149,28 @@ extension FeedViewController: UITableViewDelegate {
     public func tableView(_ tableView: UITableView, willDisplay cell: UITableViewCell, forRowAt indexPath: IndexPath) {
         
         if indexPath.row != 0 {
-            let pages = storedData.pages
-            let pagesDifference = pages - storedData.skip
+            //let pages = storedData.pages
+            //let pagesDifference = pages - storedData.skip
             let lastSectionIndex = tableView.numberOfSections - 1
             let lastRowIndex = tableView.numberOfRows(inSection: lastSectionIndex) - 1
-            let spinner = UIActivityIndicatorView(style: .gray)
             
-            if indexPath.section == lastSectionIndex && indexPath.row == lastRowIndex && pagesDifference > 1 {
-                spinner.startAnimating()
-                spinner.frame = CGRect(x: CGFloat(0), y: CGFloat(0), width: tableView.bounds.width, height: CGFloat(45))
-                
-                tableView.tableFooterView = spinner
-                tableView.tableFooterView?.isHidden = false
-            } else {
-                spinner.stopAnimating()
-                tableView.tableFooterView?.isHidden = true
+            if indexPath.section == lastSectionIndex && indexPath.row == lastRowIndex {
+                if #available(iOS 13.0, *) {
+                    let spinner = UIActivityIndicatorView(style: .large)
+                    spinner.startAnimating()
+                    spinner.frame = CGRect(x: CGFloat(0), y: CGFloat(0), width: tableView.bounds.width, height: CGFloat(60))
+                    
+                    tableView.tableFooterView = spinner
+                    tableView.tableFooterView?.isHidden = false
+                }
+                print("FINAL DE TABLA")
+                print("GET NEW POST PAGIN")
+                print(String(indexPath.row))
+                self.presenter?.getNewPostPagin(isFromPage: true, posts: newPosts, nxtPag: UserDefaults.standard.string(forKey: "nextPageTL") ?? "")
+            }else {
+                print("NO FINAL DE TABLA")
+                //spinner.stopAnimating()
+                //tableView.tableFooterView?.isHidden = true
             }
         }
     }
@@ -180,6 +191,7 @@ extension FeedViewController: UITableViewDataSourcePrefetching {
         let pagesDifference = storedData.pages - storedData.skip
         let lastRowIndex = tableView.numberOfRows(inSection: 0)
         if indexPaths.contains(IndexPath(row: lastRowIndex, section: 0)) && isPrefetching == false && pagesDifference > 1 {
+            print("PREFETCH:: ")
             storedData.skip = storedData.skip + 1
             isPrefetching = true
             presenter?.getNewPosts(isFromPage: true, isRefresh: false)

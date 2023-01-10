@@ -136,7 +136,7 @@ class ProfileMapViewController: BaseViewController, ProfileMapViewProtocol, Util
             }
         case "LaicoCom":
             print("Validate LAICOCOM")
-            btnNoCommunity.isHidden = false
+            btnNoCommunity.isHidden = true
             btnNoCommunity.setTitle("No encuentro mi comunidad", for: .normal)
             lblNavTitle.text="Localiza tu comunidad"
             Church.getMapItemComs {
@@ -149,12 +149,15 @@ class ProfileMapViewController: BaseViewController, ProfileMapViewProtocol, Util
         case "Donations":
             print("Validate DONS")
             btnNoCommunity.isHidden = true
-            navImg.isHidden = true
             lblNavTitle.text = "Mi ofrenda"
-            lblNavTitle.textColor = .white
-            btnBack.imageView?.setImageColor(color: .white)
             self.view.backgroundColor = UIColor.init(red: 25/255, green: 42/255, blue: 115/255, alpha: 1)
-            
+            Church.getMapItemChurches {
+                [weak self]
+                annotations in
+                self?.mapKit.addAnnotations(annotations)
+                self?.setCurrentLocationMap()
+                self?.removeLoader()
+            }
         default:
             print("Validate "+mapType)
             btnNoCommunity.isHidden = true
@@ -502,7 +505,6 @@ extension ProfileMapViewController: UITableViewDelegate, UITableViewDataSource {
         let dortmunRegion = MKCoordinateRegion(center: CLLocationCoordinate2D(latitude: dortmundLocation.coordinate.latitude, longitude: dortmundLocation.coordinate.longitude), span: MKCoordinateSpan(latitudeDelta: 0.01, longitudeDelta: 0.01))
         self.mapKit.setRegion(dortmunRegion, animated: true)
         //Liberar tarjeta.
-      
         let idChurchAnn = locationsData[indexPath.row].id ?? 1
 //        let nameX = locationsData[indexPath.row].name ?? "No Name"
 

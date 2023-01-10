@@ -454,33 +454,16 @@ extension ProfileInfoView: ProfileInfoViewProtocol {
             case "CHURCH":
                 typeService="iglesia"
                 arrayIsActive[0] = true
-                isLaico = false
-                btnSave.setTitle("Guardar", for: .normal)
-                churchCollection.isHidden = true
+                isLaico = false //revisar
                 switchState.isOn = false
                 lblState.text = "No"
-                serachStack.isHidden = false
-                lineasViewCollection[6].isHidden = false
+                serachStack.isHidden = false //revisar
+                lineasViewCollection[6].isHidden = false //revisar
                 hideOrShowPrefix(isShow: true)
                 isCongregation = false
-                //funcion
-                fieldsCollection[6].placeholder = "¿En qué iglesia prestas el servicio?"
-                fieldsCollection[6].text = detail.data?.User?.services_provided?.first?.location_name
-                arrayChurches.removeAll()
-                arrayImgchurches.removeAll()
-                detail.data?.User?.services_provided?.forEach({ item in
-                    arrayChurches.append(item.location_name ?? "")
-                    arrayImgchurches.append("unspecified")
-                    nameService.append(item.service_name ?? "")
-                })
-                churchCollection.reloadData()
-                churchCollection.isHidden = false
+                //TARJETA
+                mostrarTarjeta(detail: detail)
                 //
-                let heightC = churchCollection.collectionViewLayout.collectionViewContentSize.height
-                heightChurchCollection.constant = heightC
-                self.view.layoutIfNeeded()
-                print(heightChurchCollection.constant)
-                
                 cardLaico.isHidden = true
                 cardLaico2.isHidden = true
                 miniContentCongregation.isHidden = true
@@ -493,23 +476,12 @@ extension ProfileInfoView: ProfileInfoViewProtocol {
             case "COMMUNITY":
                 typeService="comunidad"
                 arrayIsActive[1] = true
-                isLaico = true
+                isLaico = true //revisar
                 switchResponsable.isOn = false
                 isCongregation = false
                 lblStateResp.text = "No"
-                switchResponsable.isOn = false
-                btnSave.setTitle("Guardar", for: .normal)
-                //funcion
-                fieldsCollection[6].text = detail.data?.User?.services_provided?.first?.location_name
-                arrayChurches.removeAll()
-                arrayImgchurches.removeAll()
-                detail.data?.User?.services_provided?.forEach({ item in
-                    arrayChurches.append(item.location_name ?? "")
-                    arrayImgchurches.append("unspecified")
-                    nameService.append(item.service_name ?? "")
-                })
-                churchCollection.reloadData()
-                churchCollection.isHidden = false
+                //funcion para mostrar tarjeta
+                mostrarTarjeta(detail: detail)
                 //
                 fieldsCollection[6].placeholder = "Congregación a la que perteneces"
                 selectedPrefixID = 0
@@ -616,6 +588,25 @@ extension ProfileInfoView: ProfileInfoViewProtocol {
         
         self.hideLoading()
     
+    }
+    
+    func mostrarTarjeta(detail:DetailProfile){
+        btnSave.setTitle("Guardar", for: .normal)
+        fieldsCollection[6].text = detail.data?.User?.services_provided?.first?.location_name
+        arrayChurches.removeAll()
+        arrayImgchurches.removeAll()
+        detail.data?.User?.services_provided?.forEach({ item in
+            arrayChurches.append(item.location_name ?? "")
+            arrayImgchurches.append("unspecified")
+            nameService.append(item.service_name ?? "")
+        })
+        churchCollection.reloadData()
+        churchCollection.isHidden = false
+        
+        let heightC = churchCollection.collectionViewLayout.collectionViewContentSize.height
+        heightChurchCollection.constant = heightC
+        self.view.layoutIfNeeded()
+        print(heightChurchCollection.constant)
     }
     
     func showLifeStates(lifeStates: StatesResponse) {
@@ -1059,7 +1050,7 @@ extension ProfileInfoView {
 
 // MARK: TRANSITION DELEGATE -
 extension ProfileInfoView: UIViewControllerTransitioningDelegate {
-    
+
     func animationController(forDismissed dismissed: UIViewController) -> UIViewControllerAnimatedTransitioning? {
         
         transition.isPresenting = false

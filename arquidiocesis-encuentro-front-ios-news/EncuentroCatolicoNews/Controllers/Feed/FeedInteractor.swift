@@ -81,19 +81,21 @@ public class FeedInteractor: FeedInteractorProtocol {
         callService(nxtPage: nxtPag, userId: "\(SNId)", params: params, isFromPage: isFromPage, isPagination: true, isRefresh: false)
     }
     
-    
+    var nextPage = ""
     var arPostGral: [Posts] = [Posts]()
     var numPosts = 0
     let SNId = UserDefaults.standard.integer(forKey: "SNId")
     func callService(nxtPage: String?, userId: String, params: Timeline?, isFromPage: Bool, isPagination: Bool, isRefresh: Bool){
         print(":::::::: CALL SERVICE ;;;;;;;;;;")
         let stUrl = "\(APIType.shared.SN())/users/\(SNId)/timeline"
-        var request = snService.getRequestRS(strUrl: stUrl, pagination: nxtPage ?? "", method: .publicationsAll, params: params)
-        request.timeoutInterval = 20
+      
+        var request = snService.getRequestRS(strUrl: stUrl, pagination: nextPage, method: .publicationsAll, params: params)
+        request.timeoutInterval = 40
         snService.makeRequest(request: request) { (data, error) in
             if let error = error{
                 DispatchQueue.main.asyncAfter(deadline: .now() + 3, execute: {
                     print("::::ERROR CALL SERVICE::: "+error.message)
+                    print(stUrl)
                 })
                 self.presenter?.didFinishGettingPostsWithErrors(error: error)
             }else{
@@ -117,26 +119,17 @@ public class FeedInteractor: FeedInteractorProtocol {
                     let arr = responseModel.result?.posts
                     let dctResult = someDictionaryFromJSON["result"] as? [String: Any]
                     let dctPagination = dctResult?["pagination"] as? [String: Any]
-                    let hasMore = false //dctPagination?["hasMore"] as? Bool
-                    let stNextPag = dctPagination?["next"] as? String
-                    if hasMore && self.numPosts < 5{
-                        self.numPosts += 1
-                        if let arr = arr{
-                            for postss in arr{
-                                self.arPostGral.append(postss)
-                            }
+                    //let hasMore = dctPagination?["hasMore"] as? Bool ?? false
+                    let stNextPag = dctPagination?["next"] as? String ?? ""
+                    self.nextPage=stNextPag
+                    print("::::NEXT PAGE VALUE::: "+stNextPag)
+                    if let arr = arr{
+                        for postss in arr{
+                            self.arPostGral.append(postss)
                         }
-                        
-                        self.callService(nxtPage: stNextPag, userId: "\(self.SNId)", params: nil, isFromPage: isFromPage, isPagination: false, isRefresh: false)
-                    }else{
-                        if let arr = arr{
-                            for postss in arr{
-                                self.arPostGral.append(postss)
-                            }
-                        }
-                        UserDefaults.standard.set(nxtPage, forKey: "nextPageTL")
-                        self.presenter?.didFinishGettingPosts(isFromPage: isFromPage, posts: self.arPostGral)
                     }
+                    UserDefaults.standard.set(nxtPage, forKey: "nextPageTL")
+                    self.presenter?.didFinishGettingPosts(isFromPage: isFromPage, posts: self.arPostGral)
                 }catch{
                     DispatchQueue.main.asyncAfter(deadline: .now() + 3, execute: {
                         print("::::CATCH CALL SERVICE::: ")
