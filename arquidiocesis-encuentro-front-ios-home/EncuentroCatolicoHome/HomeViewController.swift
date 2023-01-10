@@ -461,9 +461,9 @@ class HomeViewController: UIViewController, HomeViewProtocol, UITextFieldDelegat
             case UserCommunityStatus.pendindCompletion.rawValue:
                 flagState = "PENDING_COMPLETION"
                 
-            case nil:
-                let view = AnswerFoemularyWireFrame.createModule()
-                 present(view, animated: true, completion: nil)
+//            case nil:
+//                let view = AnswerFoemularyWireFrame.createModule()
+//                 present(view, animated: true, completion: nil)
                 
             default:
                 break

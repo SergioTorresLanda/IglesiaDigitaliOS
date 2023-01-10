@@ -49,7 +49,7 @@ public struct Church: Codable {
             let markItems = churches.map({ChuckMark(title: $0.name,
                                                     coordinate: CLLocationCoordinate2D(latitude: $0.latitude ?? 0.0,
                                                                                        longitude: $0.longitude ?? 0.0),
-                                                    id: $0.id ?? 0, url: $0.image_url ?? "")})
+                                                    id: $0.id ?? 0, url: $0.image_url ?? "", subtitle: String($0.id ?? 0))})
             completion(markItems)
         }
     }
@@ -60,7 +60,7 @@ public struct Church: Codable {
             let markItems = churches.map({ChuckMark(title: $0.name,
                                                     coordinate: CLLocationCoordinate2D(latitude: $0.latitude ?? 0.0,
                                                                                        longitude: $0.longitude ?? 0.0),
-                                                    id: $0.id ?? 0, url: $0.image_url ?? "")})
+                                                    id: $0.id ?? 0, url: $0.image_url ?? "", subtitle: String($0.id ?? 0))})
             completion(markItems)
         }
     }

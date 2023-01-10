@@ -193,7 +193,7 @@ class ChurchRegisterViewController: BaseViewController, ChurchRegisterViewProtoc
         for communities in communities {
             let markItems = [ChuckMark(title: communities.name,
                                        coordinate: CLLocationCoordinate2D(latitude: communities.latitude ?? 0.0,
-                                                                          longitude: communities.longitude ?? 0.0), id: UInt(communities.id ?? 1), url: communities.imgURL)]
+                                                                          longitude: communities.longitude ?? 0.0), id: UInt(communities.id ?? 1), url: communities.imgURL, subtitle: String(communities.id ?? 0))]
             completion(markItems)
         }
     }

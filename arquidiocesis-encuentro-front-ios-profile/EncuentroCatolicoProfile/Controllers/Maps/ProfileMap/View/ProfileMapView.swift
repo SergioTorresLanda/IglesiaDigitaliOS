@@ -504,7 +504,7 @@ extension ProfileMapViewController: UITableViewDelegate, UITableViewDataSource {
         //Liberar tarjeta.
       
         let idChurchAnn = locationsData[indexPath.row].id ?? 1
-        let nameX = locationsData[indexPath.row].name ?? "No Name"
+//        let nameX = locationsData[indexPath.row].name ?? "No Name"
 
         print(":::::::: ID::  " + String(idChurchAnn) + ":::::::::::::")
         let indexGod = fillLocationData.firstIndex(where: {$0.id == idChurchAnn}) ?? 1
@@ -512,7 +512,7 @@ extension ProfileMapViewController: UITableViewDelegate, UITableViewDataSource {
         print("::::::::  FILL LOC COUNT ::  " + String(fillLocationData.count) + ":::::::::::::")
         print("::::::::  ANNOTATIONS COUNT ::  " + String(mapKit.annotations.count) + ":::::::::::::")
 
-        self.mapKit.selectAnnotation(mapKit.annotations.first(where: {$0.title == nameX})!, animated: true)
+        self.mapKit.selectAnnotation(mapKit.annotations.first(where: {$0.subtitle == String(idChurchAnn)})!, animated: true)
         //self.mapKit.selectAnnotation(mapKit.annotations.first(where: {$0. == nameX})!, animated: true)
 
     }

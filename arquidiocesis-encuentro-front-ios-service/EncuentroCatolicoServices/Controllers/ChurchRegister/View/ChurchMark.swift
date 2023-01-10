@@ -13,22 +13,25 @@ class ChuckMark: NSObject, MKAnnotation {
     let locationName: String?
     let coordinate: CLLocationCoordinate2D
     let id: UInt
+    let subtitle: String?
 
   init(
     title: String?,
     locationName: String?,
     coordinate: CLLocationCoordinate2D,
-    id: UInt
+    id: UInt,
+    subtitle: String?
   ) {
     self.title = title
     self.locationName = locationName
     self.coordinate = coordinate
     self.id = id
+    self.subtitle = subtitle
 
     super.init()
   }
 
-  var subtitle: String? {
-    return locationName
-  }
+//  var subtitle: String? {
+//    return locationName
+//  }
 }
