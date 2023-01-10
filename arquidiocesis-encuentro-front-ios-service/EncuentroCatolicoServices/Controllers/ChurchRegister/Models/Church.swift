@@ -51,7 +51,7 @@ struct Church: Codable {
                                                     locationName: $0.fullAddress,
                                                     coordinate: CLLocationCoordinate2D(latitude: $0.lattitude,
                                                                                        longitude: $0.longitud),
-                                                    id: $0.id)})
+                                                    id: $0.id, subtitle: String($0.id))})
             completion(markItems)
         }
     }

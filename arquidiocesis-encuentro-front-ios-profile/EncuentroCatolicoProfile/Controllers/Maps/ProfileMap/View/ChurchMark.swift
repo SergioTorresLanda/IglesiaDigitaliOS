@@ -13,17 +13,20 @@ class ChuckMark: NSObject, MKAnnotation {
     let coordinate: CLLocationCoordinate2D
     let id: UInt
     let image_url: String?
+    let subtitle: String?
     
     init(
         title: String?,
         coordinate: CLLocationCoordinate2D,
         id: UInt,
-        url: String?
+        url: String?,
+        subtitle: String?
     ) {
         self.title = title
         self.coordinate = coordinate
         self.id = id
         self.image_url = url
+        self.subtitle = subtitle
         
         super.init()
     }

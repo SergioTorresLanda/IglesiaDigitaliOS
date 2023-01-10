@@ -85,6 +85,17 @@ class LoginView: UIViewController {
                 self.present(alert, animated: true, completion: nil)
             }
         }
+        monitor.pathUpdateHandler = { pathUpdateHandler in
+            if pathUpdateHandler.status == .satisfied {
+                print("Internet connection is on.")
+                self.isInternet=true
+            } else {
+                print("There's no internet connection.")
+                self.isInternet=false
+            }
+        }
+        let queue = DispatchQueue(label: "Network")
+        monitor.start(queue: queue)
     }
     
     override func viewDidAppear(_ animated: Bool) {
@@ -315,17 +326,17 @@ class LoginView: UIViewController {
         let validatedData = validatePhoneMail(toValidate: txtUser.text ?? "")
         btnRegistar.isEnabled = false
         if isInternet {
-             spinner.isHidden = false
-             spinner.startAnimating()
-             showLoading()
-             presenter?.controla = self
-             presenter?.login(user: validatedData, password: txtPassword.text ?? "")
-         } else {
-             self.alertFields = AcceptAlert.showAlert(titulo: " ¡Atención!", mensaje: "No tienes conexión a internet.")
-             self.alertFields!.view.backgroundColor = .clear
-             self.present(self.alertFields!, animated: true)
-         }
-   }
+            spinner.isHidden = false
+            spinner.startAnimating()
+            showLoading()
+            presenter?.controla = self
+            presenter?.login(user: validatedData, password: txtPassword.text ?? "")
+        } else {
+            self.alertFields = AcceptAlert.showAlert(titulo: " ¡Atención!", mensaje: "No tienes conexión a internet")
+            self.alertFields!.view.backgroundColor = .clear
+            self.present(self.alertFields!, animated: true)
+        }
+    }
     
     @IBAction func loginInvitado(_ sender: Any) {
         presenter?.loginInvitado(controller: self)
@@ -364,12 +375,13 @@ class LoginView: UIViewController {
     
     @IBAction func biometricLogin(_ sender: Any) {
         if isInternet{
-              biometricValidations()
-          } else {
-              self.alertFields = AcceptAlert.showAlert(titulo: " ¡Atención!", mensaje: "No tienes conexión a internet")
-              self.alertFields!.view.backgroundColor = .clear
-              self.present(self.alertFields!, animated: true)
-          }
+            biometricValidations()
+        } else {
+            self.alertFields = AcceptAlert.showAlert(titulo: " ¡Atención!", mensaje: "No tienes conexión a internet")
+            self.alertFields!.view.backgroundColor = .clear
+            self.present(self.alertFields!, animated: true)
+        }
+        
     }
     
     @objc private func keyboardWillShow(notification: NSNotification) {
