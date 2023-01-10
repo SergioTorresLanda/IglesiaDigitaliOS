@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="17701" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="20037" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES">
     <device id="retina4_7" orientation="portrait" appearance="light"/>
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="17703"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="20020"/>
         <capability name="System colors in document resources" minToolsVersion="11.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
@@ -50,7 +50,7 @@
                     </constraints>
                 </view>
                 <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="none" translatesAutoresizingMaskIntoConstraints="NO" id="p1H-fv-Jxs">
-                    <rect key="frame" x="0.0" y="168" width="375" height="399"/>
+                    <rect key="frame" x="0.0" y="168" width="375" height="429"/>
                     <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                     <collectionViewFlowLayout key="collectionViewLayout" minimumLineSpacing="0.0" minimumInteritemSpacing="0.0" id="PBB-Im-ws9">
                         <size key="itemSize" width="128" height="128"/>
@@ -64,7 +64,7 @@
             <constraints>
                 <constraint firstAttribute="trailing" secondItem="p1H-fv-Jxs" secondAttribute="trailing" id="BCp-EV-onI"/>
                 <constraint firstItem="mRS-y6-HGT" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" id="XuG-4k-Apj"/>
-                <constraint firstAttribute="bottom" secondItem="p1H-fv-Jxs" secondAttribute="bottom" constant="100" id="ecd-mB-hcq"/>
+                <constraint firstAttribute="bottom" secondItem="p1H-fv-Jxs" secondAttribute="bottom" constant="70" id="ecd-mB-hcq"/>
                 <constraint firstAttribute="trailing" secondItem="mRS-y6-HGT" secondAttribute="trailing" id="kcH-U6-TXu"/>
                 <constraint firstItem="p1H-fv-Jxs" firstAttribute="top" secondItem="mRS-y6-HGT" secondAttribute="bottom" constant="60" id="ki8-3R-l6x"/>
                 <constraint firstItem="p1H-fv-Jxs" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" id="l5R-ib-v9r"/>

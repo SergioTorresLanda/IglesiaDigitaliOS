@@ -208,7 +208,7 @@ extension HomeViewController: UITableViewDelegate, UITableViewDataSource {
         case "PENDING_COMPLETION", "PENDING_VICARAGE_APPROVAL":
             numberOfRowsT = 1
         default:
-            numberOfRowsT = allSections.count//saintOfDay.count + realesesPost.count + 1
+            numberOfRowsT = allSections.count  //saintOfDay.count + realesesPost.count + 1
         }
         return numberOfRowsT
     }
@@ -247,7 +247,7 @@ extension HomeViewController: UITableViewDelegate, UITableViewDataSource {
                     cellSlider.delegate = self
                     cellSlider.setupSlider2(data: realesesPost)
                     cellSlider.subCardView.layer.cornerRadius = 10
-                    cellSlider.subCardView.ShadowCard()
+                    //cellSlider.subCardView.ShadowCard()
                     cellSlider.contentCardView.layer.cornerRadius = 10
                     cellSlider.contentCardView.clipsToBounds = true
                     cellSlider.selectionStyle = .none
@@ -259,7 +259,7 @@ extension HomeViewController: UITableViewDelegate, UITableViewDataSource {
                     cellSlider.delegate = self
                     cellSlider.setupSlider(data: suggestions)
                     cellSlider.subCardView.layer.cornerRadius = 10
-                    cellSlider.subCardView.ShadowCard()
+                    //cellSlider.subCardView.ShadowCard()
                     cellSlider.contentCardView.layer.cornerRadius = 10
                     cellSlider.contentCardView.clipsToBounds = true
                     cellSlider.selectionStyle = .none

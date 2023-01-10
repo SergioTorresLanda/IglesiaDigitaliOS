@@ -103,6 +103,10 @@ class prayerChain: UIViewController {
     
 // MARK: SERVICES FUNCTIONS -
     func sendRESTRequest(endPoint: String) {
+        DispatchQueue.main.asyncAfter(deadline: .now() + 5, execute: {
+            print("SendREST 1 SendREST 1 SendREST 1 SendREST 1 SendREST 2 SendREST 2 SendREST 2 ")
+            
+        })
         let singleton = ModalPrayController.singleton
         guard let endpoint: URL = URL(string: endPoint) else { return }
         var request = URLRequest(url: endpoint)
@@ -134,10 +138,16 @@ class prayerChain: UIViewController {
             }
             
             if (response as! HTTPURLResponse).statusCode == 200 {
+                DispatchQueue.main.asyncAfter(deadline: .now() + 5, execute: {
+                    print("SendREST 200 ")
+                    
+                })
                 DispatchQueue.main.async {
                     self.alert.dismiss(animated: true, completion: nil)
 //                    self.sendRESTRequest(endPoint: "https://api-develop.arquidiocesis.mx/prayers", parameters: [:])
-                    self.getPrayers()
+                    DispatchQueue.main.asyncAfter(deadline: .now() + 0.5, execute: {
+                        self.getPrayers()
+                    })
                     // self.hideLoading(error: nil)
                     APIType.shared.refreshToken()
                 }

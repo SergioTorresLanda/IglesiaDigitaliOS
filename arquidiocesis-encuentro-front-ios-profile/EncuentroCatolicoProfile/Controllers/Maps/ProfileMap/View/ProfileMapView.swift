@@ -505,10 +505,10 @@ extension ProfileMapViewController: UITableViewDelegate, UITableViewDataSource {
         let dortmunRegion = MKCoordinateRegion(center: CLLocationCoordinate2D(latitude: dortmundLocation.coordinate.latitude, longitude: dortmundLocation.coordinate.longitude), span: MKCoordinateSpan(latitudeDelta: 0.01, longitudeDelta: 0.01))
         self.mapKit.setRegion(dortmunRegion, animated: true)
         //Liberar tarjeta.
-      
         let idChurchAnn = locationsData[indexPath.row].id ?? 1
         let nameX = locationsData[indexPath.row].name ?? "No Name"
-
+        //let coor = CLLocationCoordinate2D(latitude: locationsData[indexPath.row].latitude!,
+                                          //longitude: locationsData[indexPath.row].longitude!)
         print(":::::::: ID::  " + String(idChurchAnn) + ":::::::::::::")
         let indexGod = fillLocationData.firstIndex(where: {$0.id == idChurchAnn}) ?? 1
         print(":::::::: INDEX GOD::  " + String(indexGod) + ":::::::::::::")

@@ -34,7 +34,7 @@ class HomeSliderCell: UITableViewCell, UICollectionViewDataSource, UICollectionV
     }
     
     func setupSlider(data: [HomeSuggestions]) {
-        lblTitle.text=" Sugerencias para ti "
+        lblTitle.text=" SUGERENCIAS PARA TI "
         allData = data
         pagesControl.numberOfPages = data.count
         suggestionsCV.dataSource = self
@@ -44,7 +44,7 @@ class HomeSliderCell: UITableViewCell, UICollectionViewDataSource, UICollectionV
     
     func setupSlider2(data: [HomeSaintOfDay]) {
         disc=1
-        lblTitle.text=" Desde la fe "
+        lblTitle.text=" DESDE LA FE "
         allData2 = data
         pagesControl.numberOfPages = data.count
         suggestionsCV.dataSource = self
@@ -82,13 +82,13 @@ class HomeSliderCell: UITableViewCell, UICollectionViewDataSource, UICollectionV
         cell.imgCustom.layer.cornerRadius = 10
         cell.lblCustom.adjustsFontSizeToFitWidth = true
         if disc==0{
-        cell.imgCustom.DownloadStaticImageH(allData[indexPath.item].image_url ?? "")
+        cell.imgCustom.loadS(urlS: allData[indexPath.item].image_url ?? "https://firebasestorage.googleapis.com/v0/b/emerwise-479d1.appspot.com/o/randomAssets%2Fspirit.webp?alt=media&token=dd020c20-d8ec-45f6-a8a2-3783c0234012") //o imgCustom.DownloadStaticImageH()
         cell.lblCustom.text = allData[indexPath.item].title ?? ""
         cell.btnCell.addTarget(self, action: #selector(suggestionAction), for: .touchUpInside)
             cell.btnCell.tag = indexPath.item
             
         }else{
-            cell.imgCustom.DownloadStaticImageH(allData2[indexPath.item].image_url ?? "")
+            cell.imgCustom.loadS(urlS: allData2[indexPath.item].image_url ?? "https://firebasestorage.googleapis.com/v0/b/emerwise-479d1.appspot.com/o/randomAssets%2Fspirit.webp?alt=media&token=dd020c20-d8ec-45f6-a8a2-3783c0234012")
             cell.lblCustom.text = allData2[indexPath.item].title ?? ""
             cell.btnCell.addTarget(self, action: #selector(postAction), for: .touchUpInside)
                 cell.btnCell.tag = indexPath.item

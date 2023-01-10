@@ -48,6 +48,8 @@ class HomeViewController: UIViewController, HomeViewProtocol, UITextFieldDelegat
     @IBOutlet weak var lblMessage: UILabel!
     @IBOutlet weak var btnStreaming: UIButton!
     
+    @IBOutlet weak var contentView: UIView!
+    @IBOutlet weak var scrollView: UIScrollView!
     static let singleton = HomeViewController()
     
     var arraySelectedCell = [false, false, false, false, false, false, false]
@@ -72,9 +74,17 @@ class HomeViewController: UIViewController, HomeViewProtocol, UITextFieldDelegat
     let blueBackground = UIColor.init(red: 28/255, green: 117/255, blue: 188/255, alpha: 1)
     let redBackground = UIColor.init(red: 184/255, green: 12/255, blue: 12/255, alpha: 1.0)
     
+    func formatoScrollView(){
+        let contentRect: CGRect = scrollView.subviews.reduce(into: .zero) { rect, view in
+        rect = rect.union(view.frame)
+        }
+        scrollView.contentSize = contentRect.size
+    }
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         setupView()
+        formatoScrollView()
         //setupTableView()
         //presenter?.cargarDatosUsuario()
         presenter?.requestUserDetail()
@@ -84,7 +94,6 @@ class HomeViewController: UIViewController, HomeViewProtocol, UITextFieldDelegat
         //let now = Date()
         //let dateString = formatter.string(from: now)
         //self.presenter?.requestHomeData(type: "SAINT", date: "\(dateString)")
-        
         //2021-07-27 2021-12-12
         self.hideKeyboardWhenTappedAround()
         collectionRegister()
@@ -107,6 +116,10 @@ class HomeViewController: UIViewController, HomeViewProtocol, UITextFieldDelegat
         if let imageData = UserDefaults.standard.data(forKey: "userImage"), let image = UIImage(data: imageData) {
             userImage.image = image
         }
+    }
+    
+    override func viewDidLayoutSubviews() {
+        formatoScrollView()
     }
     
     override func viewDidAppear(_ animated: Bool) {
@@ -189,7 +202,7 @@ class HomeViewController: UIViewController, HomeViewProtocol, UITextFieldDelegat
     override public func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         print("VC ECHome - HomeVC ")
-        
+        formatoScrollView()
         realesesPost=[]
         allSections=[]
         arraySections=[]
@@ -207,7 +220,6 @@ class HomeViewController: UIViewController, HomeViewProtocol, UITextFieldDelegat
             presenter?.requestUserDetail()
         }
         validateUserColors()
-        
     }
     
     // MARK: NEW FUCNTIONS -
@@ -585,7 +597,6 @@ class HomeViewController: UIViewController, HomeViewProtocol, UITextFieldDelegat
     }
     
     func successStreaming(data: [LiveModel]) {
-        
         if data.count == 0 {
             transmitionsView.backgroundColor = blueBackground
             emptyStreaming = false
@@ -593,7 +604,7 @@ class HomeViewController: UIViewController, HomeViewProtocol, UITextFieldDelegat
             transmitionsView.backgroundColor = redBackground
             emptyStreaming = true
         }
-        print("~~~", data)
+        print("STREAMING", data)
     }
     
     func failStreaming(message: String) {
