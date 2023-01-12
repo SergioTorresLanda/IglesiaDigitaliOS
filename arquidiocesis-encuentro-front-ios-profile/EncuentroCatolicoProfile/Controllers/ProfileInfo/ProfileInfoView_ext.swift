@@ -953,6 +953,7 @@ class ImagePickerManager: NSObject, UIImagePickerControllerDelegate, UINavigatio
     }
 
     func pickImage(_ viewController: UIViewController, _ callback: @escaping ((UIImage) -> ())) {
+        print("Se da clic en la funcion de pickImage")
         pickImageCallback = callback;
         self.viewController = viewController;
 
@@ -973,6 +974,7 @@ class ImagePickerManager: NSObject, UIImagePickerControllerDelegate, UINavigatio
         }
     }
     func openGallery(){
+        print("Se abre la galeria del dispositivo")
         alert.dismiss(animated: true, completion: nil)
         picker.sourceType = .photoLibrary
         self.viewController!.present(picker, animated: true, completion: nil)
@@ -980,10 +982,12 @@ class ImagePickerManager: NSObject, UIImagePickerControllerDelegate, UINavigatio
 
     
     func imagePickerControllerDidCancel(_ picker: UIImagePickerController) {
+        print("Se cancela la acción")
         picker.dismiss(animated: true, completion: nil)
     }
 
     func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [UIImagePickerController.InfoKey : Any]) {
+        print("Se da clic en la funcion de imagePickerController")
         picker.dismiss(animated: true, completion: nil)
         guard let image = info[.originalImage] as? UIImage else {
             fatalError("Expected a dictionary containing an image, but was provided the following: \(info)")

@@ -781,6 +781,8 @@ class ChurchDetailViewController: BaseViewController {
         churchResponsibleLabel.text = church?.principal?.name ?? "No disponible"
         //        churchLiveTransmissionsLabel.text = church?.stream.url
         scheduleHoreResponse = "\(church?.horary?.first?.hour_start ?? "") \(church?.attention?.first?.hour_end ?? "")"
+        print("scheduleHoreResponse...scheduleHoreResponse")
+        print("\(church?.horary?.first?.hour_start ?? "") \(church?.attention?.first?.hour_end ?? "")")
         
         massCollectionView.reloadData()
         massCollectionView.isHidden = church?.masses?.isEmpty ?? true
