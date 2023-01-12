@@ -506,8 +506,7 @@ extension ProfileMapViewController: UITableViewDelegate, UITableViewDataSource {
         self.mapKit.setRegion(dortmunRegion, animated: true)
         //Liberar tarjeta.
         let idChurchAnn = locationsData[indexPath.row].id ?? 1
-//        let nameX = locationsData[indexPath.row].name ?? "No Name"
-
+        //let nameX = locationsData[indexPath.row].name ?? "No Name"
         print(":::::::: ID::  " + String(idChurchAnn) + ":::::::::::::")
         let indexGod = fillLocationData.firstIndex(where: {$0.id == idChurchAnn}) ?? 1
         print(":::::::: INDEX GOD::  " + String(indexGod) + ":::::::::::::")

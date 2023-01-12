@@ -784,7 +784,7 @@ class ProfileInfoView: UIViewController {
             stateId = 2
         case "Viudo":
             stateId = 3
-        case "Laico":
+        case "Laico (a)":
             stateId = 4
         case "Religioso (a)":
             stateId = 5
@@ -835,7 +835,7 @@ class ProfileInfoView: UIViewController {
                 presenter?.postLaicoReligioso(request: registerReli)
             }
                     
-        case "Laico":
+        case "Laico (a)":
             
             var idChurchLaico = singleton.idChurch
             if churchRespField.text == "" {
@@ -1247,7 +1247,7 @@ class ProfileInfoView: UIViewController {
             stateId = 2
         case "Viudo":
             stateId = 3
-        case "Laico":
+        case "Laico (a)":
             stateId = 4
         case "Religioso (a)":
             stateId = 5
@@ -1271,7 +1271,7 @@ class ProfileInfoView: UIViewController {
            // presenter?.postDiacono(request: registerDiacono)
             break
             
-        case "Laico":
+        case "Laico (a)":
             let registerDiacono: ProfileDiacono = ProfileDiacono(username: fieldsCollection[4].text ?? "", id: idGlobal, name: fieldsCollection[0].text ?? "", first_surname: fieldsCollection[1].text ?? "", second_surname: fieldsCollection[2].text ?? "", phone_number: fieldsCollection[3].text ?? "" , email: fieldsCollection[4].text ?? "", life_status: life, interest_topics: topicArray , locations: loca, services_provided: services)
             print("REGISTER FROM DidSaveAction")
             print(registerDiacono)
