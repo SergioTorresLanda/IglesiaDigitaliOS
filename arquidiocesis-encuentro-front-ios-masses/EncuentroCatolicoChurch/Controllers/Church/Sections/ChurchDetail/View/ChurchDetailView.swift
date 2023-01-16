@@ -956,49 +956,77 @@ class ChurchDetailViewController: BaseViewController {
             for sunday in sundayActive{
                 hoursDay = "\(hoursDay) \n \(sunday)"
             }
-            churchOfficeScheduleTextt = "\(churchOfficeScheduleTextt) \n Domingo : \(hoursDay)"
+            if churchOfficeScheduleTextt != "" {
+                churchOfficeScheduleTextt = "\(churchOfficeScheduleTextt) \n Domingo : \(hoursDay)"
+            } else {
+                churchOfficeScheduleTextt = "Domingo : \(hoursDay)"
+            }
         }
         if mondayActive.count > 0{
             var hoursDay = ""
             for sunday in mondayActive{
                 hoursDay = "\(hoursDay) \n \(sunday)"
             }
-            churchOfficeScheduleTextt = "\(churchOfficeScheduleTextt) \n Lunes : \(hoursDay)"
+            if churchOfficeScheduleTextt != "" {
+                churchOfficeScheduleTextt = "\(churchOfficeScheduleTextt) \n Lunes : \(hoursDay)"
+            } else {
+                churchOfficeScheduleTextt = "Lunes : \(hoursDay)"
+            }
         }
         if tuesdayActive.count > 0{
             var hoursDay = ""
             for sunday in tuesdayActive{
                 hoursDay = "\(hoursDay) \n \(sunday)"
             }
-            churchOfficeScheduleTextt = "\(churchOfficeScheduleTextt) \n Martes : \(hoursDay)"
+            if churchOfficeScheduleTextt != "" {
+                churchOfficeScheduleTextt = "\(churchOfficeScheduleTextt) \n Martes : \(hoursDay)"
+            } else {
+                churchOfficeScheduleTextt = "Martes : \(hoursDay)"
+            }
         }
         if wednesdayActive.count > 0{
             var hoursDay = ""
             for sunday in wednesdayActive{
                 hoursDay = "\(hoursDay) \n \(sunday)"
             }
-            churchOfficeScheduleTextt = "\(churchOfficeScheduleTextt) \n Miércoles : \(hoursDay)"
+            if churchOfficeScheduleTextt != "" {
+                churchOfficeScheduleTextt = "\(churchOfficeScheduleTextt) \n Miércoles : \(hoursDay)"
+            } else {
+                churchOfficeScheduleTextt = "Miércoles : \(hoursDay)"
+            }
         }
         if thursdayActive.count > 0{
             var hoursDay = ""
             for sunday in thursdayActive{
                 hoursDay = "\(hoursDay) \n \(sunday)"
             }
-            churchOfficeScheduleTextt = "\(churchOfficeScheduleTextt) \n Jueves : \(hoursDay)"
+            if churchOfficeScheduleTextt != "" {
+                churchOfficeScheduleTextt = "\(churchOfficeScheduleTextt) \n Jueves : \(hoursDay)"
+            } else {
+                churchOfficeScheduleTextt = "Jueves : \(hoursDay)"
+            }
         }
         if fridayActive.count > 0{
             var hoursDay = ""
             for sunday in fridayActive{
                 hoursDay = "\(hoursDay) \n \(sunday)"
             }
-            churchOfficeScheduleTextt = "\(churchOfficeScheduleTextt) \n Viernes : \(hoursDay)"
+            if churchOfficeScheduleTextt != "" {
+                churchOfficeScheduleTextt = "\(churchOfficeScheduleTextt) \n Viernes : \(hoursDay)"
+            } else {
+                churchOfficeScheduleTextt = "Viernes : \(hoursDay)"
+            }
         }
         if saturdayActive.count > 0{
             var hoursDay = ""
             for sunday in saturdayActive{
                 hoursDay = "\(hoursDay) \n \(sunday)"
             }
-            churchOfficeScheduleTextt = "\(churchOfficeScheduleTextt) \n Sábado : \(hoursDay)"
+            if churchOfficeScheduleTextt != "" {
+                churchOfficeScheduleTextt = "\(churchOfficeScheduleTextt) \n Sábado : \(hoursDay)"
+            } else {
+                churchOfficeScheduleTextt = "Sábado : \(hoursDay)"
+            }
         }
         churchOfficeScheduleLabel.text = churchOfficeScheduleTextt
         churchOfficeScheduleLabel.textAlignment = NSTextAlignment.justified
