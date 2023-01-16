@@ -887,10 +887,50 @@ class ChurchDetailViewController: BaseViewController {
                 }
             }
         }
-        
-        for response in church?.attention ?? [] {
+        var churchOfficeScheduleTextt = ""
+        var sundayActive = [String]() //Domingo
+        var mondayActive = [String]() // Lunes
+        var tuesdayActive = [String]() // Martes
+        var wednesdayActive = [String]() // Miercoles
+        var thursdayActive = [String]() // Jueves
+        var fridayActive = [String]() // Viernes
+        var saturdayActive = [String]() // Sabado
+        var atten = church?.attention ?? []
+        let att = atten.sorted{ $0.hour_start!.compare($1.hour_start!, options: .numeric) == .orderedAscending}
+        for response in att {
+//            [{
+//                day: "Domingo",
+//                schedule: [
+//                    hours: "01:00 a 03:00",
+//                    hours: "05:00 a 09:00",
+//                    hours: "12:00 a 15:00"
+//                ]
+//            }]
             if church?.attention?.isEmpty == false {
                 for respDays in response.days ?? [] {
+                    if respDays.checked! {
+                        if respDays.name == "Domingo" {
+                            sundayActive.append("\(response.hour_start ?? "") a \(response.hour_end ?? "")")
+                        }
+                        if respDays.name == "Lunes" {
+                            mondayActive.append("\(response.hour_start ?? "") a \(response.hour_end ?? "")")
+                        }
+                        if respDays.name == "Martes" {
+                            tuesdayActive.append("\(response.hour_start ?? "") a \(response.hour_end ?? "")")
+                        }
+                        if respDays.name == "Miércoles" {
+                            wednesdayActive.append("\(response.hour_start ?? "") a \(response.hour_end ?? "")")
+                        }
+                        if respDays.name == "Jueves" {
+                            thursdayActive.append("\(response.hour_start ?? "") a \(response.hour_end ?? "")")
+                        }
+                        if respDays.name == "Viernes" {
+                            fridayActive.append("\(response.hour_start ?? "") a \(response.hour_end ?? "")")
+                        }
+                        if respDays.name == "Sábado" {
+                            saturdayActive.append("\(response.hour_start ?? "") a \(response.hour_end ?? "")")
+                        }
+                    }
                     if attentionDaysNew.isEmpty {
                         attentionDaysNew.insert(DayEditChurch.init(id: respDays.id, name: respDays.name, checked: respDays.checked), at: 0)
                     }else {
@@ -902,9 +942,7 @@ class ChurchDetailViewController: BaseViewController {
                     lastDayAt = lastDay?.name ?? ""
                     hStartAt = church?.attention?.first?.hour_start ?? ""
                     hEndAt = church?.attention?.first?.hour_end ?? ""
-                    let churchOfficeScheduleText = "\(firstDay?.name ?? "") a \(lastDay?.name ?? "") de \(church?.attention?.first?.hour_start ?? "") a \(church?.attention?.first?.hour_end ?? "")"
-                    churchOfficeScheduleLabel.text = churchOfficeScheduleText != " " ? churchOfficeScheduleText : "No disponible"
-                    churchOfficeScheduleLabel.adjustsFontSizeToFitWidth = true
+
                 }
                 if attentionnew.isEmpty {
                     attentionnew.insert(AttentionEditChurch.init(days: attentionDaysNew.unique(map: {$0.id}), hourStart: response.hour_start, hourEnd: response.hour_end), at: 0)
@@ -913,6 +951,58 @@ class ChurchDetailViewController: BaseViewController {
                 }
             }
         }
+        if sundayActive.count > 0{
+            var hoursDay = ""
+            for sunday in sundayActive{
+                hoursDay = "\(hoursDay) \n \(sunday)"
+            }
+            churchOfficeScheduleTextt = "\(churchOfficeScheduleTextt) \n Domingo : \(hoursDay)"
+        }
+        if mondayActive.count > 0{
+            var hoursDay = ""
+            for sunday in mondayActive{
+                hoursDay = "\(hoursDay) \n \(sunday)"
+            }
+            churchOfficeScheduleTextt = "\(churchOfficeScheduleTextt) \n Lunes : \(hoursDay)"
+        }
+        if tuesdayActive.count > 0{
+            var hoursDay = ""
+            for sunday in tuesdayActive{
+                hoursDay = "\(hoursDay) \n \(sunday)"
+            }
+            churchOfficeScheduleTextt = "\(churchOfficeScheduleTextt) \n Martes : \(hoursDay)"
+        }
+        if wednesdayActive.count > 0{
+            var hoursDay = ""
+            for sunday in wednesdayActive{
+                hoursDay = "\(hoursDay) \n \(sunday)"
+            }
+            churchOfficeScheduleTextt = "\(churchOfficeScheduleTextt) \n Miércoles : \(hoursDay)"
+        }
+        if thursdayActive.count > 0{
+            var hoursDay = ""
+            for sunday in thursdayActive{
+                hoursDay = "\(hoursDay) \n \(sunday)"
+            }
+            churchOfficeScheduleTextt = "\(churchOfficeScheduleTextt) \n Jueves : \(hoursDay)"
+        }
+        if fridayActive.count > 0{
+            var hoursDay = ""
+            for sunday in fridayActive{
+                hoursDay = "\(hoursDay) \n \(sunday)"
+            }
+            churchOfficeScheduleTextt = "\(churchOfficeScheduleTextt) \n Viernes : \(hoursDay)"
+        }
+        if saturdayActive.count > 0{
+            var hoursDay = ""
+            for sunday in saturdayActive{
+                hoursDay = "\(hoursDay) \n \(sunday)"
+            }
+            churchOfficeScheduleTextt = "\(churchOfficeScheduleTextt) \n Sábado : \(hoursDay)"
+        }
+        churchOfficeScheduleLabel.text = churchOfficeScheduleTextt
+        churchOfficeScheduleLabel.textAlignment = NSTextAlignment.justified
+        churchOfficeScheduleLabel.numberOfLines = 0
         for response in church?.masses ?? [] {
             if church?.masses?.isEmpty == false {
                 massesDayNew.removeAll()
