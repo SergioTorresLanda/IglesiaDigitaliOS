@@ -83,10 +83,10 @@ class HomePresenter: HomePresenterProtocol {
         interactor?.getSaintOfDay(type: type, date: date)
     }
     
-    func trasportResponseHome(response: HTTPURLResponse, data: [HomeSaintOfDay], type: String) {
+    func trasportResponseHome(response: HTTPURLResponse, data: [HomeSaintOfDay]) {
         DispatchQueue.main.async {
             if response.statusCode == 200 {
-                self.view?.succesGetHome(data: data, type: type)
+                self.view?.succesGetHome(data: data)
             }else{
                 self.view?.failGetHome(message: "Error")
             }
@@ -103,6 +103,16 @@ class HomePresenter: HomePresenterProtocol {
                 self.view?.onSuccessGetSuggestions(data: data)
             }else{
                 self.view?.onFialGetSuggestions(message: "")
+            }
+        }
+    }
+    
+    func transportResponsePosts(response: HTTPURLResponse, data: [HomePosts]) {
+        DispatchQueue.main.async {
+            if response.statusCode == 200 {
+                self.view?.onSuccessGetPosts(data: data)
+            }else{
+                self.view?.onFialGetSuggestions(message: "Fail Posts")
             }
         }
     }

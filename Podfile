@@ -7,7 +7,6 @@ target 'EncuentroCatolico' do
   use_frameworks!
 
   # Pods for EncuentroCatolico
-
   pod 'RealmSwift', '~> 3.18.0'
   pod "LetterAvatarKit", "1.2.3"
   pod 'lottie-ios'
@@ -50,7 +49,6 @@ target 'EncuentroCatolicoRegister' do
   pod 'Firebase/RemoteConfig'
   
   pod 'Firebase/Crashlytics'
-  pod 'Firebase/Analytics'
 
   project 'arquidiocesis-encuentro-front-ios-register/EncuentroCatolicoRegister.xcodeproj'
 end
@@ -70,7 +68,6 @@ target 'EncuentroCatolicoLogin' do
   pod 'Firebase/RemoteConfig'
   
   pod 'Firebase/Crashlytics'
-  pod 'Firebase/Analytics'
 
   project 'arquidiocesis-encuentro-front-ios-login/EncuentroCatolicoLogin.xcodeproj'
 end
@@ -93,7 +90,6 @@ target 'EncuentroCatolicoHome' do
   pod 'RealmSwift', '~> 3.18.0'
   
   pod 'Firebase/Crashlytics'
-  pod 'Firebase/Analytics'
 
   project 'arquidiocesis-encuentro-front-ios-home/EncuentroCatolicoHome.xcodeproj'
 end
@@ -110,7 +106,6 @@ target 'EncuentroCatolicoPrayers' do
   pod 'DropDown', '2.3.13'
   
   pod 'Firebase/Crashlytics'
-  pod 'Firebase/Analytics'
 
   project 'arquidiocesis-encuentro-front-ios-prayer/EncuentroCatolicoPrayers.xcodeproj'
 end
@@ -128,7 +123,6 @@ target 'EncuentroCatolicoServices' do
   pod 'SwiftSoup', '2.0.0'
   
   pod 'Firebase/Crashlytics'
-  pod 'Firebase/Analytics'
 
   project 'arquidiocesis-encuentro-front-ios-service/EncuentroCatolicoServices.xcodeproj'
 end
@@ -144,7 +138,6 @@ target 'EncuentroCatolicoMasses' do
   pod 'Toast-Swift', '~> 5.0.0'
   
   pod 'Firebase/Crashlytics'
-  pod 'Firebase/Analytics'
 
   project 'arquidiocesis-encuentro-front-ios-church/EncuentroCatolicoMasses.xcodeproj'
 end
@@ -169,7 +162,6 @@ target 'EncuentroCatolicoNews' do
   pod 'Firebase/RemoteConfig'
   
   pod 'Firebase/Crashlytics'
-  pod 'Firebase/Analytics'
 
   project 'arquidiocesis-encuentro-front-ios-news/EncuentroCatolicoNews.xcodeproj'
 end
@@ -185,7 +177,6 @@ target 'FormacionApp' do
   pod 'DropDown', '2.3.13'
   
   pod 'Firebase/Crashlytics'
-  pod 'Firebase/Analytics'
 
   project 'arquidiocesis-encuentro-front-ios-formacion/FormacionApp.xcodeproj'
 end
@@ -200,7 +191,6 @@ target 'EncuentroCatolicoLive' do
   pod 'CryptoSwift'
   
   pod 'Firebase/Crashlytics'
-  pod 'Firebase/Analytics'
 
   project 'arquidiocesis-encuentro-front-ios-live/EncuentroCatolicoLive.xcodeproj'
 end
@@ -216,7 +206,6 @@ target 'EncuentroCatolicoVirtualLibrary' do
   pod 'lottie-ios'
   
   pod 'Firebase/Crashlytics'
-  pod 'Firebase/Analytics'
 
   project 'arquidiocesis-encuentro-front-ios-virtual-library/EncuentroCatolicoVirtualLibrary.xcodeproj'
 end
@@ -236,7 +225,6 @@ target 'EncuentroCatolicoChurch' do
   pod 'RealmSwift', '~> 3.18.0'
   
   pod 'Firebase/Crashlytics'
-  pod 'Firebase/Analytics'
 
   project 'arquidiocesis-encuentro-front-ios-masses/EncuentroCatolicoChurch.xcodeproj'
 end
@@ -259,7 +247,6 @@ target 'EncuentroCatolicoProfile' do
   pod 'Firebase/RemoteConfig'
   
   pod 'Firebase/Crashlytics'
-  pod 'Firebase/Analytics'
 
   project 'arquidiocesis-encuentro-front-ios-profile/EncuentroCatolicoProfile.xcodeproj'
 end
@@ -274,7 +261,6 @@ target 'EncuentroCatolicoMyChurch' do
   pod 'CryptoSwift'
   
   pod 'Firebase/Crashlytics'
-  pod 'Firebase/Analytics'
 
   project 'arquidiocesis-encuentro-front-ios-myChurch/EncuentroCatolicoMyChurch.xcodeproj'
 end
@@ -291,7 +277,6 @@ target 'EncuentroCatolicoDonations' do
   pod 'SwiftSoup', '2.0.0'
   
   pod 'Firebase/Crashlytics'
-  pod 'Firebase/Analytics'
 
   project 'arquidiocesis-encuentro-front-ios-donations/EncuentroCatolicoDonations.xcodeproj'
 end
@@ -306,7 +291,6 @@ target 'EncuentroCatolicoPayment' do
   pod 'CryptoSwift'
   
   pod 'Firebase/Crashlytics'
-  pod 'Firebase/Analytics'
 
   project 'arquidiocesis-encuentro-front-ios-payment/EncuentroCatolicoPayment.xcodeproj'
 end
@@ -323,7 +307,6 @@ target 'EncuentroCatolicoUtils' do
   pod 'Kingfisher', '5.15.7'
   
   pod 'Firebase/Crashlytics'
-  pod 'Firebase/Analytics'
   
   project 'arquidiocesis-encuentro-front-ios-utils/EncuentroCatolicoUtils.xcodeproj'
 end
@@ -339,7 +322,6 @@ target 'EncuentroCatolicoScanner' do
   pod 'CryptoSwift'
   
   pod 'Firebase/Crashlytics'
-  pod 'Firebase/Analytics'
 
   project 'arquidiocesis-encuentro-front-ios-scanner/EncuentroCatolicoScanner.xcodeproj'
 end

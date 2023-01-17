@@ -18,7 +18,9 @@ import EncuentroCatolicoChurch
 import EncuentroCatolicoPrayers
 import Foundation
 import EncuentroCatolicoNewFormation
-
+import FirebaseAnalytics
+import SwiftUI
+//import EncuentroCatolicoLogin
 //import EncuentroCatolicoLogin
 //import EncuentroCatolicoRegister
 
@@ -64,7 +66,7 @@ class HomeViewController: UIViewController, HomeViewProtocol, UITextFieldDelegat
     let showOnboarding = UserDefaults.standard.string(forKey: "NewOnboarding")
     var arraySections: [Bool] = []
     var saintOfDay: [HomeSaintOfDay] = []
-    var realesesPost: [HomeSaintOfDay] = []
+    var realesesPost: [HomePosts] = []
     var suggestions: [HomeSuggestions] = []
     var isFirstLoad = 0
     var modulesList: [LocationComponents] = []
@@ -73,6 +75,8 @@ class HomeViewController: UIViewController, HomeViewProtocol, UITextFieldDelegat
     var emptyStreaming = false
     let blueBackground = UIColor.init(red: 28/255, green: 117/255, blue: 188/255, alpha: 1)
     let redBackground = UIColor.init(red: 184/255, green: 12/255, blue: 12/255, alpha: 1.0)
+    let screenName="iOS_Home_Home"
+    let screenClass="iOS_Home_Class"
     
     func formatoScrollView(){
         let contentRect: CGRect = scrollView.subviews.reduce(into: .zero) { rect, view in
@@ -122,8 +126,33 @@ class HomeViewController: UIViewController, HomeViewProtocol, UITextFieldDelegat
         formatoScrollView()
     }
     
+    override public func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        print("VC ECHome - HomeVC ")
+        formatoScrollView()
+        realesesPost=[]
+        allSections=[]
+        arraySections=[]
+        let formatter = DateFormatter()
+        formatter.dateFormat = "yyyy-MM-dd"
+        let now = Date()
+        let dateString = formatter.string(from: now)
+        self.presenter?.requestHomeData(type: "SAINT", date: "\(dateString)")
+        
+        presenter?.cargarDatosUsuario()
+        presenter?.requestStreaming()
+        if let imageData = UserDefaults.standard.data(forKey: "userImage"), let image = UIImage(data: imageData) {
+            userImage.image = image
+        }else{
+            presenter?.requestUserDetail()
+        }
+        validateUserColors()
+        
+    }
+    
+    
     override func viewDidAppear(_ animated: Bool) {
-
+    
         let tabBar = self.tabBarController as? SocialNetworkController
         tabBar?.tabBar.isHidden = true
         tabBar?.customTabBar.isHidden = false
@@ -131,6 +160,16 @@ class HomeViewController: UIViewController, HomeViewProtocol, UITextFieldDelegat
             let user = EditionPromisseDataManager.shareInstance.findByEmail(profileID: UserDefaults.standard.value(forKey: "email") as? String ?? "")
             userImage.image = HttpRequestSingleton.shareManager.convertBase64StringToImage(imageBase64String: user[0].image ?? "")
         }
+        /*Analytics.logEvent(AnalyticsEventScreenView,
+                           parameters: [AnalyticsParameterScreenName: screenName,
+                                        AnalyticsParameterScreenClass: screenClass
+                              //MyAppAnalyticsParameterFitnessCategory: category!
+                                       ])*/
+        print("HOME DID APPEAR")
+       // [self logEventWithOrigin:origin payload:payload events:events]
+        Analytics.logEvent("screen_view2", parameters: ["screen_class" : screenName]) //no funciona
+        //let fi = FirebaseManager.shared.initSNFirebaseInstance()
+        //getGenricAppFirebaseInstance()
     }
     
     func loadUserAttributs() {
@@ -189,7 +228,7 @@ class HomeViewController: UIViewController, HomeViewProtocol, UITextFieldDelegat
                 }
                 
                 DispatchQueue.main.asyncAfter(deadline: .now() + 1, execute: {
-                    alert.dismiss(animated: true, completion: nil)
+                    self.alert.dismiss(animated: true, completion: nil)
                 })
             }
         })
@@ -197,29 +236,6 @@ class HomeViewController: UIViewController, HomeViewProtocol, UITextFieldDelegat
     
     @objc override func dismissKeyboard() {
         view.endEditing(true)
-    }
-    
-    override public func viewWillAppear(_ animated: Bool) {
-        super.viewWillAppear(animated)
-        print("VC ECHome - HomeVC ")
-        formatoScrollView()
-        realesesPost=[]
-        allSections=[]
-        arraySections=[]
-        let formatter = DateFormatter()
-        formatter.dateFormat = "yyyy-MM-dd"
-        let now = Date()
-        let dateString = formatter.string(from: now)
-        self.presenter?.requestHomeData(type: "SAINT", date: "\(dateString)")
-        
-        presenter?.cargarDatosUsuario()
-        presenter?.requestStreaming()
-        if let imageData = UserDefaults.standard.data(forKey: "userImage"), let image = UIImage(data: imageData) {
-            userImage.image = image
-        }else{
-            presenter?.requestUserDetail()
-        }
-        validateUserColors()
     }
     
     // MARK: NEW FUCNTIONS -
@@ -536,51 +552,51 @@ class HomeViewController: UIViewController, HomeViewProtocol, UITextFieldDelegat
     }
     
     // NEW HOME FUNCTIONS
-    func succesGetHome(data: [HomeSaintOfDay], type: String) {
-        switch type {
-        case "SAINT":
-            DispatchQueue.main.asyncAfter(deadline: .now() + 3, execute: {
-                print("::::::succesGetHome SAINT::;;;")
-             })
-            saintOfDay = data
-            if saintOfDay.count != 0 {
-                allSections.append(saintOfDay)
-            }
-            //print("----", saintOfDay)
-            if data.count != 0 {
-                arraySections.append(true)
-            }else{
-                arraySections.append(false)
-            }
-            let formatter = DateFormatter()
-            formatter.dateFormat = "yyyy-MM-dd"
-            let now = Date()
-            let dateString = formatter.string(from: now)
-            self.presenter?.requestHomeData(type: "RELEASE", date: "\(dateString)")
-            
-        default:
-            realesesPost = data
-            DispatchQueue.main.asyncAfter(deadline: .now() + 3, execute: {
-                print("::::::succesGetHome Default::;;;")
-                print(String(self.realesesPost.count))
-             })
-            if realesesPost.count != 0 {
-                allSections.append(realesesPost)
-            }
-            if data.count != 0 {
-                arraySections.append(true)
-            }else{
-                arraySections.append(false)
-            }
-            
-            self.presenter?.requestSuggestions(type: "SUGGESTIONS")
+    func succesGetHome(data: [HomeSaintOfDay]) {
+        DispatchQueue.main.asyncAfter(deadline: .now() + 3, execute: {
+            print("::::::succesGetHome SAINT::;;;")
+            print(String(self.saintOfDay.count))
+         })
+        saintOfDay = data
+        if saintOfDay.count != 0 {
+            allSections.append(saintOfDay)
         }
+        //print("----", saintOfDay)
+        if data.count != 0 {
+            arraySections.append(true)
+        }else{
+            arraySections.append(false)
+        }
+        let formatter = DateFormatter()
+        formatter.dateFormat = "yyyy-MM-dd"
+        let now = Date()
+        let dateString = formatter.string(from: now)
+        self.presenter?.requestHomeData(type: "RELEASE", date: "\(dateString)")
+    }
+    
+    func onSuccessGetPosts(data: [HomePosts]) {
+        realesesPost = data
+        DispatchQueue.main.asyncAfter(deadline: .now() + 3, execute: {
+            print("::::::succesGetPosts::;;;")
+            print(String(self.realesesPost.count))
+         })
+        if realesesPost.count != 0 {
+            allSections.append(realesesPost)
+        }
+        if data.count != 0 {
+            arraySections.append(true)
+        }else{
+            arraySections.append(false)
+        }
+        
+        self.presenter?.requestSuggestions(type: "SUGGESTIONS")
     }
     
     func onSuccessGetSuggestions(data: [HomeSuggestions]) {
         suggestions = data
         DispatchQueue.main.asyncAfter(deadline: .now() + 3, execute: {
             print("::::::onSuccessGetSuggestions::;;;")
+            print(String(self.suggestions.count))
          })
         if suggestions.count != 0 {
             allSections.append(suggestions)
