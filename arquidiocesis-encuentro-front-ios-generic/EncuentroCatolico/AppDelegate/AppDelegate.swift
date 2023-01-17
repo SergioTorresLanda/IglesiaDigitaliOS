@@ -30,9 +30,12 @@ class AppDelegate: UIResponder, UIApplicationDelegate, UNUserNotificationCenterD
         
         UserDefaults.standard.set("Prod", forKey: "stage")
         //UserDefaults.standard.set("Qa", forKey: "stage")
+        
         let firebaseOptions = FirebaseManager.shared.getGenricAppFirebaseInstance()
         FirebaseApp.configure(options: firebaseOptions)
-        FirebaseManager.shared.initSNFirebaseInstance()
+        //FirebaseApp.configure()
+        Analytics.setAnalyticsCollectionEnabled(true)
+        FirebaseManager.shared.initSNFirebaseInstance() //revisar si lo comento.
         setRemoteConfig()
         
         IQKeyboardManager.shared.enable = true
@@ -44,8 +47,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate, UNUserNotificationCenterD
         window?.backgroundColor = .white
         openLogin()
         
-        notificationPush.registerForPN()
-        
+        notificationPush.registerForPN()        
         return true
     }
     

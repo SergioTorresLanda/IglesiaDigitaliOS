@@ -139,10 +139,15 @@ class HomeInteractor: HomeInteractorProtocol {
             }
             
             do{
-                
-                let contentResponse = try JSONDecoder().decode([HomeSaintOfDay].self, from: datamodel)
-                self.presenter?.trasportResponseHome(response: (response as! HTTPURLResponse), data: contentResponse, type: type)
-                
+                if(type=="SAINT"){
+                print("ENDPOINT SAINT")
+                let cR = try JSONDecoder().decode([HomeSaintOfDay].self, from: datamodel)
+                self.presenter?.trasportResponseHome(response: (response as! HTTPURLResponse), data: cR)
+                }else{
+                    print("ENDPOINT POSTS")
+                    let cR = try JSONDecoder().decode([HomePosts].self, from: datamodel)
+                    self.presenter?.transportResponsePosts(response: (response as! HTTPURLResponse), data: cR)
+                }
             }catch{
                 print("Download new home data error", error.localizedDescription, error)
                 APIType.shared.refreshToken()

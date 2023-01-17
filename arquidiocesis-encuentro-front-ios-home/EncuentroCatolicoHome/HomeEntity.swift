@@ -126,6 +126,15 @@ struct HomeSaintOfDay: Codable {
     var publish_url: String?
 }
 
+struct HomePosts: Codable {
+    var id: Int?
+    var title: String?
+    var starting_date: String?
+    var ending_date: String?
+    var image_url: String?
+    var publish_url: String?
+}
+
 struct HomeSuggestions: Codable {
     var id: Int?
     var title: String?

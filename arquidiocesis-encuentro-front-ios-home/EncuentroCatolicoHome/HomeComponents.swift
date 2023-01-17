@@ -210,6 +210,7 @@ extension HomeViewController: UITableViewDelegate, UITableViewDataSource {
         default:
             numberOfRowsT = allSections.count  //saintOfDay.count + realesesPost.count + 1
         }
+        print(":::NORIS:::"+String(numberOfRowsT))
         return numberOfRowsT
     }
     
@@ -241,32 +242,26 @@ extension HomeViewController: UITableViewDelegate, UITableViewDataSource {
             
         default:
             let cellSlider = tableView.dequeueReusableCell(withIdentifier: "SLIDERCELL", for: indexPath) as! HomeSliderCell
+            cellSlider.delegate = self
+            cellSlider.contentCardView.layer.cornerRadius = 10
+            cellSlider.contentCardView.clipsToBounds = true
+            cellSlider.selectionStyle = .none
+            let count = allSections.count
+            heightMainTable.constant = cellSlider.frame.height * CGFloat(count)
+            //cellSlider.subCardView.layer.cornerRadius = 10
+            //cellSlider.subCardView.ShadowCard()
             if indexPath.row >= allSections.startIndex && indexPath.row < allSections.endIndex {
                 if allSections[indexPath.row] is [HomeSaintOfDay] {
-                    //Desde la fe
-                    cellSlider.delegate = self
+                    print(":::SETUPP SAINT::: ")
+                    cellSlider.setupSlider3(data: saintOfDay)
+                }
+                if allSections[indexPath.row] is [HomePosts] {
+                    print(":::SETUPP Desde la Fe::: ")
                     cellSlider.setupSlider2(data: realesesPost)
-                    cellSlider.subCardView.layer.cornerRadius = 10
-                    //cellSlider.subCardView.ShadowCard()
-                    cellSlider.contentCardView.layer.cornerRadius = 10
-                    cellSlider.contentCardView.clipsToBounds = true
-                    cellSlider.selectionStyle = .none
-                   
-                    let count = allSections.count
-                    heightMainTable.constant = cellSlider.frame.height * CGFloat(count)
-                }else{
-                    //Sugerencias
-                    cellSlider.delegate = self
+                }
+                if allSections[indexPath.row] is [HomeSuggestions] {
+                    print(":::SETUPP Sugerencias:::")
                     cellSlider.setupSlider(data: suggestions)
-                    cellSlider.subCardView.layer.cornerRadius = 10
-                    //cellSlider.subCardView.ShadowCard()
-                    cellSlider.contentCardView.layer.cornerRadius = 10
-                    cellSlider.contentCardView.clipsToBounds = true
-                    cellSlider.selectionStyle = .none
-                   
-                    let count = allSections.count
-                    heightMainTable.constant = cellSlider.frame.height * CGFloat(count)
-                    //return cellSlider
                 }
             }else{
                 print("ERROR INDEX PATH: "+String(indexPath.row))

@@ -2,6 +2,7 @@ import Foundation
 import UIKit
 import EncuentroCatolicoVirtualLibrary
 import Toast_Swift
+import FirebaseAnalytics
 
 class ProfileInfoView: UIViewController {
 // MARK: @IBOUTLETS -
@@ -88,6 +89,8 @@ class ProfileInfoView: UIViewController {
     var nameService = [String]()
     var alertFields : AcceptAlert?
     var typeService="iglesia"
+    let screenName="iOS_Home_Perfil"
+    let screenClass="iOS_Perfil_Class"
     
     static let singleton = ProfileInfoView()
     
@@ -231,6 +234,10 @@ class ProfileInfoView: UIViewController {
             view.modalPresentationStyle = .overFullScreen
             self.present(view, animated: true, completion: nil)
         }
+        
+        Analytics.logEvent(AnalyticsEventScreenView,
+                           parameters: [AnalyticsParameterScreenName: screenName,
+                                        AnalyticsParameterScreenClass: screenClass])
     }
     
 // MARK: SETUP FUNC -
