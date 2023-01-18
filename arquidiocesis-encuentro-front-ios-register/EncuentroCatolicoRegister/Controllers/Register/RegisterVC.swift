@@ -128,6 +128,7 @@ class RegisterViewController: BaseVC {
         field.validations = [
             ECUFieldGenericValidation.required(fieldName: "tu \(field.fieldName.lowercased())").getValidation(),
             ECUFieldGenericValidation.minimunCharecters(comparation: 8).getValidation(),
+            ECUFieldGenericValidation.lowerCase(fieldName: "una contraseña").getValidation(),
             ECUFieldGenericValidation.capitalLetters(fieldName: "una contraseña").getValidation(),
             ECUFieldGenericValidation.number(fieldName: "una contraseña").getValidation(),
             ECUFieldGenericValidation.isValidPwd(fieldName: "una contraseña").getValidation()

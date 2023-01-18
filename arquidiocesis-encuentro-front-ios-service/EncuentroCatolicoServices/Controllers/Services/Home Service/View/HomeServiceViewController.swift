@@ -32,14 +32,10 @@ class HomeServiceViewController: BaseViewController,HomeServiceViewProtocol, UIT
     }
     
     private func setImage() {
-        if #available(iOS 13.0, *) {
-            imageDat = [
-                UIImage(named: "iconInt",in: Bundle.local,compatibleWith: nil),
-                UIImage(named: "iconOt",in: Bundle.local,compatibleWith: nil),
-                UIImage(named: "sacramentos",in: Bundle.local,compatibleWith: nil)]
-        } else {
-            // Fallback on earlier versions
-        }
+        imageDat = [
+            UIImage(named: "iconInt",in: Bundle.local,compatibleWith: nil),
+            UIImage(named: "iconOt",in: Bundle.local,compatibleWith: nil),
+            UIImage(named: "sacramentos",in: Bundle.local,compatibleWith: nil)]
     }
     
 
