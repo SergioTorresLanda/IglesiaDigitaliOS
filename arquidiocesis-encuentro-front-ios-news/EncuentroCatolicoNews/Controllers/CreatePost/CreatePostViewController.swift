@@ -65,6 +65,7 @@ public class CreatePostViewController: UIViewController, CreatePostViewProtocol 
     
     @IBOutlet weak var vwOptionsMedia: UIView!
     
+    @IBOutlet weak var postImage: UIImageView!
     var delegateTbl: FeedViewControllerDelegate?
     
     @IBOutlet weak var pickerView: UIPickerView!
@@ -73,6 +74,8 @@ public class CreatePostViewController: UIViewController, CreatePostViewProtocol 
     var orgId: Int?
     var asPrm: Int = 1
     var scope: Int = 1
+    
+    var picker = UIImagePickerController();
     
     @IBOutlet public weak var userContainerImage: UIImageView! = {
         let imageView = UIImageView()
@@ -495,10 +498,23 @@ public class CreatePostViewController: UIViewController, CreatePostViewProtocol 
     
     
     @IBAction func btnActionAddImage(_ sender: UIButton) {
-        guard let vc = ImagePickerViewController() as? ImagePickerController else { return }
-        vc.delegate = self
-        vc.modalPresentationStyle = .fullScreen
-        self.present(vc, animated: true)
+        print("FUNCION BNT ACTION ADD IMAGE ... FUNCION BNT ACTION ADD IMAGE ... FUNCION BNT ACTION ADD IMAGE")
+//        guard let vc = ImagePickerViewController() as? ImagePickerController else { return }
+//        vc.delegate = self
+//        vc.modalPresentationStyle = .fullScreen
+//        self.present(vc, animated: true)
+        picker.sourceType = .photoLibrary
+        self.present(picker, animated: true)
+    }
+    
+    func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [UIImagePickerController.InfoKey : Any]) {
+        print("Se da clic en la funcion de imagePickerController")
+//        picker.dismiss(animated: true, completion: nil)
+//        guard let image = info[.originalImage] as? UIImage else {
+//            fatalError("Expected a dictionary containing an image, but was provided the following: \(info)")
+//        }
+//        
+//        pickImageCallback?(image)
     }
     
     

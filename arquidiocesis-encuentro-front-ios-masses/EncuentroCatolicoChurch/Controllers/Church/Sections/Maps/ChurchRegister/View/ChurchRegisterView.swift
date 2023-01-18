@@ -79,8 +79,6 @@ class ChurchRegisterViewController: BaseViewController, ChurchRegisterViewProtoc
                 self?.removeLoader()
             }
         }
-        let tap = UITapGestureRecognizer(target: self, action: #selector(hideKeyBoard))
-        view.addGestureRecognizer(tap)
     }
     
     override func viewWillAppear(_ animated: Bool) {
@@ -112,10 +110,6 @@ class ChurchRegisterViewController: BaseViewController, ChurchRegisterViewProtoc
     
     private func changeController() {
         
-    }
-    
-    @objc private func hideKeyBoard() {
-        view.endEditing(true)
     }
     
     private func setCurrentLocationMap() {

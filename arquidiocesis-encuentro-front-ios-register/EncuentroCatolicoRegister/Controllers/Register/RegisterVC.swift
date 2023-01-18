@@ -127,6 +127,9 @@ class RegisterViewController: BaseVC {
         field.fieldDescription = "Debe tener mínimo 8 caracteres, 1 mayúscula, 1 número y 1 carácter especial."
         field.validations = [
             ECUFieldGenericValidation.required(fieldName: "tu \(field.fieldName.lowercased())").getValidation(),
+            ECUFieldGenericValidation.minimunCharecters(comparation: 8).getValidation(),
+            ECUFieldGenericValidation.capitalLetters(fieldName: "una contraseña").getValidation(),
+            ECUFieldGenericValidation.number(fieldName: "una contraseña").getValidation(),
             ECUFieldGenericValidation.isValidPwd(fieldName: "una contraseña").getValidation()
         ]
         
