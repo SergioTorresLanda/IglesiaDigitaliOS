@@ -250,17 +250,22 @@ extension HomeViewController: UITableViewDelegate, UITableViewDataSource {
             heightMainTable.constant = cellSlider.frame.height * CGFloat(count)
             //cellSlider.subCardView.layer.cornerRadius = 10
             //cellSlider.subCardView.ShadowCard()
+            print(":::ALL SECTIONS::: ")
+            print(String(allSections.count))
             if indexPath.row >= allSections.startIndex && indexPath.row < allSections.endIndex {
                 if allSections[indexPath.row] is [HomeSaintOfDay] {
                     print(":::SETUPP SAINT::: ")
                     cellSlider.setupSlider3(data: saintOfDay)
+                    print(String(indexPath.row))
                 }
                 if allSections[indexPath.row] is [HomePosts] {
                     print(":::SETUPP Desde la Fe::: ")
+                    print(String(indexPath.row))
                     cellSlider.setupSlider2(data: realesesPost)
                 }
                 if allSections[indexPath.row] is [HomeSuggestions] {
                     print(":::SETUPP Sugerencias:::")
+                    print(String(indexPath.row))
                     cellSlider.setupSlider(data: suggestions)
                 }
             }else{
