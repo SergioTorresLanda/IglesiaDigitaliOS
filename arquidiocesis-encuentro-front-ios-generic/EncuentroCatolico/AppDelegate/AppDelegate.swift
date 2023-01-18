@@ -34,7 +34,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate, UNUserNotificationCenterD
         FirebaseApp.configure(options: firebaseOptions)
         //FirebaseApp.configure()
         Analytics.setAnalyticsCollectionEnabled(true)
-        FirebaseManager.shared.initSNFirebaseInstance() //revisar si lo comento.
+        FirebaseManager.shared.initSNFirebaseInstance() 
         setRemoteConfig()
         
         IQKeyboardManager.shared.enable = true

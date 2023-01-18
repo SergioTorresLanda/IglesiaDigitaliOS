@@ -25,6 +25,8 @@ class HomeSliderCell: UITableViewCell, UICollectionViewDataSource, UICollectionV
     
     override func awakeFromNib() {
         super.awakeFromNib()
+        print(":::::::::SLIDER AWAKEE:::::::")
+        //globalCV.reloadData()
         // Initialization code
     }
 
@@ -35,6 +37,8 @@ class HomeSliderCell: UITableViewCell, UICollectionViewDataSource, UICollectionV
     }
     
     func setupSlider(data: [HomeSuggestions]) {
+        print(":::::::::SLIDER:::::::")
+
         disc=0
         lblTitle.text=" SUGERENCIAS PARA TI "
         allData = data
@@ -42,9 +46,12 @@ class HomeSliderCell: UITableViewCell, UICollectionViewDataSource, UICollectionV
         globalCV.dataSource = self
         globalCV.delegate = self
         globalCV.register(UINib(nibName: "SliderCollectionCell", bundle: Bundle.local), forCellWithReuseIdentifier: "CELLCOLSD")
+        globalCV.reloadData()
     }
     
     func setupSlider2(data: [HomePosts]) {
+        print(":::::::::SLIDER 2:::::::")
+
         disc=2
         lblTitle.text=" DESDE LA FE "
         allData2 = data
@@ -52,9 +59,11 @@ class HomeSliderCell: UITableViewCell, UICollectionViewDataSource, UICollectionV
         globalCV.dataSource = self
         globalCV.delegate = self
         globalCV.register(UINib(nibName: "SliderCollectionCell", bundle: Bundle.local), forCellWithReuseIdentifier: "CELLCOLSD")
+        globalCV.reloadData()
     }
     
     func setupSlider3(data: [HomeSaintOfDay]) {
+        print(":::::::::SLIDER 3:::::::")
         disc=3
         lblTitle.text=" SANTO DEL DÍA "
         allData3 = data
@@ -63,6 +72,7 @@ class HomeSliderCell: UITableViewCell, UICollectionViewDataSource, UICollectionV
         globalCV.dataSource = self
         globalCV.delegate = self
         globalCV.register(UINib(nibName: "SliderCollectionCell", bundle: Bundle.local), forCellWithReuseIdentifier: "CELLCOLSD")
+        globalCV.reloadData()
     }
     
     func scrollViewWillEndDragging(_ scrollView: UIScrollView, withVelocity velocity: CGPoint, targetContentOffset: UnsafeMutablePointer<CGPoint>) {
@@ -73,12 +83,16 @@ class HomeSliderCell: UITableViewCell, UICollectionViewDataSource, UICollectionV
     
     @objc func suggestionAction(sender: UIButton) {
         print(":::::::::IMAGE URL:::::::")
-        delegate.didPressButton(sender.tag, type: allData[sender.tag].type ?? "", library: allData[sender.tag].category ?? "", url: allData[sender.tag].article_url ?? "", id: allData[sender.tag].id ?? 1)
+        if disc==0{
+            delegate.didPressButton(sender.tag, type: allData[sender.tag].type ?? "", library: allData[sender.tag].category ?? "", url: allData[sender.tag].article_url ?? "", id: allData[sender.tag].id ?? 1)
+        }
     }
     
     @objc func postAction(sender: UIButton) {
         print("POST cLIcK::;;"+String(sender.tag))
-        delegate.didPressButtonPost(url: allData2[sender.tag].publish_url ?? "Unspecified")
+        if disc==2{
+            delegate.didPressButtonPost(url: allData2[sender.tag].publish_url ?? "Unspecified")
+        }
     }
     
 // MARK: COLLECTION VEWI DELEGATE & DATA SOURCE -
@@ -97,6 +111,7 @@ class HomeSliderCell: UITableViewCell, UICollectionViewDataSource, UICollectionV
         default:
             break
         }
+        print(String(num))
         return num
     }
     
@@ -108,6 +123,7 @@ class HomeSliderCell: UITableViewCell, UICollectionViewDataSource, UICollectionV
         switch disc {
         case 0:
             print("sugest")
+            print(String(allData.count))
             if indexPath.row >= allData.startIndex && indexPath.row < allData.endIndex {
             cell.imgCustom.loadS(urlS: allData[indexPath.item].image_url ?? "https://firebasestorage.googleapis.com/v0/b/emerwise-479d1.appspot.com/o/randomAssets%2Fspirit.webp?alt=media&token=dd020c20-d8ec-45f6-a8a2-3783c0234012") //o imgCustom.DownloadStaticImageH()
             cell.lblCustom.text = allData[indexPath.item].title ?? ""
@@ -116,6 +132,7 @@ class HomeSliderCell: UITableViewCell, UICollectionViewDataSource, UICollectionV
             }
         case 2:
             print("post")
+            print(String(allData2.count))
             if indexPath.row >= allData2.startIndex && indexPath.row < allData2.endIndex {
             cell.imgCustom.loadS(urlS: allData2[indexPath.item].image_url ?? "https://firebasestorage.googleapis.com/v0/b/emerwise-479d1.appspot.com/o/randomAssets%2Fspirit.webp?alt=media&token=dd020c20-d8ec-45f6-a8a2-3783c0234012")
             cell.lblCustom.text = allData2[indexPath.item].title ?? ""
@@ -125,6 +142,7 @@ class HomeSliderCell: UITableViewCell, UICollectionViewDataSource, UICollectionV
             }
         case 3:
             print("saint")
+            print(String(allData3.count))
             if indexPath.row >= allData3.startIndex && indexPath.row < allData3.endIndex {
             cell.imgCustom.loadS(urlS: allData3[indexPath.item].image_url ?? "https://firebasestorage.googleapis.com/v0/b/emerwise-479d1.appspot.com/o/randomAssets%2Fspirit.webp?alt=media&token=dd020c20-d8ec-45f6-a8a2-3783c0234012")
             cell.lblCustom.text = allData3[indexPath.item].title ?? ""

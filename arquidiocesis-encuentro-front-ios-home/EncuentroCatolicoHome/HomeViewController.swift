@@ -20,8 +20,6 @@ import Foundation
 import EncuentroCatolicoNewFormation
 import FirebaseAnalytics
 import SwiftUI
-//import EncuentroCatolicoLogin
-//import EncuentroCatolicoLogin
 //import EncuentroCatolicoRegister
 
 class HomeViewController: UIViewController, HomeViewProtocol, UITextFieldDelegate, UNUserNotificationCenterDelegate, YourCellDelegate, MyCellDelegate {
@@ -130,9 +128,12 @@ class HomeViewController: UIViewController, HomeViewProtocol, UITextFieldDelegat
         super.viewWillAppear(animated)
         print("VC ECHome - HomeVC ")
         formatoScrollView()
+        saintOfDay=[]
+        suggestions=[]
         realesesPost=[]
         allSections=[]
         arraySections=[]
+        mainTable.reloadData()
         let formatter = DateFormatter()
         formatter.dateFormat = "yyyy-MM-dd"
         let now = Date()
