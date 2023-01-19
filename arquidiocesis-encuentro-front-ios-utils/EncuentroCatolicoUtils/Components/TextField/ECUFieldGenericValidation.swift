@@ -42,13 +42,13 @@ public enum ECUFieldGenericValidation {
         case .isValidPhone:
             return { ($0?.evaluateRegEx(for: ECURegexValidation.phone.rawValue) ?? false) ? nil : "@error_msg_invalid_phone".getLocalizedString(bundle: .local) }
         case .lowerCase(let fieldName):
-            return { ($0?.evaluateRegEx(for: ECURegexValidation.lowerCase.rawValue) ?? false ) ? nil : String(format: "Ingresa una minúscula.".getLocalizedString(bundle: .local), String(fieldName)) }
+            return { ($0?.evaluateRegEx(for: ECURegexValidation.lowerCase.rawValue) ?? false ) ? nil : String(format: "@error_msg_lowercase".getLocalizedString(bundle: .local), String(fieldName)) }
         case .capitalLetters(let fieldName):
-            return { ($0?.evaluateRegEx(for: ECURegexValidation.capitalLetters.rawValue) ?? false ) ? nil : String(format: "Ingresa una mayúscula.".getLocalizedString(bundle: .local), String(fieldName)) }
+            return { ($0?.evaluateRegEx(for: ECURegexValidation.capitalLetters.rawValue) ?? false ) ? nil : String(format: "@error_msg_capitalletters".getLocalizedString(bundle: .local), String(fieldName)) }
         case .number(let fieldName):
-            return { ($0?.evaluateRegEx(for: ECURegexValidation.number.rawValue) ?? false ) ? nil : String(format: "Ingresa un número.".getLocalizedString(bundle: .local), String(fieldName)) }
+            return { ($0?.evaluateRegEx(for: ECURegexValidation.number.rawValue) ?? false ) ? nil : String(format: "@error_msg_number".getLocalizedString(bundle: .local), String(fieldName)) }
         case .isValidPwd(let fieldName):
-            return { ($0?.evaluateRegEx(for: ECURegexValidation.pwd.rawValue) ?? false ) ? nil : String(format: "La contraseña debe contener al menos un carácter especial (^$ * . [] {} () ? ! @ # % & / , > < ' : ; | _ = + - ).".getLocalizedString(bundle: .local), String(fieldName)) }
+            return { ($0?.evaluateRegEx(for: ECURegexValidation.pwd.rawValue) ?? false ) ? nil : String(format: "@error_msg_invalid_pwd".getLocalizedString(bundle: .local), String(fieldName)) }
         case .isValidRfc:
             return  { ($0?.evaluateRegEx(for: ECURegexValidation.rfc.rawValue) ?? false) ? nil :  "@error_msg_invalid_rfc".getLocalizedString(bundle: .local) }
         case .minimunCharecters(let comparation):
