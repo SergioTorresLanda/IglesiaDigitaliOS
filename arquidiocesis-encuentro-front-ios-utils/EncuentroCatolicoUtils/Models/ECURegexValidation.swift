@@ -14,6 +14,7 @@ public enum ECURegexValidation: String {
     case email = "[A-Z0-9a-z._%+-]+@[A-Za-z0-9.-]+\\.[A-Za-z]{2,64}"
     case zipCode = #"(\d+){5}"#
     case rfc = #"^[A-Z,Ñ,&]{3,4}([0-9]{2})(0[1-9]|1[0-2])(0[1-9]|1[0-9]|2[0-9]|3[0-1])[A-Z|\d]{3}$"#
+    case lowerCase = "[a-z]"
     case capitalLetters = "[A-Z]"
     case number = "[0-9]"
 }

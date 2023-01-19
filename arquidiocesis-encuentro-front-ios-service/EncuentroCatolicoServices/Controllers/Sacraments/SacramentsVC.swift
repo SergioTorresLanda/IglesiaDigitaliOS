@@ -70,7 +70,7 @@ extension SacramentsViewController: UITableViewDelegate, UITableViewDataSource{
         let cell = table.dequeueReusableCell(withIdentifier: "optionCell", for: indexPath) as! OptionCell
         let cellData = options[indexPath.row]
         cell.lblTitle.text = cellData.name
-        cell.accessibilityHint = cellData.action
+        cell.accessibilityHint = "NONE"
         cell.accessibilityLabel = cellData.file
         cell.selectionStyle = UITableViewCell.SelectionStyle.none
         return cell
