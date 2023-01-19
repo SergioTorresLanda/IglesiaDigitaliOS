@@ -2,6 +2,7 @@ import Foundation
 import UIKit
 import EncuentroCatolicoVirtualLibrary
 import Toast_Swift
+import FirebaseAnalytics
 
 class ProfileInfoView: UIViewController {
 // MARK: @IBOUTLETS -
@@ -88,6 +89,8 @@ class ProfileInfoView: UIViewController {
     var nameService = [String]()
     var alertFields : AcceptAlert?
     var typeService="iglesia"
+    let screenName="iOS_Home_Perfil"
+    let screenClass="iOS_Perfil_Class"
     
     static let singleton = ProfileInfoView()
     
@@ -231,6 +234,10 @@ class ProfileInfoView: UIViewController {
             view.modalPresentationStyle = .overFullScreen
             self.present(view, animated: true, completion: nil)
         }
+        
+        Analytics.logEvent(AnalyticsEventScreenView,
+                           parameters: [AnalyticsParameterScreenName: screenName,
+                                        AnalyticsParameterScreenClass: screenClass])
     }
     
 // MARK: SETUP FUNC -
@@ -784,7 +791,7 @@ class ProfileInfoView: UIViewController {
             stateId = 2
         case "Viudo":
             stateId = 3
-        case "Laico":
+        case "Laico (a)":
             stateId = 4
         case "Religioso (a)":
             stateId = 5
@@ -835,7 +842,7 @@ class ProfileInfoView: UIViewController {
                 presenter?.postLaicoReligioso(request: registerReli)
             }
                     
-        case "Laico":
+        case "Laico (a)":
             
             var idChurchLaico = singleton.idChurch
             if churchRespField.text == "" {
@@ -1247,7 +1254,7 @@ class ProfileInfoView: UIViewController {
             stateId = 2
         case "Viudo":
             stateId = 3
-        case "Laico":
+        case "Laico (a)":
             stateId = 4
         case "Religioso (a)":
             stateId = 5
@@ -1271,7 +1278,7 @@ class ProfileInfoView: UIViewController {
            // presenter?.postDiacono(request: registerDiacono)
             break
             
-        case "Laico":
+        case "Laico (a)":
             let registerDiacono: ProfileDiacono = ProfileDiacono(username: fieldsCollection[4].text ?? "", id: idGlobal, name: fieldsCollection[0].text ?? "", first_surname: fieldsCollection[1].text ?? "", second_surname: fieldsCollection[2].text ?? "", phone_number: fieldsCollection[3].text ?? "" , email: fieldsCollection[4].text ?? "", life_status: life, interest_topics: topicArray , locations: loca, services_provided: services)
             print("REGISTER FROM DidSaveAction")
             print(registerDiacono)

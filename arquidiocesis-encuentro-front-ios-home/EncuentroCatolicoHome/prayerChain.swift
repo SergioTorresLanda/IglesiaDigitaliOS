@@ -60,7 +60,6 @@ class prayerChain: UIViewController {
         })
         refreshControl.addTarget(self, action: #selector(refresh), for: .valueChanged)
         collection.refreshControl = refreshControl
-    
     }
     
     @objc func getPrayers(){
