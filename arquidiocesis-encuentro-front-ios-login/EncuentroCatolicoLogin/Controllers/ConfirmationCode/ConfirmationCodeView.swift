@@ -112,7 +112,7 @@ class ConfirmationCodeView: UIViewController, ConfirmationCodeViewProtocol {
     override func viewDidLoad() {
         super.viewDidLoad()
         setupUI()
-
+        btnAccpet.isEnabled = true
         
         self.lblDescTimer.text = "No podrás solicitar otro código \n hasta pasando tres minutos"
 //        eyeCollectionIcons[0].tintColor = .gray
@@ -298,23 +298,33 @@ class ConfirmationCodeView: UIViewController, ConfirmationCodeViewProtocol {
     
     @IBAction func acceptAction(_ sender: Any) {
         print("acceptAction")
-//        if inputField.text != "" && confirmField.text != "" {
+        print(passwordField.text)
+        print(confirmPasswordField.text)
+        if passwordField.text != "" && confirmPasswordField.text != "" {
+            print("ENTRO AL PRIMER ELSE")
 //            if canContinue == false {
-//                alertFields!.view.backgroundColor = .clear
+//                print("FUNCION CANCONTINUE")
+//                alertFields?.view.backgroundColor = .clear
 //                present(alertFields!, animated: true)
 //            }else{
+//                print("FUNCION ELSE")
 //                self.showLoading()
 //                let singleton = ForgotPViewController.singleton
 //                let completeCode = "\(numberFieldsCollection[0].text ?? "0")\(numberFieldsCollection[1].text ?? "0")\(numberFieldsCollection[2].text ?? "0")\(numberFieldsCollection[3].text ?? "0")\(numberFieldsCollection[4].text ?? "0")\(numberFieldsCollection[5].text ?? "0")"
-//                presenter?.postParamsChange(email: singleton.emailParam, code: completeCode, input: confirmField.text!)
+//                presenter?.postParamsChange(email: singleton.emailParam, code: completeCode, input: passwordField.text)
 //                btnAccpet.isEnabled = false
 //            }
-//        }else{
-//            mensaje = "Faltan campos por llenar"
-//            alertFields = AcceptAlert.showAlert(titulo: "Atención", mensaje: mensaje)
-//            alertFields!.view.backgroundColor = .clear
-//            present(alertFields!, animated: true)
-//        }
+            self.showLoading()
+            let singleton = ForgotPViewController.singleton
+            let completeCode = "\(numberFieldsCollection[0].text ?? "0")\(numberFieldsCollection[1].text ?? "0")\(numberFieldsCollection[2].text ?? "0")\(numberFieldsCollection[3].text ?? "0")\(numberFieldsCollection[4].text ?? "0")\(numberFieldsCollection[5].text ?? "0")"
+            presenter?.postParamsChange(email: singleton.emailParam, code: completeCode, input: passwordField.text)
+            btnAccpet.isEnabled = false
+        }else{
+            mensaje = "Faltan campos por llenar"
+            alertFields = AcceptAlert.showAlert(titulo: "Atención", mensaje: mensaje)
+            alertFields!.view.backgroundColor = .clear
+            present(alertFields!, animated: true)
+        }
         
         
     }
@@ -365,15 +375,15 @@ class ConfirmationCodeView: UIViewController, ConfirmationCodeViewProtocol {
 extension ConfirmationCodeView: UITextFieldDelegate {
     func textFieldShouldReturn(_ textField: UITextField) -> Bool {
         return true
-//        print("ConfirmationCodeView")
-//        switch textField {
-//        case inputField:
-//            confirmField.becomeFirstResponder()
-//        default:
-//            self.view.endEditing(true)
-//        }
-//
-//        return true
+        print("ConfirmationCodeView")
+        switch passwordField {
+        case passwordField:
+            confirmField.becomeFirstResponder()
+        default:
+            self.view.endEditing(true)
+        }
+
+        return true
     }
     
     func textFieldDidBeginEditing(_ textField: UITextField) {
@@ -392,43 +402,47 @@ extension ConfirmationCodeView: UITextFieldDelegate {
             
             btnAccpet.isEnabled = true
             print("Case 7")
-//                if inputField.text == confirmField.text {
-//                    if checkTextSufficientComplexity(text: textField.text ?? "nil") == true {
-//                        canContinue = true
-//                        print("sigue")
-//                    }else{
-//                        canContinue = false
-//                        mensaje = "La contraseña debe tener 8 caracteres y al menos una letra mayúscula, un número y carácter especial"
-//                        alertFields = AcceptAlert.showAlert(titulo: "Atención", mensaje: mensaje)
-//                    }
-//
-//                }else{
-//                    canContinue = false
-//                    mensaje = "Las contraseñas deben coincidir"
-//                    alertFields = AcceptAlert.showAlert(titulo: "Atención", mensaje: mensaje)
-//
-//                }
+                if passwordField.text == confirmPasswordField.text {
+                    if checkTextSufficientComplexity(text: passwordField.text) == true {
+                        canContinue = true
+                        print("sigue")
+                    }else{
+                        print("CAS 7")
+                        canContinue = false
+                        mensaje = "La contraseña debe tener 8 caracteres y al menos una letra mayúscula, un número y carácter especial"
+                        alertFields = AcceptAlert.showAlert(titulo: "Atención", mensaje: mensaje)
+                    }
+
+                }else{
+                    print("CAS 7 AFUERA")
+                    canContinue = false
+                    mensaje = "Las contraseñas deben coincidir"
+                    alertFields = AcceptAlert.showAlert(titulo: "Atención", mensaje: mensaje)
+
+                }
             
         case 8:
            
             btnAccpet.isEnabled = true
             print("Case 8")
-//            if confirmField.text == inputField.text {
-//                if checkTextSufficientComplexity(text: textField.text ?? "nil") == true {
-//                    print("sigue")
-//                    canContinue = true
-//                }else{
-//                    canContinue = false
-//                    mensaje = "La contraseña debe tener 8 caracteres y al menos una letra mayúscula, un número y carácter especial"
-//                    alertFields = AcceptAlert.showAlert(titulo: "Atención", mensaje: mensaje)
-//                }
-//
-//            }else{
-//                canContinue = false
-//                mensaje = "Las contraseñas deben coincidir"
-//                alertFields = AcceptAlert.showAlert(titulo: "Atención", mensaje: mensaje)
-//
-//            }
+            if confirmPasswordField.text == passwordField.text {
+                if checkTextSufficientComplexity(text: confirmPasswordField.text) == true {
+                    print("sigue")
+                    canContinue = true
+                }else{
+                    print("CAS 8 AFUERA")
+                    canContinue = false
+                    mensaje = "La contraseña debe tener 8 caracteres y al menos una letra mayúscula, un número y carácter especial"
+                    alertFields = AcceptAlert.showAlert(titulo: "Atención", mensaje: mensaje)
+                }
+
+            }else{
+                print("CAS 8 AFUERA")
+                canContinue = false
+                mensaje = "Las contraseñas deben coincidir"
+                alertFields = AcceptAlert.showAlert(titulo: "Atención", mensaje: mensaje)
+
+            }
             
         default:
             print("deafult")
@@ -751,14 +765,7 @@ extension ConfirmationCodeView: ECUTimerDelegate {
 //MARK: - Private functions
 extension ConfirmationCodeView {
     private func setupUI() {
-//        toggleLoading(show: false)
         setupFields()
-        
-//        navView.layer.cornerRadius = 30
-//        navView.layer.shadowRadius = 5
-//        navView.layer.shadowOpacity = 0.5
-//        navView.layer.shadowColor = UIColor.black.cgColor
-//        navView.layer.maskedCorners = [.layerMinXMaxYCorner, .layerMaxXMaxYCorner]
     }
     
     private func setupFields() {
@@ -784,6 +791,6 @@ extension ConfirmationCodeView {
     private func setPasswordField(sender: ECUField) {
         sender.textField.isSecureTextEntry = !sender.textField.isSecureTextEntry
         sender.rightIconTint = !sender.textField.isSecureTextEntry ? UIColor(red: 102/255, green: 102/255, blue: 102/255, alpha: 1) : nil
-//        sender.rightIcon = UIImage(named: !sender.textField.isSecureTextEntry ? "hideEye" : "showEye", in: .module, compatibleWith: nil)
+        sender.rightIcon = UIImage(named: !sender.textField.isSecureTextEntry ? "hideEye" : "showEye", in: .module, compatibleWith: nil)
     }
 }
