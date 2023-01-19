@@ -301,24 +301,18 @@ class ConfirmationCodeView: UIViewController, ConfirmationCodeViewProtocol {
         print(passwordField.text)
         print(confirmPasswordField.text)
         if passwordField.text != "" && confirmPasswordField.text != "" {
-            print("ENTRO AL PRIMER ELSE")
-//            if canContinue == false {
-//                print("FUNCION CANCONTINUE")
-//                alertFields?.view.backgroundColor = .clear
-//                present(alertFields!, animated: true)
-//            }else{
-//                print("FUNCION ELSE")
-//                self.showLoading()
-//                let singleton = ForgotPViewController.singleton
-//                let completeCode = "\(numberFieldsCollection[0].text ?? "0")\(numberFieldsCollection[1].text ?? "0")\(numberFieldsCollection[2].text ?? "0")\(numberFieldsCollection[3].text ?? "0")\(numberFieldsCollection[4].text ?? "0")\(numberFieldsCollection[5].text ?? "0")"
-//                presenter?.postParamsChange(email: singleton.emailParam, code: completeCode, input: passwordField.text)
-//                btnAccpet.isEnabled = false
-//            }
-            self.showLoading()
-            let singleton = ForgotPViewController.singleton
-            let completeCode = "\(numberFieldsCollection[0].text ?? "0")\(numberFieldsCollection[1].text ?? "0")\(numberFieldsCollection[2].text ?? "0")\(numberFieldsCollection[3].text ?? "0")\(numberFieldsCollection[4].text ?? "0")\(numberFieldsCollection[5].text ?? "0")"
-            presenter?.postParamsChange(email: singleton.emailParam, code: completeCode, input: passwordField.text)
-            btnAccpet.isEnabled = false
+            if passwordField.text != confirmPasswordField.text{
+                mensaje = "Las contraseñas deben de coincidir"
+                alertFields = AcceptAlert.showAlert(titulo: "Atención", mensaje: mensaje)
+                alertFields!.view.backgroundColor = .clear
+                present(alertFields!, animated: true)
+            } else {
+                self.showLoading()
+                let singleton = ForgotPViewController.singleton
+                let completeCode = "\(numberFieldsCollection[0].text ?? "0")\(numberFieldsCollection[1].text ?? "0")\(numberFieldsCollection[2].text ?? "0")\(numberFieldsCollection[3].text ?? "0")\(numberFieldsCollection[4].text ?? "0")\(numberFieldsCollection[5].text ?? "0")"
+                presenter?.postParamsChange(email: singleton.emailParam, code: completeCode, input: passwordField.text)
+                btnAccpet.isEnabled = false
+            }
         }else{
             mensaje = "Faltan campos por llenar"
             alertFields = AcceptAlert.showAlert(titulo: "Atención", mensaje: mensaje)
