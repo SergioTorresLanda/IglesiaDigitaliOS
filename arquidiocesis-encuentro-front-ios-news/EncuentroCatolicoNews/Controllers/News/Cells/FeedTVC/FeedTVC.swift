@@ -17,6 +17,7 @@ public protocol FeedTVCProtocol: class {
     func editPost(id: Int, snder: UIButton)
     func deletePost(id: Int, sender: UIButton)
     func actionSelected(idx: Int, typeAction: String)
+    func didTapURL(url: URL)
 }
 
 public class FeedTVC: UITableViewCell, CustomPopOverDelegate {
@@ -59,6 +60,7 @@ public class FeedTVC: UITableViewCell, CustomPopOverDelegate {
     @IBOutlet weak var btnFollow: UIButton!
     var pistId: Int = 0
     var newPost: Posts?
+    var url=""
     
     //MARK: - Properties
     public weak var delegate: FeedTVCProtocol?
@@ -79,6 +81,7 @@ public class FeedTVC: UITableViewCell, CustomPopOverDelegate {
         userImage.image = nil
         dateLabel.text = nil
         contentLabel.text = nil
+        contentLabel.delegate = self
 //        reactionImage.image = nil
         reactionsCountLabel.text = nil
         post = nil
@@ -305,7 +308,6 @@ extension FeedTVC: UICollectionViewDataSource {
                 return cell
             case "image/location":
                 guard let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "LocationImageCVC", for: indexPath) as? LocationImageCVC else { return UICollectionViewCell() }
-                
                 let url = URL(string: media.url ?? "")
                 cell.locationImage.sd_setImage(with: url, placeholderImage: nil, options: .refreshCached, context: nil)
                 
@@ -370,4 +372,22 @@ extension FeedTVC: VideosDelegate {
     public func presentFullScreenVideo(videoURL: String?) {
         delegate?.presentFullScreenVideo(videoURL: videoURL)
     }
+}
+
+extension FeedTVC: CustomLabelDelegate {
+    public func didSelect(_ text: String, type: CustomLabelType) {
+        
+        print("aqui esta el link \(text)")
+        if let url = URL(string: text) {
+                  UIApplication.shared.open(url)
+               }
+    }
+    
+//    func didTapStringURL(_ stringURL: String) {
+//        print(stringURL)
+//        if let url = URL(string: stringURL) {
+//            delegate?.didTapURL(url: url)
+//        }
+//    }
+
 }

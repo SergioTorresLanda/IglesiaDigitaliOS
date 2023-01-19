@@ -506,6 +506,7 @@ open class CustomLabel: UILabel {
         hashtagHandler(hashtag)
     }
     
+    //URL - ANGEL
     fileprivate func didTapStringURL(_ stringURL: String) {
         guard let urlHandler = urlTapHandler, let url = URL(string: stringURL) else {
             delegate?.didSelect(stringURL, type: .url)

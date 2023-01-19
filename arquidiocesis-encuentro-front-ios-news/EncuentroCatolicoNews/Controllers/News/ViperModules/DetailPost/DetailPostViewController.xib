@@ -1,15 +1,16 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="17701" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="20037" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
     <device id="retina4_7" orientation="portrait" appearance="light"/>
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="17703"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="20020"/>
+        <capability name="Named colors" minToolsVersion="9.0"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="System colors in document resources" minToolsVersion="11.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <objects>
-        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="DetailPostViewController" customModule="RedSocialFramework" customModuleProvider="target">
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="DetailPostViewController" customModule="EncuentroCatolicoNews" customModuleProvider="target">
             <connections>
                 <outlet property="backImage" destination="Cr2-wj-e7H" id="0H9-2v-6DQ"/>
                 <outlet property="lblTitle" destination="tCt-wF-fHN" id="niW-t6-IM5"/>
@@ -18,11 +19,46 @@
             </connections>
         </placeholder>
         <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
-        <view clearsContextBeforeDrawing="NO" contentMode="scaleToFill" id="i5M-Pr-FkT">
+        <view hidden="YES" clearsContextBeforeDrawing="NO" contentMode="scaleToFill" id="i5M-Pr-FkT">
             <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
             <subviews>
-                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="xVg-ua-PMx">
+                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="5Lv-72-Ldg">
+                    <rect key="frame" x="0.0" y="0.0" width="375" height="125"/>
+                    <subviews>
+                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Noticias" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="euI-Ck-LpO">
+                            <rect key="frame" x="149" y="75" width="77" height="24"/>
+                            <fontDescription key="fontDescription" type="boldSystem" pointSize="20"/>
+                            <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                            <nil key="highlightedColor"/>
+                        </label>
+                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="hoW-0T-6Kh">
+                            <rect key="frame" x="8" y="71" width="35.5" height="32"/>
+                            <constraints>
+                                <constraint firstAttribute="height" constant="32" id="ySO-TZ-bam"/>
+                            </constraints>
+                            <state key="normal" title="Button"/>
+                            <buttonConfiguration key="configuration" style="plain" image="Icono_atrás"/>
+                        </button>
+                    </subviews>
+                    <color key="backgroundColor" name="eMainBlue"/>
+                    <constraints>
+                        <constraint firstItem="euI-Ck-LpO" firstAttribute="centerY" secondItem="5Lv-72-Ldg" secondAttribute="centerY" constant="24.5" id="4qt-Hr-Xdh"/>
+                        <constraint firstItem="euI-Ck-LpO" firstAttribute="centerX" secondItem="5Lv-72-Ldg" secondAttribute="centerX" id="GUs-yJ-Gji"/>
+                        <constraint firstItem="hoW-0T-6Kh" firstAttribute="centerY" secondItem="5Lv-72-Ldg" secondAttribute="centerY" constant="24.5" id="RSC-zP-bTl"/>
+                        <constraint firstItem="hoW-0T-6Kh" firstAttribute="leading" secondItem="5Lv-72-Ldg" secondAttribute="leading" constant="8" id="Uha-nn-6iP"/>
+                        <constraint firstAttribute="height" constant="125" id="ekd-St-4eb"/>
+                    </constraints>
+                    <userDefinedRuntimeAttributes>
+                        <userDefinedRuntimeAttribute type="number" keyPath="radius">
+                            <real key="value" value="20"/>
+                        </userDefinedRuntimeAttribute>
+                        <userDefinedRuntimeAttribute type="number" keyPath="skeletonCornerRadius">
+                            <real key="value" value="20"/>
+                        </userDefinedRuntimeAttribute>
+                    </userDefinedRuntimeAttributes>
+                </view>
+                <view hidden="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="xVg-ua-PMx" userLabel="ViewNO">
                     <rect key="frame" x="0.0" y="0.0" width="375" height="60"/>
                     <subviews>
                         <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="gXC-h5-Gfj">
@@ -72,7 +108,7 @@
                         <constraint firstItem="gXC-h5-Gfj" firstAttribute="leading" secondItem="xVg-ua-PMx" secondAttribute="leading" constant="15" id="yUM-sh-78X"/>
                     </constraints>
                 </view>
-                <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" style="plain" separatorStyle="none" allowsSelection="NO" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="YMG-sK-lLT">
+                <tableView hidden="YES" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" style="plain" separatorStyle="none" allowsSelection="NO" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="YMG-sK-lLT" userLabel="Table ViewNO">
                     <rect key="frame" x="0.0" y="60" width="375" height="507"/>
                     <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                 </tableView>
@@ -83,18 +119,114 @@
                 <constraint firstItem="xVg-ua-PMx" firstAttribute="leading" secondItem="dbD-Gd-KK5" secondAttribute="leading" id="6mP-J6-LFv"/>
                 <constraint firstItem="YMG-sK-lLT" firstAttribute="trailing" secondItem="dbD-Gd-KK5" secondAttribute="trailing" id="FBQ-No-EaF"/>
                 <constraint firstItem="YMG-sK-lLT" firstAttribute="leading" secondItem="dbD-Gd-KK5" secondAttribute="leading" id="QcX-Lq-yI5"/>
+                <constraint firstItem="5Lv-72-Ldg" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" id="TeB-sf-f68"/>
                 <constraint firstItem="YMG-sK-lLT" firstAttribute="top" secondItem="xVg-ua-PMx" secondAttribute="bottom" id="bmg-MN-LGT"/>
+                <constraint firstItem="5Lv-72-Ldg" firstAttribute="top" secondItem="dbD-Gd-KK5" secondAttribute="top" id="dFj-Lm-zmf"/>
                 <constraint firstAttribute="bottom" secondItem="YMG-sK-lLT" secondAttribute="bottom" constant="100" id="jGl-3E-MsU"/>
+                <constraint firstAttribute="trailing" secondItem="5Lv-72-Ldg" secondAttribute="trailing" id="r7b-yF-gbx"/>
                 <constraint firstItem="xVg-ua-PMx" firstAttribute="top" secondItem="dbD-Gd-KK5" secondAttribute="top" id="xRn-WH-4Gi"/>
                 <constraint firstAttribute="trailing" secondItem="xVg-ua-PMx" secondAttribute="trailing" id="yeY-Fe-bA9"/>
             </constraints>
             <point key="canvasLocation" x="34.399999999999999" y="171.36431784107947"/>
         </view>
+        <view contentMode="scaleToFill" id="RmI-iw-BUc">
+            <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+            <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+            <subviews>
+                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="BJZ-dy-5FQ">
+                    <rect key="frame" x="0.0" y="-25" width="399" height="125"/>
+                    <subviews>
+                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Noticias" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="rxi-3O-IX6">
+                            <rect key="frame" x="150.5" y="75" width="77" height="24"/>
+                            <fontDescription key="fontDescription" type="boldSystem" pointSize="20"/>
+                            <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                            <nil key="highlightedColor"/>
+                        </label>
+                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="GeS-Hb-Yat">
+                            <rect key="frame" x="8" y="71" width="35.5" height="32"/>
+                            <constraints>
+                                <constraint firstAttribute="height" constant="32" id="N4x-s5-4qy"/>
+                            </constraints>
+                            <state key="normal" title="Button"/>
+                            <buttonConfiguration key="configuration" style="plain" image="Icono_atrás"/>
+                        </button>
+                    </subviews>
+                    <color key="backgroundColor" name="eMainBlue"/>
+                    <constraints>
+                        <constraint firstItem="GeS-Hb-Yat" firstAttribute="leading" secondItem="BJZ-dy-5FQ" secondAttribute="leading" constant="8" id="BTv-NG-8QI"/>
+                        <constraint firstAttribute="height" constant="125" id="Nxb-MK-Mve"/>
+                        <constraint firstItem="GeS-Hb-Yat" firstAttribute="centerY" secondItem="BJZ-dy-5FQ" secondAttribute="centerY" constant="24.5" id="dXj-FN-T1b"/>
+                        <constraint firstItem="rxi-3O-IX6" firstAttribute="centerY" secondItem="BJZ-dy-5FQ" secondAttribute="centerY" constant="24.5" id="jkD-aG-NTx"/>
+                        <constraint firstItem="rxi-3O-IX6" firstAttribute="centerX" secondItem="BJZ-dy-5FQ" secondAttribute="centerX" constant="-10.5" id="qvs-VH-71M"/>
+                    </constraints>
+                    <userDefinedRuntimeAttributes>
+                        <userDefinedRuntimeAttribute type="number" keyPath="radius">
+                            <real key="value" value="20"/>
+                        </userDefinedRuntimeAttribute>
+                        <userDefinedRuntimeAttribute type="number" keyPath="skeletonCornerRadius">
+                            <real key="value" value="20"/>
+                        </userDefinedRuntimeAttribute>
+                    </userDefinedRuntimeAttributes>
+                </view>
+                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Arquidiocesis De Mexico" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="heK-B5-yZZ">
+                    <rect key="frame" x="20" y="656" width="374" height="40"/>
+                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                    <nil key="textColor"/>
+                    <nil key="highlightedColor"/>
+                </label>
+                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Hoy, 07:57" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="wy1-lj-FNb">
+                    <rect key="frame" x="20" y="675" width="374" height="40"/>
+                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                    <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                    <color key="textColor" systemColor="systemGray3Color"/>
+                    <nil key="highlightedColor"/>
+                </label>
+                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="WZR-oA-XFv">
+                    <rect key="frame" x="20" y="691" width="374" height="116"/>
+                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                    <string key="text">Los dogmas de de la Iglesia Catolica o dogmas de fe son la base de toda la doctrina catolica. Estan los dogmas de jesucristo y mas ¡Conocelos!</string>
+                    <fontDescription key="fontDescription" name="Avenir-Book" family="Avenir" pointSize="17"/>
+                    <nil key="textColor"/>
+                    <nil key="highlightedColor"/>
+                </label>
+                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="https://bit.ly/3i7223k" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="tuc-cI-psl">
+                    <rect key="frame" x="20" y="793" width="374" height="33"/>
+                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                    <fontDescription key="fontDescription" name="Avenir-Book" family="Avenir" pointSize="17"/>
+                    <color key="textColor" systemColor="linkColor"/>
+                    <nil key="highlightedColor"/>
+                </label>
+                <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="Camino" translatesAutoresizingMaskIntoConstraints="NO" id="PzW-TU-OK7">
+                    <rect key="frame" x="20" y="145" width="374" height="481"/>
+                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                </imageView>
+            </subviews>
+            <viewLayoutGuide key="safeArea" id="xUd-Jh-Le0"/>
+            <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+            <constraints>
+                <constraint firstItem="BJZ-dy-5FQ" firstAttribute="leading" secondItem="xUd-Jh-Le0" secondAttribute="leading" id="IFi-rz-wDE"/>
+                <constraint firstItem="xUd-Jh-Le0" firstAttribute="trailing" secondItem="BJZ-dy-5FQ" secondAttribute="trailing" constant="-24" id="bFU-0k-2ri"/>
+                <constraint firstItem="BJZ-dy-5FQ" firstAttribute="top" secondItem="RmI-iw-BUc" secondAttribute="top" constant="-25" id="owV-ng-Yns"/>
+            </constraints>
+            <point key="canvasLocation" x="-201" y="-487"/>
+        </view>
     </objects>
     <resources>
+        <image name="Camino" width="135" height="166"/>
+        <image name="Icono_atrás" width="11.5" height="18"/>
         <image name="backIcon" width="12" height="20"/>
+        <namedColor name="eMainBlue">
+            <color red="0.0039215686274509803" green="0.12549019607843137" blue="0.40784313725490196" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </namedColor>
+        <systemColor name="linkColor">
+            <color red="0.0" green="0.47843137254901963" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </systemColor>
         <systemColor name="systemBackgroundColor">
             <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+        </systemColor>
+        <systemColor name="systemGray3Color">
+            <color red="0.7803921568627451" green="0.7803921568627451" blue="0.80000000000000004" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </systemColor>
     </resources>
 </document>
