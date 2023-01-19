@@ -16,6 +16,7 @@
 		36C17B5B2604274A00973D58 /* EncuentroCatolicoUtils.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 36C17B592604274A00973D58 /* EncuentroCatolicoUtils.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		36E3F35D260C26BC008E6DAE /* EncuentroCatolicoVirtualLibrary.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9837C22D25E85B0F005A200F /* EncuentroCatolicoVirtualLibrary.framework */; };
 		36E3F35E260C26BC008E6DAE /* EncuentroCatolicoVirtualLibrary.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 9837C22D25E85B0F005A200F /* EncuentroCatolicoVirtualLibrary.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		4449F18229789A08001C32F1 /* AdSupport.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4449F18129789A08001C32F1 /* AdSupport.framework */; };
 		6D40892F278F8EA00017E308 /* APIType.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6D40892E278F8EA00017E308 /* APIType.swift */; };
 		6DD37FB327A8E93000660A94 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 6DD37FB227A8E93000660A94 /* GoogleService-Info.plist */; };
 		980E990425E48D3B002C766D /* EncuentroCatolicoHome.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 980E990225E48D3B002C766D /* EncuentroCatolicoHome.framework */; };
@@ -96,6 +97,7 @@
 		36BAAEB6263DA6BA0056274B /* Alamofire.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = Alamofire.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		36C17B562604274400973D58 /* EncuentroCatolicoPayment.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = EncuentroCatolicoPayment.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		36C17B592604274A00973D58 /* EncuentroCatolicoUtils.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = EncuentroCatolicoUtils.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		4449F18129789A08001C32F1 /* AdSupport.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AdSupport.framework; path = System/Library/Frameworks/AdSupport.framework; sourceTree = SDKROOT; };
 		6D40892E278F8EA00017E308 /* APIType.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = APIType.swift; sourceTree = "<group>"; };
 		6DD37FB227A8E93000660A94 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; name = "GoogleService-Info.plist"; path = "Firebase/prod/GoogleService-Info.plist"; sourceTree = "<group>"; };
 		6DE2E35B279B3E15000ED1F0 /* EncuentroCatolico copy-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; name = "EncuentroCatolico copy-Info.plist"; path = "/Users/forlinko/linko/encuentromx/baz-ios-encuentro-generic/EncuentroCatolico copy-Info.plist"; sourceTree = "<absolute>"; };
@@ -148,6 +150,7 @@
 				9837C1AD25E8083F005A200F /* EncuentroCatolicoMasses.framework in Frameworks */,
 				983D1CB02609669C00455355 /* EncuentroCatolicoScanner.framework in Frameworks */,
 				9837C1B525E8083F005A200F /* EncuentroCatolicoServices.framework in Frameworks */,
+				4449F18229789A08001C32F1 /* AdSupport.framework in Frameworks */,
 				980E990625E48D3B002C766D /* EncuentroCatolicoLogin.framework in Frameworks */,
 				98C46A5225EF0EF100DE543B /* EncuentroCatolicoChurch.framework in Frameworks */,
 				EEA6B9442646E56B00C35ACF /* EncuentroCatolicoNewFormation.framework in Frameworks */,
@@ -180,6 +183,7 @@
 		552C309138C70A5785355301 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				4449F18129789A08001C32F1 /* AdSupport.framework */,
 				EEA6B9432646E56B00C35ACF /* EncuentroCatolicoNewFormation.framework */,
 				36BAAEB6263DA6BA0056274B /* Alamofire.framework */,
 				362475812609271A00323160 /* EncuentroCatolicoPromise.framework */,

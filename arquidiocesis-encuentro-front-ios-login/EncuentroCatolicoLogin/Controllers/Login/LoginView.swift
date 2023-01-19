@@ -187,9 +187,9 @@ class LoginView: UIViewController {
         btnLogin.layer.masksToBounds = true
         btnLogin.setCorner(cornerRadius: 10)
         viewArriba.layer.cornerRadius = 30
-        viewArriba.layer.shadowRadius = 5
-        viewArriba.layer.shadowOpacity = 0.5
-        viewArriba.layer.shadowColor = UIColor.black.cgColor
+        //viewArriba.layer.shadowRadius = 5
+        //viewArriba.layer.shadowOpacity = 0.5
+        //viewArriba.layer.shadowColor = UIColor.black.cgColor
         viewArriba.layer.maskedCorners = [.layerMinXMaxYCorner, .layerMaxXMaxYCorner]
         
         btnRegistar.layer.borderWidth = 1

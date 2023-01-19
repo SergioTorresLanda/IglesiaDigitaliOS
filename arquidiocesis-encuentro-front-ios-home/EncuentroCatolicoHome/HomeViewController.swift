@@ -19,6 +19,7 @@ import EncuentroCatolicoPrayers
 import Foundation
 import EncuentroCatolicoNewFormation
 import FirebaseAnalytics
+import Firebase
 import SwiftUI
 //import EncuentroCatolicoRegister
 
@@ -168,9 +169,16 @@ class HomeViewController: UIViewController, HomeViewProtocol, UITextFieldDelegat
                                        ])*/
         print("HOME DID APPEAR")
        // [self logEventWithOrigin:origin payload:payload events:events]
-        Analytics.logEvent("screen_view2", parameters: ["screen_class" : screenName]) //no funciona
-        //let fi = FirebaseManager.shared.initSNFirebaseInstance()
-        //getGenricAppFirebaseInstance()
+        //print(Analytics.appInstanceID() ?? "matame")
+        //print(Analytics.sessionID() ?? 8)
+        //A//nalytics.sess
+        //Analytics.setAnalyticsCollectionEnabled(true)
+        //Analytics.setDefaultEventParameters([AnalyticsParameterScreenClass : screenName])
+        //Analytics.resetAnalyticsData()
+        //print("RESET")
+        //print(Analytics.appInstanceID() ?? "matame")
+        //print("HOME DID APPEAR::: "+Analytics.debugDescription())
+        Analytics.logEvent("custom_param", parameters: ["screen_class" : screenName]) //no funciona?
     }
     
     func loadUserAttributs() {
