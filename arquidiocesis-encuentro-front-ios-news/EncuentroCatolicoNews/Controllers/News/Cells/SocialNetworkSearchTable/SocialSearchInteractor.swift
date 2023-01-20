@@ -83,6 +83,7 @@ class SearchSocialInteractor: SocialSearchInteractorProtocol {
                 guard let responseData = data else { return }
                 let contentReponse = try JSONDecoder().decode(FollowResponse.self, from: responseData)
                 self.presenter?.onSuccessRequestFollowUF(data: contentReponse, response: (response as! HTTPURLResponse))
+                print("Fer conten", contentReponse)
                 print(contentReponse)
                 
             }catch{

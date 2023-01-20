@@ -230,7 +230,7 @@ class HomeViewController: UIViewController, HomeViewProtocol, UITextFieldDelegat
                     self.nombrePersona.adjustsFontSizeToFitWidth = true
                     if profile == "DEVOTED_ADMIN" || profile == "DEAN_PRIEST"{
                         UserDefaults.standard.set(true, forKey: "isPriest")
-                        
+                        1
                     }else{
                         UserDefaults.standard.set(false, forKey: "isPriest")
                     }

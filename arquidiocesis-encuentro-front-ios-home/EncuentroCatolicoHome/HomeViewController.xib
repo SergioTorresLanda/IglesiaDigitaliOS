@@ -324,6 +324,12 @@
                                                             <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                             <nil key="highlightedColor"/>
                                                         </label>
+                                                        <label hidden="YES" opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Admin" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="gA3-yT-ADl">
+                                                            <rect key="frame" x="0.0" y="70" width="324" height="0.0"/>
+                                                            <fontDescription key="fontDescription" type="boldSystem" pointSize="10"/>
+                                                            <color key="textColor" name="eDarkGold"/>
+                                                            <nil key="highlightedColor"/>
+                                                        </label>
                                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="OJg-El-vPN">
                                                             <rect key="frame" x="0.0" y="70" width="324" height="10"/>
                                                             <constraints>
@@ -385,19 +391,11 @@
                                         <constraint firstAttribute="trailing" secondItem="8bf-IT-CiA" secondAttribute="trailing" constant="20" id="pqI-Dg-eX5"/>
                                     </constraints>
                                 </view>
-                                <label hidden="YES" opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Admin" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="gA3-yT-ADl">
-                                    <rect key="frame" x="23" y="139" width="33" height="12"/>
-                                    <fontDescription key="fontDescription" type="boldSystem" pointSize="10"/>
-                                    <color key="textColor" name="eDarkGold"/>
-                                    <nil key="highlightedColor"/>
-                                </label>
                             </subviews>
                             <color key="backgroundColor" name="eMainBlue"/>
                             <constraints>
                                 <constraint firstItem="clO-cu-YlJ" firstAttribute="top" secondItem="4FQ-zv-FfB" secondAttribute="top" constant="33" id="1OI-5S-oee"/>
-                                <constraint firstItem="gA3-yT-ADl" firstAttribute="leading" secondItem="4FQ-zv-FfB" secondAttribute="leading" constant="23" id="HWv-lg-5AS"/>
                                 <constraint firstAttribute="height" constant="123" id="a5S-X0-Fdb"/>
-                                <constraint firstItem="gA3-yT-ADl" firstAttribute="top" secondItem="clO-cu-YlJ" secondAttribute="bottom" constant="16" id="jff-PV-195"/>
                                 <constraint firstAttribute="trailing" secondItem="clO-cu-YlJ" secondAttribute="trailing" id="mBv-jA-Mlv"/>
                                 <constraint firstItem="clO-cu-YlJ" firstAttribute="leading" secondItem="4FQ-zv-FfB" secondAttribute="leading" id="ySK-E6-M6s"/>
                             </constraints>

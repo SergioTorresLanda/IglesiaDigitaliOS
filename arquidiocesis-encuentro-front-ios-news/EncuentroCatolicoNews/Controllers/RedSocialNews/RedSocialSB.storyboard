@@ -1,0 +1,168 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="20037" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+    <device id="retina6_1" orientation="portrait" appearance="light"/>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="20020"/>
+        <capability name="Named colors" minToolsVersion="9.0"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="System colors in document resources" minToolsVersion="11.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <scenes>
+        <!--Red Social News View Controller-->
+        <scene sceneID="s0d-6b-0kx">
+            <objects>
+                <viewController storyboardIdentifier="RedSocialNewsViewController" id="Y6W-OH-hqX" customClass="RedSocialNewsViewController" customModule="EncuentroCatolicoNews" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="G1D-ms-xC2">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="6Gv-ic-4qe" userLabel="View2">
+                                <rect key="frame" x="0.0" y="-25" width="438" height="125"/>
+                                <subviews>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Noticias" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="cKT-0F-Jv4">
+                                        <rect key="frame" x="170" y="75" width="77" height="24"/>
+                                        <fontDescription key="fontDescription" type="boldSystem" pointSize="20"/>
+                                        <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Ns8-cF-rYA">
+                                        <rect key="frame" x="8" y="71" width="57" height="32"/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="32" id="CtO-8R-Nul"/>
+                                        </constraints>
+                                        <buttonConfiguration key="configuration" style="plain" image="Image back">
+                                            <preferredSymbolConfiguration key="preferredSymbolConfigurationForImage" scale="default"/>
+                                        </buttonConfiguration>
+                                        <connections>
+                                            <action selector="backBtnClick:" destination="Y6W-OH-hqX" eventType="touchUpInside" id="FYE-3c-paf"/>
+                                        </connections>
+                                    </button>
+                                </subviews>
+                                <color key="backgroundColor" name="eMainBlue"/>
+                                <constraints>
+                                    <constraint firstItem="cKT-0F-Jv4" firstAttribute="centerX" secondItem="6Gv-ic-4qe" secondAttribute="centerX" constant="-10.5" id="CSs-2P-wSF"/>
+                                    <constraint firstAttribute="height" constant="125" id="JyL-I3-yLb"/>
+                                    <constraint firstItem="Ns8-cF-rYA" firstAttribute="leading" secondItem="6Gv-ic-4qe" secondAttribute="leading" constant="8" id="Ucx-y6-KWb"/>
+                                    <constraint firstItem="Ns8-cF-rYA" firstAttribute="centerY" secondItem="6Gv-ic-4qe" secondAttribute="centerY" constant="24.5" id="a5m-Ev-LVR"/>
+                                    <constraint firstItem="cKT-0F-Jv4" firstAttribute="centerY" secondItem="6Gv-ic-4qe" secondAttribute="centerY" constant="24.5" id="sga-Yf-X8T"/>
+                                </constraints>
+                                <userDefinedRuntimeAttributes>
+                                    <userDefinedRuntimeAttribute type="number" keyPath="radius">
+                                        <real key="value" value="20"/>
+                                    </userDefinedRuntimeAttribute>
+                                    <userDefinedRuntimeAttribute type="number" keyPath="skeletonCornerRadius">
+                                        <real key="value" value="20"/>
+                                    </userDefinedRuntimeAttribute>
+                                </userDefinedRuntimeAttributes>
+                            </view>
+                            <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" showsHorizontalScrollIndicator="NO" translatesAutoresizingMaskIntoConstraints="NO" id="xn3-eP-iAY">
+                                <rect key="frame" x="0.0" y="100" width="414" height="692"/>
+                                <subviews>
+                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="7XE-BD-9cz">
+                                        <rect key="frame" x="0.0" y="0.0" width="414" height="692"/>
+                                        <subviews>
+                                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="equalSpacing" translatesAutoresizingMaskIntoConstraints="NO" id="nvu-nI-iNz">
+                                                <rect key="frame" x="15" y="0.0" width="384" height="692"/>
+                                                <subviews>
+                                                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="Camino" translatesAutoresizingMaskIntoConstraints="NO" id="WHY-qT-jbd">
+                                                        <rect key="frame" x="0.0" y="0.0" width="384" height="400"/>
+                                                        <constraints>
+                                                            <constraint firstAttribute="height" constant="400" id="gBH-Bm-yS3"/>
+                                                        </constraints>
+                                                    </imageView>
+                                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Arquidiocesis De Mexico" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontForContentSizeCategory="YES" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="5qk-H8-HJM">
+                                                        <rect key="frame" x="0.0" y="461.5" width="384" height="20.5"/>
+                                                        <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="17"/>
+                                                        <nil key="textColor"/>
+                                                        <nil key="highlightedColor"/>
+                                                    </label>
+                                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" verticalCompressionResistancePriority="749" text="Hoy, 07:57" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontForContentSizeCategory="YES" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="IWd-dM-fQk">
+                                                        <rect key="frame" x="0.0" y="543.5" width="384" height="17"/>
+                                                        <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                                        <color key="textColor" systemColor="systemGray3Color"/>
+                                                        <nil key="highlightedColor"/>
+                                                    </label>
+                                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" lineBreakMode="tailTruncation" numberOfLines="10" baselineAdjustment="alignBaselines" adjustsFontForContentSizeCategory="YES" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ksU-q2-SCn">
+                                                        <rect key="frame" x="0.0" y="622" width="384" height="70"/>
+                                                        <string key="text">Los dogmas de de la Iglesia Catolica o dogmas de fe son la base de toda la doctrina catolica. Estan los dogmas de jesucristo y mas ¡Conocelos!</string>
+                                                        <fontDescription key="fontDescription" name="Avenir-Book" family="Avenir" pointSize="17"/>
+                                                        <nil key="textColor"/>
+                                                        <nil key="highlightedColor"/>
+                                                        <userDefinedRuntimeAttributes>
+                                                            <userDefinedRuntimeAttribute type="color" keyPath="Url">
+                                                                <color key="value" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                            </userDefinedRuntimeAttribute>
+                                                            <userDefinedRuntimeAttribute type="number" keyPath="lastLineFillPercent">
+                                                                <integer key="value" value="0"/>
+                                                            </userDefinedRuntimeAttribute>
+                                                        </userDefinedRuntimeAttributes>
+                                                    </label>
+                                                </subviews>
+                                                <constraints>
+                                                    <constraint firstAttribute="trailing" secondItem="WHY-qT-jbd" secondAttribute="trailing" id="7zA-Ob-uz9"/>
+                                                    <constraint firstItem="WHY-qT-jbd" firstAttribute="leading" secondItem="nvu-nI-iNz" secondAttribute="leading" id="8vj-bB-wmc"/>
+                                                </constraints>
+                                            </stackView>
+                                        </subviews>
+                                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                                        <constraints>
+                                            <constraint firstItem="nvu-nI-iNz" firstAttribute="top" secondItem="7XE-BD-9cz" secondAttribute="top" id="El4-z4-HiS"/>
+                                            <constraint firstAttribute="trailing" secondItem="nvu-nI-iNz" secondAttribute="trailing" constant="15" id="OKn-4S-sT9"/>
+                                            <constraint firstItem="nvu-nI-iNz" firstAttribute="leading" secondItem="7XE-BD-9cz" secondAttribute="leading" constant="15" id="cd8-R7-YTq"/>
+                                            <constraint firstAttribute="bottom" secondItem="nvu-nI-iNz" secondAttribute="bottom" id="fLr-SR-NAF"/>
+                                        </constraints>
+                                    </view>
+                                </subviews>
+                                <constraints>
+                                    <constraint firstItem="7XE-BD-9cz" firstAttribute="height" secondItem="FL7-Il-vao" secondAttribute="height" priority="250" id="8GR-z1-axI"/>
+                                    <constraint firstItem="7XE-BD-9cz" firstAttribute="width" secondItem="FL7-Il-vao" secondAttribute="width" id="VBq-9w-kNm"/>
+                                    <constraint firstItem="7XE-BD-9cz" firstAttribute="top" secondItem="XJI-OT-KZL" secondAttribute="top" id="X8V-eX-71g"/>
+                                    <constraint firstItem="7XE-BD-9cz" firstAttribute="leading" secondItem="XJI-OT-KZL" secondAttribute="leading" id="ZJI-Zu-Haq"/>
+                                    <constraint firstItem="XJI-OT-KZL" firstAttribute="bottom" secondItem="7XE-BD-9cz" secondAttribute="bottom" id="e7l-2m-I7Y"/>
+                                    <constraint firstItem="XJI-OT-KZL" firstAttribute="trailing" secondItem="7XE-BD-9cz" secondAttribute="trailing" id="xqN-Ft-84N"/>
+                                </constraints>
+                                <viewLayoutGuide key="contentLayoutGuide" id="XJI-OT-KZL"/>
+                                <viewLayoutGuide key="frameLayoutGuide" id="FL7-Il-vao"/>
+                            </scrollView>
+                        </subviews>
+                        <viewLayoutGuide key="safeArea" id="qGR-i4-cfR"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <constraints>
+                            <constraint firstItem="6Gv-ic-4qe" firstAttribute="top" secondItem="G1D-ms-xC2" secondAttribute="top" constant="-25" id="2w5-3k-kDO"/>
+                            <constraint firstItem="xn3-eP-iAY" firstAttribute="top" secondItem="6Gv-ic-4qe" secondAttribute="bottom" id="GJj-oM-jBX"/>
+                            <constraint firstItem="qGR-i4-cfR" firstAttribute="bottom" secondItem="xn3-eP-iAY" secondAttribute="bottom" constant="70" id="GgE-yC-aNz"/>
+                            <constraint firstItem="6Gv-ic-4qe" firstAttribute="leading" secondItem="qGR-i4-cfR" secondAttribute="leading" id="oCH-f2-Xu1"/>
+                            <constraint firstItem="xn3-eP-iAY" firstAttribute="leading" secondItem="qGR-i4-cfR" secondAttribute="leading" id="p4z-4N-wCl"/>
+                            <constraint firstItem="qGR-i4-cfR" firstAttribute="trailing" secondItem="xn3-eP-iAY" secondAttribute="trailing" id="rI0-LN-0Ae"/>
+                            <constraint firstItem="qGR-i4-cfR" firstAttribute="trailing" secondItem="6Gv-ic-4qe" secondAttribute="trailing" constant="-24" id="vhM-jL-bIW"/>
+                        </constraints>
+                    </view>
+                    <connections>
+                        <outlet property="backbtn" destination="Ns8-cF-rYA" id="wS0-wi-o87"/>
+                        <outlet property="desc" destination="ksU-q2-SCn" id="8L5-h5-DlL"/>
+                        <outlet property="fecha" destination="IWd-dM-fQk" id="PQc-Vi-8Rk"/>
+                        <outlet property="imagen" destination="WHY-qT-jbd" id="uZq-Xt-49k"/>
+                        <outlet property="titulo" destination="5qk-H8-HJM" id="QrB-0s-K0z"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="Ief-a0-LHa" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="15.942028985507248" y="51.5625"/>
+        </scene>
+    </scenes>
+    <resources>
+        <image name="Camino" width="135" height="166"/>
+        <image name="Image back" width="33" height="33"/>
+        <namedColor name="eMainBlue">
+            <color red="0.0039215686274509803" green="0.12549019607843137" blue="0.40784313725490196" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </namedColor>
+        <systemColor name="systemBackgroundColor">
+            <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+        </systemColor>
+        <systemColor name="systemGray3Color">
+            <color red="0.7803921568627451" green="0.7803921568627451" blue="0.80000000000000004" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </systemColor>
+    </resources>
+</document>
