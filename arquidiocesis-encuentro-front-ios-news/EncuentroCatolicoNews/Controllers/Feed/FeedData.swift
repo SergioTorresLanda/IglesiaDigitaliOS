@@ -36,18 +36,6 @@ extension FeedViewController: UITableViewDataSource {
             
             return cell
         }else{
-            /*if newPosts.count > 9 {
-                
-                if indexPath.row == newPosts.count {
-                    print("GET NEW POST PAGIN")
-                    print(String(indexPath.row))
-                    print("newposts.count: 15")
-                    self.shimmer.startLoader(view: self.view, rows: [75, 200, 100, 200
-                                                                , 220])
-                    self.presenter?.getNewPostPagin(isFromPage: true, posts: newPosts, nxtPag: UserDefaults.standard.string(forKey: "nextPageTL") ?? "")
-                    tableView.reloadData()
-                }
-            }*/
             guard let cell = tableView.dequeueReusableCell(withIdentifier: "FeedTVC", for: indexPath) as? FeedTVC else {
                 return UITableViewCell()
             }
@@ -182,8 +170,6 @@ extension FeedViewController: UITableViewDelegate {
 //        if let url = URL(string: "https://bit.ly/3WwZdYm") {
 //            UIApplication.shared.open(url)
 //        }
-        
-        
         //if indexPath.section == 1 {
         let post = newPosts[indexPath.row] //else { return }
         print("Holaaaaa--2222222")
@@ -224,6 +210,7 @@ extension FeedViewController: FeedTVCProtocol {
     }
     
     public func didTapURL(url: URL) {
+        print("DID TAP URLLL")
         UIApplication.shared.open(url)
     }
     

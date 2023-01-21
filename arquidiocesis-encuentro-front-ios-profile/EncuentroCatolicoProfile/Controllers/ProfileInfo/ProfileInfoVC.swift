@@ -447,7 +447,7 @@ class ProfileInfoView: UIViewController {
             fieldsCollection[6].text = ""
             fieldsCollection[6].placeholder = "Congregación a la que perteneces"
             selectedPrefixID = 0
-            prefixField.text = "N/A"
+            prefixField.text = "Selecciona"
             cardLaico.isHidden = false
             cardLaico2.isHidden = false
             miniContentSwitch.isHidden = true
@@ -478,7 +478,7 @@ class ProfileInfoView: UIViewController {
             fieldsCollection[6].text = ""
             fieldsCollection[6].placeholder = "¿En qué iglesia prestas el servicio?"
             selectedPrefixID = 0
-            prefixField.text = "N/A"
+            prefixField.text = "Selecciona"
             cardLaico.isHidden = true
             cardLaico2.isHidden = true
             serachStack.isHidden = true
@@ -513,7 +513,7 @@ class ProfileInfoView: UIViewController {
             serachStack.isHidden = true
             lineasViewCollection[6].isHidden = true
             selectedPrefixID = 0
-            prefixField.text = "N/A"
+            prefixField.text = "Selecciona"
             lblYouCan.isHidden = true
             let height = activityCollection.collectionViewLayout.collectionViewContentSize.height
             heightTopicColection.constant = height
@@ -712,7 +712,7 @@ class ProfileInfoView: UIViewController {
                 fieldsCollection[6].text = ""
                 fieldsCollection[6].placeholder = "Congregación a la que perteneces"
                 selectedPrefixID = 0
-                prefixField.text = "N/A"
+                prefixField.text = "Selecciona"
                 miniContentSwitch.isHidden = true
                 serachStack.isHidden = true
                 lineasViewCollection[6].isHidden = true
