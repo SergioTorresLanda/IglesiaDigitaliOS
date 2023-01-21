@@ -11,7 +11,7 @@ import RealmSwift
 import Lottie
 import SDWebImage
 
-public protocol FeedTVCProtocol: class {
+public protocol FeedTVCProtocol: AnyObject {
     func presentFullScreenVideo(videoURL: String?)
     func showDetailPost(id: Int)
     func editPost(id: Int, snder: UIButton)
@@ -149,91 +149,12 @@ public class FeedTVC: UITableViewCell, CustomPopOverDelegate {
     }
     
     @objc public func handleLongPress(gesture: UILongPressGestureRecognizer) {
-//        if gesture.state == .began {
-//            handleGestureBegan(gesture: gesture)
-//        } else if gesture.state == .ended {
-//            UIView.animate(withDuration: 0.5, delay: 0, usingSpringWithDamping: 1, initialSpringVelocity: 1, options: .curveEaseOut, animations: {
-//                let stackView = self.reactionsView.subviews.first
-//                stackView?.subviews.forEach({ (subview) in
-//                    let animation = subview as? AnimationView
-//                    animation?.stop()
-//                    animation?.transform = .identity
-//
-//                    if let animation = animation, let identifier = animation.accessibilityIdentifier,
-//                        let identifierInt = Int(identifier), animation.tag == 1 {
-//                        self.makeReaction(postId: self.tag, reactionId: identifierInt)
-//                    }
-//                })
-//
-//                self.reactionsView.transform = self.reactionsView.transform.translatedBy(x: 0, y: 50)
-//                self.reactionsView.alpha = 0
-//
-//            }, completion: { (_) in
-//                self.reactionsView.removeFromSuperview()
-//            })
-//
-//        } else if gesture.state == .changed {
-//            handleGestureChanged(gesture: gesture)
-//        }
     }
     
     private func handleGestureBegan(gesture: UILongPressGestureRecognizer) {
-//        self.addSubview(reactionsView)
-//
-//        let reactionButtonFrame = reactionButton.frame
-//        let centeredX = reactionButtonFrame.width
-//
-//        reactionsView.alpha = 0
-//        reactionsView.transform = CGAffineTransform(translationX: centeredX,
-//                                                    y: self.contentView.frame.height - (reactionButtonFrame.height * 2))
-//
-//        UIView.animate(withDuration: 0.5, delay: 0, usingSpringWithDamping: 1, initialSpringVelocity: 1, options: .curveEaseOut, animations: {
-//            self.reactionsView.alpha = 1
-//            self.reactionsView.transform = CGAffineTransform(translationX: centeredX,
-//                                                             y: self.contentView.frame.height - (reactionButtonFrame.height * 2))
-//        })
-//
-//        let stackView = reactionsView.subviews.first
-//        stackView?.subviews.forEach({ (subview) in
-//            let animation = subview as? AnimationView
-//            animation?.play()
-//        })
     }
     
     private func handleGestureChanged(gesture: UILongPressGestureRecognizer) {
-//        let pressedLocation = gesture.location(in: reactionsView)
-//        let reactionsViewFrame = reactionsView.frame
-//        
-//        let fixedLocation = CGPoint(x: pressedLocation.x, y: reactionsViewFrame.height / 2)
-//        let hitTestView = reactionsView.hitTest(fixedLocation, with: nil)
-//        
-//        if fixedLocation.x > 0 && fixedLocation.x < reactionsViewFrame.width {
-//            if hitTestView is AnimationView {
-//                UIView.animate(withDuration: 0.5, delay: 0, usingSpringWithDamping: 1, initialSpringVelocity: 1, options: .curveEaseOut, animations: {
-//                    let stackView = self.reactionsView.subviews.first
-//                    stackView?.subviews.forEach({ (animation) in
-//                        animation.transform = .identity
-//                        animation.tag = 0
-//                    })
-//                    
-//                    hitTestView?.transform = CGAffineTransform(translationX: 0, y: -50)
-//                    hitTestView?.tag = 1
-//                })
-//            }
-//
-//        } else {
-//            UIView.animate(withDuration: 0.5, delay: 0, usingSpringWithDamping: 1, initialSpringVelocity: 1, options: .curveEaseOut, animations: {
-//                let stackView = self.reactionsView.subviews.first
-//                stackView?.subviews.forEach({ (animation) in
-//                    animation.transform = .identity
-//                    animation.tag = 0
-//                    
-//                    if animation.transform == CGAffineTransform(translationX: 0, y: -50) {
-//                        animation.transform = CGAffineTransform(translationX: 0, y: 50)
-//                    }
-//                })
-//            })
-//        }
     }
     
     @objc private func openMap(_ sender: UIButton) {
@@ -259,10 +180,8 @@ public class FeedTVC: UITableViewCell, CustomPopOverDelegate {
         }
     }
     
-    
     @IBAction func btnActionComments(_ sender: UIButton) {
         self.delegate?.actionSelected(idx: self.btnComments.tag, typeAction: "Comentarios")
-        
     }
     
     @IBAction func btnActionCompartit(_ sender: UIButton) {
@@ -271,7 +190,6 @@ public class FeedTVC: UITableViewCell, CustomPopOverDelegate {
     
     @IBAction func btnActionFollow(_ sender: UIButton) {
         self.delegate?.actionSelected(idx: self.btnFollow.tag, typeAction: "Seguir")
-        
     }
 }
 

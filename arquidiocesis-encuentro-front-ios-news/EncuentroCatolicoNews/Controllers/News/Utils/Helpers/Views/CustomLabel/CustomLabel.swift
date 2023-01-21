@@ -8,7 +8,7 @@
 
 import UIKit
 
-public protocol CustomLabelDelegate: class {
+public protocol CustomLabelDelegate: AnyObject {
     func didSelect(_ text: String, type: CustomLabelType)
 }
 

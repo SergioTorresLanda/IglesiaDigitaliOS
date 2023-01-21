@@ -61,6 +61,7 @@ public class FeedViewController: UIViewController, FeedViewProtocol, FeedViewCon
         setUpView()
     }
     
+    
     override public func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         print("VC ECNews - FeedVC ")

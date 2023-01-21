@@ -28,8 +28,8 @@ class AppDelegate: UIResponder, UIApplicationDelegate, UNUserNotificationCenterD
     //MARK: - Life cycle
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
         
+        //UserDefaults.standard.set("Qa", forKey: "stage")
         UserDefaults.standard.set("Prod", forKey: "stage")
-        //UserDefaults.standard.set("Prod", forKey: "stage")
         let firebaseOptions = FirebaseManager.shared.getGenricAppFirebaseInstance()
         FirebaseApp.configure(options: firebaseOptions)
         //FirebaseApp.configure()

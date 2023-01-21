@@ -48,11 +48,13 @@ class HomeViewController: UIViewController, HomeViewProtocol, UITextFieldDelegat
     @IBOutlet weak var lblAdmin: UILabel!
     @IBOutlet weak var lblMessage: UILabel!
     @IBOutlet weak var btnStreaming: UIButton!
-    
     @IBOutlet weak var contentView: UIView!
     @IBOutlet weak var scrollView: UIScrollView!
-    static let singleton = HomeViewController()
     
+    @IBOutlet weak var tableHeight: NSLayoutConstraint!
+    @IBOutlet weak var SVheight: NSLayoutConstraint!
+    
+    static let singleton = HomeViewController()
     var arraySelectedCell = [false, false, false, false, false, false, false]
     let alert = UIAlertController(title: "", message: "\n \n \n \n \nCargando...", preferredStyle: .alert)
     var data: UserRespHome?
@@ -92,12 +94,6 @@ class HomeViewController: UIViewController, HomeViewProtocol, UITextFieldDelegat
         //presenter?.cargarDatosUsuario()
         presenter?.requestUserDetail()
         lblMessage.text = setMessageHour()
-        //let formatter = DateFormatter()
-        //formatter.dateFormat = "yyyy-MM-dd"
-        //let now = Date()
-        //let dateString = formatter.string(from: now)
-        //self.presenter?.requestHomeData(type: "SAINT", date: "\(dateString)")
-        //2021-07-27 2021-12-12
         self.hideKeyboardWhenTappedAround()
         collectionRegister()
         setupBarra()

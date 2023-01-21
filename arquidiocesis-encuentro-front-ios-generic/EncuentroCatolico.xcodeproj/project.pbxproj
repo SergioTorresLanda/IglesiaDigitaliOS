@@ -100,7 +100,6 @@
 		4449F18129789A08001C32F1 /* AdSupport.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AdSupport.framework; path = System/Library/Frameworks/AdSupport.framework; sourceTree = SDKROOT; };
 		6D40892E278F8EA00017E308 /* APIType.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = APIType.swift; sourceTree = "<group>"; };
 		6DD37FB227A8E93000660A94 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; name = "GoogleService-Info.plist"; path = "Firebase/prod/GoogleService-Info.plist"; sourceTree = "<group>"; };
-		6DE2E35B279B3E15000ED1F0 /* EncuentroCatolico copy-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; name = "EncuentroCatolico copy-Info.plist"; path = "/Users/forlinko/linko/encuentromx/baz-ios-encuentro-generic/EncuentroCatolico copy-Info.plist"; sourceTree = "<absolute>"; };
 		980E990225E48D3B002C766D /* EncuentroCatolicoHome.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = EncuentroCatolicoHome.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		980E990325E48D3B002C766D /* EncuentroCatolicoLogin.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = EncuentroCatolicoLogin.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		9817612125EFEB2C008E1018 /* ZeusPayment.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = ZeusPayment.framework; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -230,7 +229,6 @@
 				6B6EA40942CB63EBA40E152E /* Pods */,
 				552C309138C70A5785355301 /* Frameworks */,
 				368A1FB3260BA83E00188539 /* Recovered References */,
-				6DE2E35B279B3E15000ED1F0 /* EncuentroCatolico copy-Info.plist */,
 			);
 			sourceTree = "<group>";
 		};
@@ -580,7 +578,7 @@
 				CODE_SIGN_ENTITLEMENTS = EncuentroCatolico/EncuentroCatolico.entitlements;
 				CODE_SIGN_IDENTITY = "Apple Development";
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 7;
+				CURRENT_PROJECT_VERSION = 2;
 				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
 				DEVELOPMENT_TEAM = 7U69X8G25P;
 				INFOPLIST_FILE = EncuentroCatolico/Resources/Info.plist;
@@ -589,7 +587,7 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				MARKETING_VERSION = 1.13;
+				MARKETING_VERSION = 1.14;
 				PRODUCT_BUNDLE_IDENTIFIER = mx.arquidiocesis.EncuentroCatolico;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE_SPECIFIER = "";
@@ -608,7 +606,7 @@
 				CODE_SIGN_ENTITLEMENTS = EncuentroCatolico/EncuentroCatolico.entitlements;
 				CODE_SIGN_IDENTITY = "Apple Development";
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 7;
+				CURRENT_PROJECT_VERSION = 2;
 				DEVELOPMENT_TEAM = 7U69X8G25P;
 				INFOPLIST_FILE = EncuentroCatolico/Resources/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 12.0;
@@ -616,7 +614,7 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				MARKETING_VERSION = 1.13;
+				MARKETING_VERSION = 1.14;
 				PRODUCT_BUNDLE_IDENTIFIER = mx.arquidiocesis.EncuentroCatolico;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE_SPECIFIER = "";

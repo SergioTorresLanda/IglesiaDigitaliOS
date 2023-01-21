@@ -9,7 +9,6 @@ class ProfileInfoInteractor: ProfileInfoInteractorInputProtocol {
     let API = "\(APIType.shared.Auth())"
     let APIImage = "\(APIType.shared.User())"
     
-    
     func postImgBase64(elementID: Int, type: String, filename: String, contentBase64: String) {
         guard let apiURL = URL(string: APIImage + "/s3-upload") else { return }
         var request = URLRequest(url: apiURL)
