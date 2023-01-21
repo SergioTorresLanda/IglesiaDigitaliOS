@@ -35,14 +35,14 @@
                     <rect key="frame" x="0.0" y="221" width="414" height="571"/>
                     <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                     <constraints>
-                        <constraint firstAttribute="height" constant="420" id="m96-SM-9KD"/>
+                        <constraint firstAttribute="height" relation="greaterThanOrEqual" constant="420" id="m96-SM-9KD"/>
                     </constraints>
                 </tableView>
                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="HTT-HB-Glz" userLabel="ViewHead">
-                    <rect key="frame" x="0.0" y="44" width="414" height="65"/>
+                    <rect key="frame" x="0.0" y="24" width="414" height="85"/>
                     <subviews>
                         <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="WvN-Du-SE3">
-                            <rect key="frame" x="0.0" y="0.0" width="65" height="65"/>
+                            <rect key="frame" x="0.0" y="0.0" width="85" height="85"/>
                             <constraints>
                                 <constraint firstAttribute="width" secondItem="WvN-Du-SE3" secondAttribute="height" multiplier="1:1" id="Neg-TL-itG"/>
                             </constraints>
@@ -51,7 +51,7 @@
                             </connections>
                         </button>
                         <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="back" translatesAutoresizingMaskIntoConstraints="NO" id="87a-mg-PfY">
-                            <rect key="frame" x="15" y="20" width="25" height="25"/>
+                            <rect key="frame" x="15" y="30" width="25" height="25"/>
                             <color key="tintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                             <constraints>
                                 <constraint firstAttribute="height" constant="25" id="Vcf-yz-10k"/>
@@ -59,7 +59,7 @@
                             </constraints>
                         </imageView>
                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Red social" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="FM8-uF-yCL">
-                            <rect key="frame" x="164" y="21.666666666666671" width="86" height="22"/>
+                            <rect key="frame" x="164" y="31.666666666666664" width="86" height="22"/>
                             <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="18"/>
                             <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                             <nil key="highlightedColor"/>
@@ -71,7 +71,7 @@
                         <constraint firstItem="WvN-Du-SE3" firstAttribute="leading" secondItem="HTT-HB-Glz" secondAttribute="leading" id="HoB-3k-8AX"/>
                         <constraint firstItem="WvN-Du-SE3" firstAttribute="top" secondItem="HTT-HB-Glz" secondAttribute="top" id="KPF-eh-GOn"/>
                         <constraint firstItem="87a-mg-PfY" firstAttribute="leading" secondItem="HTT-HB-Glz" secondAttribute="leading" constant="15" id="TcR-Vn-3mw"/>
-                        <constraint firstAttribute="height" constant="65" id="cnf-0v-cpT"/>
+                        <constraint firstAttribute="height" constant="85" id="cnf-0v-cpT"/>
                         <constraint firstAttribute="bottom" secondItem="WvN-Du-SE3" secondAttribute="bottom" id="osx-h8-06O"/>
                         <constraint firstItem="FM8-uF-yCL" firstAttribute="centerX" secondItem="HTT-HB-Glz" secondAttribute="centerX" id="wcb-T1-dtb"/>
                         <constraint firstItem="87a-mg-PfY" firstAttribute="centerY" secondItem="HTT-HB-Glz" secondAttribute="centerY" id="zSY-4I-R36"/>
@@ -196,7 +196,7 @@
                 <constraint firstItem="y1Z-e5-Obm" firstAttribute="bottom" secondItem="HKr-RV-DnL" secondAttribute="bottom" constant="70" id="how-Zd-sEi"/>
                 <constraint firstItem="y1Z-e5-Obm" firstAttribute="bottom" secondItem="EgX-zu-1Yi" secondAttribute="bottom" constant="70" id="lxa-K5-Dxd"/>
                 <constraint firstItem="y1Z-e5-Obm" firstAttribute="trailing" secondItem="EgX-zu-1Yi" secondAttribute="trailing" constant="10" id="sKa-7B-WMT"/>
-                <constraint firstItem="HTT-HB-Glz" firstAttribute="top" secondItem="y1Z-e5-Obm" secondAttribute="top" id="xeR-08-xCw"/>
+                <constraint firstItem="HTT-HB-Glz" firstAttribute="top" secondItem="y1Z-e5-Obm" secondAttribute="top" constant="-20" id="xeR-08-xCw"/>
             </constraints>
             <nil key="simulatedBottomBarMetrics"/>
             <point key="canvasLocation" x="25" y="90"/>
