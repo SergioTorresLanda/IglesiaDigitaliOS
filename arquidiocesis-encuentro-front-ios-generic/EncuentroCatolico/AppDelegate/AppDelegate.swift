@@ -30,6 +30,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate, UNUserNotificationCenterD
         
         //UserDefaults.standard.set("Qa", forKey: "stage")
         UserDefaults.standard.set("Prod", forKey: "stage")
+
         let firebaseOptions = FirebaseManager.shared.getGenricAppFirebaseInstance()
         FirebaseApp.configure(options: firebaseOptions)
         //FirebaseApp.configure()
