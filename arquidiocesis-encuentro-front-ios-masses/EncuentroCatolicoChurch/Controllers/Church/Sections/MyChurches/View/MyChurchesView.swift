@@ -79,8 +79,8 @@ class MyChurchesViewController: BaseViewController {
         self.addSearchBar()
         otherChurchesCollectionView.isSkeletonable = true
         //setRole()
-        let tap = UITapGestureRecognizer(target: self, action: #selector(hideKeyBoard))
-        view.addGestureRecognizer(tap)
+//        let tap = UITapGestureRecognizer(target: self, action: #selector(hideKeyBoard))
+//        view.addGestureRecognizer(tap)
     }
     
     override func viewWillAppear(_ animated: Bool) {

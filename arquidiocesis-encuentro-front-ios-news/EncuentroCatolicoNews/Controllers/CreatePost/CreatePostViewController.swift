@@ -498,13 +498,15 @@ public class CreatePostViewController: UIViewController, CreatePostViewProtocol 
     
     
     @IBAction func btnActionAddImage(_ sender: UIButton) {
-        print("FUNCION BNT ACTION ADD IMAGE ... FUNCION BNT ACTION ADD IMAGE ... FUNCION BNT ACTION ADD IMAGE")
-//        guard let vc = ImagePickerViewController() as? ImagePickerController else { return }
-//        vc.delegate = self
-//        vc.modalPresentationStyle = .fullScreen
-//        self.present(vc, animated: true)
-        picker.sourceType = .photoLibrary
-        self.present(picker, animated: true)
+        guard let vc = ImagePickerViewController() as? ImagePickerController else { return }
+        vc.delegate = self
+        vc.modalPresentationStyle = .overFullScreen
+        vc.navigationBar.backgroundColor = .white
+        vc.modalPresentationCapturesStatusBarAppearance = false
+        
+        self.present(vc, animated: true)
+//        picker.sourceType = .photoLibrary
+//        self.present(picker, animated: true)
     }
     
     func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [UIImagePickerController.InfoKey : Any]) {
