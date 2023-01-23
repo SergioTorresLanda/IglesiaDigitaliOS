@@ -124,10 +124,11 @@ class RegisterViewController: BaseVC {
         field.textField.returnKeyType = .next
         field.textField.autocapitalizationType = .none
         field.fieldName = "Contraseña"
-        field.fieldDescription = "Debe tener mínimo 8 caracteres, 1 mayúscula, 1 número y 1 carácter especial."
+        field.fieldDescription = "Debe tener mínimo 8 caracteres, incluyendo: 1 minúscula, 1 mayúscula, 1 número y 1 carácter especial."
         field.validations = [
-            ECUFieldGenericValidation.required(fieldName: "tu \(field.fieldName.lowercased())").getValidation(),
+            ECUFieldGenericValidation.required(fieldName: "una \(field.fieldName.lowercased()) valida").getValidation(),
             ECUFieldGenericValidation.minimunCharecters(comparation: 8).getValidation(),
+            ECUFieldGenericValidation.lowerCase(fieldName: "una contraseña").getValidation(),
             ECUFieldGenericValidation.capitalLetters(fieldName: "una contraseña").getValidation(),
             ECUFieldGenericValidation.number(fieldName: "una contraseña").getValidation(),
             ECUFieldGenericValidation.isValidPwd(fieldName: "una contraseña").getValidation()
@@ -163,7 +164,13 @@ class RegisterViewController: BaseVC {
         
         setupUI()
         presenter?.controlador = self
-        presenter?.viewDidLoad(nombre: nameField.textField, apellido1: firstLastNameField.textField, apellido2: secondLastNameField.textField, celular: phoneField.textField, email: emailField.textField, usuario: usuario)
+        presenter?.viewDidLoad(
+            nombre: nameField.textField,
+            apellido1: firstLastNameField.textField,
+            apellido2: secondLastNameField.textField,
+            celular: phoneField.textField,
+            email: emailField.textField,
+            usuario: usuario)
     }
     
     override func viewWillAppear(_ animated: Bool) {

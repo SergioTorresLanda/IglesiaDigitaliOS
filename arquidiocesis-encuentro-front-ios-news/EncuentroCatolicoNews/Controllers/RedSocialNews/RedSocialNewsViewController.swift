@@ -19,21 +19,21 @@ class RedSocialNewsViewController: UIViewController {
     @IBOutlet weak var backbtn: UIButton!
     @IBOutlet weak var fecha: UILabel!
     @IBOutlet weak var titulo: UILabel!
-
    
     @IBOutlet weak var redUrl: UILabel!
-    @IBOutlet weak var desc: UILabel!
+    @IBOutlet weak var desc: CustomLabel!
     @IBOutlet weak var imagen: UIImageView!
     
     //variables globales
     var id = ""
     var post:Posts?
     var url: CustomLabelType = .url
+    var urlG="https://firebasestorage.googleapis.com/v0/b/emerwise-479d1.appspot.com/o/randomAssets%2Fspirit.webp?alt=media&token=dd020c20-d8ec-45f6-a8a2-3783c0234012"
     //lifecycle
     override func viewDidLoad() {
         super.viewDidLoad()
         id=" ya "
-       
+        desc.delegate = self
         //configuracione iniciales de la clase
         print("la vista se creo y cargo en la memoria")
         print("el valor author del post es: ")
@@ -54,15 +54,22 @@ class RedSocialNewsViewController: UIViewController {
         
        
 //        titulo.text="ya se conecto el titulo"
-        if let media = post?.multimedia![0]{
-            switch media.format {
-            case "jpeg", "png":
-                let url = media.url ?? ""
-                imagen.loadS(urlS: url)
-            default:
-                print("lo")
+        if post?.multimedia! == nil{
+            print("multimedia::::empty")
+        }else{
+            if !post!.multimedia!.isEmpty{
+                if let media = post?.multimedia?[0]{
+                    switch media.format {
+                    case "jpeg", "png":
+                        let url = media.url ?? ""
+                        imagen.loadS(urlS: url)
+                    default:
+                        print("lo")
+                    }
+                }
+            }else{
+                imagen.loadS(urlS: urlG)
             }
-            
         }
         
     }
@@ -93,6 +100,16 @@ class RedSocialNewsViewController: UIViewController {
     
     
 }
+
+extension RedSocialNewsViewController: CustomLabelDelegate {
+    public func didSelect(_ text: String, type: CustomLabelType) {
+        print("aqui esta el link 2 \(text)")
+        if let url = URL(string: text) {
+                  UIApplication.shared.open(url)
+               }
+    }
+}
+
 
 extension UIImageView {
     
