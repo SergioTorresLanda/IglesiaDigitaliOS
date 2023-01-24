@@ -21,7 +21,7 @@ import EncuentroCatolicoNewFormation
 import FirebaseAnalytics
 import Firebase
 import SwiftUI
-//import EncuentroCatolicoRegister
+import Network
 
 class HomeViewController: UIViewController, HomeViewProtocol, UITextFieldDelegate, UNUserNotificationCenterDelegate, YourCellDelegate, MyCellDelegate {
     func didPressCell(sender: Any) {
@@ -78,6 +78,10 @@ class HomeViewController: UIViewController, HomeViewProtocol, UITextFieldDelegat
     let redBackground = UIColor.init(red: 184/255, green: 12/255, blue: 12/255, alpha: 1.0)
     let screenName="iOS_Home_Home"
     let screenClass="iOS_Home_Class"
+    let monitor = NWPathMonitor()
+    var isInternet=false
+    var alertFields : AcceptAlert?
+    
     
     func formatoScrollView(){
         let contentRect: CGRect = scrollView.subviews.reduce(into: .zero) { rect, view in
@@ -88,10 +92,19 @@ class HomeViewController: UIViewController, HomeViewProtocol, UITextFieldDelegat
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        //Se crea la notificacion para saber cuando la app regresa de segundo plano.
+        UNUserNotificationCenter.current().delegate = self
+        NotificationCenter.default.addObserver(self, selector: #selector(popViews), name: NSNotification.Name(rawValue: "NotificationFeed"), object: nil)
+        NotificationCenter.default.addObserver(self, selector: #selector(payWithQR), name: NSNotification.Name(rawValue: "openQR"), object: nil)
+        NotificationCenter.default.addObserver(self, selector: #selector(openDonation), name: NSNotification.Name(rawValue: "openDonation"), object: nil)
+        NotificationCenter.default.addObserver(self, selector: #selector(goToBAZ(sender:)), name: NSNotification.Name(rawValue: "goToBaz"), object: nil)
+        NotificationCenter.default.addObserver(self, selector: #selector(showNotification), name: NSNotification.Name(rawValue: "intentionCreated"), object: nil)
+        NotificationCenter.default.addObserver(self, selector: #selector(showSOSNotification), name: NSNotification.Name(rawValue: "SOSCreated"), object: nil)
+        NotificationCenter.default.addObserver(self, selector: #selector(returnFromBack), name: NSNotification.Name(rawValue: "appBecomeActive"), object: nil)
+        setupInternetObserver()
         setupView()
         formatoScrollView()
-        //setupTableView()
-        //presenter?.cargarDatosUsuario()
+        setupTableView()
         presenter?.requestUserDetail()
         lblMessage.text = setMessageHour()
         self.hideKeyboardWhenTappedAround()
@@ -101,20 +114,20 @@ class HomeViewController: UIViewController, HomeViewProtocol, UITextFieldDelegat
         //addTapGestures()
         //validateUserColors()
         profileStackView.addGestureRecognizer(UITapGestureRecognizer(target: self, action: #selector(notifyTap(_:))))
-        DispatchQueue.main.asyncAfter(deadline: .now() + 2, execute: {
-            self.alert.dismiss(animated: true, completion: nil)
-        })
-        UNUserNotificationCenter.current().delegate = self
-        NotificationCenter.default.addObserver(self, selector: #selector(popViews), name: NSNotification.Name(rawValue: "NotificationFeed"), object: nil)
-        NotificationCenter.default.addObserver(self, selector: #selector(payWithQR), name: NSNotification.Name(rawValue: "openQR"), object: nil)
-        NotificationCenter.default.addObserver(self, selector: #selector(openDonation), name: NSNotification.Name(rawValue: "openDonation"), object: nil)
-        NotificationCenter.default.addObserver(self, selector: #selector(goToBAZ(sender:)), name: NSNotification.Name(rawValue: "goToBaz"), object: nil)
-        NotificationCenter.default.addObserver(self, selector: #selector(showNotification), name: NSNotification.Name(rawValue: "intentionCreated"), object: nil)
-        NotificationCenter.default.addObserver(self, selector: #selector(showSOSNotification), name: NSNotification.Name(rawValue: "SOSCreated"), object: nil)
         
         if let imageData = UserDefaults.standard.data(forKey: "userImage"), let image = UIImage(data: imageData) {
             userImage.image = image
         }
+    }
+    
+    func hideLoading(){
+        self.alert.dismiss(animated: true, completion: nil)
+    }
+    func showLoading(){
+        let imageView = UIImageView(frame: CGRect(x: 75, y: 25, width: 140, height: 60))
+        imageView.image = UIImage(named: "logoEncuentro", in: Bundle.local, compatibleWith: nil)
+        alert.view.addSubview(imageView)
+        self.present(alert, animated: false, completion: nil)
     }
     
     override func viewDidLayoutSubviews() {
@@ -124,6 +137,14 @@ class HomeViewController: UIViewController, HomeViewProtocol, UITextFieldDelegat
     override public func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         print("VC ECHome - HomeVC ")
+     
+        actionsViewWillAppear()
+    }
+    
+    func actionsViewWillAppear(){
+        if isInternet{
+        print("INTERNET ONN VWA")
+        showLoading()
         formatoScrollView()
         saintOfDay=[]
         suggestions=[]
@@ -131,12 +152,12 @@ class HomeViewController: UIViewController, HomeViewProtocol, UITextFieldDelegat
         allSections=[]
         arraySections=[]
         mainTable.reloadData()
+        
         let formatter = DateFormatter()
         formatter.dateFormat = "yyyy-MM-dd"
         let now = Date()
         let dateString = formatter.string(from: now)
         self.presenter?.requestHomeData(type: "SAINT", date: "\(dateString)")
-        
         presenter?.cargarDatosUsuario()
         presenter?.requestStreaming()
         if let imageData = UserDefaults.standard.data(forKey: "userImage"), let image = UIImage(data: imageData) {
@@ -144,10 +165,15 @@ class HomeViewController: UIViewController, HomeViewProtocol, UITextFieldDelegat
         }else{
             presenter?.requestUserDetail()
         }
-        validateUserColors()
-        
+            validateUserColors()
+            
+        }else{
+            print("INTERNET OFF VWA")
+            self.alertFields = AcceptAlert.showAlert(titulo: "¡Atención!", mensaje: "No tienes conexión a internet")
+            self.alertFields!.view.backgroundColor = .clear
+            self.present(self.alertFields!, animated: true)
+        }
     }
-    
     
     override func viewDidAppear(_ animated: Bool) {
     
@@ -177,6 +203,20 @@ class HomeViewController: UIViewController, HomeViewProtocol, UITextFieldDelegat
         Analytics.logEvent("custom_param", parameters: ["screen_class" : screenName]) //no funciona?
     }
     
+    func setupInternetObserver(){
+        monitor.pathUpdateHandler = { pathUpdateHandler in
+                   if pathUpdateHandler.status == .satisfied {
+                       print("Internet connection is on.")
+                       self.isInternet=true
+                   } else {
+                       print("There's no internet connection.")
+                       self.isInternet=false
+                   }
+               }
+               let queue = DispatchQueue(label: "Network")
+               monitor.start(queue: queue)
+    }
+    
     func loadUserAttributs() {
         switch data?.UserAttributes.role {
         case UserRoleEnum.fiel.rawValue:
@@ -192,10 +232,6 @@ class HomeViewController: UIViewController, HomeViewProtocol, UITextFieldDelegat
         default:
             break
         }
-    }
-
-    func failLoadImg() {
-        
     }
     
     func mostrarInfo(dtcAlerta: [String : String]?, user: UserRespHome?) {
@@ -233,7 +269,7 @@ class HomeViewController: UIViewController, HomeViewProtocol, UITextFieldDelegat
                 }
                 
                 DispatchQueue.main.asyncAfter(deadline: .now() + 1, execute: {
-                    self.alert.dismiss(animated: true, completion: nil)
+                    self.hideLoading()
                 })
             }
         })
@@ -461,15 +497,11 @@ class HomeViewController: UIViewController, HomeViewProtocol, UITextFieldDelegat
     
     private func setupTableView() {
         mainTable.register(UINib(nibName: "HomeMainCell", bundle: Bundle.local), forCellReuseIdentifier: "HOMECELLT")
-        
         mainTable.register(UINib(nibName: "HomeSliderCell", bundle: Bundle.local), forCellReuseIdentifier: "SLIDERCELL")
-        
         mainTable.register(UINib(nibName: "AlertTableCell", bundle: Bundle.local), forCellReuseIdentifier: "ALERTCELL")
-        
         mainTable.delegate = self
         mainTable.dataSource = self
         mainTable.reloadData()
-        
     }
     
     private func setupNewUI() {
@@ -606,11 +638,17 @@ class HomeViewController: UIViewController, HomeViewProtocol, UITextFieldDelegat
         if suggestions.count != 0 {
             allSections.append(suggestions)
         }
-        setupTableView()
+        //setupTableView()
+        hideLoading()
+        mainTable.reloadData()
     }
     
     func failGetHome(message: String) {
         arraySections.append(false)
+    }
+    
+    func failLoadImg(){
+        print("Error HomeVC: ERROR AL CARGAR LA IMAGEN ")
     }
     
     func onFialGetSuggestions(message: String) {
@@ -644,10 +682,6 @@ class HomeViewController: UIViewController, HomeViewProtocol, UITextFieldDelegat
         userImage.contentMode = .scaleAspectFill
         containerDonations.layer.cornerRadius = 10
         userImage.layer.cornerRadius = userImage.layer.bounds.width / 2
-        let imageView = UIImageView(frame: CGRect(x: 75, y: 25, width: 140, height: 60))
-        imageView.image = UIImage(named: "logoEncuentro", in: Bundle.local, compatibleWith: nil)
-        alert.view.addSubview(imageView)
-        self.present(alert, animated: false, completion: nil)
     }
     
     func setupBarra() {
@@ -749,6 +783,11 @@ class HomeViewController: UIViewController, HomeViewProtocol, UITextFieldDelegat
         UNUserNotificationCenter.current().add(request, withCompletionHandler: { [self]_ in
             confirmSOSService()
         })
+    }
+    
+    @objc func returnFromBack(){
+        print(":::: REGRESO DEL BACKK ::::")
+        actionsViewWillAppear()
     }
     
     @objc func confirmSOSService(){

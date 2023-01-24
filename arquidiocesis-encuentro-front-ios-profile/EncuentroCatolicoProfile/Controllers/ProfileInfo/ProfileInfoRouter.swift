@@ -36,7 +36,7 @@ open class ProfileInfoRouter: ProfileInfoWireFrameProtocol {
         let localDataManager: ProfileInfoLocalDataManagerInputProtocol = ProfileInfoLocalDataManager()
         let remoteDataManager: ProfileInfoRemoteDataManagerInputProtocol = ProfileInfoRemoteDataManager()
         let wireFrame: ProfileInfoWireFrameProtocol = ProfileInfoRouter()
-        
+        //view.preProfile=info
         view.presenter = presenter
         presenter.view = view
         presenter.wireFrame = wireFrame
@@ -49,8 +49,9 @@ open class ProfileInfoRouter: ProfileInfoWireFrameProtocol {
     }
     
     func pushToRegister(navegationController: UINavigationController) {
-        let registerModue = ProfileInfoRouter.createModuleTwo()
-        navegationController.pushViewController(registerModue, animated: true)
+        print("PUSH TO REGISTER SACERDOTE")
+        //let registerModue = ProfileInfoRouter.createModuleTwo()
+        //navegationController.pushViewController(registerModue, animated: true)
     }
     
     func showConfiguraciones() {

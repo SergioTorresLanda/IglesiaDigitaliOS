@@ -4,6 +4,7 @@ import UIKit
 protocol ProfileInfoViewProtocol: AnyObject {
     // PRESENTER -> VIEW
     var presenter: ProfileInfoPresenterProtocol? { get set }
+    //var preProfile : PreProfilePriest? { get set }
     func mostrarMSG(dtcAlerta: [String:String])
     func mostrarInfo(dtcAlerta: [String:String]?, user: UserRespProfile?)
     func showOffice(offices: Array<ActivitiesResponse>)

@@ -779,6 +779,7 @@ class ProfileInfoView: UIViewController {
         congregationA.append(cong1)
         
         let prefixObject = Prefix(id: selectedPrefixID)
+         print("::::;;PREFIXX::::::")
         print(prefixObject)
         UserDefaults.standard.set(selectedPrefixID, forKey: "Prefix")
         
@@ -808,10 +809,21 @@ class ProfileInfoView: UIViewController {
         switch validPrayer {
         case "Sacerdote":
             hideLoading()
+            if(topicArray.isEmpty){
+                showCanonAlert(title: "Atención", msg: "Selecciona al menos un tema de interés")
+                return
+            }
+            if(prefixObject.id==0){
+                showCanonAlert(title: "Atención", msg: "Selecciona un prefijo")
+                return
+            }
+            //var prePP: PreProfilePriest = PreProfilePriest(prefix: prefixObject, interest_topics: topicArray)
             DispatchQueue.main.asyncAfter(deadline: .now() + 0.5, execute: {
                 let view = ProfileInfoRouter.createModuleTwo()
                 self.navigationController?.pushViewController(view, animated: true)
-             })
+            })
+                
+            
         case "Religioso (a)":
             //showLoading()
             var idChurchReligioso = singleton.idChurch
@@ -1237,6 +1249,7 @@ class ProfileInfoView: UIViewController {
     }
     
     @objc  func didSaveAction() {
+        print("DID SAVE ACTION")
         var loca: [Locations] = []
         let loca1 = Locations(id: 1)
         loca.append(loca1)
@@ -1270,8 +1283,9 @@ class ProfileInfoView: UIViewController {
         let validPrayer = self.lifeStateTextField.text
         switch validPrayer {
         case "Sacerdote":
-            let view = ProfileInfoRouter.createModuleTwo()
-            navigationController?.pushViewController(view, animated: true)
+            print("DID SAVE ACTION SACERDOTE")
+            //let view = ProfileInfoRouter.createModuleTwo()
+            //navigationController?.pushViewController(view, animated: true)
         case "Díacono(Transitorio o permanente)", "Religioso (a)":
             let registerDiacono: ProfileDiacono = ProfileDiacono(username: fieldsCollection[4].text ?? "", id: idGlobal, name: fieldsCollection[0].text ?? "", first_surname: fieldsCollection[1].text ?? "", second_surname: fieldsCollection[2].text ?? "", phone_number: fieldsCollection[3].text ?? "" , email: fieldsCollection[4].text ?? "", life_status: life, interest_topics: topicArray , locations: loca)
             print(registerDiacono)
@@ -1311,6 +1325,7 @@ class ProfileInfoView: UIViewController {
     }
     
     @IBAction func sacardoteAction(_ sender: Any) {
+        print("Sacerdote Action")
         presenter?.showSoySacerdotecontroller(navegationController: navigationController!)
     }
     
