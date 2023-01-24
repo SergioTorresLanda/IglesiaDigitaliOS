@@ -121,14 +121,14 @@ public class TabNavigationMenu: UIImageView {
             itemTitleLabel.heightAnchor.constraint(equalToConstant: 45),
             itemTitleLabel.widthAnchor.constraint(equalToConstant: 100),
             itemTitleLabel.centerXAnchor.constraint(equalTo: tabBarItem.centerXAnchor),
-            itemTitleLabel.centerYAnchor.constraint(equalTo: tabBarItem.centerYAnchor, constant: 20),
+            itemTitleLabel.centerYAnchor.constraint(equalTo: tabBarItem.centerYAnchor, constant: 15),
         ])
         
         NSLayoutConstraint.activate([
             itemIconView.heightAnchor.constraint(equalToConstant: 30),
             itemIconView.widthAnchor.constraint(equalToConstant: 30),
             itemIconView.centerXAnchor.constraint(equalTo: tabBarItem.centerXAnchor),
-            itemIconView.centerYAnchor.constraint(equalTo: tabBarItem.centerYAnchor, constant: -10),
+            itemIconView.centerYAnchor.constraint(equalTo: tabBarItem.centerYAnchor, constant: -15),
         ])
         
         tabBarItem.addGestureRecognizer(UITapGestureRecognizer(target: self, action: #selector(self.handleTap)))

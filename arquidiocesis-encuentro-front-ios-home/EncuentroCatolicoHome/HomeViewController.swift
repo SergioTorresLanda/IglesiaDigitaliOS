@@ -350,6 +350,7 @@ class HomeViewController: UIViewController, HomeViewProtocol, UITextFieldDelegat
             userImage.image = UIImage(named: "userImage", in: Bundle.local, compatibleWith: nil)
         }else{
             userImage.DownloadStaticImageH(dataResponse.data?.User?.image ?? "nil")
+            
         }
         
         if isWillAppear == false {

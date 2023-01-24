@@ -11,6 +11,7 @@ import RealmSwift
 import Lottie
 import SDWebImage
 
+
 public protocol FeedTVCProtocol: AnyObject {
     func presentFullScreenVideo(videoURL: String?)
     func showDetailPost(id: Int)
@@ -99,10 +100,12 @@ public class FeedTVC: UITableViewCell, CustomPopOverDelegate {
     
 //        let SNId = UserDefaults.standard.integer(forKey: "SNId")
 //        btnMoreActions.isHidden = newPost?.author?.id == SNId ? false : true
+        userImage.image = UIImage(named: "userImage", in: Bundle.local, compatibleWith: nil)
+        userImage.layer.cornerRadius = userImage.bounds.width / 2
         
-        userImage.layer.borderWidth = 0.5
-        userImage.layer.borderColor = UIColor.black.cgColor
-        userImage.clipsToBounds = true
+//        userImage.layer.borderWidth = 0.5
+//        userImage.layer.borderColor = UIColor.black.cgColor
+//        userImage.clipsToBounds = true
         
         userImage.makeRounded()
         

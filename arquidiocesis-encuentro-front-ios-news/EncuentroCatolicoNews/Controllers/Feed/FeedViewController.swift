@@ -58,6 +58,7 @@ public class FeedViewController: UIViewController, FeedViewProtocol, FeedViewCon
         super.viewDidLoad()
         NotificationCenter.default.addObserver(self, selector: #selector(self.methodOfReceivedNotification(notification:)), name: Notification.Name("NotificationFeed"), object: nil)
         
+        
         setUpView()
     }
     
@@ -88,13 +89,19 @@ public class FeedViewController: UIViewController, FeedViewProtocol, FeedViewCon
     
     private func setUpView() {
         
+        
         let img = UIImage(named: "iconSearch", in: Bundle(for: FeedViewController.self), compatibleWith: nil)
         setPaddingWithImage(image: img ?? UIImage(), textField: txfSearch)
         imgProfile.layer.borderWidth = 0.5
         imgProfile.layer.borderColor = UIColor.black.cgColor
         imgProfile.clipsToBounds = true
         imgProfile.makeRounded()
-        imgProfile.setImage(name: name, image: nil)
+//        imgProfile.setImage(name: name, image: nil)
+        if let imageString = UserDefaults.standard.string(forKey: "imageUrl") {
+            imgProfile.loadS(urlS:imageString)
+        }
+//        imgProfile.layer.cornerRadius = imgProfile.bounds.width / 2
+        
         btnCreatePost.setTitle("", for: .normal)
         barraNavegacion.layer.cornerRadius = 30
         barraNavegacion.layer.shadowRadius = 5
@@ -206,4 +213,5 @@ public class FeedViewController: UIViewController, FeedViewProtocol, FeedViewCon
         tableView.reloadData()
     }
 }
+
 

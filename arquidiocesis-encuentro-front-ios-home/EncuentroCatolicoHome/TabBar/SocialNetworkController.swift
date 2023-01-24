@@ -26,7 +26,7 @@ public class SocialNetworkController: UITabBarController {
     
     //MARK: - Properties
     public var customTabBar: TabNavigationMenu!
-    private var tabBarHeight: CGFloat = 70.0
+    private var tabBarHeight: CGFloat = 80.0
     
     
     //MARK: - Life cycle
