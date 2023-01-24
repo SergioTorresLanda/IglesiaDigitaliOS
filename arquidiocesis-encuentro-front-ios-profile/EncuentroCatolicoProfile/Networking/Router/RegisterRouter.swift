@@ -139,6 +139,12 @@ struct ProfilePriest: Codable {
     var stream: String?
 }
 
+struct PreProfilePriest: Codable {
+    //var life_status: Status?
+    var prefix: Prefix?
+    var interest_topics: [Topics]?
+}
+
 struct ResponseDiacono: Codable {}
 struct ResponseSacerdote: Codable {}
 struct ResponseState: Codable {}

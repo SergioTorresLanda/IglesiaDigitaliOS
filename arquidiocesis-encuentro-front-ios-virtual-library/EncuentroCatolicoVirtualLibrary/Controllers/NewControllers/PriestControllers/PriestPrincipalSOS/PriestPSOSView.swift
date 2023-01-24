@@ -6,6 +6,7 @@
 //
 
 import UIKit
+import Network
 
 class PriestPSOSView: UIViewController, PriestPSOSViewProtocol {
     var presenter: PriestPSOSPresenterProtocol?
@@ -16,6 +17,9 @@ class PriestPSOSView: UIViewController, PriestPSOSViewProtocol {
     @IBOutlet weak var lblMainTitle: UILabel!
     
     static let singleton = PriestPSOSView()
+    let monitor = NWPathMonitor()
+    var isInternet=false
+    var alertFields : AcceptAlert?
     
     var pos = 0
     var idService = 0
@@ -45,26 +49,47 @@ class PriestPSOSView: UIViewController, PriestPSOSViewProtocol {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        setupInternetObserver()
         segementControl.addUnderlineForSelectedSegment()
       //  setupTableDelegates()
         setupUI()
       //  presenter?.requestListServices(paramStatus: "ACTIVE")
-
     }
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         
         print("EC virtualLibrary - NewControllers - Priest Controllers - PriestPrincipalSOS")
-        DispatchQueue.main.asyncAfter(deadline: .now() + 0.5) {
-             self.showLoading()
+        if isInternet{
+            DispatchQueue.main.asyncAfter(deadline: .now() + 0.2) { //inecesario medida cautelaria porque nunca se sabe y porque estamos a punto de enviar a prod asi que mas vale prevenir que lamentar.
+                self.showLoading()
+                self.presenter?.requestListServices(paramStatus: self.statusStr)
+            }
+        }else{
+            print("INTERNET OFF SOS")
+            self.alertFields = AcceptAlert.showAlert(titulo: "¡Atención!", mensaje: "No tienes conexión a internet")
+            self.alertFields!.view.backgroundColor = .clear
+            self.present(self.alertFields!, animated: true)
         }
-        presenter?.requestListServices(paramStatus: statusStr)
     }
     
     override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(animated)
         
+    }
+    
+    func setupInternetObserver(){
+        monitor.pathUpdateHandler = { pathUpdateHandler in
+                   if pathUpdateHandler.status == .satisfied {
+                       print("Internet connection is on.")
+                       self.isInternet=true
+                   } else {
+                       print("There's no internet connection.")
+                       self.isInternet=false
+                   }
+               }
+               let queue = DispatchQueue(label: "Network")
+               monitor.start(queue: queue)
     }
     
     func setupUI() {
@@ -89,12 +114,14 @@ class PriestPSOSView: UIViewController, PriestPSOSViewProtocol {
         imageView.image = UIImage(named: "logoEncuentro", in: Bundle.local, compatibleWith: nil)
         alertLoader.view.addSubview(imageView)
         self.present(alertLoader, animated: true, completion: nil)
-        
+    }
+    func hideLoading(){
+        self.alertLoader.dismiss(animated: true, completion: nil)
     }
     
     func successLoadRequestServices(requestData: [ListSrevices]) {
         print(requestData)
-        
+        hideLoading()
         listRequests = requestData.sorted(by: { $0.id ?? 0 > $1.id ?? 0 })
         setupTableDelegates()
         

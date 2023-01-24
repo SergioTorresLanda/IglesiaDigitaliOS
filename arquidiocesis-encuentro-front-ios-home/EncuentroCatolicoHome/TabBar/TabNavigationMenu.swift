@@ -138,6 +138,7 @@ public class TabNavigationMenu: UIImageView {
     @objc private func handleProfileTap(){
         switchTab(from: activeItem, to: 2)
     }
+    
     @objc private func handleProfileTapVirtual(){
         switchTabVirtual(from: activeItem, to: 2)
     }
