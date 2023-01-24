@@ -401,7 +401,8 @@ public class CreatePostViewController: UIViewController, CreatePostViewProtocol 
     @IBAction func showImages(_ sender: UIButton) {
         guard let vc = ImagePickerViewController() as? ImagePickerController else { return }
         vc.delegate = self
-        vc.modalPresentationStyle = .fullScreen
+        vc.modalPresentationStyle = .overFullScreen
+        vc.navigationBar.backgroundColor = .white
         self.present(vc, animated: true)
     }
     
@@ -498,13 +499,12 @@ public class CreatePostViewController: UIViewController, CreatePostViewProtocol 
     
     
     @IBAction func btnActionAddImage(_ sender: UIButton) {
-        print("FUNCION BNT ACTION ADD IMAGE ... FUNCION BNT ACTION ADD IMAGE ... FUNCION BNT ACTION ADD IMAGE")
-//        guard let vc = ImagePickerViewController() as? ImagePickerController else { return }
-//        vc.delegate = self
-//        vc.modalPresentationStyle = .fullScreen
-//        self.present(vc, animated: true)
-        picker.sourceType = .photoLibrary
-        self.present(picker, animated: true)
+        guard let vc = ImagePickerViewController() as? ImagePickerController else { return }
+        vc.delegate = self
+        vc.modalPresentationStyle = .overFullScreen
+        vc.navigationBar.backgroundColor = .white
+        
+        self.present(vc, animated: true)
     }
     
     func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [UIImagePickerController.InfoKey : Any]) {
@@ -521,7 +521,8 @@ public class CreatePostViewController: UIViewController, CreatePostViewProtocol 
     @IBAction func btnActionAddViewo(_ sender: UIButton) {
         guard let vc = ImagePickerViewController() as? ImagePickerController else { return }
         vc.delegate = self
-        vc.modalPresentationStyle = .fullScreen
+        vc.modalPresentationStyle = .overFullScreen
+        vc.navigationBar.backgroundColor = .white
         self.present(vc, animated: true)
     }
     

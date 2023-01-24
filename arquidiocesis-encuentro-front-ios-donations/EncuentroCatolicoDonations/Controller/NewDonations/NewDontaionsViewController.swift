@@ -16,52 +16,11 @@ import EncuentroCatolicoProfile
 import CryptoSwift
 import EncuentroCatolicoUtils
 import Alamofire
+import Network
+import EncuentroCatolicoVirtualLibrary
 
 class NewDontaionsViewController: BaseVC, NewDontaionsViewProtocol {
-    // MARK: PROTOCOL VAR -
-    var presenter: NewDontaionsPresneterProtocol?
-    lazy var fieldList: [ECUField] = [
-        taxSocialReasonField,
-        taxRFCField,
-        taxAddressField,
-        taxColonyField,
-        taxCPField,
-        taxTownHallField,
-        taxEmailField
-    ]
-    // MARK: LOCAL VAR -
-    var menuLine: UIView!
-    var menuItems = ["", "Ofrenda", "", "Facturar", ""]
-    var menuIcons = ["", "heart.fill", "", "doc.plaintext.fill", ""]
-    var itemsRadioBtn = ["Si", "No"]
-    var conceptType = ["Selecciona concepto", "Ofrenda", "Diezmo", "Limosna", "Pago de una intención", "pago de un servicio", "Otro"]
-    var amountList = ["10", "50", "100", "200", "300", "400", "500", "1000", "Otra"]
-    var isActive = [false, true]
-    var withBill: Bool {
-        isActive[safe: 0] ?? false
-    }
-    var listFavoritesLocations = [LocationsDontaions]()
-    var churchSuggestedList = [ChurchesSuggested]()
-    var listMainLocations = [AssignedDonations]()
-    var churchSelectedName = ""
-    var churchSelectedImg = ""
-    var churchSelecrtedId = 0
-    let loadingAlert = UIAlertController(title: "", message: "\n \n \n \n \nCargando...", preferredStyle: .alert)
-    var automaticBilling = false
-    var pickerDontaion = UIPickerView()
-    var pickerAmount = UIPickerView()
-    var isEditingData = false
-    var billingId = 0
-    var miliSeconds = 99
-    var seconds = 59
-    var minutes = 4
-    var timeLapse : Timer?
-    var flowId = 0
-    var billingData = [BillingData]()
-    let transition = SlideTransition()
-    let defaults = UserDefaults.standard
-    var responseData: String?
-    
+  
     // MARK: @IBOUTLETS -
     @IBOutlet weak var customNavbar: UIView!
     @IBOutlet weak var lblNavbar: UILabel!
@@ -193,6 +152,52 @@ class NewDontaionsViewController: BaseVC, NewDontaionsViewProtocol {
     @IBOutlet weak var changeContainerView: UIView!
     @IBOutlet weak var btnChangeData: UIButton!
     @IBOutlet weak var bottomArrowConstraint: NSLayoutConstraint!
+    // MARK: PROTOCOL VAR -
+    var presenter: NewDontaionsPresneterProtocol?
+    lazy var fieldList: [ECUField] = [
+        taxSocialReasonField,
+        taxRFCField,
+        taxAddressField,
+        taxColonyField,
+        taxCPField,
+        taxTownHallField,
+        taxEmailField
+    ]
+    // MARK: LOCAL VAR -
+    var menuLine: UIView!
+    var menuItems = ["", "Ofrenda", "", "Facturar", ""]
+    var menuIcons = ["", "heart.fill", "", "doc.plaintext.fill", ""]
+    var itemsRadioBtn = ["Si", "No"]
+    var conceptType = ["Selecciona concepto", "Ofrenda", "Diezmo", "Limosna", "Pago de una intención", "pago de un servicio", "Otro"]
+    var amountList = ["10", "50", "100", "200", "300", "400", "500", "1000", "Otra"]
+    var isActive = [false, true]
+    var withBill: Bool {
+        isActive[safe: 0] ?? false
+    }
+    var listFavoritesLocations = [LocationsDontaions]()
+    var churchSuggestedList = [ChurchesSuggested]()
+    var listMainLocations = [AssignedDonations]()
+    var churchSelectedName = ""
+    var churchSelectedImg = ""
+    var churchSelecrtedId = 0
+    let loadingAlert = UIAlertController(title: "", message: "\n \n \n \n \nCargando...", preferredStyle: .alert)
+    var automaticBilling = false
+    var pickerDontaion = UIPickerView()
+    var pickerAmount = UIPickerView()
+    var isEditingData = false
+    var billingId = 0
+    var miliSeconds = 99
+    var seconds = 59
+    var minutes = 4
+    var timeLapse : Timer?
+    var flowId = 0
+    var billingData = [BillingData]()
+    let transition = SlideTransition()
+    let defaults = UserDefaults.standard
+    var responseData: String?
+    let monitor = NWPathMonitor()
+    var isInternet=false
+    var alertFields : AcceptAlert?
     
     // MARK: LIFE CYCLE VIEW FUNCTIONS -
     func isValidRFC(rfc: String) -> Bool {
@@ -212,13 +217,13 @@ class NewDontaionsViewController: BaseVC, NewDontaionsViewProtocol {
         return validationPm.evaluate(with: self) || validationPf.evaluate(with: self)
     }
     
+    
     override func viewDidLoad() {
         super.viewDidLoad()
-        showLoading()
+        setupInternetObserver()
+  
         setupCollections()
         setupUI()
-        presenter?.requestChurchList(category: "CHURCH")
-        presenter?.requestSuggestedList()
         setupTables()
         setupFieldsDelegate()
         setupGestures()
@@ -227,9 +232,33 @@ class NewDontaionsViewController: BaseVC, NewDontaionsViewProtocol {
     
     override func viewWillAppear(_ animated: Bool) {
         print("VC ECDonations - NewDonations")
+        if isInternet {
+            showLoading()
+            presenter?.requestChurchList(category: "CHURCH")
+            presenter?.requestSuggestedList()
+        } else {
+            self.alertFields = AcceptAlert.showAlert(titulo: " ¡Atención!", mensaje: "No tienes conexión a internet")
+            self.alertFields!.view.backgroundColor = .clear
+            self.present(self.alertFields!, animated: true)
+        }
     }
     
     // MARK: SETUP FUNCTIONS -
+    
+    func setupInternetObserver(){
+        monitor.pathUpdateHandler = { pathUpdateHandler in
+                   if pathUpdateHandler.status == .satisfied {
+                       print("Internet connection is on.")
+                       self.isInternet=true
+                   } else {
+                       print("There's no internet connection.")
+                       self.isInternet=false
+                   }
+               }
+               let queue = DispatchQueue(label: "Network")
+               monitor.start(queue: queue)
+    }
+    
     private func setupUI() {
         customNavbar.layer.cornerRadius = 20
         customNavbar.ShadowNavBar()
@@ -338,18 +367,12 @@ class NewDontaionsViewController: BaseVC, NewDontaionsViewProtocol {
         guard let url = URL(string: setSecureURL() ?? "") else { return }
         print("URLWEBPAY👹",url)
         myWebView.load(URLRequest(url: url))
-        
         // Sencilla
         //https://qamiofrenda.pamatz.com/pagos/data?amount=1&email=rdpamatz@gmail.com&name=Roman&surnames=Pamatz&phone_number=5516171324&location_id=629&operation_id=68844
-        
         // Con facturacion
         //https://qamiofrenda.pamatz.com/pagos/data?amount=1&email=rdpamatz@gmail.com&name=Roman&surnames=Pamatz&phone_number=5516171324&location_id=629&operation_id=68844&rfc=PPP212121XXX&business_name=TEST&address=Calle,1&neighborhood=colonia&municipality=municipio&zipcode=00000
-        
-        
         // self.webView = WKWebView( frame: self.containerView!.bounds, configuration: config)
         // self.view = self.webView
-        
-        
     }
     
     private func setSecureURL() -> String? {

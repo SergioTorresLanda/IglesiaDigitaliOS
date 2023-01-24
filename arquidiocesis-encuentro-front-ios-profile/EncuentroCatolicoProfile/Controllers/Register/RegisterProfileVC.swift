@@ -186,7 +186,7 @@ class RegisterProfileViewController: BaseViewController, ProfileInfoViewProtocol
     var congregationNewIdArray: [CongregationsResponse] = []
     var congregationNewSeleted: Array<CongregationsResponse>?
     let loadingAlert = UIAlertController(title: "", message: "\n \n \n \n \nCargando...", preferredStyle: .alert)
-    
+    var preProfile:PreProfilePriest?
     
     override func viewDidLoad() {
         super.viewDidLoad()

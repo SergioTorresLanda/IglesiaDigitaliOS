@@ -47,11 +47,16 @@ class AppDelegate: UIResponder, UIApplicationDelegate, UNUserNotificationCenterD
         window?.backgroundColor = .white
         openLogin()
         
-        notificationPush.registerForPN()        
+        notificationPush.registerForPN()
+        
         return true
     }
     
     func applicationWillEnterForeground(_ application: UIApplication) {
         checkForceReloadFirebase()
+    }
+    
+    func applicationDidBecomeActive(_ application: UIApplication) {
+        NotificationCenter.default.post(name: Notification.Name("appBecomeActive"), object: nil)
     }
 }
