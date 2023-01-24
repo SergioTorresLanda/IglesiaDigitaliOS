@@ -60,7 +60,8 @@ public class EditImagesViewController: UIViewController, EditImagesViewProtocol 
     @objc func addMoreImages(_ sender: UIButton) {
         let vc = ImagePickerViewController() as ImagePickerController
         vc.delegate = self
-        vc.modalPresentationStyle = .fullScreen
+        vc.modalPresentationStyle = .overFullScreen
+        vc.navigationBar.backgroundColor = .white
         self.present(vc, animated: true)
     }
     
