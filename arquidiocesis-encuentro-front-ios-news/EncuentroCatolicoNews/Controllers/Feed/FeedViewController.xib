@@ -28,15 +28,12 @@
             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
             <subviews>
                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="EgX-zu-1Yi" userLabel="ViewShimmer">
-                    <rect key="frame" x="10" y="213" width="394" height="579"/>
+                    <rect key="frame" x="10" y="213" width="394" height="569"/>
                     <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                 </view>
                 <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" showsHorizontalScrollIndicator="NO" showsVerticalScrollIndicator="NO" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="HKr-RV-DnL">
-                    <rect key="frame" x="0.0" y="221" width="414" height="571"/>
-                    <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                    <constraints>
-                        <constraint firstAttribute="height" relation="greaterThanOrEqual" constant="420" id="m96-SM-9KD"/>
-                    </constraints>
+                    <rect key="frame" x="0.0" y="221" width="414" height="561"/>
+                    <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                 </tableView>
                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="HTT-HB-Glz" userLabel="ViewHead">
                     <rect key="frame" x="0.0" y="24" width="414" height="85"/>
@@ -193,8 +190,8 @@
                 <constraint firstItem="5FC-Yc-Ffy" firstAttribute="leading" secondItem="y1Z-e5-Obm" secondAttribute="leading" id="aU9-on-k3h"/>
                 <constraint firstItem="EgX-zu-1Yi" firstAttribute="leading" secondItem="y1Z-e5-Obm" secondAttribute="leading" constant="10" id="eIH-Gc-Ndz"/>
                 <constraint firstAttribute="trailing" secondItem="HTT-HB-Glz" secondAttribute="trailing" id="fy4-Ig-g2M"/>
-                <constraint firstItem="y1Z-e5-Obm" firstAttribute="bottom" secondItem="HKr-RV-DnL" secondAttribute="bottom" constant="70" id="how-Zd-sEi"/>
-                <constraint firstItem="y1Z-e5-Obm" firstAttribute="bottom" secondItem="EgX-zu-1Yi" secondAttribute="bottom" constant="70" id="lxa-K5-Dxd"/>
+                <constraint firstItem="y1Z-e5-Obm" firstAttribute="bottom" secondItem="HKr-RV-DnL" secondAttribute="bottom" constant="80" id="how-Zd-sEi"/>
+                <constraint firstItem="y1Z-e5-Obm" firstAttribute="bottom" secondItem="EgX-zu-1Yi" secondAttribute="bottom" constant="80" id="lxa-K5-Dxd"/>
                 <constraint firstItem="y1Z-e5-Obm" firstAttribute="trailing" secondItem="EgX-zu-1Yi" secondAttribute="trailing" constant="10" id="sKa-7B-WMT"/>
                 <constraint firstItem="HTT-HB-Glz" firstAttribute="top" secondItem="y1Z-e5-Obm" secondAttribute="top" constant="-20" id="xeR-08-xCw"/>
             </constraints>

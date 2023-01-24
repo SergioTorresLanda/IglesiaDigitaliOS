@@ -41,6 +41,7 @@ public class FeedTVC: UITableViewCell, CustomPopOverDelegate {
     
     @IBOutlet public lazy var collectionView: UICollectionView? = {
         let collectionView = UICollectionView()
+        
         return collectionView
     }()
     
@@ -62,6 +63,7 @@ public class FeedTVC: UITableViewCell, CustomPopOverDelegate {
     var pistId: Int = 0
     var newPost: Posts?
     var url=""
+    var indexpath=0
     
     //MARK: - Properties
     public weak var delegate: FeedTVCProtocol?
@@ -255,7 +257,10 @@ extension FeedTVC: UICollectionViewDataSource {
 //MARK: - UICollectionViewDelegate
 extension FeedTVC: UICollectionViewDelegate {
     public func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
-//        delegate?.showDetailPost(id: self.tag)
+        print("tag :::::::::::::")
+        print(String(indexpath))
+        delegate?.showDetailPost(id: indexpath)
+      
     }
 }
 

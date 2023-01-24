@@ -23,9 +23,7 @@ public class FeedViewController: UIViewController, FeedViewProtocol, FeedViewCon
     
     //MARK: - @IBoutlets
     @IBOutlet public weak var notificationView: UIView!
-    @IBOutlet public weak var tableView: UITableView! {
-        didSet { tableView.tableFooterView = UIView() }
-    }
+    @IBOutlet public weak var tableView: UITableView!
     @IBOutlet weak var barraNavegacion: UIView!
     @IBOutlet weak var txfSearch: UITextField!
     @IBOutlet weak var btnCreatePost: UIButton!
@@ -72,7 +70,6 @@ public class FeedViewController: UIViewController, FeedViewProtocol, FeedViewCon
     
     override public func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(animated)
-        //tableView.reloadData()
     }
 
     
