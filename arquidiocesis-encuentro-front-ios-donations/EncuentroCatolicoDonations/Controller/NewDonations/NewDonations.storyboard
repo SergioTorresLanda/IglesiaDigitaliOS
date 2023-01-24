@@ -54,7 +54,7 @@
                                 </constraints>
                             </view>
                             <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="MzZ-0y-80z">
-                                <rect key="frame" x="0.0" y="110" width="414" height="682"/>
+                                <rect key="frame" x="0.0" y="110" width="414" height="672"/>
                                 <subviews>
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="8Bf-Ff-pDl">
                                         <rect key="frame" x="0.0" y="0.0" width="414" height="334.5"/>
@@ -282,14 +282,13 @@
                                                                         </constraints>
                                                                     </imageView>
                                                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="leading" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="jk9-45-biF">
-                                                                        <rect key="frame" x="141" y="4.5" width="265" height="31"/>
+                                                                        <rect key="frame" x="166" y="4.5" width="220" height="31"/>
                                                                         <constraints>
-                                                                            <constraint firstAttribute="width" constant="265" id="s0g-WU-DKP"/>
                                                                             <constraint firstAttribute="height" constant="31" id="wkv-id-MrV"/>
                                                                         </constraints>
                                                                         <color key="tintColor" red="0.10980392156862745" green="0.45882352941176469" blue="0.73725490196078436" alpha="1" colorSpace="calibratedRGB"/>
                                                                         <state key="normal" title="Button"/>
-                                                                        <buttonConfiguration key="configuration" style="plain" title="Buscar por geolocalización">
+                                                                        <buttonConfiguration key="configuration" style="plain" title="Buscar por geolocalización   ">
                                                                             <fontDescription key="titleFontDescription" type="boldSystem" pointSize="14"/>
                                                                         </buttonConfiguration>
                                                                         <connections>
@@ -300,9 +299,8 @@
                                                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                                 <constraints>
                                                                     <constraint firstItem="jk9-45-biF" firstAttribute="centerY" secondItem="bGo-cz-ALq" secondAttribute="centerY" id="XX5-Ii-Lw3"/>
-                                                                    <constraint firstAttribute="trailing" secondItem="jk9-45-biF" secondAttribute="trailing" constant="8" id="byM-oY-LiP"/>
                                                                     <constraint firstAttribute="trailing" secondItem="6dx-6u-gSx" secondAttribute="trailing" constant="28" id="cow-FX-QrT"/>
-                                                                    <constraint firstAttribute="trailing" secondItem="jk9-45-biF" secondAttribute="trailing" constant="8" id="fbK-PH-Qdf"/>
+                                                                    <constraint firstAttribute="trailing" secondItem="jk9-45-biF" secondAttribute="trailing" constant="28" id="fbK-PH-Qdf"/>
                                                                     <constraint firstItem="6dx-6u-gSx" firstAttribute="centerY" secondItem="bGo-cz-ALq" secondAttribute="centerY" id="hzU-e2-5mN"/>
                                                                     <constraint firstAttribute="height" constant="40" id="w1f-3u-tSn"/>
                                                                 </constraints>
@@ -1011,20 +1009,20 @@
                                 <viewLayoutGuide key="frameLayoutGuide" id="lAS-Ht-XkH"/>
                             </scrollView>
                             <view hidden="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="DSF-5K-2s5">
-                                <rect key="frame" x="20" y="270" width="374" height="512"/>
+                                <rect key="frame" x="20" y="270" width="374" height="502"/>
                                 <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                             </view>
                             <view hidden="YES" alpha="0.5" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="l29-Yt-m1o">
-                                <rect key="frame" x="0.0" y="230" width="414" height="562"/>
+                                <rect key="frame" x="0.0" y="230" width="414" height="552"/>
                                 <subviews>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Cargando" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="XkS-bz-BZ8">
-                                        <rect key="frame" x="161" y="338" width="92.5" height="24"/>
+                                        <rect key="frame" x="161" y="333" width="92.5" height="24"/>
                                         <fontDescription key="fontDescription" type="boldSystem" pointSize="20"/>
                                         <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         <nil key="highlightedColor"/>
                                     </label>
                                     <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="CircleLodareImg" translatesAutoresizingMaskIntoConstraints="NO" id="vDg-2g-icd">
-                                        <rect key="frame" x="172" y="246" width="70" height="70"/>
+                                        <rect key="frame" x="172" y="241" width="70" height="70"/>
                                         <constraints>
                                             <constraint firstAttribute="width" constant="70" id="etb-GR-f0C"/>
                                             <constraint firstAttribute="height" constant="70" id="yF1-ef-L1F"/>
@@ -1040,7 +1038,7 @@
                                 </constraints>
                             </view>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="sxa-K8-imV">
-                                <rect key="frame" x="157" y="742" width="100" height="40"/>
+                                <rect key="frame" x="157" y="732" width="100" height="40"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="40" id="ZQM-q8-yW9"/>
@@ -1057,22 +1055,22 @@
                         <viewLayoutGuide key="safeArea" id="vDu-zF-Fre"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                         <constraints>
-                            <constraint firstItem="vDu-zF-Fre" firstAttribute="bottom" secondItem="MzZ-0y-80z" secondAttribute="bottom" constant="70" id="23y-Rd-mUd"/>
+                            <constraint firstItem="vDu-zF-Fre" firstAttribute="bottom" secondItem="MzZ-0y-80z" secondAttribute="bottom" constant="80" id="23y-Rd-mUd"/>
                             <constraint firstAttribute="trailing" secondItem="izM-V0-Q3N" secondAttribute="trailing" constant="-20" id="3Qc-pO-1oR"/>
-                            <constraint firstItem="vDu-zF-Fre" firstAttribute="bottom" secondItem="DSF-5K-2s5" secondAttribute="bottom" constant="80" id="7mH-4n-K6O"/>
+                            <constraint firstItem="vDu-zF-Fre" firstAttribute="bottom" secondItem="DSF-5K-2s5" secondAttribute="bottom" constant="90" id="7mH-4n-K6O"/>
                             <constraint firstItem="izM-V0-Q3N" firstAttribute="leading" secondItem="vDu-zF-Fre" secondAttribute="leading" id="8xV-vs-qJ6"/>
                             <constraint firstItem="DSF-5K-2s5" firstAttribute="top" secondItem="izM-V0-Q3N" secondAttribute="bottom" constant="170" id="Axg-k2-Yoq"/>
                             <constraint firstItem="vDu-zF-Fre" firstAttribute="trailing" secondItem="DSF-5K-2s5" secondAttribute="trailing" constant="20" id="HJk-VY-7YT"/>
                             <constraint firstItem="MzZ-0y-80z" firstAttribute="leading" secondItem="vDu-zF-Fre" secondAttribute="leading" id="Hvg-yi-BB3"/>
                             <constraint firstItem="sxa-K8-imV" firstAttribute="centerX" secondItem="5EZ-qb-Rvc" secondAttribute="centerX" id="Re9-Ss-wXY"/>
                             <constraint firstItem="DSF-5K-2s5" firstAttribute="leading" secondItem="vDu-zF-Fre" secondAttribute="leading" constant="20" id="Rnu-Gf-Xoh"/>
-                            <constraint firstItem="vDu-zF-Fre" firstAttribute="bottom" secondItem="sxa-K8-imV" secondAttribute="bottom" constant="80" id="RvT-dG-fRa"/>
+                            <constraint firstItem="vDu-zF-Fre" firstAttribute="bottom" secondItem="sxa-K8-imV" secondAttribute="bottom" constant="90" id="RvT-dG-fRa"/>
                             <constraint firstItem="l29-Yt-m1o" firstAttribute="trailing" secondItem="vDu-zF-Fre" secondAttribute="trailing" id="S5d-vg-Yys"/>
                             <constraint firstItem="l29-Yt-m1o" firstAttribute="top" secondItem="izM-V0-Q3N" secondAttribute="bottom" constant="130" id="Vyr-Su-Twi"/>
                             <constraint firstItem="MzZ-0y-80z" firstAttribute="trailing" secondItem="vDu-zF-Fre" secondAttribute="trailing" id="WaV-hJ-QfJ"/>
                             <constraint firstItem="l29-Yt-m1o" firstAttribute="leading" secondItem="vDu-zF-Fre" secondAttribute="leading" id="YWl-vm-JmV"/>
                             <constraint firstItem="izM-V0-Q3N" firstAttribute="top" secondItem="5EZ-qb-Rvc" secondAttribute="top" constant="-20" id="kRy-ga-Vry"/>
-                            <constraint firstItem="vDu-zF-Fre" firstAttribute="bottom" secondItem="l29-Yt-m1o" secondAttribute="bottom" constant="70" id="neU-2i-8RA"/>
+                            <constraint firstItem="vDu-zF-Fre" firstAttribute="bottom" secondItem="l29-Yt-m1o" secondAttribute="bottom" constant="80" id="neU-2i-8RA"/>
                             <constraint firstItem="MzZ-0y-80z" firstAttribute="top" secondItem="izM-V0-Q3N" secondAttribute="bottom" constant="10" id="y11-4y-wj4"/>
                         </constraints>
                     </view>
@@ -1363,10 +1361,10 @@
         <image name="NewIcono_buscar" width="25" height="25"/>
         <image name="TwoPoints" width="4" height="12"/>
         <image name="arrow_drop_down_24px" width="24" height="24"/>
-        <image name="checkmark.square.fill" catalog="system" width="32" height="32"/>
+        <image name="checkmark.square.fill" catalog="system" width="128" height="114"/>
         <image name="logo-icono-nuevo" width="21.5" height="28.5"/>
         <image name="placeholder_church" width="66" height="66"/>
-        <image name="square" catalog="system" width="32" height="32"/>
+        <image name="square" catalog="system" width="128" height="114"/>
         <namedColor name="eMainBlue">
             <color red="0.0039215686274509803" green="0.12549019607843137" blue="0.40784313725490196" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </namedColor>
