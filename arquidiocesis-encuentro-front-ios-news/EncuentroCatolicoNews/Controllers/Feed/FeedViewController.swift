@@ -102,6 +102,10 @@ public class FeedViewController: UIViewController, FeedViewProtocol, FeedViewCon
         barraNavegacion.layer.shadowColor = UIColor.black.cgColor
         barraNavegacion.layer.maskedCorners = [.layerMinXMaxYCorner, .layerMaxXMaxYCorner]
         
+        if let imageString = UserDefaults.standard.string(forKey: "imageUrl") {
+                    imgProfile.loadS(urlS:imageString)
+                }
+        
         refreshControl.addTarget(self, action: #selector(refresh(_:)), for: .valueChanged)
         
         tableView.addSubview(refreshControl)
