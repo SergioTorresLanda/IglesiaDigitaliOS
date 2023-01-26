@@ -40,6 +40,8 @@ extension FollowersPresenter: FollowersInteractorOutputProtocol {
     }
     
     func followAndUnFollowError(with error: SocialNetworkErrors){
+        print("ES EL ERROR")
+        print(error)
         view?.followServiceError(with: error)
     }
     

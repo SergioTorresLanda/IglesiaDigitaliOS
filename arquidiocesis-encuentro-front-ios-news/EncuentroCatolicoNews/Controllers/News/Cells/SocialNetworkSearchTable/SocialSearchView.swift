@@ -30,6 +30,7 @@ class SocialSearchView: UIViewController, SocialSearchViewProtocol {
     override func viewDidLoad() {
         super.viewDidLoad()
         setupTableView()
+        self.hideKeyboardWhenTappedAround()
         setupUI()
 
     }
@@ -68,6 +69,16 @@ class SocialSearchView: UIViewController, SocialSearchViewProtocol {
     @IBAction func clearAction(_ sender: Any) {
         searchField.text = ""
         btnCross.isHidden = true
+    }
+    
+    func hideKeyboardWhenTappedAround(){
+        let tap = UITapGestureRecognizer(target: self, action: #selector(dismissKeyboard))
+        tap.cancelsTouchesInView = false
+        view.addGestureRecognizer(tap)
+    }
+    
+    @objc func dismissKeyboard() {
+        view.endEditing(true)
     }
     
 // MARK: @OBJC FUNCTIONS -
