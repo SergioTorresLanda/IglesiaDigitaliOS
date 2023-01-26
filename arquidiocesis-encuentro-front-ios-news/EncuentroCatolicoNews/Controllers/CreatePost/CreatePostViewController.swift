@@ -231,11 +231,14 @@ public class CreatePostViewController: UIViewController, CreatePostViewProtocol 
         vwCreatePost1.clipsToBounds = true
         titleNavController.text = !editPost ? "Nueva publicación" : "Editar publicación"
         nameLabel.text = defaults.string(forKey: "COMPLETENAME")
-        userImage.setImage(name: defaults.string(forKey: "COMPLETENAME"), image: nil)
+//        userImage.setImage(name: defaults.string(forKey: "COMPLETENAME"), image: nil)
         asParam = group?.role == "Admin" ? "Admin" : "User"
         btnPublicar.setTitle("", for: .normal)
         btnCancel.setTitle("", for: .normal)
         userContainer.isHidden = group?.role == "Admin" ? false : true
+        if let imageString = UserDefaults.standard.string(forKey: "imageUrl") {
+            userImage.loadS(urlS:imageString)
+        }
 
         userContainer.isUserInteractionEnabled = true
         userContainer.setCorner(cornerRadius: 5)

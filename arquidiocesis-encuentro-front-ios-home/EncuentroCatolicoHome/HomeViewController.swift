@@ -124,12 +124,10 @@ class HomeViewController: UIViewController, HomeViewProtocol, UITextFieldDelegat
         self.alert.dismiss(animated: true, completion: nil)
     }
     func showLoading(){
-        DispatchQueue.main.asyncAfter(deadline: .now() + 0.2, execute: {
-            let imageView = UIImageView(frame: CGRect(x: 75, y: 25, width: 140, height: 60))
-            imageView.image = UIImage(named: "logoEncuentro", in: Bundle.local, compatibleWith: nil)
-            self.alert.view.addSubview(imageView)
-            self.present(self.alert, animated: false, completion: nil)
-        })
+        let imageView = UIImageView(frame: CGRect(x: 75, y: 25, width: 140, height: 60))
+        imageView.image = UIImage(named: "logoEncuentro", in: Bundle.local, compatibleWith: nil)
+        alert.view.addSubview(imageView)
+        self.present(alert, animated: false, completion: nil)
     }
     
     override func viewDidLayoutSubviews() {
@@ -264,10 +262,15 @@ class HomeViewController: UIViewController, HomeViewProtocol, UITextFieldDelegat
                     self.nombrePersona.adjustsFontSizeToFitWidth = true
                     if profile == "DEVOTED_ADMIN" || profile == "DEAN_PRIEST"{
                         UserDefaults.standard.set(true, forKey: "isPriest")
+                        1
                     }else{
                         UserDefaults.standard.set(false, forKey: "isPriest")
                     }
                 }
+                
+                DispatchQueue.main.asyncAfter(deadline: .now() + 1, execute: {
+                    self.hideLoading()
+                })
             }
         })
     }
@@ -347,6 +350,7 @@ class HomeViewController: UIViewController, HomeViewProtocol, UITextFieldDelegat
             userImage.image = UIImage(named: "userImage", in: Bundle.local, compatibleWith: nil)
         }else{
             userImage.DownloadStaticImageH(dataResponse.data?.User?.image ?? "nil")
+            
         }
         
         if isWillAppear == false {

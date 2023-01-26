@@ -119,7 +119,7 @@ extension FeedTVCV2: UICollectionViewDelegate{
      */
     
     public func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
-        
+        print("didselec image ::::::::::::::::::::::")
     }
 }
 

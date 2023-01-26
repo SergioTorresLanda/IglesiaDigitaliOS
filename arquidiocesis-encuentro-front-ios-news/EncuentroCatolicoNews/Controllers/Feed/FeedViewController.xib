@@ -28,18 +28,18 @@
             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
             <subviews>
                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="EgX-zu-1Yi" userLabel="ViewShimmer">
-                    <rect key="frame" x="10" y="204" width="394" height="588"/>
+                    <rect key="frame" x="10" y="213" width="394" height="569"/>
                     <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                 </view>
                 <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" showsHorizontalScrollIndicator="NO" showsVerticalScrollIndicator="NO" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="HKr-RV-DnL">
-                    <rect key="frame" x="0.0" y="212" width="414" height="570"/>
-                    <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                    <rect key="frame" x="0.0" y="221" width="414" height="561"/>
+                    <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                 </tableView>
                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="HTT-HB-Glz" userLabel="ViewHead">
-                    <rect key="frame" x="0.0" y="-20" width="414" height="120"/>
+                    <rect key="frame" x="0.0" y="24" width="414" height="85"/>
                     <subviews>
                         <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="WvN-Du-SE3">
-                            <rect key="frame" x="0.0" y="0.0" width="120" height="120"/>
+                            <rect key="frame" x="0.0" y="0.0" width="85" height="85"/>
                             <constraints>
                                 <constraint firstAttribute="width" secondItem="WvN-Du-SE3" secondAttribute="height" multiplier="1:1" id="Neg-TL-itG"/>
                             </constraints>
@@ -48,7 +48,7 @@
                             </connections>
                         </button>
                         <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="back" translatesAutoresizingMaskIntoConstraints="NO" id="87a-mg-PfY">
-                            <rect key="frame" x="15" y="65" width="25" height="25"/>
+                            <rect key="frame" x="15" y="30" width="25" height="25"/>
                             <color key="tintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                             <constraints>
                                 <constraint firstAttribute="height" constant="25" id="Vcf-yz-10k"/>
@@ -56,7 +56,7 @@
                             </constraints>
                         </imageView>
                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Red social" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="FM8-uF-yCL">
-                            <rect key="frame" x="164" y="66.666666666666657" width="86" height="22"/>
+                            <rect key="frame" x="164" y="31.666666666666664" width="86" height="22"/>
                             <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="18"/>
                             <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                             <nil key="highlightedColor"/>
@@ -64,14 +64,14 @@
                     </subviews>
                     <color key="backgroundColor" name="ePrimary"/>
                     <constraints>
-                        <constraint firstItem="FM8-uF-yCL" firstAttribute="centerY" secondItem="87a-mg-PfY" secondAttribute="centerY" id="73A-Xs-tIT"/>
-                        <constraint firstAttribute="bottom" secondItem="87a-mg-PfY" secondAttribute="bottom" constant="30" id="9kj-7O-0Xz"/>
+                        <constraint firstItem="FM8-uF-yCL" firstAttribute="centerY" secondItem="HTT-HB-Glz" secondAttribute="centerY" id="73A-Xs-tIT"/>
                         <constraint firstItem="WvN-Du-SE3" firstAttribute="leading" secondItem="HTT-HB-Glz" secondAttribute="leading" id="HoB-3k-8AX"/>
                         <constraint firstItem="WvN-Du-SE3" firstAttribute="top" secondItem="HTT-HB-Glz" secondAttribute="top" id="KPF-eh-GOn"/>
                         <constraint firstItem="87a-mg-PfY" firstAttribute="leading" secondItem="HTT-HB-Glz" secondAttribute="leading" constant="15" id="TcR-Vn-3mw"/>
-                        <constraint firstAttribute="height" constant="120" id="cnf-0v-cpT"/>
+                        <constraint firstAttribute="height" constant="85" id="cnf-0v-cpT"/>
                         <constraint firstAttribute="bottom" secondItem="WvN-Du-SE3" secondAttribute="bottom" id="osx-h8-06O"/>
                         <constraint firstItem="FM8-uF-yCL" firstAttribute="centerX" secondItem="HTT-HB-Glz" secondAttribute="centerX" id="wcb-T1-dtb"/>
+                        <constraint firstItem="87a-mg-PfY" firstAttribute="centerY" secondItem="HTT-HB-Glz" secondAttribute="centerY" id="zSY-4I-R36"/>
                     </constraints>
                     <userDefinedRuntimeAttributes>
                         <userDefinedRuntimeAttribute type="number" keyPath="layer.shadowOpacity">
@@ -86,7 +86,7 @@
                     </userDefinedRuntimeAttributes>
                 </view>
                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="5FC-Yc-Ffy" userLabel="ViewSearch">
-                    <rect key="frame" x="0.0" y="108" width="414" height="96"/>
+                    <rect key="frame" x="0.0" y="117" width="414" height="96"/>
                     <subviews>
                         <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="Buscar en red social" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="9Dn-jc-Bvm">
                             <rect key="frame" x="72" y="6" width="326" height="47"/>
@@ -191,9 +191,9 @@
                 <constraint firstItem="EgX-zu-1Yi" firstAttribute="leading" secondItem="y1Z-e5-Obm" secondAttribute="leading" constant="10" id="eIH-Gc-Ndz"/>
                 <constraint firstAttribute="trailing" secondItem="HTT-HB-Glz" secondAttribute="trailing" id="fy4-Ig-g2M"/>
                 <constraint firstItem="y1Z-e5-Obm" firstAttribute="bottom" secondItem="HKr-RV-DnL" secondAttribute="bottom" constant="80" id="how-Zd-sEi"/>
-                <constraint firstItem="y1Z-e5-Obm" firstAttribute="bottom" secondItem="EgX-zu-1Yi" secondAttribute="bottom" constant="70" id="lxa-K5-Dxd"/>
+                <constraint firstItem="y1Z-e5-Obm" firstAttribute="bottom" secondItem="EgX-zu-1Yi" secondAttribute="bottom" constant="80" id="lxa-K5-Dxd"/>
                 <constraint firstItem="y1Z-e5-Obm" firstAttribute="trailing" secondItem="EgX-zu-1Yi" secondAttribute="trailing" constant="10" id="sKa-7B-WMT"/>
-                <constraint firstItem="HTT-HB-Glz" firstAttribute="top" secondItem="i5M-Pr-FkT" secondAttribute="top" constant="-20" id="xeR-08-xCw"/>
+                <constraint firstItem="HTT-HB-Glz" firstAttribute="top" secondItem="y1Z-e5-Obm" secondAttribute="top" constant="-20" id="xeR-08-xCw"/>
             </constraints>
             <nil key="simulatedBottomBarMetrics"/>
             <point key="canvasLocation" x="25" y="90"/>

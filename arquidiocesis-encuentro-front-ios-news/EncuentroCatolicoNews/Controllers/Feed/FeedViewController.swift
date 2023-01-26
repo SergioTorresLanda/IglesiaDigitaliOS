@@ -23,9 +23,7 @@ public class FeedViewController: UIViewController, FeedViewProtocol, FeedViewCon
     
     //MARK: - @IBoutlets
     @IBOutlet public weak var notificationView: UIView!
-    @IBOutlet public weak var tableView: UITableView! {
-        didSet { tableView.tableFooterView = UIView() }
-    }
+    @IBOutlet public weak var tableView: UITableView!
     @IBOutlet weak var barraNavegacion: UIView!
     @IBOutlet weak var txfSearch: UITextField!
     @IBOutlet weak var btnCreatePost: UIButton!
@@ -58,6 +56,7 @@ public class FeedViewController: UIViewController, FeedViewProtocol, FeedViewCon
         super.viewDidLoad()
         NotificationCenter.default.addObserver(self, selector: #selector(self.methodOfReceivedNotification(notification:)), name: Notification.Name("NotificationFeed"), object: nil)
         
+        
         setUpView()
     }
     
@@ -71,7 +70,6 @@ public class FeedViewController: UIViewController, FeedViewProtocol, FeedViewCon
     
     override public func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(animated)
-        //tableView.reloadData()
     }
 
     
@@ -88,23 +86,25 @@ public class FeedViewController: UIViewController, FeedViewProtocol, FeedViewCon
     
     private func setUpView() {
         
+        
         let img = UIImage(named: "iconSearch", in: Bundle(for: FeedViewController.self), compatibleWith: nil)
         setPaddingWithImage(image: img ?? UIImage(), textField: txfSearch)
         imgProfile.layer.borderWidth = 0.5
         imgProfile.layer.borderColor = UIColor.black.cgColor
         imgProfile.clipsToBounds = true
         imgProfile.makeRounded()
-        imgProfile.setImage(name: name, image: nil)
+//        imgProfile.setImage(name: name, image: nil)
+        if let imageString = UserDefaults.standard.string(forKey: "imageUrl") {
+            imgProfile.loadS(urlS:imageString)
+        }
+//        imgProfile.layer.cornerRadius = imgProfile.bounds.width / 2
+        
         btnCreatePost.setTitle("", for: .normal)
         barraNavegacion.layer.cornerRadius = 30
         barraNavegacion.layer.shadowRadius = 5
         barraNavegacion.layer.shadowOpacity = 0.5
         barraNavegacion.layer.shadowColor = UIColor.black.cgColor
         barraNavegacion.layer.maskedCorners = [.layerMinXMaxYCorner, .layerMaxXMaxYCorner]
-        
-        if let imageString = UserDefaults.standard.string(forKey: "imageUrl") {
-                    imgProfile.loadS(urlS:imageString)
-                }
         
         refreshControl.addTarget(self, action: #selector(refresh(_:)), for: .valueChanged)
         
@@ -210,4 +210,5 @@ public class FeedViewController: UIViewController, FeedViewProtocol, FeedViewCon
         tableView.reloadData()
     }
 }
+
 

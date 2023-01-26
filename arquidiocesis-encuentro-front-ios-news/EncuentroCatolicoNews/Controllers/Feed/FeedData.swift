@@ -54,6 +54,7 @@ extension FeedViewController: UITableViewDataSource {
             cell.btnComments.tag = indexPath.row
             cell.btnShared.tag = indexPath.row
             cell.btnFollow.tag = indexPath.row
+            cell.indexpath = indexPath.row
             cell.delegate = self
             
             if newPosts[indexPath.row].scope?.id != nil && newPosts[indexPath.row].scope?.name != nil{
@@ -167,9 +168,6 @@ extension FeedViewController: UITableViewDelegate {
     public func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
    
         print("Holaaaaa-------------")
-//        if let url = URL(string: "https://bit.ly/3WwZdYm") {
-//            UIApplication.shared.open(url)
-//        }
         //if indexPath.section == 1 {
         let post = newPosts[indexPath.row] //else { return }
         print("Holaaaaa--2222222")
@@ -244,8 +242,14 @@ extension FeedViewController: FeedTVCProtocol {
     }
     
     public func showDetailPost(id: Int) {
-        guard let post = RealmManager.fetchDataForPK(object: PublicationRealm.self, id: id) else { return }
-        presenter?.showPostDetail(navController: self.navigationController, post: post)
+        //guard let post = RealmManager.fetchDataForPK(object: PublicationRealm.self, id: id) else { return }
+        //presenter?.showPostDetail(navController: self.navigationController, post: post)
+        print("Holaaaaa--------2")
+        let post = newPosts[id]
+        let storyBoard: UIStoryboard = UIStoryboard(name: "RedSocialSB", bundle: Bundle.local)
+        let newVC = storyBoard.instantiateViewController(withIdentifier: "RedSocialNewsViewController") as! RedSocialNewsViewController
+        newVC.post = post
+        self.navigationController!.pushViewController(newVC, animated: true)
     }
     
     public func presentFullScreenVideo(videoURL: String?) {

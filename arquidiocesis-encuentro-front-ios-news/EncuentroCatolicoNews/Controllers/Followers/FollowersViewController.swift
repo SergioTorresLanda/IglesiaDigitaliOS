@@ -49,12 +49,14 @@ class FollowersViewController: UIViewController {
         imgProfile.layer.borderColor = UIColor.black.cgColor
         imgProfile.clipsToBounds = true
         imgProfile.makeRounded()
-        
-        if let imageData = UserDefaults.standard.data(forKey: "userImage"), let image = UIImage(data: imageData) {
-            imgProfile.image = image
-        }else{
-            imgProfile.image = UIImage(named: "iconProfile", in: Bundle.local, compatibleWith: nil)
+        if let imageString = UserDefaults.standard.string(forKey: "imageUrl") {
+            imgProfile.loadS(urlS:imageString)
         }
+//        if let imageData = UserDefaults.standard.data(forKey: "userImage"), let image = UIImage(data: imageData) {
+//            imgProfile.image = image
+//        }else{
+//            imgProfile.image = UIImage(named: "iconProfile", in: Bundle.local, compatibleWith: nil)
+//        }
         
         dispatchGroup.notify(queue: .main) {
             let codeSegmented = CustomSegmentedControl(frame: CGRect(x: self.segmentedControlView.frame.origin.x, y: self.segmentedControlView.frame.origin.y, width: self.segmentedControlView.frame.width, height: 40), buttonTitle: ["\(self.arrFollowers.count) Seguidores", "\(self.arrFollowed.count) Seguidos"])
