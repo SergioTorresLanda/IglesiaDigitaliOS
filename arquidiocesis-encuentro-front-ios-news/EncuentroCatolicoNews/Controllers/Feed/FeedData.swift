@@ -64,7 +64,9 @@ extension FeedViewController: UITableViewDataSource {
                 cell.nameLabel.text = newPosts[indexPath.row].author?.name
                 print("angel in \(newPosts[indexPath.row].content)")
                 if (newPosts[indexPath.row].author?.image) != nil{
-                    cell.userImage.image = UIImage(named: newPosts[indexPath.row].author?.image ?? "")
+                    let url = URL(string: newPosts[indexPath.row].author?.image ?? "")
+                    let data = try? Data(contentsOf: url!)
+                    cell.userImage.image = UIImage(data: data!)
                     
                 }else{
                     cell.userImage.image = UIImage(named: "iconProfile", in: Bundle.local, compatibleWith: nil)

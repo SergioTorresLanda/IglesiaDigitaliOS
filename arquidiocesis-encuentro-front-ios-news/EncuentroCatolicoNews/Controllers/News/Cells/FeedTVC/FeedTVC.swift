@@ -105,9 +105,9 @@ public class FeedTVC: UITableViewCell, CustomPopOverDelegate {
         userImage.image = UIImage(named: "userImage", in: Bundle.local, compatibleWith: nil)
         userImage.layer.cornerRadius = userImage.bounds.width / 2
         
-//        userImage.layer.borderWidth = 0.5
-//        userImage.layer.borderColor = UIColor.black.cgColor
-//        userImage.clipsToBounds = true
+        userImage.layer.borderWidth = 0.5
+        userImage.layer.borderColor = UIColor.black.cgColor
+        userImage.clipsToBounds = true
         
         userImage.makeRounded()
         
