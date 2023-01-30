@@ -225,6 +225,8 @@ class prayerChain: UIViewController {
                         try! self.realm.write {
                             self.realm.add(dbModel, update: .modified)
                         }
+                        print("DB MODEL...DB MODEL...DB MODEL...DB MODEL...DB MODEL...DB MODEL...")
+                        print(dbModel)
                     }
                     
                     print("****", self.arrayMyPraye)
@@ -486,7 +488,10 @@ extension prayerChain:  UICollectionViewDelegate, UICollectionViewDataSource, UI
             cell.lblName.text = prayer.title
             cell.tag = prayer.id
             let isoDate = prayer.date
+            let dat = Date()
             let dateFormatterGet = DateFormatter()
+            dateFormatterGet.timeZone = TimeZone.current
+            dateFormatterGet.locale = Locale(identifier: "es_MX")
             dateFormatterGet.dateFormat = "dd/MM/yyyy HH:mm:ss"
             if let date = dateFormatterGet.date(from: isoDate) {
                 cell.lblStatus.text = date.timeAgoDisplay()
