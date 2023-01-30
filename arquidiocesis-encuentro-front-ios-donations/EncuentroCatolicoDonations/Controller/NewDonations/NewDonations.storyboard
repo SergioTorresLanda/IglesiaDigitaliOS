@@ -21,18 +21,18 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="izM-V0-Q3N">
-                                <rect key="frame" x="0.0" y="-20" width="434" height="120"/>
+                                <rect key="frame" x="0.0" y="-20" width="414" height="120"/>
                                 <subviews>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Mi ofrenda" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="CZl-Kz-AvD">
-                                        <rect key="frame" x="97" y="66" width="224" height="31"/>
+                                        <rect key="frame" x="101" y="68" width="200" height="24"/>
                                         <fontDescription key="fontDescription" type="boldSystem" pointSize="20"/>
                                         <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         <nil key="highlightedColor"/>
                                     </label>
                                     <button opaque="NO" contentMode="scaleAspectFit" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="SxY-ct-gCR">
-                                        <rect key="frame" x="8" y="48" width="66" height="66"/>
+                                        <rect key="frame" x="8" y="45" width="70" height="70"/>
                                         <constraints>
-                                            <constraint firstAttribute="height" constant="66" id="lmn-zt-p7v"/>
+                                            <constraint firstAttribute="height" constant="70" id="lmn-zt-p7v"/>
                                             <constraint firstAttribute="width" secondItem="SxY-ct-gCR" secondAttribute="height" multiplier="1:1" id="tfM-xj-jfD"/>
                                         </constraints>
                                         <state key="normal" title="Button"/>
@@ -45,11 +45,10 @@
                                 <color key="backgroundColor" name="eMainBlue"/>
                                 <constraints>
                                     <constraint firstAttribute="trailing" secondItem="CZl-Kz-AvD" secondAttribute="trailing" constant="113" id="3vk-2A-gUF"/>
-                                    <constraint firstAttribute="bottom" secondItem="CZl-Kz-AvD" secondAttribute="bottom" constant="23" id="5j9-6L-F0E"/>
                                     <constraint firstItem="CZl-Kz-AvD" firstAttribute="leading" secondItem="SxY-ct-gCR" secondAttribute="trailing" constant="23" id="9Mz-PF-fK9"/>
-                                    <constraint firstItem="CZl-Kz-AvD" firstAttribute="top" secondItem="izM-V0-Q3N" secondAttribute="top" constant="66" id="AVx-pv-oIl"/>
                                     <constraint firstAttribute="height" constant="120" id="c2m-ze-aHw"/>
-                                    <constraint firstAttribute="bottom" secondItem="SxY-ct-gCR" secondAttribute="bottom" constant="6" id="gcC-MF-gEV"/>
+                                    <constraint firstAttribute="bottom" secondItem="SxY-ct-gCR" secondAttribute="bottom" constant="5" id="ei6-9f-Hi2"/>
+                                    <constraint firstItem="CZl-Kz-AvD" firstAttribute="centerY" secondItem="SxY-ct-gCR" secondAttribute="centerY" id="ljo-Z7-D80"/>
                                     <constraint firstItem="SxY-ct-gCR" firstAttribute="leading" secondItem="izM-V0-Q3N" secondAttribute="leading" constant="8" id="yry-du-Fkw"/>
                                 </constraints>
                             </view>
@@ -1057,9 +1056,9 @@
                         <viewLayoutGuide key="safeArea" id="vDu-zF-Fre"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                         <constraints>
-                            <constraint firstItem="vDu-zF-Fre" firstAttribute="bottom" secondItem="MzZ-0y-80z" secondAttribute="bottom" constant="70" id="23y-Rd-mUd"/>
-                            <constraint firstAttribute="trailing" secondItem="izM-V0-Q3N" secondAttribute="trailing" constant="-20" id="3Qc-pO-1oR"/>
-                            <constraint firstItem="vDu-zF-Fre" firstAttribute="bottom" secondItem="DSF-5K-2s5" secondAttribute="bottom" constant="80" id="7mH-4n-K6O"/>
+                            <constraint firstItem="vDu-zF-Fre" firstAttribute="bottom" secondItem="MzZ-0y-80z" secondAttribute="bottom" constant="80" id="23y-Rd-mUd"/>
+                            <constraint firstAttribute="trailing" secondItem="izM-V0-Q3N" secondAttribute="trailing" id="3Qc-pO-1oR"/>
+                            <constraint firstItem="vDu-zF-Fre" firstAttribute="bottom" secondItem="DSF-5K-2s5" secondAttribute="bottom" constant="90" id="7mH-4n-K6O"/>
                             <constraint firstItem="izM-V0-Q3N" firstAttribute="leading" secondItem="vDu-zF-Fre" secondAttribute="leading" id="8xV-vs-qJ6"/>
                             <constraint firstItem="DSF-5K-2s5" firstAttribute="top" secondItem="izM-V0-Q3N" secondAttribute="bottom" constant="170" id="Axg-k2-Yoq"/>
                             <constraint firstItem="vDu-zF-Fre" firstAttribute="trailing" secondItem="DSF-5K-2s5" secondAttribute="trailing" constant="20" id="HJk-VY-7YT"/>

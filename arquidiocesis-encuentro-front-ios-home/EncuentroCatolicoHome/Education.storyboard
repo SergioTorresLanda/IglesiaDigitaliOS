@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="17701" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="20037" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
     <device id="retina4_7" orientation="portrait" appearance="light"/>
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="17703"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="20020"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="System colors in document resources" minToolsVersion="11.0"/>
         <capability name="collection view cell content view" minToolsVersion="11.0"/>
@@ -50,7 +50,7 @@
                                 </constraints>
                             </view>
                             <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="qCu-qX-AQb">
-                                <rect key="frame" x="0.0" y="65" width="375" height="547"/>
+                                <rect key="frame" x="0.0" y="65" width="375" height="522"/>
                                 <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                                 <collectionViewFlowLayout key="collectionViewLayout" minimumLineSpacing="10" minimumInteritemSpacing="10" id="Nqy-Oe-9gX">
                                     <size key="itemSize" width="128" height="128"/>
@@ -81,7 +81,7 @@
                         <color key="backgroundColor" red="0.095016948879999993" green="0.122127004" blue="0.50591188669999998" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                         <constraints>
                             <constraint firstItem="UNn-2x-0N1" firstAttribute="top" secondItem="pTM-KM-nsu" secondAttribute="top" id="DiP-gH-lSr"/>
-                            <constraint firstItem="pTM-KM-nsu" firstAttribute="bottom" secondItem="qCu-qX-AQb" secondAttribute="bottom" constant="55" id="S57-I3-qEA"/>
+                            <constraint firstItem="pTM-KM-nsu" firstAttribute="bottom" secondItem="qCu-qX-AQb" secondAttribute="bottom" constant="80" id="S57-I3-qEA"/>
                             <constraint firstItem="qCu-qX-AQb" firstAttribute="leading" secondItem="pTM-KM-nsu" secondAttribute="leading" id="YHy-4R-Rl4"/>
                             <constraint firstItem="pTM-KM-nsu" firstAttribute="trailing" secondItem="UNn-2x-0N1" secondAttribute="trailing" id="diV-mY-N8G"/>
                             <constraint firstItem="UNn-2x-0N1" firstAttribute="leading" secondItem="RKv-d8-Un4" secondAttribute="leading" id="dt9-hy-lbJ"/>

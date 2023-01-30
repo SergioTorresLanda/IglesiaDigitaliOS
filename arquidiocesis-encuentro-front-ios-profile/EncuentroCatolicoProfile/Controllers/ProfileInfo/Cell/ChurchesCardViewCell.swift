@@ -13,6 +13,7 @@ class ChurchesCardViewCell: UICollectionViewCell {
     var array =  ["Sacristán", "Secretaria/o", "Catequista", "Diácono permanente", "Ministro de la Eucaristía", "Lector/a institudio/a", "Acólito instituido", "Cantor/a en liturgia", "Pastoral"]
     var arrayNames = [String]()
     var arrayIds = [Int]()
+    var churchId=0
     
 // MARK: @IBOUTLETS -
     @IBOutlet weak var cardView: UIView!
@@ -91,7 +92,7 @@ extension ChurchesCardViewCell: UIPickerViewDelegate, UIPickerViewDataSource{
         fieldServices.text = arrayNames[row]
         let singleton = ProfileInfoView.singleton
         singleton.selectedServiceID = arrayIds[row]
-        
+        singleton.mapChurchService[churchId]=arrayIds[row]//.count debe ser igual al array de iglesias
     }
     
 }

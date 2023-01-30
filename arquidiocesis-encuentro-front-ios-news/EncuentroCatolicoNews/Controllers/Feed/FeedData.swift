@@ -62,7 +62,6 @@ extension FeedViewController: UITableViewDataSource {
                 cell.userImage.image = UIImage(named: "iconProfile", in: Bundle.local, compatibleWith: nil)
             }else{
                 cell.nameLabel.text = newPosts[indexPath.row].author?.name
-                print("angel in \(newPosts[indexPath.row].content)")
                 if (newPosts[indexPath.row].author?.image) != nil{
                     let url = URL(string: newPosts[indexPath.row].author?.image ?? "")
                     let data = try? Data(contentsOf: url!)
@@ -72,9 +71,7 @@ extension FeedViewController: UITableViewDataSource {
                     cell.userImage.image = UIImage(named: "iconProfile", in: Bundle.local, compatibleWith: nil)
                 }
             }
-            
-//            let url = "j"//taxt.substring when https
-//            cell.url=url
+
             cell.lblCommentsCount.isHidden = false
             cell.commentImageView.isHidden = false
             cell.contentLabel.text = newPosts[indexPath.row].content
@@ -96,7 +93,6 @@ extension FeedViewController: UITableViewDataSource {
                 cell.collectionViewHeight.constant = 0
             }
             cell.tag = newPosts[indexPath.row].id ?? 0
-        
             return cell
         }
     }
@@ -168,20 +164,15 @@ extension FeedViewController: UITableViewDelegate {
     }
     
     public func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-   
-        print("Holaaaaa-------------")
         //if indexPath.section == 1 {
         let post = newPosts[indexPath.row] //else { return }
-        print("Holaaaaa--2222222")
             //presenter?.showPostDetail(navController: self.navigationController, post: post)
         //}
         let storyBoard: UIStoryboard = UIStoryboard(name: "RedSocialSB", bundle: Bundle.local)
         let newVC = storyBoard.instantiateViewController(withIdentifier: "RedSocialNewsViewController") as! RedSocialNewsViewController
         newVC.post = post
         self.navigationController!.pushViewController(newVC, animated: true)
-
     }
-    
 }
 
 //MARK: - UITableViewDataSourcePrefetching

@@ -60,7 +60,6 @@ public class FeedViewController: UIViewController, FeedViewProtocol, FeedViewCon
         setUpView()
     }
     
-    
     override public func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         print("VC ECNews - FeedVC ")
@@ -72,7 +71,6 @@ public class FeedViewController: UIViewController, FeedViewProtocol, FeedViewCon
         super.viewDidAppear(animated)
     }
 
-    
     //MARK: - Methods
     func setupTabBar(){
         let tabBar = self.tabBarController as? SocialNetworkController

@@ -26,6 +26,10 @@ class PrayerViewController: UIViewController, UICollectionViewDataSource, UIColl
     var indexTable: Int = 0
     @IBOutlet weak var prayerCollection: UICollectionView!
     @IBOutlet weak var prayerTable: UITableView!
+    
+    @IBOutlet weak var navView: UIView!
+    
+    
     var presenter: PresenterOracionesProtocol?
     
     lazy var searchBarF: UISearchBar = {
@@ -53,6 +57,8 @@ class PrayerViewController: UIViewController, UICollectionViewDataSource, UIColl
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        navView.layer.cornerRadius = 20
+        navView.ShadowNavBar()
         showLoading()
         self.view.addSubview(self.searchBarF)
         self.presenter?.getDataInteractor(name: "")
@@ -71,7 +77,6 @@ class PrayerViewController: UIViewController, UICollectionViewDataSource, UIColl
     
     override func viewWillAppear(_ animated: Bool) {
         print("VC ECPrayers -OracionesList- PrayerVC ")
-
     }
     
     func hideKeyboardWhenTappedAround(){

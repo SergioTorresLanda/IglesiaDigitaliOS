@@ -23,7 +23,6 @@ public protocol FeedTVCProtocol: AnyObject {
 
 public class FeedTVC: UITableViewCell, CustomPopOverDelegate {
     
-    
     //MARK: - @IBoutlets
     @IBOutlet public weak var nameLabel: UILabel!
     @IBOutlet public weak var userImage: UIImageView!
@@ -66,8 +65,9 @@ public class FeedTVC: UITableViewCell, CustomPopOverDelegate {
     var indexpath=0
     
     //MARK: - Properties
+    var btnsender: UIButton!
+    var customPopOver: CustomPopOverView!
     public weak var delegate: FeedTVCProtocol?
-//    private let reactionsView = ReactionsPost()
     public var post: PublicationRealm? {
         didSet { collectionView?.reloadData() }
     }
@@ -99,7 +99,6 @@ public class FeedTVC: UITableViewCell, CustomPopOverDelegate {
         btnFollow.setTitle("", for: .normal)
         collectionView?.setCorner(cornerRadius: 15)
         self.selectionStyle = .none
-    
 //        let SNId = UserDefaults.standard.integer(forKey: "SNId")
 //        btnMoreActions.isHidden = newPost?.author?.id == SNId ? false : true
         userImage.image = UIImage(named: "userImage", in: Bundle.local, compatibleWith: nil)
@@ -116,17 +115,12 @@ public class FeedTVC: UITableViewCell, CustomPopOverDelegate {
         collectionView?.register(UINib(nibName: "ImagesCVC", bundle: Bundle(for: ImagesCVC.self)), forCellWithReuseIdentifier: "ImagesCVC")
         collectionView?.register(UINib(nibName: "VideoCVC", bundle: Bundle(for: VideoCVC.self)), forCellWithReuseIdentifier: "VideoCVC")
         collectionView?.register(UINib(nibName: "LocationImageCVC", bundle: Bundle(for: LocationImageCVC.self)), forCellWithReuseIdentifier: "LocationImageCVC")
-        
 //        reactionButton.addGestureRecognizer(UILongPressGestureRecognizer(target: self, action: #selector(handleLongPress)))
-//        
 //        reactionImage.image  = UIImage(named: "reactionG")
         btnMoreActions.setTitleColor(UIColor(red: 54.0/255.0, green: 54.0/255.0, blue: 54.0/255.0, alpha: 1), for: .normal)
         btnMoreActions.titleLabel?.font = UIFont.systemFont(ofSize: 30, weight: .regular)
-        
     }
     
-    var btnsender: UIButton!
-    var customPopOver: CustomPopOverView!
     @IBAction func btnMoreActions(_ sender: UIButton) {
 
         btnsender = sender

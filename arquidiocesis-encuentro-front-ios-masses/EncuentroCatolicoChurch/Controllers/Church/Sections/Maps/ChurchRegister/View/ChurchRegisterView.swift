@@ -96,14 +96,6 @@ class ChurchRegisterViewController: BaseViewController, ChurchRegisterViewProtoc
         }
     }
     
-    override var preferredStatusBarStyle: UIStatusBarStyle {
-        if #available(iOS 13.0, *) {
-            return .darkContent
-        } else {
-            return .lightContent
-        }
-    }
-    
     private func goToChurch(_ church: LocationResponse) {
         
     }

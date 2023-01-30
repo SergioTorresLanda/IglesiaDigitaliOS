@@ -7,7 +7,6 @@
 
 import UIKit
 import EncuentroCatolicoLive
-import EncuentroCatolicoScanner
 import EncuentroCatolicoProfile
 import EncuentroCatolicoVirtualLibrary
 import EncuentroCatolicoPrayers

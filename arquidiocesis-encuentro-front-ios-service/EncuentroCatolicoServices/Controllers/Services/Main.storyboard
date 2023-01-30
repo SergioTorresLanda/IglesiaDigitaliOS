@@ -58,7 +58,7 @@
                                 </constraints>
                             </view>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="none" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="flV-Hi-YdB">
-                                <rect key="frame" x="0.0" y="110" width="414" height="662"/>
+                                <rect key="frame" x="0.0" y="110" width="414" height="672"/>
                                 <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                                 <prototypes>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="CELLHOMESERVICE" rowHeight="83" id="rcR-SQ-QKU" customClass="HomeServiceTableCell" customModule="EncuentroCatolicoServices" customModuleProvider="target">
@@ -121,7 +121,7 @@
                             <constraint firstItem="OPt-Qk-kxL" firstAttribute="leading" secondItem="5EZ-qb-Rvc" secondAttribute="leading" id="ewQ-hK-d3s"/>
                             <constraint firstItem="vDu-zF-Fre" firstAttribute="trailing" secondItem="OPt-Qk-kxL" secondAttribute="trailing" id="pm5-kY-3YG"/>
                             <constraint firstItem="flV-Hi-YdB" firstAttribute="top" secondItem="OPt-Qk-kxL" secondAttribute="bottom" constant="10" id="qJ9-qJ-9h3"/>
-                            <constraint firstItem="vDu-zF-Fre" firstAttribute="bottom" secondItem="flV-Hi-YdB" secondAttribute="bottom" constant="90" id="uRT-de-OFG"/>
+                            <constraint firstItem="vDu-zF-Fre" firstAttribute="bottom" secondItem="flV-Hi-YdB" secondAttribute="bottom" constant="80" id="uRT-de-OFG"/>
                         </constraints>
                     </view>
                     <connections>

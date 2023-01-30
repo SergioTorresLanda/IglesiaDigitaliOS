@@ -54,7 +54,7 @@
                     </constraints>
                 </view>
                 <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="equalSpacing" translatesAutoresizingMaskIntoConstraints="NO" id="Jcs-Mn-Y16">
-                    <rect key="frame" x="10" y="130" width="355" height="467"/>
+                    <rect key="frame" x="10" y="130" width="355" height="457"/>
                     <subviews>
                         <stackView opaque="NO" contentMode="scaleToFill" horizontalCompressionResistancePriority="751" axis="vertical" distribution="equalSpacing" translatesAutoresizingMaskIntoConstraints="NO" id="scD-8Y-53x">
                             <rect key="frame" x="0.0" y="0.0" width="355" height="170"/>
@@ -117,7 +117,7 @@
                             </subviews>
                         </stackView>
                         <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="equalSpacing" translatesAutoresizingMaskIntoConstraints="NO" id="bwZ-Ko-5CY">
-                            <rect key="frame" x="0.0" y="170" width="355" height="297"/>
+                            <rect key="frame" x="0.0" y="170" width="355" height="287"/>
                             <subviews>
                                 <view contentMode="scaleToFill" verticalCompressionResistancePriority="751" translatesAutoresizingMaskIntoConstraints="NO" id="x9b-Kg-aTW">
                                     <rect key="frame" x="0.0" y="0.0" width="355" height="40"/>
@@ -137,7 +137,7 @@
                                     </constraints>
                                 </view>
                                 <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="none" translatesAutoresizingMaskIntoConstraints="NO" id="HeF-2c-Bmg">
-                                    <rect key="frame" x="0.0" y="40" width="355" height="257"/>
+                                    <rect key="frame" x="0.0" y="40" width="355" height="247"/>
                                     <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                                     <constraints>
                                         <constraint firstAttribute="height" priority="750" constant="265" id="GkN-9U-tPB"/>
@@ -159,7 +159,7 @@
                 <constraint firstAttribute="trailing" secondItem="by3-Hj-EbH" secondAttribute="trailing" id="0gD-9O-V31"/>
                 <constraint firstAttribute="trailing" secondItem="Jcs-Mn-Y16" secondAttribute="trailing" constant="10" id="GM6-NI-psC"/>
                 <constraint firstItem="by3-Hj-EbH" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" id="Om2-iF-SYP"/>
-                <constraint firstAttribute="bottom" secondItem="Jcs-Mn-Y16" secondAttribute="bottom" constant="70" id="S3o-mQ-Fw0"/>
+                <constraint firstAttribute="bottom" secondItem="Jcs-Mn-Y16" secondAttribute="bottom" constant="80" id="S3o-mQ-Fw0"/>
                 <constraint firstItem="Jcs-Mn-Y16" firstAttribute="top" secondItem="by3-Hj-EbH" secondAttribute="bottom" constant="50" id="Une-Lm-E8q"/>
                 <constraint firstItem="Jcs-Mn-Y16" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" constant="10" id="ln7-8m-xcn"/>
                 <constraint firstItem="by3-Hj-EbH" firstAttribute="top" secondItem="i5M-Pr-FkT" secondAttribute="top" id="wb4-N0-qxl"/>

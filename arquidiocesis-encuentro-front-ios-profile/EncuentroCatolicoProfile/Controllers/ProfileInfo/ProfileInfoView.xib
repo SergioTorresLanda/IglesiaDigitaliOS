@@ -166,7 +166,7 @@
                     </constraints>
                 </view>
                 <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="CeH-1j-Ogv">
-                    <rect key="frame" x="0.0" y="295" width="414" height="531"/>
+                    <rect key="frame" x="0.0" y="295" width="414" height="521"/>
                     <subviews>
                         <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="jBZ-mI-RPQ">
                             <rect key="frame" x="0.0" y="0.0" width="414" height="630"/>
@@ -495,18 +495,18 @@
                                         <stackView hidden="YES" opaque="NO" contentMode="scaleToFill" spacing="15" translatesAutoresizingMaskIntoConstraints="NO" id="r3D-4V-ToI">
                                             <rect key="frame" x="0.0" y="441.5" width="373" height="34"/>
                                             <subviews>
-                                                <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="magnifyingglass" catalog="system" translatesAutoresizingMaskIntoConstraints="NO" id="qn8-6N-oXV">
-                                                    <rect key="frame" x="0.0" y="0.5" width="20.5" height="32.5"/>
-                                                    <color key="tintColor" name="eMainBlue"/>
-                                                </imageView>
                                                 <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="¿En qué iglesia prestas el servicio?" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="1vl-9x-Gnw">
-                                                    <rect key="frame" x="35.5" y="0.0" width="337.5" height="34"/>
+                                                    <rect key="frame" x="0.0" y="0.0" width="337.5" height="34"/>
                                                     <constraints>
                                                         <constraint firstAttribute="height" constant="34" id="sCP-Ea-D8T"/>
                                                     </constraints>
                                                     <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                                     <textInputTraits key="textInputTraits"/>
                                                 </textField>
+                                                <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="plus.magnifyingglass" catalog="system" translatesAutoresizingMaskIntoConstraints="NO" id="qn8-6N-oXV">
+                                                    <rect key="frame" x="352.5" y="0.5" width="20.5" height="32.5"/>
+                                                    <color key="tintColor" name="eMainBlue"/>
+                                                </imageView>
                                             </subviews>
                                         </stackView>
                                         <view hidden="YES" alpha="0.5" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="lOH-lm-QWP">
@@ -703,7 +703,7 @@
             <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
             <constraints>
                 <constraint firstItem="CeH-1j-Ogv" firstAttribute="top" secondItem="2S7-wP-s15" secondAttribute="bottom" constant="-7" id="6ma-F5-mBN"/>
-                <constraint firstAttribute="bottom" secondItem="CeH-1j-Ogv" secondAttribute="bottom" constant="70" id="E6h-se-dgt"/>
+                <constraint firstAttribute="bottom" secondItem="CeH-1j-Ogv" secondAttribute="bottom" constant="80" id="E6h-se-dgt"/>
                 <constraint firstAttribute="trailing" secondItem="CeH-1j-Ogv" secondAttribute="trailing" id="Eia-zE-CP3"/>
                 <constraint firstItem="2S7-wP-s15" firstAttribute="top" secondItem="i5M-Pr-FkT" secondAttribute="top" id="PAt-MZ-kzK"/>
                 <constraint firstItem="2S7-wP-s15" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" id="Qcs-hG-Es8"/>
@@ -715,7 +715,7 @@
     </objects>
     <resources>
         <image name="flechaAbajo" width="24" height="24"/>
-        <image name="magnifyingglass" catalog="system" width="128" height="115"/>
+        <image name="plus.magnifyingglass" catalog="system" width="128" height="115"/>
         <image name="profile_icon" width="168" height="168"/>
         <image name="tool_image" width="20" height="20"/>
         <namedColor name="eBackgroundGray">

@@ -68,6 +68,9 @@ class ProfileInfoView: UIViewController {
     var isCongregation = false
     var arrayChurches : [String] = []
     var arrayImgchurches : [String] = []
+    var arrayChurchesId : [Int] = []
+    var mapChurchService : [Int:Int] = [:]
+    var arrayServicesG : [Service] = []
     var arrayDictionariesTopics: [[String:Int]] = []
     var codesLifeStatus: [String] = []
     var selectedCode = ""
@@ -90,10 +93,10 @@ class ProfileInfoView: UIViewController {
     var alertFields : AcceptAlert?
     var typeService="iglesia"
     let screenName="iOS_Home_Perfil"
-    let screenClass="iOS_Perfil_Class"
+    let screenClass="iOS_Home_Perfil"
     
     static let singleton = ProfileInfoView()
-    
+    let imgDefault = "https://firebasestorage.googleapis.com/v0/b/emerwise-479d1.appspot.com/o/randomAssets%2Fspirit.webp?alt=media&token=dd020c20-d8ec-45f6-a8a2-3783c0234012"
 // MARK: CODE VIEW -
     lazy var contentViewSize = CGSize(width: view.frame.width, height: view.frame.height + 650)
     lazy var scrollView: UIScrollView = {
@@ -406,7 +409,7 @@ class ProfileInfoView: UIViewController {
             lblStateResp.text = "No"
             switchResponsable.isOn = false
             btnSave.setTitle("Guardar", for: .normal)
-            churchCollection.isHidden = false
+            churchCollection.isHidden = true
             radioBtnCollection.isHidden = false
             lblLaicoAsk.isHidden = false
             fieldsCollection[6].text = ""
@@ -642,7 +645,7 @@ class ProfileInfoView: UIViewController {
     @objc func selectRadioButton(sender: UIButton) {
         print(sender.tag)
         let index = sender.tag
-        
+        resetCardLists()
         if arrayIsActive[index] == true {
             print("ARRAY IS ACTIVE")
             for i in 0...arrayIsActive.count - 1{
@@ -675,7 +678,8 @@ class ProfileInfoView: UIViewController {
             }
             arrayIsActive[index] = true
             switch index {
-            case 0:
+            case 0://Iglesia
+                
                 isLaico = false
                 btnSave.setTitle("Guardar", for: .normal)
                 churchCollection.isHidden = true
@@ -686,7 +690,7 @@ class ProfileInfoView: UIViewController {
                 hideOrShowPrefix(isShow: true)
                 isCongregation = false
                 fieldsCollection[6].text = ""
-                fieldsCollection[6].placeholder = "¿En qué iglesia prestas el servicio?"
+                fieldsCollection[6].placeholder = "Agregar iglesia en la que prestas el servicio"
                 cardLaico.isHidden = true
                 cardLaico2.isHidden = true
               //  serachStack.isHidden = true
@@ -699,7 +703,7 @@ class ProfileInfoView: UIViewController {
                 self.view.layoutIfNeeded()
                 serviceProvider = "CHURCH"
                 
-            case 1:
+            case 1://Comunidad
                 let singleton = ProfileMapViewController.singleton
                 singleton.idChurch = nil
                 isLaico = true
@@ -723,7 +727,7 @@ class ProfileInfoView: UIViewController {
                 hideOrShowPrefix(isShow: true)
                 serviceProvider = "COMMUNITY"
                                 
-            default:
+            default://NO
                 isLaico = false
                 lblStateResp.text = "No"
                 switchResponsable.isOn = false
@@ -747,6 +751,14 @@ class ProfileInfoView: UIViewController {
         radioBtnCollection.reloadData()
     }
     
+    func resetCardLists(){
+        arrayChurches=[]
+        arrayChurchesId=[]
+        arrayImgchurches=[]
+        nameService=[]
+        churchCollection.reloadData()
+    }
+    
 // MARK: GENERAL FUNCS -
      func saveChanges() {
          print("SAVE CHANGESS")
@@ -762,14 +774,29 @@ class ProfileInfoView: UIViewController {
         
         if singleton.idChurch != nil{
             print(singleton2.selectedServiceID, serviceListID)
-            if singleton2.selectedServiceID == 0 {
+            /*if singleton2.selectedServiceID == 0 {
                 showCanonAlert(title: "¡Atención!", msg: "Selecciona el servicio que prestas.")
+                return
+            }*/
+            print("::::;;COUNTS::::::")
+            let resta = singleton2.arrayChurchesId.count-singleton2.mapChurchService.count
+            print(String(singleton2.mapChurchService.count))
+            print(String(singleton2.arrayChurchesId.count))
+            if resta > 0 {
+                showCanonAlert(title: "¡Atención!", msg: "Falta seleccionar el servicio que prestas en "+String(resta)+" iglesia(s)")
                 return
             }
             print("::::;;SINGLETON::::::")
-            let s1 = Service(location_id: singleton.idChurch, service_id: singleton2.selectedServiceID)
-            print(s1)
-            services.append(s1)
+            
+            arrayChurchesId.forEach({ id in
+                /*let s = Service(location_id: singleton.idChurch, service_id: singleton2.selectedServiceID)*/
+                let s = Service(location_id: id, service_id: singleton2.selectedServiceID)
+                print(s)
+                services.append(s)
+                print("se agrego iglesia")
+                print(id)
+            })
+          
         }else{
             print("::::;;SINGLETON NIL::::::")
         }
@@ -779,7 +806,7 @@ class ProfileInfoView: UIViewController {
         congregationA.append(cong1)
         
         let prefixObject = Prefix(id: selectedPrefixID)
-         print("::::;;PREFIXX::::::")
+         print(":::PREFIXX:::")
         print(prefixObject)
         UserDefaults.standard.set(selectedPrefixID, forKey: "Prefix")
         
@@ -823,7 +850,6 @@ class ProfileInfoView: UIViewController {
                 self.navigationController?.pushViewController(view, animated: true)
             })
                 
-            
         case "Religioso (a)":
             //showLoading()
             var idChurchReligioso = singleton.idChurch
@@ -896,7 +922,6 @@ class ProfileInfoView: UIViewController {
             if selectedPrefixID == 0 {
                 registerDiacono = ProfileDiacono(username: fieldsCollection[4].text ?? "", id: idGlobal, name: fieldsCollection[0].text ?? "", first_surname: fieldsCollection[1].text ?? "", second_surname: fieldsCollection[2].text ?? "", phone_number: fieldsCollection[3].text ?? "" , email: fieldsCollection[4].text ?? "", life_status: life, interest_topics: topicArray , locations: loca)
             }
-         //   print(registerDiacono, fieldsCollection[6].text)
             if fieldsCollection[6].text == "" {
                 showCanonAlert(title:"Error", msg: "Selecciona una iglesia.")
             }else{

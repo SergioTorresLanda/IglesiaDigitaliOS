@@ -623,21 +623,16 @@ extension UICollectionViewCell {
 extension UIImageView {
     func DownloadStaticImage(_ uri : String) {
         guard let url = URL(string: uri) else { return }
-        
         let task = URLSession.shared.dataTask(with: url) {responseData,response,error in
-            
             //print("->  respuesta Status Code: ", response as Any)
             //print("->  error: ", error as Any)
-
             if error == nil {
                 if let data = responseData {
                     
                     DispatchQueue.main.async {
                         self.image = UIImage(data: data)
-                       
                         //print("Fin del hilo imagen muestra")
                     }
-                    
                 }else {
                     print("no data")
                 }
@@ -646,6 +641,22 @@ extension UIImageView {
             }
         }
         task.resume()
+    }
+    
+    func loadS(urlS: String) {
+        guard let url = URL(string:urlS)else{
+            return
+        }
+        DispatchQueue.global().async { [weak self] in
+            if let data = try? Data(contentsOf: url) {
+                if let image = UIImage(data: data) {
+                    DispatchQueue.main.async {
+                        //imageCache.setObject(image, forKey: urlS as NSString)
+                        self?.image = image
+                    }
+                }
+            }
+        }
     }
 }
 
