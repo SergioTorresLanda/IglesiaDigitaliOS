@@ -81,8 +81,7 @@ class HomeViewController: UIViewController, HomeViewProtocol, UITextFieldDelegat
     let monitor = NWPathMonitor()
     var isInternet=false
     var alertFields : AcceptAlert?
-    
-    
+
     func formatoScrollView(){
         let contentRect: CGRect = scrollView.subviews.reduce(into: .zero) { rect, view in
         rect = rect.union(view.frame)
@@ -92,7 +91,7 @@ class HomeViewController: UIViewController, HomeViewProtocol, UITextFieldDelegat
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        //Se crea la notificacion para saber cuando la app regresa de segundo plano.
+     
         UNUserNotificationCenter.current().delegate = self
         NotificationCenter.default.addObserver(self, selector: #selector(popViews), name: NSNotification.Name(rawValue: "NotificationFeed"), object: nil)
         NotificationCenter.default.addObserver(self, selector: #selector(payWithQR), name: NSNotification.Name(rawValue: "openQR"), object: nil)
@@ -139,14 +138,18 @@ class HomeViewController: UIViewController, HomeViewProtocol, UITextFieldDelegat
     override public func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         print("VC ECHome - HomeVC ")
-     
+        setNeedsStatusBarAppearanceUpdate()
         actionsViewWillAppear()
     }
+    override var preferredStatusBarStyle: UIStatusBarStyle {
+        .lightContent
+    }
+    //UIApplication.shared.statusBarStyle = .lightContent
     
     func actionsViewWillAppear(){
         if isInternet{
         print("INTERNET ONN VWA")
-        showLoading()
+        //showLoading() crash
         formatoScrollView()
         saintOfDay=[]
         suggestions=[]
@@ -636,7 +639,7 @@ class HomeViewController: UIViewController, HomeViewProtocol, UITextFieldDelegat
             allSections.append(suggestions)
         }
         //setupTableView()
-        hideLoading()
+        //hideLoading()
         mainTable.reloadData()
     }
     
@@ -949,3 +952,9 @@ extension HomeViewController: UIViewControllerTransitioningDelegate {
         
     }
 }
+
+//extension UINavigationController {
+  // open override var preferredStatusBarStyle: UIStatusBarStyle {
+    //  return topViewController?.preferredStatusBarStyle ?? .default
+   //}
+//}

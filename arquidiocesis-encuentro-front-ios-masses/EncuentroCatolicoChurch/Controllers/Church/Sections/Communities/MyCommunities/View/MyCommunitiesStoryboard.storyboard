@@ -69,7 +69,7 @@
                                 <nil key="highlightedColor"/>
                             </label>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="vSQ-qc-iL2">
-                                <rect key="frame" x="16" y="249" width="343" height="348"/>
+                                <rect key="frame" x="16" y="239" width="343" height="348"/>
                                 <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="348" id="3Rc-iK-oYC"/>
@@ -80,9 +80,9 @@
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                         <constraints>
                             <constraint firstItem="G9n-60-tg9" firstAttribute="top" secondItem="bZc-Uy-eVh" secondAttribute="bottom" constant="12" id="2GH-h0-nI0"/>
-                            <constraint firstItem="vSQ-qc-iL2" firstAttribute="top" secondItem="YvZ-Qn-09b" secondAttribute="bottom" constant="22" id="5fi-m1-pT1"/>
+                            <constraint firstItem="vSQ-qc-iL2" firstAttribute="top" secondItem="YvZ-Qn-09b" secondAttribute="bottom" constant="12" id="5fi-m1-pT1"/>
                             <constraint firstItem="G9n-60-tg9" firstAttribute="trailing" secondItem="5EZ-qb-Rvc" secondAttribute="trailingMargin" id="8m3-qC-gwg"/>
-                            <constraint firstItem="vDu-zF-Fre" firstAttribute="bottom" secondItem="vSQ-qc-iL2" secondAttribute="bottom" constant="70" id="BwJ-mX-Dqa"/>
+                            <constraint firstItem="vDu-zF-Fre" firstAttribute="bottom" secondItem="vSQ-qc-iL2" secondAttribute="bottom" constant="80" id="BwJ-mX-Dqa"/>
                             <constraint firstItem="G9n-60-tg9" firstAttribute="trailing" secondItem="YvZ-Qn-09b" secondAttribute="trailing" id="DHc-a6-YgM"/>
                             <constraint firstItem="bZc-Uy-eVh" firstAttribute="top" secondItem="vDu-zF-Fre" secondAttribute="top" id="ILq-MA-KUG"/>
                             <constraint firstItem="G9n-60-tg9" firstAttribute="leading" secondItem="YvZ-Qn-09b" secondAttribute="leading" id="YrW-CM-MIC"/>

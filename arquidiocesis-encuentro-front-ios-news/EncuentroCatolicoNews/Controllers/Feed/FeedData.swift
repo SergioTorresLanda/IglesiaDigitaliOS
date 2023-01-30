@@ -54,6 +54,7 @@ extension FeedViewController: UITableViewDataSource {
             cell.btnComments.tag = indexPath.row
             cell.btnShared.tag = indexPath.row
             cell.btnFollow.tag = indexPath.row
+            cell.indexpath = indexPath.row
             cell.delegate = self
             
             if newPosts[indexPath.row].scope?.id != nil && newPosts[indexPath.row].scope?.name != nil{
@@ -61,7 +62,6 @@ extension FeedViewController: UITableViewDataSource {
                 cell.userImage.image = UIImage(named: "iconProfile", in: Bundle.local, compatibleWith: nil)
             }else{
                 cell.nameLabel.text = newPosts[indexPath.row].author?.name
-                print("angel in \(newPosts[indexPath.row].content)")
                 if (newPosts[indexPath.row].author?.image) != nil{
                     cell.userImage.image = UIImage(named: newPosts[indexPath.row].author?.image ?? "")
                     
@@ -69,9 +69,7 @@ extension FeedViewController: UITableViewDataSource {
                     cell.userImage.image = UIImage(named: "iconProfile", in: Bundle.local, compatibleWith: nil)
                 }
             }
-            
-//            let url = "j"//taxt.substring when https
-//            cell.url=url
+
             cell.lblCommentsCount.isHidden = false
             cell.commentImageView.isHidden = false
             cell.contentLabel.text = newPosts[indexPath.row].content
@@ -93,7 +91,6 @@ extension FeedViewController: UITableViewDataSource {
                 cell.collectionViewHeight.constant = 0
             }
             cell.tag = newPosts[indexPath.row].id ?? 0
-        
             return cell
         }
     }
@@ -165,23 +162,15 @@ extension FeedViewController: UITableViewDelegate {
     }
     
     public func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-   
-        print("Holaaaaa-------------")
-//        if let url = URL(string: "https://bit.ly/3WwZdYm") {
-//            UIApplication.shared.open(url)
-//        }
         //if indexPath.section == 1 {
         let post = newPosts[indexPath.row] //else { return }
-        print("Holaaaaa--2222222")
             //presenter?.showPostDetail(navController: self.navigationController, post: post)
         //}
         let storyBoard: UIStoryboard = UIStoryboard(name: "RedSocialSB", bundle: Bundle.local)
         let newVC = storyBoard.instantiateViewController(withIdentifier: "RedSocialNewsViewController") as! RedSocialNewsViewController
         newVC.post = post
         self.navigationController!.pushViewController(newVC, animated: true)
-
     }
-    
 }
 
 //MARK: - UITableViewDataSourcePrefetching
@@ -244,8 +233,13 @@ extension FeedViewController: FeedTVCProtocol {
     }
     
     public func showDetailPost(id: Int) {
-        guard let post = RealmManager.fetchDataForPK(object: PublicationRealm.self, id: id) else { return }
-        presenter?.showPostDetail(navController: self.navigationController, post: post)
+        //guard let post = RealmManager.fetchDataForPK(object: PublicationRealm.self, id: id) else { return }
+        //presenter?.showPostDetail(navController: self.navigationController, post: post)
+     let post = newPosts[id]
+     let storyBoard: UIStoryboard = UIStoryboard(name: "RedSocialSB", bundle: Bundle.local)
+     let newVC = storyBoard.instantiateViewController(withIdentifier: "RedSocialNewsViewController") as! RedSocialNewsViewController
+     newVC.post = post
+     self.navigationController!.pushViewController(newVC, animated: true)
     }
     
     public func presentFullScreenVideo(videoURL: String?) {

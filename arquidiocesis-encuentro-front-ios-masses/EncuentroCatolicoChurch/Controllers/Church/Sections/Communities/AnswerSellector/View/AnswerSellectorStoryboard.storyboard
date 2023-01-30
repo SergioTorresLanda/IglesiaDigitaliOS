@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="18122" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="20037" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
     <device id="retina4_7" orientation="portrait" appearance="light"/>
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="18093"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="20020"/>
         <capability name="Named colors" minToolsVersion="9.0"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="System colors in document resources" minToolsVersion="11.0"/>
@@ -79,11 +79,11 @@
                                 </userDefinedRuntimeAttributes>
                             </segmentedControl>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="none" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="a8I-Xs-Rtn">
-                                <rect key="frame" x="0.0" y="160" width="375" height="421"/>
+                                <rect key="frame" x="0.0" y="160" width="375" height="427"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <prototypes>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="CELLPRIEST" rowHeight="114" id="IFq-m5-wPH" customClass="PriestPTableCell" customModule="EncuentroCatolicoChurch" customModuleProvider="target">
-                                        <rect key="frame" x="0.0" y="24.5" width="375" height="114"/>
+                                        <rect key="frame" x="0.0" y="44.5" width="375" height="114"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="IFq-m5-wPH" id="Mow-TS-132">
                                             <rect key="frame" x="0.0" y="0.0" width="375" height="114"/>
@@ -118,7 +118,7 @@
                             <constraint firstItem="8Dy-ag-nef" firstAttribute="leading" secondItem="5EZ-qb-Rvc" secondAttribute="leading" id="acp-vn-yr7"/>
                             <constraint firstItem="hep-C2-eGB" firstAttribute="top" secondItem="vDu-zF-Fre" secondAttribute="top" id="gkJ-Qi-8xq"/>
                             <constraint firstItem="a8I-Xs-Rtn" firstAttribute="top" secondItem="8Dy-ag-nef" secondAttribute="bottom" constant="8" symbolic="YES" id="sOQ-Hk-bGG"/>
-                            <constraint firstItem="vDu-zF-Fre" firstAttribute="bottom" secondItem="a8I-Xs-Rtn" secondAttribute="bottom" constant="86" id="sgO-Uq-bed"/>
+                            <constraint firstItem="vDu-zF-Fre" firstAttribute="bottom" secondItem="a8I-Xs-Rtn" secondAttribute="bottom" constant="80" id="sgO-Uq-bed"/>
                             <constraint firstItem="a8I-Xs-Rtn" firstAttribute="leading" secondItem="vDu-zF-Fre" secondAttribute="leading" id="wBD-J2-FIS"/>
                         </constraints>
                     </view>

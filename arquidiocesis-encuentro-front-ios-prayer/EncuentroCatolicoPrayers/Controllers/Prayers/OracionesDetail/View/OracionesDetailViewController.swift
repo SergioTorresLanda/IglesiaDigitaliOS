@@ -19,7 +19,6 @@ class OracionesDetailViewController: UIViewController {
     @IBOutlet weak var lblSubTitle: UILabel!
     @IBOutlet weak var vCellContainer: UIView!
     @IBOutlet weak var lblRecomend: UILabel!
-    
 // MARK: NEW @OUTLETS -
     @IBOutlet weak var contentCustomNavbar: UIView!
     @IBOutlet weak var customNavBar: UIView!
@@ -28,49 +27,39 @@ class OracionesDetailViewController: UIViewController {
     @IBOutlet weak var mainScrollView: UIScrollView!
     @IBOutlet weak var mainContentView: UIView!
     @IBOutlet weak var imgPray: UIImageView!
-    @IBOutlet weak var textPray: UITextView!
     @IBOutlet weak var relatedTableView: UITableView!
     @IBOutlet weak var lblPray: UILabel!
     @IBOutlet weak var bottomHeight: NSLayoutConstraint!
-    @IBOutlet weak var heightLblPray: NSLayoutConstraint!
     @IBOutlet weak var heightSimilarTable: NSLayoutConstraint!
-    @IBOutlet weak var lblPrayersTitle: UILabel!
     @IBOutlet weak var btnSeemore: UIButton!
     
     var presenter: PresenterOracionesDetailProtocol?
     let loadingAlert = UIAlertController(title: "", message: "\n \n \n \n \nCargando...", preferredStyle: .alert)
     var similarArray : [SimilarResponse] = []
+    private var datasource: DetailViewModel?
     
     override func viewDidLoad() {
-        btnSeemore.layer.cornerRadius = 8
+        btnSeemore.layer.cornerRadius = 20
         showLoading()
         setupUI()
         setupGestures()
         self.view.backgroundColor = .white
         self.presenter?.getDataInteractorDevotions(id: self.id ?? 0)
-//        DispatchQueue.main.asyncAfter(deadline: .now() + 2, execute: {
-//            self.loadingAlert.dismiss(animated: true, completion: nil)
-//        })
     }
     
     override func viewWillAppear(_ animated: Bool) {
         print("VC ECPrayers -OracionesDetail- OracionesDetailVC ")
-
     }
-    
-    private var datasource: DetailViewModel?
     
     private func initUI() {
         lblTitleNavBar.text = datasource?.name ?? "Oraciones"
         lblTitleNavBar.adjustsFontSizeToFitWidth = true
         imgPray.imageFromURL(urlString: datasource?.image_url ?? "")
-       // self.imgImage.imageFromURL(urlString:  datasource?.image_url ?? "")
-        //let demo: String = self.datasource!.description ?? ""
-       // self.txtText.text = String.init().prepareForPrayer(strToChange: demo)
-        print(heightLblPray.constant)
+        print(":;;;;;;;;;URl:;;;;;;;")
+        print(datasource?.image_url ?? "XXX")
         lblPray.text = datasource?.description ?? ""
+        print(datasource?.description ?? "XXX")
         self.view.layoutIfNeeded()
-        print(heightLblPray.constant)
         similarArray = datasource?.similars ?? similarArray
         UIView.animate(withDuration: 0.4) {
             self.mainScrollView.alpha = 1
@@ -121,8 +110,6 @@ class OracionesDetailViewController: UIViewController {
     }
     
     @IBAction func seeMoreAction(_ sender: Any) {
-//        self.dismiss(animated: true, completion: nil)
-        //self.navigationController?.popViewController(animated: true)
         let view = OracionesRouter.getController()
         self.navigationController?.pushViewController(view, animated: true)
         
@@ -166,8 +153,6 @@ extension OracionesDetailViewController: ViewOracionesDetailProtocol {
         self.loadingAlert.dismiss(animated: true, completion: nil)
         }
     }
-    
-    
 }
 
 extension OracionesDetailViewController: UITableViewDelegate, UITableViewDataSource {

@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="18122" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="20037" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
     <device id="retina4_7" orientation="portrait" appearance="light"/>
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="18093"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="20020"/>
         <capability name="Named colors" minToolsVersion="9.0"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="System colors in document resources" minToolsVersion="11.0"/>
@@ -26,7 +26,7 @@
                     <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                     <subviews>
                         <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" style="plain" separatorStyle="none" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="jHr-IT-wQS">
-                            <rect key="frame" x="18" y="164" width="338" height="419"/>
+                            <rect key="frame" x="18" y="164" width="338" height="423"/>
                             <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                             <userDefinedRuntimeAttributes>
                                 <userDefinedRuntimeAttribute type="boolean" keyPath="shadow" value="NO"/>
@@ -50,7 +50,7 @@
                         <constraint firstAttribute="trailing" secondItem="TBQ-VV-gj2" secondAttribute="trailing" constant="19" id="E3Q-dA-cBm"/>
                         <constraint firstItem="TBQ-VV-gj2" firstAttribute="leading" secondItem="RaE-Qk-95F" secondAttribute="leading" constant="18" id="hlE-ua-yTf"/>
                         <constraint firstItem="jHr-IT-wQS" firstAttribute="leading" secondItem="RaE-Qk-95F" secondAttribute="leading" constant="18" id="n1r-LB-kaJ"/>
-                        <constraint firstAttribute="bottom" secondItem="jHr-IT-wQS" secondAttribute="bottom" constant="84" id="vqZ-QC-x2e"/>
+                        <constraint firstAttribute="bottom" secondItem="jHr-IT-wQS" secondAttribute="bottom" constant="80" id="vqZ-QC-x2e"/>
                     </constraints>
                 </view>
                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="LVS-0T-32V">

@@ -28,7 +28,6 @@ public class SocialNetworkController: UITabBarController {
     public var customTabBar: TabNavigationMenu!
     private var tabBarHeight: CGFloat = 80.0
     
-    
     //MARK: - Life cycle
     override public func viewDidLoad() {
         super.viewDidLoad()
@@ -79,6 +78,7 @@ public class SocialNetworkController: UITabBarController {
     private func changeTab(tab: Int) {
         self.selectedIndex = tab
     }
+
 }
 
 //MARK: - UITabBarControllerDelegate

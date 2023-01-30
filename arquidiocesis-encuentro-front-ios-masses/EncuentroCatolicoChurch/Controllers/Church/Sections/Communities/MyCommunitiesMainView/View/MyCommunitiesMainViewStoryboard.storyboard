@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="18122" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="20037" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
     <device id="retina6_1" orientation="portrait" appearance="light"/>
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="18093"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="20020"/>
         <capability name="Named colors" minToolsVersion="9.0"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="System colors in document resources" minToolsVersion="11.0"/>
@@ -55,7 +55,7 @@
                                 <textInputTraits key="textInputTraits"/>
                             </searchBar>
                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="5" translatesAutoresizingMaskIntoConstraints="NO" id="GHM-k4-gtr">
-                                <rect key="frame" x="16" y="161" width="382" height="601"/>
+                                <rect key="frame" x="16" y="161" width="382" height="621"/>
                                 <subviews>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="oZE-QT-rzb">
                                         <rect key="frame" x="0.0" y="0.0" width="382" height="55"/>
@@ -111,7 +111,7 @@
                                         </constraints>
                                         <prototypes>
                                             <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="CELLNEWEMPTY" rowHeight="108" id="EbW-85-YbQ" customClass="NewEmptyCell" customModule="EncuentroCatolicoChurch" customModuleProvider="target">
-                                                <rect key="frame" x="0.0" y="24.5" width="382" height="108"/>
+                                                <rect key="frame" x="0.0" y="44.5" width="382" height="108"/>
                                                 <autoresizingMask key="autoresizingMask"/>
                                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="EbW-85-YbQ" id="UAW-63-Svm">
                                                     <rect key="frame" x="0.0" y="0.0" width="382" height="108"/>
@@ -261,14 +261,14 @@
                                         </constraints>
                                     </view>
                                     <tableView clipsSubviews="YES" alpha="0.0" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="none" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="odU-OQ-NCS">
-                                        <rect key="frame" x="0.0" y="333" width="382" height="268"/>
+                                        <rect key="frame" x="0.0" y="333" width="382" height="288"/>
                                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         <constraints>
                                             <constraint firstAttribute="height" priority="250" constant="311" id="I9I-uJ-rvl"/>
                                         </constraints>
                                         <prototypes>
                                             <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="CELLEMPTYFAVCOM" rowHeight="109" id="r3L-nt-7Dd" customClass="EmptyFavComCell" customModule="EncuentroCatolicoChurch" customModuleProvider="target">
-                                                <rect key="frame" x="0.0" y="24.5" width="382" height="109"/>
+                                                <rect key="frame" x="0.0" y="44.5" width="382" height="109"/>
                                                 <autoresizingMask key="autoresizingMask"/>
                                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="r3L-nt-7Dd" id="FmD-JG-teo">
                                                     <rect key="frame" x="0.0" y="0.0" width="382" height="109"/>
@@ -336,7 +336,7 @@
                                 </subviews>
                             </stackView>
                             <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="magnifyingglass" catalog="system" translatesAutoresizingMaskIntoConstraints="NO" id="fD5-cs-QNU">
-                                <rect key="frame" x="374" y="125.5" width="20" height="20"/>
+                                <rect key="frame" x="374" y="125" width="20" height="20.5"/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="20" id="cbu-gU-FTg"/>
                                     <constraint firstAttribute="height" constant="22" id="tdC-z8-raf"/>
@@ -365,7 +365,7 @@
                             <constraint firstItem="Swl-OG-mru" firstAttribute="leading" secondItem="vDu-zF-Fre" secondAttribute="leading" id="FA2-IU-UFJ"/>
                             <constraint firstItem="xpR-ep-ht6" firstAttribute="leading" secondItem="vDu-zF-Fre" secondAttribute="leading" constant="16" id="FIc-s7-cOH"/>
                             <constraint firstItem="xpR-ep-ht6" firstAttribute="trailing" secondItem="vDu-zF-Fre" secondAttribute="trailing" constant="-16" id="Lal-oR-5xf"/>
-                            <constraint firstItem="vDu-zF-Fre" firstAttribute="bottom" secondItem="GHM-k4-gtr" secondAttribute="bottom" constant="100" id="Nbj-MN-V0m"/>
+                            <constraint firstItem="vDu-zF-Fre" firstAttribute="bottom" secondItem="GHM-k4-gtr" secondAttribute="bottom" constant="80" id="Nbj-MN-V0m"/>
                             <constraint firstItem="1LL-JY-0Ha" firstAttribute="top" secondItem="Swl-OG-mru" secondAttribute="bottom" constant="11" id="RFx-gV-X6v"/>
                             <constraint firstItem="GHM-k4-gtr" firstAttribute="top" secondItem="1LL-JY-0Ha" secondAttribute="bottom" constant="11" id="Zpi-pm-FKy"/>
                             <constraint firstItem="GHM-k4-gtr" firstAttribute="leading" secondItem="vDu-zF-Fre" secondAttribute="leading" constant="16" id="aJk-SX-LIz"/>

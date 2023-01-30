@@ -48,7 +48,6 @@ class AppDelegate: UIResponder, UIApplicationDelegate, UNUserNotificationCenterD
         openLogin()
         
         notificationPush.registerForPN()
-        
         return true
     }
     

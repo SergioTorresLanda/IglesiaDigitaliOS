@@ -16,6 +16,9 @@ class PriestPSOSView: UIViewController, PriestPSOSViewProtocol {
     @IBOutlet weak var segmentLine: UIView!
     @IBOutlet weak var lblMainTitle: UILabel!
     
+    @IBOutlet weak var btnBack: UIButton!
+    @IBOutlet weak var viewG: UIView!
+    
     static let singleton = PriestPSOSView()
     let monitor = NWPathMonitor()
     var isInternet=false
@@ -56,6 +59,10 @@ class PriestPSOSView: UIViewController, PriestPSOSViewProtocol {
       //  presenter?.requestListServices(paramStatus: "ACTIVE")
     }
     
+    
+    @IBAction func backClick(_ sender: Any) {
+    }
+    
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         
@@ -93,6 +100,8 @@ class PriestPSOSView: UIViewController, PriestPSOSViewProtocol {
     }
     
     func setupUI() {
+        viewG.layer.cornerRadius = 20
+        viewG.ShadowNavBar()
         lblMainTitle.adjustsFontSizeToFitWidth = true
     }
     

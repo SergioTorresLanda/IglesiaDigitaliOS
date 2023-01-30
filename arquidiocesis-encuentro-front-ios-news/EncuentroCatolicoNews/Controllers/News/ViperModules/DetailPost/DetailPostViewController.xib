@@ -109,7 +109,7 @@
                     </constraints>
                 </view>
                 <tableView hidden="YES" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" style="plain" separatorStyle="none" allowsSelection="NO" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="YMG-sK-lLT" userLabel="Table ViewNO">
-                    <rect key="frame" x="0.0" y="60" width="375" height="507"/>
+                    <rect key="frame" x="0.0" y="60" width="375" height="527"/>
                     <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                 </tableView>
             </subviews>
@@ -122,7 +122,7 @@
                 <constraint firstItem="5Lv-72-Ldg" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" id="TeB-sf-f68"/>
                 <constraint firstItem="YMG-sK-lLT" firstAttribute="top" secondItem="xVg-ua-PMx" secondAttribute="bottom" id="bmg-MN-LGT"/>
                 <constraint firstItem="5Lv-72-Ldg" firstAttribute="top" secondItem="dbD-Gd-KK5" secondAttribute="top" id="dFj-Lm-zmf"/>
-                <constraint firstAttribute="bottom" secondItem="YMG-sK-lLT" secondAttribute="bottom" constant="100" id="jGl-3E-MsU"/>
+                <constraint firstAttribute="bottom" secondItem="YMG-sK-lLT" secondAttribute="bottom" constant="80" id="jGl-3E-MsU"/>
                 <constraint firstAttribute="trailing" secondItem="5Lv-72-Ldg" secondAttribute="trailing" id="r7b-yF-gbx"/>
                 <constraint firstItem="xVg-ua-PMx" firstAttribute="top" secondItem="dbD-Gd-KK5" secondAttribute="top" id="xRn-WH-4Gi"/>
                 <constraint firstAttribute="trailing" secondItem="xVg-ua-PMx" secondAttribute="trailing" id="yeY-Fe-bA9"/>

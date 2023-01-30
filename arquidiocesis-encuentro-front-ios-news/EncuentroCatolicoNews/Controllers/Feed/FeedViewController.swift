@@ -61,20 +61,13 @@ public class FeedViewController: UIViewController, FeedViewProtocol, FeedViewCon
         setUpView()
     }
     
-    
     override public func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         print("VC ECNews - FeedVC ")
         setupTabBar()
         presenter?.getNewPosts(isFromPage: false, isRefresh: false)
     }
-    
-    override public func viewDidAppear(_ animated: Bool) {
-        super.viewDidAppear(animated)
-        //tableView.reloadData()
-    }
 
-    
     //MARK: - Methods
     func setupTabBar(){
         let tabBar = self.tabBarController as? SocialNetworkController

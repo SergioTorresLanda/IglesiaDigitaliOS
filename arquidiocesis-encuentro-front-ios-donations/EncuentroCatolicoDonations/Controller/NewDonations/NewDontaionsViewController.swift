@@ -168,7 +168,7 @@ class NewDontaionsViewController: BaseVC, NewDontaionsViewProtocol {
     var menuItems = ["", "Ofrenda", "", "Facturar", ""]
     var menuIcons = ["", "heart.fill", "", "doc.plaintext.fill", ""]
     var itemsRadioBtn = ["Si", "No"]
-    var conceptType = ["Selecciona concepto", "Ofrenda", "Diezmo", "Limosna", "Pago de una intención", "pago de un servicio", "Otro"]
+    var conceptType = ["Selecciona concepto", "Ofrenda", "Diezmo", "Limosna", "Pago de una intención", "Pago de un servicio", "Otro"]
     var amountList = ["10", "50", "100", "200", "300", "400", "500", "1000", "Otra"]
     var isActive = [false, true]
     var withBill: Bool {
@@ -221,7 +221,6 @@ class NewDontaionsViewController: BaseVC, NewDontaionsViewProtocol {
     override func viewDidLoad() {
         super.viewDidLoad()
         setupInternetObserver()
-  
         setupCollections()
         setupUI()
         setupTables()
@@ -229,7 +228,7 @@ class NewDontaionsViewController: BaseVC, NewDontaionsViewProtocol {
         setupGestures()
         setupFields()
     }
-    
+ 
     override func viewWillAppear(_ animated: Bool) {
         print("VC ECDonations - NewDonations")
         if isInternet {
@@ -259,76 +258,11 @@ class NewDontaionsViewController: BaseVC, NewDontaionsViewProtocol {
                monitor.start(queue: queue)
     }
     
-    private func setupUI() {
-        customNavbar.layer.cornerRadius = 20
-        customNavbar.ShadowNavBar()
-        profileContent.isHidden = true
-        btnCancelar.isHidden = true
-        backIcon.setTitle("", for: .normal)
-        btnSearch.titleLabel?.numberOfLines = 1
-        btnSearch.titleLabel?.adjustsFontSizeToFitWidth = true
-        contentMainChurchTable.layer.cornerRadius = 10
-        contentMainChurchTable.ShadowCard()
-        contentFavoriteTableContent.layer.cornerRadius = 10
-        contentFavoriteTableContent.ShadowCard()
-        contentSuggestionsTableView.layer.cornerRadius = 10
-        contentSuggestionsTableView.ShadowCard()
-        
-        let statixMinX = menuCollection.frame.minX - 20
-        var axisX = 61
-        axisX += Int(statixMinX)
-        menuLine = UIView(frame: CGRect(x: axisX, y: Int(menuCollection.frame.maxY), width: 61, height: 3))
-        menuLine.backgroundColor = UIColor.init(red: 1/255, green: 32/255, blue: 104/255, alpha: 1)
-        menuLine.layer.cornerRadius = 3
-        viewToShadow.addSubview(menuLine)
-        
-        // Second Sections Objects
-        cardDetail.layer.cornerRadius = 10
-        churchDetailImg.layer.cornerRadius = 10
-        cardDetail.layer.borderWidth = 0.5
-        cardDetail.layer.borderColor = UIColor(red: 175/255, green: 175/255, blue: 175/255, alpha: 1).cgColor
-        
-        btnCancel.layer.cornerRadius = 8
-        btnCancel.layer.borderWidth = 0.5
-        btnCancel.layer.borderColor = UIColor(red: 25/255, green: 42/255, blue: 115/255, alpha: 1).cgColor
-        btnContinue.layer.cornerRadius = 8
-        
-        // Add tax data view
-        addDataView.layer.cornerRadius = 9
-        addDataView.ShadowCard()
-        
-        // Formulary Tax Data
-        formularyTaxContainer.layer.cornerRadius = 9
-        formularyTaxContainer.ShadowCard()
-        btnSave.layer.cornerRadius = 8
-        checkBtn.setTitle("", for: .normal)
-        
-        viewToShadow.ShadowCard()
-        
-        firstTimerView.layer.cornerRadius = 8
-        secondTimerView.layer.cornerRadius = 8
-        thirdTimerView.layer.cornerRadius = 8
-        
-        firstTimerView.ShadowCard()
-        secondTimerView.ShadowCard()
-        thirdTimerView.ShadowCard()
-        firstTwoPoints.setTitle("", for: .normal)
-        secondTwoPoints.setTitle("", for: .normal)
-        
-        btnChangeData.titleLabel?.font = UIFont.systemFont(ofSize: 14, weight: .semibold)
-        
-        btnCancelar.layer.cornerRadius = 8
-        btnCancelar.layer.borderWidth = 0.5
-        btnCancelar.layer.borderColor = UIColor(red: 25/255, green: 42/255, blue: 115/255, alpha: 1).cgColor
-    }
-    
     private func setupFieldsDelegate() {
         conceptField.delegate = self
         setupPickerField(pickerDontaion)
-        
         otherAmountField.delegate = self
         specifyField.delegate = self
-        
         amountField.delegate = self
         setupPickerFieldAmount(pickerAmount)
     }
@@ -865,6 +799,80 @@ class NewDontaionsViewController: BaseVC, NewDontaionsViewProtocol {
             miliSeconds -= 1
         }
         
+    }
+    
+    // MARK: @FORMATS -
+    private func setupUI() {
+        roundViewBottomCorners()
+        customNavbar.ShadowNavBar()
+        profileContent.isHidden = true
+        btnCancelar.isHidden = true
+        backIcon.setTitle("", for: .normal)
+        btnSearch.titleLabel?.numberOfLines = 1
+        btnSearch.titleLabel?.adjustsFontSizeToFitWidth = true
+        contentMainChurchTable.layer.cornerRadius = 10
+        contentMainChurchTable.ShadowCard()
+        contentFavoriteTableContent.layer.cornerRadius = 10
+        contentFavoriteTableContent.ShadowCard()
+        contentSuggestionsTableView.layer.cornerRadius = 10
+        contentSuggestionsTableView.ShadowCard()
+        
+        let statixMinX = menuCollection.frame.minX - 20
+        var axisX = 61
+        axisX += Int(statixMinX)
+        menuLine = UIView(frame: CGRect(x: axisX, y: Int(menuCollection.frame.maxY), width: 61, height: 3))
+        menuLine.backgroundColor = UIColor.init(red: 1/255, green: 32/255, blue: 104/255, alpha: 1)
+        menuLine.layer.cornerRadius = 3
+        viewToShadow.addSubview(menuLine)
+        
+        // Second Sections Objects
+        cardDetail.layer.cornerRadius = 10
+        churchDetailImg.layer.cornerRadius = 10
+        cardDetail.layer.borderWidth = 0.5
+        cardDetail.layer.borderColor = UIColor(red: 175/255, green: 175/255, blue: 175/255, alpha: 1).cgColor
+        
+        btnCancel.layer.cornerRadius = 8
+        btnCancel.layer.borderWidth = 0.5
+        btnCancel.layer.borderColor = UIColor(red: 25/255, green: 42/255, blue: 115/255, alpha: 1).cgColor
+        btnContinue.layer.cornerRadius = 8
+        
+        // Add tax data view
+        addDataView.layer.cornerRadius = 9
+        addDataView.ShadowCard()
+        
+        // Formulary Tax Data
+        formularyTaxContainer.layer.cornerRadius = 9
+        formularyTaxContainer.ShadowCard()
+        btnSave.layer.cornerRadius = 8
+        checkBtn.setTitle("", for: .normal)
+        
+        viewToShadow.ShadowCard()
+        
+        firstTimerView.layer.cornerRadius = 8
+        secondTimerView.layer.cornerRadius = 8
+        thirdTimerView.layer.cornerRadius = 8
+        
+        firstTimerView.ShadowCard()
+        secondTimerView.ShadowCard()
+        thirdTimerView.ShadowCard()
+        firstTwoPoints.setTitle("", for: .normal)
+        secondTwoPoints.setTitle("", for: .normal)
+        
+        btnChangeData.titleLabel?.font = UIFont.systemFont(ofSize: 14, weight: .semibold)
+        
+        btnCancelar.layer.cornerRadius = 8
+        btnCancelar.layer.borderWidth = 0.5
+        btnCancelar.layer.borderColor = UIColor(red: 25/255, green: 42/255, blue: 115/255, alpha: 1).cgColor
+    }
+    
+    func roundViewBottomCorners(){
+        let path = UIBezierPath(roundedRect:customNavbar.bounds,
+                                byRoundingCorners:[.bottomLeft, .bottomRight],
+                                cornerRadii: CGSize(width: 20, height:  20))
+
+        let maskLayer = CAShapeLayer()
+        maskLayer.path = path.cgPath
+        customNavbar.layer.mask = maskLayer
     }
     
 }
