@@ -36,10 +36,11 @@ public struct NewMakePost: Codable{
     let content: String
     let userId: Int
     let scope: Int
+    let imageProfile: String
     
     enum CodingKeys: String, CodingKey{
         case asParam = "as"
-        case groupId, multimedia, content, userId, scope
+        case groupId, multimedia, content, userId, scope, imageProfile
     }
 }
 
@@ -127,7 +128,7 @@ public class CreatePostInteractor: CreatePostInteractorProtocol {
             // Cuado es una iglesia se manda en 3
             
             
-            let newParams = NewMakePost(asParam: asParam, groupId: organizationId ?? 0, multimedia: self.arrMultimedia, content: content, userId: SNId, scope: scope)
+            let newParams = NewMakePost(asParam: asParam, groupId: organizationId ?? 0, multimedia: self.arrMultimedia, content: content, userId: SNId, scope: scope, imageProfile: UserDefaults.standard.string(forKey: "imageUrl") ?? "")
             
             let strUrl = "\(APIType.shared.SN())/posts"
             let request = self.snService.postRequestRS(strUrl: strUrl, method: .commentsAll, param: newParams)

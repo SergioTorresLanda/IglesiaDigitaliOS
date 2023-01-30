@@ -63,7 +63,9 @@ extension FeedViewController: UITableViewDataSource {
             }else{
                 cell.nameLabel.text = newPosts[indexPath.row].author?.name
                 if (newPosts[indexPath.row].author?.image) != nil{
-                    cell.userImage.image = UIImage(named: newPosts[indexPath.row].author?.image ?? "")
+                    let url = URL(string: newPosts[indexPath.row].author?.image ?? "")
+                    let data = try? Data(contentsOf: url!)
+                    cell.userImage.image = UIImage(data: data!)
                     
                 }else{
                     cell.userImage.image = UIImage(named: "iconProfile", in: Bundle.local, compatibleWith: nil)
@@ -235,11 +237,12 @@ extension FeedViewController: FeedTVCProtocol {
     public func showDetailPost(id: Int) {
         //guard let post = RealmManager.fetchDataForPK(object: PublicationRealm.self, id: id) else { return }
         //presenter?.showPostDetail(navController: self.navigationController, post: post)
-     let post = newPosts[id]
-     let storyBoard: UIStoryboard = UIStoryboard(name: "RedSocialSB", bundle: Bundle.local)
-     let newVC = storyBoard.instantiateViewController(withIdentifier: "RedSocialNewsViewController") as! RedSocialNewsViewController
-     newVC.post = post
-     self.navigationController!.pushViewController(newVC, animated: true)
+        print("Holaaaaa--------2")
+        let post = newPosts[id]
+        let storyBoard: UIStoryboard = UIStoryboard(name: "RedSocialSB", bundle: Bundle.local)
+        let newVC = storyBoard.instantiateViewController(withIdentifier: "RedSocialNewsViewController") as! RedSocialNewsViewController
+        newVC.post = post
+        self.navigationController!.pushViewController(newVC, animated: true)
     }
     
     public func presentFullScreenVideo(videoURL: String?) {

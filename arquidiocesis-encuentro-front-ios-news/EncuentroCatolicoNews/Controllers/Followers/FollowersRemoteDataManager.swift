@@ -16,9 +16,14 @@ class FollowersRemoteDataManager:FollowersRemoteDataManagerInputProtocol {
     
     func followProfile(follower: Followers) {
         let request = snService.postRequestFollowers(strUrl: strURLFollow, param: follower)
+        print("VEREMOS QUE ES ESTA PARTE follow")
+        print(strURLFollow)
+        print(request)
+        print(follower)
         snService.newmakeRequest(request: request) { [weak self] data, error in
             if let error = error {
                 self?.remoteRequestHandler?.followAndUnFollowError(with: error)
+                print(error)
             }
             guard let data = data else{
                 self?.remoteRequestHandler?.followAndUnFollowError(with: SocialNetworkErrors.ResponseError)
@@ -38,6 +43,10 @@ class FollowersRemoteDataManager:FollowersRemoteDataManagerInputProtocol {
         let urlString = "\(APIType.shared.SN())/entity/\(follower.userId)/unfollow?userId=\(SNId)&entityType=\(follower.entityType)"
         guard let apiUrl = URL(string: urlString) else { return }
         var request = URLRequest(url: apiUrl)
+        print("VEREMOS QUE ES ESTA PARTE unfollow")
+        print(urlString)
+        print(request)
+        print(follower)
         
         let tksession = UserDefaults.standard.string(forKey: "idToken")
         request.setValue("Bearer \(tksession ?? "")", forHTTPHeaderField: "Authorization")
@@ -77,6 +86,9 @@ class FollowersRemoteDataManager:FollowersRemoteDataManagerInputProtocol {
             }
             let response = self?.decode(with: data)
             self?.remoteRequestHandler?.getFollowersResponse(with: response)
+            print("OBTENER LOS FOLLOWERS QUE TIENE EL USUARIO")
+            print(url)
+            print(response)
         }
     }
     
@@ -94,6 +106,9 @@ class FollowersRemoteDataManager:FollowersRemoteDataManagerInputProtocol {
             }
             let response = self?.decode(with: data)
             self?.remoteRequestHandler?.getFollowedResponse(with: response)
+            print("OBTENER LOS FOLLOWEDS QUE TIENE EL USUARIO")
+            print(url)
+            print(response)
         }
     }
     

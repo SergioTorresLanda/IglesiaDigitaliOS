@@ -65,7 +65,13 @@ class SearchSocialInteractor: SocialSearchInteractorProtocol {
             "entityType" : entityType
             
         ]
+        print("LOS NUEVOS PARAMETROS QUE ME PUEDEN SER DE UTILIDAD")
+        print(urlString)
+        print(request)
+        print(bodyParams)
         let body = try! JSONSerialization.data(withJSONObject: bodyParams)
+        print(tksession)
+        print(body)
         
         
         request.setValue("Bearer \(tksession ?? "")", forHTTPHeaderField: "Authorization")

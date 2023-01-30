@@ -11,6 +11,7 @@ import RealmSwift
 import Lottie
 import SDWebImage
 
+
 public protocol FeedTVCProtocol: AnyObject {
     func presentFullScreenVideo(videoURL: String?)
     func showDetailPost(id: Int)
@@ -39,6 +40,7 @@ public class FeedTVC: UITableViewCell, CustomPopOverDelegate {
     
     @IBOutlet public lazy var collectionView: UICollectionView? = {
         let collectionView = UICollectionView()
+        
         return collectionView
     }()
     
@@ -99,6 +101,9 @@ public class FeedTVC: UITableViewCell, CustomPopOverDelegate {
         self.selectionStyle = .none
 //        let SNId = UserDefaults.standard.integer(forKey: "SNId")
 //        btnMoreActions.isHidden = newPost?.author?.id == SNId ? false : true
+        userImage.image = UIImage(named: "userImage", in: Bundle.local, compatibleWith: nil)
+        userImage.layer.cornerRadius = userImage.bounds.width / 2
+        
         userImage.layer.borderWidth = 0.5
         userImage.layer.borderColor = UIColor.black.cgColor
         userImage.clipsToBounds = true
@@ -246,8 +251,10 @@ extension FeedTVC: UICollectionViewDataSource {
 //MARK: - UICollectionViewDelegate
 extension FeedTVC: UICollectionViewDelegate {
     public func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
-//        delegate?.showDetailPost(id: self.tag)
+        print("tag :::::::::::::")
+        print(String(indexpath))
         delegate?.showDetailPost(id: indexpath)
+      
     }
 }
 

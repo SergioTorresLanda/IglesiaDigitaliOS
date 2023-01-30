@@ -22,23 +22,23 @@ public class ImagesZoomCVC: UICollectionViewCell {
     }
     
     public override func prepareForReuse() {
-        contentImage.image = nil
+//        contentImage.image = nil
     }
     
     //MARK: - Methods
     private func setUpView() {
-        let pinch = UIPinchGestureRecognizer(target: self, action: #selector(pinchGesture))
-        contentImage.addGestureRecognizer(pinch)
+//        let pinch = UIPinchGestureRecognizer(target: self, action: #selector(pinchGesture))
+//        contentImage.addGestureRecognizer(pinch)
     }
     
     @objc private func pinchGesture(_ sender: UIPinchGestureRecognizer) {
-        if sender.state == .began || sender.state == .changed {
-            let currentScale = contentImage.frame.size.width / contentImage.bounds.size.width
-            let newScale = currentScale * sender.scale
-            let transform = CGAffineTransform(scaleX: newScale, y: newScale)
-            contentImage.transform = transform
-            sender.scale = 1
-        }
+//        if sender.state == .began || sender.state == .changed {
+//            let currentScale = contentImage.frame.size.width / contentImage.bounds.size.width
+//            let newScale = currentScale * sender.scale
+//            let transform = CGAffineTransform(scaleX: newScale, y: newScale)
+//            contentImage.transform = transform
+//            sender.scale = 1
+//        }
     }
 
 }

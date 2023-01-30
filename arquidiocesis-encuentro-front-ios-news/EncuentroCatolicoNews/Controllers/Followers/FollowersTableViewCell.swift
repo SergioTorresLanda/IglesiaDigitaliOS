@@ -46,6 +46,7 @@ class FollowersTableViewCell: UITableViewCell {
     }
     
     @objc func unFollow(){
+        print("SE DEBERIA DE CAMBIAR EL ESTATUS")
         if follower?.isFollow ?? false{
             changeFollowed(isFollow: false)
         }else{

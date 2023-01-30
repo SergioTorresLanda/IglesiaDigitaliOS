@@ -97,8 +97,12 @@ public class SocialNetworkService {
         request.timeoutInterval = 3
         request.setValue("application/json", forHTTPHeaderField: "Content-Type")
         let tksession = UserDefaults.standard.string(forKey: "idToken")
+        print("TOKEN SESION")
+        print(tksession)
         request.setValue("Bearer \(tksession ?? "")", forHTTPHeaderField: "Authorization")
         request.httpMethod = "POST"
+        print(endPoint)
+        print(param)
         let data = try? JSONEncoder().encode(param)
         request.httpBody = data
         

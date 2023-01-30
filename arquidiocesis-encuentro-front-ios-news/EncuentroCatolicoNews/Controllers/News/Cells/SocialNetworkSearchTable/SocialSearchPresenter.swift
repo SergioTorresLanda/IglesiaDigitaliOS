@@ -45,6 +45,10 @@ class SocialSearchPresenter: SocialSearchPresenterProtocol {
     }
     
     func onSuccessRequestFollowUF(data: FollowResponse, response: HTTPURLResponse) {
+        print("FUNCION PARA DEJAR DE SEGUIR")
+        print(data)
+        print(response)
+        
         DispatchQueue.main.async {
             if response.statusCode == 200 {
                 self.view?.successFollowUF(data: data)

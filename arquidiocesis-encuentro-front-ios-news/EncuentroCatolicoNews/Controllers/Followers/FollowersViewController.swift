@@ -49,12 +49,14 @@ class FollowersViewController: UIViewController {
         imgProfile.layer.borderColor = UIColor.black.cgColor
         imgProfile.clipsToBounds = true
         imgProfile.makeRounded()
-        
-        if let imageData = UserDefaults.standard.data(forKey: "userImage"), let image = UIImage(data: imageData) {
-            imgProfile.image = image
-        }else{
-            imgProfile.image = UIImage(named: "iconProfile", in: Bundle.local, compatibleWith: nil)
+        if let imageString = UserDefaults.standard.string(forKey: "imageUrl") {
+            imgProfile.loadS(urlS:imageString)
         }
+//        if let imageData = UserDefaults.standard.data(forKey: "userImage"), let image = UIImage(data: imageData) {
+//            imgProfile.image = image
+//        }else{
+//            imgProfile.image = UIImage(named: "iconProfile", in: Bundle.local, compatibleWith: nil)
+//        }
         
         dispatchGroup.notify(queue: .main) {
             let codeSegmented = CustomSegmentedControl(frame: CGRect(x: self.segmentedControlView.frame.origin.x, y: self.segmentedControlView.frame.origin.y, width: self.segmentedControlView.frame.width, height: 40), buttonTitle: ["\(self.arrFollowers.count) Seguidores", "\(self.arrFollowed.count) Seguidos"])
@@ -130,16 +132,18 @@ extension FollowersViewController: FollowersViewProtocol {
             self.activityIndicator.stopAnimating()
         }
        
-//        print("TODO OK")
+        print("TODO OK")
     }
     
     func followServiceError(with error: SocialNetworkErrors) {
         loadingView.isHidden = true
         activityIndicator.stopAnimating()
-//        print("FALLÓ ALGO")
+        print("FALLÓ ALGO")
     }
     
     func loadFollowers(followers: [Followers]) {
+        print("FOLLOWERS")
+        print(followers)
         arrFollowers = followers
         arrInfoToShow = arrFollowers
         
@@ -148,6 +152,8 @@ extension FollowersViewController: FollowersViewProtocol {
     }
     
     func loadFollowed(followeds: [Followers]) {
+        print("FOLLOWEDS")
+        print(followeds)
         arrFollowed = followeds
         dispatchGroup.leave()
     }
