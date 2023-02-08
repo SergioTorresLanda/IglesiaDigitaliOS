@@ -7,7 +7,6 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		10727BEE2975D3A0004A8151 /* ViewControllerRedS.swift in Sources */ = {isa = PBXBuildFile; fileRef = 10727BED2975D3A0004A8151 /* ViewControllerRedS.swift */; };
 		10E37C4A296F7F1B0004A006 /* RedSocialNewsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 10E37C49296F7F1B0004A006 /* RedSocialNewsViewController.swift */; };
 		10E37C4C296F86690004A006 /* Media.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 10E37C4B296F86690004A006 /* Media.xcassets */; };
 		10E37C5329706AEB0004A006 /* RedSocialSB.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 10E37C5229706AEB0004A006 /* RedSocialSB.storyboard */; };
@@ -27,6 +26,8 @@
 		16C0553F274B14360084445D /* RSTimeLineRealm.swift in Sources */ = {isa = PBXBuildFile; fileRef = 16C0553E274B14360084445D /* RSTimeLineRealm.swift */; };
 		16C05541274B367A0084445D /* RealManagerRS.swift in Sources */ = {isa = PBXBuildFile; fileRef = 16C05540274B367A0084445D /* RealManagerRS.swift */; };
 		2490111328FA304B00E5A78B /* String+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2490111228FA304B00E5A78B /* String+Extension.swift */; };
+		44F838122993000B005F9283 /* SliderCell2.swift in Sources */ = {isa = PBXBuildFile; fileRef = 44F838112993000B005F9283 /* SliderCell2.swift */; };
+		44F8381529930123005F9283 /* SliderCell2.xib in Resources */ = {isa = PBXBuildFile; fileRef = 44F8381429930123005F9283 /* SliderCell2.xib */; };
 		6D1D406027A373A2007FE35E /* followCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6D1D405627A373A2007FE35E /* followCell.swift */; };
 		6D1D406127A373A2007FE35E /* followCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 6D1D405727A373A2007FE35E /* followCell.xib */; };
 		6D1D406227A373A2007FE35E /* SocialSearchPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6D1D405827A373A2007FE35E /* SocialSearchPresenter.swift */; };
@@ -135,7 +136,7 @@
 		AA9FFA8725E9A3FE00AC70ED /* FeedViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = AA9FF9AF25E9A3FD00AC70ED /* FeedViewController.xib */; };
 		AA9FFA8825E9A3FE00AC70ED /* FeedInteractor.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA9FF9B025E9A3FD00AC70ED /* FeedInteractor.swift */; };
 		AA9FFA8925E9A3FE00AC70ED /* FeedDataMethods.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA9FF9B125E9A3FD00AC70ED /* FeedDataMethods.swift */; };
-		AA9FFA8A25E9A3FE00AC70ED /* FeedViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA9FF9B225E9A3FD00AC70ED /* FeedViewController.swift */; };
+		AA9FFA8A25E9A3FE00AC70ED /* Home_RedSocial.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA9FF9B225E9A3FD00AC70ED /* Home_RedSocial.swift */; };
 		AA9FFA8B25E9A3FE00AC70ED /* FeedData.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA9FF9B325E9A3FD00AC70ED /* FeedData.swift */; };
 		AA9FFA8C25E9A3FE00AC70ED /* FeedRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA9FF9B425E9A3FD00AC70ED /* FeedRouter.swift */; };
 		AA9FFA8D25E9A3FE00AC70ED /* DetailPostViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA9FF9B625E9A3FD00AC70ED /* DetailPostViewController.swift */; };
@@ -271,7 +272,6 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
-		10727BED2975D3A0004A8151 /* ViewControllerRedS.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewControllerRedS.swift; sourceTree = "<group>"; };
 		10E37C49296F7F1B0004A006 /* RedSocialNewsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RedSocialNewsViewController.swift; sourceTree = "<group>"; };
 		10E37C4B296F86690004A006 /* Media.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Media.xcassets; sourceTree = "<group>"; };
 		10E37C5229706AEB0004A006 /* RedSocialSB.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = RedSocialSB.storyboard; sourceTree = "<group>"; };
@@ -293,6 +293,8 @@
 		1F3CEF282077CB48E833FF30 /* Pods_EncuentroCatolicoNews.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_EncuentroCatolicoNews.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		2490111228FA304B00E5A78B /* String+Extension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "String+Extension.swift"; sourceTree = "<group>"; };
 		2B2D6B13266B7E9B7AFA41ED /* Pods-EncuentroCatolicoNews.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-EncuentroCatolicoNews.release.xcconfig"; path = "Target Support Files/Pods-EncuentroCatolicoNews/Pods-EncuentroCatolicoNews.release.xcconfig"; sourceTree = "<group>"; };
+		44F838112993000B005F9283 /* SliderCell2.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SliderCell2.swift; sourceTree = "<group>"; };
+		44F8381429930123005F9283 /* SliderCell2.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = SliderCell2.xib; sourceTree = "<group>"; };
 		6D1D405627A373A2007FE35E /* followCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = followCell.swift; sourceTree = "<group>"; };
 		6D1D405727A373A2007FE35E /* followCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = followCell.xib; sourceTree = "<group>"; };
 		6D1D405827A373A2007FE35E /* SocialSearchPresenter.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SocialSearchPresenter.swift; sourceTree = "<group>"; };
@@ -403,7 +405,7 @@
 		AA9FF9AF25E9A3FD00AC70ED /* FeedViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = FeedViewController.xib; sourceTree = "<group>"; };
 		AA9FF9B025E9A3FD00AC70ED /* FeedInteractor.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FeedInteractor.swift; sourceTree = "<group>"; };
 		AA9FF9B125E9A3FD00AC70ED /* FeedDataMethods.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FeedDataMethods.swift; sourceTree = "<group>"; };
-		AA9FF9B225E9A3FD00AC70ED /* FeedViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FeedViewController.swift; sourceTree = "<group>"; };
+		AA9FF9B225E9A3FD00AC70ED /* Home_RedSocial.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Home_RedSocial.swift; sourceTree = "<group>"; };
 		AA9FF9B325E9A3FD00AC70ED /* FeedData.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FeedData.swift; sourceTree = "<group>"; };
 		AA9FF9B425E9A3FD00AC70ED /* FeedRouter.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FeedRouter.swift; sourceTree = "<group>"; };
 		AA9FF9B625E9A3FD00AC70ED /* DetailPostViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DetailPostViewController.swift; sourceTree = "<group>"; };
@@ -555,9 +557,10 @@
 			isa = PBXGroup;
 			children = (
 				10E37C49296F7F1B0004A006 /* RedSocialNewsViewController.swift */,
-				10727BED2975D3A0004A8151 /* ViewControllerRedS.swift */,
 				10E37C5229706AEB0004A006 /* RedSocialSB.storyboard */,
 				10E37C4B296F86690004A006 /* Media.xcassets */,
+				44F838112993000B005F9283 /* SliderCell2.swift */,
+				44F8381429930123005F9283 /* SliderCell2.xib */,
 			);
 			path = RedSocialNews;
 			sourceTree = "<group>";
@@ -1024,7 +1027,7 @@
 				AA9FF9AF25E9A3FD00AC70ED /* FeedViewController.xib */,
 				AA9FF9B025E9A3FD00AC70ED /* FeedInteractor.swift */,
 				AA9FF9B125E9A3FD00AC70ED /* FeedDataMethods.swift */,
-				AA9FF9B225E9A3FD00AC70ED /* FeedViewController.swift */,
+				AA9FF9B225E9A3FD00AC70ED /* Home_RedSocial.swift */,
 				AA9FF9B325E9A3FD00AC70ED /* FeedData.swift */,
 				AA9FF9B425E9A3FD00AC70ED /* FeedRouter.swift */,
 			);
@@ -1519,6 +1522,7 @@
 				AA9FFAA725E9A3FE00AC70ED /* NotificationsViewController.xib in Resources */,
 				AA9FFAA925E9A3FE00AC70ED /* InitViewViewController.xib in Resources */,
 				AA9FFA8725E9A3FE00AC70ED /* FeedViewController.xib in Resources */,
+				44F8381529930123005F9283 /* SliderCell2.xib in Resources */,
 				AA9FFA7325E9A3FE00AC70ED /* ImagesZoomCVC.xib in Resources */,
 				98A6C2052604108D009FBE59 /* AddMoreImagesTVC.xib in Resources */,
 				AA9FFABE25E9A3FE00AC70ED /* EditPostAlert.xib in Resources */,
@@ -1607,7 +1611,6 @@
 				AA9FFA7025E9A3FE00AC70ED /* DetailPostTVC.swift in Sources */,
 				AA9FFA9225E9A3FE00AC70ED /* DetailPostProtocols.swift in Sources */,
 				AA9FFAF025E9A3FF00AC70ED /* ImagePickerConfigurable.swift in Sources */,
-				10727BEE2975D3A0004A8151 /* ViewControllerRedS.swift in Sources */,
 				6D1D406927A373A2007FE35E /* SocialSearchComponents.swift in Sources */,
 				AA9FFA7A25E9A3FE00AC70ED /* NotificationsModalProtocols.swift in Sources */,
 				AA9FFA9025E9A3FE00AC70ED /* DetailPostMethods.swift in Sources */,
@@ -1655,6 +1658,7 @@
 				AA9FFAB525E9A3FE00AC70ED /* SocialNetworkService.swift in Sources */,
 				C85FC8D827A442150095378A /* FollowersProtocols.swift in Sources */,
 				AA9FFAF625E9A3FF00AC70ED /* PhotoGalleryCameraIconView.swift in Sources */,
+				44F838122993000B005F9283 /* SliderCell2.swift in Sources */,
 				AA9FFACA25E9A3FE00AC70ED /* ImageExtension.swift in Sources */,
 				98A6C1A9260409E6009FBE59 /* FeelingsViewController.swift in Sources */,
 				AA9FFAFC25E9A3FF00AC70ED /* ReactionsPost.swift in Sources */,
@@ -1747,7 +1751,7 @@
 				AA9FFAD225E9A3FF00AC70ED /* DateExtension.swift in Sources */,
 				AA9FFA5E25E9A3FE00AC70ED /* EditImagesTVC.swift in Sources */,
 				AA9FFABD25E9A3FE00AC70ED /* EditPostAlert.swift in Sources */,
-				AA9FFA8A25E9A3FE00AC70ED /* FeedViewController.swift in Sources */,
+				AA9FFA8A25E9A3FE00AC70ED /* Home_RedSocial.swift in Sources */,
 				AA9FFAEC25E9A3FF00AC70ED /* PhotoDetailViewController.swift in Sources */,
 				AA9FFAE525E9A3FF00AC70ED /* SlideUpPresentingAnimator.swift in Sources */,
 				16C05541274B367A0084445D /* RealManagerRS.swift in Sources */,

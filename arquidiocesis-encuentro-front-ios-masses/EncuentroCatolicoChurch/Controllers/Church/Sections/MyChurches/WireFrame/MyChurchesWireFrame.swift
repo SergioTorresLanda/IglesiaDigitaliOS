@@ -15,7 +15,7 @@ public class MyChurchesWireFrame: MyChurchesWireFrameProtocol {
         
        
         // Generating module components
-        let storyboard = UIStoryboard(name: "MyChurches", bundle: Bundle(for: MyChurchesViewController.self))
+        let storyboard = UIStoryboard(name: "MyChurches", bundle: Bundle(for: Home_MiIglesia.self))
         let view: MyChurchesViewProtocol = storyboard.instantiateViewController(withIdentifier: "MyChurchesViewController") as! MyChurchesViewProtocol
         let presenter: MyChurchesPresenterProtocol & MyChurchesInteractorOutputProtocol = MyChurchesPresenter()
         let interactor: MyChurchesInteractorInputProtocol = MyChurchesInteractor()
@@ -34,7 +34,7 @@ public class MyChurchesWireFrame: MyChurchesWireFrameProtocol {
     public static func presentMyChurchesModule(fromView vc:AnyObject) {
 
         // Generating module components
-        let storyboard = UIStoryboard(name: "MyChurches", bundle: Bundle(for: MyChurchesViewController.self))
+        let storyboard = UIStoryboard(name: "MyChurches", bundle: Bundle(for: Home_MiIglesia.self))
         let view: MyChurchesViewProtocol = storyboard.instantiateViewController(withIdentifier: "MyChurchesViewController") as! MyChurchesViewProtocol
         let presenter: MyChurchesPresenterProtocol & MyChurchesInteractorOutputProtocol = MyChurchesPresenter()
         let interactor: MyChurchesInteractorInputProtocol = MyChurchesInteractor()

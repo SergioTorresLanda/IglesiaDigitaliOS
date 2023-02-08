@@ -21,16 +21,22 @@ class FollowersViewController: UIViewController {
     @IBOutlet public weak var loadingView: UIView!
     @IBOutlet public weak var activityIndicator: UIActivityIndicatorView!
     
+    @IBOutlet weak var viewG: UIView!
     var arrFollowers: [Followers] = []
     var arrFollowed: [Followers] = []
     
     var arrInfoToShow: [Followers] = []
     var isFollowers = true
-    
+    let name = UserDefaults.standard.string(forKey: "COMPLETENAME")
+
     // MARK: Lifecycle
     override func viewDidLoad() {
         super.viewDidLoad()
-        
+        viewG.layer.cornerRadius = 30
+        viewG.layer.shadowRadius = 5
+        viewG.layer.shadowOpacity = 0.5
+        viewG.layer.shadowColor = UIColor.black.cgColor
+        viewG.layer.maskedCorners = [.layerMinXMaxYCorner, .layerMaxXMaxYCorner]
         dispatchGroup.enter()
         presenter?.viewDidLoad()
         dispatchGroup.enter()
@@ -49,15 +55,11 @@ class FollowersViewController: UIViewController {
         imgProfile.layer.borderColor = UIColor.black.cgColor
         imgProfile.clipsToBounds = true
         imgProfile.makeRounded()
+        //imgProfile.setImage(name: name, image: nil)
         if let imageString = UserDefaults.standard.string(forKey: "imageUrl") {
             imgProfile.loadS(urlS:imageString)
         }
-//        if let imageData = UserDefaults.standard.data(forKey: "userImage"), let image = UIImage(data: imageData) {
-//            imgProfile.image = image
-//        }else{
-//            imgProfile.image = UIImage(named: "iconProfile", in: Bundle.local, compatibleWith: nil)
-//        }
-        
+
         dispatchGroup.notify(queue: .main) {
             let codeSegmented = CustomSegmentedControl(frame: CGRect(x: self.segmentedControlView.frame.origin.x, y: self.segmentedControlView.frame.origin.y, width: self.segmentedControlView.frame.width, height: 40), buttonTitle: ["\(self.arrFollowers.count) Seguidores", "\(self.arrFollowed.count) Seguidos"])
             codeSegmented.delegate = self
@@ -151,10 +153,15 @@ extension FollowersViewController: FollowersViewProtocol {
         dispatchGroup.leave()
     }
     
-    func loadFollowed(followeds: [Followers]) {
-        print("FOLLOWEDS")
-        print(followeds)
-        arrFollowed = followeds
-        dispatchGroup.leave()
+    func loadFollowed(followeds: [Followers], hasMore:Bool) {
+        print("FOLLOWEDS TOTALL:::")
+        //print(followeds)
+        arrFollowed.append(contentsOf: followeds)
+        print(arrFollowed)
+        if hasMore{
+            presenter?.getFollowed()
+        }else{
+            dispatchGroup.leave()
+        }
     }
 }

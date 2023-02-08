@@ -18,7 +18,7 @@ import EncuentroCatolicoMyChurch
 import EncuentroCatolicoNewFormation
 
 //MARK: - UICollectionViewDataSource
-extension HomeViewController: UICollectionViewDataSource {
+extension Home_Home: UICollectionViewDataSource {
     public func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
         return 7
     }
@@ -151,12 +151,12 @@ extension HomeViewController: UICollectionViewDataSource {
 }
 
 //MARK: - UICollectionViewDelegate
-extension HomeViewController: UICollectionViewDelegate {
+extension Home_Home: UICollectionViewDelegate {
     public func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
         switch indexPath.row {
         case 0:
             let storyboard = UIStoryboard(name: "Main", bundle: Bundle.local)
-            let vc = storyboard.instantiateViewController(withIdentifier: "prayerChainFeed") as! prayerChain
+            let vc = storyboard.instantiateViewController(withIdentifier: "prayerChainFeed") as! Home_CadenaOracion
             vc.userName = nombrePersona.text!
             self.navigationController?.pushViewController(vc, animated: true)
         case 1:
@@ -185,7 +185,7 @@ extension HomeViewController: UICollectionViewDelegate {
 }
 
 //MARK: - UICollectionViewDelegateFlowLayout
-extension HomeViewController: UICollectionViewDelegateFlowLayout {
+extension Home_Home: UICollectionViewDelegateFlowLayout {
     public func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
         let widthScreen = UIScreen.main.bounds.width
         return CGSize(width: 83, height: 124) //height: 124)
@@ -200,7 +200,7 @@ extension HomeViewController: UICollectionViewDelegateFlowLayout {
     }
 }
 
-extension HomeViewController: UITableViewDelegate, UITableViewDataSource {
+extension Home_Home: UITableViewDelegate, UITableViewDataSource {
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         
         var numberOfRowsT = 0

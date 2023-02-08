@@ -8,5 +8,5 @@
 import Foundation
 
 public extension Bundle {
-    static let local: Bundle = Bundle.init(for: HomeViewController.self)
+    static let local: Bundle = Bundle.init(for: Home_Home.self)
 }

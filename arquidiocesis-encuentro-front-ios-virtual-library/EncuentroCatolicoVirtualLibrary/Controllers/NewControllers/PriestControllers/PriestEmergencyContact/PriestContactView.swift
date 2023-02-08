@@ -44,7 +44,7 @@ class PriestContactView: UIViewController, PriestContactViewProtocol, UIViewCont
         showLoading()
         setupUI()
         setupGestures()
-        let singleton = PriestPSOSView.singleton
+        let singleton = Home_SOSPriest.singleton
         print("%", singleton.idService)
         presenter?.requestContactDetail(idService: singleton.idService)
                 

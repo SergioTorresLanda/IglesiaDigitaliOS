@@ -17,6 +17,8 @@ extension CreatePostViewController: ImagePickerControllerDelegate {
     
     public func imagePickerController(_ picker: ImagePickerController, didFinishPickingImageAssets assets: [PHAsset]) {
         assets.getData { (media) in
+            print("RECIBIO MEDIA::::")//notrae videos :(
+            print(String(media.count))
             self.media.append(contentsOf: media)
             picker.dismiss(animated: true, completion: nil)
         }

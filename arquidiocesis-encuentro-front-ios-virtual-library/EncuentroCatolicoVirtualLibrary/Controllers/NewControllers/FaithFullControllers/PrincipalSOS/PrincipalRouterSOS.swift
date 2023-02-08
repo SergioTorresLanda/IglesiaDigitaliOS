@@ -13,8 +13,8 @@ open class PrincipalRouterSOS: PrincipalRouterProtocol {
     
     static public func createModue() -> UIViewController {
         
-        let storyboard = UIStoryboard(name: "Main", bundle: Bundle(for: PrincipalViewSOS.self))
-        let view: PrincipalViewSOS = storyboard.instantiateViewController(withIdentifier: "PrincipalViewSOS") as! PrincipalViewSOS
+        let storyboard = UIStoryboard(name: "Main", bundle: Bundle(for: Home_SOSPrincipal.self))
+        let view: Home_SOSPrincipal = storyboard.instantiateViewController(withIdentifier: "PrincipalViewSOS") as! Home_SOSPrincipal
         let interactor = PrincipalInteractorSOS()
         let router = PrincipalRouterSOS()
         let presenter = PrincipalPresenterSOS(interface: view, interactor: interactor, router: router)

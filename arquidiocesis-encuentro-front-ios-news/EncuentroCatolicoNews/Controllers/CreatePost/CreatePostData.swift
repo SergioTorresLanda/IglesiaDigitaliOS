@@ -28,23 +28,17 @@ extension CreatePostViewController: UITableViewDataSource {
         switch indexPath.section {
         case 0:
             guard let cell = tableView.dequeueReusableCell(withIdentifier: "LocationsSelectionTVC", for: indexPath) as? LocationsSelectionTVC else { return UITableViewCell() }
-            
             //Image
             cell.locationImage.image = location?.image
-            
             //Name
             cell.locationName.text = location?.name
-            
             //DeleteButton
             cell.deleteButton.addTarget(self, action: #selector(deleteLocation), for: .touchUpInside)
-            
             return cell
         default:
             guard let cell = tableView.dequeueReusableCell(withIdentifier: "ImagesTVC", for: indexPath) as? ImagesTVC else { return UITableViewCell() }
-            
             //Images
             cell.media = media
-            
             //DeleteButton
             cell.selectButton.addTarget(self, action: #selector(editImages), for: .touchUpInside)
             

@@ -54,7 +54,7 @@ class PriestDetailView: UIViewController, PriestDetailViewProtocol {
         showLoading()
         setupUI()
         setupGestures()
-        let singleton = PriestPSOSView.singleton
+        let singleton = Home_SOSPriest.singleton
         print("Este es el id:", singleton.idService)
         presenter?.requestDetailService(idService: singleton.idService) //708
     

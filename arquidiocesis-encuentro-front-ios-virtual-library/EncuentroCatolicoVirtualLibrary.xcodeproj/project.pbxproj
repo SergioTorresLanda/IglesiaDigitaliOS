@@ -90,7 +90,7 @@
 		6F6922FA267821EF0063C505 /* CustomExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6F6922F9267821EF0063C505 /* CustomExtensions.swift */; };
 		6F742C9C267AC902005F387F /* UncionCellChurch.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6F742C9B267AC902005F387F /* UncionCellChurch.swift */; };
 		6F7DF540268A9F8C006A29B9 /* PriestPSOSInteractor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6F7DF53F268A9F8C006A29B9 /* PriestPSOSInteractor.swift */; };
-		6F7DF547268A9FCB006A29B9 /* PriestPSOSView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6F7DF546268A9FCB006A29B9 /* PriestPSOSView.swift */; };
+		6F7DF547268A9FCB006A29B9 /* Home_SOSPriest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6F7DF546268A9FCB006A29B9 /* Home_SOSPriest.swift */; };
 		6F7DF54A268A9FE6006A29B9 /* PriestPSOSPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6F7DF549268A9FE6006A29B9 /* PriestPSOSPresenter.swift */; };
 		6F7DF54D268AA004006A29B9 /* PriestPSOSEntity.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6F7DF54C268AA004006A29B9 /* PriestPSOSEntity.swift */; };
 		6F7DF550268AA012006A29B9 /* PriestPSOSRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6F7DF54F268AA012006A29B9 /* PriestPSOSRouter.swift */; };
@@ -120,7 +120,7 @@
 		6FD407C226A737C9003300F5 /* UncionMapProtocols.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6FD407C126A737C9003300F5 /* UncionMapProtocols.swift */; };
 		6FD407C526A737D8003300F5 /* UncionMapComponents.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6FD407C426A737D8003300F5 /* UncionMapComponents.swift */; };
 		6FDA4F142679C58F00817489 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 6FDA4F132679C58F00817489 /* Main.storyboard */; };
-		6FDA4F172679C62100817489 /* PrincipalViewSOS.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6FDA4F162679C62100817489 /* PrincipalViewSOS.swift */; };
+		6FDA4F172679C62100817489 /* Home_SOSPrincipal.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6FDA4F162679C62100817489 /* Home_SOSPrincipal.swift */; };
 		6FDA4F1A2679C66D00817489 /* PrincipalInteractorSOS.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6FDA4F192679C66D00817489 /* PrincipalInteractorSOS.swift */; };
 		6FDA4F1D2679C69200817489 /* PrincipalPresenterSOS.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6FDA4F1C2679C69200817489 /* PrincipalPresenterSOS.swift */; };
 		6FDA4F202679C6B400817489 /* PrincipalModelSOS.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6FDA4F1F2679C6B400817489 /* PrincipalModelSOS.swift */; };
@@ -322,7 +322,7 @@
 		6F6922F9267821EF0063C505 /* CustomExtensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomExtensions.swift; sourceTree = "<group>"; };
 		6F742C9B267AC902005F387F /* UncionCellChurch.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UncionCellChurch.swift; sourceTree = "<group>"; };
 		6F7DF53F268A9F8C006A29B9 /* PriestPSOSInteractor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PriestPSOSInteractor.swift; sourceTree = "<group>"; };
-		6F7DF546268A9FCB006A29B9 /* PriestPSOSView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PriestPSOSView.swift; sourceTree = "<group>"; };
+		6F7DF546268A9FCB006A29B9 /* Home_SOSPriest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Home_SOSPriest.swift; sourceTree = "<group>"; };
 		6F7DF549268A9FE6006A29B9 /* PriestPSOSPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PriestPSOSPresenter.swift; sourceTree = "<group>"; };
 		6F7DF54C268AA004006A29B9 /* PriestPSOSEntity.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PriestPSOSEntity.swift; sourceTree = "<group>"; };
 		6F7DF54F268AA012006A29B9 /* PriestPSOSRouter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PriestPSOSRouter.swift; sourceTree = "<group>"; };
@@ -352,7 +352,7 @@
 		6FD407C126A737C9003300F5 /* UncionMapProtocols.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UncionMapProtocols.swift; sourceTree = "<group>"; };
 		6FD407C426A737D8003300F5 /* UncionMapComponents.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UncionMapComponents.swift; sourceTree = "<group>"; };
 		6FDA4F132679C58F00817489 /* Main.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Main.storyboard; sourceTree = "<group>"; };
-		6FDA4F162679C62100817489 /* PrincipalViewSOS.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PrincipalViewSOS.swift; sourceTree = "<group>"; };
+		6FDA4F162679C62100817489 /* Home_SOSPrincipal.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Home_SOSPrincipal.swift; sourceTree = "<group>"; };
 		6FDA4F192679C66D00817489 /* PrincipalInteractorSOS.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PrincipalInteractorSOS.swift; sourceTree = "<group>"; };
 		6FDA4F1C2679C69200817489 /* PrincipalPresenterSOS.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PrincipalPresenterSOS.swift; sourceTree = "<group>"; };
 		6FDA4F1F2679C6B400817489 /* PrincipalModelSOS.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PrincipalModelSOS.swift; sourceTree = "<group>"; };
@@ -836,7 +836,7 @@
 			isa = PBXGroup;
 			children = (
 				6F7DF55A268ACC59006A29B9 /* PriestSOSCells */,
-				6F7DF546268A9FCB006A29B9 /* PriestPSOSView.swift */,
+				6F7DF546268A9FCB006A29B9 /* Home_SOSPriest.swift */,
 				6F7DF53F268A9F8C006A29B9 /* PriestPSOSInteractor.swift */,
 				6F7DF549268A9FE6006A29B9 /* PriestPSOSPresenter.swift */,
 				6F7DF54C268AA004006A29B9 /* PriestPSOSEntity.swift */,
@@ -915,7 +915,7 @@
 			isa = PBXGroup;
 			children = (
 				6FAA2F6A267A4B09007249A2 /* PrincipalCells */,
-				6FDA4F162679C62100817489 /* PrincipalViewSOS.swift */,
+				6FDA4F162679C62100817489 /* Home_SOSPrincipal.swift */,
 				6FDA4F192679C66D00817489 /* PrincipalInteractorSOS.swift */,
 				6FDA4F1C2679C69200817489 /* PrincipalPresenterSOS.swift */,
 				6FDA4F1F2679C6B400817489 /* PrincipalModelSOS.swift */,
@@ -1725,7 +1725,7 @@
 				6F7DF54A268A9FE6006A29B9 /* PriestPSOSPresenter.swift in Sources */,
 				9D584561262A242D00D32D1A /* CategoriesCell.swift in Sources */,
 				D0A060CD260AB878009D1B21 /* SubDelegateAlert.swift in Sources */,
-				6F7DF547268A9FCB006A29B9 /* PriestPSOSView.swift in Sources */,
+				6F7DF547268A9FCB006A29B9 /* Home_SOSPriest.swift in Sources */,
 				0F86A69226126CC800CEBD9B /* SwipeAnimator.swift in Sources */,
 				D0A060CB260AB878009D1B21 /* AlertTwoButtonsViewController.swift in Sources */,
 				EE613ECE262F44B1006690D2 /* CategoriesInteractor.swift in Sources */,
@@ -1848,7 +1848,7 @@
 				DF59209B2607F9F600E05CD6 /* PresenterSOS.swift in Sources */,
 				EEEA9793262890E5005430A8 /* LibraryAndResourcesViewController.swift in Sources */,
 				DF5920C82609366700E05CD6 /* Endpoints.swift in Sources */,
-				6FDA4F172679C62100817489 /* PrincipalViewSOS.swift in Sources */,
+				6FDA4F172679C62100817489 /* Home_SOSPrincipal.swift in Sources */,
 				98BB957B265620F900C4E4F0 /* SOSView.swift in Sources */,
 				6FD407B726A73755003300F5 /* UncionMapPresenter.swift in Sources */,
 				DF5920B22607F9FF00E05CD6 /* Protocolos.swift in Sources */,

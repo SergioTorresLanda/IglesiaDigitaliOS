@@ -159,6 +159,8 @@ open class ImagePickerController: UINavigationController {
     fileprivate lazy var systemPhotoLibraryController: UIViewController = {
         let photoLibrary = UIImagePickerController()
         photoLibrary.sourceType = .photoLibrary
+        photoLibrary.allowsEditing=true
+        //photoLibrary.mediaTypes=["public.image", "public.movie"]
         photoLibrary.configure(with: self.configuration)
         photoLibrary.delegate = self
         return photoLibrary

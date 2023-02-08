@@ -9,7 +9,7 @@ import UIKit
 import RealmSwift
 import AlamofireImage
 
-class prayerChain: UIViewController {
+class Home_CadenaOracion: UIViewController {
     @IBOutlet weak var collection: UICollectionView!
     @IBOutlet weak var lblTitle: UILabel!
     @IBOutlet weak var cardsCollection: UICollectionView!
@@ -30,7 +30,7 @@ class prayerChain: UIViewController {
     let imageURLDeafult = URL(string: "")
     var statePray: [Bool] = []
     
-    static let singleton = prayerChain()
+    static let singleton = Home_CadenaOracion()
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -420,7 +420,7 @@ class prayerChain: UIViewController {
     
 }
 
-extension prayerChain:  UICollectionViewDelegate, UICollectionViewDataSource, UICollectionViewDelegateFlowLayout{
+extension Home_CadenaOracion:  UICollectionViewDelegate, UICollectionViewDataSource, UICollectionViewDelegateFlowLayout{
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
         
         if dbPrayers!.count + 1 == 1 {
@@ -560,10 +560,10 @@ extension UICollectionView {
     
 }
 
-extension prayerChain: UIViewControllerTransitioningDelegate {
+extension Home_CadenaOracion: UIViewControllerTransitioningDelegate {
     func animationController(forDismissed dismissed: UIViewController) -> UIViewControllerAnimatedTransitioning? {
         transition.isPresenting = false
-        let singleton = prayerChain.singleton
+        let singleton = Home_CadenaOracion.singleton
         switch singleton.publish {
         case "YES":
             print("Publica la oracion")

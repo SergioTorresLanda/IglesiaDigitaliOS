@@ -135,7 +135,7 @@
 		D0E668502631E074006E2CEE /* HomeServicePresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = D0E668382631E074006E2CEE /* HomeServicePresenter.swift */; };
 		D0E668512631E074006E2CEE /* HomeServiceWireFrame.swift in Sources */ = {isa = PBXBuildFile; fileRef = D0E6683A2631E074006E2CEE /* HomeServiceWireFrame.swift */; };
 		D0E668522631E074006E2CEE /* HomeService.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = D0E6683C2631E074006E2CEE /* HomeService.storyboard */; };
-		D0E668532631E074006E2CEE /* HomeServiceViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D0E6683D2631E074006E2CEE /* HomeServiceViewController.swift */; };
+		D0E668532631E074006E2CEE /* Home_Servicios.swift in Sources */ = {isa = PBXBuildFile; fileRef = D0E6683D2631E074006E2CEE /* Home_Servicios.swift */; };
 		D0E668542631E074006E2CEE /* ServiceTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = D0E6683F2631E074006E2CEE /* ServiceTableViewCell.swift */; };
 		D0E668552631E074006E2CEE /* HomeServiceProtocols.swift in Sources */ = {isa = PBXBuildFile; fileRef = D0E668412631E074006E2CEE /* HomeServiceProtocols.swift */; };
 		D0E668562631E074006E2CEE /* HomeServiceInteractor.swift in Sources */ = {isa = PBXBuildFile; fileRef = D0E668432631E074006E2CEE /* HomeServiceInteractor.swift */; };
@@ -330,7 +330,7 @@
 		D0E668382631E074006E2CEE /* HomeServicePresenter.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HomeServicePresenter.swift; sourceTree = "<group>"; };
 		D0E6683A2631E074006E2CEE /* HomeServiceWireFrame.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HomeServiceWireFrame.swift; sourceTree = "<group>"; };
 		D0E6683C2631E074006E2CEE /* HomeService.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = HomeService.storyboard; sourceTree = "<group>"; };
-		D0E6683D2631E074006E2CEE /* HomeServiceViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HomeServiceViewController.swift; sourceTree = "<group>"; };
+		D0E6683D2631E074006E2CEE /* Home_Servicios.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Home_Servicios.swift; sourceTree = "<group>"; };
 		D0E6683F2631E074006E2CEE /* ServiceTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ServiceTableViewCell.swift; sourceTree = "<group>"; };
 		D0E668412631E074006E2CEE /* HomeServiceProtocols.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HomeServiceProtocols.swift; sourceTree = "<group>"; };
 		D0E668432631E074006E2CEE /* HomeServiceInteractor.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HomeServiceInteractor.swift; sourceTree = "<group>"; };
@@ -901,7 +901,7 @@
 			isa = PBXGroup;
 			children = (
 				D0E6683C2631E074006E2CEE /* HomeService.storyboard */,
-				D0E6683D2631E074006E2CEE /* HomeServiceViewController.swift */,
+				D0E6683D2631E074006E2CEE /* Home_Servicios.swift */,
 				D0E6683E2631E074006E2CEE /* cell */,
 			);
 			path = View;
@@ -1348,7 +1348,7 @@
 				7AE20E992941103F0005DE0C /* SecurityManager.swift in Sources */,
 				6FADF94826B3411500067CAF /* IntentionCalendarComponents.swift in Sources */,
 				7AE20E8F29410E120005DE0C /* Dencretial.swift in Sources */,
-				D0E668532631E074006E2CEE /* HomeServiceViewController.swift in Sources */,
+				D0E668532631E074006E2CEE /* Home_Servicios.swift in Sources */,
 				D0E6685A2631E074006E2CEE /* DetailServiceVC.swift in Sources */,
 				82AA39B525FBEA750072CAA9 /* ErrorEncuentro.swift in Sources */,
 				6FADF94226B340CA00067CAF /* IntentionCalendarEntity.swift in Sources */,

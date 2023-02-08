@@ -14,40 +14,40 @@ import UIKit
 extension UIColor {
     
     @nonobjc class var eMainGold: UIColor {
-        return UIColor(named: "eMainGold",in: Bundle(for: MyChurchesViewController.self), compatibleWith: nil) ?? .yellow
+        return UIColor(named: "eMainGold",in: Bundle(for: Home_MiIglesia.self), compatibleWith: nil) ?? .yellow
     }
     
     @nonobjc class var eMainBlue: UIColor {
-      return UIColor(named: "eMainBlue",in: Bundle(for: MyChurchesViewController.self), compatibleWith: nil) ?? .blue
+      return UIColor(named: "eMainBlue",in: Bundle(for: Home_MiIglesia.self), compatibleWith: nil) ?? .blue
     }
     
     @nonobjc class var eLightBlack: UIColor {
-      return UIColor(named: "eLightBlack",in: Bundle(for: MyChurchesViewController.self), compatibleWith: nil) ?? .gray
+      return UIColor(named: "eLightBlack",in: Bundle(for: Home_MiIglesia.self), compatibleWith: nil) ?? .gray
     }
     
     @nonobjc class var eDarkGold: UIColor {
-      return UIColor(named: "eDarkGold",in: Bundle(for: MyChurchesViewController.self), compatibleWith: nil) ?? .brown
+      return UIColor(named: "eDarkGold",in: Bundle(for: Home_MiIglesia.self), compatibleWith: nil) ?? .brown
     }
     
     @nonobjc class var eBlack: UIColor {
-      return UIColor(named: "eBlack",in: Bundle(for: MyChurchesViewController.self), compatibleWith: nil) ?? .black
+      return UIColor(named: "eBlack",in: Bundle(for: Home_MiIglesia.self), compatibleWith: nil) ?? .black
     }
     
     @nonobjc class var eLightGray: UIColor {
-      return UIColor(named: "eLightGray",in: Bundle(for: MyChurchesViewController.self), compatibleWith: nil) ?? .black
+      return UIColor(named: "eLightGray",in: Bundle(for: Home_MiIglesia.self), compatibleWith: nil) ?? .black
     }
     
     @nonobjc class var eLightBlue: UIColor {
-      return UIColor(named: "eLightBlue",in: Bundle(for: MyChurchesViewController.self), compatibleWith: nil) ?? .blue
+      return UIColor(named: "eLightBlue",in: Bundle(for: Home_MiIglesia.self), compatibleWith: nil) ?? .blue
     }
     
     @nonobjc class var eGreenishBlue: UIColor {
-      return UIColor(named: "eGreenishBlue",in: Bundle(for: MyChurchesViewController.self), compatibleWith: nil) ?? .green
+      return UIColor(named: "eGreenishBlue",in: Bundle(for: Home_MiIglesia.self), compatibleWith: nil) ?? .green
     }
     
     
     @nonobjc class var eBlueNew: UIColor {
-      return UIColor(named: "eBlueNew",in: Bundle(for: MyChurchesViewController.self), compatibleWith: nil) ?? .blue
+      return UIColor(named: "eBlueNew",in: Bundle(for: Home_MiIglesia.self), compatibleWith: nil) ?? .blue
     }
 }
 
@@ -591,7 +591,7 @@ func shake() {
            }
     }
 public extension Bundle {
-    static let local: Bundle = Bundle(for: MyChurchesViewController.self)
+    static let local: Bundle = Bundle(for: Home_MiIglesia.self)
 }
 
 extension Bundle {

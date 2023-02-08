@@ -89,7 +89,7 @@ class UncionSOSView: UIViewController, UncionViewProtocol, CollectionCellDelegat
     }
     
     private func setupUI() {
-        let singleton = PrincipalViewSOS.singleton
+        let singleton = Home_SOSPrincipal.singleton
         lblMainTitle.text = singleton.nameService
         customNavBar.ShadowNavBar()
         customNavBar.layer.cornerRadius = 20
@@ -225,7 +225,7 @@ class UncionSOSView: UIViewController, UncionViewProtocol, CollectionCellDelegat
     func Go() {
         self.setupViewALert()
         DispatchQueue.main.asyncAfter(deadline: .now() + 1) {
-            let sing = PrincipalViewSOS.singleton
+            let sing = Home_SOSPrincipal.singleton
             let singlet = UncionSOSView.singleton
             let idUser = self.defaults.integer(forKey: "id")
             self.presenter?.postCreateService(address: sing.direction, latitude: self.latitude, longitude: self.longitude, devoteeID: idUser, idService: sing.serviceID, contactID: singlet.contactID)

@@ -33,8 +33,8 @@ open class HomeServiceWireFrame: HomeServiceWireFrameProtocol {
     }
     
     open class func createModule() -> UIViewController {
-        let storyboard = UIStoryboard(name: "HomeService", bundle: Bundle(for: HomeServiceViewController.self))
-        let view: HomeServiceViewProtocol = storyboard.instantiateViewController(withIdentifier: "HomeServiceViewController") as! HomeServiceViewController
+        let storyboard = UIStoryboard(name: "HomeService", bundle: Bundle(for: Home_Servicios.self))
+        let view: HomeServiceViewProtocol = storyboard.instantiateViewController(withIdentifier: "HomeServiceViewController") as! Home_Servicios
         let presenter: HomeServicePresenterProtocol & HomeServiceInteractorOutputProtocol = HomeServicePresenter()
         let interactor: HomeServiceInteractorInputProtocol = HomeServiceInteractor()
         let wireFrame: HomeServiceWireFrameProtocol = HomeServiceWireFrame()

@@ -9,7 +9,7 @@ import Foundation
 import UIKit
 
 //MARK: - PresenterMethods
-extension HomeViewController {
+extension Home_Home {
     /*func openLogin() {
         let view = LoginRouter.createModule()
         view.modalPresentationStyle = .fullScreen

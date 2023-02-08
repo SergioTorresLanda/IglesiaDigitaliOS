@@ -1,8 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="20037" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
-    <device id="retina6_7" orientation="portrait" appearance="light"/>
     <dependencies>
-        <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="20020"/>
         <capability name="Named colors" minToolsVersion="9.0"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
@@ -16,30 +14,30 @@
             <objects>
                 <viewController storyboardIdentifier="AcceptAlert" useStoryboardIdentifierAsRestorationIdentifier="YES" id="39b-De-hag" customClass="AcceptAlert" customModule="EncuentroCatolicoVirtualLibrary" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="ayC-8m-igI">
-                        <rect key="frame" x="0.0" y="0.0" width="428" height="926"/>
+                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <view alpha="0.0" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="ImQ-NJ-TXe">
-                                <rect key="frame" x="0.0" y="0.0" width="428" height="926"/>
+                                <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                                 <color key="backgroundColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                             </view>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="ohX-cM-FHW">
-                                <rect key="frame" x="54" y="372" width="321" height="183"/>
+                                <rect key="frame" x="54" y="218.5" width="493" height="164"/>
                                 <subviews>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Atención" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="3" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ROQ-dE-Abk">
-                                        <rect key="frame" x="40" y="34" width="241" height="24"/>
+                                        <rect key="frame" x="40" y="34" width="413" height="24"/>
                                         <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="20"/>
                                         <color key="textColor" name="eMainBlue"/>
                                         <nil key="highlightedColor"/>
                                     </label>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Debes seleccionar un servicio para poder continuar" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="4" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="TSM-9R-kmc">
-                                        <rect key="frame" x="16" y="72" width="289" height="38.333333333333343"/>
+                                        <rect key="frame" x="16" y="72" width="461" height="19.5"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="16"/>
                                         <color key="textColor" name="eBlack"/>
                                         <nil key="highlightedColor"/>
                                     </label>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="HNP-G5-6Ls">
-                                        <rect key="frame" x="105.66666666666666" y="131" width="110" height="36"/>
+                                        <rect key="frame" x="191.5" y="112" width="110" height="36"/>
                                         <color key="backgroundColor" name="eMainBlue"/>
                                         <constraints>
                                             <constraint firstAttribute="width" constant="110" id="QjX-ji-Vtu"/>
@@ -103,30 +101,30 @@
             <objects>
                 <viewController storyboardIdentifier="RateAlertController" useStoryboardIdentifierAsRestorationIdentifier="YES" id="i2C-WN-xTd" customClass="RateAlertController" customModule="EncuentroCatolicoVirtualLibrary" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="V4b-9A-wrF">
-                        <rect key="frame" x="0.0" y="0.0" width="428" height="926"/>
+                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <view alpha="0.25" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="eJ6-oO-ej1">
-                                <rect key="frame" x="0.0" y="0.0" width="428" height="926"/>
+                                <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                                 <color key="backgroundColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                             </view>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="kfY-4k-Ozz">
-                                <rect key="frame" x="38" y="320" width="352" height="286"/>
+                                <rect key="frame" x="38" y="157" width="524" height="286"/>
                                 <subviews>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Califica el servicio" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="3" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="bIy-Z3-C66">
-                                        <rect key="frame" x="25" y="44" width="302" height="24"/>
+                                        <rect key="frame" x="25" y="44" width="474" height="24"/>
                                         <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="20"/>
                                         <color key="textColor" name="eMainBlue"/>
                                         <nil key="highlightedColor"/>
                                     </label>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Comentarios" lineBreakMode="tailTruncation" numberOfLines="4" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="0Hx-A8-4DX">
-                                        <rect key="frame" x="16" y="146" width="92.666666666666671" height="19.333333333333343"/>
+                                        <rect key="frame" x="16" y="146" width="92.5" height="19.5"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="16"/>
                                         <color key="textColor" name="eMainBlue"/>
                                         <nil key="highlightedColor"/>
                                     </label>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Odz-jP-LVv">
-                                        <rect key="frame" x="121" y="236" width="110" height="36"/>
+                                        <rect key="frame" x="207" y="236" width="110" height="36"/>
                                         <color key="backgroundColor" name="eMainBlue"/>
                                         <constraints>
                                             <constraint firstAttribute="width" constant="110" id="e1y-wR-WoU"/>
@@ -142,17 +140,17 @@
                                         </connections>
                                     </button>
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Hce-zW-Qf5">
-                                        <rect key="frame" x="13" y="208" width="326" height="1"/>
+                                        <rect key="frame" x="13" y="208" width="498" height="1"/>
                                         <color key="backgroundColor" name="eLightGray"/>
                                         <constraints>
                                             <constraint firstAttribute="height" constant="1" id="0Tl-Vn-2A1"/>
                                         </constraints>
                                     </view>
                                     <stackView opaque="NO" contentMode="scaleToFill" spacing="8" translatesAutoresizingMaskIntoConstraints="NO" id="h8o-kg-2UM">
-                                        <rect key="frame" x="70" y="90.666666666666686" width="212" height="36"/>
+                                        <rect key="frame" x="156" y="90.5" width="212" height="36"/>
                                         <subviews>
                                             <imageView clipsSubviews="YES" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="star" catalog="system" translatesAutoresizingMaskIntoConstraints="NO" id="m6Q-8h-br1">
-                                                <rect key="frame" x="0.0" y="-0.33333333333333215" width="36" height="35.666666666666657"/>
+                                                <rect key="frame" x="0.0" y="-0.5" width="36" height="36"/>
                                                 <color key="tintColor" name="eDarkGold"/>
                                                 <constraints>
                                                     <constraint firstAttribute="width" constant="36" id="ODW-g3-OVn"/>
@@ -160,7 +158,7 @@
                                                 </constraints>
                                             </imageView>
                                             <imageView clipsSubviews="YES" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="star" catalog="system" translatesAutoresizingMaskIntoConstraints="NO" id="LEn-u7-Bqw">
-                                                <rect key="frame" x="44" y="-0.33333333333333215" width="36" height="35.666666666666657"/>
+                                                <rect key="frame" x="44" y="-0.5" width="36" height="36"/>
                                                 <color key="tintColor" name="eDarkGold"/>
                                                 <constraints>
                                                     <constraint firstAttribute="width" constant="36" id="Dti-kl-k8y"/>
@@ -168,7 +166,7 @@
                                                 </constraints>
                                             </imageView>
                                             <imageView clipsSubviews="YES" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="star" catalog="system" translatesAutoresizingMaskIntoConstraints="NO" id="Vtq-iL-Pti">
-                                                <rect key="frame" x="88" y="-0.33333333333333215" width="36" height="35.666666666666657"/>
+                                                <rect key="frame" x="88" y="-0.5" width="36" height="36"/>
                                                 <color key="tintColor" name="eDarkGold"/>
                                                 <constraints>
                                                     <constraint firstAttribute="width" constant="36" id="hKH-85-Lsp"/>
@@ -176,7 +174,7 @@
                                                 </constraints>
                                             </imageView>
                                             <imageView clipsSubviews="YES" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="star" catalog="system" translatesAutoresizingMaskIntoConstraints="NO" id="a2G-Et-poZ">
-                                                <rect key="frame" x="132" y="-0.33333333333333215" width="36" height="35.666666666666657"/>
+                                                <rect key="frame" x="132" y="-0.5" width="36" height="36"/>
                                                 <color key="tintColor" name="eDarkGold"/>
                                                 <constraints>
                                                     <constraint firstAttribute="width" constant="36" id="1VT-zb-Fii"/>
@@ -184,7 +182,7 @@
                                                 </constraints>
                                             </imageView>
                                             <imageView clipsSubviews="YES" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="star" catalog="system" translatesAutoresizingMaskIntoConstraints="NO" id="yq4-Wo-WOE">
-                                                <rect key="frame" x="176" y="-0.33333333333333215" width="36" height="35.666666666666657"/>
+                                                <rect key="frame" x="176" y="-0.5" width="36" height="36"/>
                                                 <color key="tintColor" name="eDarkGold"/>
                                                 <constraints>
                                                     <constraint firstAttribute="height" constant="36" id="mIl-Es-nzB"/>
@@ -194,7 +192,7 @@
                                         </subviews>
                                     </stackView>
                                     <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="Escribe aqui tu comentario..." textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="6iW-ex-kPd">
-                                        <rect key="frame" x="15" y="174" width="322" height="30"/>
+                                        <rect key="frame" x="15" y="174" width="494" height="30"/>
                                         <constraints>
                                             <constraint firstAttribute="height" constant="30" id="hrF-U4-zl3"/>
                                         </constraints>
@@ -264,18 +262,18 @@
             <objects>
                 <viewController storyboardIdentifier="InputAlertController" useStoryboardIdentifierAsRestorationIdentifier="YES" id="n0G-4i-Igs" customClass="InputAlertController" customModule="EncuentroCatolicoVirtualLibrary" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="uFT-zA-x2X">
-                        <rect key="frame" x="0.0" y="0.0" width="428" height="926"/>
+                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <view alpha="0.0" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="nhx-JN-tMy">
-                                <rect key="frame" x="0.0" y="0.0" width="428" height="926"/>
+                                <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                                 <color key="backgroundColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                             </view>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="PbO-Mh-bVu">
-                                <rect key="frame" x="38" y="300" width="352" height="351"/>
+                                <rect key="frame" x="38" y="137" width="524" height="351"/>
                                 <subviews>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="3" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="tyx-3g-6lZ">
-                                        <rect key="frame" x="25" y="41.000000000000007" width="302" height="71.666666666666686"/>
+                                        <rect key="frame" x="25" y="41" width="474" height="48"/>
                                         <string key="text">Proporciona el nombre y la dirección 
 de tu servicio/funeraria</string>
                                         <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="20"/>
@@ -283,13 +281,13 @@ de tu servicio/funeraria</string>
                                         <nil key="highlightedColor"/>
                                     </label>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Dirección" lineBreakMode="tailTruncation" numberOfLines="4" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Z3E-1u-zHk">
-                                        <rect key="frame" x="16" y="216.66666666666663" width="68.666666666666671" height="19.333333333333343"/>
+                                        <rect key="frame" x="16" y="193" width="68.5" height="19.5"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="16"/>
                                         <color key="textColor" name="eMainBlue"/>
                                         <nil key="highlightedColor"/>
                                     </label>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="0ni-B6-FUc">
-                                        <rect key="frame" x="121" y="293.33333333333337" width="110" height="36"/>
+                                        <rect key="frame" x="207" y="270" width="110" height="36"/>
                                         <color key="backgroundColor" name="eMainBlue"/>
                                         <constraints>
                                             <constraint firstAttribute="width" constant="110" id="MOu-n6-QJ7"/>
@@ -304,27 +302,27 @@ de tu servicio/funeraria</string>
                                         </connections>
                                     </button>
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="C2Q-qp-WGl">
-                                        <rect key="frame" x="13" y="280.33333333333337" width="326" height="1"/>
+                                        <rect key="frame" x="13" y="257" width="498" height="1"/>
                                         <color key="backgroundColor" name="eLightGray"/>
                                         <constraints>
                                             <constraint firstAttribute="height" constant="1" id="5BN-fv-bwH"/>
                                         </constraints>
                                     </view>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Nombre" lineBreakMode="tailTruncation" numberOfLines="4" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="HZT-mN-HGh">
-                                        <rect key="frame" x="16.000000000000004" y="133.66666666666669" width="58.333333333333343" height="19.333333333333343"/>
+                                        <rect key="frame" x="16" y="110" width="58.5" height="19.5"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="16"/>
                                         <color key="textColor" name="eMainBlue"/>
                                         <nil key="highlightedColor"/>
                                     </label>
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Eb5-OQ-wcP">
-                                        <rect key="frame" x="13" y="198.66666666666669" width="326" height="1"/>
+                                        <rect key="frame" x="13" y="175" width="498" height="1"/>
                                         <color key="backgroundColor" name="eLightGray"/>
                                         <constraints>
                                             <constraint firstAttribute="height" constant="1" id="LHu-3e-Fhq"/>
                                         </constraints>
                                     </view>
                                     <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="Escribe aquí tu nombre" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="KLE-go-9Nz">
-                                        <rect key="frame" x="15" y="161.66666666666669" width="322" height="34"/>
+                                        <rect key="frame" x="15" y="138" width="494" height="34"/>
                                         <constraints>
                                             <constraint firstAttribute="height" constant="34" id="npN-9d-xJa"/>
                                         </constraints>
@@ -332,7 +330,7 @@ de tu servicio/funeraria</string>
                                         <textInputTraits key="textInputTraits"/>
                                     </textField>
                                     <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="Escribe aquí tu dirección" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="xxU-GS-Y0d">
-                                        <rect key="frame" x="15" y="242.33333333333337" width="322" height="34"/>
+                                        <rect key="frame" x="15" y="219" width="494" height="34"/>
                                         <constraints>
                                             <constraint firstAttribute="height" constant="34" id="Dk7-Xw-7bd"/>
                                         </constraints>
@@ -490,30 +488,30 @@ de tu servicio/funeraria</string>
             <objects>
                 <viewController storyboardIdentifier="AlertYesNo" useStoryboardIdentifierAsRestorationIdentifier="YES" id="Jgm-ts-yaU" customClass="AlertYesNo" customModule="EncuentroCatolicoVirtualLibrary" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="1Eo-64-Pny">
-                        <rect key="frame" x="0.0" y="0.0" width="428" height="926"/>
+                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <view alpha="0.0" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="cH8-tl-4yC">
-                                <rect key="frame" x="0.0" y="0.0" width="428" height="926"/>
+                                <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                                 <color key="backgroundColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                             </view>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="a6v-t0-bBh">
-                                <rect key="frame" x="63" y="375.66666666666669" width="302" height="174.66666666666669"/>
+                                <rect key="frame" x="149" y="212.5" width="302" height="175"/>
                                 <subviews>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Realizar llamada" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="7NV-x3-GOq">
-                                        <rect key="frame" x="70" y="34" width="162" height="25.333333333333329"/>
+                                        <rect key="frame" x="70" y="34" width="162" height="25.5"/>
                                         <fontDescription key="fontDescription" type="boldSystem" pointSize="21"/>
                                         <color key="textColor" name="eMainBlue"/>
                                         <nil key="highlightedColor"/>
                                     </label>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Comunicate con el solicitante        ¿Se realizó la llamada con éxito?" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="mV1-vq-lgG">
-                                        <rect key="frame" x="26" y="69.333333333333314" width="250" height="36"/>
+                                        <rect key="frame" x="26" y="69.5" width="250" height="36"/>
                                         <fontDescription key="fontDescription" type="system" weight="medium" pointSize="15"/>
                                         <color key="textColor" name="eMainBlue"/>
                                         <nil key="highlightedColor"/>
                                     </label>
                                     <stackView opaque="NO" contentMode="scaleToFill" spacing="15" translatesAutoresizingMaskIntoConstraints="NO" id="pZ6-Oy-CAb">
-                                        <rect key="frame" x="59.666666666666686" y="127.66666666666663" width="183" height="30"/>
+                                        <rect key="frame" x="59.5" y="128" width="183" height="30"/>
                                         <subviews>
                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Jnf-XB-fxq">
                                                 <rect key="frame" x="0.0" y="0.0" width="84" height="30"/>
@@ -598,15 +596,15 @@ de tu servicio/funeraria</string>
             <objects>
                 <viewController storyboardIdentifier="AlertDatosPriest" useStoryboardIdentifierAsRestorationIdentifier="YES" id="iZN-2e-7Cu" customClass="AlertDatosPriest" customModule="EncuentroCatolicoVirtualLibrary" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="NcY-Fz-uit">
-                        <rect key="frame" x="0.0" y="0.0" width="428" height="926"/>
+                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <view alpha="0.0" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="PJV-WX-YbQ">
-                                <rect key="frame" x="0.0" y="0.0" width="428" height="926"/>
+                                <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                                 <color key="backgroundColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                             </view>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="mPk-rw-aAb">
-                                <rect key="frame" x="64" y="331" width="300" height="267"/>
+                                <rect key="frame" x="150" y="168" width="300" height="267"/>
                                 <subviews>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Ingresar datos" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="EKY-s7-3h5">
                                         <rect key="frame" x="72" y="38" width="156" height="26"/>
@@ -615,7 +613,7 @@ de tu servicio/funeraria</string>
                                         <nil key="highlightedColor"/>
                                     </label>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Sacerdote asignado" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="nAu-FZ-7Oa">
-                                        <rect key="frame" x="8.0000000000000071" y="76" width="120.66666666666669" height="16"/>
+                                        <rect key="frame" x="8" y="76" width="120.5" height="16"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="13"/>
                                         <color key="textColor" name="eMainBlue"/>
                                         <nil key="highlightedColor"/>
@@ -727,10 +725,10 @@ de tu servicio/funeraria</string>
                                 </constraints>
                             </view>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="V7g-xX-gNz">
-                                <rect key="frame" x="0.0" y="986" width="428" height="50"/>
+                                <rect key="frame" x="0.0" y="660" width="600" height="50"/>
                                 <subviews>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Iod-4I-kJO">
-                                        <rect key="frame" x="386" y="10" width="34" height="30"/>
+                                        <rect key="frame" x="558" y="10" width="34" height="30"/>
                                         <constraints>
                                             <constraint firstAttribute="width" constant="34" id="L15-j1-RoM"/>
                                             <constraint firstAttribute="height" constant="30" id="p3K-RF-eYA"/>
@@ -764,7 +762,7 @@ de tu servicio/funeraria</string>
                                 </constraints>
                             </view>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Zxv-2H-Vw2">
-                                <rect key="frame" x="0.0" y="1036" width="428" height="190"/>
+                                <rect key="frame" x="0.0" y="710" width="600" height="190"/>
                                 <subviews>
                                     <pickerView contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="1SV-RN-3ez">
                                         <rect key="frame" x="0.0" y="32" width="120" height="158"/>
@@ -793,7 +791,7 @@ de tu servicio/funeraria</string>
                                         <nil key="highlightedColor"/>
                                     </label>
                                     <datePicker contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" datePickerMode="dateAndTime" minuteInterval="1" style="wheels" translatesAutoresizingMaskIntoConstraints="NO" id="GSH-qN-nlS">
-                                        <rect key="frame" x="0.0" y="0.0" width="428" height="190"/>
+                                        <rect key="frame" x="0.0" y="0.0" width="600" height="190"/>
                                         <constraints>
                                             <constraint firstAttribute="height" constant="190" id="Xv8-YB-Hns"/>
                                         </constraints>
@@ -887,22 +885,22 @@ de tu servicio/funeraria</string>
             </objects>
             <point key="canvasLocation" x="3028.985507246377" y="-827.00892857142856"/>
         </scene>
-        <!--Principal ViewSOS-->
+        <!--HomeSOS Principal-->
         <scene sceneID="B3y-9q-hSj">
             <objects>
-                <viewController storyboardIdentifier="PrincipalViewSOS" id="UOV-KN-lD0" customClass="PrincipalViewSOS" customModule="EncuentroCatolicoVirtualLibrary" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="PrincipalViewSOS" id="UOV-KN-lD0" customClass="Home_SOSPrincipal" customModule="EncuentroCatolicoVirtualLibrary" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="bNA-9K-k5X">
-                        <rect key="frame" x="0.0" y="0.0" width="428" height="926"/>
+                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="376-pL-c5K">
-                                <rect key="frame" x="0.0" y="0.0" width="428" height="100"/>
+                                <rect key="frame" x="0.0" y="0.0" width="600" height="100"/>
                                 <subviews>
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="6bx-x2-tQ8">
-                                        <rect key="frame" x="0.0" y="-20" width="448" height="112"/>
+                                        <rect key="frame" x="0.0" y="-20" width="620" height="112"/>
                                         <subviews>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="S.O.S" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="mZY-gX-e7U">
-                                                <rect key="frame" x="52" y="70" width="324" height="24"/>
+                                                <rect key="frame" x="52" y="70" width="496" height="24"/>
                                                 <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="20"/>
                                                 <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                 <nil key="highlightedColor"/>
@@ -926,14 +924,14 @@ de tu servicio/funeraria</string>
                                 </constraints>
                             </view>
                             <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="logoIconNew" translatesAutoresizingMaskIntoConstraints="NO" id="lYv-qQ-nFb">
-                                <rect key="frame" x="140" y="110" width="154" height="154"/>
+                                <rect key="frame" x="226" y="110" width="154" height="154"/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="154" id="H5J-Zt-RM0"/>
                                     <constraint firstAttribute="height" constant="154" id="KUd-s0-hbZ"/>
                                 </constraints>
                             </imageView>
                             <label opaque="NO" userInteractionEnabled="NO" alpha="0.80000001192092896" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="¿Cuál es tu emergencia?" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="YND-TR-kQT">
-                                <rect key="frame" x="70" y="284" width="288" height="29"/>
+                                <rect key="frame" x="70" y="284" width="460" height="29"/>
                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="29" id="QxS-bR-V7h"/>
@@ -943,7 +941,7 @@ de tu servicio/funeraria</string>
                                 <nil key="highlightedColor"/>
                             </label>
                             <label opaque="NO" userInteractionEnabled="NO" alpha="0.80000001192092896" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="¡Queremos ayudarte!" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="kNQ-fn-AIK">
-                                <rect key="frame" x="68" y="320" width="292" height="29"/>
+                                <rect key="frame" x="68" y="320" width="464" height="29"/>
                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="29" id="xEr-Ic-hbP"/>
@@ -953,7 +951,7 @@ de tu servicio/funeraria</string>
                                 <nil key="highlightedColor"/>
                             </label>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="dI3-zS-nZ4">
-                                <rect key="frame" x="20" y="756" width="388" height="46"/>
+                                <rect key="frame" x="20" y="464" width="560" height="46"/>
                                 <color key="backgroundColor" name="eMainGold"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="46" id="vUK-bf-4s9"/>
@@ -967,18 +965,18 @@ de tu servicio/funeraria</string>
                                 </connections>
                             </button>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="none" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="g6R-FG-1fO">
-                                <rect key="frame" x="0.0" y="357" width="428" height="391"/>
+                                <rect key="frame" x="0.0" y="357" width="600" height="99"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <prototypes>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="SOSCELLP" rowHeight="112" id="nKR-0h-tRS" customClass="PrincipalSOSCell" customModule="EncuentroCatolicoVirtualLibrary" customModuleProvider="target">
-                                        <rect key="frame" x="0.0" y="44.666666030883789" width="428" height="112"/>
+                                        <rect key="frame" x="0.0" y="44.5" width="600" height="112"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="nKR-0h-tRS" id="LDl-yX-eFQ">
-                                            <rect key="frame" x="0.0" y="0.0" width="428" height="112"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="600" height="112"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="tZW-pj-uem">
-                                                    <rect key="frame" x="20" y="16" width="388" height="80"/>
+                                                    <rect key="frame" x="16" y="16" width="568" height="80"/>
                                                     <subviews>
                                                         <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="K0W-Oy-GM2">
                                                             <rect key="frame" x="8" y="24" width="32" height="32"/>
@@ -989,7 +987,7 @@ de tu servicio/funeraria</string>
                                                             </constraints>
                                                         </imageView>
                                                         <imageView clipsSubviews="YES" userInteractionEnabled="NO" alpha="0.0" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="Mge-bH-TAj">
-                                                            <rect key="frame" x="13" y="29.666666666666664" width="22" height="21"/>
+                                                            <rect key="frame" x="13" y="29.5" width="22" height="21"/>
                                                             <color key="tintColor" name="eMainGold"/>
                                                             <constraints>
                                                                 <constraint firstAttribute="height" constant="21" id="4G0-Ts-Ofd"/>
@@ -997,13 +995,13 @@ de tu servicio/funeraria</string>
                                                             </constraints>
                                                         </imageView>
                                                         <label opaque="NO" userInteractionEnabled="NO" alpha="0.84999999999999998" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="3" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="bxI-8E-uvG">
-                                                            <rect key="frame" x="52" y="17.333333333333336" width="317" height="21.666666666666664"/>
+                                                            <rect key="frame" x="52" y="17" width="497" height="21.5"/>
                                                             <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="18"/>
                                                             <color key="textColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                             <nil key="highlightedColor"/>
                                                         </label>
                                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="4" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="EAv-Dj-8FQ">
-                                                            <rect key="frame" x="52" y="48.333333333333329" width="317" height="15.666666666666664"/>
+                                                            <rect key="frame" x="52" y="48" width="497" height="16"/>
                                                             <fontDescription key="fontDescription" type="system" pointSize="13"/>
                                                             <color key="textColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                             <nil key="highlightedColor"/>
@@ -1083,16 +1081,16 @@ de tu servicio/funeraria</string>
             </objects>
             <point key="canvasLocation" x="-69.230769230769226" y="-81.042654028436019"/>
         </scene>
-        <!--PriestPSOS View-->
+        <!--HomeSOS Priest-->
         <scene sceneID="93J-QQ-e8B">
             <objects>
-                <viewController storyboardIdentifier="PriestViewSOS" id="gra-tc-khv" customClass="PriestPSOSView" customModule="EncuentroCatolicoVirtualLibrary" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="PriestViewSOS" id="gra-tc-khv" customClass="Home_SOSPriest" customModule="EncuentroCatolicoVirtualLibrary" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="iuT-Km-5WZ">
-                        <rect key="frame" x="0.0" y="0.0" width="428" height="926"/>
+                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="e8F-7g-pDl" userLabel="ViewG">
-                                <rect key="frame" x="0.0" y="-20" width="428" height="120"/>
+                                <rect key="frame" x="0.0" y="-20" width="600" height="120"/>
                                 <subviews>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="S.O.S" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Rdo-gP-SiT">
                                         <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="19"/>
@@ -1130,13 +1128,13 @@ de tu servicio/funeraria</string>
                                 </constraints>
                             </view>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Información de iglesias cercanas" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="N3o-y1-kQE">
-                                <rect key="frame" x="80" y="110" width="268" height="20"/>
+                                <rect key="frame" x="80" y="110" width="440" height="20"/>
                                 <fontDescription key="fontDescription" type="boldSystem" pointSize="16"/>
                                 <color key="textColor" name="eBlack"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <segmentedControl opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="top" segmentControlStyle="bar" selectedSegmentIndex="0" translatesAutoresizingMaskIntoConstraints="NO" id="aUk-Lv-Gke">
-                                <rect key="frame" x="52" y="155" width="314" height="32"/>
+                                <rect key="frame" x="138" y="155" width="314" height="32"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="314" id="HcH-lM-A8F"/>
@@ -1161,55 +1159,55 @@ de tu servicio/funeraria</string>
                                 </connections>
                             </segmentedControl>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="ygk-Ju-ceb">
-                                <rect key="frame" x="0.0" y="186" width="428" height="2"/>
+                                <rect key="frame" x="0.0" y="186" width="600" height="2"/>
                                 <color key="backgroundColor" name="eLightGray"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="2" id="KAA-IK-IUv"/>
                                 </constraints>
                             </view>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="none" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="beV-1M-kQo">
-                                <rect key="frame" x="0.0" y="206" width="418" height="606"/>
+                                <rect key="frame" x="0.0" y="206" width="590" height="314"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <prototypes>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="CELLPRIEST" rowHeight="114" id="ZZ4-rE-ygH" customClass="PriestPTableCell" customModule="EncuentroCatolicoVirtualLibrary" customModuleProvider="target">
-                                        <rect key="frame" x="0.0" y="44.666666030883789" width="418" height="114"/>
+                                        <rect key="frame" x="0.0" y="44.5" width="590" height="114"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="ZZ4-rE-ygH" id="3hs-6A-N9A">
-                                            <rect key="frame" x="0.0" y="0.0" width="418" height="114"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="590" height="114"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="db6-iV-hFN">
-                                                    <rect key="frame" x="20" y="11" width="378" height="77"/>
+                                                    <rect key="frame" x="16" y="11" width="558" height="77"/>
                                                     <subviews>
                                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Unción de los enfermos" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="QKa-2s-P2h">
-                                                            <rect key="frame" x="12" y="8.0000000000000018" width="178" height="19.666666666666671"/>
+                                                            <rect key="frame" x="12" y="8" width="178" height="19.5"/>
                                                             <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="16"/>
                                                             <color key="textColor" name="eMainBlue"/>
                                                             <nil key="highlightedColor"/>
                                                         </label>
                                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Solicitante" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="cws-UV-CJI">
-                                                            <rect key="frame" x="12" y="32.666666666666664" width="64" height="16"/>
+                                                            <rect key="frame" x="12" y="32.5" width="64" height="16"/>
                                                             <fontDescription key="fontDescription" type="system" pointSize="13"/>
                                                             <color key="textColor" name="eMainBlue"/>
                                                             <nil key="highlightedColor"/>
                                                         </label>
                                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Juan Diaz" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="erI-7J-rnf">
-                                                            <rect key="frame" x="12" y="51.666666666666664" width="65" height="16.999999999999993"/>
+                                                            <rect key="frame" x="12" y="51.5" width="65" height="17"/>
                                                             <fontDescription key="fontDescription" type="system" weight="medium" pointSize="14"/>
                                                             <color key="textColor" name="eBlack"/>
                                                             <nil key="highlightedColor"/>
                                                         </label>
                                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Ayuda en camino" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="4P7-Nk-CrY">
-                                                            <rect key="frame" x="246" y="50" width="113" height="17"/>
+                                                            <rect key="frame" x="426" y="50" width="113" height="17"/>
                                                             <fontDescription key="fontDescription" type="system" weight="medium" pointSize="14"/>
                                                             <color key="textColor" name="eBlack"/>
                                                             <nil key="highlightedColor"/>
                                                         </label>
                                                         <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="Icono_Dorado_Go" translatesAutoresizingMaskIntoConstraints="NO" id="alA-ZP-V6e">
-                                                            <rect key="frame" x="362" y="31.999999999999996" width="8" height="13.333333333333332"/>
+                                                            <rect key="frame" x="542" y="32" width="8" height="13"/>
                                                         </imageView>
                                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Estado" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="1JC-f9-Tre">
-                                                            <rect key="frame" x="313" y="31" width="42" height="16"/>
+                                                            <rect key="frame" x="493" y="31" width="42" height="16"/>
                                                             <fontDescription key="fontDescription" type="system" pointSize="13"/>
                                                             <color key="textColor" name="eMainBlue"/>
                                                             <nil key="highlightedColor"/>
@@ -1292,17 +1290,17 @@ de tu servicio/funeraria</string>
             <objects>
                 <viewController storyboardIdentifier="UncionViewSOS" id="NJN-jM-9yC" customClass="UncionSOSView" customModule="EncuentroCatolicoVirtualLibrary" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="Fty-Ul-gAq">
-                        <rect key="frame" x="0.0" y="0.0" width="428" height="926"/>
+                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="o85-xB-4Gx">
-                                <rect key="frame" x="0.0" y="0.0" width="428" height="100"/>
+                                <rect key="frame" x="0.0" y="0.0" width="600" height="100"/>
                                 <subviews>
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Oqu-5A-0P1">
-                                        <rect key="frame" x="0.0" y="-20" width="448" height="112"/>
+                                        <rect key="frame" x="0.0" y="-20" width="620" height="112"/>
                                         <subviews>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="S.O.S" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Hck-f0-G6p">
-                                                <rect key="frame" x="52" y="71" width="324" height="23"/>
+                                                <rect key="frame" x="52" y="71" width="496" height="23"/>
                                                 <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="19"/>
                                                 <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                 <nil key="highlightedColor"/>
@@ -1335,28 +1333,28 @@ de tu servicio/funeraria</string>
                                 </constraints>
                             </view>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="4si-Nk-1gW">
-                                <rect key="frame" x="60" y="127" width="308" height="0.0"/>
+                                <rect key="frame" x="60" y="127" width="480" height="0.0"/>
                                 <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="26"/>
                                 <color key="textColor" name="eBlack"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Información de Iglesias cercanas" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="VKi-TZ-pRK">
-                                <rect key="frame" x="62" y="133" width="304" height="23"/>
+                                <rect key="frame" x="62" y="133" width="476" height="23"/>
                                 <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="19"/>
                                 <color key="textColor" name="eBlack"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" alignment="center" spacing="154" translatesAutoresizingMaskIntoConstraints="NO" id="Goi-Vu-bvK">
-                                <rect key="frame" x="15" y="179" width="398" height="341"/>
+                                <rect key="frame" x="15" y="179" width="570" height="327"/>
                                 <subviews>
                                     <label opaque="NO" userInteractionEnabled="NO" alpha="0.0" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="No pudimos acceder a tu ubicación, por favor configura los permisos de la app para poder buscar las iglesaias mas ceranas a ti." textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="JNm-uv-BfK">
-                                        <rect key="frame" x="5" y="0.0" width="388" height="43"/>
+                                        <rect key="frame" x="19" y="0.0" width="532" height="29"/>
                                         <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="12"/>
                                         <color key="textColor" name="eMainBlue"/>
                                         <nil key="highlightedColor"/>
                                     </label>
                                     <imageView clipsSubviews="YES" userInteractionEnabled="NO" alpha="0.0" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="mappin.slash" catalog="system" translatesAutoresizingMaskIntoConstraints="NO" id="Yhp-OT-anb">
-                                        <rect key="frame" x="109" y="197.33333333333331" width="180" height="143.33333333333334"/>
+                                        <rect key="frame" x="195" y="182.5" width="180" height="144"/>
                                         <color key="tintColor" name="eLightGray"/>
                                         <constraints>
                                             <constraint firstAttribute="height" constant="144" id="SIz-4o-J2L"/>
@@ -1366,21 +1364,21 @@ de tu servicio/funeraria</string>
                                 </subviews>
                             </stackView>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="none" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="4I1-qH-0Uj">
-                                <rect key="frame" x="0.0" y="176" width="428" height="636"/>
+                                <rect key="frame" x="0.0" y="176" width="600" height="344"/>
                                 <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                                 <prototypes>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="CELLSOSMAIN" rowHeight="138" id="9Y2-pf-Yv1" customClass="MainTableCell" customModule="EncuentroCatolicoVirtualLibrary" customModuleProvider="target">
-                                        <rect key="frame" x="0.0" y="44.666666030883789" width="428" height="138"/>
+                                        <rect key="frame" x="0.0" y="44.5" width="600" height="138"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="9Y2-pf-Yv1" id="lPh-uE-Qay">
-                                            <rect key="frame" x="0.0" y="0.0" width="428" height="138"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="600" height="138"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="BZk-5b-Kb2">
-                                                    <rect key="frame" x="20" y="23" width="388" height="92"/>
+                                                    <rect key="frame" x="16" y="23" width="568" height="92"/>
                                                     <subviews>
                                                         <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="B85-5Y-feJ">
-                                                            <rect key="frame" x="0.0" y="5" width="388" height="82"/>
+                                                            <rect key="frame" x="0.0" y="5" width="568" height="82"/>
                                                             <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                                                             <constraints>
                                                                 <constraint firstAttribute="height" relation="greaterThanOrEqual" constant="55" id="1bN-Dn-h6e"/>
@@ -1820,17 +1818,17 @@ de tu servicio/funeraria</string>
             <objects>
                 <viewController storyboardIdentifier="UncionViewServiceSOS" id="HAi-Zn-MNA" customClass="UncionServiceSOSView" customModule="EncuentroCatolicoVirtualLibrary" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="x5T-cU-IeA">
-                        <rect key="frame" x="0.0" y="0.0" width="428" height="926"/>
+                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="zV3-8w-vKM">
-                                <rect key="frame" x="0.0" y="0.0" width="428" height="100"/>
+                                <rect key="frame" x="0.0" y="0.0" width="600" height="100"/>
                                 <subviews>
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Iyx-Dk-F8o">
-                                        <rect key="frame" x="0.0" y="-20" width="448" height="112"/>
+                                        <rect key="frame" x="0.0" y="-20" width="620" height="112"/>
                                         <subviews>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="S.O.S" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="avj-YS-qKJ">
-                                                <rect key="frame" x="52" y="71" width="324" height="23"/>
+                                                <rect key="frame" x="52" y="71" width="496" height="23"/>
                                                 <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="19"/>
                                                 <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                 <nil key="highlightedColor"/>
@@ -1869,19 +1867,19 @@ de tu servicio/funeraria</string>
                                 </constraints>
                             </view>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="iSA-9D-8sR">
-                                <rect key="frame" x="60" y="115" width="308" height="0.0"/>
+                                <rect key="frame" x="60" y="115" width="480" height="0.0"/>
                                 <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="26"/>
                                 <color key="textColor" name="eBlack"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Tpd-wX-yDT">
-                                <rect key="frame" x="20" y="144" width="388" height="369"/>
+                                <rect key="frame" x="20" y="144" width="560" height="369"/>
                                 <subviews>
                                     <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" alignment="top" spacing="4" translatesAutoresizingMaskIntoConstraints="NO" id="1Hp-Vs-ufC">
-                                        <rect key="frame" x="15" y="8" width="353" height="84"/>
+                                        <rect key="frame" x="15" y="8" width="525" height="84"/>
                                         <subviews>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Contacto de ayuda" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="3lI-7n-Wve">
-                                                <rect key="frame" x="0.0" y="0.0" width="129.66666666666666" height="18"/>
+                                                <rect key="frame" x="0.0" y="0.0" width="129.5" height="18"/>
                                                 <fontDescription key="fontDescription" type="system" pointSize="15"/>
                                                 <color key="textColor" name="eMainBlue"/>
                                                 <nil key="highlightedColor"/>
@@ -1907,14 +1905,14 @@ de tu servicio/funeraria</string>
                                         </subviews>
                                     </stackView>
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="CwL-Y0-D8y">
-                                        <rect key="frame" x="8" y="100" width="372" height="1"/>
+                                        <rect key="frame" x="8" y="100" width="544" height="1"/>
                                         <color key="backgroundColor" red="0.75406885150000003" green="0.75408679249999999" blue="0.75407713649999997" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                         <constraints>
                                             <constraint firstAttribute="height" constant="1" id="vaf-JD-UpR"/>
                                         </constraints>
                                     </view>
                                     <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="circle.fill" catalog="system" translatesAutoresizingMaskIntoConstraints="NO" id="GLn-1M-Bxi">
-                                        <rect key="frame" x="15" y="122.00000000000001" width="35" height="20.666666666666657"/>
+                                        <rect key="frame" x="15" y="121.5" width="35" height="21"/>
                                         <color key="tintColor" name="eMainGold"/>
                                         <constraints>
                                             <constraint firstAttribute="width" constant="35" id="kbE-Rh-jZJ"/>
@@ -1922,7 +1920,7 @@ de tu servicio/funeraria</string>
                                         </constraints>
                                     </imageView>
                                     <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="circle" catalog="system" translatesAutoresizingMaskIntoConstraints="NO" id="g7n-rU-JMe">
-                                        <rect key="frame" x="15" y="115" width="35" height="34.666666666666671"/>
+                                        <rect key="frame" x="15" y="114.5" width="35" height="35"/>
                                         <color key="tintColor" name="eMainBlue"/>
                                         <constraints>
                                             <constraint firstAttribute="height" constant="36" id="lij-pz-2d3"/>
@@ -1930,7 +1928,7 @@ de tu servicio/funeraria</string>
                                         </constraints>
                                     </imageView>
                                     <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="circle.fill" catalog="system" translatesAutoresizingMaskIntoConstraints="NO" id="3xz-8O-ktn">
-                                        <rect key="frame" x="15" y="194" width="35" height="20.666666666666671"/>
+                                        <rect key="frame" x="15" y="193.5" width="35" height="21"/>
                                         <color key="tintColor" name="eLightGray"/>
                                         <constraints>
                                             <constraint firstAttribute="width" constant="35" id="6gq-cP-6gg"/>
@@ -1938,7 +1936,7 @@ de tu servicio/funeraria</string>
                                         </constraints>
                                     </imageView>
                                     <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="circle" catalog="system" translatesAutoresizingMaskIntoConstraints="NO" id="pyi-7M-kgy">
-                                        <rect key="frame" x="15" y="187" width="35" height="34.666666666666671"/>
+                                        <rect key="frame" x="15" y="186.5" width="35" height="35"/>
                                         <color key="tintColor" name="eMainBlue"/>
                                         <constraints>
                                             <constraint firstAttribute="width" constant="35" id="GMw-2k-ArU"/>
@@ -1946,7 +1944,7 @@ de tu servicio/funeraria</string>
                                         </constraints>
                                     </imageView>
                                     <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="circle.fill" catalog="system" translatesAutoresizingMaskIntoConstraints="NO" id="GRn-1B-6U9">
-                                        <rect key="frame" x="15" y="266" width="35" height="20.666666666666686"/>
+                                        <rect key="frame" x="15" y="265.5" width="35" height="21"/>
                                         <color key="tintColor" name="eLightGray"/>
                                         <constraints>
                                             <constraint firstAttribute="width" constant="35" id="9As-R8-6bL"/>
@@ -1954,7 +1952,7 @@ de tu servicio/funeraria</string>
                                         </constraints>
                                     </imageView>
                                     <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="circle" catalog="system" translatesAutoresizingMaskIntoConstraints="NO" id="JMB-re-FaX">
-                                        <rect key="frame" x="15" y="259" width="35" height="34.666666666666686"/>
+                                        <rect key="frame" x="15" y="258.5" width="35" height="35"/>
                                         <color key="tintColor" name="eMainBlue"/>
                                         <constraints>
                                             <constraint firstAttribute="height" constant="36" id="CmG-z7-v2W"/>
@@ -1978,7 +1976,7 @@ de tu servicio/funeraria</string>
                                         </constraints>
                                     </view>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Enviado" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="VJD-LN-yhP">
-                                        <rect key="frame" x="58" y="116" width="56.666666666666657" height="18"/>
+                                        <rect key="frame" x="58" y="116" width="56.5" height="18"/>
                                         <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="15"/>
                                         <color key="textColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         <nil key="highlightedColor"/>
@@ -1990,7 +1988,7 @@ de tu servicio/funeraria</string>
                                         <nil key="highlightedColor"/>
                                     </label>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="6T3-8Z-xws">
-                                        <rect key="frame" x="58" y="143.66666666666669" width="0.0" height="0.0"/>
+                                        <rect key="frame" x="58" y="143.5" width="0.0" height="0.0"/>
                                         <fontDescription key="fontDescription" type="system" weight="light" pointSize="11"/>
                                         <color key="textColor" name="eLightBlack"/>
                                         <nil key="highlightedColor"/>
@@ -2008,19 +2006,19 @@ de tu servicio/funeraria</string>
                                         <nil key="highlightedColor"/>
                                     </label>
                                     <label opaque="NO" userInteractionEnabled="NO" alpha="0.0" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="10:00 a.m" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="7S4-sm-bve">
-                                        <rect key="frame" x="337" y="125" width="43" height="11"/>
+                                        <rect key="frame" x="509" y="125" width="43" height="11"/>
                                         <fontDescription key="fontDescription" type="system" weight="light" pointSize="9"/>
                                         <color key="textColor" name="eLightBlack"/>
                                         <nil key="highlightedColor"/>
                                     </label>
                                     <label opaque="NO" userInteractionEnabled="NO" alpha="0.0" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="10:15 a.m" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="LiG-3I-LBd">
-                                        <rect key="frame" x="339" y="186.66666666666669" width="41" height="11"/>
+                                        <rect key="frame" x="511" y="186.5" width="41" height="11"/>
                                         <fontDescription key="fontDescription" type="system" weight="light" pointSize="9"/>
                                         <color key="textColor" name="eLightBlack"/>
                                         <nil key="highlightedColor"/>
                                     </label>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="En progreso" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Vk0-Xf-0le">
-                                        <rect key="frame" x="57.999999999999993" y="184" width="86.333333333333314" height="18"/>
+                                        <rect key="frame" x="58" y="184" width="86.5" height="18"/>
                                         <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="15"/>
                                         <color key="textColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         <nil key="highlightedColor"/>
@@ -2032,19 +2030,19 @@ de tu servicio/funeraria</string>
                                         <nil key="highlightedColor"/>
                                     </label>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Finalizado" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="aAA-1y-mnj">
-                                        <rect key="frame" x="57.999999999999993" y="258" width="72.333333333333314" height="18"/>
+                                        <rect key="frame" x="58" y="258" width="72.5" height="18"/>
                                         <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="15"/>
                                         <color key="textColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         <nil key="highlightedColor"/>
                                     </label>
                                     <label opaque="NO" userInteractionEnabled="NO" alpha="0.0" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="11:00 a.m" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ucM-6P-bfw">
-                                        <rect key="frame" x="338.66666666666669" y="255" width="41.333333333333314" height="11"/>
+                                        <rect key="frame" x="510.5" y="255" width="41.5" height="11"/>
                                         <fontDescription key="fontDescription" type="system" weight="light" pointSize="9"/>
                                         <color key="textColor" name="eLightBlack"/>
                                         <nil key="highlightedColor"/>
                                     </label>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="mcA-DZ-rFe">
-                                        <rect key="frame" x="244" y="316" width="136" height="43"/>
+                                        <rect key="frame" x="416" y="316" width="136" height="43"/>
                                         <color key="backgroundColor" name="eLightGray"/>
                                         <constraints>
                                             <constraint firstAttribute="width" constant="136" id="8WA-17-Qfs"/>
@@ -2164,17 +2162,17 @@ de tu servicio/funeraria</string>
             <objects>
                 <viewController storyboardIdentifier="PriestContactView" id="YmU-G4-85a" customClass="PriestContactView" customModule="EncuentroCatolicoVirtualLibrary" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="I9a-lr-7CX">
-                        <rect key="frame" x="0.0" y="0.0" width="428" height="926"/>
+                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="8OR-so-8us">
-                                <rect key="frame" x="0.0" y="0.0" width="428" height="100"/>
+                                <rect key="frame" x="0.0" y="0.0" width="600" height="100"/>
                                 <subviews>
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="cT5-Pz-Yr5">
-                                        <rect key="frame" x="0.0" y="-20" width="448" height="112"/>
+                                        <rect key="frame" x="0.0" y="-20" width="620" height="112"/>
                                         <subviews>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Emergencia" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="I1P-Bd-Vbf">
-                                                <rect key="frame" x="52" y="71" width="324" height="23"/>
+                                                <rect key="frame" x="52" y="71" width="496" height="23"/>
                                                 <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="19"/>
                                                 <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                 <nil key="highlightedColor"/>
@@ -2208,23 +2206,23 @@ de tu servicio/funeraria</string>
                                 </constraints>
                             </view>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="dh9-X6-3cl">
-                                <rect key="frame" x="60" y="115" width="308" height="0.0"/>
+                                <rect key="frame" x="60" y="115" width="480" height="0.0"/>
                                 <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="22"/>
                                 <color key="textColor" name="eBlack"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <view alpha="0.0" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="pT5-Vx-Wvr">
-                                <rect key="frame" x="20" y="127" width="388" height="393"/>
+                                <rect key="frame" x="20" y="127" width="560" height="393"/>
                                 <subviews>
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="CiI-Le-0Cx">
-                                        <rect key="frame" x="15" y="163.33333333333331" width="358" height="1"/>
+                                        <rect key="frame" x="15" y="147.5" width="530" height="1"/>
                                         <color key="backgroundColor" red="0.75406885150000003" green="0.75408679249999999" blue="0.75407713649999997" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                         <constraints>
                                             <constraint firstAttribute="height" constant="1" id="QYR-Js-qUR"/>
                                         </constraints>
                                     </view>
                                     <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="circle.fill" catalog="system" translatesAutoresizingMaskIntoConstraints="NO" id="WXO-tV-fJN">
-                                        <rect key="frame" x="18" y="182.33333333333331" width="14" height="13.666666666666671"/>
+                                        <rect key="frame" x="18" y="166" width="14" height="14"/>
                                         <color key="tintColor" name="eMainGold"/>
                                         <constraints>
                                             <constraint firstAttribute="width" constant="14" id="PsW-V1-vIR"/>
@@ -2232,7 +2230,7 @@ de tu servicio/funeraria</string>
                                         </constraints>
                                     </imageView>
                                     <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="circle" catalog="system" translatesAutoresizingMaskIntoConstraints="NO" id="tAX-dg-bwJ">
-                                        <rect key="frame" x="15" y="179.33333333333331" width="20" height="19.666666666666671"/>
+                                        <rect key="frame" x="15" y="163" width="20" height="20"/>
                                         <color key="tintColor" name="eMainBlue"/>
                                         <constraints>
                                             <constraint firstAttribute="width" constant="20" id="K6d-Ja-Jy0"/>
@@ -2240,7 +2238,7 @@ de tu servicio/funeraria</string>
                                         </constraints>
                                     </imageView>
                                     <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="circle.fill" catalog="system" translatesAutoresizingMaskIntoConstraints="NO" id="SMd-Fp-XS7">
-                                        <rect key="frame" x="18" y="243.33333333333331" width="14" height="13.666666666666686"/>
+                                        <rect key="frame" x="18" y="227" width="14" height="14"/>
                                         <color key="tintColor" name="eLightGray"/>
                                         <constraints>
                                             <constraint firstAttribute="height" constant="15" id="eCg-AR-Ltl"/>
@@ -2248,7 +2246,7 @@ de tu servicio/funeraria</string>
                                         </constraints>
                                     </imageView>
                                     <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="circle" catalog="system" translatesAutoresizingMaskIntoConstraints="NO" id="wya-ka-ZPn">
-                                        <rect key="frame" x="15" y="240.33333333333331" width="20" height="19.666666666666686"/>
+                                        <rect key="frame" x="15" y="224" width="20" height="20"/>
                                         <color key="tintColor" name="eMainBlue"/>
                                         <constraints>
                                             <constraint firstAttribute="height" constant="21" id="3lZ-UI-iPm"/>
@@ -2256,7 +2254,7 @@ de tu servicio/funeraria</string>
                                         </constraints>
                                     </imageView>
                                     <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="circle.fill" catalog="system" translatesAutoresizingMaskIntoConstraints="NO" id="uzi-Fu-1Pb">
-                                        <rect key="frame" x="18" y="308.33333333333331" width="14" height="13.666666666666686"/>
+                                        <rect key="frame" x="18" y="292" width="14" height="14"/>
                                         <color key="tintColor" name="eLightGray"/>
                                         <constraints>
                                             <constraint firstAttribute="width" constant="14" id="0GN-p2-NCe"/>
@@ -2264,7 +2262,7 @@ de tu servicio/funeraria</string>
                                         </constraints>
                                     </imageView>
                                     <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="circle" catalog="system" translatesAutoresizingMaskIntoConstraints="NO" id="jZA-EP-ukU">
-                                        <rect key="frame" x="15" y="305.33333333333331" width="20" height="19.666666666666686"/>
+                                        <rect key="frame" x="15" y="289" width="20" height="20"/>
                                         <color key="tintColor" name="eMainBlue"/>
                                         <constraints>
                                             <constraint firstAttribute="width" constant="20" id="Ffy-4f-alU"/>
@@ -2272,7 +2270,7 @@ de tu servicio/funeraria</string>
                                         </constraints>
                                     </imageView>
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="kxM-T9-7sf">
-                                        <rect key="frame" x="24" y="208" width="2" height="22"/>
+                                        <rect key="frame" x="24" y="192" width="2" height="22"/>
                                         <color key="backgroundColor" name="eMainBlue"/>
                                         <constraints>
                                             <constraint firstAttribute="width" constant="2" id="IU8-mX-IFd"/>
@@ -2280,7 +2278,7 @@ de tu servicio/funeraria</string>
                                         </constraints>
                                     </view>
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="gNi-0L-5iU">
-                                        <rect key="frame" x="24" y="271" width="2" height="23"/>
+                                        <rect key="frame" x="24" y="255" width="2" height="23"/>
                                         <color key="backgroundColor" name="eMainBlue"/>
                                         <constraints>
                                             <constraint firstAttribute="height" constant="23" id="hyh-xU-dzL"/>
@@ -2302,22 +2300,22 @@ de tu servicio/funeraria</string>
                                         <nil key="highlightedColor"/>
                                     </label>
                                     <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="52" translatesAutoresizingMaskIntoConstraints="NO" id="8zK-1U-kN7">
-                                        <rect key="frame" x="322" y="177" width="51" height="144"/>
+                                        <rect key="frame" x="494" y="161" width="51" height="144.5"/>
                                         <subviews>
                                             <label opaque="NO" userInteractionEnabled="NO" alpha="0.0" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="10:00 a.m" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="OqS-E7-qbK">
-                                                <rect key="frame" x="0.0" y="0.0" width="51" height="13.333333333333334"/>
+                                                <rect key="frame" x="0.0" y="0.0" width="51" height="13.5"/>
                                                 <fontDescription key="fontDescription" type="system" weight="light" pointSize="11"/>
                                                 <color key="textColor" name="eLightBlack"/>
                                                 <nil key="highlightedColor"/>
                                             </label>
                                             <label opaque="NO" userInteractionEnabled="NO" alpha="0.0" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="10:15 a.m" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="38c-1v-N8z">
-                                                <rect key="frame" x="0.0" y="65.333333333333314" width="51" height="13.333333333333329"/>
+                                                <rect key="frame" x="0.0" y="65.5" width="51" height="13.5"/>
                                                 <fontDescription key="fontDescription" type="system" weight="light" pointSize="11"/>
                                                 <color key="textColor" name="eLightBlack"/>
                                                 <nil key="highlightedColor"/>
                                             </label>
                                             <label opaque="NO" userInteractionEnabled="NO" alpha="0.0" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="11:00 a.m" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Im5-4v-Alz">
-                                                <rect key="frame" x="0.0" y="130.66666666666669" width="51" height="13.333333333333343"/>
+                                                <rect key="frame" x="0.0" y="131" width="51" height="13.5"/>
                                                 <fontDescription key="fontDescription" type="system" weight="light" pointSize="11"/>
                                                 <color key="textColor" name="eLightBlack"/>
                                                 <nil key="highlightedColor"/>
@@ -2325,13 +2323,13 @@ de tu servicio/funeraria</string>
                                         </subviews>
                                     </stackView>
                                     <label opaque="NO" userInteractionEnabled="NO" alpha="0.0" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Cancelado" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Sjb-Y6-p89">
-                                        <rect key="frame" x="41" y="238.33333333333331" width="76" height="18"/>
+                                        <rect key="frame" x="41" y="223" width="76" height="18"/>
                                         <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="15"/>
                                         <color key="textColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         <nil key="highlightedColor"/>
                                     </label>
                                     <stackView opaque="NO" contentMode="scaleToFill" spacing="15" translatesAutoresizingMaskIntoConstraints="NO" id="xDi-xq-8gH">
-                                        <rect key="frame" x="190" y="343.33333333333331" width="183" height="36"/>
+                                        <rect key="frame" x="362" y="328" width="183" height="36"/>
                                         <subviews>
                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="taf-tw-a58">
                                                 <rect key="frame" x="0.0" y="0.0" width="84" height="36"/>
@@ -2366,40 +2364,40 @@ de tu servicio/funeraria</string>
                                         </subviews>
                                     </stackView>
                                     <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" alignment="top" spacing="2" translatesAutoresizingMaskIntoConstraints="NO" id="cya-c7-wSj">
-                                        <rect key="frame" x="23" y="10" width="342" height="141.33333333333334"/>
+                                        <rect key="frame" x="23" y="10" width="514" height="125.5"/>
                                         <subviews>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Solicitante" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="yb1-lg-ydA">
-                                                <rect key="frame" x="0.0" y="0.0" width="63.666666666666664" height="15.666666666666666"/>
+                                                <rect key="frame" x="0.0" y="0.0" width="64" height="16"/>
                                                 <fontDescription key="fontDescription" type="system" pointSize="13"/>
                                                 <color key="textColor" name="eMainBlue"/>
                                                 <nil key="highlightedColor"/>
                                             </label>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Jesús Silva" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="llb-5W-ITL">
-                                                <rect key="frame" x="0.0" y="17.666666666666657" width="73.666666666666671" height="17"/>
+                                                <rect key="frame" x="0.0" y="18" width="74" height="17"/>
                                                 <fontDescription key="fontDescription" type="system" weight="medium" pointSize="14"/>
                                                 <color key="textColor" name="eBlack"/>
                                                 <nil key="highlightedColor"/>
                                             </label>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Dirección" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="HzV-o3-uG6">
-                                                <rect key="frame" x="0.0" y="36.666666666666657" width="57.333333333333336" height="15.666666666666664"/>
+                                                <rect key="frame" x="0.0" y="37" width="57.5" height="16"/>
                                                 <fontDescription key="fontDescription" type="system" pointSize="13"/>
                                                 <color key="textColor" name="eMainBlue"/>
                                                 <nil key="highlightedColor"/>
                                             </label>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Bosques de la Reforma 486, Bosques de  las Lomas, Miguel Hidalgo, 11700,  Ciudad de México, CDMX" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="5" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="AGJ-SX-4I0">
-                                                <rect key="frame" x="0.0" y="54.333333333333343" width="333.66666666666669" height="50.333333333333343"/>
+                                                <rect key="frame" x="0.0" y="55" width="505" height="33.5"/>
                                                 <fontDescription key="fontDescription" type="system" weight="medium" pointSize="14"/>
                                                 <color key="textColor" name="eBlack"/>
                                                 <nil key="highlightedColor"/>
                                             </label>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Teléfono" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="f18-j6-kS1">
-                                                <rect key="frame" x="0.0" y="106.66666666666666" width="52" height="15.666666666666671"/>
+                                                <rect key="frame" x="0.0" y="90.5" width="52" height="16"/>
                                                 <fontDescription key="fontDescription" type="system" pointSize="13"/>
                                                 <color key="textColor" name="eMainBlue"/>
                                                 <nil key="highlightedColor"/>
                                             </label>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="55 2345 6789" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="8Vp-Cj-YFo">
-                                                <rect key="frame" x="0.0" y="124.33333333333331" width="95" height="17"/>
+                                                <rect key="frame" x="0.0" y="108.5" width="95" height="17"/>
                                                 <fontDescription key="fontDescription" type="system" weight="medium" pointSize="14"/>
                                                 <color key="textColor" name="eBlack"/>
                                                 <nil key="highlightedColor"/>
@@ -2407,7 +2405,7 @@ de tu servicio/funeraria</string>
                                         </subviews>
                                     </stackView>
                                     <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="phone.circle.fill" catalog="system" translatesAutoresizingMaskIntoConstraints="NO" id="kDe-Jb-he2">
-                                        <rect key="frame" x="322" y="110.33333333333334" width="48" height="46.666666666666671"/>
+                                        <rect key="frame" x="494" y="94" width="48" height="47"/>
                                         <color key="tintColor" name="eMainGold"/>
                                         <constraints>
                                             <constraint firstAttribute="width" constant="48" id="3tz-ER-pp3"/>
@@ -2415,7 +2413,7 @@ de tu servicio/funeraria</string>
                                         </constraints>
                                     </imageView>
                                     <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" alignment="top" spacing="2" translatesAutoresizingMaskIntoConstraints="NO" id="IIg-eq-9Yk">
-                                        <rect key="frame" x="40.000000000000007" y="170" width="94.666666666666686" height="63"/>
+                                        <rect key="frame" x="40" y="154" width="94.5" height="63.5"/>
                                         <subviews>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Recibido" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="JGU-e3-hga">
                                                 <rect key="frame" x="0.0" y="0.0" width="60" height="17"/>
@@ -2424,19 +2422,19 @@ de tu servicio/funeraria</string>
                                                 <nil key="highlightedColor"/>
                                             </label>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Por aceptar" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="V1z-iT-TbX">
-                                                <rect key="frame" x="0.0" y="19" width="61" height="13.333333333333336"/>
+                                                <rect key="frame" x="0.0" y="19" width="61" height="13.5"/>
                                                 <fontDescription key="fontDescription" type="system" pointSize="11"/>
                                                 <color key="textColor" name="eLightBlack"/>
                                                 <nil key="highlightedColor"/>
                                             </label>
                                             <label opaque="NO" userInteractionEnabled="NO" alpha="0.0" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Llamada realizada" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="8xP-U8-6RG">
-                                                <rect key="frame" x="0.0" y="34.333333333333314" width="94.666666666666671" height="13.333333333333336"/>
+                                                <rect key="frame" x="0.0" y="34.5" width="94.5" height="13.5"/>
                                                 <fontDescription key="fontDescription" type="system" pointSize="11"/>
                                                 <color key="textColor" name="eLightBlack"/>
                                                 <nil key="highlightedColor"/>
                                             </label>
                                             <label opaque="NO" userInteractionEnabled="NO" alpha="0.0" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Buscando ayuda" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="kib-gy-Y87">
-                                                <rect key="frame" x="0.0" y="49.666666666666686" width="86.666666666666671" height="13.333333333333336"/>
+                                                <rect key="frame" x="0.0" y="50" width="86.5" height="13.5"/>
                                                 <fontDescription key="fontDescription" type="system" pointSize="11"/>
                                                 <color key="textColor" name="eLightBlack"/>
                                                 <nil key="highlightedColor"/>
@@ -2444,16 +2442,16 @@ de tu servicio/funeraria</string>
                                         </subviews>
                                     </stackView>
                                     <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="4" translatesAutoresizingMaskIntoConstraints="NO" id="qNC-4p-Xcy">
-                                        <rect key="frame" x="39.999999999999993" y="237.33333333333331" width="89.333333333333314" height="35.333333333333314"/>
+                                        <rect key="frame" x="40" y="222" width="89.5" height="35.5"/>
                                         <subviews>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="En progreso" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="VbW-lK-JFz">
-                                                <rect key="frame" x="0.0" y="0.0" width="89.333333333333329" height="18"/>
+                                                <rect key="frame" x="0.0" y="0.0" width="89.5" height="18"/>
                                                 <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="15"/>
                                                 <color key="textColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                 <nil key="highlightedColor"/>
                                             </label>
                                             <label opaque="NO" userInteractionEnabled="NO" alpha="0.0" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Ayuda en camino" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="DrZ-oX-sZa">
-                                                <rect key="frame" x="0.0" y="22" width="89.333333333333329" height="13.333333333333336"/>
+                                                <rect key="frame" x="0.0" y="22" width="89.5" height="13.5"/>
                                                 <fontDescription key="fontDescription" type="system" pointSize="11"/>
                                                 <color key="textColor" name="eLightBlack"/>
                                                 <nil key="highlightedColor"/>
@@ -2461,16 +2459,16 @@ de tu servicio/funeraria</string>
                                         </subviews>
                                     </stackView>
                                     <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" alignment="top" spacing="4" translatesAutoresizingMaskIntoConstraints="NO" id="8w9-xH-8VX">
-                                        <rect key="frame" x="39.999999999999993" y="299.33333333333331" width="72.333333333333314" height="35.333333333333314"/>
+                                        <rect key="frame" x="40" y="284" width="72.5" height="35.5"/>
                                         <subviews>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Finalizado" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="vvq-zT-9UY">
-                                                <rect key="frame" x="0.0" y="0.0" width="72.333333333333329" height="18"/>
+                                                <rect key="frame" x="0.0" y="0.0" width="72.5" height="18"/>
                                                 <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="15"/>
                                                 <color key="textColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                 <nil key="highlightedColor"/>
                                             </label>
                                             <label opaque="NO" userInteractionEnabled="NO" alpha="0.0" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Con éxito" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="rS5-k7-29Y">
-                                                <rect key="frame" x="0.0" y="22" width="49.666666666666664" height="13.333333333333336"/>
+                                                <rect key="frame" x="0.0" y="22" width="50" height="13.5"/>
                                                 <fontDescription key="fontDescription" type="system" pointSize="11"/>
                                                 <color key="textColor" name="eLightBlack"/>
                                                 <nil key="highlightedColor"/>
@@ -2478,7 +2476,7 @@ de tu servicio/funeraria</string>
                                         </subviews>
                                     </stackView>
                                     <label opaque="NO" userInteractionEnabled="NO" alpha="0.59999999999999998" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="2.5 km" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="0W3-1G-Lfr">
-                                        <rect key="frame" x="320.33333333333331" y="26" width="44.666666666666686" height="17"/>
+                                        <rect key="frame" x="492" y="26" width="45" height="17"/>
                                         <fontDescription key="fontDescription" type="system" weight="medium" pointSize="14"/>
                                         <color key="textColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         <nil key="highlightedColor"/>
@@ -2591,17 +2589,17 @@ de tu servicio/funeraria</string>
             <objects>
                 <viewController storyboardIdentifier="PriestContactDetailView" id="3rF-Of-2V3" customClass="PriestDetailView" customModule="EncuentroCatolicoVirtualLibrary" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="VyP-aL-N32">
-                        <rect key="frame" x="0.0" y="0.0" width="428" height="926"/>
+                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="SgV-vY-1I6">
-                                <rect key="frame" x="0.0" y="0.0" width="428" height="100"/>
+                                <rect key="frame" x="0.0" y="0.0" width="600" height="100"/>
                                 <subviews>
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="LHU-Fw-MpJ">
-                                        <rect key="frame" x="0.0" y="-20" width="448" height="112"/>
+                                        <rect key="frame" x="0.0" y="-20" width="620" height="112"/>
                                         <subviews>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Emergencia" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="3Cx-vH-TNo">
-                                                <rect key="frame" x="52" y="71" width="324" height="23"/>
+                                                <rect key="frame" x="52" y="71" width="496" height="23"/>
                                                 <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="19"/>
                                                 <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                 <nil key="highlightedColor"/>
@@ -2635,79 +2633,79 @@ de tu servicio/funeraria</string>
                                 </constraints>
                             </view>
                             <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="4MA-UW-tuD">
-                                <rect key="frame" x="0.0" y="108" width="428" height="743"/>
+                                <rect key="frame" x="0.0" y="108" width="600" height="417"/>
                                 <subviews>
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Kab-Bj-lQ6">
-                                        <rect key="frame" x="0.0" y="0.0" width="428" height="678.66666666666663"/>
+                                        <rect key="frame" x="0.0" y="0.0" width="600" height="680"/>
                                         <subviews>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="p6a-6O-Abv">
-                                                <rect key="frame" x="22" y="10.000000000000002" width="346" height="26.666666666666671"/>
+                                                <rect key="frame" x="22" y="10" width="518" height="26.5"/>
                                                 <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="22"/>
                                                 <color key="textColor" name="eBlack"/>
                                                 <nil key="highlightedColor"/>
                                             </label>
                                             <view alpha="0.0" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="BYl-UL-fvW">
-                                                <rect key="frame" x="22" y="125.66666666666666" width="384" height="240.99999999999997"/>
+                                                <rect key="frame" x="22" y="125.5" width="556" height="242.5"/>
                                                 <subviews>
                                                     <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" alignment="top" spacing="4" translatesAutoresizingMaskIntoConstraints="NO" id="FF8-bZ-72T">
-                                                        <rect key="frame" x="23" y="10" width="338" height="216.66666666666666"/>
+                                                        <rect key="frame" x="23" y="10" width="510" height="218"/>
                                                         <subviews>
                                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Solicitante" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="t8L-gR-gcU">
-                                                                <rect key="frame" x="0.0" y="0.0" width="63.666666666666664" height="15.666666666666666"/>
+                                                                <rect key="frame" x="0.0" y="0.0" width="64" height="16"/>
                                                                 <fontDescription key="fontDescription" type="system" pointSize="13"/>
                                                                 <color key="textColor" name="eMainBlue"/>
                                                                 <nil key="highlightedColor"/>
                                                             </label>
                                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="vadsvad" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="tVf-wN-2ub">
-                                                                <rect key="frame" x="0.0" y="19.666666666666657" width="55" height="17"/>
+                                                                <rect key="frame" x="0.0" y="20" width="55" height="17"/>
                                                                 <fontDescription key="fontDescription" type="system" weight="medium" pointSize="14"/>
                                                                 <color key="textColor" name="eBlack"/>
                                                                 <nil key="highlightedColor"/>
                                                             </label>
                                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Vo4-Oh-L37">
-                                                                <rect key="frame" x="0.0" y="40.666666666666657" width="50" height="50"/>
+                                                                <rect key="frame" x="0.0" y="41" width="50" height="50"/>
                                                                 <fontDescription key="fontDescription" type="system" pointSize="13"/>
                                                                 <color key="textColor" name="eMainBlue"/>
                                                                 <nil key="highlightedColor"/>
                                                             </label>
                                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="gRq-5j-F4r">
-                                                                <rect key="frame" x="0.0" y="94.666666666666657" width="0.0" height="0.0"/>
+                                                                <rect key="frame" x="0.0" y="95" width="0.0" height="0.0"/>
                                                                 <fontDescription key="fontDescription" type="system" weight="medium" pointSize="14"/>
                                                                 <color key="textColor" name="eBlack"/>
                                                                 <nil key="highlightedColor"/>
                                                             </label>
                                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Dirección" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="c3Y-qN-BGA">
-                                                                <rect key="frame" x="0.0" y="98.666666666666657" width="57.333333333333336" height="15.666666666666671"/>
+                                                                <rect key="frame" x="0.0" y="99" width="57.5" height="16"/>
                                                                 <fontDescription key="fontDescription" type="system" pointSize="13"/>
                                                                 <color key="textColor" name="eMainBlue"/>
                                                                 <nil key="highlightedColor"/>
                                                             </label>
                                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="vadvadv" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="5" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="BK0-Ph-9vq">
-                                                                <rect key="frame" x="0.0" y="118.33333333333334" width="55.333333333333336" height="17"/>
+                                                                <rect key="frame" x="0.0" y="119" width="55.5" height="17"/>
                                                                 <fontDescription key="fontDescription" type="system" weight="medium" pointSize="14"/>
                                                                 <color key="textColor" name="eBlack"/>
                                                                 <nil key="highlightedColor"/>
                                                             </label>
                                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Teléfono" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="cc1-H7-7Ah">
-                                                                <rect key="frame" x="0.0" y="139.33333333333334" width="52" height="15.666666666666657"/>
+                                                                <rect key="frame" x="0.0" y="140" width="52" height="16"/>
                                                                 <fontDescription key="fontDescription" type="system" pointSize="13"/>
                                                                 <color key="textColor" name="eMainBlue"/>
                                                                 <nil key="highlightedColor"/>
                                                             </label>
                                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="vadvad" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="zqx-th-cb1">
-                                                                <rect key="frame" x="0.0" y="159.00000000000003" width="47.666666666666664" height="17"/>
+                                                                <rect key="frame" x="0.0" y="160" width="48" height="17"/>
                                                                 <fontDescription key="fontDescription" type="system" weight="medium" pointSize="14"/>
                                                                 <color key="textColor" name="eBlack"/>
                                                                 <nil key="highlightedColor"/>
                                                             </label>
                                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Estado de solicitud" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="dLr-cF-Rvt">
-                                                                <rect key="frame" x="0.0" y="180.00000000000003" width="115.33333333333333" height="15.666666666666657"/>
+                                                                <rect key="frame" x="0.0" y="181" width="115.5" height="16"/>
                                                                 <fontDescription key="fontDescription" type="system" pointSize="13"/>
                                                                 <color key="textColor" name="eMainBlue"/>
                                                                 <nil key="highlightedColor"/>
                                                             </label>
                                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="vadvasdvva" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Hkd-dx-jCI">
-                                                                <rect key="frame" x="0.0" y="199.66666666666666" width="78" height="17"/>
+                                                                <rect key="frame" x="0.0" y="201" width="78" height="17"/>
                                                                 <fontDescription key="fontDescription" type="system" weight="medium" pointSize="14"/>
                                                                 <color key="textColor" name="eBlack"/>
                                                                 <nil key="highlightedColor"/>
@@ -2715,7 +2713,7 @@ de tu servicio/funeraria</string>
                                                         </subviews>
                                                     </stackView>
                                                     <label opaque="NO" userInteractionEnabled="NO" alpha="0.60000002384185791" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="OaG-zP-SY9">
-                                                        <rect key="frame" x="369" y="29.000000000000028" width="0.0" height="0.0"/>
+                                                        <rect key="frame" x="541" y="29" width="0.0" height="0.0"/>
                                                         <fontDescription key="fontDescription" type="system" weight="medium" pointSize="14"/>
                                                         <color key="textColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                         <nil key="highlightedColor"/>
@@ -2733,10 +2731,10 @@ de tu servicio/funeraria</string>
                                                 </constraints>
                                             </view>
                                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="GE3-36-1gT">
-                                                <rect key="frame" x="22" y="390.66666666666674" width="384" height="273"/>
+                                                <rect key="frame" x="22" y="392" width="556" height="273"/>
                                                 <subviews>
                                                     <imageView clipsSubviews="YES" userInteractionEnabled="NO" alpha="0.0" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="mappin.slash" catalog="system" translatesAutoresizingMaskIntoConstraints="NO" id="1ZE-nS-pVc">
-                                                        <rect key="frame" x="117" y="72.000000000000014" width="150" height="129.33333333333331"/>
+                                                        <rect key="frame" x="203" y="71" width="150" height="130"/>
                                                         <color key="tintColor" white="0.66666666666666663" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                         <constraints>
                                                             <constraint firstAttribute="height" constant="130" id="vTT-Mj-5VP"/>
@@ -2744,22 +2742,22 @@ de tu servicio/funeraria</string>
                                                         </constraints>
                                                     </imageView>
                                                     <label opaque="NO" alpha="0.0" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Dirección invalida." textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="FTY-i3-LWT">
-                                                        <rect key="frame" x="8" y="10" width="327" height="17"/>
+                                                        <rect key="frame" x="8" y="10" width="499" height="17"/>
                                                         <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="14"/>
                                                         <color key="textColor" red="0.10980392160000001" green="0.45882352939999999" blue="0.73725490199999999" alpha="1" colorSpace="calibratedRGB"/>
                                                         <nil key="highlightedColor"/>
                                                     </label>
                                                     <mapView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" mapType="standard" translatesAutoresizingMaskIntoConstraints="NO" id="DSs-4b-LWb">
-                                                        <rect key="frame" x="0.0" y="0.0" width="384" height="227"/>
+                                                        <rect key="frame" x="0.0" y="0.0" width="556" height="227"/>
                                                     </mapView>
                                                     <label opaque="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Compartir ubicación" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="x4m-uZ-rHY">
-                                                        <rect key="frame" x="207" y="242.99999999999994" width="137" height="17"/>
+                                                        <rect key="frame" x="379" y="243" width="137" height="17"/>
                                                         <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="14"/>
                                                         <color key="textColor" red="0.10980392160000001" green="0.45882352939999999" blue="0.73725490199999999" alpha="1" colorSpace="calibratedRGB"/>
                                                         <nil key="highlightedColor"/>
                                                     </label>
                                                     <imageView clipsSubviews="YES" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="square.and.arrow.up" catalog="system" translatesAutoresizingMaskIntoConstraints="NO" id="eg0-aC-LkJ">
-                                                        <rect key="frame" x="352" y="239.99999999999994" width="20" height="20.666666666666686"/>
+                                                        <rect key="frame" x="524" y="240" width="20" height="21"/>
                                                         <color key="tintColor" red="0.10980392156862745" green="0.45882352941176469" blue="0.73725490196078436" alpha="1" colorSpace="calibratedRGB"/>
                                                         <constraints>
                                                             <constraint firstAttribute="width" constant="20" id="nWk-ly-eiS"/>
@@ -2830,7 +2828,7 @@ de tu servicio/funeraria</string>
                                                 </subviews>
                                             </stackView>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="KXr-ou-ava">
-                                                <rect key="frame" x="0.0" y="34" width="50" height="22.666666666666671"/>
+                                                <rect key="frame" x="0.0" y="34" width="50" height="22.5"/>
                                                 <fontDescription key="fontDescription" type="italicSystem" pointSize="18"/>
                                                 <color key="textColor" name="eLightBlack"/>
                                                 <nil key="highlightedColor"/>
@@ -2908,17 +2906,17 @@ de tu servicio/funeraria</string>
             <objects>
                 <viewController storyboardIdentifier="UncionMapView" id="jjc-KN-INU" customClass="UncionMapView" customModule="EncuentroCatolicoVirtualLibrary" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="Vxi-hK-WYY">
-                        <rect key="frame" x="0.0" y="0.0" width="428" height="926"/>
+                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="XPn-eg-vqh">
-                                <rect key="frame" x="0.0" y="0.0" width="428" height="100"/>
+                                <rect key="frame" x="0.0" y="0.0" width="600" height="100"/>
                                 <subviews>
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="BC7-I4-2CP">
-                                        <rect key="frame" x="0.0" y="-20" width="448" height="112"/>
+                                        <rect key="frame" x="0.0" y="-20" width="620" height="112"/>
                                         <subviews>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="S.O.S" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="M1g-xI-qWY">
-                                                <rect key="frame" x="52" y="71" width="324" height="23"/>
+                                                <rect key="frame" x="52" y="71" width="496" height="23"/>
                                                 <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="19"/>
                                                 <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                 <nil key="highlightedColor"/>
@@ -2951,13 +2949,13 @@ de tu servicio/funeraria</string>
                                 </constraints>
                             </view>
                             <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Zlf-ks-xW1">
-                                <rect key="frame" x="0.0" y="100" width="428" height="722"/>
+                                <rect key="frame" x="0.0" y="100" width="600" height="430"/>
                                 <subviews>
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="a0f-u9-TDh">
-                                        <rect key="frame" x="0.0" y="0.0" width="428" height="692"/>
+                                        <rect key="frame" x="0.0" y="0.0" width="600" height="692"/>
                                         <subviews>
                                             <imageView clipsSubviews="YES" userInteractionEnabled="NO" alpha="0.0" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="mappin.slash" catalog="system" translatesAutoresizingMaskIntoConstraints="NO" id="b0z-3Y-KrQ">
-                                                <rect key="frame" x="164" y="385.66666666666663" width="100" height="99.333333333333314"/>
+                                                <rect key="frame" x="250" y="385" width="100" height="100"/>
                                                 <color key="tintColor" white="0.66666666666666663" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                 <constraints>
                                                     <constraint firstAttribute="height" constant="100" id="0ph-LV-Yn3"/>
@@ -2965,44 +2963,44 @@ de tu servicio/funeraria</string>
                                                 </constraints>
                                             </imageView>
                                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="ET3-ox-6A5">
-                                                <rect key="frame" x="16" y="65.333333333333343" width="381" height="165"/>
+                                                <rect key="frame" x="16" y="65.5" width="553" height="165"/>
                                                 <subviews>
                                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Nombre" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="I7w-uC-ovW">
-                                                        <rect key="frame" x="7" y="13" width="48.666666666666664" height="16"/>
+                                                        <rect key="frame" x="7" y="13" width="48.5" height="16"/>
                                                         <fontDescription key="fontDescription" type="system" pointSize="13"/>
                                                         <color key="textColor" name="eMainBlue"/>
                                                         <nil key="highlightedColor"/>
                                                     </label>
                                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="UOp-iy-EId">
-                                                        <rect key="frame" x="0.0" y="126.66666666666666" width="381" height="1"/>
+                                                        <rect key="frame" x="0.0" y="126.5" width="553" height="1"/>
                                                         <color key="backgroundColor" name="eLightGray"/>
                                                         <constraints>
                                                             <constraint firstAttribute="height" constant="1" id="Tas-U6-yxT"/>
                                                         </constraints>
                                                     </view>
                                                     <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="Nombre" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="uj2-7s-ysG">
-                                                        <rect key="frame" x="15" y="36" width="351" height="18.666666666666671"/>
+                                                        <rect key="frame" x="15" y="36" width="523" height="18.5"/>
                                                         <color key="textColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                         <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                                         <textInputTraits key="textInputTraits" keyboardType="alphabet"/>
                                                     </textField>
                                                     <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="magnifyingglass" catalog="system" translatesAutoresizingMaskIntoConstraints="NO" id="kSf-Tt-3I8">
-                                                        <rect key="frame" x="348" y="99.999999999999972" width="20" height="18.666666666666671"/>
+                                                        <rect key="frame" x="520" y="99.5" width="20" height="18.5"/>
                                                         <color key="tintColor" name="eMainBlue"/>
                                                     </imageView>
                                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Dirección" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="tJF-sM-kfu">
-                                                        <rect key="frame" x="7" y="76.666666666666657" width="58" height="15.666666666666671"/>
+                                                        <rect key="frame" x="7" y="76.5" width="58" height="16"/>
                                                         <fontDescription key="fontDescription" type="system" pointSize="13"/>
                                                         <color key="textColor" name="eMainBlue"/>
                                                         <nil key="highlightedColor"/>
                                                     </label>
                                                     <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="Dirección" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="m8g-fQ-eDD">
-                                                        <rect key="frame" x="15" y="99.333333333333343" width="326" height="18.333333333333329"/>
+                                                        <rect key="frame" x="15" y="99.5" width="498" height="18"/>
                                                         <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                                         <textInputTraits key="textInputTraits" keyboardType="alphabet"/>
                                                     </textField>
                                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="4ai-MO-0P0">
-                                                        <rect key="frame" x="0.0" y="63.666666666666657" width="381" height="1"/>
+                                                        <rect key="frame" x="0.0" y="63.5" width="553" height="1"/>
                                                         <color key="backgroundColor" name="eLightGray"/>
                                                         <constraints>
                                                             <constraint firstAttribute="height" constant="1" id="dNl-aZ-hGL"/>
@@ -3033,13 +3031,13 @@ de tu servicio/funeraria</string>
                                                 </constraints>
                                             </view>
                                             <mapView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" mapType="standard" translatesAutoresizingMaskIntoConstraints="NO" id="OdF-2v-Vzt">
-                                                <rect key="frame" x="0.0" y="254.33333333333331" width="428" height="349.99999999999994"/>
+                                                <rect key="frame" x="0.0" y="254.5" width="600" height="350"/>
                                                 <constraints>
                                                     <constraint firstAttribute="height" constant="350" id="zxA-ZP-Evi"/>
                                                 </constraints>
                                             </mapView>
                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="bfl-m9-cHG">
-                                                <rect key="frame" x="299" y="624.33333333333337" width="98" height="36"/>
+                                                <rect key="frame" x="471" y="624.5" width="98" height="36"/>
                                                 <color key="backgroundColor" name="eMainBlue"/>
                                                 <constraints>
                                                     <constraint firstAttribute="width" constant="98" id="Niu-0C-W8N"/>
@@ -3054,7 +3052,7 @@ de tu servicio/funeraria</string>
                                                 </connections>
                                             </button>
                                             <label opaque="NO" userInteractionEnabled="NO" alpha="0.0" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="No pudimos acceder a tu ubicación, por favor configura los permisos de la app para poder brindarte un mejor servicio." textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="hHE-go-T7l">
-                                                <rect key="frame" x="16" y="267" width="381" height="57.333333333333314"/>
+                                                <rect key="frame" x="16" y="267" width="553" height="57.5"/>
                                                 <fontDescription key="fontDescription" type="system" weight="medium" pointSize="16"/>
                                                 <color key="textColor" name="eMainBlue"/>
                                                 <nil key="highlightedColor"/>

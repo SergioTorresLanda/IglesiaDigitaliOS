@@ -14,3 +14,11 @@ struct Followers: Codable {
     var entityId: Int
     var entityType: Int
 }
+struct Followers2: Codable {
+    var userId: Int
+    var entityId: Int
+    var entityType: Int
+}
+
+
+//{"userId":1937,"entityId":1313,"entityType":1}

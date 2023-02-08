@@ -164,6 +164,7 @@ public class FeedTVC: UITableViewCell, CustomPopOverDelegate {
     
     //MARK: - Actions
     @IBAction private func setReaction(_ sender: UIButton) {
+        print("SET REACTION")
 //        let identifier = storedData.defaultReactionId
         let SNId = UserDefaults.standard.integer(forKey: "SNId")
         loading.isHidden = false
@@ -171,9 +172,10 @@ public class FeedTVC: UITableViewCell, CustomPopOverDelegate {
         if newPost?.reaction?.type == 1{
             //Elimina like
             print("Debe de eliminar el like")
-            let stUrl = "\(APIType.shared.SN())/reactions/666"
+            //let stUrl = "\(APIType.shared.SN())/reactions/666"
             newMakeDeleteResaction(reactionId: 0, userID: SNId, strUrl: "")
         }else{
+            print("LIKE")
             let strUrl = "\(APIType.shared.SN())/posts/\(pistId)/react"
             newMakeReaction(reactionId: 1, userID: SNId, strUrl: strUrl)
         }
@@ -204,7 +206,7 @@ extension FeedTVC: UICollectionViewDataSource {
 //        if let media = post?.mediaList[indexPath.row]
         if let media = newPost?.multimedia?[indexPath.row]{
             switch media.format {
-            case "jpeg", "png":
+            case "jpeg", "png", "image/jpeg":
                 guard let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "ImagesCVC", for: indexPath) as? ImagesCVC else { return UICollectionViewCell() }
                 let url = URL(string: media.url ?? "")
                 cell.contentImage.sd_setImage(with: url, placeholderImage: nil, options: .refreshCached, context: nil)
@@ -215,13 +217,11 @@ extension FeedTVC: UICollectionViewDataSource {
                 if indexPath.row == 2 {
                     if let numberOfMedia = post?.mediaList.count , numberOfMedia > 3 {
                         let extraImages = numberOfMedia - 3
-                        
                         cell.extraImagesView.isHidden = false
                         cell.extraImagesLabel.isHidden = false
                         cell.extraImagesLabel.text = "+\(extraImages)"
                     }
                 }
-                
                 return cell
             case "image/location":
                 guard let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "LocationImageCVC", for: indexPath) as? LocationImageCVC else { return UICollectionViewCell() }
@@ -233,12 +233,11 @@ extension FeedTVC: UICollectionViewDataSource {
                 
                 return cell
             default:
+                print("::SEGUN ESTO VIDEO FORMATO::::")
+                print(media.format)
                 let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "VideoCVC", for: indexPath) as! VideoCVC
-                
                 cell.videoURL = media.url
-                
                 cell.delegate = self
-
                 return cell
             }
         }
@@ -302,12 +301,5 @@ extension FeedTVC: CustomLabelDelegate {
                   UIApplication.shared.open(url)
                }
     }
-    
-//    func didTapStringURL(_ stringURL: String) {
-//        print(stringURL)
-//        if let url = URL(string: stringURL) {
-//            delegate?.didTapURL(url: url)
-//        }
-//    }
 
 }

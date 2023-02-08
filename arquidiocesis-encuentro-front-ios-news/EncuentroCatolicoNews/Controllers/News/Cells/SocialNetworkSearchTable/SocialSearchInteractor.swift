@@ -14,10 +14,13 @@ class SearchSocialInteractor: SocialSearchInteractorProtocol {
     let tksession = UserDefaults.standard.string(forKey: "idToken")
     
     func getSearch(searchText: String) {
+        
         //let SNId = UserDefaults.standard.integer(forKey: "SNId")
         let originalString = "\(APIType.shared.SN())/searcher?q=\(searchText)&userId=\(SNId)"
         let urlString = originalString.addingPercentEncoding(withAllowedCharacters: .urlQueryAllowed)
         guard let apiURL = URL(string: urlString ?? "") else { return }
+        print("API URL searCH")
+        print(apiURL)
         var request = URLRequest(url: apiURL)
         
         request.httpMethod = "GET"
@@ -27,17 +30,16 @@ class SearchSocialInteractor: SocialSearchInteractorProtocol {
         let work = URLSession.shared.dataTask(with: request) { data, response, error in
             //print("->  respuesta Status Code: ", response as Any)
             //print("->  error: ", error as Any)
-
             do {
                 if (response as! HTTPURLResponse).statusCode == 401 {
                     print("Here token code")
                 }else{
+                    print("RES:::")
                     guard let apiData = data else { return }
                     let contentResponse = try JSONDecoder().decode(SerachResponse.self, from: apiData)
+                    print(contentResponse)
                     self.presenter?.onSuccessRequestSearch(data: contentResponse, reponse: response as! HTTPURLResponse)
                 }
-                
-                
             }catch{
                 print("Download serach error", error, error.localizedDescription)
                 self.presenter?.onFailRequestSearch(error: error)
@@ -59,7 +61,6 @@ class SearchSocialInteractor: SocialSearchInteractorProtocol {
         var request = URLRequest(url: apiUrl)
         
         let bodyParams: [String:Int] = [
-            
             "userId" : SNId,
             "entityId" : entityId,
             "entityType" : entityType
@@ -70,8 +71,8 @@ class SearchSocialInteractor: SocialSearchInteractorProtocol {
         print(request)
         print(bodyParams)
         let body = try! JSONSerialization.data(withJSONObject: bodyParams)
-        print(tksession)
-        print(body)
+        //print(tksession)
+        //print(body)
         
         
         request.setValue("Bearer \(tksession ?? "")", forHTTPHeaderField: "Authorization")

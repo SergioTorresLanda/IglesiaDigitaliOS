@@ -39,13 +39,13 @@
 		989120D925E984B600D666F4 /* TabItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = 989120D425E984B600D666F4 /* TabItem.swift */; };
 		989120DA25E984B600D666F4 /* CustomTabBarTransition.swift in Sources */ = {isa = PBXBuildFile; fileRef = 989120D525E984B600D666F4 /* CustomTabBarTransition.swift */; };
 		98A0960A26563CB000110BE8 /* prayerChainModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 98A0960926563CB000110BE8 /* prayerChainModel.swift */; };
-		98A0960C26563CC400110BE8 /* prayerChain.swift in Sources */ = {isa = PBXBuildFile; fileRef = 98A0960B26563CC400110BE8 /* prayerChain.swift */; };
+		98A0960C26563CC400110BE8 /* Home_CadenaOracion.swift in Sources */ = {isa = PBXBuildFile; fileRef = 98A0960B26563CC400110BE8 /* Home_CadenaOracion.swift */; };
 		98A60AB125E47C80009196FC /* EncuentroCatolicoHome.h in Headers */ = {isa = PBXBuildFile; fileRef = 98A60AAF25E47C80009196FC /* EncuentroCatolicoHome.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		98C46A4F25EF0EEC00DE543B /* EncuentroCatolicoChurch.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 98C46A4E25EF0EEC00DE543B /* EncuentroCatolicoChurch.framework */; };
 		98C46A8125EF12DA00DE543B /* EncuentroCatolicoMyChurch.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 98C46A8025EF12DA00DE543B /* EncuentroCatolicoMyChurch.framework */; };
 		98F393D525E581A60077B623 /* HomePresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 98F393CF25E581A60077B623 /* HomePresenter.swift */; };
 		98F393D625E581A60077B623 /* HomeRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 98F393D025E581A60077B623 /* HomeRouter.swift */; };
-		98F393D725E581A60077B623 /* HomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 98F393D125E581A60077B623 /* HomeViewController.swift */; };
+		98F393D725E581A60077B623 /* Home_Home.swift in Sources */ = {isa = PBXBuildFile; fileRef = 98F393D125E581A60077B623 /* Home_Home.swift */; };
 		98F393D825E581A60077B623 /* HomeProtocols.swift in Sources */ = {isa = PBXBuildFile; fileRef = 98F393D225E581A60077B623 /* HomeProtocols.swift */; };
 		98F393D925E581A60077B623 /* HomeInteractor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 98F393D325E581A60077B623 /* HomeInteractor.swift */; };
 		98F393DA25E581A60077B623 /* HomeViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 98F393D425E581A60077B623 /* HomeViewController.xib */; };
@@ -137,7 +137,7 @@
 		989120D425E984B600D666F4 /* TabItem.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TabItem.swift; sourceTree = "<group>"; };
 		989120D525E984B600D666F4 /* CustomTabBarTransition.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CustomTabBarTransition.swift; sourceTree = "<group>"; };
 		98A0960926563CB000110BE8 /* prayerChainModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = prayerChainModel.swift; sourceTree = "<group>"; };
-		98A0960B26563CC400110BE8 /* prayerChain.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = prayerChain.swift; sourceTree = "<group>"; };
+		98A0960B26563CC400110BE8 /* Home_CadenaOracion.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Home_CadenaOracion.swift; sourceTree = "<group>"; };
 		98A60AAC25E47C80009196FC /* EncuentroCatolicoHome.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = EncuentroCatolicoHome.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		98A60AAF25E47C80009196FC /* EncuentroCatolicoHome.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = EncuentroCatolicoHome.h; sourceTree = "<group>"; };
 		98A60AB025E47C80009196FC /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
@@ -146,7 +146,7 @@
 		98C46A8025EF12DA00DE543B /* EncuentroCatolicoMyChurch.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = EncuentroCatolicoMyChurch.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		98F393CF25E581A60077B623 /* HomePresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomePresenter.swift; sourceTree = "<group>"; };
 		98F393D025E581A60077B623 /* HomeRouter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeRouter.swift; sourceTree = "<group>"; };
-		98F393D125E581A60077B623 /* HomeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeViewController.swift; sourceTree = "<group>"; };
+		98F393D125E581A60077B623 /* Home_Home.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Home_Home.swift; sourceTree = "<group>"; };
 		98F393D225E581A60077B623 /* HomeProtocols.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeProtocols.swift; sourceTree = "<group>"; };
 		98F393D325E581A60077B623 /* HomeInteractor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeInteractor.swift; sourceTree = "<group>"; };
 		98F393D425E581A60077B623 /* HomeViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = HomeViewController.xib; sourceTree = "<group>"; };
@@ -319,7 +319,7 @@
 				9DB32449273B0787005841D4 /* ModalPrayer */,
 				9DB32448273B0776005841D4 /* CustomAlerts */,
 				983D1D0F260A4C7600455355 /* Model */,
-				98A0960B26563CC400110BE8 /* prayerChain.swift */,
+				98A0960B26563CC400110BE8 /* Home_CadenaOracion.swift */,
 				983D1CC3260A429400455355 /* Main.storyboard */,
 				368A203F260BAB3700188539 /* newPrayer.swift */,
 				983D1CB8260A422D00455355 /* GlobalFunctions.swift */,
@@ -417,7 +417,7 @@
 				EED013022647052C0054F6AE /* DonationsAlert */,
 				98F393CF25E581A60077B623 /* HomePresenter.swift */,
 				98F393D025E581A60077B623 /* HomeRouter.swift */,
-				98F393D125E581A60077B623 /* HomeViewController.swift */,
+				98F393D125E581A60077B623 /* Home_Home.swift */,
 				98F393D225E581A60077B623 /* HomeProtocols.swift */,
 				98F393D325E581A60077B623 /* HomeInteractor.swift */,
 				98F393E325E582430077B623 /* HomeComponents.swift */,
@@ -756,7 +756,7 @@
 				989120D925E984B600D666F4 /* TabItem.swift in Sources */,
 				983D1D16260A565300455355 /* newPrayerCell.swift in Sources */,
 				989120DA25E984B600D666F4 /* CustomTabBarTransition.swift in Sources */,
-				98A0960C26563CC400110BE8 /* prayerChain.swift in Sources */,
+				98A0960C26563CC400110BE8 /* Home_CadenaOracion.swift in Sources */,
 				98F393D625E581A60077B623 /* HomeRouter.swift in Sources */,
 				983D1CB9260A422D00455355 /* GlobalFunctions.swift in Sources */,
 				98F393D925E581A60077B623 /* HomeInteractor.swift in Sources */,
@@ -764,7 +764,7 @@
 				9DB32457273B0820005841D4 /* ModalPrayController.swift in Sources */,
 				98F393E425E582430077B623 /* HomeComponents.swift in Sources */,
 				983D1CBE260A425B00455355 /* prayerCell.swift in Sources */,
-				98F393D725E581A60077B623 /* HomeViewController.swift in Sources */,
+				98F393D725E581A60077B623 /* Home_Home.swift in Sources */,
 				6F5AC07626D01741009ED389 /* HomeSliderCell.swift in Sources */,
 				98A0960A26563CB000110BE8 /* prayerChainModel.swift in Sources */,
 				9DB32455273B0811005841D4 /* ModalAlert.swift in Sources */,

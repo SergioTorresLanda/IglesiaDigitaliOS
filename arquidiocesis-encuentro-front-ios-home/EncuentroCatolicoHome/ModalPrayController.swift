@@ -107,7 +107,7 @@ open class ModalPrayController: UIViewController {
     // MARK: @IBACTIONS -
     @IBAction func cancelAction(_ sender: Any) {
         self.backgorundShadow.alpha = 0
-        let singletonPray = prayerChain.singleton
+        let singletonPray = Home_CadenaOracion.singleton
         singletonPray.publish = "NO"
         self.dismiss(animated: true, completion: nil)
     }
@@ -121,7 +121,7 @@ open class ModalPrayController: UIViewController {
             if prayText.text.trimmingCharacters(in: .whitespacesAndNewlines).count != 0 && prayText.text != "Escribe tu causa para orar" {
                 backgorundShadow.alpha = 0
                 let singleton = ModalPrayController.singleton
-                let singletonPray = prayerChain.singleton
+                let singletonPray = Home_CadenaOracion.singleton
                 singletonPray.publish = "YES"
                 singleton.sendText = prayText.text ?? ""
                 self.dismiss(animated: true, completion: nil)

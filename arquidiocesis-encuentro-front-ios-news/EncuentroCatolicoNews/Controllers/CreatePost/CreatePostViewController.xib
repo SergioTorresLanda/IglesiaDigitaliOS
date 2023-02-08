@@ -27,7 +27,6 @@
                 <outlet property="pickerView" destination="igA-Qh-2d6" id="nnD-Ns-Ali"/>
                 <outlet property="postButton" destination="yi5-yY-ugp" id="Nyx-d4-3E0"/>
                 <outlet property="postButtonLabel" destination="8G3-CH-fBJ" id="d1e-6k-b3T"/>
-                <outlet property="postImage" destination="w5T-hA-RW5" id="5ue-JA-g30"/>
                 <outlet property="tableView" destination="abK-4C-GBA" id="dBy-Sc-Beq"/>
                 <outlet property="textView" destination="hrr-7w-WFy" id="pi0-DM-ugt"/>
                 <outlet property="titleNavController" destination="72F-7a-fJh" id="rGY-3m-mwi"/>
@@ -286,11 +285,7 @@
                                         <constraint firstItem="uDK-oz-w8q" firstAttribute="leading" secondItem="f0T-Sl-YnQ" secondAttribute="leading" constant="40" id="rx7-Yq-qOd"/>
                                     </constraints>
                                 </view>
-                                <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="w5T-hA-RW5">
-                                    <rect key="frame" x="67" y="244.5" width="240" height="128"/>
-                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                </imageView>
-                                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="jlJ-Km-fAg">
+                                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="jlJ-Km-fAg" userLabel="ViewMedia">
                                     <rect key="frame" x="20" y="93" width="335" height="126"/>
                                     <subviews>
                                         <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="leading" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ETg-jE-tQS">

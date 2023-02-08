@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="19529" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="20037" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
     <device id="retina6_1" orientation="portrait" appearance="light"/>
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="19519"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="20020"/>
         <capability name="Named colors" minToolsVersion="9.0"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="System colors in document resources" minToolsVersion="11.0"/>
@@ -38,13 +38,6 @@
                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Ouo-YN-MRb">
                     <rect key="frame" x="0.0" y="575" width="414" height="321"/>
                     <subviews>
-                        <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="Fnt-b5-z2B">
-                            <rect key="frame" x="24" y="46" width="40" height="40"/>
-                            <constraints>
-                                <constraint firstAttribute="height" constant="40" id="2CI-6h-gKz"/>
-                                <constraint firstAttribute="width" constant="40" id="8Lv-eb-XiU"/>
-                            </constraints>
-                        </imageView>
                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Comentar" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="mnG-VG-pUa">
                             <rect key="frame" x="24" y="16" width="79" height="21"/>
                             <constraints>
@@ -54,46 +47,19 @@
                             <color key="textColor" name="eMainBlue"/>
                             <nil key="highlightedColor"/>
                         </label>
+                        <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="Fnt-b5-z2B">
+                            <rect key="frame" x="24" y="46" width="40" height="40"/>
+                            <constraints>
+                                <constraint firstAttribute="height" constant="40" id="2CI-6h-gKz"/>
+                                <constraint firstAttribute="width" constant="40" id="8Lv-eb-XiU"/>
+                            </constraints>
+                        </imageView>
                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Ana Luisa " textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="sRB-Lo-6dn">
                             <rect key="frame" x="76" y="55" width="318" height="19.5"/>
                             <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="18"/>
                             <color key="textColor" name="eMainBlue"/>
                             <nil key="highlightedColor"/>
                         </label>
-                        <stackView opaque="NO" contentMode="scaleToFill" spacing="12" translatesAutoresizingMaskIntoConstraints="NO" id="V4S-b0-OFq">
-                            <rect key="frame" x="210" y="260" width="180" height="36"/>
-                            <subviews>
-                                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="QgL-Yw-Hj6">
-                                    <rect key="frame" x="0.0" y="0.0" width="84" height="36"/>
-                                    <constraints>
-                                        <constraint firstAttribute="height" constant="36" id="9Ip-ef-eFn"/>
-                                        <constraint firstAttribute="width" constant="84" id="vvE-ef-5eg"/>
-                                    </constraints>
-                                    <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="14"/>
-                                    <state key="normal" title="Cancelar">
-                                        <color key="titleColor" name="eMainBlue"/>
-                                    </state>
-                                    <connections>
-                                        <action selector="btnCancel:" destination="-1" eventType="touchUpInside" id="XGx-GT-jHV"/>
-                                    </connections>
-                                </button>
-                                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="2wj-Pc-E21">
-                                    <rect key="frame" x="96" y="0.0" width="84" height="36"/>
-                                    <color key="backgroundColor" name="eMainBlue"/>
-                                    <constraints>
-                                        <constraint firstAttribute="width" constant="84" id="SNF-Wj-kGa"/>
-                                        <constraint firstAttribute="height" constant="36" id="ptb-Ky-PK8"/>
-                                    </constraints>
-                                    <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="14"/>
-                                    <state key="normal" title="Comentar">
-                                        <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                    </state>
-                                    <connections>
-                                        <action selector="btnActionPost:" destination="-1" eventType="touchUpInside" id="PFj-aM-P3T"/>
-                                    </connections>
-                                </button>
-                            </subviews>
-                        </stackView>
                         <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="DdC-Go-JWN">
                             <rect key="frame" x="0.0" y="242" width="414" height="1"/>
                             <color key="backgroundColor" red="0.87450980389999999" green="0.87450980389999999" blue="0.87450980389999999" alpha="1" colorSpace="calibratedRGB"/>
@@ -124,6 +90,47 @@
                                 <action selector="btnActionPicker:" destination="-1" eventType="touchUpInside" id="OH0-eC-Qat"/>
                             </connections>
                         </button>
+                        <stackView opaque="NO" contentMode="scaleToFill" spacing="12" translatesAutoresizingMaskIntoConstraints="NO" id="V4S-b0-OFq">
+                            <rect key="frame" x="179" y="260" width="211" height="36"/>
+                            <subviews>
+                                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="QgL-Yw-Hj6">
+                                    <rect key="frame" x="0.0" y="0.0" width="96" height="36"/>
+                                    <constraints>
+                                        <constraint firstAttribute="height" constant="36" id="9Ip-ef-eFn"/>
+                                    </constraints>
+                                    <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="14"/>
+                                    <state key="normal" title="     Cancelar     ">
+                                        <color key="titleColor" name="eMainBlue"/>
+                                    </state>
+                                    <connections>
+                                        <action selector="btnCancel:" destination="-1" eventType="touchUpInside" id="XGx-GT-jHV"/>
+                                    </connections>
+                                </button>
+                                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="2wj-Pc-E21">
+                                    <rect key="frame" x="108" y="0.0" width="103" height="36"/>
+                                    <color key="backgroundColor" name="eMainBlue"/>
+                                    <constraints>
+                                        <constraint firstAttribute="height" constant="36" id="ptb-Ky-PK8"/>
+                                    </constraints>
+                                    <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="14"/>
+                                    <state key="normal" title="     Comentar     ">
+                                        <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                    </state>
+                                    <userDefinedRuntimeAttributes>
+                                        <userDefinedRuntimeAttribute type="boolean" keyPath="isSkeletonable" value="YES"/>
+                                        <userDefinedRuntimeAttribute type="number" keyPath="radius">
+                                            <real key="value" value="18"/>
+                                        </userDefinedRuntimeAttribute>
+                                        <userDefinedRuntimeAttribute type="number" keyPath="skeletonCornerRadius">
+                                            <real key="value" value="18"/>
+                                        </userDefinedRuntimeAttribute>
+                                    </userDefinedRuntimeAttributes>
+                                    <connections>
+                                        <action selector="btnActionPost:" destination="-1" eventType="touchUpInside" id="PFj-aM-P3T"/>
+                                    </connections>
+                                </button>
+                            </subviews>
+                        </stackView>
                     </subviews>
                     <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                     <accessibility key="accessibilityConfiguration" label="CardView"/>

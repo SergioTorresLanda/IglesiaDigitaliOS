@@ -77,7 +77,7 @@ open class InputAlertController: UIViewController {
     }
     
     @objc func handleTapShadow() {
-        let singleton = PrincipalViewSOS.singleton
+        let singleton = Home_SOSPrincipal.singleton
         singleton.isTap = true
         UIView.animate(withDuration: 0.1) {
             self.shadowAlert.alpha = 0
@@ -88,7 +88,7 @@ open class InputAlertController: UIViewController {
     @IBAction func btnEnviarTwo(_ sender: Any) {
         
         if nameFieldTwo.text != "" && directionFieldTwo.text != "" {
-            let singleton = PrincipalViewSOS.singleton
+            let singleton = Home_SOSPrincipal.singleton
             singleton.isTap = false
             singleton.direction = directionFieldTwo.text ?? "nil"
             UIView.animate(withDuration: 0.1) {
@@ -103,7 +103,7 @@ open class InputAlertController: UIViewController {
     @IBAction func btnEnviarOne(_ sender: Any) {
         
         if directionFieldOne.text != "" {
-            let singleton = PrincipalViewSOS.singleton
+            let singleton = Home_SOSPrincipal.singleton
             singleton.isTap = false
             singleton.direction = directionFieldOne.text ?? "nil"
             UIView.animate(withDuration: 0.1) {

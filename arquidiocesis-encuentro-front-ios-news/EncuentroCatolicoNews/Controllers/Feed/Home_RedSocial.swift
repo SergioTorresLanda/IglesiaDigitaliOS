@@ -16,7 +16,7 @@ protocol FeedViewControllerDelegate{
     func reloadTblData()
 }
 
-public class FeedViewController: UIViewController, FeedViewProtocol, FeedViewControllerDelegate {
+public class Home_RedSocial: UIViewController, FeedViewProtocol, FeedViewControllerDelegate {
     
     var presenter: FeedPresenterProtocol?
     let shimmer = Shimmer()
@@ -48,7 +48,6 @@ public class FeedViewController: UIViewController, FeedViewProtocol, FeedViewCon
     public var posts: [PublicationRealm]? {
         didSet { tableView.reloadData() }
     }
-    
     var newPosts = [Posts]()
     
     //MARK: - Life cycle
@@ -56,8 +55,8 @@ public class FeedViewController: UIViewController, FeedViewProtocol, FeedViewCon
         super.viewDidLoad()
         NotificationCenter.default.addObserver(self, selector: #selector(self.methodOfReceivedNotification(notification:)), name: Notification.Name("NotificationFeed"), object: nil)
         
-        
         setUpView()
+        startShimmer()
     }
     
     override public func viewWillAppear(_ animated: Bool) {
@@ -85,18 +84,17 @@ public class FeedViewController: UIViewController, FeedViewProtocol, FeedViewCon
     private func setUpView() {
         
         
-        let img = UIImage(named: "iconSearch", in: Bundle(for: FeedViewController.self), compatibleWith: nil)
+        let img = UIImage(named: "iconSearch", in: Bundle(for: Home_RedSocial.self), compatibleWith: nil)
         setPaddingWithImage(image: img ?? UIImage(), textField: txfSearch)
         imgProfile.layer.borderWidth = 0.5
         imgProfile.layer.borderColor = UIColor.black.cgColor
         imgProfile.clipsToBounds = true
         imgProfile.makeRounded()
-//        imgProfile.setImage(name: name, image: nil)
+        //imgProfile.setImage(name: name, image: nil)
         if let imageString = UserDefaults.standard.string(forKey: "imageUrl") {
             imgProfile.loadS(urlS:imageString)
         }
 //        imgProfile.layer.cornerRadius = imgProfile.bounds.width / 2
-        
         btnCreatePost.setTitle("", for: .normal)
         barraNavegacion.layer.cornerRadius = 30
         barraNavegacion.layer.shadowRadius = 5
@@ -119,9 +117,9 @@ public class FeedViewController: UIViewController, FeedViewProtocol, FeedViewCon
     func setPaddingWithImage(image: UIImage, textField: UITextField){
         let imageView = UIImageView(image: image)
         imageView.contentMode = .scaleAspectFit
-        let viewR = UIView(frame: CGRect(x: 0, y: 0, width: 47, height: 47))
-        imageView.frame = CGRect(x: 13.0, y: 13.0, width: 25.0, height: 25.0)
-        let seperatorView = UIView(frame: CGRect(x: 0, y: 0, width: 10, height: 47))
+        let viewR = UIView(frame: CGRect(x: 0, y: 0, width: 50, height: 50))
+        imageView.frame = CGRect(x: 12.0, y: 12.0, width: 25.0, height: 25.0)//13 x y  y
+        let seperatorView = UIView(frame: CGRect(x: 0, y: 0, width: 10, height: 50))
         seperatorView.backgroundColor = UIColor.clear
         textField.leftViewMode = .always
         viewR.addSubview(imageView)
@@ -137,7 +135,7 @@ public class FeedViewController: UIViewController, FeedViewProtocol, FeedViewCon
     
     @objc func refresh(_ sender: UIRefreshControl) {
         storedData.skip = 0
-        startShimmer()
+        //startShimmer()
         presenter?.getNewPosts(isFromPage: false, isRefresh: true) //--> Nuevo
     }
     
@@ -148,7 +146,6 @@ public class FeedViewController: UIViewController, FeedViewProtocol, FeedViewCon
             refreshControl.endRefreshing()
         }
         shimmer.stopLoader()
-        
         newPosts = posts
         tableView.reloadData()
         //posts = retrieveFromRealm()
@@ -204,7 +201,7 @@ public class FeedViewController: UIViewController, FeedViewProtocol, FeedViewCon
     }
     
     func reloadTblData() {
-        //self.presenter?.getNewPosts(isFromPage: false, isRefresh: true)
+        self.presenter?.getNewPosts(isFromPage: false, isRefresh: true)
         tableView.reloadData()
     }
 }

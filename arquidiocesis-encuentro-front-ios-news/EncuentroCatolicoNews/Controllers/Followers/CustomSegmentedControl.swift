@@ -21,8 +21,8 @@ class CustomSegmentedControl: UIView{
     weak var delegate: CustomSegmentedControlDelegate?
     
     var textColor: UIColor = UIColor(red: 113/255, green: 113/255, blue: 133/255, alpha: 1.0)
-    var selectorViewColor: UIColor = UIColor(red: 170/255, green: 120/255, blue: 123/255, alpha: 1.0)
-    var selectorTextColor: UIColor = UIColor(red: 113/255, green: 113/255, blue: 133/255, alpha: 1.0)
+    var selectorViewColor: UIColor = UIColor(red: 1/255, green: 32/255, blue: 104/255, alpha: 1.0)
+    var selectorTextColor: UIColor = UIColor(red: 1/255, green: 32/255, blue: 104/255, alpha: 1.0)
     
     convenience init(frame: CGRect, buttonTitle: [String]) {
         self.init(frame: frame)

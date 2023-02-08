@@ -9,7 +9,7 @@
 import UIKit
 
 //MARK: - FeedDataMethods
-extension FeedViewController {
+extension Home_RedSocial {
     
    @objc public func showNewPost(_ sender: UIButton) {
 //       presenter?.showNewPost()

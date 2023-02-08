@@ -1,10 +1,6 @@
 //
 //  FollowersWireFrame.swift
 //  EncuentroCatolicoNews
-//
-//  Created by Billy on 26/01/22.
-//  
-//
 
 import Foundation
 import UIKit

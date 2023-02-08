@@ -56,6 +56,8 @@ class CommentModal: UIViewController /*RSCommentsViewProtocols*/{
     
     func setUp(){
         imvUser.setImage(name: nameImg, image: nil)
+        imvUser.loadS(urlS: UserDefaults.standard.string(forKey: "imageUrl") ?? "")
+        //, imageProfile: UserDefaults.standard.string(forKey: "imageUrl") ?? ""
         lblName.text = UserDefaults.standard.string(forKey: "COMPLETENAME")
         vwContainer.layer.cornerRadius = 18
         vwContainer.clipsToBounds = true
@@ -103,6 +105,7 @@ class CommentModal: UIViewController /*RSCommentsViewProtocols*/{
     }
     
     @IBAction func btnActionPost(_ sender: UIButton) {
+        print("publicar coment 1")
         if replyTextField.text.isEmpty{
             print("Debe de llenar el text")
         }else{

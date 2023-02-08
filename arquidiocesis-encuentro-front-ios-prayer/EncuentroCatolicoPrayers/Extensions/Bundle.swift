@@ -9,5 +9,5 @@ import Foundation
 
 @available(iOS 13.0, *)
 public extension Bundle {
-    static let local: Bundle = Bundle.init(for: PrayerViewController.self)
+    static let local: Bundle = Bundle.init(for: Home_Oraciones.self)
 }

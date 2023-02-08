@@ -47,7 +47,6 @@ public class APIType {
     }
     
     func SN()-> String{
-        
         if staged == "Qa" {
             API = "https://l67w9jsvo4.execute-api.us-east-1.amazonaws.com/v1"
         }else if staged == "Prod" {

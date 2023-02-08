@@ -12,7 +12,7 @@ import Toast_Swift
 
 // MARK: - Actions
 
-extension ProfileInfoView {
+extension Home_Perfil {
     @objc func popView() {
         presenter?.showConfigController()
     }
@@ -97,7 +97,7 @@ extension ProfileInfoView {
 }
 // MARK: - UI
 
-extension ProfileInfoView {
+extension Home_Perfil {
      func setupNavBarImageView() -> UIImageView {
         let imageView = UIImageView()
         imageView.image = UIImage(named: "navbar_image", in: Bundle.local, compatibleWith: nil)
@@ -187,7 +187,7 @@ extension ProfileInfoView {
 }
 
 // MARK: UITextFieldDelegate -
-extension ProfileInfoView: UITextFieldDelegate {
+extension Home_Perfil: UITextFieldDelegate {
     
     func textFieldDidBeginEditing(_ textField: UITextField) {
         
@@ -245,7 +245,7 @@ extension ProfileInfoView: UITextFieldDelegate {
     }
 }
 
-extension ProfileInfoView: UIImagePickerControllerDelegate, UINavigationControllerDelegate {
+extension Home_Perfil: UIImagePickerControllerDelegate, UINavigationControllerDelegate {
     func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [UIImagePickerController.InfoKey: Any]) {
         let image = info[.originalImage] as! UIImage
         let cameraPhotoURL = HttpRequestSingleton.shareManager.convertImageToBase64String(img: image)
@@ -254,12 +254,12 @@ extension ProfileInfoView: UIImagePickerControllerDelegate, UINavigationControll
     }
 }
 
-extension ProfileInfoView: PromisseAlertViewProtocol {
+extension Home_Perfil: PromisseAlertViewProtocol {
     func dissmisAlert() {
     }
 }
 
-extension ProfileInfoView: UIPickerViewDelegate, UIPickerViewDataSource {
+extension Home_Perfil: UIPickerViewDelegate, UIPickerViewDataSource {
     func numberOfComponents(in pickerView: UIPickerView) -> Int {
         return 1
     }
@@ -344,7 +344,7 @@ extension ProfileInfoView: UIPickerViewDelegate, UIPickerViewDataSource {
 }
 
 // MARK: RESPONSE SERVICES FUNCTIONS -
-extension ProfileInfoView: ProfileInfoViewProtocol {
+extension Home_Perfil: ProfileInfoViewProtocol {
    
     func showStatesResponnse() {
         hideLoading()
@@ -596,11 +596,15 @@ extension ProfileInfoView: ProfileInfoViewProtocol {
         //fieldsCollection[6].text = detail.data?.User?.services_provided?.first?.location_name
         arrayChurches.removeAll()
         arrayImgchurches.removeAll()
+        let s = Home_Perfil.singleton
         detail.data?.User?.services_provided?.forEach({ item in
             arrayChurches.append(item.location_name ?? "")
-            arrayChurchesId.append(item.location_id ?? 0)
             arrayImgchurches.append(imgDefault)
+            arrayChurchesId.append(item.location_id ?? 0)
             nameService.append(item.service_name ?? "")
+            idService.append(item.service_id ?? 0)
+            s.mapChurchService[item.location_id!] = item.service_id ?? 0
+            //selectedServiceID=item.service_id
             print("un servicioooo::")
             print(item.location_name! + String(item.location_id!))
         })
@@ -743,7 +747,7 @@ extension UITextField {
     }
 }
 
-extension ProfileInfoView: ProtocolProfileUserInfoX {
+extension Home_Perfil: ProtocolProfileUserInfoX {
     func closeAction() {
         self.hidePartial()
         radioButtonNo.isSelected = true
@@ -753,7 +757,7 @@ extension ProfileInfoView: ProtocolProfileUserInfoX {
 
 
 // MARK: EXTENSION COLLECTION VIEW -
-extension ProfileInfoView: UICollectionViewDataSource, UICollectionViewDelegate, UICollectionViewDelegateFlowLayout, ActivitiesCardDelegate {
+extension Home_Perfil: UICollectionViewDataSource, UICollectionViewDelegate, UICollectionViewDelegateFlowLayout, ActivitiesCardDelegate {
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
         
         switch collectionView {
@@ -777,7 +781,7 @@ extension ProfileInfoView: UICollectionViewDataSource, UICollectionViewDelegate,
         case churchCollection:
             
             let cellChurch = collectionView.dequeueReusableCell(withReuseIdentifier: "CELLCHURCH", for: indexPath) as! ChurchesCardViewCell
-            
+            cellChurch.fieldServices.text = ""
             cellChurch.subCardView.ShadowCard()
             cellChurch.subCardView.layer.cornerRadius = 10
             cellChurch.cardView.layer.cornerRadius = 10
@@ -791,13 +795,13 @@ extension ProfileInfoView: UICollectionViewDataSource, UICollectionViewDelegate,
                 cellChurch.churchImg.loadS(urlS:arrayImgchurches[indexPath.item])
             }
             
+            cellChurch.churchId=arrayChurchesId[indexPath.item]
+            cellChurch.setupPickerField(vc: self, dataNames: serviceCongList, dataId: serviceListID,type: typeService)
             if indexPath.row >= nameService.startIndex && indexPath.row < nameService.endIndex {
                 if nameService[indexPath.row] != "Unspecified" && nameService[indexPath.row] != "" && nameService.count != 0 {
                     cellChurch.fieldServices.text = nameService[indexPath.row]
                 }
             }
-            cellChurch.churchId=arrayChurchesId[indexPath.item]
-            cellChurch.setupPickerField(vc: self, dataNames: serviceCongList, dataId: serviceListID,type: typeService)
             //            cellChurch.fieldServices.text = "Sacristán"
             
             return cellChurch
@@ -1002,7 +1006,7 @@ class ImagePickerManager: NSObject, UIImagePickerControllerDelegate, UINavigatio
 }
 
 // MARK:
-extension ProfileInfoView {
+extension Home_Perfil {
     
     func succesUpload64(responseData: UploadImageData) {
         print("Upload image successfully")
@@ -1053,7 +1057,7 @@ extension ProfileInfoView {
 }
 
 // MARK: TRANSITION DELEGATE -
-extension ProfileInfoView: UIViewControllerTransitioningDelegate {
+extension Home_Perfil: UIViewControllerTransitioningDelegate {
 
     func animationController(forDismissed dismissed: UIViewController) -> UIViewControllerAnimatedTransitioning? {
         
@@ -1086,16 +1090,23 @@ extension ProfileInfoView: UIViewControllerTransitioningDelegate {
     }
     
     func agregarData(){
-        let singleton = ProfileMapViewController.singleton
-        let s2 = ProfileInfoView.singleton
+        let singleton = Perfil_Mapa.singleton
+        //let s2 = Home_Perfil.singleton
         if singleton.nameChurch != "Unspecified" {
             //arrayChurches.removeAll()
             //arrayImgchurches.removeAll()
+            if serviceProvider == "COMMUNITY"{
+                resetCardLists()
+            }
+            
             arrayChurches.append(singleton.nameChurch)
             arrayImgchurches.append(singleton.urlImgChurch)
             arrayChurchesId.append(singleton.idChurch ?? 0)
-          
-            s2.arrayChurchesId.append(singleton.idChurch ?? 0)
+            //s2.arrayChurchesId.append(singleton.idChurch ?? 0)
+            print("regreso del mapa")
+            print("COUNT:: ARRAYCHURCHES")
+            print(String(arrayChurchesId.count))
+            //print(String(s2.arrayChurchesId.count))
             //fieldsCollection[6].text = singleton.nameChurch
             churchCollection.reloadData()
             let height = churchCollection.collectionViewLayout.collectionViewContentSize.height

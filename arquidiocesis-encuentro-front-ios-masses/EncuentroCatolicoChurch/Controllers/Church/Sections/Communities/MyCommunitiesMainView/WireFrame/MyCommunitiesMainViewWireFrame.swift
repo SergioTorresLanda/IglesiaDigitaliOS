@@ -20,8 +20,8 @@ public class MyCommunitiesMainViewwWireFrame: MyCommunitiesMainViewViewWireFrame
     public static func getController() -> UIViewController {
         
         // Generating module components
-        let storyboard = UIStoryboard(name: "MyCommunitiesMainViewStoryboard", bundle: Bundle(for: MyCommunitiesMainViewController.self))
-        let view: MyCommunitiesMainViewProtocol = storyboard.instantiateViewController(withIdentifier: "MyCommunitiesMainViewController") as! MyCommunitiesMainViewController
+        let storyboard = UIStoryboard(name: "MyCommunitiesMainViewStoryboard", bundle: Bundle(for: Home_Comunidades.self))
+        let view: MyCommunitiesMainViewProtocol = storyboard.instantiateViewController(withIdentifier: "MyCommunitiesMainViewController") as! Home_Comunidades
         let presenter: MyCommunitiesMainViewPresenterProtocol & MyCommunitiesMainViewInteractorOutputProtocol = MyCommunitiesMainViewPresenter()
         let interactor: MyCommunitiesMainViewInteractorInputProtocol = MyCommunitiesMainViewInteractor()
         let wireFrame: MyCommunitiesMainViewViewWireFrameProtocol = MyCommunitiesMainViewwWireFrame()
@@ -37,8 +37,8 @@ public class MyCommunitiesMainViewwWireFrame: MyCommunitiesMainViewViewWireFrame
     }
     static func presentMyCommunitiesMainVieModule(fromView vc: AnyObject, myChourch: Bool) {
         // Generating module components
-        let storyboard = UIStoryboard(name: "MyCommunitiesMainViewStoryboard", bundle: Bundle(for: MyCommunitiesMainViewController.self))
-        let view: MyCommunitiesMainViewProtocol = storyboard.instantiateViewController(withIdentifier: "MyCommunitiesMainViewController") as! MyCommunitiesMainViewController
+        let storyboard = UIStoryboard(name: "MyCommunitiesMainViewStoryboard", bundle: Bundle(for: Home_Comunidades.self))
+        let view: MyCommunitiesMainViewProtocol = storyboard.instantiateViewController(withIdentifier: "MyCommunitiesMainViewController") as! Home_Comunidades
         let presenter: MyCommunitiesMainViewPresenterProtocol & MyCommunitiesMainViewInteractorOutputProtocol = MyCommunitiesMainViewPresenter()
         let interactor: MyCommunitiesMainViewInteractorInputProtocol = MyCommunitiesMainViewInteractor()
         let wireFrame: MyCommunitiesMainViewViewWireFrameProtocol = MyCommunitiesMainViewwWireFrame()

@@ -8,7 +8,7 @@
 import UIKit
 import AlamofireImage
 
-class PrayerViewController: UIViewController, UICollectionViewDataSource, UICollectionViewDelegate, UITableViewDataSource, UITableViewDelegate {
+class Home_Oraciones: UIViewController, UICollectionViewDataSource, UICollectionViewDelegate, UITableViewDataSource, UITableViewDelegate {
     var dataSourceCollectionView: [String] = []
     var collectionID: [Int?] = []
     var dataSourceIntCollectionView: [Int] = []
@@ -214,7 +214,7 @@ class PrayerViewController: UIViewController, UICollectionViewDataSource, UIColl
     
 }
 
-extension PrayerViewController: ViewOracionesProtocol {
+extension Home_Oraciones: ViewOracionesProtocol {
     func showError(message: String) {
         self.showAlert(withTitle: "Error", withMessage: message)
         self.presenter?.getDataInteractor(name: "")
@@ -226,14 +226,14 @@ extension PrayerViewController: ViewOracionesProtocol {
     }
 }
 
-extension PrayerViewController: DelegateCellViewCollectionPrayers {
+extension Home_Oraciones: DelegateCellViewCollectionPrayers {
     func tapDetail(id: Int) {
         let detail = OracionesDetailRouter.getDetailView(id: id)
         self.navigationController?.pushViewController(detail, animated: true)
     }
 }
 
-extension PrayerViewController: UISearchBarDelegate {
+extension Home_Oraciones: UISearchBarDelegate {
     
     func searchBar(_ searchBar: UISearchBar, textDidChange textSearched: String) {
         if textSearched.count > 1 {

@@ -9,7 +9,7 @@ open class ProfileInfoRouter: ProfileInfoWireFrameProtocol {
     
     
     open class func createModule() -> UIViewController {
-        let navController = ProfileInfoView(nibName: "ProfileInfoView", bundle: Bundle(for: ProfileInfoView.self))
+        let navController = Home_Perfil(nibName: "ProfileInfoView", bundle: Bundle(for: Home_Perfil.self))
         let view = navController
         let presenter: ProfileInfoPresenterProtocol & ProfileInfoInteractorOutputProtocol = ProfileInfoPresenter()
         let interactor: ProfileInfoInteractorInputProtocol & ProfileInfoRemoteDataManagerOutputProtocol = ProfileInfoInteractor()

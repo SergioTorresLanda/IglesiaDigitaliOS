@@ -8,7 +8,7 @@
 import UIKit
 import EncuentroCatolicoUtils
 
-class YoungView_Controller: UIViewController {
+class Home_BibliotecaVirtual: UIViewController {
     //MARK: - Protocol Properties
     var _presenter: FYV_VIPER_ViewToPresenterProtocol?
     
@@ -90,6 +90,7 @@ class YoungView_Controller: UIViewController {
         super.viewWillAppear(animated)
         
         self.navigationController?.interactivePopGestureRecognizer?.isEnabled = false
+        print(":: BIBLIOTECA VIRTUAL :: antes young")
     }
     
     override func viewWillDisappear(_ animated: Bool) {
@@ -104,7 +105,7 @@ class YoungView_Controller: UIViewController {
 }
 
 //MARK: - FYV_VIPER_PresenterToViewProtocol
-extension YoungView_Controller: FYV_VIPER_PresenterToViewProtocol {
+extension Home_BibliotecaVirtual: FYV_VIPER_PresenterToViewProtocol {
     func setDataCatalog(data: [FF_Catalog_Entity]) {
         self.arrCatalogo = data
         
@@ -121,7 +122,7 @@ extension YoungView_Controller: FYV_VIPER_PresenterToViewProtocol {
 }
 
 //MARK: - UITableViewDataSource
-extension YoungView_Controller: UITableViewDataSource {
+extension Home_BibliotecaVirtual: UITableViewDataSource {
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         tableYoung.backgroundView = formations.count == 0 ? viewNoResultV2(bSearch: false) : nil
         
@@ -169,7 +170,7 @@ extension YoungView_Controller: UITableViewDataSource {
 }
 
 //MARK: - UITableViewDelegate
-extension YoungView_Controller: UITableViewDelegate {
+extension Home_BibliotecaVirtual: UITableViewDelegate {
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         guard let libraryDataURL = formations[safe: indexPath.row]?.url,
               let url = URL(string: libraryDataURL) ?? URL(string: libraryDataURL.addingPercentEncoding(withAllowedCharacters: .urlQueryAllowed) ?? "") else {
@@ -186,7 +187,7 @@ extension YoungView_Controller: UITableViewDelegate {
 }
 
 //MARK: - UITextFieldDelegate
-extension YoungView_Controller: UITextFieldDelegate {
+extension Home_BibliotecaVirtual: UITextFieldDelegate {
     func textFieldShouldReturn(_ textField: UITextField) -> Bool {
         view.endEditing(true)
         return true
@@ -194,21 +195,21 @@ extension YoungView_Controller: UITextFieldDelegate {
 }
 
 //MARK: - ECNFFileTypeDelegate
-extension YoungView_Controller: ECNFFileTypeDelegate {
+extension Home_BibliotecaVirtual: ECNFFileTypeDelegate {
     func fileTypeList(didSelect option: ECNFFormationType) {
         sgmSelection = option
     }
 }
 
 //MARK: - NavigationDelegationAction
-extension YoungView_Controller: NavigationDelegationAction{
+extension Home_BibliotecaVirtual: NavigationDelegationAction{
     func getAction(sender: UIButton) {
         self.navigationController?.popViewController(animated: true)
     }
 }
 
 //MARK: - UICollectionViewDataSource
-extension YoungView_Controller: UICollectionViewDelegateFlowLayout, UICollectionViewDataSource{
+extension Home_BibliotecaVirtual: UICollectionViewDelegateFlowLayout, UICollectionViewDataSource{
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
         CGSize(width: 65, height: collectionViewCatalg.frame.height)
     }
@@ -239,7 +240,7 @@ extension YoungView_Controller: UICollectionViewDelegateFlowLayout, UICollection
 }
 
 //MARK: - Private functions
-extension YoungView_Controller {
+extension Home_BibliotecaVirtual {
     private func viewNoResultV2(bSearch: Bool) -> UIView {
         let view = NoResults_View(frame: CGRect(x: 0, y: 0, width: 0, height: 0))
         

@@ -5,7 +5,7 @@ import AlamofireImage
 import EncuentroCatolicoVirtualLibrary
 //import DropDown
 
-class ProfileMapViewController: BaseViewController, ProfileMapViewProtocol, UtilsDetailsChurchButtonDelegate {
+class Perfil_Mapa: BaseViewController, ProfileMapViewProtocol, UtilsDetailsChurchButtonDelegate {
     
     var isPrincipal: Int?
     var presenter: ProfileMapPresenterProtocol?
@@ -22,7 +22,10 @@ class ProfileMapViewController: BaseViewController, ProfileMapViewProtocol, Util
     @IBOutlet weak var lblNavTitle: UILabel!
     @IBOutlet weak var btnBack: UIButton!
     
-    static let singleton = ProfileMapViewController()
+    @IBOutlet weak var viewHead: UIView!
+    
+    
+    static let singleton = Perfil_Mapa()
     var locationsData: [LocationResponse] = []
     var fillLocationData = [LocationResponse]()
     var idChurch: Int?
@@ -85,15 +88,6 @@ class ProfileMapViewController: BaseViewController, ProfileMapViewProtocol, Util
         
         initView()
         showLoader()
-        /*Church.getMapItemChurches {
-            [weak self]
-            annotations in
-            self?.mapKit.addAnnotations(annotations)
-            self?.setCurrentLocationMap()
-            self?.removeLoader()
-        }*/
-        //let tap = UITapGestureRecognizer(target: self, action: #selector(hideKeyBoard))
-        //view.addGestureRecognizer(tap)
     }
     
     override func viewWillAppear(_ animated: Bool) {
@@ -110,6 +104,14 @@ class ProfileMapViewController: BaseViewController, ProfileMapViewProtocol, Util
                 self?.starButton.isEnabled = true
             }
         }
+    }
+    
+    override func viewDidLayoutSubviews() {
+        viewHead.layer.cornerRadius = 30
+        viewHead.layer.shadowRadius = 5
+        viewHead.layer.shadowOpacity = 0.5
+        viewHead.layer.shadowColor = UIColor.black.cgColor
+        viewHead.layer.maskedCorners = [.layerMinXMaxYCorner, .layerMaxXMaxYCorner]
     }
     
     override var preferredStatusBarStyle: UIStatusBarStyle {
@@ -199,7 +201,7 @@ class ProfileMapViewController: BaseViewController, ProfileMapViewProtocol, Util
         if isPrincipal == 4 {
             navigationController?.popViewController(animated: true)
         }else {
-            let singleton = ProfileMapViewController()
+            let singleton = Perfil_Mapa()
             singleton.nameChurch = "Unspecified"
             self.dismiss(animated: false, completion: nil)
         }
@@ -258,7 +260,7 @@ class ProfileMapViewController: BaseViewController, ProfileMapViewProtocol, Util
     }
  }
 
-extension ProfileMapViewController: MKMapViewDelegate {
+extension Perfil_Mapa: MKMapViewDelegate {
     func mapView(_ mapView: MKMapView, didDeselect view: MKAnnotationView) {
         if view.isKind(of: AnnotationView.self)
         {
@@ -275,7 +277,7 @@ extension ProfileMapViewController: MKMapViewDelegate {
         views.churchLabel.sizeToFit()
         let imageURL = annotationView?.image_url
         if imageURL == "" {
-            views.churchImage.image = UIImage(named:"church-placeholder", in: Bundle(for: ProfileMapViewController.self), compatibleWith: nil)
+            views.churchImage.image = UIImage(named:"church-placeholder", in: Bundle(for: Perfil_Mapa.self), compatibleWith: nil)
         }else{
             if let imageUrl = URL(string: imageURL ?? "") {
                 views.churchImage.af.setImage(withURL: imageUrl)
@@ -297,7 +299,7 @@ extension ProfileMapViewController: MKMapViewDelegate {
             let select = selectMap(id: Int(idChurchAnn), name: nameChurch, url: urlChourch)
             print("::SELECT::")
             print(select)
-            let singleton = ProfileMapViewController.singleton
+            let singleton = Perfil_Mapa.singleton
             singleton.nameChurch = annotationView?.title ?? "Unspecified"
             singleton.idChurch = Int(idChurchAnn)
             singleton.urlImgChurch = annotationView?.image_url ?? "Unspecified"
@@ -318,7 +320,7 @@ extension ProfileMapViewController: MKMapViewDelegate {
         if annotationView == nil {
             annotationView = AnnotationView(annotation: annotation, reuseIdentifier: identifier)
             annotationView?.canShowCallout = false
-            annotationView?.image = UIImage(named:"map-item-icon", in: Bundle(for: ProfileMapViewController.self), compatibleWith: nil)
+            annotationView?.image = UIImage(named:"map-item-icon", in: Bundle(for: Perfil_Mapa.self), compatibleWith: nil)
         } else {
             annotationView?.annotation = annotation
         }
@@ -331,7 +333,7 @@ extension ProfileMapViewController: MKMapViewDelegate {
 }
 
 
-extension ProfileMapViewController {
+extension Perfil_Mapa {
     
     @IBAction func changeAddress(_ sender: UITextField) {
         
@@ -393,7 +395,7 @@ extension ProfileMapViewController {
 }
 
 //MARK: - User location delegate
-extension ProfileMapViewController : CLLocationManagerDelegate {
+extension Perfil_Mapa : CLLocationManagerDelegate {
     func locationManager(_ manager: CLLocationManager, didChangeAuthorization status: CLAuthorizationStatus) {
         if status == .authorizedWhenInUse {
             locationManager.requestLocation()
@@ -413,7 +415,7 @@ extension ProfileMapViewController : CLLocationManagerDelegate {
 }
 
 //MARK: - Auto completer delegates
-extension ProfileMapViewController: MKLocalSearchCompleterDelegate {
+extension Perfil_Mapa: MKLocalSearchCompleterDelegate {
     
     func completerDidUpdateResults(_ completer: MKLocalSearchCompleter) {
         completer.cancel()
@@ -454,7 +456,7 @@ extension ProfileMapViewController: MKLocalSearchCompleterDelegate {
 }
 
 //MARK: - Text field delegates
-extension ProfileMapViewController: UITextFieldDelegate {
+extension Perfil_Mapa: UITextFieldDelegate {
     
     func textFieldDidBeginEditing(_ textField: UITextField) {
         if textField == addressTextField {
@@ -474,7 +476,7 @@ extension ProfileMapViewController: UITextFieldDelegate {
 }
 
 //MARK: - Table view delegates
-extension ProfileMapViewController: UITableViewDelegate, UITableViewDataSource {
+extension Perfil_Mapa: UITableViewDelegate, UITableViewDataSource {
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         let count = locationsData.count
         addressResultTableView.isHidden = count == 0
@@ -519,7 +521,7 @@ extension ProfileMapViewController: UITableViewDelegate, UITableViewDataSource {
     }
 }
 
-extension ProfileMapViewController: UIViewControllerTransitioningDelegate {
+extension Perfil_Mapa: UIViewControllerTransitioningDelegate {
     
     func animationController(forDismissed dismissed: UIViewController) -> UIViewControllerAnimatedTransitioning? {
         

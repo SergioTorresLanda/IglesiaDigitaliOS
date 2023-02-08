@@ -1,24 +1,22 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="20037" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="zsF-lt-ect">
-    <device id="retina6_1" orientation="portrait" appearance="light"/>
     <dependencies>
-        <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="20020"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="System colors in document resources" minToolsVersion="11.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
-        <!--My Churches View Controller-->
+        <!--Home Mi Iglesia-->
         <scene sceneID="GwW-el-1Ph">
             <objects>
-                <viewController storyboardIdentifier="MyChurchesViewController" id="zsF-lt-ect" customClass="MyChurchesViewController" customModule="EncuentroCatolicoChurch" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="MyChurchesViewController" id="zsF-lt-ect" customClass="Home_MiIglesia" customModule="EncuentroCatolicoChurch" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="vzP-U2-Zl2">
-                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Mi Iglesia" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="hhZ-Vy-4sI">
-                                <rect key="frame" x="140" y="45" width="133" height="24"/>
+                                <rect key="frame" x="326" y="1" width="133" height="24"/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="133" id="cMp-3E-X91"/>
                                     <constraint firstAttribute="height" constant="24" id="f7G-lx-rJT"/>
@@ -28,13 +26,13 @@
                                 <nil key="highlightedColor"/>
                             </label>
                             <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" showsHorizontalScrollIndicator="NO" translatesAutoresizingMaskIntoConstraints="NO" id="IXS-8y-47T">
-                                <rect key="frame" x="0.0" y="108" width="414" height="754"/>
+                                <rect key="frame" x="0.0" y="108" width="600" height="492"/>
                                 <subviews>
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="bVi-0P-kUk">
-                                        <rect key="frame" x="0.0" y="-2.5" width="414" height="754"/>
+                                        <rect key="frame" x="0.0" y="-2.5" width="600" height="492"/>
                                         <subviews>
                                             <collectionView multipleTouchEnabled="YES" contentMode="scaleToFill" keyboardDismissMode="onDrag" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="BZJ-9J-0C7">
-                                                <rect key="frame" x="0.0" y="70" width="414" height="684"/>
+                                                <rect key="frame" x="0.0" y="70" width="600" height="422"/>
                                                 <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                                                 <collectionViewFlowLayout key="collectionViewLayout" minimumLineSpacing="10" minimumInteritemSpacing="10" id="hOR-Hk-Wr6">
                                                     <size key="itemSize" width="128" height="128"/>
@@ -63,7 +61,7 @@
                                 </constraints>
                             </scrollView>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="6Ok-1e-re0">
-                                <rect key="frame" x="0.0" y="44" width="60" height="64"/>
+                                <rect key="frame" x="0.0" y="0.0" width="60" height="108"/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="60" id="r9i-09-5Yp"/>
                                 </constraints>
@@ -71,10 +69,10 @@
                                 <state key="normal" image="iconoAtrSW"/>
                             </button>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="CWF-N0-r0i">
-                                <rect key="frame" x="0.0" y="0.0" width="414" height="108"/>
+                                <rect key="frame" x="0.0" y="0.0" width="600" height="108"/>
                                 <subviews>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Mi iglesia" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="tXw-oT-Sax">
-                                        <rect key="frame" x="168" y="66.5" width="78.5" height="21.5"/>
+                                        <rect key="frame" x="261" y="66.5" width="78.5" height="21.5"/>
                                         <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="18"/>
                                         <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         <nil key="highlightedColor"/>

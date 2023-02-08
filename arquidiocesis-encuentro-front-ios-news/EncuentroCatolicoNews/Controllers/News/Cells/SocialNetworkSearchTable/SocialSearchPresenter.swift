@@ -45,7 +45,7 @@ class SocialSearchPresenter: SocialSearchPresenterProtocol {
     }
     
     func onSuccessRequestFollowUF(data: FollowResponse, response: HTTPURLResponse) {
-        print("FUNCION PARA DEJAR DE SEGUIR")
+        print("SUCCESS REQUEST FOLLOW")
         print(data)
         print(response)
         

@@ -14,7 +14,7 @@ open class ProfileMapWireFrame: ProfileMapWireFrameProtocol {
     
     static public func presentProfileMapModule(selector: Int, from contoller: AnyObject, mapType: String) {
         // Generating module components
-        let storyboard = UIStoryboard(name: "ProfileMap", bundle: Bundle(for: ProfileMapViewController.self))
+        let storyboard = UIStoryboard(name: "ProfileMap", bundle: Bundle(for: Perfil_Mapa.self))
         let view: ProfileMapViewProtocol = storyboard.instantiateViewController(withIdentifier: "ProfileMapViewController") as! ProfileMapViewProtocol
         let presenter: ProfileMapPresenterProtocol & ProfileMapInteractorOutputProtocol = ProfileMapPresenter()
         let interactor: ProfileMapInteractorInputProtocol = ProfileMapInteractor()
@@ -26,7 +26,7 @@ open class ProfileMapWireFrame: ProfileMapWireFrameProtocol {
         presenter.wireFrame = wireFrame
         presenter.interactor = interactor
         interactor.presenter = presenter
-        (view as? ProfileMapViewController)?.isPrincipal = selector
+        (view as? Perfil_Mapa)?.isPrincipal = selector
         if let vc = contoller as? UIViewController{
             vc.navigationController?.pushViewController(view as! UIViewController, animated: true)
         }
@@ -39,8 +39,8 @@ open class ProfileMapWireFrame: ProfileMapWireFrameProtocol {
         
     static public func createModuleMap(mapType: String) -> UIViewController {
         
-        let storyboard = UIStoryboard(name: "ProfileMap", bundle: Bundle(for: ProfileMapViewController.self))
-        let view: ProfileMapViewController = storyboard.instantiateViewController(withIdentifier: "ProfileMapViewController") as! ProfileMapViewController
+        let storyboard = UIStoryboard(name: "ProfileMap", bundle: Bundle(for: Perfil_Mapa.self))
+        let view: Perfil_Mapa = storyboard.instantiateViewController(withIdentifier: "ProfileMapViewController") as! Perfil_Mapa
         let interactor: ProfileMapInteractorInputProtocol = ProfileMapInteractor()
         let router = ProfileMapWireFrame()
         let presenter : ProfileMapPresenterProtocol & ProfileMapInteractorOutputProtocol = ProfileMapPresenter()
@@ -62,7 +62,7 @@ open class ProfileMapWireFrame: ProfileMapWireFrameProtocol {
 public func presentProfileMapModule(selector isPrincipal: Int, from vc:AnyObject, mapType: String) {
     
     // Generating module components
-    let storyboard = UIStoryboard(name: "ProfileMap", bundle: Bundle(for: ProfileMapViewController.self))
+    let storyboard = UIStoryboard(name: "ProfileMap", bundle: Bundle(for: Perfil_Mapa.self))
     let view: ProfileMapViewProtocol = storyboard.instantiateViewController(withIdentifier: "ProfileMapViewController") as! ProfileMapViewProtocol
     let presenter: ProfileMapPresenterProtocol & ProfileMapInteractorOutputProtocol = ProfileMapPresenter()
     let interactor: ProfileMapInteractorInputProtocol = ProfileMapInteractor()
@@ -74,14 +74,14 @@ public func presentProfileMapModule(selector isPrincipal: Int, from vc:AnyObject
     presenter.wireFrame = wireFrame
     presenter.interactor = interactor
     interactor.presenter = presenter
-    (view as? ProfileMapViewController)?.isPrincipal = isPrincipal
+    (view as? Perfil_Mapa)?.isPrincipal = isPrincipal
     if let vc = vc as? UIViewController{
         vc.navigationController?.pushViewController(view as! UIViewController, animated: true)
     }
 }
 open class ServicesRouter: UINavigationController {
     public static func createModule(navigation: UINavigationController) -> UIViewController {
-        let storyBoard = UIStoryboard(name: "ProfileMap", bundle: Bundle(for: ProfileMapViewController.self))
+        let storyBoard = UIStoryboard(name: "ProfileMap", bundle: Bundle(for: Perfil_Mapa.self))
         let controller = storyBoard.instantiateViewController(withIdentifier: "ProfileMapViewController")
         return controller
     }

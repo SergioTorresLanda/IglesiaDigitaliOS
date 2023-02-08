@@ -16,8 +16,8 @@ open class OracionesRouter: RouterOracionesProtocol {
     public static func getController() -> UIViewController {
         
         // Generating module components
-        let storyboard = UIStoryboard(name: "Main", bundle: Bundle(for: PrayerViewController.self))
-        let view: ViewOracionesProtocol = storyboard.instantiateViewController(withIdentifier: "PrayerViewController") as! PrayerViewController
+        let storyboard = UIStoryboard(name: "Main", bundle: Bundle(for: Home_Oraciones.self))
+        let view: ViewOracionesProtocol = storyboard.instantiateViewController(withIdentifier: "PrayerViewController") as! Home_Oraciones
         let presenter: PresenterOracionesProtocol & InteractorOutputOracionesProtocolo = OracionesPresenter()
         let interactor: InteractorInputOracionesProtocolo = OracionesInteractor()
         let router: RouterOracionesProtocol = OracionesRouter()

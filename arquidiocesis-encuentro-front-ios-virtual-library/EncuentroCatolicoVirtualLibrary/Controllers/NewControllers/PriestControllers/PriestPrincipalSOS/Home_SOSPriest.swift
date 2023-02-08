@@ -8,7 +8,7 @@
 import UIKit
 import Network
 
-class PriestPSOSView: UIViewController, PriestPSOSViewProtocol {
+class Home_SOSPriest: UIViewController, PriestPSOSViewProtocol {
     var presenter: PriestPSOSPresenterProtocol?
 
     @IBOutlet weak var segementControl: UISegmentedControl!
@@ -19,7 +19,7 @@ class PriestPSOSView: UIViewController, PriestPSOSViewProtocol {
     @IBOutlet weak var btnBack: UIButton!
     @IBOutlet weak var viewG: UIView!
     
-    static let singleton = PriestPSOSView()
+    static let singleton = Home_SOSPriest()
     let monitor = NWPathMonitor()
     var isInternet=false
     var alertFields : AcceptAlert?

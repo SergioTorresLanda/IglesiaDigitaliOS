@@ -24,7 +24,15 @@ extension FollowersPresenter: FollowersPresenterProtocol {
         interactor?.getFollowers()
     }
     
+    func getFollowers(){
+        interactor?.getFollowers()
+    }
+    func getFollowed(){
+        interactor?.getFollowed()
+    }
+    
     func followAndUnFollowedService(follower: Followers) {
+        print("FOLLOW AND UNFOLLOW SERVICE")
         if follower.isFollow{
             interactor?.followPerson(follower: follower)
         }else{
@@ -49,7 +57,7 @@ extension FollowersPresenter: FollowersInteractorOutputProtocol {
         view?.loadFollowers(followers: followers)
     }
     
-    func getArrFolloweds(followeds: [Followers]) {
-        view?.loadFollowed(followeds: followeds)
+    func getArrFolloweds(followeds: [Followers], hasMore:Bool) {
+        view?.loadFollowed(followeds: followeds, hasMore:hasMore)
     }
 }

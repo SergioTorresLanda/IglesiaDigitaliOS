@@ -13,47 +13,47 @@ extension UIColor {
     
     @available(iOS 11.0, *)
     @nonobjc class var eMainGold: UIColor {
-        return UIColor(named: "eMainGold",in: Bundle(for: ProfileInfoView.self), compatibleWith: nil) ?? .yellow
+        return UIColor(named: "eMainGold",in: Bundle(for: Home_Perfil.self), compatibleWith: nil) ?? .yellow
     }
     
     @available(iOS 11.0, *)
     @nonobjc class var eMainBlue: UIColor {
-        return UIColor(named: "eMainBlue",in: Bundle(for: ProfileInfoView.self), compatibleWith: nil) ?? .blue
+        return UIColor(named: "eMainBlue",in: Bundle(for: Home_Perfil.self), compatibleWith: nil) ?? .blue
     }
     
     @available(iOS 11.0, *)
     @nonobjc class var eLightBlack: UIColor {
-        return UIColor(named: "eLightBlack",in: Bundle(for: ProfileInfoView.self), compatibleWith: nil) ?? .gray
+        return UIColor(named: "eLightBlack",in: Bundle(for: Home_Perfil.self), compatibleWith: nil) ?? .gray
     }
     
     @available(iOS 11.0, *)
     @nonobjc class var eDarkGold: UIColor {
-        return UIColor(named: "eDarkGold",in: Bundle(for: ProfileInfoView.self), compatibleWith: nil) ?? .brown
+        return UIColor(named: "eDarkGold",in: Bundle(for: Home_Perfil.self), compatibleWith: nil) ?? .brown
     }
     
     @available(iOS 11.0, *)
     @nonobjc class var eBlack: UIColor {
-        return UIColor(named: "eBlack",in: Bundle(for: ProfileInfoView.self), compatibleWith: nil) ?? .black
+        return UIColor(named: "eBlack",in: Bundle(for: Home_Perfil.self), compatibleWith: nil) ?? .black
     }
     
     @available(iOS 11.0, *)
     @nonobjc class var eLightGray: UIColor {
-        return UIColor(named: "eLightGray",in: Bundle(for: ProfileInfoView.self), compatibleWith: nil) ?? .black
+        return UIColor(named: "eLightGray",in: Bundle(for: Home_Perfil.self), compatibleWith: nil) ?? .black
     }
     
     @available(iOS 11.0, *)
     @nonobjc class var eLightBlue: UIColor {
-        return UIColor(named: "eLightBlue",in: Bundle(for: ProfileInfoView.self), compatibleWith: nil) ?? .blue
+        return UIColor(named: "eLightBlue",in: Bundle(for: Home_Perfil.self), compatibleWith: nil) ?? .blue
     }
     
     @available(iOS 11.0, *)
     @nonobjc class var eGreenishBlue: UIColor {
-        return UIColor(named: "eGreenishBlue",in: Bundle(for: ProfileInfoView.self), compatibleWith: nil) ?? .green
+        return UIColor(named: "eGreenishBlue",in: Bundle(for: Home_Perfil.self), compatibleWith: nil) ?? .green
     }
     
     @available(iOS 11.0, *)
     @nonobjc class var eBackgroundGray: UIColor {
-        return UIColor(named: "eBackgroundGray",in: Bundle(for: ProfileInfoView.self), compatibleWith: nil) ?? .green
+        return UIColor(named: "eBackgroundGray",in: Bundle(for: Home_Perfil.self), compatibleWith: nil) ?? .green
     }
 }
 
@@ -595,7 +595,7 @@ extension UICollectionViewCell {
 }
 
 public extension Bundle {
-    static let local: Bundle = Bundle.init(for: ProfileInfoView.self)
+    static let local: Bundle = Bundle.init(for: Home_Perfil.self)
 }
 
 extension UICollectionViewCell {

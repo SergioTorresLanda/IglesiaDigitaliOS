@@ -22,7 +22,7 @@ protocol ProfileInfoViewProtocol: AnyObject {
     func showDetalles(detail: DetailProfile)
     func succesUpload64(responseData: UploadImageData)
     func failUpload64()
-    func succesGetDetailProfile(responseData: ProfileDetailImg)
+    func succesGetDetailProfile(responseData: ProfileDetailImg) //por lo visto no se usa..
     func failGetDataProfile()
     
     func successLaicoReligioso() 

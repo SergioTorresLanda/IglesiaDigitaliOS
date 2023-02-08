@@ -33,6 +33,9 @@ class CommentsViewController: UIViewController, CommentsCellDelegate, RSComments
         didSet { tblview.tableFooterView = UIView() }
     }
     
+    @IBOutlet weak var viewArriba: UIView!
+    
+    
 // MARK: LIFE CYCLE VIEW FUNCS -
     override func viewDidLoad(){
         super.viewDidLoad()
@@ -53,7 +56,11 @@ class CommentsViewController: UIViewController, CommentsCellDelegate, RSComments
         barraNav.layer.shadowOpacity = 0.5
         barraNav.layer.shadowColor = UIColor.black.cgColor
         barraNav.layer.maskedCorners = [.layerMinXMaxYCorner, .layerMaxXMaxYCorner]
-        
+        viewArriba.layer.cornerRadius=30
+        viewArriba.layer.shadowRadius = 5
+        viewArriba.layer.shadowOpacity = 0.5
+        viewArriba.layer.shadowColor = UIColor.black.cgColor
+        viewArriba.layer.maskedCorners = [.layerMinXMaxYCorner, .layerMaxXMaxYCorner]
         tblview.dataSource = self
         tblview.delegate = self
         tblview.showsVerticalScrollIndicator = false
@@ -100,6 +107,7 @@ class CommentsViewController: UIViewController, CommentsCellDelegate, RSComments
 // MARK: SERVICES RESPONSE -
     // repsponse list comments
     func didFinishGettingComments(isFromPage: Bool, comments: [CmComments]) {
+        shimmer.stopLoader()
         self.commentsArray.removeAll()
         self.commentsArray = comments
         tblview.reloadData()
@@ -175,8 +183,11 @@ extension CommentsViewController: UITableViewDataSource{
         if indexPath.row == 0 {
             let iDate = newPost?.createdAt
             let stDate = "\(iDate ?? 0)"
-            
-            cell.setupData(id: newPost?.id ?? -1, strName: newPost?.scope?.name ?? newPost?.author?.name ?? "", strComment: newPost?.content ?? "", stDate: Date(timeIntervalSince1970: TimeInterval(stDate) ?? 0.0).formatRelativeString(), strSecondDate: Date(timeIntervalSince1970: TimeInterval(stDate) ?? 0.0).formatRelativeString(), imgName: name ?? "", reaction: newPost?.reaction?.type ?? 0, likes: newPost?.totalReactions ?? 0)
+            var imgUrl2 = ""
+            if (newPost?.author?.image) != nil {
+                imgUrl2=(newPost?.author?.image)!
+            }
+            cell.setupData(id: newPost?.id ?? -1, strName: newPost?.scope?.name ?? newPost?.author?.name ?? "", strComment: newPost?.content ?? "", stDate: Date(timeIntervalSince1970: TimeInterval(stDate) ?? 0.0).formatRelativeString(), strSecondDate: Date(timeIntervalSince1970: TimeInterval(stDate) ?? 0.0).formatRelativeString(), imgName: name ?? "", reaction: newPost?.reaction?.type ?? 0, likes: newPost?.totalReactions ?? 0, imgUrl: imgUrl2)
             
             return cell
         }

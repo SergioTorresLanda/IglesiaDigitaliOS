@@ -9,7 +9,7 @@
 import UIKit
 import MediaPlayer
 
-public protocol VideosDelegate: class {
+public protocol VideosDelegate: AnyObject {
     func presentFullScreenVideo(videoURL: String?)
 }
 

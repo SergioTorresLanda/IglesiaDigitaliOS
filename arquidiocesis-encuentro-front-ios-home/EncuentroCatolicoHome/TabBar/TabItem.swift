@@ -26,7 +26,7 @@ public enum TabItem: String, CaseIterable {
             return navigationController
             
         case .groups:
-            let profile = HomeRouter.createModule() as! HomeViewController
+            let profile = HomeRouter.createModule() as! Home_Home
             let navigationController = UINavigationController()
             navigationController.navigationBar.isHidden = true
             navigationController.pushViewController(profile, animated: false)

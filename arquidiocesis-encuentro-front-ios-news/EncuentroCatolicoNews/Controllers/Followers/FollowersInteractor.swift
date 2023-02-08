@@ -59,7 +59,7 @@ extension FollowersInteractor: FollowersRemoteDataManagerOutputProtocol {
     func getFollowersResponse(with response: ResponseFollowers?) {
         var arrFollowers: [Followers] = []
         guard let response = response else {
-            presenter?.getArrFolloweds(followeds: arrFollowers)
+            presenter?.getArrFollowers(followers: arrFollowers)
             return
         }
 
@@ -71,10 +71,10 @@ extension FollowersInteractor: FollowersRemoteDataManagerOutputProtocol {
         presenter?.getArrFollowers(followers: arrFollowers)
     }
     
-    func getFollowedResponse(with response: ResponseFollowers?) {
+    func getFollowedResponse(with response: ResponseFollowers?, hasMore: Bool) {
         var arrFollowers: [Followers] = []
         guard let response = response else {
-            presenter?.getArrFolloweds(followeds: arrFollowers)
+            presenter?.getArrFolloweds(followeds: arrFollowers, hasMore:hasMore)
             return
         }
 
@@ -83,7 +83,7 @@ extension FollowersInteractor: FollowersRemoteDataManagerOutputProtocol {
             arrFollowers.append(follower)
         }
         
-        presenter?.getArrFolloweds(followeds: arrFollowers)
+        presenter?.getArrFolloweds(followeds: arrFollowers, hasMore:hasMore)
     }
     
     func knowIfIFollow(status: Int) -> Bool{

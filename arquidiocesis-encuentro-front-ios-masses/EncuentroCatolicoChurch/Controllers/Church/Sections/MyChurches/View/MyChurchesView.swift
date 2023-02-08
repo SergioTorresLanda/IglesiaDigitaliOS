@@ -12,7 +12,7 @@ import AlamofireImage
 import MapKit
 import SkeletonView
 
-class MyChurchesViewController: BaseViewController {
+class Home_MiIglesia: BaseViewController {
     public typealias SkeletonLayerAnimation = (CALayer) -> CAAnimation
     weak var delegateUtils: UtilsDetailsChurchButtonDelegate!
     var presenter: MyChurchesPresenterProtocol?
@@ -42,7 +42,7 @@ class MyChurchesViewController: BaseViewController {
     lazy var searchBarF: UISearchBar = {
         let searchBar:UISearchBar = UISearchBar(frame: CGRect(x: 10, y: 108, width: self.view.frame.width-20, height: self.view.frame.height-20))
         searchBar.searchBarStyle = UISearchBar.Style.prominent
-        searchBar.placeholder = "Busca iglesia"
+        searchBar.placeholder = "Buscar iglesia"
         searchBar.sizeToFit()
         searchBar.isTranslucent = false
         searchBar.backgroundImage = UIImage()
@@ -162,7 +162,7 @@ class MyChurchesViewController: BaseViewController {
 }
 
 //MARK: - Collection view delegates
-extension MyChurchesViewController: UICollectionViewDelegate, UICollectionViewDataSource, UICollectionViewDelegateFlowLayout, AddChourchButtonDelegate, ChangeChourchButtonDelegate {
+extension Home_MiIglesia: UICollectionViewDelegate, UICollectionViewDataSource, UICollectionViewDelegateFlowLayout, AddChourchButtonDelegate, ChangeChourchButtonDelegate {
     func didPressChangeButton(_ tag: Int) {
         presenter?.goToChourchMap(id: tag, selector: 0)
     }
@@ -385,7 +385,7 @@ extension MyChurchesViewController: UICollectionViewDelegate, UICollectionViewDa
     
 }
 
-extension MyChurchesViewController: MyChurchesViewProtocol {
+extension Home_MiIglesia: MyChurchesViewProtocol {
     func showSearchBarResponse(result: [Assigned]) {
 //        self.hideLoading()
         self.locations.removeAll()
@@ -433,7 +433,7 @@ extension MyChurchesViewController: MyChurchesViewProtocol {
     
 }
 //MARK: - Search Bar delegates
-extension MyChurchesViewController: UISearchBarDelegate {
+extension Home_MiIglesia: UISearchBarDelegate {
     
     @objc func seachEvent(){
         if (searchBarF.text?.isEmpty ?? true) == false {
@@ -463,7 +463,7 @@ extension MyChurchesViewController: UISearchBarDelegate {
     }
 }
 
-extension MyChurchesViewController: SkeletonCollectionViewDataSource {
+extension Home_MiIglesia: SkeletonCollectionViewDataSource {
     func collectionSkeletonView(_ skeletonView: UICollectionView, cellIdentifierForItemAt indexPath: IndexPath) -> ReusableCellIdentifier {
             return MyChurchCollectionViewCell.reuseIdentifier
     }

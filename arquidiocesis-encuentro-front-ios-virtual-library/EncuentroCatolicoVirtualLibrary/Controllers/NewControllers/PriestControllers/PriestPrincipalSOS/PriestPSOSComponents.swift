@@ -7,7 +7,7 @@
 
 import UIKit
 
-extension PriestPSOSView: UITableViewDelegate, UITableViewDataSource {
+extension Home_SOSPriest: UITableViewDelegate, UITableViewDataSource {
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         
@@ -211,7 +211,7 @@ extension PriestPSOSView: UITableViewDelegate, UITableViewDataSource {
         
         let singlto = UncionSOSView.singleton
         if segementControl.selectedSegmentIndex == 0 {
-            let singleton = PriestPSOSView.singleton
+            let singleton = Home_SOSPriest.singleton
             singleton.idService = listRequests[indexPath.row].id ?? 0//singlto.newServiceID//379
             print("Este es le:", singleton.idService)
             let module = PriestContactRouter.createModule()
@@ -221,7 +221,7 @@ extension PriestPSOSView: UITableViewDelegate, UITableViewDataSource {
             
         }else{
 
-            let singleton = PriestPSOSView.singleton
+            let singleton = Home_SOSPriest.singleton
             singleton.idService = listRequests[indexPath.row].id ?? 0//379//listHistory[indexPath.row].service?.id ?? 0
             let module = PriestDetailRouter.createModule()
             self.navigationController?.pushViewController(module, animated: true)

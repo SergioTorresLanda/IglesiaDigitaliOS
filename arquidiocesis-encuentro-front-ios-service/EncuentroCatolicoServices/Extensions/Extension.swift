@@ -111,7 +111,7 @@ extension UIButton {
 
 
 public extension Bundle {
-    static let local: Bundle = Bundle.init(for: HomeServiceViewController.self)
+    static let local: Bundle = Bundle.init(for: Home_Servicios.self)
 }
 extension UIImageView {
     func DownloadStaticImage(_ uri : String) {

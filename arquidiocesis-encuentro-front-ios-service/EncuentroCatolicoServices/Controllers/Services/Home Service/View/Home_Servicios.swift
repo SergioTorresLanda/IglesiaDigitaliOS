@@ -7,7 +7,7 @@
 
 import UIKit
 
-class HomeServiceViewController: BaseViewController,HomeServiceViewProtocol, UITableViewDelegate, UITableViewDataSource {
+class Home_Servicios: BaseViewController,HomeServiceViewProtocol, UITableViewDelegate, UITableViewDataSource {
     
     @IBAction func dissButton(_ sender: Any) {
         navigationController?.popViewController(animated: true)

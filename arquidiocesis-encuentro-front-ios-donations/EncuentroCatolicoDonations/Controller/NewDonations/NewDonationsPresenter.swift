@@ -12,7 +12,7 @@ class NewDonationsPresenter: NewDontaionsPresneterProtocol {
     var interactor: NewDontaionsInteractorProtocol?
     private let router: NewDonationsRouterProtocol?
     
-    init (interface: NewDontaionsViewController, router: NewDonationsRouterProtocol, interactor: NewDontaionsInteractorProtocol) {
+    init (interface: Home_MiOfrenda, router: NewDonationsRouterProtocol, interactor: NewDontaionsInteractorProtocol) {
         self.view = interface
         self.interactor = interactor
         self.router = router

@@ -14,7 +14,7 @@ open class NewDonationsRouter: NewDonationsRouterProtocol {
     
     static public func createModule() -> UIViewController {
         let storyboard = UIStoryboard(name: "NewDonations", bundle: Bundle.local)
-        let view = storyboard.instantiateViewController(withIdentifier: "NewDonationsView") as! NewDontaionsViewController
+        let view = storyboard.instantiateViewController(withIdentifier: "NewDonationsView") as! Home_MiOfrenda
         let interactor = NewDontaionsInteractor()
         let router = NewDonationsRouter()
         let presenter = NewDonationsPresenter(interface: view, router: router, interactor: interactor)

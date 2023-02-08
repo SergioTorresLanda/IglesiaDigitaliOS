@@ -7,7 +7,7 @@
 
 import UIKit
 
-extension PrincipalViewSOS: UITableViewDelegate, UITableViewDataSource {
+extension Home_SOSPrincipal: UITableViewDelegate, UITableViewDataSource {
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return titlesArray.count
@@ -26,13 +26,13 @@ extension PrincipalViewSOS: UITableViewDelegate, UITableViewDataSource {
         cell.cardView.backgroundColor = .white
         cell.circleFill.alpha = 0
         print("Este es el index: ", indexPath.row, indexCircle)
-        cell.circleEmpty.image = UIImage(named: "dot", in: Bundle(for: PrincipalViewSOS.self), compatibleWith: nil)
+        cell.circleEmpty.image = UIImage(named: "dot", in: Bundle(for: Home_SOSPrincipal.self), compatibleWith: nil)
         if cleanAll == false {
             if indexPath.row == indexCircle {
                 stateCell[indexPath.row] = true
                 cell.circleFill.alpha = 1
                 selctedCell = indexPath.row
-                cell.circleFill.image = UIImage(named: "circleFillGolden", in: Bundle(for: PrincipalViewSOS.self), compatibleWith: nil)
+                cell.circleFill.image = UIImage(named: "circleFillGolden", in: Bundle(for: Home_SOSPrincipal.self), compatibleWith: nil)
             }
             
         }else{
@@ -61,7 +61,7 @@ extension PrincipalViewSOS: UITableViewDelegate, UITableViewDataSource {
         indexCircle = indexPath.row
         mainTable.reloadData()        
         alert2 = InputAlertController.showAlertInput(index: indexPath.row, controller: self)
-        let singleton = PrincipalViewSOS.singleton
+        let singleton = Home_SOSPrincipal.singleton
         singleton.nameService = titlesArray[indexPath.row]
         singleton.serviceID = idServices[indexPath.row]
         singleton.globalIndex = indexPath.row

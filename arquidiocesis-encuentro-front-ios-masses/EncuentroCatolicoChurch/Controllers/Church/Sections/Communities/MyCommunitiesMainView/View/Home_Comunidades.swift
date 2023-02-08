@@ -14,7 +14,7 @@ enum UserCommunityStatus: String {
     case pendindCompletion = "PENDING_COMPLETION"
 }
 
-class MyCommunitiesMainViewController: UIViewController, MyCommunitiesMainViewProtocol, CLLocationManagerDelegate {
+class Home_Comunidades: UIViewController, MyCommunitiesMainViewProtocol, CLLocationManagerDelegate {
     
     var presenter: MyCommunitiesMainViewPresenterProtocol?
     let loadingAlert = UIAlertController(title: "", message: "\n \n \n \n \nCargando...", preferredStyle: .alert)
@@ -186,7 +186,7 @@ class MyCommunitiesMainViewController: UIViewController, MyCommunitiesMainViewPr
 
 
 
-extension MyCommunitiesMainViewController: UITableViewDelegate, UITableViewDataSource {
+extension Home_Comunidades: UITableViewDelegate, UITableViewDataSource {
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         if tableView == mainComTableView {
             return 1
@@ -295,7 +295,7 @@ extension MyCommunitiesMainViewController: UITableViewDelegate, UITableViewDataS
     
 }
 
-extension MyCommunitiesMainViewController: UISearchBarDelegate {
+extension Home_Comunidades: UISearchBarDelegate {
     
     @objc func seachEvent(){
         if (searchBar.text?.isEmpty ?? true) == false {
@@ -328,13 +328,13 @@ extension MyCommunitiesMainViewController: UISearchBarDelegate {
     }
 }
 
-extension MyCommunitiesMainViewController: addCommunityEmptyFavButtonDelegate {
+extension Home_Comunidades: addCommunityEmptyFavButtonDelegate {
     func didPressaddCommunityEmptyFavButton(_ sender: UIButton) {
        // presenter?.goToMaps(isPrincipal: 3, isPrincialBool: false)
     }
 }
 
-extension MyCommunitiesMainViewController: addCommunityNewEmptyButtonDelegate {
+extension Home_Comunidades: addCommunityNewEmptyButtonDelegate {
     func didPressaddCommunityNewEmptyButton(_ sender: UIButton) {
        // presenter?.goToMaps(isPrincipal: 3, isPrincialBool: true)
     }

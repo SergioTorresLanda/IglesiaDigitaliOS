@@ -12,10 +12,10 @@
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
-        <!--New Dontaions View Controller-->
+        <!--Home Mi Ofrenda-->
         <scene sceneID="s0d-6b-0kx">
             <objects>
-                <viewController storyboardIdentifier="NewDonationsView" useStoryboardIdentifierAsRestorationIdentifier="YES" id="Y6W-OH-hqX" customClass="NewDontaionsViewController" customModule="EncuentroCatolicoDonations" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="NewDonationsView" useStoryboardIdentifierAsRestorationIdentifier="YES" id="Y6W-OH-hqX" customClass="Home_MiOfrenda" customModule="EncuentroCatolicoDonations" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="5EZ-qb-Rvc">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -53,7 +53,7 @@
                                 </constraints>
                             </view>
                             <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="MzZ-0y-80z">
-                                <rect key="frame" x="0.0" y="110" width="414" height="682"/>
+                                <rect key="frame" x="0.0" y="110" width="414" height="672"/>
                                 <subviews>
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="8Bf-Ff-pDl">
                                         <rect key="frame" x="0.0" y="0.0" width="414" height="334.5"/>
@@ -1010,7 +1010,7 @@
                                 <viewLayoutGuide key="frameLayoutGuide" id="lAS-Ht-XkH"/>
                             </scrollView>
                             <view hidden="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="DSF-5K-2s5">
-                                <rect key="frame" x="20" y="270" width="374" height="512"/>
+                                <rect key="frame" x="20" y="270" width="374" height="502"/>
                                 <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                             </view>
                             <view hidden="YES" alpha="0.5" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="l29-Yt-m1o">
@@ -1362,10 +1362,10 @@
         <image name="NewIcono_buscar" width="25" height="25"/>
         <image name="TwoPoints" width="4" height="12"/>
         <image name="arrow_drop_down_24px" width="24" height="24"/>
-        <image name="checkmark.square.fill" catalog="system" width="32" height="32"/>
+        <image name="checkmark.square.fill" catalog="system" width="128" height="114"/>
         <image name="logo-icono-nuevo" width="21.5" height="28.5"/>
         <image name="placeholder_church" width="66" height="66"/>
-        <image name="square" catalog="system" width="32" height="32"/>
+        <image name="square" catalog="system" width="128" height="114"/>
         <namedColor name="eMainBlue">
             <color red="0.0039215686274509803" green="0.12549019607843137" blue="0.40784313725490196" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </namedColor>

@@ -11,7 +11,7 @@ import RealmSwift
 import SDWebImage
 
 //MARK: - UITableViewDataSource
-extension FeedViewController: UITableViewDataSource {
+extension Home_RedSocial: UITableViewDataSource {
     public func numberOfSections(in tableView: UITableView) -> Int {
         return 2
     }
@@ -63,10 +63,7 @@ extension FeedViewController: UITableViewDataSource {
             }else{
                 cell.nameLabel.text = newPosts[indexPath.row].author?.name
                 if (newPosts[indexPath.row].author?.image) != nil{
-                    let url = URL(string: newPosts[indexPath.row].author?.image ?? "")
-                    let data = try? Data(contentsOf: url!)
-                    cell.userImage.image = UIImage(data: data!)
-                    
+                    cell.userImage.loadS(urlS: (newPosts[indexPath.row].author?.image)!)
                 }else{
                     cell.userImage.image = UIImage(named: "iconProfile", in: Bundle.local, compatibleWith: nil)
                 }
@@ -99,7 +96,7 @@ extension FeedViewController: UITableViewDataSource {
 }
 
 //MARK: - UITableViewDelegate
-extension FeedViewController: UITableViewDelegate {
+extension Home_RedSocial: UITableViewDelegate {
     public func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
         switch indexPath.section {
         case 0:
@@ -176,7 +173,7 @@ extension FeedViewController: UITableViewDelegate {
 }
 
 //MARK: - UITableViewDataSourcePrefetching
-extension FeedViewController: UITableViewDataSourcePrefetching {
+extension Home_RedSocial: UITableViewDataSourcePrefetching {
     public func tableView(_ tableView: UITableView, prefetchRowsAt indexPaths: [IndexPath]) {
         
         let pagesDifference = storedData.pages - storedData.skip
@@ -192,7 +189,7 @@ extension FeedViewController: UITableViewDataSourcePrefetching {
 }
 
 //MARK: - DetailPostTVCProtocol
-extension FeedViewController: FeedTVCProtocol {
+extension Home_RedSocial: FeedTVCProtocol {
     public func deletePost(id: Int, sender: UIButton) {
         let SNId = UserDefaults.standard.integer(forKey: "SNId")
         let idPost = newPosts[id].id
@@ -254,7 +251,7 @@ extension FeedViewController: FeedTVCProtocol {
 }
 
 
-extension FeedViewController: UIViewControllerTransitioningDelegate {
+extension Home_RedSocial: UIViewControllerTransitioningDelegate {
     public func presentationController(forPresented presented: UIViewController, presenting: UIViewController?, source: UIViewController) -> UIPresentationController? {
         ModalPresentationController(presentedViewController: presented, presenting: presenting)
     }

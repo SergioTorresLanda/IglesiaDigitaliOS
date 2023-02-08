@@ -23,7 +23,7 @@
 		9D6DA34625F5BDFE00645A7D /* VistaExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9D6DA34425F5BDFE00645A7D /* VistaExtension.swift */; };
 		9D6DA34725F5BDFE00645A7D /* Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9D6DA34525F5BDFE00645A7D /* Extension.swift */; };
 		C48F753F29729C62F3E12704 /* Pods_EncuentroCatolicoPrayers.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = EBDC16197A324E4DF185AE6B /* Pods_EncuentroCatolicoPrayers.framework */; };
-		D0063AC32639B7B20021D07F /* PrayerViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D0063ABC2639B7B10021D07F /* PrayerViewController.swift */; };
+		D0063AC32639B7B20021D07F /* Home_Oraciones.swift in Sources */ = {isa = PBXBuildFile; fileRef = D0063ABC2639B7B10021D07F /* Home_Oraciones.swift */; };
 		D0063AC42639B7B20021D07F /* PrayerCollectionCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = D0063ABD2639B7B10021D07F /* PrayerCollectionCell.swift */; };
 		D0063AC52639B7B20021D07F /* PrayerTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = D0063ABE2639B7B10021D07F /* PrayerTableViewCell.swift */; };
 		D0063AC72639B7B20021D07F /* NamePrayerCollectionCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = D0063AC02639B7B10021D07F /* NamePrayerCollectionCell.swift */; };
@@ -69,7 +69,7 @@
 		9D6DA34525F5BDFE00645A7D /* Extension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Extension.swift; sourceTree = "<group>"; };
 		B823026D5C92D4E5AA4C9A8B /* Pods-EncuentroCatolicoPrayers.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-EncuentroCatolicoPrayers.debug.xcconfig"; path = "Target Support Files/Pods-EncuentroCatolicoPrayers/Pods-EncuentroCatolicoPrayers.debug.xcconfig"; sourceTree = "<group>"; };
 		C46C73996FD5B436D2AC2A25 /* Pods-EncuentroCatolicoPrayers.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-EncuentroCatolicoPrayers.release.xcconfig"; path = "Target Support Files/Pods-EncuentroCatolicoPrayers/Pods-EncuentroCatolicoPrayers.release.xcconfig"; sourceTree = "<group>"; };
-		D0063ABC2639B7B10021D07F /* PrayerViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PrayerViewController.swift; sourceTree = "<group>"; };
+		D0063ABC2639B7B10021D07F /* Home_Oraciones.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Home_Oraciones.swift; sourceTree = "<group>"; };
 		D0063ABD2639B7B10021D07F /* PrayerCollectionCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PrayerCollectionCell.swift; sourceTree = "<group>"; };
 		D0063ABE2639B7B10021D07F /* PrayerTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PrayerTableViewCell.swift; sourceTree = "<group>"; };
 		D0063AC02639B7B10021D07F /* NamePrayerCollectionCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NamePrayerCollectionCell.swift; sourceTree = "<group>"; };
@@ -308,7 +308,7 @@
 			children = (
 				9D6DA33225F5BCEE00645A7D /* Cell */,
 				9D6DA33125F5BCEE00645A7D /* DropDownCell.swift */,
-				D0063ABC2639B7B10021D07F /* PrayerViewController.swift */,
+				D0063ABC2639B7B10021D07F /* Home_Oraciones.swift */,
 				9D6DA32E25F5BCED00645A7D /* ProductHeaderView.xib */,
 			);
 			path = View;
@@ -513,7 +513,7 @@
 				DFED129425EF259500901D5D /* RequestType.swift in Sources */,
 				DFED129C25EF259D00901D5D /* Extensiones.swift in Sources */,
 				9D6DA34625F5BDFE00645A7D /* VistaExtension.swift in Sources */,
-				D0063AC32639B7B20021D07F /* PrayerViewController.swift in Sources */,
+				D0063AC32639B7B20021D07F /* Home_Oraciones.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

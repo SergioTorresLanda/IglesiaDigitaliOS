@@ -53,7 +53,6 @@ public class CreatePostTVC: UITableViewCell {
     private func setUpView() {
         nameLabel.text = defaults.string(forKey: "COMPLETENAME")
         userImage.image = SocialNetworkConstant.shared.userImage
-        
         userImage.makeRounded()
         vwContainer.backgroundColor = UIColor.white
     }
@@ -81,13 +80,7 @@ extension CreatePostTVC: UICollectionViewDataSource, UICollectionViewDelegate {
 }
 
 public class CreatePostCollectionCell: UICollectionViewCell{
-//    fileprivate let lblTitle: UILabel = {
-//        let lbl = UILabel()
-//        lbl.translatesAutoresizingMaskIntoConstraints = false
-//        return lbl
-//    }()
-    
-    
+
     fileprivate let imgView: UIImageView = {
        let img = UIImageView()
         img.translatesAutoresizingMaskIntoConstraints = false
@@ -101,7 +94,6 @@ public class CreatePostCollectionCell: UICollectionViewCell{
         super.init(frame: .zero)
 //        contentView.addSubview(lblTitle)
         contentView.addSubview(imgView)
-        
         imgView.topAnchor.constraint(equalTo: contentView.topAnchor).isActive = true
         imgView.leftAnchor.constraint(equalTo: contentView.leftAnchor).isActive = true
         imgView.rightAnchor.constraint(equalTo: contentView.rightAnchor).isActive = true

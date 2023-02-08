@@ -64,8 +64,7 @@ public class CreatePostViewController: UIViewController, CreatePostViewProtocol 
     @IBOutlet weak var btnCancel: UIButton!
     
     @IBOutlet weak var vwOptionsMedia: UIView!
-    
-    @IBOutlet weak var postImage: UIImageView!
+    //@IBOutlet weak var postImage: UIImageView!
     var delegateTbl: FeedViewControllerDelegate?
     
     @IBOutlet weak var pickerView: UIPickerView!
@@ -74,8 +73,8 @@ public class CreatePostViewController: UIViewController, CreatePostViewProtocol 
     var orgId: Int?
     var asPrm: Int = 1
     var scope: Int = 1
-    
-    var picker = UIImagePickerController();
+    //var imagePicker = UIImagePickerController()
+    var picker = UIImagePickerController()
     
     @IBOutlet public weak var userContainerImage: UIImageView! = {
         let imageView = UIImageView()
@@ -101,7 +100,6 @@ public class CreatePostViewController: UIViewController, CreatePostViewProtocol 
     @IBOutlet public weak var multimediaImage2: UIImageView! = {
         let imageView = UIImageView()
         imageView.image = "imagesIcon".getImage()
-       
        return imageView
     }()
     
@@ -125,15 +123,12 @@ public class CreatePostViewController: UIViewController, CreatePostViewProtocol 
     
     public var media = [MediaData]() {
         didSet {
-            if let medDta = media[0].videoURL{
+            /*if let medDta = media[0].videoURL{
                 let vidData = try? Data(contentsOf: medDta, options: .mappedIfSafe)
                 let imageSize: Int = vidData?.count ?? 0
                 print("size of image in KB: %f ", Double(imageSize) / 1024.0)
                 print("size of image in MB: %f ", Double(imageSize) / 1024.0 / 1024)
-                
-            }
-            
-            
+            }*/
             postButtonLabel.textColor = !media.isEmpty ?
                 UIColor(red: 0.10, green: 0.16, blue: 0.45, alpha: 1.00) :
                 UIColor(red: 0.60, green: 0.60, blue: 0.60, alpha: 1.00)
@@ -417,9 +412,6 @@ public class CreatePostViewController: UIViewController, CreatePostViewProtocol 
             textView.resignFirstResponder()
             loadingView.isHidden = false
             activityIndicator.startAnimating()
-//            presenter?.makePost(content: text, location: location, feeling: feeling, media: media, organizationId: 20,
-//                                asParam: asParam)
-            
             if editPost{
                 print("Edita::: mandara a editar ")
             }else{
@@ -502,6 +494,7 @@ public class CreatePostViewController: UIViewController, CreatePostViewProtocol 
     
     
     @IBAction func btnActionAddImage(_ sender: UIButton) {
+        print("CLICK IMAGEN")
         guard let vc = ImagePickerViewController() as? ImagePickerController else { return }
         vc.delegate = self
         vc.modalPresentationStyle = .overFullScreen

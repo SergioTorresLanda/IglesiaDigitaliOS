@@ -18,7 +18,7 @@ open class FeedRouter: NSObject, FeedWireframeProtocol {
     
     public static func createModule() -> UIViewController {
         // Change to get view from storyboard if not using progammatic UI
-        let view = FeedViewController(nibName: "FeedViewController", bundle: Bundle(for: FeedViewController.self))
+        let view = Home_RedSocial(nibName: "FeedViewController", bundle: Bundle(for: Home_RedSocial.self))
         let interactor = FeedInteractor()
         let router = FeedRouter()
         let presenter = FeedPresenter(interface: view, interactor: interactor, router: router)
@@ -88,7 +88,7 @@ open class FeedRouter: NSObject, FeedWireframeProtocol {
     
     func showActionsSelected(post: PublicationRealm, strSelected: String) {
         guard let vc = SNCommenctsRoute.createNewModule() as? CommentsViewController else { return }
-        let feed = FeedRouter.createModule() as! FeedViewController
+        let feed = FeedRouter.createModule() as! Home_RedSocial
         let navigationController = UINavigationController(rootViewController: feed)
         navigationController.navigationBar.isHidden = true
         navigationController.pushViewController(vc, animated: true)

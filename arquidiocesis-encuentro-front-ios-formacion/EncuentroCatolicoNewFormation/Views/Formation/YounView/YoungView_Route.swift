@@ -9,7 +9,7 @@ import UIKit
 
 public class YoungView_Route {
     public static func createView(navigation: UINavigationController) -> UIViewController {
-        let view = YoungView_Controller()
+        let view = Home_BibliotecaVirtual()
         let presenter_FYV : FYV_VIPER_ViewToPresenterProtocol & FYV_VIPER_InteractorToPresenterProtocol = FYV_ProfilePresenter()
         let interactor_FYV: FYV_VIPER_PresenterToInteractorProtocol = FYV_ProfileInteractor()
         let route: SSVIPER_PresenterToRouter = YoungView_Route()

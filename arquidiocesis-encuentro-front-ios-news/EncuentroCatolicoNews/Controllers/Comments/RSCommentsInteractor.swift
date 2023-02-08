@@ -21,10 +21,11 @@ public struct ParamsCommentToComment: Codable{
     let asParam: Int
     let groupId: Int
     let scope: Int
+    let imageProfile: String
     
     enum CodingKeys: String, CodingKey{
         case asParam = "as"
-        case postId, commentId, userId, content, groupId, scope
+        case postId, commentId, userId, content, groupId, scope, imageProfile
     }
 }
 
@@ -75,7 +76,8 @@ public class RSCommentsInteractor: RSCommentInteractorProtocol{
     func makeCommentToComment(postId: Int, commentId: Int?, userId: Int, content: String, asParam: Int, groupId: Int, scope: Int) {
         
         let SNId = UserDefaults.standard.integer(forKey: "SNId")
-        let params = ParamsCommentToComment(postId: postId, commentId: commentId, userId: SNId, content: content, asParam: asParam, groupId: groupId, scope: scope)
+        let params = ParamsCommentToComment(postId: postId, commentId: commentId, userId: SNId, content: content, asParam: asParam, groupId: groupId, scope: scope, imageProfile: UserDefaults.standard.string(forKey: "imageUrl") ?? ""
+)
         
         addComment(params: params)
         
@@ -158,11 +160,8 @@ public class RSCommentsInteractor: RSCommentInteractorProtocol{
             if let error = error {
                 self.presenter?.didFinishGettingCommentsWithErrors(error: error)
             }else{
-                do{
-                    self.presenter?.didFinishAddPostCommnet(isReload: true)
-                }catch{
-                    self.presenter?.didFinishGettingCommentsWithErrors(error: SocialNetworkErrors.ResponseError)
-                }
+                self.presenter?.didFinishAddPostCommnet(isReload: true)
+            
             }
         })
     }

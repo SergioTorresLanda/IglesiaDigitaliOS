@@ -139,18 +139,23 @@ extension FeedTVC {
             
             if error == nil{
                 do{
+                    print("new make reaction sin errores")
                     guard let allData = data else { return }
                     let json = try JSONSerialization.jsonObject(with: allData, options: []) as? [String: Any]
+                    print(json ?? "no json resp")
                     self.newreactionImage.image = UIImage(named: "iconOracion2", in: Bundle.local, compatibleWith: nil)
                     //"\(newPosts[indexPath.row].totalReactions ?? 0)"
                     self.reactionsCountLabel.text = "\((self.newPost?.totalReactions ?? 0) + 1)"
                     self.loading.stopAnimating()
                     self.loading.isHidden = true
                 }catch (let error) {
+                    print (error)
                     self.loading.stopAnimating()
                     self.loading.isHidden = true
-                    
                 }
+            }else{
+                print("ERROR LIKES:")
+                print(error?.message ?? "no err msg")
             }
         })
     }

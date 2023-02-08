@@ -16,7 +16,7 @@ protocol FollowersViewProtocol: AnyObject {
     func followServiceError(with error: SocialNetworkErrors)
     
     func loadFollowers(followers: [Followers])
-    func loadFollowed(followeds: [Followers])
+    func loadFollowed(followeds: [Followers], hasMore:Bool)
 }
 
 protocol FollowersWireFrameProtocol: AnyObject {
@@ -30,6 +30,8 @@ protocol FollowersPresenterProtocol: AnyObject {
     
     func viewDidLoad()
     func followAndUnFollowedService(follower: Followers)
+    func getFollowed()
+    func getFollowers()
 }
 
 protocol FollowersInteractorOutputProtocol: AnyObject {
@@ -37,7 +39,7 @@ protocol FollowersInteractorOutputProtocol: AnyObject {
     func followAndUnFollowError(with error: SocialNetworkErrors)
     
     func getArrFollowers(followers: [Followers])
-    func getArrFolloweds(followeds: [Followers])
+    func getArrFolloweds(followeds: [Followers], hasMore: Bool)
     
 }
 
@@ -65,5 +67,5 @@ protocol FollowersRemoteDataManagerOutputProtocol: AnyObject {
     func followAndUnFollowSuccess()
     func followAndUnFollowError(with error: SocialNetworkErrors)
     func getFollowersResponse(with response: ResponseFollowers?)
-    func getFollowedResponse(with response: ResponseFollowers?)
+    func getFollowedResponse(with response: ResponseFollowers?, hasMore:Bool)
 }

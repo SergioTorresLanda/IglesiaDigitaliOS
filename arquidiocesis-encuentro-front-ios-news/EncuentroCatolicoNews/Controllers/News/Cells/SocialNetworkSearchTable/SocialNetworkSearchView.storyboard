@@ -21,19 +21,28 @@
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="yuj-Ci-M6Q">
                                 <rect key="frame" x="0.0" y="-25" width="438" height="125"/>
                                 <subviews>
-                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Red Social" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="pjd-UP-rQt">
-                                        <rect key="frame" x="159" y="75" width="99" height="24"/>
-                                        <fontDescription key="fontDescription" type="boldSystem" pointSize="20"/>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Red social" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="pjd-UP-rQt">
+                                        <rect key="frame" x="165.5" y="79.5" width="86" height="21.5"/>
+                                        <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="18"/>
                                         <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         <nil key="highlightedColor"/>
                                     </label>
-                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="dFO-5O-PoU">
-                                        <rect key="frame" x="8" y="71" width="35.5" height="32"/>
+                                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="back" translatesAutoresizingMaskIntoConstraints="NO" id="8uX-qj-B4K">
+                                        <rect key="frame" x="15" y="75" width="40" height="30"/>
+                                        <color key="tintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         <constraints>
-                                            <constraint firstAttribute="height" constant="32" id="KW4-CU-V5v"/>
+                                            <constraint firstAttribute="width" constant="40" id="lt6-PB-us8"/>
+                                            <constraint firstAttribute="height" constant="30" id="srh-Da-8QS"/>
+                                        </constraints>
+                                    </imageView>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="dFO-5O-PoU">
+                                        <rect key="frame" x="0.0" y="35" width="90" height="90"/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="90" id="KW4-CU-V5v"/>
+                                            <constraint firstAttribute="width" constant="90" id="oz3-bN-nGa"/>
                                         </constraints>
                                         <state key="normal" title="Button"/>
-                                        <buttonConfiguration key="configuration" style="plain" image="Icono_atrás"/>
+                                        <buttonConfiguration key="configuration" style="plain"/>
                                         <connections>
                                             <action selector="backAction:" destination="dA9-50-Np5" eventType="touchUpInside" id="AXL-RX-PL1"/>
                                         </connections>
@@ -42,20 +51,22 @@
                                 <color key="backgroundColor" name="eMainBlue"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="125" id="6Ca-tA-3Fj"/>
+                                    <constraint firstItem="8uX-qj-B4K" firstAttribute="leading" secondItem="yuj-Ci-M6Q" secondAttribute="leading" constant="15" id="8Fv-w8-rKV"/>
                                     <constraint firstItem="pjd-UP-rQt" firstAttribute="centerX" secondItem="yuj-Ci-M6Q" secondAttribute="centerX" constant="-10.5" id="9Hj-EM-jh3"/>
-                                    <constraint firstItem="dFO-5O-PoU" firstAttribute="centerY" secondItem="yuj-Ci-M6Q" secondAttribute="centerY" constant="24.5" id="NAR-8Z-4Ar"/>
-                                    <constraint firstItem="dFO-5O-PoU" firstAttribute="leading" secondItem="yuj-Ci-M6Q" secondAttribute="leading" constant="8" id="kdV-XA-l0l"/>
-                                    <constraint firstItem="pjd-UP-rQt" firstAttribute="centerY" secondItem="yuj-Ci-M6Q" secondAttribute="centerY" constant="24.5" id="rEq-1e-IYs"/>
+                                    <constraint firstAttribute="bottom" secondItem="8uX-qj-B4K" secondAttribute="bottom" constant="20" id="OV5-92-xfU"/>
+                                    <constraint firstAttribute="bottom" secondItem="dFO-5O-PoU" secondAttribute="bottom" id="kBD-aq-I1U"/>
+                                    <constraint firstItem="dFO-5O-PoU" firstAttribute="leading" secondItem="yuj-Ci-M6Q" secondAttribute="leading" id="kdV-XA-l0l"/>
+                                    <constraint firstItem="pjd-UP-rQt" firstAttribute="centerY" secondItem="8uX-qj-B4K" secondAttribute="centerY" id="yS0-sW-o4t"/>
                                 </constraints>
                             </view>
-                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="XKH-Mq-da2">
+                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Buscar usuarios en red social" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="XKH-Mq-da2">
                                 <rect key="frame" x="16" y="117" width="382" height="47"/>
                                 <color key="backgroundColor" red="0.92143100499999997" green="0.92145264149999995" blue="0.92144101860000005" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="47" id="Hnn-YS-c1g"/>
                                 </constraints>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                <textInputTraits key="textInputTraits"/>
+                                <textInputTraits key="textInputTraits" autocapitalizationType="words" autocorrectionType="no" spellCheckingType="no"/>
                                 <connections>
                                     <action selector="textDidChangeEditing:" destination="dA9-50-Np5" eventType="editingChanged" id="Fn5-Yq-x5U"/>
                                 </connections>
@@ -109,8 +120,8 @@
         </scene>
     </scenes>
     <resources>
-        <image name="Icono_atrás" width="11.5" height="18"/>
         <image name="SearchCross" width="13.5" height="13.5"/>
+        <image name="back" width="125" height="202"/>
         <namedColor name="eMainBlue">
             <color red="0.0039215686274509803" green="0.12549019607843137" blue="0.40784313725490196" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </namedColor>

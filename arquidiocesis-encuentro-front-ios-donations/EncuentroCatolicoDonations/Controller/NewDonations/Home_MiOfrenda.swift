@@ -19,7 +19,7 @@ import Alamofire
 import Network
 import EncuentroCatolicoVirtualLibrary
 
-class NewDontaionsViewController: BaseVC, NewDontaionsViewProtocol {
+class Home_MiOfrenda: BaseVC, NewDontaionsViewProtocol {
   
     // MARK: @IBOUTLETS -
     @IBOutlet weak var customNavbar: UIView!
@@ -817,12 +817,12 @@ class NewDontaionsViewController: BaseVC, NewDontaionsViewProtocol {
         contentSuggestionsTableView.layer.cornerRadius = 10
         contentSuggestionsTableView.ShadowCard()
         
-        let statixMinX = menuCollection.frame.minX - 20
+        //let statixMinX = menuCollection.frame.minX
         var axisX = 61
-        axisX += Int(statixMinX)
+        //axisX += Int(statixMinX)
         menuLine = UIView(frame: CGRect(x: axisX, y: Int(menuCollection.frame.maxY), width: 61, height: 3))
-        menuLine.backgroundColor = UIColor.init(red: 1/255, green: 32/255, blue: 104/255, alpha: 1)
-        menuLine.layer.cornerRadius = 3
+        //menuLine.backgroundColor = UIColor.init(red: 1/255, green: 32/255, blue: 104/255, alpha: 1)
+        //menuLine.layer.cornerRadius = 3
         viewToShadow.addSubview(menuLine)
         
         // Second Sections Objects
@@ -878,7 +878,7 @@ class NewDontaionsViewController: BaseVC, NewDontaionsViewProtocol {
 }
 
 // MARK: API SERVICES CHURCH LIST -
-extension NewDontaionsViewController {
+extension Home_MiOfrenda {
     func successGetChurches(data: ChurchesDontaions) {
         print(data)
         DispatchQueue.main.asyncAfter(deadline: .now() + 0.3) {
@@ -909,7 +909,7 @@ extension NewDontaionsViewController {
 }
 
 // MARK: API SERVICES CHURCH SUGGESTED -
-extension NewDontaionsViewController {
+extension Home_MiOfrenda {
     func successGetSuggested(data: [ChurchesSuggested]) {
         print(data)
         churchSuggestedList = data
@@ -929,7 +929,7 @@ extension NewDontaionsViewController {
 }
 
 // MARK: API SERVICES BILLING DATA
-extension NewDontaionsViewController {
+extension Home_MiOfrenda {
     
     func successGetBillingData(data: [BillingData]) {
         billingData = data
@@ -1024,7 +1024,7 @@ extension NewDontaionsViewController {
     }
 }
 
-extension NewDontaionsViewController: accpetAlertActionDelegate {
+extension Home_MiOfrenda: accpetAlertActionDelegate {
     func didPressAcccept() {
         webViewContainer.isHidden = true
         profileContent.isHidden = true
@@ -1045,7 +1045,7 @@ extension NewDontaionsViewController: accpetAlertActionDelegate {
     
 }
 
-extension NewDontaionsViewController: UIViewControllerTransitioningDelegate {
+extension Home_MiOfrenda: UIViewControllerTransitioningDelegate {
     
     func animationController(forDismissed dismissed: UIViewController) -> UIViewControllerAnimatedTransitioning? {
         
@@ -1081,7 +1081,7 @@ extension NewDontaionsViewController: UIViewControllerTransitioningDelegate {
     
 }
 
-extension NewDontaionsViewController: WKScriptMessageHandler{
+extension Home_MiOfrenda: WKScriptMessageHandler{
     func userContentController(_ userContentController: WKUserContentController, didReceive message: WKScriptMessage) {
         if (message.name == "sumbitToiOS") {
             DispatchQueue.main.asyncAfter(deadline: .now() + 3.0){
@@ -1115,7 +1115,7 @@ extension NewDontaionsViewController: WKScriptMessageHandler{
     }
 }
 
-extension NewDontaionsViewController: WKNavigationDelegate {
+extension Home_MiOfrenda: WKNavigationDelegate {
     func webView(_ webView: WKWebView, didFinish navigation: WKNavigation!) {
         let script = "document.getElementsByTagName('button')[0].onclick=showToast"
         self.myWebView.evaluateJavaScript(script) { value, error in
@@ -1140,9 +1140,9 @@ extension NewDontaionsViewController: WKNavigationDelegate {
 }
 
 //MARK: - ECUForm
-extension NewDontaionsViewController: ECUForm {}
+extension Home_MiOfrenda: ECUForm {}
 
-extension NewDontaionsViewController {
+extension Home_MiOfrenda {
     private func setupFields() {
         taxSocialReasonField.shouldChangeCharacters = { !$0.evaluateRegEx(for: ECURegexValidation.notName.rawValue) }
         

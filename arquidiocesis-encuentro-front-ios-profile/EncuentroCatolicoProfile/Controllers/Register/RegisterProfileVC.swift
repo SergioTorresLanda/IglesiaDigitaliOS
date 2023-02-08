@@ -497,7 +497,7 @@ class RegisterProfileViewController: BaseViewController, ProfileInfoViewProtocol
             let accept = UIAlertAction(title: "Aceptar", style: .default, handler: {
                 [weak self]
                 _ in
-                let singleton = ProfileInfoView.sinleton
+                let singleton = Home_Perfil.sinleton
                 singleton.isPresentPriestAlert = true
                 UserDefaults.standard.set("sacerdote", forKey: "profile")
                 self?.navigationController?.popViewController(animated: true)

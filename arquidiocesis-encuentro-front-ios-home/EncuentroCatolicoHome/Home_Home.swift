@@ -23,7 +23,7 @@ import Firebase
 import SwiftUI
 import Network
 
-class HomeViewController: UIViewController, HomeViewProtocol, UITextFieldDelegate, UNUserNotificationCenterDelegate, YourCellDelegate, MyCellDelegate {
+class Home_Home: UIViewController, HomeViewProtocol, UITextFieldDelegate, UNUserNotificationCenterDelegate, YourCellDelegate, MyCellDelegate {
     func didPressCell(sender: Any) {
         print("HomeVC Did press cell")
     }
@@ -54,7 +54,7 @@ class HomeViewController: UIViewController, HomeViewProtocol, UITextFieldDelegat
     @IBOutlet weak var tableHeight: NSLayoutConstraint!
     @IBOutlet weak var SVheight: NSLayoutConstraint!
     
-    static let singleton = HomeViewController()
+    static let singleton = Home_Home()
     var arraySelectedCell = [false, false, false, false, false, false, false]
     let alert = UIAlertController(title: "", message: "\n \n \n \n \nCargando...", preferredStyle: .alert)
     var data: UserRespHome?
@@ -137,7 +137,11 @@ class HomeViewController: UIViewController, HomeViewProtocol, UITextFieldDelegat
         super.viewWillAppear(animated)
         print("VC ECHome - HomeVC ")
         setNeedsStatusBarAppearanceUpdate()
-        actionsViewWillAppear()
+        
+        DispatchQueue.main.asyncAfter(deadline: .now() + 0.5) {
+            self.actionsViewWillAppear()
+        }
+    
     }
     override var preferredStatusBarStyle: UIStatusBarStyle {
         .lightContent
@@ -203,7 +207,7 @@ class HomeViewController: UIViewController, HomeViewProtocol, UITextFieldDelegat
         //print("RESET")
         //print(Analytics.appInstanceID() ?? "matame")
         //print("HOME DID APPEAR::: "+Analytics.debugDescription())
-        Analytics.logEvent("custom_param", parameters: ["screen_class" : screenName]) //no funciona?
+        //Analytics.logEvent("custom_param", parameters: ["screen_class" : screenName]) //no funciona?
     }
     
     func setupInternetObserver(){
@@ -260,12 +264,12 @@ class HomeViewController: UIViewController, HomeViewProtocol, UITextFieldDelegat
                     defaults.setValue(user?.UserAttributes.userRole, forKey: "role")
                     defaults.setValue(user?.UserAttributes.profile, forKey: "profile")
                     defaults.setValue("\(nombre) \(apellido1 )", forKey: "COMPLETENAME")
+                    //defaults.setValue(user?.UserAttributes., forKey: "id")
                     self.nombrePersona.adjustsFontSizeToFitWidth = true
                     self.nombrePersona.text = nombre + " " + apellido1
                     self.nombrePersona.adjustsFontSizeToFitWidth = true
                     if profile == "DEVOTED_ADMIN" || profile == "DEAN_PRIEST"{
                         UserDefaults.standard.set(true, forKey: "isPriest")
-                        1
                     }else{
                         UserDefaults.standard.set(false, forKey: "isPriest")
                     }
@@ -379,7 +383,7 @@ class HomeViewController: UIViewController, HomeViewProtocol, UITextFieldDelegat
             nombrePersona.textColor = blueEncuentro
             lblAdmin.isHidden = true
             gearIcon.image = UIImage(named: "gearBlue", in: Bundle.local, compatibleWith: nil)
-            userImage.layer.borderWidth = 2
+            userImage.layer.borderWidth = 1
             userImage.layer.borderColor = blueEncuentro.cgColor
             
         case UserProfileEnum.fieladministrador.rawValue, UserProfileEnum.Sacerdoteadministrador.rawValue:
@@ -388,7 +392,7 @@ class HomeViewController: UIViewController, HomeViewProtocol, UITextFieldDelegat
             nombrePersona.textColor = blueEncuentro
             lblAdmin.isHidden = false
             gearIcon.image = UIImage(named: "gearGold", in: Bundle.local, compatibleWith: nil)
-            userImage.layer.borderWidth = 2
+            userImage.layer.borderWidth = 1
             userImage.layer.borderColor = goldEncuentro.cgColor
             
         case UserProfileEnum.Sacerdotedecano.rawValue:
@@ -397,7 +401,7 @@ class HomeViewController: UIViewController, HomeViewProtocol, UITextFieldDelegat
             nombrePersona.textColor = .white
             lblAdmin.isHidden = true
             gearIcon.image = UIImage(named: "gearGold", in: Bundle.local, compatibleWith: nil)
-            userImage.layer.borderWidth = 2
+            userImage.layer.borderWidth = 1
             userImage.layer.borderColor = goldEncuentro.cgColor
             
         default:
@@ -406,7 +410,7 @@ class HomeViewController: UIViewController, HomeViewProtocol, UITextFieldDelegat
             nombrePersona.textColor = blueEncuentro
             lblAdmin.isHidden = true
             gearIcon.image = UIImage(named: "gearBlue", in: Bundle.local, compatibleWith: nil)
-            userImage.layer.borderWidth = 2
+            userImage.layer.borderWidth = 1
             userImage.layer.borderColor = blueEncuentro.cgColor
             
         }
@@ -440,7 +444,7 @@ class HomeViewController: UIViewController, HomeViewProtocol, UITextFieldDelegat
     
     
     func validateProfileOnboarding() {
-        let singleton = HomeViewController.singleton
+        let singleton = Home_Home.singleton
         singleton.isFromPrayModal = "OTHER"
         let profile = UserDefaults.standard.string(forKey: "profile")
         if showOnboarding == "true" {
@@ -561,7 +565,7 @@ class HomeViewController: UIViewController, HomeViewProtocol, UITextFieldDelegat
             print(type, library)
             switch type {
             case "VIDEO":
-                let singleton = HomeViewController.singleton
+                let singleton = Home_Home.singleton
                 singleton.isFromPrayModal = "VIDEO"
                 guard let url = URL(string: url) else { return }
                 let view = ModalWebViewController.showWebModal(url: url.absoluteString.embedAndPlayYoutubeURL(), type: "VIDEO")
@@ -571,14 +575,14 @@ class HomeViewController: UIViewController, HomeViewProtocol, UITextFieldDelegat
 
             case "LINK":
                 if library == "PRAYERS" {
-                    let singleton = HomeViewController.singleton
+                    let singleton = Home_Home.singleton
                     singleton.isFromPrayModal = "PRAY"
                     let view = OracionesDetailRouter.getDetailView(id: id)
                     view.transitioningDelegate = self
                     view.modalPresentationStyle = .overFullScreen
                     self.navigationController?.pushViewController(view, animated: true)
                 }else{
-                    let singleton = HomeViewController.singleton
+                    let singleton = Home_Home.singleton
                     singleton.isFromPrayModal = "OTHER"
                     let view = ModalWebViewController.showWebModal(url: url, type: "OTHER")
                     view.modalPresentationStyle = .overFullScreen
@@ -740,6 +744,7 @@ class HomeViewController: UIViewController, HomeViewProtocol, UITextFieldDelegat
     }
     
     @objc func openDonation(_ sender: Any){
+        print(":::DONATIONS:::")
         let view = DonationsRouter.createModule()
         self.navigationController?.pushViewController(view, animated: true)
     }
@@ -758,7 +763,7 @@ class HomeViewController: UIViewController, HomeViewProtocol, UITextFieldDelegat
     
     @objc func popViews(){
         for controller in self.navigationController!.viewControllers as Array {
-            if controller.isKind(of: HomeViewController.self) {
+            if controller.isKind(of: Home_Home.self) {
                 self.navigationController!.popToViewController(controller, animated: true)
                 break
             }
@@ -806,6 +811,7 @@ class HomeViewController: UIViewController, HomeViewProtocol, UITextFieldDelegat
     }
     
     @IBAction func openDonations(_ sender: Any){
+        print(":::NEW DONATIONS:::")
         let view = NewDonationsRouter.createModule()//DonationsWindow(nibName: "DonationsWindow", bundle: Bundle.local)
         self.navigationController?.pushViewController(view, animated: true)
         //self.present(view, animated: true, completion: nil)
@@ -918,12 +924,12 @@ extension UIImage {
     }
 }
 
-extension HomeViewController: UIViewControllerTransitioningDelegate {
+extension Home_Home: UIViewControllerTransitioningDelegate {
     func animationController(forDismissed dismissed: UIViewController) -> UIViewControllerAnimatedTransitioning? {
         transition.isPresenting = false
         let profile = UserDefaults.standard.string(forKey: "profile")
         
-        let singleton = HomeViewController.singleton
+        let singleton = Home_Home.singleton
         
         switch singleton.isFromPrayModal {
         case "PRAY":

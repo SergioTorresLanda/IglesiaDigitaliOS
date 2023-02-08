@@ -32,7 +32,7 @@ class SocialSearchView: UIViewController, SocialSearchViewProtocol {
         setupTableView()
         self.hideKeyboardWhenTappedAround()
         setupUI()
-
+        addDoneButtonOnKeyboard()
     }
     
 // MARK: SETUP FUNCTIONS -
@@ -101,6 +101,55 @@ class SocialSearchView: UIViewController, SocialSearchViewProtocol {
         }
         
         mainTableView.reloadData()
+    }
+    
+    //MARK: KEYBOARD
+    func addDoneButtonOnKeyboard(){
+        let doneToolbar: UIToolbar = UIToolbar(frame: CGRect.init(x: 0, y: 0, width: UIScreen.main.bounds.width, height: 50))
+             doneToolbar.barStyle = .default
+        let flexSpace = UIBarButtonItem(barButtonSystemItem: .flexibleSpace, target: nil, action: nil)
+        let done: UIBarButtonItem = UIBarButtonItem(title: "Listo", style: .done, target: self, action: #selector(self.doneButtonAction))
+        let items = [flexSpace, done]
+        doneToolbar.items = items
+        doneToolbar.sizeToFit()
+        searchField.inputAccessoryView = doneToolbar
+    }
+
+    @objc func doneButtonAction(){
+        searchField.resignFirstResponder()
+    }
+    
+    func textFieldShouldReturn(_ textField: UITextField) -> Bool {
+        textField.resignFirstResponder()
+        return false
+    }
+    // For showing/hiding keyboard
+    func registerForKeyboardNotifications(){
+        //Adding notifies on keyboard appearing
+        NotificationCenter.default.addObserver(
+            self,
+            selector: #selector(keyboardWasShown(notification:)),
+            name: UIResponder.keyboardWillShowNotification, object: nil)
+        NotificationCenter.default.addObserver(self, selector: #selector(keyboardWillBeHidden(notification:)), name: UIResponder.keyboardWillHideNotification, object: nil)
+    }
+    
+    func deregisterFromKeyboardNotifications(){
+        //Removing notifies on keyboard appearing
+        NotificationCenter.default.removeObserver(self, name: UIResponder.keyboardWillShowNotification, object: nil)
+        NotificationCenter.default.removeObserver(self, name: UIResponder.keyboardWillHideNotification, object: nil)
+    }
+ 
+    @objc func keyboardWasShown(notification: NSNotification){
+    }
+    
+    @objc func keyboardWillBeHidden(notification: NSNotification){
+        self.view.endEditing(true)
+    }
+    
+    func textFieldDidBeginEditing(_ textField: UITextField){
+    }
+    
+    func textFieldDidEndEditing(_ textField: UITextField){
     }
 
 }

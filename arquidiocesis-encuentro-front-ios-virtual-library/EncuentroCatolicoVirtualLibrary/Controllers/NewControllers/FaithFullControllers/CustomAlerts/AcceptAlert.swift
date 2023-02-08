@@ -7,7 +7,7 @@
 
 import UIKit
 
-protocol PushViewControllerDelegate: class {
+protocol PushViewControllerDelegate: AnyObject {
     func pushViewController(vc: UIViewController)
 }
 

@@ -18,6 +18,7 @@ extension SocialSearchView: UITableViewDelegate, UITableViewDataSource {
         let cell = tableView.dequeueReusableCell(withIdentifier: "FOLLOWCELL", for: indexPath) as! followCell
         cell.lblName.text = arrayResults[indexPath.row].name ?? ""
         cell.lblName.adjustsFontSizeToFitWidth = true
+        //cell.userImg.loadS(urlS: arrayResults[indexPath.row].)
         cell.userImg.borderImgColor(color: UIColor(red: 28/255, green: 117/255, blue: 188/255, alpha: 1), radius: cell.userImg.bounds.width / 2)
         print("%&/$", arrayResults[indexPath.row].relationship)
             if arrayResults[indexPath.row].relationship != nil {

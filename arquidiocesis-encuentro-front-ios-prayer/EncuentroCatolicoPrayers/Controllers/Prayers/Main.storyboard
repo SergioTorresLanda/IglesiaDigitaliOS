@@ -93,7 +93,7 @@
                                             <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" editable="NO" translatesAutoresizingMaskIntoConstraints="NO" id="YPl-f3-Zz0">
                                                 <rect key="frame" x="39" y="109" width="288" height="291"/>
                                                 <color key="backgroundColor" systemColor="systemBackgroundColor"/>
-                                                <color key="textColor" systemColor="labelColor"/>
+                                                <color key="textColor" name="eBlack"/>
                                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                 <textInputTraits key="textInputTraits" autocapitalizationType="sentences" smartDashesType="yes"/>
                                             </textView>
@@ -133,13 +133,13 @@
                                         <rect key="frame" x="0.0" y="-20" width="340" height="120"/>
                                         <subviews>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Oraciones" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Emg-XE-kUv">
-                                                <rect key="frame" x="52" y="82" width="216" height="23"/>
-                                                <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="19"/>
+                                                <rect key="frame" x="52" y="76" width="216" height="24"/>
+                                                <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="20"/>
                                                 <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                 <nil key="highlightedColor"/>
                                             </label>
                                             <imageView clipsSubviews="YES" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="back" translatesAutoresizingMaskIntoConstraints="NO" id="qSz-lh-a8R">
-                                                <rect key="frame" x="15" y="81" width="25" height="25"/>
+                                                <rect key="frame" x="15" y="75.5" width="25" height="25"/>
                                                 <constraints>
                                                     <constraint firstAttribute="width" constant="25" id="M0G-sI-AHO"/>
                                                     <constraint firstAttribute="height" constant="25" id="WTb-pd-mdz"/>
@@ -152,7 +152,7 @@
                                             <constraint firstItem="qSz-lh-a8R" firstAttribute="centerY" secondItem="Emg-XE-kUv" secondAttribute="centerY" id="bDy-ou-cS7"/>
                                             <constraint firstItem="qSz-lh-a8R" firstAttribute="leading" secondItem="Jev-Ti-TEc" secondAttribute="leading" constant="15" id="ebQ-F0-ofQ"/>
                                             <constraint firstAttribute="trailing" secondItem="Emg-XE-kUv" secondAttribute="trailing" constant="72" id="xEi-Ja-7H1"/>
-                                            <constraint firstAttribute="bottom" secondItem="Emg-XE-kUv" secondAttribute="bottom" constant="15" id="zD9-Cr-DA5"/>
+                                            <constraint firstAttribute="bottom" secondItem="Emg-XE-kUv" secondAttribute="bottom" constant="20" id="zD9-Cr-DA5"/>
                                         </constraints>
                                     </view>
                                 </subviews>
@@ -275,7 +275,7 @@
                                 <viewLayoutGuide key="frameLayoutGuide" id="YWg-DN-Hcd"/>
                             </scrollView>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="1gq-S7-hMQ">
-                                <rect key="frame" x="136" y="443" width="168" height="40"/>
+                                <rect key="frame" x="136" y="438" width="168" height="40"/>
                                 <color key="backgroundColor" name="eMainBlue"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="40" id="9GU-d2-LJk"/>
@@ -301,7 +301,7 @@
                             <constraint firstItem="PDM-8t-Qad" firstAttribute="leading" secondItem="mGB-hC-3yV" secondAttribute="leading" id="Krg-xh-doN"/>
                             <constraint firstAttribute="bottom" secondItem="cbI-We-N0j" secondAttribute="bottom" constant="80" id="MbD-3k-zcP"/>
                             <constraint firstAttribute="bottom" secondItem="CQX-M0-g8i" secondAttribute="bottom" id="PzI-dk-eKv"/>
-                            <constraint firstItem="mmb-vq-o7n" firstAttribute="bottom" secondItem="1gq-S7-hMQ" secondAttribute="bottom" constant="85" id="SaN-3w-GeU"/>
+                            <constraint firstAttribute="bottom" secondItem="1gq-S7-hMQ" secondAttribute="bottom" constant="90" id="SaN-3w-GeU"/>
                             <constraint firstItem="cbI-We-N0j" firstAttribute="leading" secondItem="mmb-vq-o7n" secondAttribute="leading" id="TaP-Qa-uMh"/>
                             <constraint firstAttribute="trailing" secondItem="PDM-8t-Qad" secondAttribute="trailing" id="Txy-M8-Uky"/>
                             <constraint firstItem="GpX-SE-Ex5" firstAttribute="leading" secondItem="7eV-U0-YRS" secondAttribute="trailing" constant="14" id="e43-1f-WhB"/>
@@ -349,10 +349,10 @@
             </objects>
             <point key="canvasLocation" x="3549.375" y="53.87323943661972"/>
         </scene>
-        <!--Prayer View Controller-->
+        <!--Home Oraciones-->
         <scene sceneID="eJf-Gc-Fuh">
             <objects>
-                <viewController storyboardIdentifier="PrayerViewController" useStoryboardIdentifierAsRestorationIdentifier="YES" id="dG2-hI-yq3" customClass="PrayerViewController" customModule="EncuentroCatolicoPrayers" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="PrayerViewController" useStoryboardIdentifierAsRestorationIdentifier="YES" id="dG2-hI-yq3" customClass="Home_Oraciones" customModule="EncuentroCatolicoPrayers" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="dmQ-45-u0C">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -361,13 +361,13 @@
                                 <rect key="frame" x="0.0" y="-20" width="340" height="120"/>
                                 <subviews>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Oraciones     " textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="PUe-Fq-QxD">
-                                        <rect key="frame" x="116.5" y="78.5" width="107" height="21.5"/>
-                                        <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="18"/>
+                                        <rect key="frame" x="112" y="76" width="116.5" height="24"/>
+                                        <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="20"/>
                                         <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         <nil key="highlightedColor"/>
                                     </label>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="0Vv-5O-hdb">
-                                        <rect key="frame" x="22" y="77" width="15" height="25"/>
+                                        <rect key="frame" x="22" y="75.5" width="15" height="25"/>
                                         <constraints>
                                             <constraint firstAttribute="height" constant="25" id="BmE-51-vfL"/>
                                             <constraint firstAttribute="width" constant="15" id="NWf-KC-gMn"/>
@@ -483,7 +483,7 @@
                                                                                         <subviews>
                                                                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="El Padre nuestro" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="3" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="AFg-Nc-JDo">
                                                                                                 <rect key="frame" x="16" y="11" width="171" height="59"/>
-                                                                                                <fontDescription key="fontDescription" type="boldSystem" pointSize="15"/>
+                                                                                                <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="15"/>
                                                                                                 <nil key="textColor"/>
                                                                                                 <nil key="highlightedColor"/>
                                                                                             </label>
@@ -623,9 +623,6 @@
         <namedColor name="eMainBlue">
             <color red="0.0039215686274509803" green="0.12549019607843137" blue="0.40784313725490196" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </namedColor>
-        <systemColor name="labelColor">
-            <color white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-        </systemColor>
         <systemColor name="systemBackgroundColor">
             <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
         </systemColor>

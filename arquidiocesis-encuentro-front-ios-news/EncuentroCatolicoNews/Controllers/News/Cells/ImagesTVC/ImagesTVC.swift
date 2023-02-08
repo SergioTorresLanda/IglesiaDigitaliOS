@@ -9,11 +9,14 @@
 import UIKit
 
 
-public class ImagesTVC: UITableViewCell {
-
+public class ImagesTVC: UITableViewCell, VideosDelegate {
+    public func presentFullScreenVideo(videoURL: String?) {
+        print("QUE no haga nada")
+        //delegate?.presentFullScreenVideo(videoURL: videoURL)
+    }
+    
     //MARK: - @IBOutlets
     @IBOutlet public weak var selectButton: UIButton!
-    
     @IBOutlet public lazy var collectionView: UICollectionView? = {
         let collectionView = UICollectionView()
         return collectionView
@@ -23,11 +26,11 @@ public class ImagesTVC: UITableViewCell {
     public var media: [MediaData]? {
         didSet { collectionView?.reloadData() }
     }
+    //public weak var delegate: FeedTVCProtocol?
     
     //MARK: - Life cycle
     override public func awakeFromNib() {
         super.awakeFromNib()
-        
         setUpView()
     }
     
@@ -40,6 +43,7 @@ public class ImagesTVC: UITableViewCell {
         collectionView?.dataSource = self
         collectionView?.delegate = self
         collectionView?.register(UINib(nibName: "ImagesCVC", bundle: Bundle(for: ImagesCVC.self)), forCellWithReuseIdentifier: "ImagesCVC")
+        collectionView?.register(UINib(nibName: "VideoCVC", bundle: Bundle(for: VideoCVC.self)), forCellWithReuseIdentifier: "VideoCVC")
     }
 }
 
@@ -51,16 +55,22 @@ extension ImagesTVC: UICollectionViewDataSource {
     }
     
     public func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
-        let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "ImagesCVC", for: indexPath) as! ImagesCVC
         
-        if let image = media?[indexPath.row] {
-            
+        if let element = media?[indexPath.row] {
+            print("ELEMENT OK")
+            if let x = element.videoURL{
+                print("ES VIDEO")
+                let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "VideoCVC", for: indexPath) as! VideoCVC
+                cell.videoURL = x.absoluteString
+                cell.delegate = self
+                return cell
+            }else{
+                print("ES IMAGEN")
+            let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "ImagesCVC", for: indexPath) as! ImagesCVC
             //Images
-            cell.contentImage.image = image.image
-            
+            cell.contentImage.image = element.image
             cell.extraImagesView.isHidden = true
             cell.extraImagesLabel.isHidden = true
-            
             if indexPath.row == 2 {
                 if let media = media, media.count > 3 {
                     let extraImages = media.count - 3
@@ -70,9 +80,13 @@ extension ImagesTVC: UICollectionViewDataSource {
                     cell.extraImagesLabel.text = "+\(extraImages)"
                 }
             }
+            return cell
+                
+            }
+        }else{
+            let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "ImagesCVC", for: indexPath) as! ImagesCVC
+            return cell
         }
-        
-        return cell
     }
 }
 

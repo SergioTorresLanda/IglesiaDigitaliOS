@@ -85,7 +85,7 @@ class UncionMapView: UIViewController, UncionMapViewProtocol {
     }
     
     private func setupLogicService() {
-        let singleton = PrincipalViewSOS.singleton
+        let singleton = Home_SOSPrincipal.singleton
         
         if singleton.globalIndex == 0 {
 //            lblMainTitle.text = "Proporciona el nombre y la dirección de tu servicio/funeraria"
@@ -205,7 +205,7 @@ class UncionMapView: UIViewController, UncionMapViewProtocol {
         self.view.endEditing(true)
         searchAddress()
         DispatchQueue.main.asyncAfter(deadline: .now() + 0.5) {
-            let singleton = PrincipalViewSOS.singleton
+            let singleton = Home_SOSPrincipal.singleton
             switch singleton.globalIndex {
             case 0:
                 

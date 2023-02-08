@@ -2,9 +2,9 @@ import Foundation
 import UIKit
 import EncuentroCatolicoVirtualLibrary
 import Toast_Swift
-import FirebaseAnalytics
+import Firebase
 
-class ProfileInfoView: UIViewController {
+class Home_Perfil: UIViewController {
 // MARK: @IBOUTLETS -
     @IBOutlet weak var customNavBar: UIView!
     @IBOutlet weak var contentTopSection: UIView!
@@ -50,7 +50,7 @@ class ProfileInfoView: UIViewController {
     @IBOutlet weak var prefixView: UIView!
     @IBOutlet weak var btnDelete: UIButton!
     
-    static let sinleton = ProfileInfoView()
+    static let sinleton = Home_Perfil()
 // MARK: NEW GLOBAL VAR -
     var testStyle = "Religioso"
     var pickerLifeStyle: UIPickerView!
@@ -69,6 +69,8 @@ class ProfileInfoView: UIViewController {
     var arrayChurches : [String] = []
     var arrayImgchurches : [String] = []
     var arrayChurchesId : [Int] = []
+    var nameService = [String]()
+    var idService = [Int]()
     var mapChurchService : [Int:Int] = [:]
     var arrayServicesG : [Service] = []
     var arrayDictionariesTopics: [[String:Int]] = []
@@ -89,13 +91,12 @@ class ProfileInfoView: UIViewController {
     var arrayRadioBtn = ["Sí, a una iglesia", "Sí, a una comunidad", "No"]
     var arrayIsActive = [false, false, false]
     var serviceProvider = "Unspecified"
-    var nameService = [String]()
     var alertFields : AcceptAlert?
     var typeService="iglesia"
-    let screenName="iOS_Home_Perfil"
-    let screenClass="iOS_Home_Perfil"
+    let screenName="OS_Home_Perfil"
+    let screenClass="OS_Home_Perfil"
     
-    static let singleton = ProfileInfoView()
+    static let singleton = Home_Perfil()
     let imgDefault = "https://firebasestorage.googleapis.com/v0/b/emerwise-479d1.appspot.com/o/randomAssets%2Fspirit.webp?alt=media&token=dd020c20-d8ec-45f6-a8a2-3783c0234012"
 // MARK: CODE VIEW -
     lazy var contentViewSize = CGSize(width: view.frame.width, height: view.frame.height + 650)
@@ -188,7 +189,7 @@ class ProfileInfoView: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        let singleton = ProfileInfoView.sinleton
+        let singleton = Home_Perfil.sinleton
         singleton.isPresentPriestAlert = false
         setupDelegates()
         setupUI()
@@ -225,11 +226,8 @@ class ProfileInfoView: UIViewController {
         AllServicesData=[]
         
         showLoading()
-        //DispatchQueue.main.asyncAfter(deadline: .now() + 2, execute: {
-            //self.hideLoading()
-         //})
         presenter?.viewDidLoad()
-        let singleton = ProfileInfoView.sinleton
+        let singleton = Home_Perfil.sinleton
         if singleton.isPresentPriestAlert == true {
             print("Mustra la alerta")
             singleton.isPresentPriestAlert = false
@@ -237,10 +235,6 @@ class ProfileInfoView: UIViewController {
             view.modalPresentationStyle = .overFullScreen
             self.present(view, animated: true, completion: nil)
         }
-        
-        Analytics.logEvent(AnalyticsEventScreenView,
-                           parameters: [AnalyticsParameterScreenName: screenName,
-                                        AnalyticsParameterScreenClass: screenClass])
     }
     
 // MARK: SETUP FUNC -
@@ -571,6 +565,11 @@ class ProfileInfoView: UIViewController {
     
     @objc func TextBoxOn(_ textField: UITextField) {
         self.view.endEditing(true)
+        print("TEXT BOX ON")
+        if arrayChurches.count==10{
+            showCanonAlert(title: "¡Atención!", msg: "Puedes seleccionar un máximo de 10 iglesias")
+            return
+        }
         if isCongregation == false {
             lifeStatusSingleton="Laico"
             let view = ProfileMapWireFrame.createModuleMap(mapType: lifeStatusSingleton)
@@ -587,6 +586,7 @@ class ProfileInfoView: UIViewController {
     }
     
     @objc func TextBoxOnResp(_ texfield: UITextField) {
+        print("TEXT BOX ON RESP")
         isLaico = true
         indexFlow = 0
         churchRespField.text = ""
@@ -600,15 +600,20 @@ class ProfileInfoView: UIViewController {
     
     @objc func deleteChurchCard(sender: UIButton) {
         print(sender.tag)
-        
+        //let s2 = Home_Perfil.singleton
         arrayChurches.remove(at: sender.tag)
         arrayImgchurches.remove(at: sender.tag)
+        arrayChurchesId.remove(at: sender.tag)
+        print("quitar tarjeta")
+        print("COUNT:: ARRAYCHURCHES")
+        print(String(arrayChurchesId.count))
+        //print(String(s2.arrayChurchesId.count))
         churchCollection.reloadData()
         if arrayChurches.count == 0 {
             churchCollection.isHidden = true
         }
         
-        let singleton = ProfileMapViewController.singleton
+        let singleton = Perfil_Mapa.singleton
         singleton.idChurch = nil
         fieldsCollection[6].text = ""
         
@@ -679,7 +684,6 @@ class ProfileInfoView: UIViewController {
             arrayIsActive[index] = true
             switch index {
             case 0://Iglesia
-                
                 isLaico = false
                 btnSave.setTitle("Guardar", for: .normal)
                 churchCollection.isHidden = true
@@ -704,7 +708,7 @@ class ProfileInfoView: UIViewController {
                 serviceProvider = "CHURCH"
                 
             case 1://Comunidad
-                let singleton = ProfileMapViewController.singleton
+                let singleton = Perfil_Mapa.singleton
                 singleton.idChurch = nil
                 isLaico = true
                 switchResponsable.isOn = false
@@ -752,18 +756,21 @@ class ProfileInfoView: UIViewController {
     }
     
     func resetCardLists(){
+        let s = Home_Perfil.singleton
         arrayChurches=[]
         arrayChurchesId=[]
         arrayImgchurches=[]
         nameService=[]
+        idService=[]
+        s.mapChurchService=[:]
         churchCollection.reloadData()
     }
     
 // MARK: GENERAL FUNCS -
      func saveChanges() {
          print("SAVE CHANGESS")
-        let singleton = ProfileMapViewController.singleton
-        let singleton2 = ProfileInfoView.singleton
+        let singleton = Perfil_Mapa.singleton
+        let sPerfil = Home_Perfil.singleton
         let singleton3 = CongregationsView.singleton
         
         var loca: [Locations] = []
@@ -772,34 +779,30 @@ class ProfileInfoView: UIViewController {
         
         var services: [Service] = []
         
-        if singleton.idChurch != nil{
-            print(singleton2.selectedServiceID, serviceListID)
-            /*if singleton2.selectedServiceID == 0 {
+        //Si es comunidad, tener seleccionado un servicio.
+         if serviceProvider == "COMMUNITY" && sPerfil.selectedServiceID == 0 {
                 showCanonAlert(title: "¡Atención!", msg: "Selecciona el servicio que prestas.")
                 return
-            }*/
-            print("::::;;COUNTS::::::")
-            let resta = singleton2.arrayChurchesId.count-singleton2.mapChurchService.count
-            print(String(singleton2.mapChurchService.count))
-            print(String(singleton2.arrayChurchesId.count))
-            if resta > 0 {
-                showCanonAlert(title: "¡Atención!", msg: "Falta seleccionar el servicio que prestas en "+String(resta)+" iglesia(s)")
-                return
             }
-            print("::::;;SINGLETON::::::")
-            
-            arrayChurchesId.forEach({ id in
-                /*let s = Service(location_id: singleton.idChurch, service_id: singleton2.selectedServiceID)*/
-                let s = Service(location_id: id, service_id: singleton2.selectedServiceID)
-                print(s)
-                services.append(s)
-                print("se agrego iglesia")
-                print(id)
-            })
-          
-        }else{
-            print("::::;;SINGLETON NIL::::::")
+        print("::::;;COUNTS::::::")
+        //let resta = singleton2.arrayChurchesId.count-singleton2.mapChurchService.count
+         let resta = arrayChurchesId.count-sPerfil.mapChurchService.count
+         print(String(sPerfil.mapChurchService.count))
+        print(String(arrayChurchesId.count))
+        //Si es iglesia, para cada iglesia debe tener asignado un servicio
+        if serviceProvider == "CHURCH" && resta > 0 {
+            showCanonAlert(title: "¡Atención!", msg: "Falta seleccionar el servicio que prestas en "+String(resta)+" iglesia(s)")
+            return
         }
+        //singleton2.
+        arrayChurchesId.forEach({ id in
+            /*let s = Service(location_id: singleton.idChurch, service_id: singleton2.selectedServiceID)*/
+            let s = Service(location_id: id, service_id: sPerfil.mapChurchService[id])
+            print(s)
+            services.append(s)
+            print("se agrego iglesia")
+            print(id)
+        })
         
         var congregationA: [Congregation] = []
         let cong1 = Congregation(id: singleton3.selectedID)
@@ -892,10 +895,6 @@ class ProfileInfoView: UIViewController {
             print("::::::::SERVICE PROVIDER::::: "+serviceProvider)
             switch serviceProvider {
             case "CHURCH":
-                if(services.isEmpty){
-                    showCanonAlert(title: "Atención", msg: "Selecciona la iglesia a la que prestas el servicio.")
-                    return
-                }
                 registerNewLaico = ProfileState(username: fieldsCollection[4].text ?? "", id: idGlobal, name: fieldsCollection[0].text ?? "", first_surname: fieldsCollection[1].text ?? "", second_surname: fieldsCollection[2].text ?? "", phone_number: fieldsCollection[3].text ?? "", email: fieldsCollection[4].text ?? "", service_provider: serviceProvider, location_id: idChurchLaico, is_admin: false, life_status: life, interest_topics: topicArray, services_provided: services)
                 
             case "COMMUNITY":

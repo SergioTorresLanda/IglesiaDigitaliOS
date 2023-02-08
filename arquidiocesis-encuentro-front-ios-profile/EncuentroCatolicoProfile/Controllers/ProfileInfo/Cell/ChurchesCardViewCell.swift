@@ -90,9 +90,9 @@ extension ChurchesCardViewCell: UIPickerViewDelegate, UIPickerViewDataSource{
     
     func pickerView(_ pickerView: UIPickerView, didSelectRow row: Int, inComponent component: Int) {
         fieldServices.text = arrayNames[row]
-        let singleton = ProfileInfoView.singleton
-        singleton.selectedServiceID = arrayIds[row]
-        singleton.mapChurchService[churchId]=arrayIds[row]//.count debe ser igual al array de iglesias
+        let s = Home_Perfil.singleton
+        s.selectedServiceID = arrayIds[row]
+        s.mapChurchService[churchId]=arrayIds[row]//.count debe ser igual al array de iglesias
     }
     
 }

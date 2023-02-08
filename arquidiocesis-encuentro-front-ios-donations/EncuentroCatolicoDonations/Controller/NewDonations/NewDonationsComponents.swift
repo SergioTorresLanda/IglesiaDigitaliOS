@@ -8,18 +8,15 @@
 import Foundation
 import UIKit
 
-extension NewDontaionsViewController: UICollectionViewDelegate, UICollectionViewDataSource {
+extension Home_MiOfrenda: UICollectionViewDelegate, UICollectionViewDataSource {
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
         
         var count = 0
-        
         switch collectionView {
         case menuCollection:
             count = 5
-            
         case radioBtnYesCollection:
             count = itemsRadioBtn.count
-            
         default:
             break
         }
@@ -36,14 +33,18 @@ extension NewDontaionsViewController: UICollectionViewDelegate, UICollectionView
             switch indexPath.item {
             case 0, 2, 4:
                 cell.contentView.alpha = 0
-            default:
+            case 1:
                 cell.nameItem.text = menuItems[indexPath.item]
-                
                 if #available(iOS 13.0, *) {
                     cell.imgItem.image = UIImage(systemName: menuIcons[indexPath.item])
-                } else {
-                  break
                 }
+            case 3:
+                cell.nameItem.text = menuItems[indexPath.item]
+                if #available(iOS 13.0, *) {
+                    cell.imgItem.image = UIImage(systemName: menuIcons[indexPath.item])
+                }
+            default:
+                break
             }
             
             return cell
@@ -66,28 +67,23 @@ extension NewDontaionsViewController: UICollectionViewDelegate, UICollectionView
     }
     
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
+        let statixMinX = menuCollection.frame.minX
+        var axisX = 61 * indexPath.item
+        axisX += Int(statixMinX)
+        menuLine.backgroundColor = UIColor.init(red: 1/255, green: 32/255, blue: 104/255, alpha: 1)
+        menuLine.layer.cornerRadius = 3
+        UIView.animate(withDuration: 0.3) {
+            self.menuLine.frame = CGRect(x: CGFloat(axisX), y: self.menuCollection.frame.maxY, width: 61, height: 3)
+        }
         switch indexPath.item {
         case 1:
-            let statixMinX = menuCollection.frame.minX
-            var axisX = 61 * indexPath.item
-            axisX += Int(statixMinX)
-            UIView.animate(withDuration: 0.3) {
-                self.menuLine.frame = CGRect(x: CGFloat(axisX), y: self.menuCollection.frame.maxY, width: 61, height: 3)
-            }
             detailChurchStack.isHidden = true
             addDataContainerView.isHidden = true
             searchContent.isHidden = false
             lblContainerView.isHidden = false
             churchListStack.isHidden = false
             flowId = 0
-            
         case 3:
-            let statixMinX = menuCollection.frame.minX
-            var axisX = 61 * indexPath.item
-            axisX += Int(statixMinX)
-            UIView.animate(withDuration: 0.3) {
-                self.menuLine.frame = CGRect(x: CGFloat(axisX), y: self.menuCollection.frame.maxY, width: 61, height: 3)
-            }
             showLoading()
             churchListStack.isHidden = true
             searchContent.isHidden = true
@@ -104,12 +100,13 @@ extension NewDontaionsViewController: UICollectionViewDelegate, UICollectionView
         default:
             break
         }
-       
     }
+    
+    
     
 }
 
-extension NewDontaionsViewController: UICollectionViewDelegateFlowLayout {
+extension Home_MiOfrenda: UICollectionViewDelegateFlowLayout {
 
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, minimumLineSpacingForSectionAt section: Int) -> CGFloat {
         return 0
@@ -120,7 +117,7 @@ extension NewDontaionsViewController: UICollectionViewDelegateFlowLayout {
     }
 }
 
-extension NewDontaionsViewController: UITableViewDelegate, UITableViewDataSource {
+extension Home_MiOfrenda: UITableViewDelegate, UITableViewDataSource {
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         var count = 0
         switch tableView {
@@ -173,7 +170,7 @@ extension NewDontaionsViewController: UITableViewDelegate, UITableViewDataSource
     
 }
 
-extension NewDontaionsViewController: UIPickerViewDelegate, UIPickerViewDataSource {
+extension Home_MiOfrenda: UIPickerViewDelegate, UIPickerViewDataSource {
     func numberOfComponents(in pickerView: UIPickerView) -> Int {
         return 1
     }
@@ -237,7 +234,7 @@ extension NewDontaionsViewController: UIPickerViewDelegate, UIPickerViewDataSour
 }
 
 // MARK: TEXT FIELD EXTENSION -
-extension NewDontaionsViewController: UITextFieldDelegate {
+extension Home_MiOfrenda: UITextFieldDelegate {
     func textField(_ textField: UITextField, shouldChangeCharactersIn range: NSRange, replacementString string: String) -> Bool {
         guard let textFieldText = textField.text,
                let rangeOfTextToReplace = Range(range, in: textFieldText) else {

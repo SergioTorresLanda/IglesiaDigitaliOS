@@ -52,8 +52,10 @@ public class SocialNetworkService {
         return request
     }
     
-    public func getRequestFollowers(strURL: String) -> URLRequest {
-        let url = URL(string: strURL)!
+    public func getRequestFollowers(strURL: String, pagination:String) -> URLRequest {
+        //let url = URL(string: strURL)!
+        let nxtPag = pagination.count > 0 ? "&nextPage=\(pagination)" : ""
+        let url: URL = URL(string: "\(strURL)\(nxtPag)")!
         var request = URLRequest(url: url)
         request.httpMethod = HTTPMethod.get.rawValue
         request.setValue("application/json; charset=UTF-8", forHTTPHeaderField: "Content-Type")
@@ -91,20 +93,27 @@ public class SocialNetworkService {
         return request
     }
     
-    public func postRequestFollowers<T: Codable>(strUrl: String, param: T?) -> URLRequest{
+    public func postRequestFollowers(strUrl: String, param: Dictionary<String, Any>) -> URLRequest{
         let endPoint: URL = URL(string: strUrl)!
         var request = URLRequest(url: endPoint)
-        request.timeoutInterval = 3
+        request.timeoutInterval = 10
         request.setValue("application/json", forHTTPHeaderField: "Content-Type")
         let tksession = UserDefaults.standard.string(forKey: "idToken")
         print("TOKEN SESION")
-        print(tksession)
+        //print(tksession)
         request.setValue("Bearer \(tksession ?? "")", forHTTPHeaderField: "Authorization")
         request.httpMethod = "POST"
-        print(endPoint)
+        //print(endPoint)
         print(param)
-        let data = try? JSONEncoder().encode(param)
-        request.httpBody = data
+        //let data = try? JSONEncoder().encode(param)
+        guard let httpBody = try? JSONSerialization.data(withJSONObject: param, options: []) else {
+            print("No se puedo hacer JSON")
+            return request
+        }
+        print(httpBody)
+        request.httpBody = httpBody
+        //print(data ?? "noData")
+        //request.httpBody = data
         
         return request
     }

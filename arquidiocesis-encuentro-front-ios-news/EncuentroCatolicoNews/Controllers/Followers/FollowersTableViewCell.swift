@@ -27,6 +27,8 @@ class FollowersTableViewCell: UITableViewCell {
     func setData(follower: Followers, and index: Int){
         self.follower = follower
         self.index = index
+        print("EL NOMBRE ES:::")
+        print(follower.name)
         nameProfile.text = follower.name
         changeFollowed(isFollow: follower.isFollow)
         
@@ -43,9 +45,11 @@ class FollowersTableViewCell: UITableViewCell {
         imageProfile.clipsToBounds = true
         imageProfile.makeRounded()
         imageProfile.image = UIImage(named: "iconProfile", in: Bundle.local, compatibleWith: nil)
+        imageProfile.loadS(urlS: follower.image)
     }
     
     @objc func unFollow(){
+        print("unfollow")
         print("SE DEBERIA DE CAMBIAR EL ESTATUS")
         if follower?.isFollow ?? false{
             changeFollowed(isFollow: false)
@@ -56,6 +60,7 @@ class FollowersTableViewCell: UITableViewCell {
     }
     
     func changeFollowed(isFollow: Bool){
+        print("changefollowed")
         follower?.isFollow = isFollow
         if !isFollow{
             lblFollow.text = "Seguir"

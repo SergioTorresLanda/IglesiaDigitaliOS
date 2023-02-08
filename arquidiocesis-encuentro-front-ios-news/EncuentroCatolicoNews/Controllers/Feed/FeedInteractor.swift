@@ -31,21 +31,27 @@ public struct PublicationsWatch: Codable {
 }
 
 public class FeedInteractor: FeedInteractorProtocol {
+    //MARK: - Properties
+    weak var presenter: FeedPresenterProtocol?
+    private var snService = SocialNetworkService()
+    var nextPage = ""
+    var arPostGral: [Posts] = [Posts]()
+    var numPosts = 0
+    let SNId = UserDefaults.standard.integer(forKey: "SNId")
+    
     func getDeletePost(str: String) {
-        
         callDeleteService(strUrl: str)
     }
     
     func getPersonalDataUser() {
-        
     }
-    
     
     func callDeleteService(strUrl: String){
         let SNId = UserDefaults.standard.integer(forKey: "SNId")
         let request = snService.deleteRequestRS(strURL: strUrl, method: .profile)
         snService.makeRequest(request: request) { (data, error) in
             if let error = error{
+                print("didFinishGettingPostsWithErrors 6")
                 self.presenter?.didFinishGettingPostsWithErrors(error: error)
             }else {
                 do{
@@ -61,13 +67,7 @@ public class FeedInteractor: FeedInteractorProtocol {
         }
         
     }
-    
-    weak var presenter: FeedPresenterProtocol?
-    
-    //MARK: - Properties
-    private var snService = SocialNetworkService()
-    
-    
+
     // GGG Timeline
     func getNewPosts(isFromPage: Bool, isRefresh: Bool) {
         let SNId = UserDefaults.standard.integer(forKey: "SNId")
@@ -81,14 +81,15 @@ public class FeedInteractor: FeedInteractorProtocol {
         callService(nxtPage: nxtPag, userId: "\(SNId)", params: params, isFromPage: isFromPage, isPagination: true, isRefresh: false)
     }
     
-    var nextPage = ""
-    var arPostGral: [Posts] = [Posts]()
-    var numPosts = 0
-    let SNId = UserDefaults.standard.integer(forKey: "SNId")
     func callService(nxtPage: String?, userId: String, params: Timeline?, isFromPage: Bool, isPagination: Bool, isRefresh: Bool){
         print(":::::::: CALL SERVICE ;;;;;;;;;;")
         let stUrl = "\(APIType.shared.SN())/users/\(SNId)/timeline"
-      
+        if isRefresh{
+            nextPage=""
+            self.numPosts = 0
+            UserDefaults.standard.removeObject(forKey: "nextPageTL")
+            self.arPostGral = []
+        }
         var request = snService.getRequestRS(strUrl: stUrl, pagination: nextPage, method: .publicationsAll, params: params)
         request.timeoutInterval = 40
         snService.makeRequest(request: request) { (data, error) in
@@ -96,15 +97,11 @@ public class FeedInteractor: FeedInteractorProtocol {
                 DispatchQueue.main.asyncAfter(deadline: .now() + 3, execute: {
                     print("::::ERROR CALL SERVICE::: "+error.message)
                     print(stUrl)
+                    print("didFinishGettingPostsWithErrors 1")
                 })
                 self.presenter?.didFinishGettingPostsWithErrors(error: error)
             }else{
                 do {
-                    if isRefresh{
-                        self.numPosts = 0
-                        UserDefaults.standard.removeObject(forKey: "nextPageTL")
-                        self.arPostGral = []
-                    }
                     if isPagination{
                         self.numPosts = 0
                     }
@@ -133,6 +130,7 @@ public class FeedInteractor: FeedInteractorProtocol {
                 }catch{
                     DispatchQueue.main.asyncAfter(deadline: .now() + 3, execute: {
                         print("::::CATCH CALL SERVICE::: ")
+                        print("didFinishGettingPostsWithErrors 2")
                     })
                     self.presenter?.didFinishGettingPostsWithErrors(error: SocialNetworkErrors.ResponseError)
                 }
@@ -156,6 +154,7 @@ public class FeedInteractor: FeedInteractorProtocol {
         let request = snService.getRequestWP(method: .publicationsAll, params: params)
         snService.makeRequest(request: request) { (data, error) in
             if let error = error {
+                print("didFinishGettingPostsWithErrors 3")
                 self.presenter?.didFinishGettingPostsWithErrors(error: error)
             } else {
                 do {
@@ -164,6 +163,7 @@ public class FeedInteractor: FeedInteractorProtocol {
                     let json = try JSONSerialization.jsonObject(with: allData, options: .fragmentsAllowed) as? [String: Any]
                     guard let publications = json?["publications"] as? [[String : Any]],
                           let pages = json?["pages"] as? Int else {
+                        print("didFinishGettingPostsWithErrors 4")
                               self.presenter?.didFinishGettingPostsWithErrors(error: SocialNetworkErrors.ResponseError)
                               return
                           }
@@ -189,6 +189,7 @@ public class FeedInteractor: FeedInteractorProtocol {
                     self.presenter?.didFinishGettingPosts(isFromPage: isFromPage, posts: [])
                     
                 } catch {
+                    print("didFinishGettingPostsWithErrors 5")
                     self.presenter?.didFinishGettingPostsWithErrors(error: SocialNetworkErrors.ResponseError)
                 }
             }

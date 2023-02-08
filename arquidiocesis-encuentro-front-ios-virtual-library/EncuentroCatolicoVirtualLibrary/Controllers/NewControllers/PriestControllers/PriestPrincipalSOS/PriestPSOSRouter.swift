@@ -13,8 +13,8 @@ open class PriestPSOSRouter: PriestPSOSRouterProtocol {
     
     static public func createModule() -> UIViewController {
         
-        let storyboard = UIStoryboard(name: "Main", bundle: Bundle(for: PriestPSOSView.self))
-        let view: PriestPSOSView = storyboard.instantiateViewController(withIdentifier: "PriestViewSOS") as! PriestPSOSView
+        let storyboard = UIStoryboard(name: "Main", bundle: Bundle(for: Home_SOSPriest.self))
+        let view: Home_SOSPriest = storyboard.instantiateViewController(withIdentifier: "PriestViewSOS") as! Home_SOSPriest
         let interactor = PriestPSOSInteractor()
         let router = PriestPSOSRouter()
         let presenter = PriestPSOSPresenter(interface: view, interactor: interactor, router: router)

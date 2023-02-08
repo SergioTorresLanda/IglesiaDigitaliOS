@@ -17,7 +17,7 @@ public enum TabItem: String, CaseIterable {
     public var viewController: UIViewController {
         switch self {
         case .feed:
-            let feed = FeedRouter.createModule() as! FeedViewController
+            let feed = FeedRouter.createModule() as! Home_RedSocial
             let navigationController = UINavigationController(rootViewController: feed)
             navigationController.navigationBar.isHidden = true
             return navigationController
@@ -25,7 +25,7 @@ public enum TabItem: String, CaseIterable {
 //            return ProfileRouter.createModule()
         return UIViewController()
         case .groups:
-            let feed = FeedRouter.createModule() as! FeedViewController
+            let feed = FeedRouter.createModule() as! Home_RedSocial
             let navigationController = UINavigationController(rootViewController: feed)
             navigationController.navigationBar.isHidden = true
             return navigationController

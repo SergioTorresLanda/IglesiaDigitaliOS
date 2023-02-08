@@ -7,9 +7,9 @@
 
 import UIKit
 
-class PrincipalViewSOS: UIViewController, PrincipalViewProtocol, UIViewControllerTransitioningDelegate {
+class Home_SOSPrincipal: UIViewController, PrincipalViewProtocol, UIViewControllerTransitioningDelegate {
     
-    static let singleton = PrincipalViewSOS()
+    static let singleton = Home_SOSPrincipal()
     let transition = SlideTransition()
     let defaults = UserDefaults.standard
     var presenter: PrincipalPresenterProtocol?
@@ -50,7 +50,7 @@ class PrincipalViewSOS: UIViewController, PrincipalViewProtocol, UIViewControlle
         showLoading()
         setupUI()
         presenter?.getData()
-        let singleton = PrincipalViewSOS.singleton
+        let singleton = Home_SOSPrincipal.singleton
         singleton.isTap = false
         
     }
