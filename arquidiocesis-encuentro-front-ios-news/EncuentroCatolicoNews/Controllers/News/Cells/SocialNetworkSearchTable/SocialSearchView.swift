@@ -6,6 +6,7 @@
 //
 
 import UIKit
+import EncuentroCatolicoVirtualLibrary
 
 class SocialSearchView: UIViewController, SocialSearchViewProtocol {
     
@@ -25,7 +26,8 @@ class SocialSearchView: UIViewController, SocialSearchViewProtocol {
     var isFollowing = [false, false, true, false, true, true, false]
     
     var arrayResults = [ResultsSearch]()
-    
+    var paloma = "https://firebasestorage.googleapis.com/v0/b/emerwise-479d1.appspot.com/o/randomAssets%2Fspirit.webp?alt=media&token=dd020c20-d8ec-45f6-a8a2-3783c0234012"
+    let loadingAlert = UIAlertController(title: "", message: "\n \n \n \n \nCargando...", preferredStyle: .alert)
 // MARK: LIFE CYCLE VIEW FUNCTIONS -
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -33,6 +35,12 @@ class SocialSearchView: UIViewController, SocialSearchViewProtocol {
         self.hideKeyboardWhenTappedAround()
         setupUI()
         addDoneButtonOnKeyboard()
+    }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        if searchField.text != ""{
+            presenter?.requestSearch(searchText: searchField.text ?? "")
+        }
     }
     
 // MARK: SETUP FUNCTIONS -
@@ -83,7 +91,7 @@ class SocialSearchView: UIViewController, SocialSearchViewProtocol {
     
 // MARK: @OBJC FUNCTIONS -
     @objc func TapFollow(sender: UIButton) {
-        
+        showLoading()
         let sectionData = arrayResults[sender.tag]
         var type = 5
         switch sectionData.type {
@@ -99,8 +107,20 @@ class SocialSearchView: UIViewController, SocialSearchViewProtocol {
         }else{
             presenter?.requestFollowUF(method: "POST", entityId: sectionData.id ?? 0, entityType: type)
         }
-        
-        mainTableView.reloadData()
+        DispatchQueue.main.asyncAfter(deadline: .now() + 2.0) {
+            self.hideLoading()
+            self.presenter?.requestSearch(searchText: self.searchField.text ?? "")
+        }
+    }
+    
+    func showLoading() {
+        let imageView = UIImageView(frame: CGRect(x: 75, y: 25, width: 140, height: 60))
+        imageView.image = UIImage(named: "logoEncuentro", in: Bundle.local, compatibleWith: nil)
+        loadingAlert.view.addSubview(imageView)
+        present(loadingAlert, animated: true, completion: nil)
+    }
+    func hideLoading() {
+        loadingAlert.dismiss(animated: true, completion: nil)
     }
     
     //MARK: KEYBOARD

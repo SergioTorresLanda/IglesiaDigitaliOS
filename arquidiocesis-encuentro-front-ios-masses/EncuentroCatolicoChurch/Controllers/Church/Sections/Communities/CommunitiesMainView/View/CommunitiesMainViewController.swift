@@ -1053,7 +1053,7 @@ class CommunitiesMainViewController: UIViewController, CommunitiesMainViewProtoc
         
         let coordinates = CLLocationCoordinate2D(latitude: CLLocationDegrees(CGFloat(latitud)), longitude: CLLocationDegrees(CGFloat(longitude)))
         
-        let mapsAlert = UIAlertController(title: "Encuentro", message: "Selecciona una opción", preferredStyle: .actionSheet)
+        let mapsAlert = UIAlertController(title: "Iglesia Digital", message: "Selecciona una opción", preferredStyle: .actionSheet)
         let appleMaps = UIAlertAction(title: "Apple Maps", style: .default) {
             _ in
             let churchMapItem = MKMapItem(placemark: MKPlacemark(coordinate: coordinates))

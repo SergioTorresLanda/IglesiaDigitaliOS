@@ -4,7 +4,6 @@
     <dependencies>
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="20020"/>
-        <capability name="Named colors" minToolsVersion="9.0"/>
         <capability name="System colors in document resources" minToolsVersion="11.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
@@ -21,7 +20,7 @@
                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="aFB-3k-RQb">
                         <rect key="frame" x="4" y="0.0" width="410" height="166"/>
                         <subviews>
-                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="profileDemoIcon" translatesAutoresizingMaskIntoConstraints="NO" id="Aph-9W-24t">
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="profileDemoIcon" translatesAutoresizingMaskIntoConstraints="NO" id="Aph-9W-24t">
                                 <rect key="frame" x="0.0" y="0.0" width="50" height="50"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="50" id="8Sn-Xt-EKl"/>
@@ -82,7 +81,7 @@
                                         <state key="normal" title="Button"/>
                                         <buttonConfiguration key="configuration" style="plain" title="Responder">
                                             <fontDescription key="titleFontDescription" type="system" weight="medium" pointSize="12"/>
-                                            <color key="baseForegroundColor" name="AccentColor"/>
+                                            <color key="baseForegroundColor" red="0.0" green="0.45882352941176469" blue="0.8901960784313725" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                         </buttonConfiguration>
                                         <connections>
                                             <action selector="btnActionResponder:" destination="218-Sm-Jrr" eventType="touchUpInside" id="Zbf-Je-KZU"/>
@@ -170,9 +169,6 @@
         <image name="iconComments2" width="19.5" height="17"/>
         <image name="profileDemoIcon" width="100" height="100"/>
         <image name="threePointsV2" width="4" height="16"/>
-        <namedColor name="AccentColor">
-            <color red="0.0" green="0.46000000000000002" blue="0.89000000000000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-        </namedColor>
         <systemColor name="systemBackgroundColor">
             <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
         </systemColor>

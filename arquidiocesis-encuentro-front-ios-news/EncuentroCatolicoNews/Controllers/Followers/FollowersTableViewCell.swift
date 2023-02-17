@@ -52,16 +52,22 @@ class FollowersTableViewCell: UITableViewCell {
         print("unfollow")
         print("SE DEBERIA DE CAMBIAR EL ESTATUS")
         if follower?.isFollow ?? false{
+            print("originalmente true")
             changeFollowed(isFollow: false)
+            follower?.isFollow = false
+            delegate?.actionSelected(follower: follower, and: index ?? 0)
         }else{
+            print("originalmente false")
             changeFollowed(isFollow: true)
+            follower?.isFollow = true
+            delegate?.actionSelected(follower: follower, and: index ?? 0)
         }
-        delegate?.actionSelected(follower: follower, and: index ?? 0)
+     
     }
     
     func changeFollowed(isFollow: Bool){
         print("changefollowed")
-        follower?.isFollow = isFollow
+ 
         if !isFollow{
             lblFollow.text = "Seguir"
             lblFollow.textColor = UIColor(red: 117/255, green: 120/255, blue: 123/255, alpha: 1.0)
@@ -71,5 +77,6 @@ class FollowersTableViewCell: UITableViewCell {
             lblFollow.textColor = UIColor(red: 28/255, green: 117/255, blue: 188/255, alpha: 1.0)
             iconFollow.image = UIImage(named: "iconFollow2", in: Bundle.local, compatibleWith: nil)
         }
+   
     }
 }

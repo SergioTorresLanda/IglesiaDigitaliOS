@@ -215,8 +215,8 @@ extension Home_Home: UITableViewDelegate, UITableViewDataSource {
             SVheight.constant=855
             tableHeight.constant=600
         }else{
-            SVheight.constant=1155
-            tableHeight.constant=900
+            SVheight.constant=555
+            tableHeight.constant=300
         }
         
         return numberOfRowsT
@@ -261,20 +261,20 @@ extension Home_Home: UITableViewDelegate, UITableViewDataSource {
             print(":::ALL SECTIONS::: ")
             print(String(allSections.count))
             if indexPath.row >= allSections.startIndex && indexPath.row < allSections.endIndex {
-                if allSections[indexPath.row] is [HomeSaintOfDay] {
+                /*if allSections[indexPath.row] is [HomeSaintOfDay] {
                     print(":::SETUPP SAINT::: ")
                     cellSlider.setupSlider3(data: saintOfDay)
                     print(String(indexPath.row))
-                }
+                }*/
                 if allSections[indexPath.row] is [HomePosts] {
-                    print(":::SETUPP Desde la Fe::: ")
+                    print(":::SETUPP Noticias::: ")
                     print(String(indexPath.row))
-                    cellSlider.setupSlider2(data: realesesPost)
+                    cellSlider.setupSlider2(data: noticias)
                 }
                 if allSections[indexPath.row] is [HomeSuggestions] {
-                    print(":::SETUPP Sugerencias:::")
+                    print(":::SETUPP Espiritualidad:::")
                     print(String(indexPath.row))
-                    cellSlider.setupSlider(data: suggestions)
+                    cellSlider.setupSlider(data: espiritualidad)
                 }
             }else{
                 print("ERROR INDEX PATH: "+String(indexPath.row))

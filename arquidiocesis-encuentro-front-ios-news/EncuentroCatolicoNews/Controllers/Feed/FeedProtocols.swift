@@ -12,7 +12,7 @@ import Foundation
 import RealmSwift
 
 //MARK: Wireframe -
-protocol FeedWireframeProtocol: class {
+protocol FeedWireframeProtocol: AnyObject {
     
     //MARK: - ShowPostDetail
     func showPostDetail(navController: UINavigationController?, post: PublicationRealm)
@@ -33,7 +33,7 @@ protocol FeedWireframeProtocol: class {
 }
 
 //MARK: Presenter -
-protocol FeedPresenterProtocol: class {
+protocol FeedPresenterProtocol: AnyObject {
 
     //MARK: - Posts
     // GGG Timeline
@@ -43,10 +43,12 @@ protocol FeedPresenterProtocol: class {
     func getPosts(isFromPage: Bool)
     func didFinishGettingPosts(isFromPage: Bool, posts: [Posts])
     func didFinishGettingPostsWithErrors(error: SocialNetworkErrors)
-    
+    //MARK: - Follows
+    func getFollowed(snId:Int)
+    func getFollowsError(error: SocialNetworkErrors)
+    func getFollowsResponse(with response: ResponseFollowers?, hasMore: Bool)
     //MARK: - Watch
 //    func watchPost(postId: Int)
-    
     //MARK: - ShowPostDetail
     func showPostDetail(navController: UINavigationController?, post: PublicationRealm)
     
@@ -70,7 +72,7 @@ protocol FeedPresenterProtocol: class {
 }
 
 //MARK: Interactor -
-protocol FeedInteractorProtocol: class {
+protocol FeedInteractorProtocol: AnyObject {
     
     var presenter: FeedPresenterProtocol?  { get set }
     
@@ -80,7 +82,7 @@ protocol FeedInteractorProtocol: class {
     func getNewPostPagin(isFromPage: Bool, posts: [Posts], nxtPag: String)
     func getDeletePost(str: String)
     func getPosts(isFromPage: Bool)
-    
+    func getFollowed(snId:Int)
     //MARK: - Watch
 //    func watchPost(postId: Int)
     
@@ -89,14 +91,16 @@ protocol FeedInteractorProtocol: class {
 }
 
 //MARK: View -
-protocol FeedViewProtocol: class {
+protocol FeedViewProtocol: AnyObject {
     
     var presenter: FeedPresenterProtocol?  { get set }
     
     //MARK: - Posts
     func didFinishGettingPosts(isFromPage: Bool, posts: [Posts])
     func didFinishGettingPostsWithErrors(error: SocialNetworkErrors)
-    
+    //MARK: - Follows
+    func getFollowsServiceError(error: SocialNetworkErrors)
+    func getArrFollows(followeds: [Followers], hasMore:Bool)
     //MARK: - Notifications
     func didFinishGettingNotifications(notificationsCount: String?)
 }

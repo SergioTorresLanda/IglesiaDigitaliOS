@@ -31,23 +31,17 @@ class SearchSocialInteractor: SocialSearchInteractorProtocol {
             //print("->  respuesta Status Code: ", response as Any)
             //print("->  error: ", error as Any)
             do {
-                if (response as! HTTPURLResponse).statusCode == 401 {
-                    print("Here token code")
-                }else{
-                    print("RES:::")
-                    guard let apiData = data else { return }
-                    let contentResponse = try JSONDecoder().decode(SerachResponse.self, from: apiData)
-                    print(contentResponse)
-                    self.presenter?.onSuccessRequestSearch(data: contentResponse, reponse: response as! HTTPURLResponse)
-                }
+                print("RES:::")
+                guard let apiData = data else { return }
+                let contentResponse = try JSONDecoder().decode(SerachResponse.self, from: apiData)
+                print(contentResponse)
+                self.presenter?.onSuccessRequestSearch(data: contentResponse, reponse: response as! HTTPURLResponse)
             }catch{
                 print("Download serach error", error, error.localizedDescription)
                 self.presenter?.onFailRequestSearch(error: error)
             }
         }
-        
         work.resume()
-        
     }
     
     func followAndFollowUF(method: String, entityId: Int, entityType: Int) {
@@ -66,15 +60,13 @@ class SearchSocialInteractor: SocialSearchInteractorProtocol {
             "entityType" : entityType
             
         ]
-        print("LOS NUEVOS PARAMETROS QUE ME PUEDEN SER DE UTILIDAD")
+        print("FOLLOW/UF DESDE SOCIAL SEARCH :::::")
         print(urlString)
         print(request)
         print(bodyParams)
         let body = try! JSONSerialization.data(withJSONObject: bodyParams)
         //print(tksession)
         //print(body)
-        
-        
         request.setValue("Bearer \(tksession ?? "")", forHTTPHeaderField: "Authorization")
         request.httpMethod = method
         if method == "POST" {
@@ -85,22 +77,19 @@ class SearchSocialInteractor: SocialSearchInteractorProtocol {
         let work = URLSession.shared.dataTask(with: request) { data, response, error in
             //print("->  respuesta Status Code: ", response as Any)
             //print("->  error: ", error as Any)
-
             do{
                 guard let responseData = data else { return }
                 let contentReponse = try JSONDecoder().decode(FollowResponse.self, from: responseData)
-                self.presenter?.onSuccessRequestFollowUF(data: contentReponse, response: (response as! HTTPURLResponse))
-                print("Fer conten", contentReponse)
+                //self.presenter?.onSuccessRequestFollowUF(data: contentReponse, response: (response as! HTTPURLResponse))
+                print("Follow and unfollow conten")
                 print(contentReponse)
                 
             }catch{
                 print("Error follow", error, error.localizedDescription)
-                self.presenter?.onFailRequestFollowUF(error: error)
+                //self.presenter?.onFailRequestFollowUF(error: error)
             }
         }
-        
         work.resume()
-        
     }
     
 }

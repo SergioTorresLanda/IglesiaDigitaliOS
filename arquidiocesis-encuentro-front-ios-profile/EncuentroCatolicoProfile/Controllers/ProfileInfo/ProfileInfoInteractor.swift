@@ -8,7 +8,8 @@ class ProfileInfoInteractor: ProfileInfoInteractorInputProtocol {
     
     let API = "\(APIType.shared.Auth())"
     let APIImage = "\(APIType.shared.User())"
-    
+    let staged = UserDefaults.standard.string(forKey: "stage")
+
     func postImgBase64(elementID: Int, type: String, filename: String, contentBase64: String) {
         guard let apiURL = URL(string: APIImage + "/s3-upload") else { return }
         var request = URLRequest(url: apiURL)
@@ -340,10 +341,6 @@ class ProfileInfoInteractor: ProfileInfoInteractorInputProtocol {
     
     
     func postLaicoReligioso(request: ProfileCongregation) {
-        //        RequestManager.shared.perform(route: RegisterRouter.profileDiacono(request: request)) {
-        //            [weak self] result, _ in
-        //            self?.presenter?.responseDiacono(result: result)
-        //        }
         let dictionary = request
         guard let endpoint: URL = URL(string: "\(API)/" + "user/update" ) else {
             print("Error formando url religioso")
@@ -358,7 +355,9 @@ class ProfileInfoInteractor: ProfileInfoInteractorInputProtocol {
         request.setValue("Bearer \( tksession ?? "")", forHTTPHeaderField: "Authorization")
         let encoder = JSONEncoder()
         encoder.outputFormatting = .prettyPrinted
+        print(dictionary)
         guard let body = try? encoder.encode(dictionary) else { return  }
+        print(body)
         request.httpBody = body
         let tarea = URLSession.shared.dataTask(with: request) { data, response, error in
           
@@ -382,16 +381,28 @@ class ProfileInfoInteractor: ProfileInfoInteractorInputProtocol {
     }
     
     func postState(request: ProfileState) {
-        //RequestManager.shared.perform(route: RegisterRouter.profileState(request: request)) {
-          //  [weak self] result, _ in
-            //self?.presenter?.responseState(result: result)
-        //}
+       
         let dictionary = request
-        guard let endpoint: URL = URL(string: "\(API)/" + "user/update" ) else {
+        /*guard let endpoint: URL = URL(string: "\(API)/" + "user/update" ) else {
             print("Error formando url")
             self.presenter?.responsePriest(errores: ServerErrors.ErrorServidor, data: nil)
             return
+        }*/
+        
+        //TEMPORALLL
+        var API2=""
+        if staged == "Qa" {
+             API2 = "https://fozto7kqkker5ug4krqat3uvwi0zkwgc.lambda-url.us-east-1.on.aws/user/update"
+        }else if staged == "Prod" {
+            API2 = "https://api.iglesia-digital.com.mx/arquidiocesis/gestion-usuarios/v1"
         }
+        guard let endpoint: URL = URL(string: "\(API2)/" + "user/update" ) else {
+            print("Error formando url religioso")
+            self.presenter?.responsePriest(errores: ServerErrors.ErrorServidor, data: nil)
+            return
+        }
+        print("::EL endPoInt 333 es :::")
+        print(endpoint.absoluteString)
         
         var request = URLRequest(url: endpoint)
         request.httpMethod = "POST"

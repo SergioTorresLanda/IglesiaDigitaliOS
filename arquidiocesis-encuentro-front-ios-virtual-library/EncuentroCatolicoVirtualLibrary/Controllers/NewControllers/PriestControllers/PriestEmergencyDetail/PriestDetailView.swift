@@ -14,7 +14,7 @@ class PriestDetailView: UIViewController, PriestDetailViewProtocol {
     
     var presenter: PriestDetailPresenterPRotocol?
     let alertLoader = UIAlertController(title: "", message: "\n \n \n \n \nCargando...", preferredStyle: .alert)
-    let mapsAlert = UIAlertController(title: "Encuentro", message: "Seleciona una opción", preferredStyle: .actionSheet)
+    let mapsAlert = UIAlertController(title: "Iglesia Digital", message: "Seleciona una opción", preferredStyle: .actionSheet)
     var locationManager = CLLocationManager()
     var latitude: CLLocationDegrees!
     var longitude: CLLocationDegrees!

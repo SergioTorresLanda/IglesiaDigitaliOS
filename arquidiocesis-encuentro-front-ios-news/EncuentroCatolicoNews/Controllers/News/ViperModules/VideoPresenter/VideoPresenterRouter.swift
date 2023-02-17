@@ -21,7 +21,6 @@ public class VideoPresenterRouter: VideoPresenterWireframeProtocol {
         let interactor = VideoPresenterInteractor()
         let router = VideoPresenterRouter()
         let presenter = VideoPresenterPresenter(interface: view, interactor: interactor, router: router)
-        
         view.presenter = presenter
         interactor.presenter = presenter
         router.viewController = view

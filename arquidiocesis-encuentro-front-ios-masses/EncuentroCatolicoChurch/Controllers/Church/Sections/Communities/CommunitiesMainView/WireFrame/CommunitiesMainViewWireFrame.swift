@@ -20,8 +20,6 @@ public class CommunitiesMainViewWireFrame: CommunitiesMainViewWireFrameProtocol 
     }
     
     public static func getController() -> UIViewController {
-        
-       
         let storyboard = UIStoryboard(name: "CommunitiesMainStoryboard", bundle: Bundle(for: CommunitiesMainViewController.self))
         let view: CommunitiesMainViewProtocol = storyboard.instantiateViewController(withIdentifier: "CommunitiesMainViewController") as! CommunitiesMainViewController
         let presenter: CommunitiesMainViewPresenterProtocol & CommunitiesMainViewInteractorOutputProtocol = CommunitiesMainViewPresenter()

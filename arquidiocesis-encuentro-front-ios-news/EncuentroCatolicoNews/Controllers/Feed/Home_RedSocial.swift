@@ -29,8 +29,7 @@ public class Home_RedSocial: UIViewController, FeedViewProtocol, FeedViewControl
     @IBOutlet weak var btnCreatePost: UIButton!
     @IBOutlet weak var imgProfile: UIImageView!
     @IBOutlet weak var viewS: UIView!
-    
-    
+    @IBOutlet weak var miRedBtn: UIButton!
     @IBOutlet weak var btnGoTo: UIButton!
     @IBOutlet public weak var notificationImage: UIImageView!  = {
         let imageView = UIImageView()
@@ -44,12 +43,15 @@ public class Home_RedSocial: UIViewController, FeedViewProtocol, FeedViewControl
     public var isPrefetching = false
     let name = UserDefaults.standard.string(forKey: "COMPLETENAME")
     let image = UserDefaults.standard.data(forKey: "userImage")
-    
+    let SNId = UserDefaults.standard.integer(forKey: "SNId")
     public var posts: [PublicationRealm]? {
         didSet { tableView.reloadData() }
     }
     var newPosts = [Posts]()
-    
+    var followsIds : [Int] = []
+    let ds = DispatchGroup()
+    let sm = DispatchSemaphore(value: 0)
+
     //MARK: - Life cycle
     override public func viewDidLoad() {
         super.viewDidLoad()
@@ -63,12 +65,36 @@ public class Home_RedSocial: UIViewController, FeedViewProtocol, FeedViewControl
         super.viewWillAppear(animated)
         print("VC ECNews - FeedVC ")
         setupTabBar()
-        presenter?.getNewPosts(isFromPage: false, isRefresh: false)
+        ///SEMAPHOREEE
+        let dQ = DispatchQueue.global(qos: .background)
+        ds.enter()
+        dQ.async {
+            self.presenter?.getFollowed(snId:self.SNId)
+            self.sm.wait()
+            print("SALIO DE FLL")
+            print(String(self.followsIds.count))
+            self.presenter?.getNewPosts(isFromPage: false, isRefresh: false)
+            self.sm.wait()
+            print("SALIO DE AMBAS")
+            self.ds.leave()
+        }
+        ds.notify(queue: .main){
+            self.shimmer.stopLoader()
+            //self.tableView.reloadData()
+        }
+        
+        
     }
     
     override public func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(animated)
     }
+    
+    @IBAction func miRedClick(_ sender: Any) {
+        
+        self.navigationController?.pushViewController(FollowersWireFrame.createFollowersModule(user: UserBasic(id:SNId, name: name, image: "self")), animated: false)
+    }
+    
 
     //MARK: - Methods
     func setupTabBar(){
@@ -111,6 +137,7 @@ public class Home_RedSocial: UIViewController, FeedViewProtocol, FeedViewControl
         tableView.separatorStyle = .none
         tableView.register(UINib(nibName: "FeedTVC", bundle: Bundle(for: FeedTVC.self)), forCellReuseIdentifier: "FeedTVC")
         tableView.register(UINib(nibName: "createPostTVC", bundle: Bundle(for: CreatePostTVC.self)), forCellReuseIdentifier: "CreatePostTVC")
+        
     }
     
     
@@ -145,10 +172,21 @@ public class Home_RedSocial: UIViewController, FeedViewProtocol, FeedViewControl
         } else {
             refreshControl.endRefreshing()
         }
-        shimmer.stopLoader()
-        newPosts = posts
-        tableView.reloadData()
-        //posts = retrieveFromRealm()
+        var postsFinal = [Posts]()
+        for post in posts {
+          
+            if followsIds.contains(post.author?.id ?? 0){
+                print("si esta en seguidores::")
+                print(post.author?.name ?? "x")
+                postsFinal.append(post)
+            }else{
+                print("Se quito publicacion de::::")
+                print(post.author?.name ?? "xx")
+            }
+        }
+        newPosts = postsFinal
+        sm.signal()
+        self.tableView.reloadData()
     }
     
     func didFinishGettingPostsWithErrors(error: SocialNetworkErrors) {
@@ -157,8 +195,32 @@ public class Home_RedSocial: UIViewController, FeedViewProtocol, FeedViewControl
         shimmer.stopLoader()
     }
     
+    func getFollowsServiceError(error: SocialNetworkErrors) {
+        print("FALLÓ ALGO OBTENIENDO FOLLOWS")
+        sm.signal()
+        //salir del semaforo
+        //presenter?.getNewPosts(isFromPage: false, isRefresh: false)
+    }
+    
     func didFinishGettingNotifications(notificationsCount: String?) {
         notificationView.addbadge(text: notificationsCount)
+    }
+    
+    func getArrFollows(followeds: [Followers], hasMore:Bool) {
+        print("FOLLOWEDS TOTALL:::")
+        //print(followeds)
+        //isFollowers=false
+        //numF+=1
+        for f in followeds{
+            followsIds.append(f.userId)
+        }
+        //arrFollows.append(contentsOf: followeds)
+        //arrInfoToShow = arrFollowed
+        if hasMore {
+            presenter?.getFollowed(snId:SNId)
+        }else{
+            sm.signal()
+        }
     }
     
     // GGG --> Obtiene de base datos
@@ -174,7 +236,7 @@ public class Home_RedSocial: UIViewController, FeedViewProtocol, FeedViewControl
     }
     
     @IBAction func goToFollow(_ sender: Any) {
-        self.navigationController?.pushViewController(FollowersWireFrame.createFollowersModule(), animated: true)
+        self.navigationController?.pushViewController(FollowersWireFrame.createFollowersModule(user: UserBasic(id:SNId, name: name, image: "self")), animated: true)
     }
     
     

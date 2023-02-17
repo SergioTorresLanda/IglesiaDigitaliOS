@@ -59,6 +59,9 @@ public class FeedTVC: UITableViewCell, CustomPopOverDelegate {
     @IBOutlet weak var btnComments: UIButton!
     @IBOutlet weak var btnShared: UIButton!
     @IBOutlet weak var btnFollow: UIButton!
+    
+    @IBOutlet weak var actionsView: UIView!
+    
     var pistId: Int = 0
     var newPost: Posts?
     var url=""

@@ -29,6 +29,15 @@ struct ResultsSearch: Codable {
     var type: String?
     var relationship: RelationShip?
     var metadata: MetaDataSearch?
+    var image: String?
+}
+
+struct UserBasic {
+    var id: Int?
+    var name: String?
+    var image: String?
+    var follow:Bool?
+    var type:String?
 }
 
 struct MetaDataSearch: Codable {

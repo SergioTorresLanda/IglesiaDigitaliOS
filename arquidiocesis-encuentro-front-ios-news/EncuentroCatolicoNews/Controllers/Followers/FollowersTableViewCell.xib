@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="19162" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="20037" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
     <device id="retina6_1" orientation="portrait" appearance="light"/>
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="19144"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="20020"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="System colors in document resources" minToolsVersion="11.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
@@ -21,7 +21,7 @@
                     <stackView opaque="NO" contentMode="scaleToFill" spacing="8" translatesAutoresizingMaskIntoConstraints="NO" id="bVy-PJ-OU2">
                         <rect key="frame" x="16" y="9" width="177" height="32"/>
                         <subviews>
-                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="iT0-Zu-40Q">
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="iT0-Zu-40Q">
                                 <rect key="frame" x="0.0" y="0.0" width="32" height="32"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="32" id="Ihq-ag-adp"/>
@@ -40,14 +40,14 @@
                         <rect key="frame" x="209" y="9" width="95" height="32"/>
                         <subviews>
                             <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="iconFollow" translatesAutoresizingMaskIntoConstraints="NO" id="6vC-VK-c70">
-                                <rect key="frame" x="9" y="7.5" width="20" height="17"/>
+                                <rect key="frame" x="10" y="7.5" width="20" height="17"/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="20" id="auK-y6-EwD"/>
                                     <constraint firstAttribute="height" constant="17" id="dzB-SX-NYI"/>
                                 </constraints>
                             </imageView>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Seguir" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumScaleFactor="0.5" translatesAutoresizingMaskIntoConstraints="NO" id="VPp-oZ-rLL">
-                                <rect key="frame" x="34" y="8" width="56" height="16"/>
+                                <rect key="frame" x="35" y="8" width="55" height="16"/>
                                 <fontDescription key="fontDescription" type="system" weight="medium" pointSize="13"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
@@ -55,10 +55,10 @@
                         </subviews>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                         <constraints>
-                            <constraint firstItem="VPp-oZ-rLL" firstAttribute="leading" secondItem="6vC-VK-c70" secondAttribute="trailing" constant="4.7999999999999998" id="0i8-up-2ly"/>
+                            <constraint firstItem="VPp-oZ-rLL" firstAttribute="leading" secondItem="6vC-VK-c70" secondAttribute="trailing" constant="5" id="0i8-up-2ly"/>
                             <constraint firstAttribute="height" constant="32" id="AJf-cJ-TIK"/>
-                            <constraint firstItem="6vC-VK-c70" firstAttribute="leading" secondItem="Jse-6M-3bM" secondAttribute="leading" constant="9" id="D4Y-U4-gIq"/>
-                            <constraint firstAttribute="trailing" secondItem="VPp-oZ-rLL" secondAttribute="trailing" constant="4.7999999999999998" id="NYG-pe-OdN"/>
+                            <constraint firstItem="6vC-VK-c70" firstAttribute="leading" secondItem="Jse-6M-3bM" secondAttribute="leading" constant="10" id="D4Y-U4-gIq"/>
+                            <constraint firstAttribute="trailing" secondItem="VPp-oZ-rLL" secondAttribute="trailing" constant="5" id="NYG-pe-OdN"/>
                             <constraint firstAttribute="width" constant="95" id="QRv-RH-bfc"/>
                             <constraint firstItem="VPp-oZ-rLL" firstAttribute="centerY" secondItem="Jse-6M-3bM" secondAttribute="centerY" id="Yju-Po-4gE"/>
                             <constraint firstItem="6vC-VK-c70" firstAttribute="centerY" secondItem="Jse-6M-3bM" secondAttribute="centerY" id="ay2-Cv-JLA"/>

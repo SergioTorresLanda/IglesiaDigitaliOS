@@ -224,7 +224,7 @@ extension Home_RedSocial: FeedTVCProtocol {
             vc.newPost = newPosts[idx]
             self.navigationController?.pushViewController(vc, animated: true)
         case "Seguir":
-            self.navigationController?.pushViewController(FollowersWireFrame.createFollowersModule(), animated: true)
+            self.navigationController?.pushViewController(FollowersWireFrame.createFollowersModule(user: UserBasic(id:SNId, name: name, image: "self")), animated: true)
             
         default:
             break

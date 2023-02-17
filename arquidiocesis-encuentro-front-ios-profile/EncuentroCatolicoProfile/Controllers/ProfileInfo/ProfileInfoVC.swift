@@ -224,6 +224,7 @@ class Home_Perfil: UIViewController {
         serviceCongList=[]
         serviceListID=[]
         AllServicesData=[]
+        resetLists()
         
         showLoading()
         presenter?.viewDidLoad()
@@ -603,11 +604,15 @@ class Home_Perfil: UIViewController {
         //let s2 = Home_Perfil.singleton
         arrayChurches.remove(at: sender.tag)
         arrayImgchurches.remove(at: sender.tag)
+        let id=arrayChurchesId[sender.tag]
         arrayChurchesId.remove(at: sender.tag)
+        let sPerfil = Home_Perfil.singleton
+        sPerfil.mapChurchService.removeValue(forKey: id)
+        //sPerfil.A
         print("quitar tarjeta")
         print("COUNT:: ARRAYCHURCHES")
         print(String(arrayChurchesId.count))
-        //print(String(s2.arrayChurchesId.count))
+        print(String(sPerfil.mapChurchService.count))
         churchCollection.reloadData()
         if arrayChurches.count == 0 {
             churchCollection.isHidden = true
@@ -764,6 +769,16 @@ class Home_Perfil: UIViewController {
         idService=[]
         s.mapChurchService=[:]
         churchCollection.reloadData()
+    }
+    
+    func resetLists(){
+        let s = Home_Perfil.singleton
+        arrayChurches=[]
+        arrayChurchesId=[]
+        arrayImgchurches=[]
+        nameService=[]
+        idService=[]
+        s.mapChurchService=[:]
     }
     
 // MARK: GENERAL FUNCS -

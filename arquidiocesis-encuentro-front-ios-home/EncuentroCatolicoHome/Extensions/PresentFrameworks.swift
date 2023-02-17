@@ -22,21 +22,13 @@ extension UIImageView {
         print(":::DOWNLOAD STATIC:::")
         guard let url = URL(string: uri) else {return}
         print(":::DOWNLOAD STATIC 2:::")
-
-        //"https://firebasestorage.googleapis.com/v0/b/emerwise-479d1.appspot.com/o/randomAssets%2Fspirit.webp?alt=media&token=dd020c20-d8ec-45f6-a8a2-3783c0234012"
         let task = URLSession.shared.dataTask(with: url) {responseData,response,error in
-            //print("->>  response: ", response)
-            //print("->>  error: ", error)
             if error == nil {
-                print(":::DOWNLOAD STATIC resss :::")
-
                 if let data = responseData {
-                    print(":::DOWNLOAD STATIC dataa :::")
                     DispatchQueue.main.async {
                         self.image = UIImage(data: data)
                         //print("Fin del hilo imagen muestra")
                     }
-                    
                 }else {
                     print("no data")
                 }
@@ -46,7 +38,6 @@ extension UIImageView {
         }
         task.resume()
     }
-    
     
     func loadS(urlS: String) {
         guard let url = URL(string:urlS)else{

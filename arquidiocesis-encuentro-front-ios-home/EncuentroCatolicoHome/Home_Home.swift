@@ -66,7 +66,7 @@ class Home_Home: UIViewController, HomeViewProtocol, UITextFieldDelegate, UNUser
     // let showOnboarding = UserDefaults.standard.bool(forKey: "onboarding")
     let showOnboarding = UserDefaults.standard.string(forKey: "NewOnboarding")
     var arraySections: [Bool] = []
-    var saintOfDay: [HomeSaintOfDay] = []
+    var saintOfDay: [HomePosts] = []
     var realesesPost: [HomePosts] = []
     var suggestions: [HomeSuggestions] = []
     var isFirstLoad = 0
@@ -81,6 +81,9 @@ class Home_Home: UIViewController, HomeViewProtocol, UITextFieldDelegate, UNUser
     let monitor = NWPathMonitor()
     var isInternet=false
     var alertFields : AcceptAlert?
+    
+    var noticias:[HomePosts] = []
+    var espiritualidad:[HomeSuggestions]=[]
 
     func formatoScrollView(){
         let contentRect: CGRect = scrollView.subviews.reduce(into: .zero) { rect, view in
@@ -158,6 +161,8 @@ class Home_Home: UIViewController, HomeViewProtocol, UITextFieldDelegate, UNUser
         realesesPost=[]
         allSections=[]
         arraySections=[]
+        noticias=[]
+        espiritualidad=[]
         mainTable.reloadData()
         
         let formatter = DateFormatter()
@@ -197,17 +202,6 @@ class Home_Home: UIViewController, HomeViewProtocol, UITextFieldDelegate, UNUser
                               //MyAppAnalyticsParameterFitnessCategory: category!
                                        ])*/
         print("HOME DID APPEAR")
-       // [self logEventWithOrigin:origin payload:payload events:events]
-        //print(Analytics.appInstanceID() ?? "matame")
-        //print(Analytics.sessionID() ?? 8)
-        //A//nalytics.sess
-        //Analytics.setAnalyticsCollectionEnabled(true)
-        //Analytics.setDefaultEventParameters([AnalyticsParameterScreenClass : screenName])
-        //Analytics.resetAnalyticsData()
-        //print("RESET")
-        //print(Analytics.appInstanceID() ?? "matame")
-        //print("HOME DID APPEAR::: "+Analytics.debugDescription())
-        //Analytics.logEvent("custom_param", parameters: ["screen_class" : screenName]) //no funciona?
     }
     
     func setupInternetObserver(){
@@ -293,6 +287,9 @@ class Home_Home: UIViewController, HomeViewProtocol, UITextFieldDelegate, UNUser
         else {
             return
         }
+        print("NOMBRE:::")
+        print(nombre)
+        print(apellido1)
         self.nombrePersona.text = nombre + " " + apellido1
         let status = dataResponse.data?.User?.community?.status
         let locationValidate = dataResponse.data?.User?.location_id
@@ -379,16 +376,17 @@ class Home_Home: UIViewController, HomeViewProtocol, UITextFieldDelegate, UNUser
         switch profile {
         case UserProfileEnum.fiel.rawValue, UserProfileEnum.sacerdote.rawValue:
             viewArriba.backgroundColor = .white
-            lblGoodMorning.textColor = blueEncuentro
+            //lblGoodMorning.textColor =
             nombrePersona.textColor = blueEncuentro
             lblAdmin.isHidden = true
-            gearIcon.image = UIImage(named: "gearBlue", in: Bundle.local, compatibleWith: nil)
+            //gearIcon.image = UIImage(named: "gearBlue", in: Bundle.local, compatibleWith: nil)
+            gearIcon.image = UIImage(named: "gearGold", in: Bundle.local, compatibleWith: nil)
             userImage.layer.borderWidth = 1
             userImage.layer.borderColor = blueEncuentro.cgColor
             
         case UserProfileEnum.fieladministrador.rawValue, UserProfileEnum.Sacerdoteadministrador.rawValue:
             viewArriba.backgroundColor = .white
-            lblGoodMorning.textColor = blueEncuentro
+            //lblGoodMorning.textColor = blueEncuentro
             nombrePersona.textColor = blueEncuentro
             lblAdmin.isHidden = false
             gearIcon.image = UIImage(named: "gearGold", in: Bundle.local, compatibleWith: nil)
@@ -406,10 +404,10 @@ class Home_Home: UIViewController, HomeViewProtocol, UITextFieldDelegate, UNUser
             
         default:
             viewArriba.backgroundColor = .white
-            lblGoodMorning.textColor = blueEncuentro
+            //lblGoodMorning.textColor = blueEncuentro
             nombrePersona.textColor = blueEncuentro
             lblAdmin.isHidden = true
-            gearIcon.image = UIImage(named: "gearBlue", in: Bundle.local, compatibleWith: nil)
+            gearIcon.image = UIImage(named: "gearGold", in: Bundle.local, compatibleWith: nil)
             userImage.layer.borderWidth = 1
             userImage.layer.borderColor = blueEncuentro.cgColor
             
@@ -550,30 +548,25 @@ class Home_Home: UIViewController, HomeViewProtocol, UITextFieldDelegate, UNUser
     }
     
     func didPressButtonPost(url: String){
-        let view = ModalWebViewController.showWebModal(url: url , type: "OTHER")
-        self.present(view, animated: true, completion: nil)
+        embedController(type: "OTHER", url: url, title: "")
+        //let view = ModalWebViewController.showWebModal(url: url , type: "OTHER", title: "")
+        //self.present(view, animated: true, completion: nil)
     }
     
-    func didPressButton(_ tag: Int, type: String, library: String, url: String, id: Int) {
-        print("&&&", tag)
+    func didPressButton(_ tag: Int, type: String, library: String, url: String, id: Int, title:String) {
         switch tag {
         case 500:
             let view = CommunitiesMainViewWireFrame.getControllerFormHome(id: idCommunity)
             self.navigationController?.pushViewController(view, animated: true)
             print(idCommunity)
         default:
-            print(type, library)
+            print(type, library, tag)
             switch type {
-            case "VIDEO":
-                let singleton = Home_Home.singleton
-                singleton.isFromPrayModal = "VIDEO"
-                guard let url = URL(string: url) else { return }
-                let view = ModalWebViewController.showWebModal(url: url.absoluteString.embedAndPlayYoutubeURL(), type: "VIDEO")
-                view.transitioningDelegate = self
-                view.modalPresentationStyle = .overFullScreen
-                self.present(view, animated: true, completion: nil)
-
+            case "VIDEO","AUDIO","FILE","IMAGE":
+                print("ok :: will embed")
+                embedController(type: type, url: url, title: title)
             case "LINK":
+                print("ok ::: link")
                 if library == "PRAYERS" {
                     let singleton = Home_Home.singleton
                     singleton.isFromPrayModal = "PRAY"
@@ -582,35 +575,43 @@ class Home_Home: UIViewController, HomeViewProtocol, UITextFieldDelegate, UNUser
                     view.modalPresentationStyle = .overFullScreen
                     self.navigationController?.pushViewController(view, animated: true)
                 }else{
-                    let singleton = Home_Home.singleton
-                    singleton.isFromPrayModal = "OTHER"
-                    let view = ModalWebViewController.showWebModal(url: url, type: "OTHER")
-                    view.modalPresentationStyle = .overFullScreen
-                    self.present(view, animated: true, completion: nil)
+                    embedController(type: type, url: url, title: title)
                 }
-                
             default:
+                print("CASE #1 Click espiritualidad se breakeo, no tiene ningun formato")
                 break
             }
         }
-        
+    }
+    
+    func embedController(type:String, url:String, title:String){
+        scrollView.setContentOffset(CGPoint(x: 0, y: 0 ), animated: true)
+        let singleton = Home_Home.singleton
+        singleton.isFromPrayModal = type
+        guard URL(string: url) != nil else { return }
+        let viewx = ModalWebViewController.showWebModal(url: url, type: type, title: title)
+        ///ahora Embed
+        addChild(viewx)
+        self.view.addSubview(viewx.view)
+        viewx.view.frame = view.bounds
+        viewx.view.autoresizingMask = [.flexibleWidth, .flexibleHeight]
+        viewx.view.frame = CGRect(x: 0, y: 125, width: self.view.frame.width, height: self.view.frame.height-205)
+        viewx.didMove(toParent: self)
+        //antes present
+        //viewx.transitioningDelegate = self
+        //viewx.modalPresentationStyle = .overFullScreen
+        //self.present(viewx, animated: true, completion: nil)
     }
     
     // NEW HOME FUNCTIONS
-    func succesGetHome(data: [HomeSaintOfDay]) {
+    func succesGetHome(data: [HomePosts]) {
         DispatchQueue.main.asyncAfter(deadline: .now() + 3, execute: {
             print("::::::succesGetHome SAINT::;;;")
             print(String(self.saintOfDay.count))
          })
         saintOfDay = data
         if saintOfDay.count != 0 {
-            allSections.append(saintOfDay)
-        }
-        //print("----", saintOfDay)
-        if data.count != 0 {
-            arraySections.append(true)
-        }else{
-            arraySections.append(false)
+            noticias.append(saintOfDay[0])
         }
         let formatter = DateFormatter()
         formatter.dateFormat = "yyyy-MM-dd"
@@ -625,15 +626,15 @@ class Home_Home: UIViewController, HomeViewProtocol, UITextFieldDelegate, UNUser
             print("::::::succesGetPosts::;;;")
             print(String(self.realesesPost.count))
          })
-        if realesesPost.count != 0 {
-            allSections.append(realesesPost)
+        for post in realesesPost {
+            noticias.append(post)
         }
-        if data.count != 0 {
+        allSections.append(noticias)
+        if noticias.count != 0 {
             arraySections.append(true)
         }else{
             arraySections.append(false)
         }
-        
         self.presenter?.requestSuggestions(type: "SUGGESTIONS")
     }
     
@@ -643,11 +644,11 @@ class Home_Home: UIViewController, HomeViewProtocol, UITextFieldDelegate, UNUser
             print("::::::onSuccessGetSuggestions::;;;")
             print(String(self.suggestions.count))
          })
-        if suggestions.count != 0 {
-            allSections.append(suggestions)
+        
+        for sug in suggestions {
+            espiritualidad.append(sug)
         }
-        //setupTableView()
-        //hideLoading()
+        allSections.append(espiritualidad)
         mainTable.reloadData()
     }
     

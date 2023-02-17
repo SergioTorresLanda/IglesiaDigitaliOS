@@ -608,6 +608,10 @@ extension Home_Perfil: ProfileInfoViewProtocol {
             print("un servicioooo::")
             print(item.location_name! + String(item.location_id!))
         })
+        print("::Array churches::")
+        let sPerfil = Home_Perfil.singleton
+        print(String(sPerfil.mapChurchService.count))
+        print(String(arrayChurchesId.count))
         churchCollection.reloadData()
         churchCollection.isHidden = false
         
@@ -1106,6 +1110,8 @@ extension Home_Perfil: UIViewControllerTransitioningDelegate {
             print("regreso del mapa")
             print("COUNT:: ARRAYCHURCHES")
             print(String(arrayChurchesId.count))
+            let sPerfil = Home_Perfil.singleton
+            print(String(sPerfil.mapChurchService.count))
             //print(String(s2.arrayChurchesId.count))
             //fieldsCollection[6].text = singleton.nameChurch
             churchCollection.reloadData()

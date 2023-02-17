@@ -7,7 +7,7 @@ import UIKit
 
 class FollowersWireFrame: FollowersWireFrameProtocol {
 
-    class func createFollowersModule() -> UIViewController {
+    class func createFollowersModule(user:UserBasic) -> UIViewController {
         let view = FollowersViewController(nibName: "FollowersViewController", bundle: Bundle(identifier: "mx.arquidiocesis.EncuentroCatolicoNews"))
         let presenter: FollowersPresenterProtocol & FollowersInteractorOutputProtocol = FollowersPresenter()
         let interactor: FollowersInteractorInputProtocol & FollowersRemoteDataManagerOutputProtocol = FollowersInteractor()
@@ -15,6 +15,11 @@ class FollowersWireFrame: FollowersWireFrameProtocol {
         let wireFrame: FollowersWireFrameProtocol = FollowersWireFrame()
         
         view.presenter = presenter
+        view.profileSNid = user.id ?? 0
+        view.userName = user.name ?? ""
+        view.userImg = user.image ?? ""
+        view.follow = user.follow ?? false
+        view.type = user.type ?? ""
         presenter.view = view
         presenter.wireFrame = wireFrame
         presenter.interactor = interactor

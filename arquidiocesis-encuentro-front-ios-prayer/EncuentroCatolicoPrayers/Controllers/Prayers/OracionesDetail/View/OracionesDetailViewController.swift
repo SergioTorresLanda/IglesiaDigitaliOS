@@ -32,11 +32,14 @@ class OracionesDetailViewController: UIViewController {
     @IBOutlet weak var bottomHeight: NSLayoutConstraint!
     @IBOutlet weak var heightSimilarTable: NSLayoutConstraint!
     @IBOutlet weak var btnSeemore: UIButton!
+    @IBOutlet weak var shareImg: UIImageView!
+    @IBOutlet weak var sharePray: UIImageView!
     
     var presenter: PresenterOracionesDetailProtocol?
     let loadingAlert = UIAlertController(title: "", message: "\n \n \n \n \nCargando...", preferredStyle: .alert)
     var similarArray : [SimilarResponse] = []
     private var datasource: DetailViewModel?
+    var paloma = "https://firebasestorage.googleapis.com/v0/b/emerwise-479d1.appspot.com/o/randomAssets%2Fspirit.webp?alt=media&token=dd020c20-d8ec-45f6-a8a2-3783c0234012"
     
     override func viewDidLoad() {
         btnSeemore.layer.cornerRadius = 20
@@ -59,6 +62,8 @@ class OracionesDetailViewController: UIViewController {
         print(datasource?.image_url ?? "XXX")
         lblPray.text = datasource?.description ?? ""
         print(datasource?.description ?? "XXX")
+        shareImg.isHidden=false
+        sharePray.isHidden=false
         self.view.layoutIfNeeded()
         similarArray = datasource?.similars ?? similarArray
         UIView.animate(withDuration: 0.4) {
@@ -86,15 +91,46 @@ class OracionesDetailViewController: UIViewController {
             self.mainScrollView.alpha = 1
     
         }
-        DispatchQueue.main.asyncAfter(deadline: .now() + 0.3) {
-            self.loadingAlert.dismiss(animated: true, completion: nil)
-        }
-        
     }
     
     private func setupGestures() {
         let tapBack = UITapGestureRecognizer(target: self, action: #selector(tapBackAction))
         backIcon.addGestureRecognizer(tapBack)
+        let tapShare = UITapGestureRecognizer(target: self, action: #selector(shareClick))
+        shareImg.isUserInteractionEnabled=true
+        shareImg.addGestureRecognizer(tapShare)
+        let tapSharePray = UITapGestureRecognizer(target: self, action: #selector(sharePrayClick))
+        sharePray.isUserInteractionEnabled=true
+        sharePray.addGestureRecognizer(tapSharePray)
+    }
+    
+    @objc func shareClick() {
+        print("SHARE")
+        //let image = UIImage(named: "share")
+        guard let url = URL(string: datasource?.image_url ?? paloma) else {
+            return
+        }
+        DispatchQueue.main.async { [weak self] in
+            if let imageData = try? Data(contentsOf: url) {
+                if let loadedImage = UIImage(data: imageData) {
+                        //self?.image = loadedImage
+                    self?.share(x: loadedImage)
+                }
+            }
+        }
+    }
+    
+    @objc func sharePrayClick() {
+        print("SHARE")
+        if let y = datasource?.description{
+            self.share(x: y as AnyObject)
+        }
+    }
+    
+    func share(x:AnyObject){
+        let activityVC = UIActivityViewController(activityItems: [x], applicationActivities: nil)
+        activityVC.popoverPresentationController?.sourceView = self.view
+          self.present(activityVC, animated: true, completion: nil)
     }
     
     @IBAction func goToAgain(_ sender: Any) {
@@ -116,19 +152,19 @@ class OracionesDetailViewController: UIViewController {
     }
     
     func showLoading(){
-           let imageView = UIImageView(frame: CGRect(x: 75, y: 25, width: 140, height: 60))
+       let imageView = UIImageView(frame: CGRect(x: 75, y: 25, width: 140, height: 60))
        if #available(iOS 13.0, *) {
            imageView.image = UIImage(named: "logoEncuentro", in: Bundle.local, compatibleWith: nil)
        } else {
            // Fallback on earlier versions
        }
-           loadingAlert.view.addSubview(imageView)
-           self.present(loadingAlert, animated: true, completion: nil)
-       }
+       loadingAlert.view.addSubview(imageView)
+       self.present(loadingAlert, animated: true, completion: nil)
+    }
        
-       func hideLoading(){
-           loadingAlert.dismiss(animated: true, completion: nil)
-       }
+   func hideLoading(){
+       loadingAlert.dismiss(animated: true, completion: nil)
+   }
     
     @objc func tapBackAction() {
         self.navigationController?.popViewController(animated: true)
@@ -150,7 +186,7 @@ extension OracionesDetailViewController: ViewOracionesDetailProtocol {
         DispatchQueue.main.async {
         self.datasource = data
         self.initUI()
-        self.loadingAlert.dismiss(animated: true, completion: nil)
+        self.hideLoading()
         }
     }
 }

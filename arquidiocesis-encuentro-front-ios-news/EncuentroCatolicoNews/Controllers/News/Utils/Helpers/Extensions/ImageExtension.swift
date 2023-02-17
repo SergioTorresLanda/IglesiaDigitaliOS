@@ -44,7 +44,7 @@ extension UIImageView {
     func borderImgColor(color: UIColor, radius: CGFloat) {
         self.layer.cornerRadius = radius
         let colorBorde = color
-        self.layer.borderWidth = 1.5
+        self.layer.borderWidth = 1
         self.clipsToBounds = true
         self.layer.borderColor = colorBorde.cgColor
        

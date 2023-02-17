@@ -8,7 +8,7 @@
 import UIKit
 
 protocol YourCellDelegate : AnyObject {
-    func didPressButton(_ tag: Int, type: String, library: String, url: String, id: Int)
+    func didPressButton(_ tag: Int, type: String, library: String, url: String, id: Int, title:String)
     func didPressButtonPost(url: String)
 
 }
@@ -29,7 +29,7 @@ class AlertTableCell: UITableViewCell {
     }
     
     @IBAction func goAction(_ sender: Any) {
-        cellDelegate?.didPressButton(500, type: "", library: "", url: "", id: 0)
+        cellDelegate?.didPressButton(500, type: "", library: "", url: "", id: 0, title: "")
     }
     
     

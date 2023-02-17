@@ -13,6 +13,7 @@ class FollowersRemoteDataManager:FollowersRemoteDataManagerInputProtocol {
     var snService: SocialNetworkService = SocialNetworkService()
     let strURLFollow = "\(APIType.shared.SN())/entity/follow"
     let SNId = UserDefaults.standard.integer(forKey: "SNId")
+    let tksession = UserDefaults.standard.string(forKey: "idToken")
     var arrFollowersG: [Followers] = []
     
     func followProfile(follower: Followers) {
@@ -25,8 +26,7 @@ class FollowersRemoteDataManager:FollowersRemoteDataManagerInputProtocol {
         let request = snService.postRequestFollowers(strUrl: strURLFollow, param: p)
         print("VEREMOS QUE ES ESTA PARTE FOLLOW")
         print(strURLFollow) //url normal
-        //print(request) //url con params
-        //print(foll2)
+      
         snService.newmakeRequest(request: request) { [weak self] data, error in
             if let error = error {
                 print("ERROR::1::")
@@ -42,7 +42,7 @@ class FollowersRemoteDataManager:FollowersRemoteDataManagerInputProtocol {
                 let json = try JSONSerialization.jsonObject(with: data, options: .fragmentsAllowed) as? [String: Any]
                 guard let message = json?["message"] as? String, message == "Operacion success" else { return }
                 print("SUCCES FOLLOW")
-                self?.remoteRequestHandler?.followAndUnFollowSuccess()
+                //self?.remoteRequestHandler?.followAndUnFollowSuccess()
             }catch{
                 print("ERROR::3::")
                 self?.remoteRequestHandler?.followAndUnFollowError(with: SocialNetworkErrors.ResponseError)
@@ -71,7 +71,7 @@ class FollowersRemoteDataManager:FollowersRemoteDataManagerInputProtocol {
             do{
                 guard let responseData = data else { return }
                 let contentReponse = try JSONDecoder().decode(FollowResponse.self, from: responseData)
-                self.remoteRequestHandler?.followAndUnFollowSuccess()
+                //self.remoteRequestHandler?.followAndUnFollowSuccess()
                 print("Dejo de seguir:::::")
                 print(contentReponse)
                 
@@ -85,30 +85,44 @@ class FollowersRemoteDataManager:FollowersRemoteDataManagerInputProtocol {
         
     }
     
-    func getFollowers() {
-        //https://l67w9jsvo4.execute-api.us-east-1.amazonaws.com/v1/searcher?q=jose&userId=1937 //buscar
-        //https://l67w9jsvo4.execute-api.us-east-1.amazonaws.com/v1/entity/1937/follows?type=1
-        let url = "\(APIType.shared.SN())/entity/\(SNId)/follows?type=2"
-        let request = snService.getRequestFollowers(strURL: url, pagination: "")
-        snService.newmakeRequest(request: request) { [weak self] data, error in
+    var nxtPageFollowers=""
+    func getFollowers(snId:Int) {
+        let url = "\(APIType.shared.SN())/entity/\(snId)/follows?type=2"
+        let request = snService.getRequestFollowers(strURL: url, pagination: nxtPageFollowers)
+        snService.newmakeRequest(request: request) { (data, error) in
             if let error = error {
-                self?.remoteRequestHandler?.followAndUnFollowError(with: error)
+                self.remoteRequestHandler?.followAndUnFollowError(with: error)
+            }else{
+                do{
+                    guard let data = data else{
+                        self.remoteRequestHandler?.followAndUnFollowError(with: SocialNetworkErrors.ResponseError)
+                        return
+                    }
+                    let jsonDecoder = JSONDecoder()
+                    jsonDecoder.keyDecodingStrategy = .convertFromSnakeCase
+                    print(":: LA DATA RS ES:::")
+                    let sJSON = try JSONSerialization.jsonObject(with: data , options: .allowFragments) as! [String: Any]
+                    let dctResult = sJSON["result"] as? [String: Any]
+                    let dctPag = dctResult?["Pagination"] as? [String: Any]
+                    let hasMore = dctPag?["hasMore"] as? Bool
+                    //let stNextPag = dctPag?["next"] as? String
+                    self.nxtPageFollowers = dctPag?["next"] as? String ?? ""
+                    let response = self.decode(with: data)
+                    self.remoteRequestHandler?.getFollowersResponse(with: response, hasMore: hasMore ?? false)
+                    print("OBTENER LOS FOLLOWERS QUE TIENE EL USUARIO")
+                    //print(url)
+                    //print(response)
+                }catch{
+                    print("Catch 2")
+                }
             }
-            guard let data = data else{
-                self?.remoteRequestHandler?.followAndUnFollowError(with: SocialNetworkErrors.ResponseError)
-                return
-            }
-            let response = self?.decode(with: data)
-            self?.remoteRequestHandler?.getFollowersResponse(with: response)
-            print("OBTENER LOS FOLLOWERS QUE TIENE EL USUARIO")
-            print(url)
-            print(response)
+           
         }
     }
     
     var nxtPageFollowed=""
-    func getFollowed() {
-        let url = "\(APIType.shared.SN())/entity/\(SNId)/follows?type=1"
+    func getFollowed(snId:Int) {
+        let url = "\(APIType.shared.SN())/entity/\(snId)/follows?type=1"
         let request = snService.getRequestFollowers(strURL: url, pagination: nxtPageFollowed)
         snService.newmakeRequest(request: request) { (data, error) in
         //snService.newmakeRequest(request: request) { [weak self] data, error in
@@ -122,7 +136,7 @@ class FollowersRemoteDataManager:FollowersRemoteDataManagerInputProtocol {
                     }
                     let jsonDecoder = JSONDecoder()
                     jsonDecoder.keyDecodingStrategy = .convertFromSnakeCase
-                    print(":: LA DATA ES:::")
+                    print(":: LA DATA ED ES:::")
                     let sJSON = try JSONSerialization.jsonObject(with: data , options: .allowFragments) as! [String: Any]
                     let dctResult = sJSON["result"] as? [String: Any]
                     let dctPag = dctResult?["Pagination"] as? [String: Any]
@@ -133,8 +147,8 @@ class FollowersRemoteDataManager:FollowersRemoteDataManagerInputProtocol {
                     //print("Se va a poner DATA seguidos::")
                     self.remoteRequestHandler?.getFollowedResponse(with: response, hasMore: hasMore ?? false)
                     //print(url)
-                    print("Se va a poner DATA seguidos::")
-                    print(response)
+                    print("Se va a poner DATA seguidos:: Followers")
+                    //print(response)
                 }catch{
                     print("Catch 1")
                     //self.remoteRequestHandler?.followAndUnFollowError(with: error)

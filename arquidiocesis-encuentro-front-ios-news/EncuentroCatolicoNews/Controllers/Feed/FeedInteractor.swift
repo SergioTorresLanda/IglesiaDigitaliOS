@@ -138,6 +138,47 @@ public class FeedInteractor: FeedInteractorProtocol {
             
         }
     }
+    
+    var nxtPageFollowed=""
+    func getFollowed(snId:Int) {
+        let url = "\(APIType.shared.SN())/entity/\(snId)/follows?type=1"
+        let request = snService.getRequestFollowers(strURL: url, pagination: nxtPageFollowed)
+        snService.newmakeRequest(request: request) { (data, error) in
+        //snService.newmakeRequest(request: request) { [weak self] data, error in
+            if let error = error {
+                self.presenter?.getFollowsError(error: error)
+            }else{
+                do{
+                    guard let data = data else{
+                        self.presenter?.getFollowsError(error: SocialNetworkErrors.ResponseError)
+                        return
+                    }
+                    let jsonDecoder = JSONDecoder()
+                    jsonDecoder.keyDecodingStrategy = .convertFromSnakeCase
+                    print(":: LA DATA ED ES:::")
+                    let sJSON = try JSONSerialization.jsonObject(with: data , options: .allowFragments) as! [String: Any]
+                    let dctResult = sJSON["result"] as? [String: Any]
+                    let dctPag = dctResult?["Pagination"] as? [String: Any]
+                    let hasMore = dctPag?["hasMore"] as? Bool
+                    //let stNextPag = dctPag?["next"] as? String
+                    self.nxtPageFollowed = dctPag?["next"] as? String ?? ""
+                    let response = self.decode(with: data)
+                    //print("Se va a poner DATA seguidos::")
+                    self.presenter?.getFollowsResponse(with: response, hasMore: hasMore ?? false)
+                    //print(url)
+                    print("Se va a poner DATA seguidos Feed::")
+                    //print(response)
+                }catch{
+                    print("Catch 1")
+                    //self.remoteRequestHandler?.followAndUnFollowError(with: error)
+                }
+            }
+        }
+    }
+    
+    private func decode(with data: Data) -> ResponseFollowers?{
+        return try? JSONDecoder().decode(ResponseFollowers.self, from: data)
+    }
     // GGG Timeline manda a llamar se servicio en interactor
     //MARK: - Posts
     func getPosts(isFromPage: Bool) {

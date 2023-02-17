@@ -526,7 +526,7 @@ extension ChurchPriestViewController: UITableViewDelegate {
         
         let priestData = selectedPriest[safe: indexPath.row]?.name ?? ""
         
-        let alert = UIAlertController(title: "Encuentro", message: "Se eliminara:\n\(priestData)", preferredStyle: .actionSheet)
+        let alert = UIAlertController(title: "Iglesia Digital", message: "Se eliminara:\n\(priestData)", preferredStyle: .actionSheet)
         let cancelAction = UIAlertAction(title: "Cancelar", style: .cancel)
         let deleteAction = UIAlertAction(title: "Borrar", style: .destructive) {
             [weak self]

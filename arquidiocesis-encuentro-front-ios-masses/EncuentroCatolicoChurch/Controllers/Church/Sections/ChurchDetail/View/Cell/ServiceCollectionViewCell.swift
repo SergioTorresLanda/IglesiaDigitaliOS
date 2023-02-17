@@ -35,7 +35,7 @@ class ServiceCollectionViewCell: UICollectionViewCell {
     
     //MARK: - IBActions
     @IBAction func deleteAction() {
-        let alert = UIAlertController(title: "Encuentro", message: "Se eliminara", preferredStyle: .actionSheet)
+        let alert = UIAlertController(title: "Iglesia Digital", message: "Se eliminara", preferredStyle: .actionSheet)
         let cancelAction = UIAlertAction(title: "Cancelar", style: .cancel)
         let deleteAction = UIAlertAction(title: "Borrar", style: .destructive) {
             [weak self]

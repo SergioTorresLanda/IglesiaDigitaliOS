@@ -32,6 +32,31 @@ public class FeedPresenter: FeedPresenterProtocol {
         interactor?.getNewPosts(isFromPage: isFromPage, isRefresh: isRefresh)
     }
     
+    func getFollowed(snId:Int){
+        interactor?.getFollowed(snId:snId)
+    }
+    
+    func getFollowsError(error: SocialNetworkErrors){
+        print("ES EL ERROR FOLLOWS")
+        print(error)
+        view?.getFollowsServiceError(error:error)
+    }
+    
+    func getFollowsResponse(with response: ResponseFollowers?, hasMore: Bool) {
+        var arrFollowers: [Followers] = []
+        guard let response = response else {
+            view?.getArrFollows(followeds: arrFollowers, hasMore:hasMore)
+            return
+        }
+
+        for users in response.result.Follows{
+            let follower = Followers(image: users.image, name: users.name, isFollow: knowIfIFollow(status: users.relationshipStatus), userId: users.id, entityId: users.relationshipId, entityType: EntitiesType(rawValue: users.type)?.intValue ?? 1)
+            arrFollowers.append(follower)
+        }
+        
+        view?.getArrFollows(followeds: arrFollowers, hasMore:hasMore)
+    }
+    
     func getNewPostPagin(isFromPage: Bool, posts: [Posts], nxtPag: String) {
         interactor?.getNewPostPagin(isFromPage: isFromPage, posts: posts, nxtPag: nxtPag)
     }
@@ -46,6 +71,10 @@ public class FeedPresenter: FeedPresenterProtocol {
     
     func didFinishGettingPosts(isFromPage: Bool, posts: [Posts]) {
         view?.didFinishGettingPosts(isFromPage: isFromPage, posts: posts)
+    }
+    
+    func knowIfIFollow(status: Int) -> Bool{
+        return status == 1 || status == 3
     }
     
     //MARK: - Watch

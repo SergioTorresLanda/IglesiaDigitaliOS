@@ -141,7 +141,8 @@ class HomeInteractor: HomeInteractorProtocol {
             do{
                 if(type=="SAINT"){
                 print("ENDPOINT SAINT")
-                let cR = try JSONDecoder().decode([HomeSaintOfDay].self, from: datamodel)
+                //
+                let cR = try JSONDecoder().decode([HomePosts].self, from: datamodel)
                 self.presenter?.trasportResponseHome(response: (response as! HTTPURLResponse), data: cR)
                 }else{
                     print("ENDPOINT POSTS")
