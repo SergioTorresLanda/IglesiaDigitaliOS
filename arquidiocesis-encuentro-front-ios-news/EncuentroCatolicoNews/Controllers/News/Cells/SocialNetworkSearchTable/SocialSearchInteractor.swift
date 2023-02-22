@@ -34,7 +34,7 @@ class SearchSocialInteractor: SocialSearchInteractorProtocol {
                 print("RES:::")
                 guard let apiData = data else { return }
                 let contentResponse = try JSONDecoder().decode(SerachResponse.self, from: apiData)
-                print(contentResponse)
+                //print(contentResponse)
                 self.presenter?.onSuccessRequestSearch(data: contentResponse, reponse: response as! HTTPURLResponse)
             }catch{
                 print("Download serach error", error, error.localizedDescription)

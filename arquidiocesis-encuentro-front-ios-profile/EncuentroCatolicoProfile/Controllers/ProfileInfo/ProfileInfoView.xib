@@ -22,7 +22,7 @@
                 <outlet property="churchRespField" destination="JVE-2E-7H9" id="NHH-cp-zc2"/>
                 <outlet property="contentTopSection" destination="2S7-wP-s15" id="rBa-gd-hGq"/>
                 <outlet property="customNavBar" destination="4Fu-VD-JnC" id="Pxg-Md-6S7"/>
-                <outlet property="heightChurchCollection" destination="UUg-wl-IOE" id="J1z-2i-1pa"/>
+                <outlet property="heightChurchCollection" destination="zeX-Fx-pyg" id="k96-cx-OAf"/>
                 <outlet property="heightCongConstant" destination="jW7-iP-tsd" id="dFH-Ru-hpO"/>
                 <outlet property="heightSwitchView" destination="4xZ-8P-Dvf" id="2qJ-X0-d1V"/>
                 <outlet property="heightTopicColection" destination="BFP-HE-bd4" id="phM-P9-sMQ"/>
@@ -523,10 +523,10 @@
                                             <nil key="highlightedColor"/>
                                         </label>
                                         <collectionView hidden="YES" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" scrollEnabled="NO" dataMode="none" translatesAutoresizingMaskIntoConstraints="NO" id="sB6-Ma-GpT">
-                                            <rect key="frame" x="0.0" y="441.5" width="373" height="250"/>
+                                            <rect key="frame" x="0.0" y="441.5" width="373" height="200"/>
                                             <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                             <constraints>
-                                                <constraint firstAttribute="height" constant="250" id="UUg-wl-IOE"/>
+                                                <constraint firstAttribute="height" constant="200" id="zeX-Fx-pyg"/>
                                             </constraints>
                                             <collectionViewFlowLayout key="collectionViewLayout" minimumLineSpacing="10" minimumInteritemSpacing="10" id="pYN-xj-sfM">
                                                 <size key="itemSize" width="128" height="128"/>

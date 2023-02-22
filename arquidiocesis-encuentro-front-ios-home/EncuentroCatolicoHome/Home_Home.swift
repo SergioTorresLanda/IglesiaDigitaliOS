@@ -65,7 +65,7 @@ class Home_Home: UIViewController, HomeViewProtocol, UITextFieldDelegate, UNUser
     let transition = SlideTransition()
     // let showOnboarding = UserDefaults.standard.bool(forKey: "onboarding")
     let showOnboarding = UserDefaults.standard.string(forKey: "NewOnboarding")
-    var arraySections: [Bool] = []
+    //var array Sections: [Bool] = []
     var saintOfDay: [HomePosts] = []
     var realesesPost: [HomePosts] = []
     var suggestions: [HomeSuggestions] = []
@@ -84,7 +84,9 @@ class Home_Home: UIViewController, HomeViewProtocol, UITextFieldDelegate, UNUser
     
     var noticias:[HomePosts] = []
     var espiritualidad:[HomeSuggestions]=[]
-
+    var isOpening = true
+    
+    
     func formatoScrollView(){
         let contentRect: CGRect = scrollView.subviews.reduce(into: .zero) { rect, view in
         rect = rect.union(view.frame)
@@ -102,7 +104,7 @@ class Home_Home: UIViewController, HomeViewProtocol, UITextFieldDelegate, UNUser
         NotificationCenter.default.addObserver(self, selector: #selector(goToBAZ(sender:)), name: NSNotification.Name(rawValue: "goToBaz"), object: nil)
         NotificationCenter.default.addObserver(self, selector: #selector(showNotification), name: NSNotification.Name(rawValue: "intentionCreated"), object: nil)
         NotificationCenter.default.addObserver(self, selector: #selector(showSOSNotification), name: NSNotification.Name(rawValue: "SOSCreated"), object: nil)
-        NotificationCenter.default.addObserver(self, selector: #selector(returnFromBack), name: NSNotification.Name(rawValue: "appBecomeActive"), object: nil)
+        NotificationCenter.default.addObserver(self, selector: #selector(returnFromBack), name: NSNotification.Name(rawValue: "appBecomeActive"), object: nil)//no activada
         setupInternetObserver()
         setupView()
         formatoScrollView()
@@ -140,31 +142,43 @@ class Home_Home: UIViewController, HomeViewProtocol, UITextFieldDelegate, UNUser
         super.viewWillAppear(animated)
         print("VC ECHome - HomeVC ")
         setNeedsStatusBarAppearanceUpdate()
-        
+        resetListsAndTable()
+        //isOpening=false
         DispatchQueue.main.asyncAfter(deadline: .now() + 0.5) {
             self.actionsViewWillAppear()
         }
-    
     }
+    
+    @objc func returnFromBack(){
+        print(":::: REGRESO DEL BACKK ::::")
+        DispatchQueue.main.asyncAfter(deadline: .now() + 0.5) {
+            self.resetListsAndTable()
+            self.actionsViewWillAppear()
+        }
+        //actionsViewWillAppear()
+    }
+    
+    
     override var preferredStatusBarStyle: UIStatusBarStyle {
         .lightContent
     }
     //UIApplication.shared.statusBarStyle = .lightContent
+    func resetListsAndTable(){
+        saintOfDay=[]
+        suggestions=[]
+        realesesPost=[]
+        allSections=[]
+        noticias=[]
+        espiritualidad=[]
+        mainTable.reloadData()
+        formatoScrollView()
+        //array Sections=[]
+    }
     
     func actionsViewWillAppear(){
         if isInternet{
         print("INTERNET ONN VWA")
         //showLoading() crash
-        formatoScrollView()
-        saintOfDay=[]
-        suggestions=[]
-        realesesPost=[]
-        allSections=[]
-        arraySections=[]
-        noticias=[]
-        espiritualidad=[]
-        mainTable.reloadData()
-        
         let formatter = DateFormatter()
         formatter.dateFormat = "yyyy-MM-dd"
         let now = Date()
@@ -424,10 +438,8 @@ class Home_Home: UIViewController, HomeViewProtocol, UITextFieldDelegate, UNUser
     
     
     private func setMessageHour() -> String {
-            let hour = Calendar.current.component(.hour, from: Date())
-            
-            switch hour {
-                
+        let hour = Calendar.current.component(.hour, from: Date())
+        switch hour {
             case 0..<12:
                 return "Buenos días,"
             case 12..<18:
@@ -436,10 +448,9 @@ class Home_Home: UIViewController, HomeViewProtocol, UITextFieldDelegate, UNUser
                 return "Buenas noches,"
             default:
                 break
-            }
-            return ""
         }
-    
+        return ""
+    }
     
     func validateProfileOnboarding() {
         let singleton = Home_Home.singleton
@@ -448,57 +459,31 @@ class Home_Home: UIViewController, HomeViewProtocol, UITextFieldDelegate, UNUser
         if showOnboarding == "true" {
             switch profile {
             case UserProfileEnum.fiel.rawValue:
-                UserDefaults.standard.set("false", forKey: "NewOnboarding")
-                DispatchQueue.main.asyncAfter(deadline: .now() + 0.5) {
-                    let view = NewOnboardingRouter.createModule(typeOnboarding: "FirstOnboarding")
-                    view.transitioningDelegate = self
-                    view.modalPresentationStyle = .overFullScreen
-                    self.present(view, animated: true, completion: nil)
-                }
-                
+                presentOnBoardingView(type: "FirstOnboarding")
             case UserProfileEnum.fieladministrador.rawValue:
-                UserDefaults.standard.set("false", forKey: "NewOnboarding")
-                DispatchQueue.main.asyncAfter(deadline: .now() + 0.5) {
-                    let view = NewOnboardingRouter.createModule(typeOnboarding: "FaithfulAdmin")
-                    view.modalPresentationStyle = .overFullScreen
-                    view.transitioningDelegate = self
-                    self.present(view, animated: true, completion: nil)
-                }
-                
+                presentOnBoardingView(type: "FaithfulAdmin")
             case UserProfileEnum.AdministradorComunidad.rawValue:
-                UserDefaults.standard.set("false", forKey: "NewOnboarding")
-                DispatchQueue.main.asyncAfter(deadline: .now() + 0.5) {
-                    let view = NewOnboardingRouter.createModule(typeOnboarding: "CommunityAdmin")
-                    view.modalPresentationStyle = .overFullScreen
-                    view.transitioningDelegate = self
-                    self.present(view, animated: true, completion: nil)
-                }
-                
+                presentOnBoardingView(type: "CommunityAdmin")
             case UserProfileEnum.ResponsableComunidad.rawValue:
-                UserDefaults.standard.set("false", forKey: "NewOnboarding")
-                DispatchQueue.main.asyncAfter(deadline: .now() + 0.5) {
-                    let view = NewOnboardingRouter.createModule(typeOnboarding: "CommunityResp")
-                    view.modalPresentationStyle = .overFullScreen
-                    view.transitioningDelegate = self
-                    self.present(view, animated: true, completion: nil)
-                }
-                
+                presentOnBoardingView(type: "CommunityResp")
             case UserProfileEnum.Sacerdoteadministrador.rawValue:
-                UserDefaults.standard.set("false", forKey: "NewOnboarding")
-                DispatchQueue.main.asyncAfter(deadline: .now() + 0.5) {
-                    let view = NewOnboardingRouter.createModule(typeOnboarding: "PriestAdmin")
-                    view.modalPresentationStyle = .overFullScreen
-                    view.transitioningDelegate = self
-                    self.present(view, animated: true, completion: nil)
-                }
-                
+                presentOnBoardingView(type: "PriestAdmin")
             default:
                 break
             }
-        }else{
-            print("Dont show onboarding")
         }
-        
+    }
+    
+    func presentOnBoardingView(type:String){
+        print("present On boardingg type:::")
+        print(type)
+        UserDefaults.standard.set("false", forKey: "NewOnboarding")
+        DispatchQueue.main.asyncAfter(deadline: .now() + 0.5) {
+            let view = NewOnboardingRouter.createModule(typeOnboarding: type)
+            view.modalPresentationStyle = .overFullScreen
+            view.transitioningDelegate = self
+            self.present(view, animated: true, completion: nil)
+        }
     }
     
     private func setupTableView() {
@@ -531,7 +516,6 @@ class Home_Home: UIViewController, HomeViewProtocol, UITextFieldDelegate, UNUser
                 flagState = "COMPLETED"
             case UserCommunityStatus.pendindCompletion.rawValue:
                 flagState = "PENDING_COMPLETION"
-                
             case nil:
                 //let view = AnswerFoemularyWireFrame.createModule()
                  //present(view, animated: true, completion: nil)
@@ -610,9 +594,6 @@ class Home_Home: UIViewController, HomeViewProtocol, UITextFieldDelegate, UNUser
             print(String(self.saintOfDay.count))
          })
         saintOfDay = data
-        if saintOfDay.count != 0 {
-            noticias.append(saintOfDay[0])
-        }
         let formatter = DateFormatter()
         formatter.dateFormat = "yyyy-MM-dd"
         let now = Date()
@@ -621,6 +602,8 @@ class Home_Home: UIViewController, HomeViewProtocol, UITextFieldDelegate, UNUser
     }
     
     func onSuccessGetPosts(data: [HomePosts]) {
+        noticias=[]
+        allSections=[]
         realesesPost = data
         DispatchQueue.main.asyncAfter(deadline: .now() + 3, execute: {
             print("::::::succesGetPosts::;;;")
@@ -629,16 +612,20 @@ class Home_Home: UIViewController, HomeViewProtocol, UITextFieldDelegate, UNUser
         for post in realesesPost {
             noticias.append(post)
         }
-        allSections.append(noticias)
-        if noticias.count != 0 {
-            arraySections.append(true)
-        }else{
-            arraySections.append(false)
+        if saintOfDay.count != 0 {
+            noticias.append(saintOfDay[0])
         }
+        allSections.append(noticias)
+        /*if noticias.count != 0 {
+            array Sections.append(true)
+        }else{
+            array Sections.append(false)
+        }*/
         self.presenter?.requestSuggestions(type: "SUGGESTIONS")
     }
     
     func onSuccessGetSuggestions(data: [HomeSuggestions]) {
+        espiritualidad=[]
         suggestions = data
         DispatchQueue.main.asyncAfter(deadline: .now() + 3, execute: {
             print("::::::onSuccessGetSuggestions::;;;")
@@ -653,7 +640,8 @@ class Home_Home: UIViewController, HomeViewProtocol, UITextFieldDelegate, UNUser
     }
     
     func failGetHome(message: String) {
-        arraySections.append(false)
+        print("FAIL get HOME")
+        //array Sections.append(false)
     }
     
     func failLoadImg(){
@@ -794,12 +782,7 @@ class Home_Home: UIViewController, HomeViewProtocol, UITextFieldDelegate, UNUser
             confirmSOSService()
         })
     }
-    
-    @objc func returnFromBack(){
-        print(":::: REGRESO DEL BACKK ::::")
-        actionsViewWillAppear()
-    }
-    
+
     @objc func confirmSOSService(){
         let content = UNMutableNotificationContent()
         content.title = "Encuentro Catolico"
@@ -929,29 +912,25 @@ extension Home_Home: UIViewControllerTransitioningDelegate {
     func animationController(forDismissed dismissed: UIViewController) -> UIViewControllerAnimatedTransitioning? {
         transition.isPresenting = false
         let profile = UserDefaults.standard.string(forKey: "profile")
-        
         let singleton = Home_Home.singleton
-        
         switch singleton.isFromPrayModal {
         case "PRAY":
             DispatchQueue.main.asyncAfter(deadline: .now() + 0.2) {
                 let view = OracionesRouter.getController()
                 self.navigationController?.pushViewController(view, animated: true)
             }
-            
         case "VIDEO":
             DispatchQueue.main.asyncAfter(deadline: .now() + 0.2) {
                 let view = YoungView_Route.createView(navigation: self.navigationController!)
                 self.navigationController?.pushViewController(view, animated: true)
             }
-            
         default:
             if isWillAppear == true {
                 let goProfile = UserDefaults.standard.string(forKey: "GoProfile")
-                
                 if goProfile == nil && profile == "DEVOTED" {
-                    let view = ProfileInfoRouter.createModule()
-                    self.navigationController?.pushViewController(view, animated: true)
+                    print("DEBUG: Dont go to profile 2")
+                    //let view = ProfileInfoRouter.createModule()
+                    //self.navigationController?.pushViewController(view, animated: true)
                 }else{
                     print("DEBUG: Dont go to profile")
                 }

@@ -230,7 +230,7 @@ class Home_Perfil: UIViewController {
         presenter?.viewDidLoad()
         let singleton = Home_Perfil.sinleton
         if singleton.isPresentPriestAlert == true {
-            print("Mustra la alerta")
+            print("Mustra la alerta xxxyyy")
             singleton.isPresentPriestAlert = false
             let view = NewOnboardingRouter.createModule(typeOnboarding: "Priest")
             view.modalPresentationStyle = .overFullScreen

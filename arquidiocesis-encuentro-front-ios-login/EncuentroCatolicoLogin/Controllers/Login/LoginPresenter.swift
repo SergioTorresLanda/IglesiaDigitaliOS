@@ -52,19 +52,11 @@ extension LoginPresenter: LoginInteractorOutputProtocol {
                 self.view?.hideLoading()
                 DispatchQueue.main.asyncAfter(deadline: .now() + 0.5, execute: {
                     if !self.onboarding {
-                       // let view = Vista1WireFrame.createModule()
-                        //let view = OnBoardingCCWireFrame.createModule()
-                       // let view = NewOnboardingRouter.createModule(typeOnboarding: "FirstOnboarding")
-                       // view.modalPresentationStyle = .overFullScreen
                         UserDefaults.standard.set("true", forKey: "NewOnboarding")
                         let view = SocialNetworkController(nibName: "SocialNetworkController", bundle: Bundle(for: SocialNetworkController.self))
                         self.controla.navigationController?.pushViewController(view, animated: true)
                        // self.controla?.navigationController?.pushViewController(view, animated: true)
-                           }
-                           else {
-                           // let view = Vista1WireFrame.createModule()
-                            //let view = OnBoardingCCWireFrame.createModule()
-                           // let view = NewOnboardingRouter.createModule(typeOnboarding: "FirstOnboarding")
+                           }else{
                             UserDefaults.standard.set("true", forKey: "NewOnboarding")
                             let view = SocialNetworkController(nibName: "SocialNetworkController", bundle: Bundle(for: SocialNetworkController.self))
                             view.modalPresentationStyle = .overFullScreen

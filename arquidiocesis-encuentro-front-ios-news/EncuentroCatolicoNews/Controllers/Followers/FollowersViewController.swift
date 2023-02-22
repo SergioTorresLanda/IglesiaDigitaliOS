@@ -280,20 +280,23 @@ class FollowersViewController: UIViewController {
     }
     
     func formatoSegmentNew(){
+        publicV.layer.shadowOffset = CGSize(width: 0.0, height: 2.0)
+        followedV.layer.shadowOffset = CGSize(width: 0.0, height: 2.0)
+        followersV.layer.shadowOffset = CGSize(width: 0.0, height: 2.0)
         publicV.layer.cornerRadius = 10
         followedV.layer.cornerRadius = 10
         followersV.layer.cornerRadius = 10
         publicV.layer.shadowRadius = 4
-        publicV.layer.shadowOpacity = 0.6
+        publicV.layer.shadowOpacity = 0.5
         followedV.layer.shadowRadius = 4
-        followedV.layer.shadowOpacity = 0.6
+        followedV.layer.shadowOpacity = 0.5
         followersV.layer.shadowRadius = 4
-        followersV.layer.shadowOpacity = 0.6
-        publicV.layer.shadowColor = UIColor.black.cgColor
+        followersV.layer.shadowOpacity = 0.5
+        publicV.layer.shadowColor = UIColor.gray.cgColor
         publicV.layer.maskedCorners = [.layerMinXMaxYCorner, .layerMaxXMaxYCorner, .layerMinXMinYCorner, .layerMaxXMinYCorner]
-        followedV.layer.shadowColor = UIColor.black.cgColor
+        followedV.layer.shadowColor = UIColor.gray.cgColor
         followedV.layer.maskedCorners = [.layerMinXMaxYCorner, .layerMaxXMaxYCorner, .layerMinXMinYCorner, .layerMaxXMinYCorner]
-        followersV.layer.shadowColor = UIColor.black.cgColor
+        followersV.layer.shadowColor = UIColor.gray.cgColor
         followersV.layer.maskedCorners = [.layerMinXMaxYCorner, .layerMaxXMaxYCorner, .layerMinXMinYCorner, .layerMaxXMinYCorner]
     }
     

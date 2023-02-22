@@ -8,7 +8,7 @@
 import UIKit
 import AlamofireImage
 
-class Home_Oraciones: UIViewController, UICollectionViewDataSource, UICollectionViewDelegate, UITableViewDataSource, UITableViewDelegate {
+class Home_Oraciones: UIViewController, UICollectionViewDataSource, UICollectionViewDelegate, UITableViewDataSource, UITableViewDelegate, UITextFieldDelegate {
     var dataSourceCollectionView: [String] = []
     var collectionID: [Int?] = []
     var dataSourceIntCollectionView: [Int] = []
@@ -19,6 +19,7 @@ class Home_Oraciones: UIViewController, UICollectionViewDataSource, UICollection
     var dataSourceImageView: [UIImage] = []
     
     let loadingAlert = UIAlertController(title: "", message: "\n \n \n \n \nCargando...", preferredStyle: .alert)
+    
     @IBAction func dissButtonAction(_ sender: Any) {
         self.navigationController?.popToRootViewController(animated: true)
     }
@@ -26,12 +27,29 @@ class Home_Oraciones: UIViewController, UICollectionViewDataSource, UICollection
     var indexTable: Int = 0
     @IBOutlet weak var prayerCollection: UICollectionView!
     @IBOutlet weak var prayerTable: UITableView!
-    
     @IBOutlet weak var navView: UIView!
+
+    @IBOutlet weak var buscarTF: UITextField!
+    
+    @IBAction func buscarEnd(_ sender: Any) {
+        
+    }
+    
+    @IBAction func buscarBegin(_ sender: Any) {
+    }
+    
+    @IBAction func buscarChanged(_ sender: Any) {
+        print("DID CHAnGE serchh")
+        if buscarTF.text!.count > 1 {
+            self.presenter?.getDataInteractorSearchBar(type: buscarTF.text!)
+        }else if buscarTF.text!.count == 0{
+            self.presenter?.getDataInteractor(name: "")
+        }
+    }
     
     
     var presenter: PresenterOracionesProtocol?
-    
+   
     lazy var searchBarF: UISearchBar = {
         let searchBar:UISearchBar = UISearchBar(frame: CGRect(x: 10, y: 112, width: self.view.frame.width-16, height: self.view.frame.height-22))
         searchBar.searchBarStyle = UISearchBar.Style.prominent
@@ -39,7 +57,8 @@ class Home_Oraciones: UIViewController, UICollectionViewDataSource, UICollection
         searchBar.sizeToFit()
         searchBar.isTranslucent = false
         searchBar.backgroundImage = UIImage()
-        searchBar.showsCancelButton = true
+        searchBar.backgroundColor = .clear
+        searchBar.showsCancelButton = false
         searchBar.delegate = self
         let imageView = UIImageView(image: UIImage(named: "iconoBuscar"))
         if #available(iOS 13.0, *) {
@@ -52,41 +71,53 @@ class Home_Oraciones: UIViewController, UICollectionViewDataSource, UICollection
         } else {
             // Fallback on earlier versions
         }
+        let img = UIImage(named: "iconSearch", in: Bundle(for: Home_Oraciones.self), compatibleWith: nil)
+        searchBar.setImage(img, for: .search, state: .normal)
+        //setPaddingWithImage(image: img ?? UIImage(), textField: searchBar)
         return searchBar
     }()
+    
+    func setPaddingWithImage(image: UIImage, textField: UITextField){
+        let imageView = UIImageView(image: image)
+        imageView.contentMode = .scaleAspectFit
+        let viewR = UIView(frame: CGRect(x: 0, y: 0, width: 50, height: 50))
+        imageView.frame = CGRect(x: 12.0, y: 12.0, width: 25.0, height: 25.0)//13 x y  y
+        let seperatorView = UIView(frame: CGRect(x: 0, y: 0, width: 10, height: 50))
+        seperatorView.backgroundColor = UIColor.clear
+        textField.leftViewMode = .always
+        viewR.addSubview(imageView)
+        textField.leftViewMode = UITextField.ViewMode.always
+        textField.leftView = seperatorView
+        textField.rightViewMode = UITextField.ViewMode.always
+        textField.rightView = viewR
+    }
     
     override func viewDidLoad() {
         super.viewDidLoad()
         navView.layer.cornerRadius = 20
         navView.ShadowNavBar()
         showLoading()
-        self.view.addSubview(self.searchBarF)
-        self.presenter?.getDataInteractor(name: "")
-        self.prayerTable.delegate = self
-        self.prayerTable.delegate = self
-        self.prayerCollection.delegate = self
-        self.prayerCollection.dataSource = self
-        self.searchBarF.delegate = self
+        //self.view.addSubview(self.searchBarF)
+        presenter?.getDataInteractor(name: "")
+        prayerTable.delegate = self
+        prayerTable.delegate = self
+        prayerCollection.delegate = self
+        prayerCollection.dataSource = self
+        buscarTF.delegate=self
+        searchBarF.delegate = self
         UIBarButtonItem.appearance(whenContainedInInstancesOf: [UISearchBar.self]).title = "Cancelar"
         setImage()
         DispatchQueue.main.asyncAfter(deadline: .now() + 2, execute: {
             self.loadingAlert.dismiss(animated: true, completion: nil)
         })
         hideKeyboardWhenTappedAround()
+        addDoneButtonOnKeyboard()
     }
     
     override func viewWillAppear(_ animated: Bool) {
         print("VC ECPrayers -OracionesList- PrayerVC ")
-    }
-    
-    func hideKeyboardWhenTappedAround(){
-        let tap = UITapGestureRecognizer(target: self, action: #selector(dismissKeyboard))
-        tap.cancelsTouchesInView = false
-        view.addGestureRecognizer(tap)
-    }
-    
-    @objc func dismissKeyboard() {
-        view.endEditing(true)
+        let img = UIImage(named: "iconSearch", in: Bundle(for: Home_Oraciones.self), compatibleWith: nil)
+        setPaddingWithImage(image: img ?? UIImage(), textField: buscarTF)
     }
     
     func getSubtitles(topic: String) -> [String] {
@@ -210,6 +241,33 @@ class Home_Oraciones: UIViewController, UICollectionViewDataSource, UICollection
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         
+    }
+    
+    
+    //MARK: KEYBOARD
+    func addDoneButtonOnKeyboard(){
+        let doneToolbar: UIToolbar = UIToolbar(frame: CGRect.init(x: 0, y: 0, width: UIScreen.main.bounds.width, height: 50))
+             doneToolbar.barStyle = .default
+        let flexSpace = UIBarButtonItem(barButtonSystemItem: .flexibleSpace, target: nil, action: nil)
+        let done: UIBarButtonItem = UIBarButtonItem(title: "Listo", style: .done, target: self, action: #selector(self.doneButtonAction))
+        let items = [flexSpace, done]
+        doneToolbar.items = items
+        doneToolbar.sizeToFit()
+        buscarTF.inputAccessoryView = doneToolbar
+    }
+
+    @objc func doneButtonAction(){
+        buscarTF.resignFirstResponder()
+    }
+    
+    func hideKeyboardWhenTappedAround(){
+        let tap = UITapGestureRecognizer(target: self, action: #selector(dismissKeyboard))
+        tap.cancelsTouchesInView = false
+        view.addGestureRecognizer(tap)
+    }
+    
+    @objc func dismissKeyboard() {
+        view.endEditing(true)
     }
     
 }

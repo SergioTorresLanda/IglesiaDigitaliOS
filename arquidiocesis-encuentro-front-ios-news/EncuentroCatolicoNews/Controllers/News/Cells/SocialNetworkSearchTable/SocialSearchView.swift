@@ -32,7 +32,7 @@ class SocialSearchView: UIViewController, SocialSearchViewProtocol {
     override func viewDidLoad() {
         super.viewDidLoad()
         setupTableView()
-        self.hideKeyboardWhenTappedAround()
+        hideKeyboardWhenTappedAround()
         setupUI()
         addDoneButtonOnKeyboard()
     }
@@ -90,7 +90,7 @@ class SocialSearchView: UIViewController, SocialSearchViewProtocol {
     }
     
 // MARK: @OBJC FUNCTIONS -
-    @objc func TapFollow(sender: UIButton) {
+    @objc func TapFollow(sender: UIButton) {////ya no se usa
         showLoading()
         let sectionData = arrayResults[sender.tag]
         var type = 5
@@ -193,6 +193,33 @@ extension SocialSearchView {
     
     func failFollowUF(message: String) {
         print(message)
+    }
+}
+
+extension SocialSearchView: followCellProtocol{
+    func actionSelected(index: Int) {
+        showLoading()
+        let sectionData = arrayResults[index]
+        var type = 5
+        switch sectionData.type {
+        case "Church":
+            type = 2
+        case "Community":
+            type = 3
+        default:
+            type = 1
+        }
+        if sectionData.relationship != nil {
+            print("presenter DELETE")
+            presenter?.requestFollowUF(method: "DELETE", entityId: sectionData.id ?? 0, entityType: type)
+        }else{
+            print("presenter POST")
+            presenter?.requestFollowUF(method: "POST", entityId: sectionData.id ?? 0, entityType: type)
+        }
+        DispatchQueue.main.asyncAfter(deadline: .now() + 2.0) {
+            self.hideLoading()
+            self.presenter?.requestSearch(searchText: self.searchField.text ?? "")
+        }
     }
 }
 

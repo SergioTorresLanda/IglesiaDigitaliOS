@@ -211,12 +211,12 @@ extension Home_Home: UITableViewDelegate, UITableViewDataSource {
             numberOfRowsT = allSections.count  //saintOfDay.count + realesesPost.count + 1
         }
         print(":::NORIS:::"+String(numberOfRowsT))
-        if numberOfRowsT == 2 {
-            SVheight.constant=855
-            tableHeight.constant=600
-        }else{
+        if numberOfRowsT == 1 {
             SVheight.constant=555
             tableHeight.constant=300
+        }else{
+            SVheight.constant=855
+            tableHeight.constant=600
         }
         
         return numberOfRowsT

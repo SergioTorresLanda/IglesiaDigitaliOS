@@ -198,8 +198,9 @@ class NewOnboardingsView: UIViewController, NewOnboardingViewProtocol {
         let defaults = UserDefaults.standard
         let newUser = defaults.bool(forKey: "isNewUser")
         if newUser == true {
-            let view = ProfileInfoRouter.createModule()
-            self.navigationController?.pushViewController(view, animated: true)
+            self.dismiss(animated: true, completion: nil)
+            //let view = ProfileInfoRouter.createModule()
+            //self.navigationController?.pushViewController(view, animated: true)
             defaults.setValue(false, forKey: "isNewUser")
         }else {
             self.dismiss(animated: true, completion: nil)
@@ -210,8 +211,10 @@ class NewOnboardingsView: UIViewController, NewOnboardingViewProtocol {
         let defaults = UserDefaults.standard
         let newUser = defaults.bool(forKey: "isNewUser")
         if newUser == true {
-            let view = ProfileInfoRouter.createModule()
-            self.navigationController?.pushViewController(view, animated: true)
+            self.dismiss(animated: true, completion: nil)
+
+            //let view = ProfileInfoRouter.createModule()
+            //self.navigationController?.pushViewController(view, animated: true)
             defaults.setValue(false, forKey: "isNewUser")
         }else {
             self.dismiss(animated: true, completion: nil)

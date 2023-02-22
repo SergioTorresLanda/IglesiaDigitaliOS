@@ -42,6 +42,7 @@ open class ModalWebViewController: UIViewController {
     var titlex = ""
     var viewType = ""
     //VIDEO
+    var isVideoPlayer=false
     var playerVid: AVPlayer!
     var playerViewController: AVPlayerViewController!
     //AUDIO
@@ -90,7 +91,6 @@ open class ModalWebViewController: UIViewController {
     // MARK: PRIVATE FUNCTIONS -
     func startTimer () {
       guard timerTest == nil else { return }
-        isPlayer=true
         timerTest = Timer.scheduledTimer(withTimeInterval: 1, repeats: true){(_) in
           
             if self.isplaying{
@@ -171,9 +171,11 @@ open class ModalWebViewController: UIViewController {
         switch type {
         case "AUDIO":
             print("VWA AUDIO")
+            isPlayer=true
             titleLbl.text=titlex
             audioView.isHidden=false
         case "VIDEO":
+            isVideoPlayer=true
             videoTitle.isHidden=false
             videoTitle.text=titlex
             print("VWA VIDEO")
@@ -298,11 +300,23 @@ open class ModalWebViewController: UIViewController {
     
 // MARK: @OBJC FUNCTIONS -
     @objc func TapBack() {
+        print("Tap back")
+        self.dismiss(animated: false, completion: nil)
         if isPlayer{
-            player.stop()
+            if player.isPlaying{
+                player.stop()
+                playBtn.image=UIImage(named: "playxxx", in: Bundle(for: ModalWebViewController.self), compatibleWith: nil)
+            }
+            isplaying=false
             stopTimer()
         }
-        self.dismiss(animated: false, completion: nil)
+        if isVideoPlayer{
+            if !playerVid.isNull{
+                playerVid.pause()
+                print("SE PaUsO viDeo MAster")
+            }
+        }
+        //self.navigationController?.popViewController(animated: true)
     }
     
     @objc func TapRewind() {

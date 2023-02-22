@@ -865,15 +865,13 @@ extension Home_Perfil: UICollectionViewDataSource, UICollectionViewDelegate, UIC
         case churchCollection:
             switch miniContentSwitch.isHidden {
             case true:
-                return CGSize(width: churchCollection.frame.width - 20, height: 255)
-            
+                return CGSize(width: churchCollection.frame.width - 20, height: 200)
             default:
-                return CGSize(width: churchCollection.frame.width - 20, height: 225)
+                return CGSize(width: churchCollection.frame.width - 20, height: 170)
             }
             
         case radioBtnCollection:
             return CGSize(width: 200, height: 40)
-            
         default:
             return CGSize(width: 110 , height: 40)
         }

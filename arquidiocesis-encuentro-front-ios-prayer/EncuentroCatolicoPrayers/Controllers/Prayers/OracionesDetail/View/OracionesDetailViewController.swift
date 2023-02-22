@@ -29,11 +29,13 @@ class OracionesDetailViewController: UIViewController {
     @IBOutlet weak var imgPray: UIImageView!
     @IBOutlet weak var relatedTableView: UITableView!
     @IBOutlet weak var lblPray: UILabel!
+    
+    @IBOutlet weak var lblPrayTV: UITextView!
     @IBOutlet weak var bottomHeight: NSLayoutConstraint!
     @IBOutlet weak var heightSimilarTable: NSLayoutConstraint!
     @IBOutlet weak var btnSeemore: UIButton!
-    @IBOutlet weak var shareImg: UIImageView!
-    @IBOutlet weak var sharePray: UIImageView!
+    @IBOutlet weak var shareImgV: UIView!
+    @IBOutlet weak var sharePrayV: UIView!
     
     var presenter: PresenterOracionesDetailProtocol?
     let loadingAlert = UIAlertController(title: "", message: "\n \n \n \n \nCargando...", preferredStyle: .alert)
@@ -46,8 +48,8 @@ class OracionesDetailViewController: UIViewController {
         showLoading()
         setupUI()
         setupGestures()
-        self.view.backgroundColor = .white
-        self.presenter?.getDataInteractorDevotions(id: self.id ?? 0)
+        view.backgroundColor = .white
+        presenter?.getDataInteractorDevotions(id: self.id ?? 0)
     }
     
     override func viewWillAppear(_ animated: Bool) {
@@ -60,10 +62,11 @@ class OracionesDetailViewController: UIViewController {
         imgPray.imageFromURL(urlString: datasource?.image_url ?? "")
         print(":;;;;;;;;;URl:;;;;;;;")
         print(datasource?.image_url ?? "XXX")
-        lblPray.text = datasource?.description ?? ""
+        //lblPray.text = datasource?.description ?? ""
+        lblPrayTV.text = datasource?.description ?? ""
         print(datasource?.description ?? "XXX")
-        shareImg.isHidden=false
-        sharePray.isHidden=false
+        shareImgV.isHidden=false
+        sharePrayV.isHidden=false
         self.view.layoutIfNeeded()
         similarArray = datasource?.similars ?? similarArray
         UIView.animate(withDuration: 0.4) {
@@ -80,6 +83,18 @@ class OracionesDetailViewController: UIViewController {
         customNavBar.layer.cornerRadius = 20
         customNavBar.ShadowNavBar()
         lblTitle.adjustsFontSizeToFitWidth = true
+        shareImgV.layer.cornerRadius = 10
+        shareImgV.layer.shadowColor = UIColor.gray.cgColor
+        shareImgV.layer.shadowOpacity = 0.5
+        shareImgV.layer.shadowOffset = CGSize(width: 0, height: 3)
+        shareImgV.layer.shadowRadius = 1
+        sharePrayV.layer.cornerRadius = 10
+        sharePrayV.layer.shadowColor = UIColor.gray.cgColor
+        sharePrayV.layer.shadowOpacity = 0.5
+        sharePrayV.layer.shadowOffset = CGSize(width: 0, height: 3)
+        sharePrayV.layer.shadowRadius = 1
+        lblPrayTV.allowsEditingTextAttributes=false
+        lblPrayTV.isEditable=false
     }
     
     func setupDelegates() {
@@ -97,11 +112,11 @@ class OracionesDetailViewController: UIViewController {
         let tapBack = UITapGestureRecognizer(target: self, action: #selector(tapBackAction))
         backIcon.addGestureRecognizer(tapBack)
         let tapShare = UITapGestureRecognizer(target: self, action: #selector(shareClick))
-        shareImg.isUserInteractionEnabled=true
-        shareImg.addGestureRecognizer(tapShare)
+        shareImgV.isUserInteractionEnabled=true
+        shareImgV.addGestureRecognizer(tapShare)
         let tapSharePray = UITapGestureRecognizer(target: self, action: #selector(sharePrayClick))
-        sharePray.isUserInteractionEnabled=true
-        sharePray.addGestureRecognizer(tapSharePray)
+        sharePrayV.isUserInteractionEnabled=true
+        sharePrayV.addGestureRecognizer(tapSharePray)
     }
     
     @objc func shareClick() {
@@ -169,6 +184,7 @@ class OracionesDetailViewController: UIViewController {
     @objc func tapBackAction() {
         self.navigationController?.popViewController(animated: true)
     }
+    
     
 }
 

@@ -60,19 +60,24 @@
                                 </constraints>
                             </view>
                             <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Buscar usuarios en red social" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="XKH-Mq-da2">
-                                <rect key="frame" x="16" y="117" width="382" height="47"/>
+                                <rect key="frame" x="16" y="115" width="382" height="50"/>
                                 <color key="backgroundColor" red="0.92143100499999997" green="0.92145264149999995" blue="0.92144101860000005" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <constraints>
-                                    <constraint firstAttribute="height" constant="47" id="Hnn-YS-c1g"/>
+                                    <constraint firstAttribute="height" constant="50" id="Hnn-YS-c1g"/>
                                 </constraints>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits" autocapitalizationType="words" autocorrectionType="no" spellCheckingType="no"/>
+                                <userDefinedRuntimeAttributes>
+                                    <userDefinedRuntimeAttribute type="number" keyPath="radius">
+                                        <real key="value" value="25"/>
+                                    </userDefinedRuntimeAttribute>
+                                </userDefinedRuntimeAttributes>
                                 <connections>
                                     <action selector="textDidChangeEditing:" destination="dA9-50-Np5" eventType="editingChanged" id="Fn5-Yq-x5U"/>
                                 </connections>
                             </textField>
-                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="-1" estimatedSectionHeaderHeight="-1" sectionFooterHeight="-1" estimatedSectionFooterHeight="-1" translatesAutoresizingMaskIntoConstraints="NO" id="wG0-9M-GQa">
-                                <rect key="frame" x="16" y="174" width="382" height="598"/>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="none" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="-1" estimatedSectionHeaderHeight="-1" sectionFooterHeight="-1" estimatedSectionFooterHeight="-1" translatesAutoresizingMaskIntoConstraints="NO" id="wG0-9M-GQa">
+                                <rect key="frame" x="16" y="175" width="382" height="597"/>
                                 <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                             </tableView>
                             <button hidden="YES" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="9bO-bk-nA5">
@@ -91,7 +96,7 @@
                         <viewLayoutGuide key="safeArea" id="6Cn-hW-Wia"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                         <constraints>
-                            <constraint firstItem="XKH-Mq-da2" firstAttribute="top" secondItem="yuj-Ci-M6Q" secondAttribute="bottom" constant="17" id="0PZ-bj-GSA"/>
+                            <constraint firstItem="XKH-Mq-da2" firstAttribute="top" secondItem="yuj-Ci-M6Q" secondAttribute="bottom" constant="15" id="0PZ-bj-GSA"/>
                             <constraint firstItem="XKH-Mq-da2" firstAttribute="leading" secondItem="6Cn-hW-Wia" secondAttribute="leading" constant="16" id="4eO-wD-jOl"/>
                             <constraint firstItem="wG0-9M-GQa" firstAttribute="top" secondItem="XKH-Mq-da2" secondAttribute="bottom" constant="10" id="D6q-t8-s3W"/>
                             <constraint firstItem="6Cn-hW-Wia" firstAttribute="trailing" secondItem="yuj-Ci-M6Q" secondAttribute="trailing" constant="-24" id="Ggd-r3-Bl7"/>
