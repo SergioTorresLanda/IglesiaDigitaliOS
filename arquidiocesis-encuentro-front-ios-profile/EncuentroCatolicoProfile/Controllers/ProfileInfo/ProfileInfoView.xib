@@ -41,6 +41,10 @@
                 <outlet property="mainScroll" destination="CeH-1j-Ogv" id="yG8-JY-zOp"/>
                 <outlet property="miniContentCongregation" destination="CRT-W2-o0d" id="VlD-39-BR0"/>
                 <outlet property="miniContentSwitch" destination="KYX-OI-xcX" id="4O3-OF-Mys"/>
+                <outlet property="modifyDataLbl" destination="Q9U-Z1-mvC" id="JDc-8W-ghf"/>
+                <outlet property="modifyLblHeight" destination="SBh-Rw-4ha" id="Xy8-Fv-kpf"/>
+                <outlet property="modifyTV" destination="rBl-bj-zQU" id="uAC-Ww-dcd"/>
+                <outlet property="modifyTVHeight" destination="4LW-hz-Oc7" id="EzQ-QZ-tVJ"/>
                 <outlet property="prefixField" destination="RoL-YT-GNG" id="aaT-nh-4vc"/>
                 <outlet property="prefixView" destination="11u-87-nJM" id="VQF-2s-VWs"/>
                 <outlet property="radioBtnCollection" destination="DaD-Kg-QbM" id="LdU-SR-Kah"/>
@@ -641,6 +645,25 @@
                                                 <inset key="sectionInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
                                             </collectionViewFlowLayout>
                                         </collectionView>
+                                        <textView hidden="YES" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" text="Si requieres modificar algún dato escríbenos a iglesiadigital@arquidiocesismexico.org" textAlignment="center" translatesAutoresizingMaskIntoConstraints="NO" id="rBl-bj-zQU">
+                                            <rect key="frame" x="0.0" y="539.5" width="373" height="0.0"/>
+                                            <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                                            <constraints>
+                                                <constraint firstAttribute="height" id="4LW-hz-Oc7"/>
+                                            </constraints>
+                                            <color key="textColor" name="eMainBlue"/>
+                                            <fontDescription key="fontDescription" type="system" weight="medium" pointSize="13"/>
+                                            <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
+                                        </textView>
+                                        <label hidden="YES" opaque="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Si requieres modificar algún dato escríbenos a iglesiadigital@arquidiocesismexico.org" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Q9U-Z1-mvC">
+                                            <rect key="frame" x="0.0" y="539.5" width="373" height="0.0"/>
+                                            <constraints>
+                                                <constraint firstAttribute="height" id="SBh-Rw-4ha"/>
+                                            </constraints>
+                                            <fontDescription key="fontDescription" type="system" weight="medium" pointSize="13"/>
+                                            <color key="textColor" name="eMainBlue"/>
+                                            <nil key="highlightedColor"/>
+                                        </label>
                                         <stackView opaque="NO" contentMode="scaleToFill" distribution="equalSpacing" translatesAutoresizingMaskIntoConstraints="NO" id="1ee-NV-yNK">
                                             <rect key="frame" x="0.0" y="547" width="373" height="50"/>
                                             <subviews>
@@ -725,7 +748,7 @@
             <color red="0.0" green="0.0" blue="0.0" alpha="0.60000002384185791" colorSpace="custom" customColorSpace="sRGB"/>
         </namedColor>
         <namedColor name="eLightPinkishGray">
-            <color red="0.72549019607843135" green="0.72549019607843135" blue="0.72549019607843135" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+            <color red="0.72500002384185791" green="0.72500002384185791" blue="0.72500002384185791" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </namedColor>
         <namedColor name="eMainBlue">
             <color red="0.0039215686274509803" green="0.12549019607843137" blue="0.40784313725490196" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>

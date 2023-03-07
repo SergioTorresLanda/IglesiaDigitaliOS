@@ -13,7 +13,7 @@ public class TabNavigationMenu: UIImageView {
     //MARK: - Properties
     public var itemTapped: ((_ tab: Int) -> Void)?
     private var activeItem: Int = 0
-    
+    let defaults = UserDefaults.standard
     //MARK: - Life cycle
     override public init(frame: CGRect) {
         super.init(frame: frame)
@@ -136,22 +136,33 @@ public class TabNavigationMenu: UIImageView {
     }
     
     @objc private func handleProfileTap(){
+        print("handle profile tap")
         switchTab(from: activeItem, to: 2)
     }
     
     @objc private func handleProfileTapVirtual(){
+        print("handle profile tap virtual")
         switchTabVirtual(from: activeItem, to: 2)
     }
     
     @objc private func handleHomeTap(){
+        print("handle home tap")
         switchTab(from: activeItem, to: 0)
     }
     
     @objc private func handleTap(_ sender: UIGestureRecognizer) {
-        if activeItem != sender.view!.tag {
-            switchTab(from: activeItem, to: sender.view!.tag)
+        print("handle SOS tap virtual, si se activa en SOS y perfil")
+        let newUser = defaults.bool(forKey: "isNewUser")
+        if newUser || sender.view!.tag==0 {
+            if activeItem != sender.view!.tag {
+                switchTab(from: activeItem, to: sender.view!.tag)
+            }else{
+                NotificationCenter.default.post(name: Notification.Name("NotificationFeed"), object: nil)
+            }
         }else{
-            NotificationCenter.default.post(name: Notification.Name("NotificationFeed"), object: nil)
+            print("se bloqueo avance tabbar a ")
+            print(sender.view!.tag)
+            NotificationCenter.default.post(name: Notification.Name("RequestLogin"), object: nil)
         }
     }
     

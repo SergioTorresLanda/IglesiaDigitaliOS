@@ -48,7 +48,12 @@ class Home_Perfil: UIViewController {
     @IBOutlet weak var lblPrefix: UILabel!
     @IBOutlet weak var prefixField: UITextField!
     @IBOutlet weak var prefixView: UIView!
+    @IBOutlet weak var modifyDataLbl: UILabel!
     @IBOutlet weak var btnDelete: UIButton!
+    @IBOutlet weak var modifyLblHeight: NSLayoutConstraint!
+    
+    @IBOutlet weak var modifyTV: UITextView!
+    @IBOutlet weak var modifyTVHeight: NSLayoutConstraint!
     
     static let sinleton = Home_Perfil()
 // MARK: NEW GLOBAL VAR -
@@ -178,8 +183,8 @@ class Home_Perfil: UIViewController {
     
 // MARK: LIFE CYCLE VIEW FUNCTIONS -
     func showLoading() {
-        let imageView = UIImageView(frame: CGRect(x: 75, y: 25, width: 140, height: 60))
-        imageView.image = UIImage(named: "logoEncuentro", in: Bundle.local, compatibleWith: nil)
+        let imageView = UIImageView(frame: CGRect(x: 100, y: 15, width: 80, height: 80))//mitad es en 145dp
+        imageView.image = UIImage(named: "iconoIglesia3", in: Bundle.local, compatibleWith: nil)
         loadingAlert.view.addSubview(imageView)
         present(loadingAlert, animated: true, completion: nil)
     }
@@ -202,6 +207,9 @@ class Home_Perfil: UIViewController {
         setupRadioBtnCollection()
        
         NotificationCenter.default.addObserver(self, selector: #selector(receiveProfileInfo(notification:)), name: Notification.Name("showUserINFO"), object: nil)
+        
+        modifyTV.isEditable = false
+        modifyTV.dataDetectorTypes = .link
     }
     
     override func viewDidLayoutSubviews() {
@@ -226,15 +234,16 @@ class Home_Perfil: UIViewController {
         AllServicesData=[]
         resetLists()
         
-        showLoading()
-        presenter?.viewDidLoad()
         let singleton = Home_Perfil.sinleton
         if singleton.isPresentPriestAlert == true {
-            print("Mustra la alerta xxxyyy")
+            print("No haga nada, viene de registro sacer:")
             singleton.isPresentPriestAlert = false
-            let view = NewOnboardingRouter.createModule(typeOnboarding: "Priest")
+            /*let view = NewOnboardingRouter.createModule(typeOnboarding: "Priest")
             view.modalPresentationStyle = .overFullScreen
-            self.present(view, animated: true, completion: nil)
+            self.present(view, animated: true, completion: nil)*/
+        }else{
+            showLoading()
+            presenter?.viewDidLoad()
         }
     }
     
@@ -1323,7 +1332,6 @@ class Home_Perfil: UIViewController {
         switch validPrayer {
         case "Sacerdote":
             print("DID SAVE ACTION SACERDOTE")
-            //let view = ProfileInfoRouter.createModuleTwo()
             //navigationController?.pushViewController(view, animated: true)
         case "Díacono(Transitorio o permanente)", "Religioso (a)":
             let registerDiacono: ProfileDiacono = ProfileDiacono(username: fieldsCollection[4].text ?? "", id: idGlobal, name: fieldsCollection[0].text ?? "", first_surname: fieldsCollection[1].text ?? "", second_surname: fieldsCollection[2].text ?? "", phone_number: fieldsCollection[3].text ?? "" , email: fieldsCollection[4].text ?? "", life_status: life, interest_topics: topicArray , locations: loca)

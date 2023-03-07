@@ -23,7 +23,17 @@ public struct UserRegister: Codable {
         self.role = role
         self.type_person = type_person
     }
+}
+
+public struct PriestRequest: Codable {
     
+    let type_login: String
+    let phone_number: String
+  
+    init(type: String, phone: String) {
+        self.type_login = type
+        self.phone_number = phone
+    }
 }
 
 struct ResponseRegister: Codable {
@@ -38,6 +48,23 @@ struct ResponseRegister: Codable {
         self.CodeDeliveryDetails = CodeDeliveryDetails
     }
 
+}
+
+struct ResponsePriest: Codable {
+    
+    let name: String?
+    let fcappaterno: String?
+    let fcapmaterno : String?
+    let fccelular : String?
+    let fccorreo : String?
+    
+    init(name: String?, fcappaterno: String?, fcapmaterno : String?, fccelular : String?, fccorreo : String?) {
+        self.name = name
+        self.fcappaterno = fcappaterno
+        self.fcapmaterno = fcapmaterno
+        self.fccelular = fccelular
+        self.fccorreo = fccorreo
+    }
 }
 
 struct CodeDeliveryDetails: Codable {

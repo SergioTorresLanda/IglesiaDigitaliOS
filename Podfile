@@ -216,7 +216,6 @@ target 'EncuentroCatolicoVirtualLibrary' do
   
   pod 'Firebase/Crashlytics'
   pod 'Firebase/Analytics'
-
   project 'arquidiocesis-encuentro-front-ios-virtual-library/EncuentroCatolicoVirtualLibrary.xcodeproj'
 end
 

@@ -25,28 +25,21 @@ extension Home_Home: UICollectionViewDataSource {
     
     public func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         //MARK: Distribution
-        
         switch indexPath.row {
         case 0:
             let cell = homeCV.dequeueReusableCell(withReuseIdentifier: "HomeCV", for: indexPath) as! HomeCV
-            
             cell.lblFrameworkName.text = "Cadena de oración"
-            
             if arraySelectedCell[indexPath.item] == false {
                 cell.imageMenu.image  = UIImage(named:"Grupo(gris) 8617", in: Bundle.local, compatibleWith: nil)
             }else{
                 cell.imageMenu.image = UIImage(named: "Grupo 8617", in: Bundle.local, compatibleWith: nil)
             }
-            
             cell.containerButton.layer.cornerRadius = 10
             //  cell.containerButton.addShadow()
             return cell
-            
         case 1:
             let cell = homeCV.dequeueReusableCell(withReuseIdentifier: "HomeCV", for: indexPath) as! HomeCV
-            
             cell.lblFrameworkName.text = "Mi Iglesia"
-            
             if arraySelectedCell[indexPath.item] == false {
                 cell.imageMenu.image  = UIImage(named:"Grupo(gris) 8611", in: Bundle.local, compatibleWith: nil)
             }else{
@@ -54,31 +47,21 @@ extension Home_Home: UICollectionViewDataSource {
             }
             cell.containerButton.layer.cornerRadius = 10
             // cell.containerButton.addShadow()
-            
             return cell
         case 2:
-            
             let cell = homeCV.dequeueReusableCell(withReuseIdentifier: "HomeCV", for: indexPath) as! HomeCV
-            
             cell.lblFrameworkName.text = "Biblioteca Virtual"
-            
             if arraySelectedCell[indexPath.item] == false {
                 cell.imageMenu.image  = UIImage(named:"Grupo(gris) 8614", in: Bundle.local, compatibleWith: nil)
             }else{
                 cell.imageMenu.image = UIImage(named: "Grupo 8614", in: Bundle.local, compatibleWith: nil)
             }
-            
             cell.containerButton.layer.cornerRadius = 10
             // cell.containerButton.addShadow()
-            
             return cell
-            
         case 3:
-            
             let cell = homeCV.dequeueReusableCell(withReuseIdentifier: "HomeCV", for: indexPath) as! HomeCV
-            
             cell.lblFrameworkName.text = "Oraciones"
-            
             if arraySelectedCell[indexPath.item] == false {
                 cell.imageMenu.image  = UIImage(named:"Grupo(gris) 8616", in: Bundle.local, compatibleWith: nil)
             }else{
@@ -86,16 +69,11 @@ extension Home_Home: UICollectionViewDataSource {
             }
             cell.containerButton.layer.cornerRadius = 10
             // cell.containerButton.addShadow()
-            
             return cell
             
         case 4:
-            
             let cell = homeCV.dequeueReusableCell(withReuseIdentifier: "HomeCV", for: indexPath) as! HomeCV
-            
-            
             cell.lblFrameworkName.text = "Servicios"
-            
             if arraySelectedCell[indexPath.item] == false {
                 cell.imageMenu.image  = UIImage(named:"Grupo(gris) 8613", in: Bundle.local, compatibleWith: nil)
             }else{
@@ -104,30 +82,21 @@ extension Home_Home: UICollectionViewDataSource {
             cell.containerButton.layer.cornerRadius = 10
             // cell.containerButton.addShadow()
             return cell
-            
         case 5:
             let cell = homeCV.dequeueReusableCell(withReuseIdentifier: "HomeCV", for: indexPath) as! HomeCV
-            
             cell.lblFrameworkName.text = "Red Social"
-            
             if arraySelectedCell[indexPath.item] == false {
                 cell.imageMenu.image  = UIImage(named:"Grupo(gris) 8615", in: Bundle.local, compatibleWith: nil)
             }else{
                 cell.imageMenu.image = UIImage(named: "Grupo 8615", in: Bundle.local, compatibleWith: nil)
             }
-            
             cell.containerButton.layer.cornerRadius = 10
             //  cell.containerButton.addShadow()
-            
             return cell
-            
-            
         case 6:
             let cell = homeCV.dequeueReusableCell(withReuseIdentifier: "HomeCV", for: indexPath) as! HomeCV
-            
             cell.lblFrameworkName.text = "Comunidades"
             cell.lblFrameworkName.adjustsFontSizeToFitWidth = true
-            
             if arraySelectedCell[indexPath.item] == false {
                 cell.imageMenu.image  = UIImage(named:"Grupo(gris) 8612", in: Bundle.local, compatibleWith: nil)
             }else{
@@ -136,12 +105,9 @@ extension Home_Home: UICollectionViewDataSource {
             cell.containerButton.layer.cornerRadius = 10
             // cell.containerButton.addShadow()
             return cell
-            
         default:
             let cell = homeCV.dequeueReusableCell(withReuseIdentifier: "HomeCV", for: indexPath) as! HomeCV
-            
             cell.lblFrameworkName.text = "Oraciones"
-            
             cell.imageMenu.image  = UIImage(named:"oraciones", in: Bundle.local, compatibleWith: nil)
             cell.containerButton.layer.cornerRadius = 10
             //  cell.containerButton.addShadow()
@@ -153,15 +119,25 @@ extension Home_Home: UICollectionViewDataSource {
 //MARK: - UICollectionViewDelegate
 extension Home_Home: UICollectionViewDelegate {
     public func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
+        
+        let newUser = defaults.bool(forKey: "isNewUser")
         switch indexPath.row {
         case 0:
-            let storyboard = UIStoryboard(name: "Main", bundle: Bundle.local)
-            let vc = storyboard.instantiateViewController(withIdentifier: "prayerChainFeed") as! Home_CadenaOracion
-            vc.userName = nombrePersona.text!
-            self.navigationController?.pushViewController(vc, animated: true)
+            if newUser {//esta logueado, puede avanzar al modulo
+                let storyboard = UIStoryboard(name: "Main", bundle: Bundle.local)
+                let vc = storyboard.instantiateViewController(withIdentifier: "prayerChainFeed") as! Home_CadenaOracion
+                vc.userName = nombrePersona.text!
+                self.navigationController?.pushViewController(vc, animated: true)
+            }else{
+                showCanonAlert(title: "¡Atención!", msg: "Regístrate o inicia sesión para poder acceder a este módulo")
+            }
         case 1:
-            let view = MyChurchesWireFrame.getController()
-            self.navigationController?.pushViewController(view, animated: true)
+            if newUser {
+                let view = MyChurchesWireFrame.getController()
+                self.navigationController?.pushViewController(view, animated: true)
+            }else{
+                showCanonAlert(title: "¡Atención!", msg: "Regístrate o inicia sesión para poder acceder a este módulo")
+            }
         case 2:
             let view = YoungView_Route.createView(navigation: self.navigationController!)
             self.navigationController?.pushViewController(view, animated: true)
@@ -169,15 +145,27 @@ extension Home_Home: UICollectionViewDelegate {
             let view = OracionesRouter.getController()
             self.navigationController?.pushViewController(view, animated: true)
         case 4:
-            let view = HomeServiceWireFrame.createModule()
-            self.navigationController?.pushViewController(view, animated: true)
+            if newUser {
+                let view = HomeServiceWireFrame.createModule()
+                self.navigationController?.pushViewController(view, animated: true)
+            }else{
+                showCanonAlert(title: "¡Atención!", msg: "Regístrate o inicia sesión para poder acceder a este módulo")
+            }
         case 5:
-            let instance = SocialNetworkConstant.shared.instance
-            let view =  SocialNetworkNews.openSocialNetowrk(firebaseApp: instance)
-            self.navigationController?.pushViewController(view, animated: true)
+            if newUser {
+                let instance = SocialNetworkConstant.shared.instance
+                let view =  SocialNetworkNews.openSocialNetowrk(firebaseApp: instance)
+                self.navigationController?.pushViewController(view, animated: true)
+            }else{
+                showCanonAlert(title: "¡Atención!", msg: "Regístrate o inicia sesión para poder acceder a este módulo")
+            }
         case 6:
+            if newUser {
             let view = MyCommunitiesMainViewwWireFrame.getController()
             self.navigationController?.pushViewController(view, animated: true)
+            }else{
+                showCanonAlert(title: "¡Atención!", msg: "Regístrate o inicia sesión para poder acceder a este módulo")
+            }
         default:
             break
         }
@@ -211,11 +199,15 @@ extension Home_Home: UITableViewDelegate, UITableViewDataSource {
             numberOfRowsT = allSections.count  //saintOfDay.count + realesesPost.count + 1
         }
         print(":::NORIS:::"+String(numberOfRowsT))
+        var extraH = 0
+        if isActivities{
+            extraH=80
+        }
         if numberOfRowsT == 1 {
-            SVheight.constant=555
-            tableHeight.constant=300
+            SVheight.constant=CGFloat(555+extraH)
+            tableHeight.constant=300//
         }else{
-            SVheight.constant=855
+            SVheight.constant=CGFloat(855+extraH)
             tableHeight.constant=600
         }
         
@@ -293,11 +285,6 @@ extension Home_Home: UITableViewDelegate, UITableViewDataSource {
             break
             
         default:
-            /*
-            if let section = allSections[indexPath.row] as? [HomeSaintOfDay] {
-                let view = ModalWebViewController.showWebModal(url: section[0].publish_url ?? "Unspecified", type: "OTHER")
-                self.present(view, animated: true, completion: nil)
-            }*/
             break
         }
         

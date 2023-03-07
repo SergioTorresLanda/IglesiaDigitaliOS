@@ -18,7 +18,7 @@ public class CreatePostRouter: CreatePostWireframeProtocol {
         // Change to get view from storyboard if not using progammatic UI
         
         
-        let view = CreatePostViewController(nibName: "CreatePostViewController", bundle: Bundle(identifier: "mx.arquidiocesis.EncuentroCatolicoNews"))
+        let view = RedSocial_CrearPost(nibName: "CreatePostViewController", bundle: Bundle(identifier: "mx.arquidiocesis.EncuentroCatolicoNews"))
         
         let interactor = CreatePostInteractor()
         let router = CreatePostRouter()

@@ -22,12 +22,16 @@ extension RegisterPresenter: RegisterPresenterProtocol {
         interactor?.viewDidLoad(nombre: nombre, apellido1: apellido1, apellido2: apellido2, celular: celular, email: email, usuario: usuario)
     }
     
+    func requestPriestData(priest:PriestRequest){
+        interactor?.requestPriestData(priest:priest)
+    }
+    
     func hideKeyBoard(view: UIView) {
         view.endEditing(true)
     }
     
-    func continuar(nombre: String, apellido1: String, apellido2: String, cel: String, email: String, contra1: String, contra2: String) {
-        interactor?.realizaValidaciones(nombre: nombre, apellido1: apellido1, apellido2: apellido2, cel: "+52" + cel, email: email, contra1: contra1, contra2: contra2)
+    func continuar(nombre: String, apellido1: String, apellido2: String, cel: String, email: String, contra1: String, contra2: String, rol:String, typePerson:String) {
+        interactor?.realizaValidaciones(nombre: nombre, apellido1: apellido1, apellido2: apellido2, cel: "+52" + cel, email: email, contra1: contra1, contra2: contra2, rol: rol, typePerson: typePerson)
     }
     
     func cancelar(controller: UIViewController) {
@@ -41,6 +45,19 @@ extension RegisterPresenter: RegisterPresenterProtocol {
 }
 
 extension RegisterPresenter: RegisterInteractorOutputProtocol {
+    func respuestaValidacionPriest(error: ErroresRegister, user: ResponsePriest?) {
+        DispatchQueue.main.async {
+            switch error {
+            case .OK:
+                self.view?.setPrestInfo(priestInfo:user!)
+            case .ErrorServidor:
+                self.view?.setPrestInfo(priestInfo:ResponsePriest(name: nil, fcappaterno: nil, fcapmaterno: nil, fccelular: nil, fccorreo: nil))
+            default:
+            print("default case no pasa")
+            }
+        }
+    }
+    
     // TODO: implement interactor output methods
     func respuestaValidacion(error: ErroresRegister, user: UserRegister?) {
         DispatchQueue.main.async {

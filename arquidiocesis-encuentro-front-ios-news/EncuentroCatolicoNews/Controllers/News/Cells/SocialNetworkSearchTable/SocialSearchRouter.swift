@@ -15,7 +15,7 @@ open class SocialSearchRouter: SocialSearchRouterProtocol {
     
     static public func createModule() -> UIViewController {
         let storyboard = UIStoryboard(name: "SocialNetworkSearchView", bundle: Bundle.local)
-        let view = storyboard.instantiateViewController(withIdentifier: "SEARCHSNVIEW") as! SocialSearchView
+        let view = storyboard.instantiateViewController(withIdentifier: "SEARCHSNVIEW") as! RedSocial_Buscador
         let interactor = SearchSocialInteractor()
         let router = SocialSearchRouter()
         let presenter = SocialSearchPresenter(interface: view, interactor: interactor, router: router)

@@ -100,6 +100,8 @@ class RegisterProfileViewController: BaseViewController, ProfileInfoViewProtocol
     @IBOutlet weak var diocesanoPointBlueOutlet: UIImageView!
     @IBOutlet weak var ReligiosoPointBlueOutlet: UIImageView!
     
+    @IBOutlet weak var viewhead: UIView!
+    
     //MARK: - IBActions
     
     @IBAction func backButton(_ sender: Any) {
@@ -107,20 +109,6 @@ class RegisterProfileViewController: BaseViewController, ProfileInfoViewProtocol
     }
     
     @IBAction func saveButton(_ sender: Any) {
-        /*let alert = UIAlertController(title: "App Encuentro", message: "Se modificaran tus datos", preferredStyle: .actionSheet)
-        
-        let cancel = UIAlertAction(title: "Cancelar", style: .cancel)
-        
-        let accept = UIAlertAction(title: "Aceptar", style: .default, handler: {
-            [weak self]
-            _ in
-            self?.updateData()
-        })
-        
-        alert.addAction(accept)
-        alert.addAction(cancel)
-        present(alert, animated: true)*/
-        
         updateData()
     }
     
@@ -156,16 +144,7 @@ class RegisterProfileViewController: BaseViewController, ProfileInfoViewProtocol
         ordenReligiosaPicker.becomeFirstResponder()
     }
     @IBAction func addOtherButton(_ sender: Any) {
-//        let activityResponse = ActivitiesResponse(name: otherTextField.text ?? "", id: 7)
-//        let activityOtherResponse = ActivitiesOtherResponse(id: 7, name: otherTextField.text ?? "")
-//        activitiesArray.append(activityResponse)
-//        activitiesResponseService.append(activityOtherResponse)
-//        self.pickerPlus.isHidden = true
-//        otherTextField.text = nil
-//        //activitiesColletionView.reloadData()
-//        otherTextField.resignFirstResponder()
     }
-    
     //MARK:- Local variables
     var presenter: ProfileInfoPresenterProtocol?
     var activitiesArray: Array<ActivitiesResponse> = Array()
@@ -173,20 +152,17 @@ class RegisterProfileViewController: BaseViewController, ProfileInfoViewProtocol
     var activitiesResponseService: [ActivitiesOtherResponse] = []
     var activitySeleted: ActivitiesResponse?
     var activityNewSelect: Array<Activity> = Array()
-    
     var congreNewSelect: Array<Congregation> = Array()
-    
     var flagDiocesanoReligioso = false
     var congregationArray: CongregationsResponse?
     var congregationIdArray: CongregationsResponse?
     var congregationSeleted: CongregationsResponse?
-    
-    
     var congregationNewArray: Array<CongregationsResponse> = Array()
     var congregationNewIdArray: [CongregationsResponse] = []
     var congregationNewSeleted: Array<CongregationsResponse>?
     let loadingAlert = UIAlertController(title: "", message: "\n \n \n \n \nCargando...", preferredStyle: .alert)
     var preProfile:PreProfilePriest?
+    var alertFields : AcceptAlert?
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -199,7 +175,7 @@ class RegisterProfileViewController: BaseViewController, ProfileInfoViewProtocol
     
     override func viewWillAppear(_ animated: Bool) {
         print("VC ECProfile - RegisterProfileVC ")
-
+        
     }
 
     //MARK: - View controls
@@ -218,19 +194,19 @@ class RegisterProfileViewController: BaseViewController, ProfileInfoViewProtocol
         presenter?.getTopics()
     }
     
-    private func initView()
-    {
-//        activitiesColletionView.register(ActivitiesCardCollectionViewCell.nib, forCellWithReuseIdentifier: ActivitiesCardCollectionViewCell.reuseIdentifier)
-//        activitiesColletionView.dataSource = self
-//        activitiesColletionView.delegate = self
+    private func initView(){
         addLines()
-        ///TextFieleDelegate
         nameTextField.delegate = self
         firstLastNameTextField.delegate = self
         secondLastNameTextField.delegate = self
         emailTextField.delegate = self
-        ///TextViewDelegate
-        //otherTextField.delegate = self
+        descriptionTextOutlet.delegate = self
+        urlTextField.delegate = self
+        viewhead.layer.cornerRadius = 30
+        viewhead.layer.shadowRadius = 5
+        viewhead.layer.shadowOpacity = 0.5
+        viewhead.layer.shadowColor = UIColor.black.cgColor
+        viewhead.layer.maskedCorners = [.layerMinXMaxYCorner, .layerMaxXMaxYCorner]
     }
     
     @objc func dismissKeyboard() {
@@ -270,7 +246,6 @@ class RegisterProfileViewController: BaseViewController, ProfileInfoViewProtocol
         }
     }
 
-    
     func showOffice(offices: Array<ActivitiesResponse>) {
         activitiesIdArray = offices
         activitesPicker.pickOptions = offices.map({$0.name})
@@ -296,8 +271,15 @@ class RegisterProfileViewController: BaseViewController, ProfileInfoViewProtocol
         firstLastNameTextField.text = detail.data?.User?.first_surname
         secondLastNameTextField.text = detail.data?.User?.second_surname
         emailTextField.text = detail.data?.User?.email
+        orditionPicker.text = detail.data?.User?.ordination_day
+        birthdayPicker.text = detail.data?.User?.birthdate
+        descriptionTextOutlet.text = detail.data?.User?.description
+        urlTextField.text = detail.data?.User?.stream
+        let actys = detail.data?.User?.activities ?? []
+        if !actys.isEmpty{
+            activitesPicker.text = actys[0].name ?? ""
+        }
     }
-    
     //funciones para picker
     @objc func closeActivitiesPicker() {
         activitesPicker.resignFirstResponder()
@@ -310,7 +292,7 @@ class RegisterProfileViewController: BaseViewController, ProfileInfoViewProtocol
     @objc func addActivity() {
         if activitySeleted?.name == "Otros" {
             self.otherStackView.isHidden = false
-        }else {
+        }else{
             self.otherStackView.isHidden = true
             otherTextOutlet.text = nil
             if let activitySeleted = self.activitySeleted {
@@ -332,15 +314,17 @@ class RegisterProfileViewController: BaseViewController, ProfileInfoViewProtocol
         activitesPicker.resignFirstResponder()
     }
     func showLoading() {
-        let imageView = UIImageView(frame: CGRect(x: 75, y: 25, width: 140, height: 60))
-        imageView.image = UIImage(named: "logoEncuentro", in: Bundle.local, compatibleWith: nil)
+        let imageView = UIImageView(frame: CGRect(x: 100, y: 15, width: 80, height: 80))//mitad es en 145dp
+        imageView.image = UIImage(named: "iconoIglesia3", in: Bundle.local, compatibleWith: nil)
         loadingAlert.view.addSubview(imageView)
         present(loadingAlert, animated: true, completion: nil)
     }
     func hideLoading() {
-        loadingAlert.dismiss(animated: true, completion: nil)
+        DispatchQueue.main.async{
+            self.loadingAlert.dismiss(animated: true, completion: nil)
+        }
     }
-    var alertFields : AcceptAlert?
+        
     func showError(error: String) {
         hideLoading()
         print("SHOW CANON ALERT")
@@ -350,12 +334,6 @@ class RegisterProfileViewController: BaseViewController, ProfileInfoViewProtocol
             self.alertFields!.view.backgroundColor = .clear
             self.present(self.alertFields!, animated: true)
          })
-        /*DispatchQueue.main.async { [self] in
-            let alert = UIAlertController(title: "App Encuentro", message: "Verifica que cancillería tenga tus datos, en caso de duda o aclaración enviar correo electrónico a la siguiente dirección cancilleria@arquidiocesismexico.org para que se autorice tu registro", preferredStyle: .alert)
-            let accept = UIAlertAction(title: "Aceptar", style: .default)
-            alert.addAction(accept)
-            present(alert, animated: true)
-        }*/
     }
     
     private func updateData() {
@@ -364,12 +342,11 @@ class RegisterProfileViewController: BaseViewController, ProfileInfoViewProtocol
            let firstLastName = firstLastNameTextField.text, !firstLastName.isEmpty,
            let secondLastName = secondLastNameTextField.text, !secondLastName.isEmpty,
            //let description = descriptionTextOutlet.text,
+           //let activities = activitesPicker.text, !activities.isEmpty,
+           //let url = urlTextField.text,
            let birthDate = birthdayPicker.text, !birthDate.isEmpty,
            let ordinationDate = orditionPicker.text, !ordinationDate.isEmpty,
-           let email = emailTextField.text, !email.isEmpty,
-           let activities = activitesPicker.text, !activities.isEmpty
-           //let url = urlTextField.text
-        {
+           let email = emailTextField.text, !email.isEmpty {
             
             var birthDate: Date!
             var birthDateFormat: String!
@@ -393,7 +370,7 @@ class RegisterProfileViewController: BaseViewController, ProfileInfoViewProtocol
             
             //TEST
             let idGloba = UserDefaults.standard.integer(forKey: "id")
-            let life: Status = Status(id: 7, name: "")
+            let life: Status = Status(id: 7, name: "Sacerdote")
             let congre: Congregation = Congregation(id: 1, name: "")
             let phone = UserDefaults.standard.string(forKey: "telefono") ?? ""
             
@@ -408,66 +385,39 @@ class RegisterProfileViewController: BaseViewController, ProfileInfoViewProtocol
             let prefixID  = UserDefaults.standard.integer(forKey: "Prefix")
             let prefixObject = Prefix(id: prefixID)
             
-            if flagDiocesanoReligioso == true {
-                var registerDiocecsanoReli: ProfilePriest = ProfilePriest(username: emailTextField.text ?? "", id: idGloba, name: nameTextField.text ?? "", first_surname: firstLastNameTextField.text ?? "", second_surname: secondLastNameTextField.text ?? "", phone_number: phone, email: emailTextField.text ?? "", life_status: life, interest_topics: topic, birthdate: birthDateFormat, ordination_date: ordinationDateFormat, description: descriptionTextOutlet.text ?? "", position: "Without", congregation: congre, activities: activityNewSelect, stream: urlTextField.text ?? "")
-                
-                if prefixID != 0 {
-                    registerDiocecsanoReli = ProfilePriest(username: emailTextField.text ?? "", id: idGloba, name: nameTextField.text ?? "", first_surname: firstLastNameTextField.text ?? "", second_surname: secondLastNameTextField.text ?? "", phone_number: phone, email: emailTextField.text ?? "", life_status: life, prefix: prefixObject, interest_topics: topic, birthdate: birthDateFormat, ordination_date: ordinationDateFormat, description: descriptionTextOutlet.text ?? "", position: "Without", congregation: congre, activities: activityNewSelect, stream: urlTextField.text ?? "")
-                }
-                presenter?.postSacerdote(request: registerDiocecsanoReli)
-                
-            } else if flagDiocesanoReligioso == false {
-                var  registerSacerdote: ProfilePriest = ProfilePriest(username: emailTextField.text ?? "", id: idGloba, name: nameTextField.text ?? "", first_surname: firstLastNameTextField.text ?? "", second_surname: secondLastNameTextField.text ?? "", phone_number: phone, email: emailTextField.text ?? "", life_status: life, interest_topics: topic, birthdate: birthDateFormat, ordination_date: ordinationDateFormat, description: descriptionTextOutlet.text ?? "", position: "Without", congregation: congre, activities: activityNewSelect, stream: urlTextField.text ?? "")
-                if prefixID != 0 {
-                    registerSacerdote = ProfilePriest(username: emailTextField.text ?? "", id: idGloba, name: nameTextField.text ?? "", first_surname: firstLastNameTextField.text ?? "", second_surname: secondLastNameTextField.text ?? "", phone_number: phone, email: emailTextField.text ?? "", life_status: life, prefix: prefixObject, interest_topics: topic, birthdate: birthDateFormat, ordination_date: ordinationDateFormat, description: descriptionTextOutlet.text ?? "", position: "Without", congregation: congre, activities: activityNewSelect, stream: urlTextField.text ?? "")
-                }
-                presenter?.postSacerdote(request: registerSacerdote)
-            }
-
-        }
-        else {
+            //if flagDiocesanoReligioso {  }
+            let pp: ProfilePriest = ProfilePriest(username: emailTextField.text ?? "", id: idGloba, name: nameTextField.text ?? "", first_surname: firstLastNameTextField.text ?? "", second_surname: secondLastNameTextField.text ?? "", phone_number: phone, email: emailTextField.text ?? "", life_status: life, prefix: prefixObject, interest_topics: topic, birthdate: birthDateFormat, ordination_date: ordinationDateFormat, description: descriptionTextOutlet.text ?? "", position: "Without", congregation: congre, activities: activityNewSelect, stream: urlTextField.text ?? "")
+            presenter?.postSacerdote(request: pp)
+          
+        }else{
             hideLoading()
             if let name = nameTextField.text, name.isEmpty{
                 nameRequired.isHidden = false
             }
             if let firstLastName = firstLastNameTextField.text, firstLastName.isEmpty{
                 lastNameRequired.isHidden = false
-                
             }
             if let secondLastName = secondLastNameTextField.text, secondLastName.isEmpty{
                 lastNameRequired.isHidden = false
-                
             }
             if let email = emailTextField.text, email.isEmpty{
                 emailRequired.isHidden = false
-                
             }
             if let birthDate = birthdayPicker.text, birthDate.isEmpty{
                 dateRequired.isHidden = false
-                
             }
             if let ordinationDate = orditionPicker.text, ordinationDate.isEmpty{
                 dateRequired.isHidden = false
-                
             }
-            if let activities = activitesPicker.text, activities.isEmpty{
-                pickerRequired.isHidden = false
-                
-            }
-           
-            
-            let alert = UIAlertController(title: "Campos vacios", message: "Uno o varios campos vacios", preferredStyle: .alert)
-            alert.addAction(UIAlertAction(title: "Intenta de nuevo", style: .default, handler: nil))
-            self.present(alert, animated: true)
-            
+            //if let activities = activitesPicker.text, activities.isEmpty{
+              //  pickerRequired.isHidden = false
+            //}
         }
-        
-        
     }
     
     func showRegisterResponse(response: RegisterPriestResponse) {
         DispatchQueue.main.async { [self] in
-            let alert = UIAlertController(title: "App Encuentro", message: "Se guardaron sus datos correctamente", preferredStyle: .alert)
+            let alert = UIAlertController(title: "Iglesia Digital", message: "Se guardaron sus datos correctamente", preferredStyle: .alert)
             let accept = UIAlertAction(title: "Aceptar", style: .default, handler: {
                 [weak self]
                 _ in
@@ -480,7 +430,7 @@ class RegisterProfileViewController: BaseViewController, ProfileInfoViewProtocol
     
     func showDiaconoResponse() {
         DispatchQueue.main.async { [self] in
-            let alert = UIAlertController(title: "App Encuentro", message: "Se guardaron sus datos correctamente", preferredStyle: .alert)
+            let alert = UIAlertController(title: "Iglesia Digital", message: "Se guardaron sus datos correctamente", preferredStyle: .alert)
             let accept = UIAlertAction(title: "Aceptar", style: .default, handler: {
                 [weak self]
                 _ in
@@ -492,28 +442,26 @@ class RegisterProfileViewController: BaseViewController, ProfileInfoViewProtocol
     }
     
     func showSacerdoteResponse() {
-        DispatchQueue.main.async { [self] in
-            let alert = UIAlertController(title: "App Encuentro", message: "Se guardaron sus datos correctamente", preferredStyle: .alert)
-            let accept = UIAlertAction(title: "Aceptar", style: .default, handler: {
-                [weak self]
-                _ in
-                let singleton = Home_Perfil.sinleton
-                singleton.isPresentPriestAlert = true
-                UserDefaults.standard.set("sacerdote", forKey: "profile")
-                self?.navigationController?.popViewController(animated: true)
-            })
-            alert.addAction(accept)
-            present(alert, animated: true)
-            
-        }
+        print("SHOw rESPONSE desde Register ")
+        UserDefaults.standard.set("PRIEST", forKey: "profile")
+        hideLoading()
+        DispatchQueue.main.asyncAfter(deadline: .now() + 0.5, execute: {
+            let singleton = Home_Perfil.sinleton
+            singleton.isPresentPriestAlert = true
+            self.alertFields = AcceptAlert.showAlert(titulo: "¡Éxito!", mensaje: "Se actualizaron tus datos correctamente")
+            self.alertFields!.view.backgroundColor = .clear
+            self.present(self.alertFields!, animated: true)
+         })
+        DispatchQueue.main.asyncAfter(deadline: .now() + 2.5, execute: {
+            self.alertFields?.dismiss(animated: true)
+            self.navigationController?.popToRootViewController(animated: true)
+        })
     }
     
     @IBAction func goBack(_ sender: Any) {
         _ = self.navigationController?.popViewController(animated: true)
     }
 }
-
-
 
 extension RegisterProfileViewController: UICollectionViewDelegate, UICollectionViewDataSource{
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
@@ -527,8 +475,6 @@ extension RegisterProfileViewController: UICollectionViewDelegate, UICollectionV
         (cell as? ActivitiesCardCollectionViewCell)?.activitiesNameLabel.text = activity.name
         return cell
     }
-    
-    
 }
 
 extension RegisterProfileViewController: ActivitiesCardDelegate{
@@ -572,10 +518,10 @@ extension RegisterProfileViewController: UITextFieldDelegate {
             break
         }
     }
-   
     
     func textFieldShouldReturn(_ textField: UITextField) -> Bool {
-        self.nextTextField(textField)
+        textField.resignFirstResponder()
+        //self.nextTextField(textField)
         return true
     }
 }

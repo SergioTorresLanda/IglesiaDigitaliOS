@@ -66,8 +66,8 @@ class Home_MiIglesia: BaseViewController {
     
     @objc func mainChurchDetail(selector: Int) {
         if let id = priestChurches?.assigned?.id {
-            self.currentUser = id
-            goToChurch(with: self.currentUser ?? 1, selector: selector)
+            currentUser = id
+            goToChurch(with: currentUser ?? 1, selector: selector)
         }
     }
     
@@ -76,7 +76,7 @@ class Home_MiIglesia: BaseViewController {
         super.viewDidLoad()
         locationManager.requestWhenInUseAuthorization()
         initView()
-        self.addSearchBar()
+        addSearchBar()
         otherChurchesCollectionView.isSkeletonable = true
         //setRole()
 //        let tap = UITapGestureRecognizer(target: self, action: #selector(hideKeyBoard))
@@ -88,8 +88,8 @@ class Home_MiIglesia: BaseViewController {
         print("VC ECChurch - MyChurches - MyChurchesView ")
         let idPriest =  UserDefaults.standard.integer(forKey: "id")
         print(idPriest)
-        self.currentUser = idPriest
-        presenter?.getChurches(with: self.currentUser ?? 0)
+        currentUser = idPriest
+        presenter?.getChurches(with: currentUser ?? 0)
     }
     
     //MARK: - View controls,
@@ -115,16 +115,8 @@ class Home_MiIglesia: BaseViewController {
         self.view.addSubview(self.searchBarF)
     }
     
-    private func hidEelements() {
+    private func hideElements() {
         self.otherChurchesCollectionView.isHidden = true
-        //        self.mainChurchImage.isHidden = true
-        //        self.mainChurchName.isHidden = true
-        //        self.mainChurchButton.isHidden = true
-        //        self.otherChurchesCollectionView.isHidden = true
-        //        // self.fabAddChurchButton.isHidden = true
-        //        self.btnReturn.isHidden = true
-        //        // self.lblTitle.isHidden = true
-        //        // self.lblChurchFavorite.isHidden = true
     }
     
     private func goToChurch(with id: Int, selector: Int) {
@@ -157,8 +149,6 @@ class Home_MiIglesia: BaseViewController {
     @objc private func hideKeyBoard() {
         view.endEditing(true)
     }
-
-    
 }
 
 //MARK: - Collection view delegates
@@ -248,7 +238,6 @@ extension Home_MiIglesia: UICollectionViewDelegate, UICollectionViewDataSource, 
             }else{
                 return 1
             }
-            
         }
     }
     
@@ -274,7 +263,6 @@ extension Home_MiIglesia: UICollectionViewDelegate, UICollectionViewDataSource, 
                     cell.addButton.alpha = 0
                     cell.addButton.alpha = 0
                 }
-                
                 return cell
                 
             default:
@@ -290,20 +278,14 @@ extension Home_MiIglesia: UICollectionViewDelegate, UICollectionViewDataSource, 
                     cell?.imageChurch.hideSkeleton()
                 })
                 let url = priestChurches?.assigned?.image_url ?? ""
-                //            let data = try? Data(contentsOf: URL(string: url)!)
                 UserDefaults.standard.setValue(url, forKey: "imgNext")
                 if let imageUrl = URL(string: url) {
                     cell?.imageChurch.af.setImage(withURL: imageUrl)
                 }
-                //            cell?.imageChurch.image = UIImage(data: data!)
-                // cell?.imageChurch.downloaded(from: url)
                 cell?.titleChurch.text = priestChurches?.assigned?.name
                 return cell!
-                
             }
-            
         }else{
-
             switch locations.count {
             case 0:
                 let cell2 = collectionView.dequeueReusableCell(withReuseIdentifier: "CELLEMPTYFAV", for: indexPath) as! EmptyFavChurch
@@ -320,22 +302,17 @@ extension Home_MiIglesia: UICollectionViewDelegate, UICollectionViewDataSource, 
                     cell2.btnAdd.alpha = 0
                     cell2.addIcon.alpha = 0
                 }
-                
                 return cell2
-                
             default:
                 let cell = collectionView.dequeueReusableCell(withReuseIdentifier: FavouriteChurchCollectionViewCell.reuseIdentifier, for: indexPath)
                 (cell as? FavouriteChurchCollectionViewCell)?.fill(with: (self.locations[safe: indexPath.row])!)
                 return cell
-
             }
-            
         }
     }
     
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
         if(indexPath.section == 0){
-            
             switch priestChurches?.assigned?.name {
             case nil:
                 let height: CGFloat = 130
@@ -348,9 +325,7 @@ extension Home_MiIglesia: UICollectionViewDelegate, UICollectionViewDataSource, 
                 let size = CGSize(width: width, height: height)
                 return size
             }
-            
         }else{
-            
             switch locations.count {
             case 0:
                 let height: CGFloat = 130
@@ -387,7 +362,7 @@ extension Home_MiIglesia: UICollectionViewDelegate, UICollectionViewDataSource, 
 
 extension Home_MiIglesia: MyChurchesViewProtocol {
     func showSearchBarResponse(result: [Assigned]) {
-//        self.hideLoading()
+        //self.hideLoading()
         self.locations.removeAll()
         for _assigned in result {
             if _assigned.image_url?.isEmpty == false {

@@ -435,7 +435,6 @@ class ProfileInfoInteractor: ProfileInfoInteractorInputProtocol {
     }
     
     func postSacerdote(request: ProfilePriest) {
-       
         let dictionary = request
         guard let endpoint: URL = URL(string: "\(API)/" + "user/update" ) else {
             print("Error formando url sacerdote")

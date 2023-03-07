@@ -6,8 +6,9 @@ import AuthenticationServices
 import EncuentroCatolicoVirtualLibrary
 import EncuentroCatolicoUtils
 import Network
+import FirebaseFirestore
 
-class LoginView: UIViewController {
+class Login_Login: UIViewController {
     
     // MARK: Properties
     var presenter: LoginPresenterProtocol?
@@ -33,6 +34,9 @@ class LoginView: UIViewController {
     
     @IBOutlet weak var btnBack: UIButton!
     
+    @IBOutlet weak var btnAutoLogin: UIButton!
+    
+    let db = Firestore.firestore()
     var colorBlue = UIColor(red: 28/255, green: 117/255, blue: 188/255, alpha: 1)
     var forceUpdate: Bool = false
     private var biometric = BiometricAuth()
@@ -114,21 +118,57 @@ class LoginView: UIViewController {
         print("VC ECLogin - LoginView")
         //configureKeyboardObservables()
         biometricCanValidate()
-        let newUser = UserDefaults.standard.bool(forKey: "isNewUser")
-        if newUser == false {
+        let defaults = UserDefaults.standard
+        let newUser = defaults.bool(forKey: "isNewUser")
+        let wantToLogin = defaults.bool(forKey: "wantToLogin")
+        let stage = defaults.string(forKey: "stage")
+        print("NEw USER?")
+        print(newUser)
+        print("Want login?")
+        print(wantToLogin)
+        if newUser { //ya es usuario, avanza
+            print("SE SALTO EL LOGIN/REGISTRO PQ Ya esta logueado")
             validateFirstController()
+        }else if !wantToLogin{ //no es usuario, se loguea con dummy
+            print("SE SALTO EL LOGIN/REGISTRO 2")
+            if stage == "Prod"{
+                lookForAutomaticCredentials(collection: "CredencialesDummyApp")
+                //autoLogin(user:"priest1@gmail.com", psw:"Priest1*")
+            }else{
+                lookForAutomaticCredentials(collection: "CredencialesDummyAppQA")
+                //autoLogin(user:"5584008568", psw:"I1992i15#")
+            }
+        }else{
+            print("ni una ni otra, aqui se queda para login")
+        }
+        //else, se queda para hacer registro/login
+    }
+    
+    func lookForAutomaticCredentials(collection:String){
+        db.collection(collection).whereField("activo", isEqualTo: true)
+            .getDocuments() { (qS, err) in
+                if let err = err {
+                    self.showCanonAlert(titulo: "¡Atención!", mensaje: "Por el momento no se puede acceder a la app sin registro previo.")
+                    print("Error getting documents: \(err)")
+                } else {
+                    for doc in qS!.documents {
+                        print("LAS AUTO CREDENCIALES SON::") //QA bien
+                        print("\(doc.documentID) => \(doc.data())")
+                        let user = doc.get("usuario") as? String ?? ""
+                        let psw = doc.get("contrasena") as? String ?? ""
+                        self.autoLogin(user: user, psw: psw)
+                    }
+                }
         }
     }
     
     override func viewWillDisappear(_ animated: Bool) {
         super.viewWillDisappear(animated)
-        
         hideLoading()
     }
     
     override func viewDidDisappear(_ animated: Bool) {
         super.viewDidDisappear(animated)
-        
         txtUser.text = ""
         txtPassword.text = ""
     }
@@ -148,19 +188,45 @@ class LoginView: UIViewController {
     
     func validateFirstController() {
         NotificationCenter.default.addObserver(self, selector: #selector(popViews), name: NSNotification.Name(rawValue: "newLogOut"), object: nil)
-        let defaults = UserDefaults.standard
-        let nombre = defaults.string(forKey: "nombre") ?? ""
-//        validateButtonBiometric()
         biometricCanValidate()
-        if nombre != "" {
-            openHome()
+        openHome()
+    }
+    
+    @IBAction func autoLoginClick(_ sender: Any) {
+        print("SE SALTO EL LOGIN/REGISTRO 2")
+        let stage = UserDefaults.standard.string(forKey: "stage")
+            //autoLogin(user:"5584008568", psw:"I1992i15#")
+        if stage == "Prod"{
+            lookForAutomaticCredentials(collection: "CredencialesDummyApp")
+            //autoLogin(user:"priest1@gmail.com", psw:"Priest1*")
+        }else{
+            lookForAutomaticCredentials(collection: "CredencialesDummyAppQA")
+            //autoLogin(user:"9545407746", psw:"Sergio1*")
         }
     }
+    
+    func autoLogin(user:String, psw:String){
+        let vD = validatePhoneMail(toValidate: user)
+        print("Auto login: "+vD + " " + psw)
+        UserDefaults.standard.set("true", forKey: "NewOnboarding")
+        UserDefaults.standard.setValue(true, forKey: "autoLogin")
+        spinner.isHidden = false
+        spinner.startAnimating()
+        showLoading()
+        presenter?.controla = self
+        presenter?.login(user: vD, password: psw)
+    }
+    
     func openHome(){
         let instance = FirebaseManager.shared.getSNFirebaseInstance()
         let view = SocialNetwork.openSocialNetowrk(firebaseApp: instance)
         view.modalPresentationStyle = .fullScreen
         self.present(view, animated: true)
+        //antes desde el loginPresenter
+        /*
+        let view = SocialNetworkController(nibName: "SocialNetworkController", bundle: Bundle(for: SocialNetworkController.self))
+        view.modalPresentationStyle = .overFullScreen
+        self.navigationController?.pushViewController(view, animated: true)*/
     }
 
     private func getInstalledVersion() -> String? {
@@ -173,7 +239,7 @@ class LoginView: UIViewController {
     
     @objc func popViews(){
         for controller in self.navigationController!.viewControllers as Array {
-            if controller.isKind(of: LoginView.self) {
+            if controller.isKind(of: Login_Login.self) {
                 self.navigationController!.popToViewController(controller, animated: true)
                 break
             }
@@ -187,33 +253,29 @@ class LoginView: UIViewController {
         btnLogin.layer.masksToBounds = true
         btnLogin.setCorner(cornerRadius: 10)
         viewArriba.layer.cornerRadius = 30
-        //viewArriba.layer.shadowRadius = 5
-        //viewArriba.layer.shadowOpacity = 0.5
-        //viewArriba.layer.shadowColor = UIColor.black.cgColor
         viewArriba.layer.maskedCorners = [.layerMinXMaxYCorner, .layerMaxXMaxYCorner]
-        
         btnRegistar.layer.borderWidth = 1
         btnRegistar.layer.borderColor = UIColor(red: 25/255, green: 42/255, blue: 115/255, alpha: 1).cgColor
-        
+        btnAutoLogin.layer.borderWidth = 1
+        btnAutoLogin.layer.borderColor = UIColor(red: 25/255, green: 42/255, blue: 115/255, alpha: 1).cgColor
         btnForgot.underlineButtonsWithFont(sizeFont: 13, textColor: colorBlue, text: "Olvidé contraseña", font: "SEMI")
         btnBiometric.underlineButtonsWithFont(sizeFont: 13, textColor: colorBlue, text: "Inicio de sesión biométrico", font: "SEMI")
         btnTerms.underlineButtons(sizeFont: 11, textColor: colorBlue, text: "Términos y condiciones")
         btnPolicity.underlineButtons(sizeFont: 11, textColor: colorBlue, text: "Política de privacidad")
         btnEtich.underlineButtons(sizeFont: 11, textColor: colorBlue, text: "Código de ética")
-        //remoteConfig()
-        
     }
     
     func showLoading(){
-        let imageView = UIImageView(frame: CGRect(x: 75, y: 25, width: 140, height: 60))
-        imageView.image = UIImage(named: "encuentro", in: Bundle(identifier: "mx.arquidiocesis.EncuentroCatolicoLogin"), compatibleWith: nil)
-        
+        let imageView = UIImageView(frame: CGRect(x: 100, y: 15, width: 80, height: 80))//mitad es en 145dp
+        imageView.image = UIImage(named: "iconoIglesia3", in: Bundle(identifier: "mx.arquidiocesis.EncuentroCatolicoLogin"), compatibleWith: nil)
         loadingAlert.view.addSubview(imageView)
+        loadingAlert.view.backgroundColor = .white
+        loadingAlert.view.layer.cornerRadius = 20
+        loadingAlert.view.ShadowNavBar()
         self.present(loadingAlert, animated: true, completion: nil)
     }
     
     private func validatePhoneMail(toValidate: String)->String {
-        
         if isValidPhone(phone: toValidate) {
             return "+52\(toValidate)"
         }else if isValidEmail(email: toValidate){
@@ -240,9 +302,7 @@ class LoginView: UIViewController {
             case false:
                 break
             }
-            
         }
-
     }
     
     private func biometricCanValidate() {
@@ -255,6 +315,8 @@ class LoginView: UIViewController {
             btnBiometric.isHidden = true
             btnRegistar.backgroundColor = UIColor.init(red: 17/255, green: 33/255, blue: 129/255, alpha: 1)
             btnRegistar.setTitleColor(UIColor.white, for: UIControl.State())
+            btnAutoLogin.backgroundColor = UIColor.init(red: 17/255, green: 33/255, blue: 129/255, alpha: 1)
+            btnAutoLogin.setTitleColor(UIColor.white, for: UIControl.State())
            
             btnLogIn.backgroundColor = UIColor.clear
             btnLogIn.setTitleColor(UIColor.init(red: 17/255, green: 33/255, blue: 129/255, alpha: 1), for: UIControl.State())
@@ -271,7 +333,8 @@ class LoginView: UIViewController {
                 btnBiometric.isHidden = true
                 btnRegistar.backgroundColor = UIColor.init(red: 17/255, green: 33/255, blue: 129/255, alpha: 1)
                 btnRegistar.setTitleColor(UIColor.white, for: UIControl.State())
-                
+                btnAutoLogin.backgroundColor = UIColor.init(red: 17/255, green: 33/255, blue: 129/255, alpha: 1)
+                btnAutoLogin.setTitleColor(UIColor.white, for: UIControl.State())
                
                 btnLogIn.backgroundColor = UIColor.clear
                 btnLogIn.setTitleColor(UIColor.init(red: 17/255, green: 33/255, blue: 129/255, alpha: 1), for: UIControl.State())
@@ -298,6 +361,10 @@ class LoginView: UIViewController {
             btnRegistar.setTitleColor(UIColor.init(red: 17/255, green: 33/255, blue: 129/255, alpha: 1), for: UIControl.State())
             btnRegistar.layer.borderWidth = 1
             btnRegistar.layer.borderColor = UIColor(red: 25/255, green: 42/255, blue: 115/255, alpha: 1).cgColor
+            btnAutoLogin.backgroundColor = UIColor.clear
+            btnAutoLogin.setTitleColor(UIColor.init(red: 17/255, green: 33/255, blue: 129/255, alpha: 1), for: UIControl.State())
+            btnAutoLogin.layer.borderWidth = 1
+            btnAutoLogin.layer.borderColor = UIColor(red: 25/255, green: 42/255, blue: 115/255, alpha: 1).cgColor
         }
     }
     
@@ -323,6 +390,7 @@ class LoginView: UIViewController {
     }
     
     @IBAction func login(_ sender: Any) {
+        UserDefaults.standard.setValue(false, forKey: "autoLogin")
         let validatedData = validatePhoneMail(toValidate: txtUser.text ?? "")
         btnRegistar.isEnabled = false
         if isInternet {
@@ -332,10 +400,14 @@ class LoginView: UIViewController {
             presenter?.controla = self
             presenter?.login(user: validatedData, password: txtPassword.text ?? "")
         } else {
-            self.alertFields = AcceptAlert.showAlert(titulo: " ¡Atención!", mensaje: "No tienes conexión a internet")
-            self.alertFields!.view.backgroundColor = .clear
-            self.present(self.alertFields!, animated: true)
+            showCanonAlert(titulo: "¡Atención!", mensaje: "No tienes conexión a internet")
         }
+    }
+    
+    func showCanonAlert(titulo:String, mensaje:String){
+        alertFields = AcceptAlert.showAlert(titulo: titulo, mensaje: mensaje)
+        alertFields!.view.backgroundColor = .clear
+        present(alertFields!, animated: true)
     }
     
     @IBAction func loginInvitado(_ sender: Any) {
@@ -347,7 +419,7 @@ class LoginView: UIViewController {
     }
     
     @IBAction func showPassword(_ sender: Any) {
-        let module = Bundle(for: LoginView.self)
+        let module = Bundle(for: Login_Login.self)
         txtPassword.isSecureTextEntry = !txtPassword.isSecureTextEntry
         
         btnPassword.setImage(UIImage(named: !txtPassword.isSecureTextEntry ? "hideEye" : "showEye", in: module, compatibleWith: nil), for: .normal)
@@ -407,19 +479,22 @@ extension UIViewController {
 }
 
 
-extension LoginView: LoginViewProtocol {
+extension Login_Login: LoginViewProtocol {
     // TODO: implement view output methods
     func mostrarMSG(dtcAlerta: [String : String]) {
         loadingAlert.dismiss(animated: true, completion: {
             self.btnRegistar.isEnabled = true
             self.spinner.stopAnimating()
             self.spinner.isHidden = true
-           
+        })
+        DispatchQueue.main.asyncAfter(deadline: .now() + 0.5, execute: {
             self.alertFields = AcceptAlert.showAlert(titulo: dtcAlerta["titulo"]!, mensaje: dtcAlerta["cuerpo"]!)
             self.alertFields!.view.backgroundColor = .clear
             self.present(self.alertFields!, animated: true)
+            
         })
     }
+    
     func retryRegister(dtcAlerta: [String : String]) {
         loadingAlert.dismiss(animated: true, completion: {
             self.btnRegistar.isEnabled = true
@@ -443,9 +518,11 @@ extension LoginView: LoginViewProtocol {
         loadingAlert.dismiss(animated: true, completion: nil)
     }
     
+    
+    
 }
 
-extension LoginView {
+extension Login_Login {
 
     func isValidPhone(phone: String) -> Bool {
         let phoneRegex = "^[0-9+]{0,1}+[0-9]{5,16}$"
@@ -468,4 +545,23 @@ extension LoginView {
         present(alertView, animated: true)
     }
     
+}
+
+extension UIView {
+    
+    func ShadowNavBar() {
+        clipsToBounds = true
+        layer.shadowRadius = 5
+        layer.shadowColor = UIColor.black.cgColor
+        layer.shadowOffset = CGSize(width: 0.0, height: 2.0)
+        layer.shadowOpacity = 0.5
+        layer.masksToBounds = false
+    }
+    
+    func ShadowCard() {
+        layer.shadowColor = UIColor.black.cgColor
+        layer.shadowOffset = CGSize(width: 0, height: 0)
+        layer.shadowOpacity = 0.2
+        layer.shadowRadius = 4.0
+    }
 }

@@ -44,15 +44,31 @@ class Home_Home: UIViewController, HomeViewProtocol, UITextFieldDelegate, UNUser
     @IBOutlet weak var mainTable: UITableView!
     @IBOutlet weak var heightMainTable: NSLayoutConstraint!
     @IBOutlet weak var gearIcon: UIImageView!
-    @IBOutlet weak var lblGoodMorning: UILabel!
     @IBOutlet weak var lblAdmin: UILabel!
     @IBOutlet weak var lblMessage: UILabel!
     @IBOutlet weak var btnStreaming: UIButton!
     @IBOutlet weak var contentView: UIView!
     @IBOutlet weak var scrollView: UIScrollView!
-    
+    //Table View
     @IBOutlet weak var tableHeight: NSLayoutConstraint!
     @IBOutlet weak var SVheight: NSLayoutConstraint!
+    //New buttons login
+    @IBOutlet weak var loginSV: UIStackView!
+    @IBOutlet weak var registerSV: UIStackView!
+    @IBOutlet weak var loginResgisterSV: UIStackView!
+    @IBOutlet weak var activitiesBtn: UIButton!
+    @IBOutlet weak var activitiesView: UIView!
+    @IBOutlet weak var activitiesSuperView: UIView!
+    @IBOutlet weak var activitiesSVHeight: NSLayoutConstraint!
+    
+    
+    @IBAction func actysBtn(_ sender: Any) {
+        let storyboard = UIStoryboard(name: "activitiesView2", bundle: Bundle(for: Home_Actividades.self))
+        let view = storyboard.instantiateViewController(withIdentifier: "activitiesView") as! Home_Actividades
+        self.navigationController?.pushViewController(view, animated: true)
+    }
+    
+    var isActivities=false
     
     static let singleton = Home_Home()
     var arraySelectedCell = [false, false, false, false, false, false, false]
@@ -63,9 +79,7 @@ class Home_Home: UIViewController, HomeViewProtocol, UITextFieldDelegate, UNUser
     var idCommunity = 0
     var isWillAppear = false
     let transition = SlideTransition()
-    // let showOnboarding = UserDefaults.standard.bool(forKey: "onboarding")
     let showOnboarding = UserDefaults.standard.string(forKey: "NewOnboarding")
-    //var array Sections: [Bool] = []
     var saintOfDay: [HomePosts] = []
     var realesesPost: [HomePosts] = []
     var suggestions: [HomeSuggestions] = []
@@ -85,7 +99,7 @@ class Home_Home: UIViewController, HomeViewProtocol, UITextFieldDelegate, UNUser
     var noticias:[HomePosts] = []
     var espiritualidad:[HomeSuggestions]=[]
     var isOpening = true
-    
+    let defaults = UserDefaults.standard
     
     func formatoScrollView(){
         let contentRect: CGRect = scrollView.subviews.reduce(into: .zero) { rect, view in
@@ -96,7 +110,11 @@ class Home_Home: UIViewController, HomeViewProtocol, UITextFieldDelegate, UNUser
     
     override func viewDidLoad() {
         super.viewDidLoad()
-     
+        if isActivities{
+            activitiesSuperView.isHidden=false
+            activitiesSVHeight.constant=80
+        }
+        APIType.shared.refreshToken()
         UNUserNotificationCenter.current().delegate = self
         NotificationCenter.default.addObserver(self, selector: #selector(popViews), name: NSNotification.Name(rawValue: "NotificationFeed"), object: nil)
         NotificationCenter.default.addObserver(self, selector: #selector(payWithQR), name: NSNotification.Name(rawValue: "openQR"), object: nil)
@@ -105,11 +123,28 @@ class Home_Home: UIViewController, HomeViewProtocol, UITextFieldDelegate, UNUser
         NotificationCenter.default.addObserver(self, selector: #selector(showNotification), name: NSNotification.Name(rawValue: "intentionCreated"), object: nil)
         NotificationCenter.default.addObserver(self, selector: #selector(showSOSNotification), name: NSNotification.Name(rawValue: "SOSCreated"), object: nil)
         NotificationCenter.default.addObserver(self, selector: #selector(returnFromBack), name: NSNotification.Name(rawValue: "appBecomeActive"), object: nil)//no activada
+        NotificationCenter.default.addObserver(self, selector: #selector(showCanonAlertO), name: NSNotification.Name(rawValue: "RequestLogin"), object: nil)
+        //check onboardings
+        if isWillAppear == false {
+            //DispatchQueue.main.asyncAfter(deadline: .now() + 0.5) {
+                self.validateProfileOnboarding()
+                self.isWillAppear = true
+            //}
+        }
+        //RequestLogin
         setupInternetObserver()
         setupView()
         formatoScrollView()
         setupTableView()
-        presenter?.requestUserDetail()
+        
+        let newUser = defaults.bool(forKey: "isNewUser")
+        //let wantToLogin = defaults.bool(forKey: "wantToLogin")
+        if newUser {
+            print("Qwerty se carga la userDetail")
+            presenter?.requestUserDetail()
+        }else{
+            print("Qwerty no se carga la userDetail")
+        }
         lblMessage.text = setMessageHour()
         self.hideKeyboardWhenTappedAround()
         collectionRegister()
@@ -117,19 +152,38 @@ class Home_Home: UIViewController, HomeViewProtocol, UITextFieldDelegate, UNUser
         setupNewUI()
         //addTapGestures()
         //validateUserColors()
-        profileStackView.addGestureRecognizer(UITapGestureRecognizer(target: self, action: #selector(notifyTap(_:))))
+        gearIcon.addGestureRecognizer(UITapGestureRecognizer(target: self, action: #selector(notifyTap(_:))))
+        let loginTap = UITapGestureRecognizer(target: self, action: #selector(loginX))
+        loginSV.addGestureRecognizer(loginTap)
+        let registerTap = UITapGestureRecognizer(target: self, action: #selector(registerX))
+        registerSV.addGestureRecognizer(registerTap)
         
         if let imageData = UserDefaults.standard.data(forKey: "userImage"), let image = UIImage(data: imageData) {
             userImage.image = image
         }
     }
     
+    @objc func loginX(){
+        print("Login Click")
+        defaults.setValue(true, forKey: "wantToLogin")
+        self.dismiss(animated: true)
+        self.navigationController!.dismiss(animated: true)
+    }
+    
+    @objc func registerX(){
+        print("Register Click")
+        defaults.setValue(true, forKey: "wantToLogin")
+        self.dismiss(animated: true)
+        self.navigationController!.dismiss(animated: true)
+    }
+    
     func hideLoading(){
         self.alert.dismiss(animated: true, completion: nil)
     }
+    
     func showLoading(){
-        let imageView = UIImageView(frame: CGRect(x: 75, y: 25, width: 140, height: 60))
-        imageView.image = UIImage(named: "logoEncuentro", in: Bundle.local, compatibleWith: nil)
+        let imageView = UIImageView(frame: CGRect(x: 100, y: 15, width: 80, height: 80))//mitad es en 145dp
+        imageView.image = UIImage(named: "iconoIglesia3", in: Bundle.local, compatibleWith: nil)
         alert.view.addSubview(imageView)
         self.present(alert, animated: false, completion: nil)
     }
@@ -177,28 +231,51 @@ class Home_Home: UIViewController, HomeViewProtocol, UITextFieldDelegate, UNUser
     
     func actionsViewWillAppear(){
         if isInternet{
-        print("INTERNET ONN VWA")
-        //showLoading() crash
-        let formatter = DateFormatter()
-        formatter.dateFormat = "yyyy-MM-dd"
-        let now = Date()
-        let dateString = formatter.string(from: now)
-        self.presenter?.requestHomeData(type: "SAINT", date: "\(dateString)")
-        presenter?.cargarDatosUsuario()
-        presenter?.requestStreaming()
-        if let imageData = UserDefaults.standard.data(forKey: "userImage"), let image = UIImage(data: imageData) {
-            userImage.image = image
-        }else{
-            presenter?.requestUserDetail()
-        }
+            print("INTERNET ONN VWA")
+            //showLoading() crash
+            let formatter = DateFormatter()
+            formatter.dateFormat = "yyyy-MM-dd"
+            let now = Date()
+            let dateString = formatter.string(from: now)
+            presenter?.requestHomeData(type: "SAINT", date: "\(dateString)")
+            presenter?.requestStreaming()
+        
+            let newUser = defaults.bool(forKey: "isNewUser")
+            if newUser {//esta logueado
+                print("Qwerty se carga la userDetail 2")
+                loginResgisterSV.isHidden=true
+                gearIcon.isHidden=false
+                presenter?.cargarDatosUsuario()
+                if let imageData = UserDefaults.standard.data(forKey: "userImage"), let image = UIImage(data: imageData) {
+                    userImage.image = image
+                }else{
+                    presenter?.requestUserDetail()
+                }
+            }else{
+                gearIcon.isHidden=true
+                nombrePersona.text = setMessageHour()
+                lblMessage.isHidden=true
+                loginResgisterSV.isHidden=false
+                print("Qwerty no se carga la userDetail 2")
+            }
             validateUserColors()
             
         }else{
             print("INTERNET OFF VWA")
-            self.alertFields = AcceptAlert.showAlert(titulo: "¡Atención!", mensaje: "No tienes conexión a internet")
-            self.alertFields!.view.backgroundColor = .clear
-            self.present(self.alertFields!, animated: true)
+            showCanonAlert(title: "¡Atención!", msg: "No tienes conexión a internet")
         }
+    }
+    
+    func showCanonAlert(title:String, msg:String){
+        alertFields = AcceptAlert.showAlert(titulo: title, mensaje: msg)
+        alertFields!.view.backgroundColor = .clear
+        self.present(alertFields!, animated: true)
+    }
+    
+    @objc func showCanonAlertO(){
+        alertFields = AcceptAlert.showAlert(titulo: "¡Atención!", mensaje: "Regístrate o inicia sesión para poder acceder a este módulo")
+        alertFields!.view.backgroundColor = .clear
+        self.present(alertFields!, animated: true)
     }
     
     override func viewDidAppear(_ animated: Bool) {
@@ -249,7 +326,7 @@ class Home_Home: UIViewController, HomeViewProtocol, UITextFieldDelegate, UNUser
         }
     }
     
-    func mostrarInfo(dtcAlerta: [String : String]?, user: UserRespHome?) {
+    func mostrarInfo(dtcAlerta: [String : String]?, user: UserRespHome?) { //Solo si hay login
         self.data = user
         alert.dismiss(animated: false, completion: { [self] in
             if let alerta = dtcAlerta {
@@ -296,7 +373,6 @@ class Home_Home: UIViewController, HomeViewProtocol, UITextFieldDelegate, UNUser
     
     // MARK: NEW FUCNTIONS -
     func successLoadImg(dataResponse: ProfileDetailImgH) {
-        
         guard let nombre = dataResponse.data?.User?.name, let apellido1 = dataResponse.data?.User?.first_surname
         else {
             return
@@ -344,17 +420,13 @@ class Home_Home: UIViewController, HomeViewProtocol, UITextFieldDelegate, UNUser
                             arraySelectedCell.remove(at: 1)
                             arraySelectedCell.insert(true, at: 1)
                         }
-                        
                     case "SERVICES":
                         arraySelectedCell.remove(at: 3)
                         arraySelectedCell.insert(true, at: 3)
-                        
                     case "SOCIAL_NETWORKS":
                         arraySelectedCell.remove(at: 0)
                         arraySelectedCell.insert(true, at: 0)
-                        
 //                    case "APPOINT_ADMINISTRATOR"
-                        
                     default:
                         break
                     }
@@ -368,64 +440,33 @@ class Home_Home: UIViewController, HomeViewProtocol, UITextFieldDelegate, UNUser
             userImage.image = UIImage(named: "userImage", in: Bundle.local, compatibleWith: nil)
         }else{
             userImage.DownloadStaticImageH(dataResponse.data?.User?.image ?? "nil")
-            
         }
-        
-        if isWillAppear == false {
-            DispatchQueue.main.asyncAfter(deadline: .now() + 0.5) {
-                self.validateProfileOnboarding()
-                self.isWillAppear = true
-            }
-            
-        }else{
-            print("Don't do the validation")
-        }
-        
     }
     
     func validateUserColors() {
-        let blueEncuentro = UIColor.init(red: 25/255, green: 42/255, blue: 115/255, alpha: 1)
-        let goldEncuentro = UIColor.init(red: 190/255, green: 169/255, blue: 120/255, alpha: 1)
         let profile = UserDefaults.standard.string(forKey: "profile")
         switch profile {
         case UserProfileEnum.fiel.rawValue, UserProfileEnum.sacerdote.rawValue:
-            viewArriba.backgroundColor = .white
-            //lblGoodMorning.textColor =
-            nombrePersona.textColor = blueEncuentro
-            lblAdmin.isHidden = true
-            //gearIcon.image = UIImage(named: "gearBlue", in: Bundle.local, compatibleWith: nil)
-            gearIcon.image = UIImage(named: "gearGold", in: Bundle.local, compatibleWith: nil)
-            userImage.layer.borderWidth = 1
-            userImage.layer.borderColor = blueEncuentro.cgColor
-            
+            setColorsHeader(bool:true)
         case UserProfileEnum.fieladministrador.rawValue, UserProfileEnum.Sacerdoteadministrador.rawValue:
-            viewArriba.backgroundColor = .white
-            //lblGoodMorning.textColor = blueEncuentro
-            nombrePersona.textColor = blueEncuentro
-            lblAdmin.isHidden = false
-            gearIcon.image = UIImage(named: "gearGold", in: Bundle.local, compatibleWith: nil)
-            userImage.layer.borderWidth = 1
-            userImage.layer.borderColor = goldEncuentro.cgColor
-            
+            setColorsHeader(bool: false)
         case UserProfileEnum.Sacerdotedecano.rawValue:
-            viewArriba.backgroundColor = blueEncuentro
-            lblGoodMorning.textColor = .white
-            nombrePersona.textColor = .white
-            lblAdmin.isHidden = true
-            gearIcon.image = UIImage(named: "gearGold", in: Bundle.local, compatibleWith: nil)
-            userImage.layer.borderWidth = 1
-            userImage.layer.borderColor = goldEncuentro.cgColor
-            
+            setColorsHeader(bool: true)
         default:
-            viewArriba.backgroundColor = .white
-            //lblGoodMorning.textColor = blueEncuentro
-            nombrePersona.textColor = blueEncuentro
-            lblAdmin.isHidden = true
-            gearIcon.image = UIImage(named: "gearGold", in: Bundle.local, compatibleWith: nil)
-            userImage.layer.borderWidth = 1
-            userImage.layer.borderColor = blueEncuentro.cgColor
-            
+            setColorsHeader(bool: true)
         }
+    }
+    
+    func setColorsHeader(bool:Bool){
+        let blueEncuentro = UIColor.init(red: 25/255, green: 42/255, blue: 115/255, alpha: 1)
+        //let goldEncuentro = UIColor.init(red: 190/255, green: 169/255, blue: 120/255, alpha: 1)
+        viewArriba.backgroundColor = .white
+        nombrePersona.textColor = blueEncuentro
+        lblAdmin.isHidden = bool
+        //gearIcon.image = UIImage(named: "gearBlue", in: Bundle.local, compatibleWith: nil)
+        gearIcon.image = UIImage(named: "gearGold", in: Bundle.local, compatibleWith: nil)
+        userImage.layer.borderWidth = 1
+        userImage.layer.borderColor = blueEncuentro.cgColor
     }
     
     private func getInstalledVersion() -> String? {
@@ -435,7 +476,6 @@ class Home_Home: UIViewController, HomeViewProtocol, UITextFieldDelegate, UNUser
                 }
                 return nil
         }
-    
     
     private func setMessageHour() -> String {
         let hour = Calendar.current.component(.hour, from: Date())
@@ -455,8 +495,9 @@ class Home_Home: UIViewController, HomeViewProtocol, UITextFieldDelegate, UNUser
     func validateProfileOnboarding() {
         let singleton = Home_Home.singleton
         singleton.isFromPrayModal = "OTHER"
-        let profile = UserDefaults.standard.string(forKey: "profile")
-        if showOnboarding == "true" {
+        let profile = UserDefaults.standard.string(forKey: "profile") ?? "DEVOTED"
+        let nO = UserDefaults.standard.string(forKey: "NewOnboarding")
+        if nO == "true" {
             switch profile {
             case UserProfileEnum.fiel.rawValue:
                 presentOnBoardingView(type: "FirstOnboarding")
@@ -468,9 +509,16 @@ class Home_Home: UIViewController, HomeViewProtocol, UITextFieldDelegate, UNUser
                 presentOnBoardingView(type: "CommunityResp")
             case UserProfileEnum.Sacerdoteadministrador.rawValue:
                 presentOnBoardingView(type: "PriestAdmin")
+            case UserProfileEnum.sacerdote.rawValue:
+                print("ON BOARDING PRIEST:")
+                presentOnBoardingView(type: "Priest")
             default:
+                print("Asumakina el profile es:")
+                print(profile)
                 break
             }
+        }else{
+            print("nO NO ES True")
         }
     }
     
@@ -497,6 +545,7 @@ class Home_Home: UIViewController, HomeViewProtocol, UITextFieldDelegate, UNUser
     
     private func setupNewUI() {
         transmitionsView.layer.cornerRadius = 8
+        activitiesView.layer.cornerRadius=10
     }
     
     func validateCommunityStatus(dataResponse: ProfileDetailImgH){
@@ -523,12 +572,9 @@ class Home_Home: UIViewController, HomeViewProtocol, UITextFieldDelegate, UNUser
             default:
                 break
             }
-            
         default:
             break
-            
         }
-        
     }
     
     func didPressButtonPost(url: String){
@@ -573,7 +619,7 @@ class Home_Home: UIViewController, HomeViewProtocol, UITextFieldDelegate, UNUser
         let singleton = Home_Home.singleton
         singleton.isFromPrayModal = type
         guard URL(string: url) != nil else { return }
-        let viewx = ModalWebViewController.showWebModal(url: url, type: type, title: title)
+        let viewx = Home_ModalWeb.showWebModal(url: url, type: type, title: title)
         ///ahora Embed
         addChild(viewx)
         self.view.addSubview(viewx.view)
@@ -590,8 +636,7 @@ class Home_Home: UIViewController, HomeViewProtocol, UITextFieldDelegate, UNUser
     // NEW HOME FUNCTIONS
     func succesGetHome(data: [HomePosts]) {
         DispatchQueue.main.asyncAfter(deadline: .now() + 3, execute: {
-            print("::::::succesGetHome SAINT::;;;")
-            print(String(self.saintOfDay.count))
+            print("::::::succesGetNoticias::;;;")
          })
         saintOfDay = data
         let formatter = DateFormatter()
@@ -606,7 +651,7 @@ class Home_Home: UIViewController, HomeViewProtocol, UITextFieldDelegate, UNUser
         allSections=[]
         realesesPost = data
         DispatchQueue.main.asyncAfter(deadline: .now() + 3, execute: {
-            print("::::::succesGetPosts::;;;")
+            print("::::::succesGetNoticias::;;;")
             print(String(self.realesesPost.count))
          })
         for post in realesesPost {
@@ -616,11 +661,6 @@ class Home_Home: UIViewController, HomeViewProtocol, UITextFieldDelegate, UNUser
             noticias.append(saintOfDay[0])
         }
         allSections.append(noticias)
-        /*if noticias.count != 0 {
-            array Sections.append(true)
-        }else{
-            array Sections.append(false)
-        }*/
         self.presenter?.requestSuggestions(type: "SUGGESTIONS")
     }
     
@@ -733,9 +773,7 @@ class Home_Home: UIViewController, HomeViewProtocol, UITextFieldDelegate, UNUser
     }
     
     @objc func openDonation(_ sender: Any){
-        print(":::DONATIONS:::")
-        let view = DonationsRouter.createModule()
-        self.navigationController?.pushViewController(view, animated: true)
+        print(":::DONATIONS::: NO sE USAA")
     }
     
     @objc func payWithQR(_ sender: Any){
@@ -796,14 +834,25 @@ class Home_Home: UIViewController, HomeViewProtocol, UITextFieldDelegate, UNUser
     
     @IBAction func openDonations(_ sender: Any){
         print(":::NEW DONATIONS:::")
-        let view = NewDonationsRouter.createModule()//DonationsWindow(nibName: "DonationsWindow", bundle: Bundle.local)
-        self.navigationController?.pushViewController(view, animated: true)
+        let newUser = defaults.bool(forKey: "isNewUser")
+        if newUser {//esta logueado, puede avanzar al modulo
+            let view = NewDonationsRouter.createModule()
+            self.navigationController?.pushViewController(view, animated: true)
+        }else{
+            showCanonAlert(title: "¡Atención!", msg: "Regístrate o inicia sesión para poder acceder a este módulo")
+        }
         //self.present(view, animated: true, completion: nil)
     }
     
     @IBAction func goToProfile(_ sender: Any){
-        let view = ProfileInfoRouter.createModule()
-        self.navigationController?.pushViewController(view, animated: true)
+        print("va a perfil desde foto")
+        let newUser = defaults.bool(forKey: "isNewUser")
+        if newUser {//esta logueado, puede avanzar al modulo
+            let view = ProfileInfoRouter.createModule()
+            self.navigationController?.pushViewController(view, animated: true)
+        }else{
+            showCanonAlert(title: "¡Atención!", msg: "Regístrate o inicia sesión para poder acceder a este módulo")
+        }
     }
     
     @IBAction func enVivoAction(_ sender: Any) {
@@ -929,7 +978,6 @@ extension Home_Home: UIViewControllerTransitioningDelegate {
                 let goProfile = UserDefaults.standard.string(forKey: "GoProfile")
                 if goProfile == nil && profile == "DEVOTED" {
                     print("DEBUG: Dont go to profile 2")
-                    //let view = ProfileInfoRouter.createModule()
                     //self.navigationController?.pushViewController(view, animated: true)
                 }else{
                     print("DEBUG: Dont go to profile")

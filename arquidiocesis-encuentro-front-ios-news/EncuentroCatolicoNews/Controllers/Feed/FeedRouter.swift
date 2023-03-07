@@ -61,7 +61,7 @@ open class FeedRouter: NSObject, FeedWireframeProtocol {
     
     //MARK: - ShowWhoPublishes
     func showNewPost() {
-        guard let vc = CreatePostRouter.createModule() as? CreatePostViewController else { return }
+        guard let vc = CreatePostRouter.createModule() as? RedSocial_CrearPost else { return }
         vc.hasManyGroups = false
         vc.modalPresentationStyle = .fullScreen
         viewController?.present(vc, animated: true)
@@ -69,7 +69,7 @@ open class FeedRouter: NSObject, FeedWireframeProtocol {
     
     func showEditPost(post: PublicationRealm, editPost: Bool) {
         // GGG4
-        guard let vc = CreatePostRouter.createModule() as? CreatePostViewController else { return }
+        guard let vc = CreatePostRouter.createModule() as? RedSocial_CrearPost else { return }
         vc.hasManyGroups = false
         vc.editPost = true
         vc.postInformation = post
@@ -78,7 +78,7 @@ open class FeedRouter: NSObject, FeedWireframeProtocol {
     }
     
     func showNewEditPost(post: Posts, editPost: Bool) {
-        guard let vc = CreatePostRouter.createModule() as? CreatePostViewController else { return }
+        guard let vc = CreatePostRouter.createModule() as? RedSocial_CrearPost else { return }
         vc.hasManyGroups = false
         vc.editPost = true
         vc.newPostsInfo = post

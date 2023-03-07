@@ -10,7 +10,7 @@ import UIKit
 import Photos
 
 //MARK: - ImagePickerControllerDelegate
-extension CreatePostViewController: ImagePickerControllerDelegate {
+extension RedSocial_CrearPost: ImagePickerControllerDelegate {
     public func imagePickerController(_ picker: ImagePickerController, shouldLaunchCameraWithAuthorization status: AVAuthorizationStatus) -> Bool {
         return true
     }
@@ -31,7 +31,7 @@ extension CreatePostViewController: ImagePickerControllerDelegate {
 }
 
 //MARK: - LocationFinderDelegate
-extension CreatePostViewController: LocationFinderDelegate {
+extension RedSocial_CrearPost: LocationFinderDelegate {
     public func saveLocation(id: String, name: String, direction: String, coordinates: CLLocationCoordinate2D, image: UIImage?) {
         let location = LocationsResult(id: id, name: name, direction: direction, coordinates: coordinates, image: image)
         self.location = location
@@ -39,7 +39,7 @@ extension CreatePostViewController: LocationFinderDelegate {
 }
 
 //MARK: - ReactionSelectorDelegate
-extension CreatePostViewController: FeelingsSelectorDelegate {
+extension RedSocial_CrearPost: FeelingsSelectorDelegate {
     public func saveFeeling(id: Int, feeling: String, image: String) {
         let feeling = FeelingsResult(id: id, feeling: feeling, image: image)
         self.feeling = feeling
@@ -47,7 +47,7 @@ extension CreatePostViewController: FeelingsSelectorDelegate {
 }
 
 //MARK: - EditImagesDelegate
-extension CreatePostViewController: EditImagesDelegate {
+extension RedSocial_CrearPost: EditImagesDelegate {
     public func saveImages(media: [MediaData]) {
         self.media = media
     }

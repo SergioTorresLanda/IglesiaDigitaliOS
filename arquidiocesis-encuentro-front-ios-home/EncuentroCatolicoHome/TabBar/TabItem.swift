@@ -16,6 +16,7 @@ public enum TabItem: String, CaseIterable {
     case feed = "Ayuda"
     case groups = "Inicio"
     //MARK: - Methods
+    //let wantToLogin = defaults.bool(forKey: "wantToLogin")
     public var viewController: UIViewController {
         switch self {
         case .profile:
@@ -37,12 +38,10 @@ public enum TabItem: String, CaseIterable {
             let navigationController = UINavigationController()
             switch sosType {
             case true:
-                
                 let profile  = PriestPSOSRouter.createModule()
                 navigationController.navigationBar.isHidden = true
                 navigationController.pushViewController(profile, animated: true)
                 return navigationController
-                
             case false:
                 let profile = PrincipalRouterSOS.createModue()
                 navigationController.navigationBar.isHidden = true
@@ -51,6 +50,7 @@ public enum TabItem: String, CaseIterable {
             }
         }
     }
+    
     public var icon: UIImage? {
         switch self {
         case .feed:

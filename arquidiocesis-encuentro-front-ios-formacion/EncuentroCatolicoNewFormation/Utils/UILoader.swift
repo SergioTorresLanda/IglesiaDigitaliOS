@@ -51,8 +51,8 @@ class UILoader: NSObject {
         dialogLoading.backgroundColor = UIColor.white
         dialogLoading.layer.cornerRadius = 10
         dialogLoading.layer.masksToBounds = true
-        let imageView = UIImageView(frame: CGRect(x: 75, y: 25, width: 140, height: 60))
-        imageView.image = UIImage(named: "logoEncuentro", in: Bundle().getBundle(), compatibleWith: nil)
+        let imageView = UIImageView(frame: CGRect(x: 100, y: 15, width: 80, height: 80))//mitad es en 145dp -30 = 115
+        imageView.image = UIImage(named: "iconoIglesia3", in: Bundle().getBundle(), compatibleWith: nil)
         let lbl_placeholder = UILabel()
         lbl_placeholder.translatesAutoresizingMaskIntoConstraints = false
         lbl_placeholder.text = "Cargando..."

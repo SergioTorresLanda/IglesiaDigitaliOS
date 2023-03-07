@@ -143,7 +143,7 @@ class CommentsViewController: UIViewController, CommentsCellDelegate, RSComments
     
 // MARK: GENERAL FUNCTIONS -
     func editPost(id: Int, snder: UIButton) {
-        guard let vc = CreatePostRouter.createModule() as? CreatePostViewController else { return }
+        guard let vc = CreatePostRouter.createModule() as? RedSocial_CrearPost else { return }
         vc.hasManyGroups = false
         vc.editPost = true
         let indx = id - 1

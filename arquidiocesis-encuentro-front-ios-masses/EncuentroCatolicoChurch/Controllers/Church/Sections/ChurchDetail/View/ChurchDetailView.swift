@@ -20,7 +20,7 @@ struct NewMassesData {
     var hour: String
 }
 
-class ChurchDetailViewController: BaseViewController {
+class MiIglesia_InfoIglesia: BaseViewController {
     
     var presenter: ChurchDetailPresenterProtocol?
     var showTutorial = true
@@ -206,7 +206,7 @@ class ChurchDetailViewController: BaseViewController {
         //  defaults.removeObject(forKey: "SHOWTUTORIAL")
         
         if let count = navigationController?.viewControllers.count {
-            navigationController?.viewControllers[0..<(count-1)].removeAll(where: {$0 is ChurchDetailViewController})
+            navigationController?.viewControllers[0..<(count-1)].removeAll(where: {$0 is MiIglesia_InfoIglesia})
         }
         
         initView()
@@ -220,26 +220,22 @@ class ChurchDetailViewController: BaseViewController {
         
         if showTutorial == false {
             if isPrincipal == 0 {
-                // self.imgFav.image = UIImage(named: "botonInActivo", in: Bundle(for: ChurchDetailViewController.self), compatibleWith: nil)
                 self.isTappedFav = false
                 imgFav.alpha = 0
                 btnPrincipal.isHidden = false
-                //  self.imgFav.isUserInteractionEnabled = true
             }else if isPrincipal == 1{
-                self.imgFav.image = UIImage(named: "unfav", in: Bundle(for: ChurchDetailViewController.self), compatibleWith: nil)
+                self.imgFav.image = UIImage(named: "unfav", in: Bundle(for: MiIglesia_InfoIglesia.self), compatibleWith: nil)
                 btnPrincipal.isHidden = true
                 self.isTappedFav = false
                 self.imgFav.isUserInteractionEnabled = true
             }else if isPrincipal == 2{
-                self.imgFav.image = UIImage(named: "fav", in: Bundle(for: ChurchDetailViewController.self), compatibleWith: nil)
+                self.imgFav.image = UIImage(named: "fav", in: Bundle(for: MiIglesia_InfoIglesia.self), compatibleWith: nil)
                 btnPrincipal.isHidden = true
                 self.isTappedFav = true
                 self.imgFav.isUserInteractionEnabled = true
             }else if isPrincipal == 3 {
-                //self.imgFav.image = UIImage(named: "botonActivo", in: Bundle(for: ChurchDetailViewController.self), compatibleWith: nil)
                 imgFav.alpha = 0
                 btnPrincipal.isHidden = true
-                //rself.imgFav.isUserInteractionEnabled = false
             }
         }
         
@@ -247,8 +243,8 @@ class ChurchDetailViewController: BaseViewController {
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
+        print("EC MiIglesia_InfoIglesia")
         presenter?.requestListComments(queryParams: "\(churchId ?? 1)/reviews?page=1&per_page=10")
-        
     }
     
     //MARK: - IBActions
@@ -526,13 +522,12 @@ class ChurchDetailViewController: BaseViewController {
     func updateFavImage() {
         if isPrincipal == 0 {
             DispatchQueue.main.async {
-                // self.imgFav.image = UIImage(named: "botonInActivo", in: Bundle(for: ChurchDetailViewController.self), compatibleWith: nil)
                 self.btnPrincipal.isHidden = true
                 self.isTappedFav = false
             }
         }else{
             DispatchQueue.main.async {
-                self.imgFav.image = UIImage(named: "unfav", in: Bundle(for: ChurchDetailViewController.self), compatibleWith: nil)
+                self.imgFav.image = UIImage(named: "unfav", in: Bundle(for: MiIglesia_InfoIglesia.self), compatibleWith: nil)
                 self.isTappedFav = false
             }
         }
@@ -540,21 +535,20 @@ class ChurchDetailViewController: BaseViewController {
     func updateDeleteImage() {
         if isPrincipal == 0 {
             DispatchQueue.main.async {
-                // self.imgFav.image = UIImage(named: "botonActivo", in: Bundle(for: ChurchDetailViewController.self), compatibleWith: nil)
                 self.btnPrincipal.isHidden = true
                 self.imgFav.isUserInteractionEnabled = false
             }
         }else{
             DispatchQueue.main.async {
-                self.imgFav.image = UIImage(named: "fav", in: Bundle(for: ChurchDetailViewController.self), compatibleWith: nil)
+                self.imgFav.image = UIImage(named: "fav", in: Bundle(for: MiIglesia_InfoIglesia.self), compatibleWith: nil)
                 self.isTappedFav = true
             }
         }
     }
     
     func showLoading() {
-        let imageView = UIImageView(frame: CGRect(x: 75, y: 25, width: 140, height: 60))
-        imageView.image = UIImage(named: "logoEncuentro", in: Bundle.local, compatibleWith: nil)
+        let imageView = UIImageView(frame: CGRect(x: 100, y: 15, width: 80, height: 80))//mitad es en 145dp
+        imageView.image = UIImage(named: "iconoIglesia3", in: Bundle.local, compatibleWith: nil)
         loadingAlert.view.addSubview(imageView)
         present(loadingAlert, animated: true, completion: nil)
         DispatchQueue.main.asyncAfter(deadline: .now() + 3, execute: {
@@ -727,7 +721,7 @@ class ChurchDetailViewController: BaseViewController {
     
     private func initContent() {
         
-        churchHeaderImage.image = UIImage(named: "church-placeholder", in: Bundle(for: ChurchDetailViewController.self), compatibleWith: nil)
+        churchHeaderImage.image = UIImage(named: "church-placeholder", in: Bundle(for: MiIglesia_InfoIglesia.self), compatibleWith: nil)
         presenter?.getServiceCatalog()
         if let id = churchId {
             showLoading()
@@ -1399,7 +1393,7 @@ class ChurchDetailViewController: BaseViewController {
     }
 }
 //MARK: - TableView view delegates
-extension ChurchDetailViewController: UITableViewDelegate, UITableViewDataSource {
+extension MiIglesia_InfoIglesia: UITableViewDelegate, UITableViewDataSource {
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         var countTable = 0
@@ -1511,7 +1505,7 @@ extension ChurchDetailViewController: UITableViewDelegate, UITableViewDataSource
     
 }
 //MARK: - Collection view delegates
-extension ChurchDetailViewController: UICollectionViewDelegate, UICollectionViewDataSource, UICollectionViewDelegateFlowLayout {
+extension MiIglesia_InfoIglesia: UICollectionViewDelegate, UICollectionViewDataSource, UICollectionViewDelegateFlowLayout {
     
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
         
@@ -1614,7 +1608,7 @@ extension ChurchDetailViewController: UICollectionViewDelegate, UICollectionView
     
 }
 
-extension ChurchDetailViewController: ChurchDetailViewProtocol {
+extension MiIglesia_InfoIglesia: ChurchDetailViewProtocol {
     
     func serviceCatalogSuccess(response: ServiceCatalogModel) {
         serviceCatalog = response
@@ -1732,7 +1726,7 @@ extension ChurchDetailViewController: ChurchDetailViewProtocol {
 }
 
 //MARK: - Service Cell Delegate
-extension ChurchDetailViewController: ServiceCellDelegate {
+extension MiIglesia_InfoIglesia: ServiceCellDelegate {
     func editHours(collectionView: UICollectionView, at indexPath: IndexPath, hours: String) {
         print("TODO: - IMPLEMENT EDIT \(hours)")
     }
@@ -1760,13 +1754,13 @@ extension ChurchDetailViewController: ServiceCellDelegate {
 }
 
 //MARK: - Mail Extension
-extension ChurchDetailViewController: MFMailComposeViewControllerDelegate {
+extension MiIglesia_InfoIglesia: MFMailComposeViewControllerDelegate {
     func mailComposeController(_ controller: MFMailComposeViewController, didFinishWith result: MFMailComposeResult, error: Error?) {
         controller.dismiss(animated: true, completion: nil)
     }
 }
 
-extension ChurchDetailViewController: RefisterFormularyButtonDelegate, RegisterFormDataSendingDelegateProtocol{
+extension MiIglesia_InfoIglesia: RefisterFormularyButtonDelegate, RegisterFormDataSendingDelegateProtocol{
     func didPressReadyFormularyButton(_ sender: UIButton) {
         RegisterFirmulary.instance.parentView.removeFromSuperview()
         view.alpha = 1
@@ -1962,13 +1956,13 @@ extension ChurchDetailViewController: RefisterFormularyButtonDelegate, RegisterF
     }
 }
 
-extension ChurchDetailViewController: SuccessAllertButtonDelegate {
+extension MiIglesia_InfoIglesia: SuccessAllertButtonDelegate {
     func didPressYesSuccessAllertButton(_ sender: UIButton) {
         navigationController?.popViewController(animated: true)
     }
 }
 
-extension ChurchDetailViewController: AddServiceModalButtonDelegate {
+extension MiIglesia_InfoIglesia: AddServiceModalButtonDelegate {
     func didPressReadyServiceButton(_ sender: UIButton) {
         let day = [1, 2, 3, 4, 5, 6, 7]
         var daysActive: [Bool] {
@@ -2156,7 +2150,7 @@ extension ChurchDetailViewController: AddServiceModalButtonDelegate {
     }
 }
 
-extension ChurchDetailViewController: AddMassesModalButtonDelegate{
+extension MiIglesia_InfoIglesia: AddMassesModalButtonDelegate{
 
     func didPressReadyMassesButton(_ sender: UIButton, hourTxt: String, daysTxt: String) {
         let day = [1, 2, 3, 4, 5, 6, 7]
@@ -2322,7 +2316,7 @@ extension ChurchDetailViewController: AddMassesModalButtonDelegate{
     }
 }
 
-extension ChurchDetailViewController: AddSocialModalButtonDelegate {
+extension MiIglesia_InfoIglesia: AddSocialModalButtonDelegate {
     func pressAddSocial(sender: UIButton, socialTxt: String, socialIndex: Int) {
         switch socialIndex {
         case 0:
@@ -2419,7 +2413,7 @@ extension ChurchDetailViewController: AddSocialModalButtonDelegate {
     
 }
 
-extension ChurchDetailViewController: UIViewControllerTransitioningDelegate {
+extension MiIglesia_InfoIglesia: UIViewControllerTransitioningDelegate {
     func animationController(forDismissed dismissed: UIViewController) -> UIViewControllerAnimatedTransitioning? {
         transition.isPresenting = false
         
@@ -2427,26 +2421,22 @@ extension ChurchDetailViewController: UIViewControllerTransitioningDelegate {
             self.initContent()
             
             if self.isPrincipal == 0 {
-                // self.imgFav.image = UIImage(named: "botonInActivo", in: Bundle(for: ChurchDetailViewController.self), compatibleWith: nil)
                 self.isTappedFav = false
                 self.imgFav.alpha = 0
                 self.btnPrincipal.isHidden = false
-                //  self.imgFav.isUserInteractionEnabled = true
             }else if self.isPrincipal == 1{
-                self.self.imgFav.image = UIImage(named: "unfav", in: Bundle(for: ChurchDetailViewController.self), compatibleWith: nil)
+                self.self.imgFav.image = UIImage(named: "unfav", in: Bundle(for: MiIglesia_InfoIglesia.self), compatibleWith: nil)
                 self.btnPrincipal.isHidden = true
                 self.isTappedFav = false
                 self.imgFav.isUserInteractionEnabled = true
             }else if self.isPrincipal == 2{
-                self.imgFav.image = UIImage(named: "fav", in: Bundle(for: ChurchDetailViewController.self), compatibleWith: nil)
+                self.imgFav.image = UIImage(named: "fav", in: Bundle(for: MiIglesia_InfoIglesia.self), compatibleWith: nil)
                 self.btnPrincipal.isHidden = true
                 self.isTappedFav = true
                 self.imgFav.isUserInteractionEnabled = true
             }else if self.isPrincipal == 3 {
-                //self.imgFav.image = UIImage(named: "botonActivo", in: Bundle(for: ChurchDetailViewController.self), compatibleWith: nil)
                 self.imgFav.alpha = 0
                 self.btnPrincipal.isHidden = true
-                //rself.imgFav.isUserInteractionEnabled = false
             }
             
         }

@@ -8,7 +8,7 @@ import UIKit
 class FollowersWireFrame: FollowersWireFrameProtocol {
 
     class func createFollowersModule(user:UserBasic) -> UIViewController {
-        let view = FollowersViewController(nibName: "FollowersViewController", bundle: Bundle(identifier: "mx.arquidiocesis.EncuentroCatolicoNews"))
+        let view = RedSocial_MiRed(nibName: "FollowersViewController", bundle: Bundle(identifier: "mx.arquidiocesis.EncuentroCatolicoNews"))
         let presenter: FollowersPresenterProtocol & FollowersInteractorOutputProtocol = FollowersPresenter()
         let interactor: FollowersInteractorInputProtocol & FollowersRemoteDataManagerOutputProtocol = FollowersInteractor()
         let remoteDataManager: FollowersRemoteDataManagerInputProtocol = FollowersRemoteDataManager()

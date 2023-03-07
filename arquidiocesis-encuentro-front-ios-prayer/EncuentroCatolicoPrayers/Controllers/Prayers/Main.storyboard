@@ -1,8 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="20037" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="dG2-hI-yq3">
-    <device id="retina4_0" orientation="portrait" appearance="light"/>
     <dependencies>
-        <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="20020"/>
         <capability name="Named colors" minToolsVersion="9.0"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
@@ -16,12 +14,12 @@
         </array>
     </customFonts>
     <scenes>
-        <!--Oraciones Detail View Controller-->
+        <!--Oraciones Oracion-->
         <scene sceneID="Cda-km-1gd">
             <objects>
-                <viewController storyboardIdentifier="OracionesDetailViewController" id="9nt-sh-ues" customClass="OracionesDetailViewController" customModule="EncuentroCatolicoPrayers" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="OracionesDetailViewController" id="9nt-sh-ues" customClass="Oraciones_Oracion" customModule="EncuentroCatolicoPrayers" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="mGB-hC-3yV">
-                        <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
+                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="grupo7191" translatesAutoresizingMaskIntoConstraints="NO" id="PDM-8t-Qad">
@@ -127,13 +125,13 @@
                                 </constraints>
                             </scrollView>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="zh6-8d-cD2" userLabel="Navbar">
-                                <rect key="frame" x="0.0" y="0.0" width="320" height="100"/>
+                                <rect key="frame" x="0.0" y="0.0" width="600" height="100"/>
                                 <subviews>
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Jev-Ti-TEc">
-                                        <rect key="frame" x="0.0" y="-20" width="340" height="120"/>
+                                        <rect key="frame" x="0.0" y="-20" width="620" height="120"/>
                                         <subviews>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Oraciones" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Emg-XE-kUv">
-                                                <rect key="frame" x="52" y="76" width="216" height="24"/>
+                                                <rect key="frame" x="52" y="76" width="496" height="24"/>
                                                 <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="20"/>
                                                 <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                 <nil key="highlightedColor"/>
@@ -166,22 +164,22 @@
                                 </constraints>
                             </view>
                             <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" bounces="NO" translatesAutoresizingMaskIntoConstraints="NO" id="cbI-We-N0j">
-                                <rect key="frame" x="0.0" y="100" width="320" height="388"/>
+                                <rect key="frame" x="0.0" y="100" width="600" height="420"/>
                                 <subviews>
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="yKk-oS-iew">
-                                        <rect key="frame" x="0.0" y="0.0" width="320" height="388"/>
+                                        <rect key="frame" x="0.0" y="0.0" width="600" height="420"/>
                                         <subviews>
                                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="10" translatesAutoresizingMaskIntoConstraints="NO" id="u69-dJ-mQI">
-                                                <rect key="frame" x="20" y="0.0" width="280" height="388"/>
+                                                <rect key="frame" x="20" y="0.0" width="560" height="420"/>
                                                 <subviews>
                                                     <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="2E3-nf-vIM">
-                                                        <rect key="frame" x="0.0" y="0.0" width="280" height="180"/>
+                                                        <rect key="frame" x="0.0" y="0.0" width="560" height="180"/>
                                                         <constraints>
                                                             <constraint firstAttribute="height" constant="180" id="Q31-wC-eB8"/>
                                                         </constraints>
                                                     </imageView>
                                                     <stackView opaque="NO" contentMode="scaleToFill" verticalHuggingPriority="251" distribution="equalSpacing" translatesAutoresizingMaskIntoConstraints="NO" id="Sjn-Ws-pRZ">
-                                                        <rect key="frame" x="0.0" y="190" width="280" height="32"/>
+                                                        <rect key="frame" x="0.0" y="190" width="560" height="32"/>
                                                         <subviews>
                                                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="344-EK-AWx">
                                                                 <rect key="frame" x="0.0" y="0.0" width="1" height="32"/>
@@ -190,8 +188,8 @@
                                                                     <constraint firstAttribute="width" constant="1" id="6k8-Ci-cN3"/>
                                                                 </constraints>
                                                             </view>
-                                                            <view contentMode="scaleToFill" horizontalHuggingPriority="1000" ambiguous="YES" translatesAutoresizingMaskIntoConstraints="NO" id="Vpc-TY-UZz" userLabel="shareImgV">
-                                                                <rect key="frame" x="1.5" y="0.0" width="125.5" height="32"/>
+                                                            <view contentMode="scaleToFill" horizontalHuggingPriority="1000" translatesAutoresizingMaskIntoConstraints="NO" id="Vpc-TY-UZz" userLabel="shareImgV">
+                                                                <rect key="frame" x="95" y="0.0" width="125.5" height="32"/>
                                                                 <subviews>
                                                                     <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="share" translatesAutoresizingMaskIntoConstraints="NO" id="Xl3-ef-mrv">
                                                                         <rect key="frame" x="8" y="7.5" width="20" height="17"/>
@@ -200,8 +198,8 @@
                                                                             <constraint firstAttribute="width" constant="20" id="var-7n-z5k"/>
                                                                         </constraints>
                                                                     </imageView>
-                                                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="1000" verticalHuggingPriority="251" ambiguous="YES" text="Compartir imagen" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumScaleFactor="0.5" translatesAutoresizingMaskIntoConstraints="NO" id="xfy-0I-hON">
-                                                                        <rect key="frame" x="35" y="8" width="111.5" height="16"/>
+                                                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="1000" verticalHuggingPriority="251" text="Compartir imagen" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumScaleFactor="0.5" translatesAutoresizingMaskIntoConstraints="NO" id="xfy-0I-hON">
+                                                                        <rect key="frame" x="33" y="8" width="87.5" height="16"/>
                                                                         <fontDescription key="fontDescription" type="system" weight="medium" pointSize="13"/>
                                                                         <color key="textColor" white="0.33333333329999998" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                                         <nil key="highlightedColor"/>
@@ -217,8 +215,8 @@
                                                                     <constraint firstItem="Xl3-ef-mrv" firstAttribute="leading" secondItem="Vpc-TY-UZz" secondAttribute="leading" constant="8" id="KDx-Jg-miL"/>
                                                                 </constraints>
                                                             </view>
-                                                            <view contentMode="scaleToFill" horizontalHuggingPriority="1000" horizontalCompressionResistancePriority="754" ambiguous="YES" translatesAutoresizingMaskIntoConstraints="NO" id="uPP-ka-8NG" userLabel="sharePrayV">
-                                                                <rect key="frame" x="128" y="0.0" width="150.5" height="32"/>
+                                                            <view contentMode="scaleToFill" horizontalHuggingPriority="1000" horizontalCompressionResistancePriority="754" translatesAutoresizingMaskIntoConstraints="NO" id="uPP-ka-8NG" userLabel="sharePrayV">
+                                                                <rect key="frame" x="314.5" y="0.0" width="150.5" height="32"/>
                                                                 <subviews>
                                                                     <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="share" translatesAutoresizingMaskIntoConstraints="NO" id="RVB-4w-qfE">
                                                                         <rect key="frame" x="8" y="7.5" width="20" height="17"/>
@@ -227,8 +225,8 @@
                                                                             <constraint firstAttribute="width" constant="20" id="qgw-XP-hOo"/>
                                                                         </constraints>
                                                                     </imageView>
-                                                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="1000" verticalHuggingPriority="251" ambiguous="YES" text="Compartir oración" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumScaleFactor="0.5" translatesAutoresizingMaskIntoConstraints="NO" id="Ypd-gS-Ogv">
-                                                                        <rect key="frame" x="35" y="8" width="112.5" height="16"/>
+                                                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="1000" verticalHuggingPriority="251" text="Compartir oración" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumScaleFactor="0.5" translatesAutoresizingMaskIntoConstraints="NO" id="Ypd-gS-Ogv">
+                                                                        <rect key="frame" x="33" y="8" width="112.5" height="16"/>
                                                                         <fontDescription key="fontDescription" type="system" weight="medium" pointSize="13"/>
                                                                         <color key="textColor" white="0.33333333329999998" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                                         <nil key="highlightedColor"/>
@@ -245,7 +243,7 @@
                                                                 </constraints>
                                                             </view>
                                                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Z2L-vD-ZvI">
-                                                                <rect key="frame" x="279" y="0.0" width="1" height="32"/>
+                                                                <rect key="frame" x="559" y="0.0" width="1" height="32"/>
                                                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                                 <constraints>
                                                                     <constraint firstAttribute="width" constant="1" id="td3-7d-928"/>
@@ -254,13 +252,13 @@
                                                         </subviews>
                                                     </stackView>
                                                     <label hidden="YES" opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" verticalCompressionResistancePriority="751" text="" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="FRV-p0-D6l">
-                                                        <rect key="frame" x="0.0" y="227" width="280" height="0.0"/>
+                                                        <rect key="frame" x="0.0" y="227" width="560" height="0.0"/>
                                                         <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                         <color key="textColor" name="eLabel"/>
                                                         <nil key="highlightedColor"/>
                                                     </label>
                                                     <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="OAg-EM-OGS">
-                                                        <rect key="frame" x="0.0" y="232" width="280" height="106"/>
+                                                        <rect key="frame" x="0.0" y="232" width="560" height="138"/>
                                                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                                                         <string key="text">Lorem ipsum dolor sit er elit lamet, consectetaur cillium adipisicing pecu, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. </string>
                                                         <color key="textColor" name="eLabel"/>
@@ -268,37 +266,37 @@
                                                         <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
                                                     </textView>
                                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="eCL-SG-WDG">
-                                                        <rect key="frame" x="0.0" y="348" width="280" height="40"/>
+                                                        <rect key="frame" x="0.0" y="380" width="560" height="40"/>
                                                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                                                         <constraints>
                                                             <constraint firstAttribute="height" constant="40" id="H4C-16-ioh"/>
                                                         </constraints>
                                                     </view>
                                                     <tableView hidden="YES" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" scrollEnabled="NO" showsVerticalScrollIndicator="NO" dataMode="prototypes" style="plain" separatorStyle="none" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="lZF-G6-GY8">
-                                                        <rect key="frame" x="0.0" y="388" width="280" height="100"/>
+                                                        <rect key="frame" x="0.0" y="420" width="560" height="100"/>
                                                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                         <constraints>
                                                             <constraint firstAttribute="height" constant="100" id="XrH-xi-UdP"/>
                                                         </constraints>
                                                         <prototypes>
                                                             <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="CELLSIMILAR" rowHeight="62" id="xAP-g7-UHj" customClass="SimilarCell" customModule="EncuentroCatolicoPrayers" customModuleProvider="target">
-                                                                <rect key="frame" x="0.0" y="44.5" width="280" height="62"/>
+                                                                <rect key="frame" x="0.0" y="44.5" width="560" height="62"/>
                                                                 <autoresizingMask key="autoresizingMask"/>
                                                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="xAP-g7-UHj" id="uhQ-Pq-jqk">
-                                                                    <rect key="frame" x="0.0" y="0.0" width="280" height="62"/>
+                                                                    <rect key="frame" x="0.0" y="0.0" width="560" height="62"/>
                                                                     <autoresizingMask key="autoresizingMask"/>
                                                                     <subviews>
                                                                         <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="xz6-Ne-ohf">
-                                                                            <rect key="frame" x="6" y="11" width="268" height="40"/>
+                                                                            <rect key="frame" x="6" y="11" width="548" height="40"/>
                                                                             <subviews>
                                                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="TuP-tb-KJC">
-                                                                                    <rect key="frame" x="8" y="10" width="220" height="20"/>
+                                                                                    <rect key="frame" x="8" y="10" width="500" height="20"/>
                                                                                     <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="16"/>
                                                                                     <color key="textColor" name="eBlack"/>
                                                                                     <nil key="highlightedColor"/>
                                                                                 </label>
                                                                                 <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="chevron.right" catalog="system" translatesAutoresizingMaskIntoConstraints="NO" id="pgp-qG-hSG">
-                                                                                    <rect key="frame" x="238" y="12" width="20" height="16.5"/>
+                                                                                    <rect key="frame" x="518" y="12" width="20" height="16.5"/>
                                                                                     <color key="tintColor" name="eLightBlack"/>
                                                                                     <constraints>
                                                                                         <constraint firstAttribute="width" constant="20" id="6ZO-yo-4g3"/>
@@ -356,7 +354,7 @@
                                 <viewLayoutGuide key="frameLayoutGuide" id="YWg-DN-Hcd"/>
                             </scrollView>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="1gq-S7-hMQ">
-                                <rect key="frame" x="136" y="438" width="168" height="40"/>
+                                <rect key="frame" x="416" y="470" width="168" height="40"/>
                                 <color key="backgroundColor" name="eMainBlue"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="40" id="9GU-d2-LJk"/>
@@ -438,14 +436,14 @@
             <objects>
                 <viewController storyboardIdentifier="PrayerViewController" useStoryboardIdentifierAsRestorationIdentifier="YES" id="dG2-hI-yq3" customClass="Home_Oraciones" customModule="EncuentroCatolicoPrayers" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="dmQ-45-u0C">
-                        <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
+                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="vaZ-7k-tnS" userLabel="navView">
-                                <rect key="frame" x="0.0" y="-20" width="340" height="120"/>
+                                <rect key="frame" x="0.0" y="-20" width="620" height="120"/>
                                 <subviews>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Oraciones     " textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="PUe-Fq-QxD">
-                                        <rect key="frame" x="112" y="76" width="116.5" height="24"/>
+                                        <rect key="frame" x="252" y="76" width="116.5" height="24"/>
                                         <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="20"/>
                                         <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         <nil key="highlightedColor"/>
@@ -472,7 +470,7 @@
                                 </constraints>
                             </view>
                             <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="¿Qué oración buscas?" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="hso-94-5x7" userLabel="BuscarOracionTF">
-                                <rect key="frame" x="20" y="110" width="280" height="50"/>
+                                <rect key="frame" x="20" y="110" width="560" height="50"/>
                                 <color key="backgroundColor" red="0.92941176470588238" green="0.92941176470588238" blue="0.92941176470588238" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="50" id="hVd-UW-v7u"/>
@@ -500,10 +498,10 @@
                                 </connections>
                             </textField>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="wMW-GF-faG">
-                                <rect key="frame" x="0.0" y="170" width="320" height="398"/>
+                                <rect key="frame" x="0.0" y="170" width="600" height="430"/>
                                 <subviews>
                                     <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" showsHorizontalScrollIndicator="NO" showsVerticalScrollIndicator="NO" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="npW-tf-eeF">
-                                        <rect key="frame" x="15" y="0.0" width="305" height="40"/>
+                                        <rect key="frame" x="15" y="0.0" width="585" height="40"/>
                                         <color key="backgroundColor" red="0.96078431369999995" green="0.96078431369999995" blue="0.96078431369999995" alpha="1" colorSpace="custom" customColorSpace="calibratedRGB"/>
                                         <constraints>
                                             <constraint firstAttribute="height" constant="40" id="qUS-4V-poR"/>
@@ -516,14 +514,14 @@
                                         </collectionViewFlowLayout>
                                         <cells>
                                             <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" restorationIdentifier="Cell" reuseIdentifier="Cell" id="aqU-zc-QZo" customClass="PrayerCollectionCell" customModule="EncuentroCatolicoPrayers" customModuleProvider="target">
-                                                <rect key="frame" x="0.0" y="0.0" width="109.5" height="40"/>
+                                                <rect key="frame" x="0.0" y="0.0" width="111.5" height="40"/>
                                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                                 <collectionViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" id="ZZy-Ta-6vq">
-                                                    <rect key="frame" x="0.0" y="0.0" width="109.5" height="40"/>
+                                                    <rect key="frame" x="0.0" y="0.0" width="111.5" height="40"/>
                                                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                                     <subviews>
                                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Padre Nuestro" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="AUc-h7-NhQ">
-                                                            <rect key="frame" x="17" y="13" width="75.5" height="14"/>
+                                                            <rect key="frame" x="17" y="13" width="77.5" height="14"/>
                                                             <fontDescription key="fontDescription" name="Roboto-Light" family="Roboto" pointSize="12"/>
                                                             <color key="textColor" red="0.45882352939999999" green="0.47058823529999999" blue="0.4823529412" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                                                             <nil key="highlightedColor"/>
@@ -553,28 +551,28 @@
                                         </connections>
                                     </collectionView>
                                     <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="none" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="mWX-gh-hVd">
-                                        <rect key="frame" x="0.0" y="62" width="320" height="256"/>
+                                        <rect key="frame" x="0.0" y="62" width="600" height="288"/>
                                         <color key="backgroundColor" red="0.96078431369999995" green="0.96078431369999995" blue="0.96078431369999995" alpha="1" colorSpace="custom" customColorSpace="calibratedRGB"/>
                                         <prototypes>
                                             <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" restorationIdentifier="PrayerCell" insetsLayoutMarginsFromSafeArea="NO" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="PrayerCell" id="G9i-aq-G2M" customClass="PrayerTableViewCell" customModule="EncuentroCatolicoPrayers" customModuleProvider="target">
-                                                <rect key="frame" x="0.0" y="44.5" width="320" height="174"/>
+                                                <rect key="frame" x="0.0" y="44.5" width="600" height="174"/>
                                                 <autoresizingMask key="autoresizingMask"/>
                                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="G9i-aq-G2M" id="Afv-Of-9GS">
-                                                    <rect key="frame" x="0.0" y="0.0" width="320" height="174"/>
+                                                    <rect key="frame" x="0.0" y="0.0" width="600" height="174"/>
                                                     <autoresizingMask key="autoresizingMask"/>
                                                     <subviews>
                                                         <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="GK7-VY-t8I">
-                                                            <rect key="frame" x="0.0" y="0.0" width="320" height="174"/>
+                                                            <rect key="frame" x="0.0" y="0.0" width="600" height="174"/>
                                                             <subviews>
                                                                 <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="n1H-fj-ime">
-                                                                    <rect key="frame" x="16" y="0.0" width="289" height="55"/>
+                                                                    <rect key="frame" x="16" y="0.0" width="569" height="55"/>
                                                                     <constraints>
                                                                         <constraint firstAttribute="height" constant="55" id="7Eg-en-FsU"/>
                                                                         <constraint firstAttribute="height" relation="lessThanOrEqual" constant="55" id="eTC-3L-M3I"/>
                                                                     </constraints>
                                                                 </imageView>
                                                                 <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="Kxy-M3-Ckg">
-                                                                    <rect key="frame" x="16" y="65" width="304" height="89"/>
+                                                                    <rect key="frame" x="16" y="65" width="584" height="89"/>
                                                                     <color key="backgroundColor" red="0.96078431369999995" green="0.96078431369999995" blue="0.96078431369999995" alpha="1" colorSpace="custom" customColorSpace="calibratedRGB"/>
                                                                     <collectionViewFlowLayout key="collectionViewLayout" scrollDirection="horizontal" automaticEstimatedItemSize="YES" minimumLineSpacing="10" minimumInteritemSpacing="10" id="5sl-68-oVe">
                                                                         <size key="itemSize" width="105" height="86"/>

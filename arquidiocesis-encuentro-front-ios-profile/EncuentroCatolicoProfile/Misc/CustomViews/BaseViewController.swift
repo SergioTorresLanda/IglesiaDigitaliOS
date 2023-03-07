@@ -64,7 +64,7 @@ class BaseViewController: UIViewController {
         tabBarController?.title = title
     }
     
-    func showMessage(_ message: String, title: String = "App Encuentro", completion: (() -> Void)? = nil) {
+    func showMessage(_ message: String, title: String = "Iglesia Digital", completion: (() -> Void)? = nil) {
         DispatchQueue.main.async {
             [weak self] in
             self?.view.endEditing(true)

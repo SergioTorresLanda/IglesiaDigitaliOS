@@ -276,8 +276,8 @@ class Home_MiOfrenda: BaseVC, NewDontaionsViewProtocol {
     }
     
     func showLoading() {
-        let imageView = UIImageView(frame: CGRect(x: 75, y: 25, width: 140, height: 60))
-        imageView.image = UIImage(named: "logoEncuentro", in: Bundle.local, compatibleWith: nil)
+        let imageView = UIImageView(frame: CGRect(x: 100, y: 15, width: 80, height: 80))
+        imageView.image = UIImage(named: "iconoIglesia3", in: Bundle.local, compatibleWith: nil)
         loadingAlert.view.addSubview(imageView)
         present(loadingAlert, animated: true, completion: nil)
     }
@@ -818,7 +818,7 @@ class Home_MiOfrenda: BaseVC, NewDontaionsViewProtocol {
         contentSuggestionsTableView.ShadowCard()
         
         //let statixMinX = menuCollection.frame.minX
-        var axisX = 61
+        let axisX = 61
         //axisX += Int(statixMinX)
         menuLine = UIView(frame: CGRect(x: axisX, y: Int(menuCollection.frame.maxY), width: 61, height: 3))
         //menuLine.backgroundColor = UIColor.init(red: 1/255, green: 32/255, blue: 104/255, alpha: 1)

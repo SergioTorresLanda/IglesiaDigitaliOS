@@ -9,7 +9,7 @@ import UIKit
 import Firebase
 import IQKeyboardManagerSwift
 import EncuentroCatolicoHome
-
+import FirebaseAnalytics
 @main
 class AppDelegate: UIResponder, UIApplicationDelegate, UNUserNotificationCenterDelegate {
     

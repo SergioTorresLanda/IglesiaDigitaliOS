@@ -4,13 +4,13 @@
 //
 //  Created by Alejandro on 16/10/22.
 //
-
+import EncuentroCatolicoVirtualLibrary
 import Foundation
 import UIKit
 import EncuentroCatolicoUtils
 import Firebase
 
-class RegisterViewController: BaseVC {
+class Login_Registro: BaseVC {
     //MARK: - Protocol Properties
     var presenter: RegisterPresenterProtocol?
     lazy var fieldList: [ECUField] = [
@@ -22,13 +22,114 @@ class RegisterViewController: BaseVC {
         passwordField,
         confirmPasswordField
     ]
+    var alertFields : AcceptAlert?
+    var rolG = "Fiel"
+    var typePersonG="1"
     
     //MARK: - IBOutlets
     @IBOutlet weak var loader: UIActivityIndicatorView!
     @IBOutlet weak var continueButton: UIButton!
     @IBOutlet weak var fieldStack: UIStackView!
     @IBOutlet weak var navView: UIView!
+    ///Priest
+    @IBOutlet weak var `switch`: UISwitch!
     
+    @IBOutlet weak var priestSV: UIStackView!
+    @IBOutlet weak var priestPhoneTF: UITextField!
+    
+    @IBOutlet weak var priestBtn: UIButton!
+    @IBOutlet weak var progress: UIActivityIndicatorView!
+    @IBOutlet weak var errorNumber: UILabel!
+    
+    @IBOutlet weak var lblChangeDataTV: UITextView!
+    @IBOutlet weak var lblChangeDataTVHeight: NSLayoutConstraint!
+    
+    
+    @IBAction func priestBtnClick(_ sender: Any) {
+        let phone=priestPhoneTF.text ?? ""
+        if phone.count>10 || phone.count<10 {
+            errorNumber.isHidden=false
+        }else{
+            progress.isHidden=false
+            progress.startAnimating()
+            errorNumber.isHidden=true
+            presenter?.requestPriestData(priest:PriestRequest(type: "priest", phone: phone))//number dummy:"5530607563"
+        }
+        
+    }
+    
+    func setPrestInfo(priestInfo:ResponsePriest){
+        progress.isHidden=true
+        progress.stopAnimating()
+        if(priestInfo.fccelular==nil || priestInfo.fccorreo==nil){
+            //no hay priest
+            showCanonAlert(title: "¡Ups!", msg: "No encontramos ningún registro de sacerdote asociado a este número. Verifícalo y/o ponte en contacto con el administrador en iglesiadigital@arquidiocesismexico.org")
+        }else{
+            UserDefaults.standard.set("PRIEST", forKey: "profile")
+            //todo ok con el priest, poner datos
+            priestSV.isHidden=true
+            fieldStack.isHidden=false
+            continueButton.isHidden=false
+            nameField.textField.text=priestInfo.name
+            firstLastNameField.textField.text=priestInfo.fcappaterno
+            secondLastNameField.textField.text=priestInfo.fcapmaterno
+            phoneField.textField.text=priestInfo.fccelular
+            emailField.textField.text=priestInfo.fccorreo
+            
+            nameField.textField.isEnabled=false
+            firstLastNameField.textField.isEnabled=false
+            secondLastNameField.textField.isEnabled=false
+            phoneField.textField.isEnabled=false
+            emailField.textField.isEnabled=true
+            lblChangeDataTV.isHidden=false
+            lblChangeDataTVHeight.constant=40
+            rolG = "Sacerdote"
+            typePersonG="2"
+        }
+    }
+    
+    func showCanonAlert(title:String, msg:String){
+        print("SHOW CANON ALERT")
+        print(msg)
+        DispatchQueue.main.asyncAfter(deadline: .now() + 0.5, execute: {
+            self.alertFields = AcceptAlert.showAlert(titulo: title, mensaje: msg)
+            self.alertFields!.view.backgroundColor = .clear
+            self.present(self.alertFields!, animated: true)
+         })
+    }
+    
+    @IBAction func switchClick(_ sender: Any) {
+        if `switch`.isOn{
+            rolG = "Sacerdote"
+            typePersonG="2"
+            fieldStack.isHidden=true
+            continueButton.isHidden=true
+            priestSV.isHidden=false
+            progress.isHidden=true
+            errorNumber.isHidden=true
+        }else{
+            UserDefaults.standard.set("DEVOTED", forKey: "profile")
+            rolG = "Fiel"
+            typePersonG="1"
+            priestSV.isHidden=true
+            fieldStack.isHidden=false
+            continueButton.isHidden=false
+            nameField.textField.text=""
+            firstLastNameField.textField.text=""
+            secondLastNameField.textField.text=""
+            phoneField.textField.text=""
+            emailField.textField.text=""
+            
+            nameField.textField.isEnabled=true
+            firstLastNameField.textField.isEnabled=true
+            secondLastNameField.textField.isEnabled=true
+            phoneField.textField.isEnabled=true
+            emailField.textField.isEnabled=true
+            lblChangeDataTV.isHidden=true
+            lblChangeDataTVHeight.constant=0
+        }
+        
+    }
     //MARK: - Properties
     var usuario: UserRegister?
     
@@ -42,11 +143,9 @@ class RegisterViewController: BaseVC {
         field.textField.returnKeyType = .next
         field.textField.keyboardType = .asciiCapable
         field.textField.autocapitalizationType = .words
-        
         field.validations = [
             ECUFieldGenericValidation.required(fieldName: "tu nombre").getValidation()
         ]
-        
         return field
     }()
     
@@ -77,7 +176,6 @@ class RegisterViewController: BaseVC {
         field.textField.keyboardType = .asciiCapable
         field.textField.autocapitalizationType = .none
         field.textField.autocapitalizationType = .words
-        
         return field
     }()
     
@@ -161,7 +259,7 @@ class RegisterViewController: BaseVC {
     //MARK: - Life Cycle
     override func viewDidLoad() {
         super.viewDidLoad()
-        
+        addDoneButtonOnKeyboard()
         setupUI()
         presenter?.controlador = self
         presenter?.viewDidLoad(
@@ -175,9 +273,22 @@ class RegisterViewController: BaseVC {
     
     override func viewWillAppear(_ animated: Bool) {
         print("VC ECRegister - RegisterVC ")
-
     }
     
+    func addDoneButtonOnKeyboard(){
+        let doneToolbar: UIToolbar = UIToolbar(frame: CGRect.init(x: 0, y: 0, width: UIScreen.main.bounds.width, height: 50))
+             doneToolbar.barStyle = .default
+        let flexSpace = UIBarButtonItem(barButtonSystemItem: .flexibleSpace, target: nil, action: nil)
+        let done: UIBarButtonItem = UIBarButtonItem(title: "Listo", style: .done, target: self, action: #selector(self.doneButtonAction))
+        let items = [flexSpace, done]
+        doneToolbar.items = items
+        doneToolbar.sizeToFit()
+        priestPhoneTF.inputAccessoryView = doneToolbar
+    }
+    
+    @objc func doneButtonAction(){
+        priestPhoneTF.resignFirstResponder()
+    }
     
     //MARK: - Events
     @objc func next(_ sender: UIView) {
@@ -217,7 +328,9 @@ class RegisterViewController: BaseVC {
                              cel: phoneField.text,
                              email: emailField.text,
                              contra1: passwordField.text,
-                             contra2: confirmPasswordField.text)
+                             contra2: confirmPasswordField.text,
+                             rol: rolG,
+                             typePerson:typePersonG)
     }
     
     @IBAction func onClickBack(_ sender: Any) {
@@ -226,10 +339,10 @@ class RegisterViewController: BaseVC {
 }
 
 //MARK: - ECUForm
-extension RegisterViewController: ECUForm {}
+extension Login_Registro: ECUForm {}
 
 //MARK: - RegisterViewProtocol
-extension RegisterViewController: RegisterViewProtocol {
+extension Login_Registro: RegisterViewProtocol {
     func resetButton() {
         toggleLoading(show: false)
     }
@@ -251,7 +364,7 @@ extension RegisterViewController: RegisterViewProtocol {
 }
 
 //MARK: - Private functions
-extension RegisterViewController {
+extension Login_Registro {
     private func setupUI() {
         toggleLoading(show: false)
         setupFields()
@@ -272,7 +385,6 @@ extension RegisterViewController {
     private func setupFields() {
         fieldList.enumerated().forEach { index, field in
             fieldStack.addArrangedSubview(field)
-            
             field.textField.tag = index
             field.textField.addTarget(self, action: #selector(self.next(_:)), for: .editingDidEndOnExit)
         }

@@ -1,15 +1,13 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="20037" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
-    <device id="retina4_7" orientation="portrait" appearance="light"/>
     <dependencies>
-        <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="20020"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="System colors in document resources" minToolsVersion="11.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <objects>
-        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="CreatePostViewController" customModule="EncuentroCatolicoNews">
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="RedSocial_CrearPost" customModule="EncuentroCatolicoNews">
             <connections>
                 <outlet property="activityIndicator" destination="iSS-ME-NHh" id="cUM-2S-7v8"/>
                 <outlet property="addMoreView" destination="f0T-Sl-YnQ" id="GEb-x2-Ph5"/>
@@ -132,14 +130,14 @@
                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="1BO-HC-BNO">
                     <rect key="frame" x="0.0" y="160" width="375" height="507"/>
                     <subviews>
-                        <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="salinasIcon" translatesAutoresizingMaskIntoConstraints="NO" id="Fdx-Ff-adV">
+                        <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="userImage" translatesAutoresizingMaskIntoConstraints="NO" id="Fdx-Ff-adV">
                             <rect key="frame" x="20" y="10" width="50" height="50"/>
                             <constraints>
                                 <constraint firstAttribute="width" secondItem="Fdx-Ff-adV" secondAttribute="height" multiplier="1:1" id="Htg-kB-RaF"/>
                                 <constraint firstAttribute="height" constant="50" id="vhb-Z8-Fc9"/>
                             </constraints>
                         </imageView>
-                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalCompressionResistancePriority="751" text="Grupo Salinas" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="bJa-DW-MEb">
+                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalCompressionResistancePriority="751" text="" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="bJa-DW-MEb">
                             <rect key="frame" x="90" y="19.5" width="245" height="31"/>
                             <fontDescription key="fontDescription" name="Avenir-Medium" family="Avenir" pointSize="18"/>
                             <color key="textColor" red="0.098039215686274508" green="0.16470588235294117" blue="0.45098039215686275" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
@@ -391,7 +389,7 @@
                                 <constraint firstItem="jlJ-Km-fAg" firstAttribute="trailing" secondItem="hrr-7w-WFy" secondAttribute="trailing" id="tmO-L9-vRY"/>
                             </constraints>
                         </view>
-                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="qeQ-kx-DPf">
+                        <button hidden="YES" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="qeQ-kx-DPf">
                             <rect key="frame" x="78" y="22" width="257" height="31"/>
                             <color key="tintColor" red="0.098039215686274508" green="0.16470588235294117" blue="0.45098039215686275" alpha="1" colorSpace="calibratedRGB"/>
                             <state key="normal" title="Button"/>
@@ -488,7 +486,7 @@
         <image name="iconImage" width="16" height="15"/>
         <image name="iconVideoGif" width="16" height="12"/>
         <image name="imagesIcon" width="21" height="20"/>
-        <image name="salinasIcon" width="66" height="66"/>
+        <image name="userImage" width="659" height="659"/>
         <systemColor name="systemBackgroundColor">
             <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
         </systemColor>

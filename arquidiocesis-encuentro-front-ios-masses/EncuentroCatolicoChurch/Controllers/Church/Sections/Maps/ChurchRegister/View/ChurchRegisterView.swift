@@ -4,12 +4,8 @@ import MapKit
 import AlamofireImage
 
 
-class ChurchRegisterViewController: BaseViewController, ChurchRegisterViewProtocol, UtilsDetailsChurchButtonDelegate {
+class MiIglesia_MapaIglesias: BaseViewController, ChurchRegisterViewProtocol, UtilsDetailsChurchButtonDelegate {
     
-    var isPrincipal: Int?
-    var isPrincpalBool: Bool?
-    var presenter: ChurchRegisterPresenterProtocol?
-    weak var delegate: UtilsDetailsChurchButtonDelegate?
     @IBOutlet weak var addressTextField: UITextField!
     @IBOutlet weak var mapSearchContainer: UIView!
     @IBOutlet weak var addressResultTableView: UITableView!
@@ -17,6 +13,11 @@ class ChurchRegisterViewController: BaseViewController, ChurchRegisterViewProtoc
     @IBOutlet weak var goToCurrentLocationButton: UIButton!
     @IBOutlet weak var starButton: UIButton!
     @IBOutlet weak var mapKit: MKMapView!
+    
+    var isPrincipal: Int?
+    var isPrincpalBool: Bool?
+    var presenter: ChurchRegisterPresenterProtocol?
+    weak var delegate: UtilsDetailsChurchButtonDelegate?
     var wireFrame: ChurchRegisterWireFrameProtocol?
     var locationManager = CLLocationManager()
     var searchCompleter = MKLocalSearchCompleter()
@@ -185,7 +186,7 @@ class ChurchRegisterViewController: BaseViewController, ChurchRegisterViewProtoc
     }
 }
 
-extension ChurchRegisterViewController: MKMapViewDelegate {
+extension MiIglesia_MapaIglesias: MKMapViewDelegate {
     func mapView(_ mapView: MKMapView, didDeselect view: MKAnnotationView) {
         if view.isKind(of: AnnotationView.self)
         {
@@ -204,7 +205,7 @@ extension ChurchRegisterViewController: MKMapViewDelegate {
             views.churchLabel.sizeToFit()
             let imageURL = annotationView?.image_url
             if imageURL == "" {
-                views.churchImage.image = UIImage(named:"church-placeholder", in: Bundle(for: ChurchRegisterViewController.self), compatibleWith: nil)
+                views.churchImage.image = UIImage(named:"church-placeholder", in: Bundle(for: MiIglesia_MapaIglesias.self), compatibleWith: nil)
             }else{
                 if let imageUrl = URL(string: imageURL ?? "") {
                     views.churchImage.af.setImage(withURL: imageUrl)
@@ -246,7 +247,7 @@ extension ChurchRegisterViewController: MKMapViewDelegate {
         if annotationView == nil {
             annotationView = AnnotationView(annotation: annotation, reuseIdentifier: identifier)
             annotationView?.canShowCallout = false
-            annotationView?.image = UIImage(named:"map-item-icon", in: Bundle(for: ChurchRegisterViewController.self), compatibleWith: nil)
+            annotationView?.image = UIImage(named:"map-item-icon", in: Bundle(for: MiIglesia_MapaIglesias.self), compatibleWith: nil)
         } else {
             annotationView?.annotation = annotation
         }
@@ -258,7 +259,7 @@ extension ChurchRegisterViewController: MKMapViewDelegate {
 }
 
 
-extension ChurchRegisterViewController {
+extension MiIglesia_MapaIglesias {
     
     @IBAction func changeAddress(_ sender: UITextField) {
         
@@ -320,7 +321,7 @@ extension ChurchRegisterViewController {
 }
 
 //MARK: - User location delegate
-extension ChurchRegisterViewController : CLLocationManagerDelegate {
+extension MiIglesia_MapaIglesias : CLLocationManagerDelegate {
     func locationManager(_ manager: CLLocationManager, didChangeAuthorization status: CLAuthorizationStatus) {
         if status == .authorizedWhenInUse {
             locationManager.requestLocation()
@@ -340,7 +341,7 @@ extension ChurchRegisterViewController : CLLocationManagerDelegate {
 }
 
 //MARK: - Auto completer delegates
-extension ChurchRegisterViewController: MKLocalSearchCompleterDelegate {
+extension MiIglesia_MapaIglesias: MKLocalSearchCompleterDelegate {
     
     func completerDidUpdateResults(_ completer: MKLocalSearchCompleter) {
         completer.cancel()
@@ -400,7 +401,7 @@ extension ChurchRegisterViewController: MKLocalSearchCompleterDelegate {
 }
 
 //MARK: - Text field delegates
-extension ChurchRegisterViewController: UITextFieldDelegate {
+extension MiIglesia_MapaIglesias: UITextFieldDelegate {
     
     func textFieldDidBeginEditing(_ textField: UITextField) {
         if textField == addressTextField {
@@ -420,7 +421,7 @@ extension ChurchRegisterViewController: UITextFieldDelegate {
 }
 
 //MARK: - Table view delegates
-extension ChurchRegisterViewController: UITableViewDelegate, UITableViewDataSource {
+extension MiIglesia_MapaIglesias: UITableViewDelegate, UITableViewDataSource {
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         var count: Int {
             if isPrincipal == 3 {

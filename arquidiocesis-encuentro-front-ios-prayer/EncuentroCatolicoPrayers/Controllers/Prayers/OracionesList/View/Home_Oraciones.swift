@@ -107,9 +107,6 @@ class Home_Oraciones: UIViewController, UICollectionViewDataSource, UICollection
         searchBarF.delegate = self
         UIBarButtonItem.appearance(whenContainedInInstancesOf: [UISearchBar.self]).title = "Cancelar"
         setImage()
-        DispatchQueue.main.asyncAfter(deadline: .now() + 2, execute: {
-            self.loadingAlert.dismiss(animated: true, completion: nil)
-        })
         hideKeyboardWhenTappedAround()
         addDoneButtonOnKeyboard()
     }
@@ -118,6 +115,9 @@ class Home_Oraciones: UIViewController, UICollectionViewDataSource, UICollection
         print("VC ECPrayers -OracionesList- PrayerVC ")
         let img = UIImage(named: "iconSearch", in: Bundle(for: Home_Oraciones.self), compatibleWith: nil)
         setPaddingWithImage(image: img ?? UIImage(), textField: buscarTF)
+        DispatchQueue.main.asyncAfter(deadline: .now() + 1.0) {
+            self.hideLoading()
+        }
     }
     
     func getSubtitles(topic: String) -> [String] {
@@ -141,11 +141,9 @@ class Home_Oraciones: UIViewController, UICollectionViewDataSource, UICollection
     }
     
     func showLoading(){
-        let imageView = UIImageView(frame: CGRect(x: 75, y: 25, width: 140, height: 60))
+        let imageView = UIImageView(frame: CGRect(x: 100, y: 15, width: 80, height: 80))//mitad es en 145dp
         if #available(iOS 13.0, *) {
-            imageView.image = UIImage(named: "logoEncuentro", in: Bundle.local, compatibleWith: nil)
-        } else {
-            // Fallback on earlier versions
+            imageView.image = UIImage(named: "iconoIglesia3", in: Bundle.local, compatibleWith: nil)
         }
         loadingAlert.view.addSubview(imageView)
         self.present(loadingAlert, animated: true, completion: nil)
@@ -274,13 +272,16 @@ class Home_Oraciones: UIViewController, UICollectionViewDataSource, UICollection
 
 extension Home_Oraciones: ViewOracionesProtocol {
     func showError(message: String) {
-        self.showAlert(withTitle: "Error", withMessage: message)
-        self.presenter?.getDataInteractor(name: "")
+        DispatchQueue.main.asyncAfter(deadline: .now() + 0.3) {
+            self.showAlert(withTitle: "Error", withMessage: message)
+            self.presenter?.getDataInteractor(name: "")
+        }
     }
     
     func isSuccess(data: [DataResponse]) {
-        self.dataSource = data
-        self.isScuccesData(data: data)
+        print("SUCcess oraciones")
+        dataSource = data
+        isScuccesData(data: data)
     }
 }
 

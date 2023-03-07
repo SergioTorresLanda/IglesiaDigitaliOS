@@ -9,7 +9,6 @@ class LoginPresenter  {
     weak var view: LoginViewProtocol?
     var interactor: LoginInteractorInputProtocol?
     var wireFrame: LoginWireFrameProtocol?
-    let onboarding = UserDefaults.standard.bool(forKey: "onboarding")
     var controla: UIViewController!
     static var strError = "Error en el servidor"
 }
@@ -28,6 +27,7 @@ extension LoginPresenter: LoginPresenterProtocol {
     
     // TODO: implement presenter methods
     func login(user: String, password: String) {
+        print("presenter login")
         interactor?.login(user: user, password: password)
     }
     
@@ -50,21 +50,17 @@ extension LoginPresenter: LoginInteractorOutputProtocol {
             switch error {
             case .OK:
                 self.view?.hideLoading()
-                DispatchQueue.main.asyncAfter(deadline: .now() + 0.5, execute: {
-                    if !self.onboarding {
-                        UserDefaults.standard.set("true", forKey: "NewOnboarding")
-                        let view = SocialNetworkController(nibName: "SocialNetworkController", bundle: Bundle(for: SocialNetworkController.self))
-                        self.controla.navigationController?.pushViewController(view, animated: true)
-                       // self.controla?.navigationController?.pushViewController(view, animated: true)
-                           }else{
-                            UserDefaults.standard.set("true", forKey: "NewOnboarding")
-                            let view = SocialNetworkController(nibName: "SocialNetworkController", bundle: Bundle(for: SocialNetworkController.self))
-                            view.modalPresentationStyle = .overFullScreen
-                            self.controla.navigationController?.pushViewController(view, animated: true)
-                            //self.controla?.navigationController?.pushViewController(view, animated: true)
-                           }
-                  //  self.wireFrame?.loginInvitado(controller: self.controla)
-                    
+                let isAutoLogin = UserDefaults.standard.bool(forKey: "autoLogin")
+                if isAutoLogin{
+                    UserDefaults.standard.setValue(false, forKey: "isNewUser")
+                    print("YYY Login automatico, isNewUser se queda en false")
+                }else{
+                    print("YYY Login manual, isNewUser se va a true")
+                    UserDefaults.standard.setValue(true, forKey: "isNewUser")
+                }
+                DispatchQueue.main.asyncAfter(deadline: .now() + 0.7, execute: {
+                    print("presenter open home")
+                    self.view?.openHome()
                 })
             case .DatosVacios:
                 let msg = ["titulo": "Atención", "cuerpo": "Debes llenar todos los campos."]

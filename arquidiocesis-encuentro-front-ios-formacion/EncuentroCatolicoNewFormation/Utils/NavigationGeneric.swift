@@ -44,12 +44,12 @@ class NavigationGeneric: UIView {
         self.addSubview(buttonUnsegue)
         
         NSLayoutConstraint.activate([
-            title_lbl.bottomAnchor.constraint(equalTo: self.bottomAnchor, constant: -15),
+            title_lbl.bottomAnchor.constraint(equalTo: self.bottomAnchor, constant: -17),
             title_lbl.centerXAnchor.constraint(equalTo: self.centerXAnchor),
             
-            imageView.bottomAnchor.constraint(equalTo: self.bottomAnchor, constant: -15),
+            imageView.bottomAnchor.constraint(equalTo: self.bottomAnchor, constant: -17),
             imageView.leftAnchor.constraint(equalTo: self.leftAnchor, constant: 20),
-            imageView.heightAnchor.constraint(equalToConstant: 19),
+            imageView.heightAnchor.constraint(equalToConstant: 20),
             imageView.widthAnchor.constraint(equalToConstant: 12),
             
             buttonUnsegue.centerYAnchor.constraint(equalTo: imageView.centerYAnchor),

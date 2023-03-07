@@ -4,7 +4,7 @@ import UIKit
 open class RegisterRouter: RegisterWireFrameProtocol {
 
     open class func createModule(_ user: UserRegister?) -> UIViewController {
-        let navController = RegisterViewController(nibName: "RegisterViewController", bundle: Bundle(for: RegisterViewController.self))
+        let navController = Login_Registro(nibName: "RegisterViewController", bundle: Bundle(for: Login_Registro.self))
         let view = navController
         let presenter: RegisterPresenterProtocol & RegisterInteractorOutputProtocol = RegisterPresenter()
         let interactor: RegisterInteractorInputProtocol & RegisterRemoteDataManagerOutputProtocol = RegisterInteractor()

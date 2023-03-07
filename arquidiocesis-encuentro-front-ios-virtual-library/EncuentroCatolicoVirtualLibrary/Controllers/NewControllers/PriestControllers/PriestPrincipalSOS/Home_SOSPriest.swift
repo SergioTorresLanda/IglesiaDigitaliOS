@@ -120,7 +120,8 @@ class Home_SOSPriest: UIViewController, PriestPSOSViewProtocol {
     }
     
     func showLoading(){
-        imageView.image = UIImage(named: "logoEncuentro", in: Bundle.local, compatibleWith: nil)
+        let imageView = UIImageView(frame: CGRect(x: 100, y: 15, width: 80, height: 80))//mitad es en 145dp
+        imageView.image = UIImage(named: "iconoIglesia3", in: Bundle.local, compatibleWith: nil)
         alertLoader.view.addSubview(imageView)
         self.present(alertLoader, animated: true, completion: nil)
     }

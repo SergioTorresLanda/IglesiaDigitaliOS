@@ -152,13 +152,6 @@ extension Home_Perfil {
         return button
     }
     
-//    private func setupLogOutButton() -> UIButton {
-//        let button = UIButton(type: .custom)
-//        button.setImage(UIImage(named:"logout", in: Bundle.local, compatibleWith: nil), for: .normal)
-//        button.addTarget(self, action: #selector(toLogOut), for: .touchUpInside)
-//        return button
-//    }
-    
      func setupUserImageView() -> UIImageView {
             let imageView = UIImageView()
             imageView.clipsToBounds = true
@@ -170,7 +163,6 @@ extension Home_Perfil {
                 
                // imageView.image = UIImage(named: "userImage", in: Bundle.local, compatibleWith: nil)
             }
-            
             return imageView
         }
     
@@ -190,7 +182,6 @@ extension Home_Perfil {
 extension Home_Perfil: UITextFieldDelegate {
     
     func textFieldDidBeginEditing(_ textField: UITextField) {
-        
         pickerLifeStyle.selectRow(0, inComponent: 0, animated: true)
        // pickerTopics.selectRow(0, inComponent: 0, animated: true)
         pickerServiceCong.selectRow(0, inComponent: 0, animated: true)
@@ -202,9 +193,7 @@ extension Home_Perfil: UITextFieldDelegate {
                     fieldsCollection[5].text = lifeStyleList[0]
                     //selectedRow = 0
                 }
-               
             }
-            
         case fieldsCollection[7]:
             if fieldsCollection[7].text == "" {
                 if topicsList.count != 0 {
@@ -212,30 +201,19 @@ extension Home_Perfil: UITextFieldDelegate {
                    // selectedAcitity = topicsList[0]
                     selectedRow = 101
                 }
-                
             }
-            
         case fieldsCollection[8]:
             if fieldsCollection[8].text == "" {
                 if serviceCongList.count != 0 {
                     fieldsCollection[8].text = serviceCongList[0]
                 }
-                
             }
-            
         default:
             break
         }
-        
     }
     
     func textFieldShouldBeginEditing(_ textField: UITextField) -> Bool {
-        //        if textField == Constants.Tags.fieldSecurityCode {
-        //            securityCodeTextField = textField
-        //            datePickerTapped(textField)
-        //            return false
-        //        }
-        
         return true
     }
     
@@ -566,7 +544,13 @@ extension Home_Perfil: ProfileInfoViewProtocol {
             selectedPrefixID = detail.data?.User?.prefix?.id ?? 0
             presenter?.requestPrefixes(code: "PRIEST")
             hideOrShowPrefix(isShow: false)
-            
+            //desactivar picker lifestatus
+            fieldsCollection[5].isUserInteractionEnabled=false
+            fieldsCollection[0].isUserInteractionEnabled=false
+            fieldsCollection[1].isUserInteractionEnabled=false
+            fieldsCollection[2].isUserInteractionEnabled=false
+            modifyTV.isHidden=false
+            modifyTVHeight.constant=40
         default:
             break
         }
@@ -676,7 +660,9 @@ extension Home_Perfil: ProfileInfoViewProtocol {
     
     func showError(error: String) {
         print("SHOW Error")
-        showCanonAlert(title:"Error", msg: error)
+        DispatchQueue.main.asyncAfter(deadline: .now() + 0.1, execute: {
+            self.showCanonAlert(title:"Error", msg: error)
+        })
     }
     
     func showRegisterResponse(response: RegisterPriestResponse) {

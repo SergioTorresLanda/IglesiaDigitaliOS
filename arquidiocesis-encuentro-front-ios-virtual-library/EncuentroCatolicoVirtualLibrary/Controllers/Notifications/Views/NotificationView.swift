@@ -120,11 +120,10 @@ class NotificationView: UIViewController {
     }
     
     func showLoading(){
-        let imageView = UIImageView(frame: CGRect(x: 75, y: 25, width: 140, height: 60))
+        let imageView = UIImageView(frame: CGRect(x: 100, y: 15, width: 80, height: 80))//mitad es en 145dp
+        
         if #available(iOS 13.0, *) {
-            imageView.image = UIImage(named: "logoEncuentro", in: Bundle.local, compatibleWith: nil)
-        } else {
-            // Fallback on earlier versions
+            imageView.image = UIImage(named: "iconoIglesia3", in: Bundle.local, compatibleWith: nil)
         }
         loadingAlert.view.addSubview(imageView)
         self.present(loadingAlert, animated: false, completion: nil)

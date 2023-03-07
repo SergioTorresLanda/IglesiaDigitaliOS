@@ -18,14 +18,18 @@ class RegisterInteractor: RegisterInteractorInputProtocol {
         }
     }
     
-    func realizaValidaciones(nombre: String, apellido1: String, apellido2: String, cel: String, email: String, contra1: String, contra2: String) {
+    func requestPriestData(priest:PriestRequest){
+        remoteDatamanager?.requestPriestData(priest:priest)
+    }
+    
+    func realizaValidaciones(nombre: String, apellido1: String, apellido2: String, cel: String, email: String, contra1: String, contra2: String, rol:String, typePerson:String) {
         let cel = cel.trimmingCharacters(in: .whitespaces)
         let email = email.trimmingCharacters(in: .whitespaces)
         let contra1 = contra1.trimmingCharacters(in: .whitespaces)
         let defaults = UserDefaults.standard
         
         defaults.setValue(contra1, forKey: "password")
-        remoteDatamanager?.saveData(register: UserRegister(username: email, email: email, phone_number: cel, password: contra1, name: nombre, last_name: apellido1, middle_name: apellido2, role: "Fiel", type_person: "1"))
+        remoteDatamanager?.saveData(register: UserRegister(username: email, email: email, phone_number: cel, password: contra1, name: nombre, last_name: apellido1, middle_name: apellido2, role: rol, type_person: typePerson))
     }
     
     func isValidEmailAddress(emailAddressString: String) -> Bool {
@@ -71,6 +75,25 @@ class RegisterInteractor: RegisterInteractorInputProtocol {
 
 extension RegisterInteractor: RegisterRemoteDataManagerOutputProtocol {
     // TODO: Implement use case methods
+    func callbackResponsePriest(respuesta: ResponsePriest?, error: ErroresServidor?, user: PriestRequest){
+        if error != nil {
+            switch error! {
+            case .ErrorInterno:
+                presenter?.respuestaValidacionPriest(error: ErroresRegister.ErrorServidor, user: nil)
+            case .ErrorServidor:
+                presenter?.respuestaValidacionPriest(error: ErroresRegister.ErrorServidor, user: nil)
+            case .UsuarioExistente:
+                presenter?.respuestaValidacionPriest(error: ErroresRegister.UsuarioExistente, user: nil)
+            case .ErrorContrasena:
+                presenter?.respuestaValidacionPriest(error: ErroresRegister.ContraIncorrecta2, user: nil)
+            case .UsuarioSinConfirmar:
+                presenter?.respuestaValidacionPriest(error: ErroresRegister.UsuarioSinConfirmar, user: nil)
+            }
+        } else {
+            presenter?.respuestaValidacionPriest(error: ErroresRegister.OK, user: respuesta)
+        }
+    }
+    
     
     func callbackResponse(respuesta: ResponseRegister?, error: ErroresServidor?, user: UserRegister) {
         if error != nil {

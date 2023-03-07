@@ -65,7 +65,6 @@ class MainConfigView: UIViewController {
         alert.addAction(deleteAction)
         
         present(alert, animated: true)
-        
     }
         
     override func viewDidLoad() {
@@ -140,19 +139,10 @@ class MainConfigView: UIViewController {
         }
     }
     func setNavigationBar() {
-        let navBar = NavigationBar(frame: CGRect(origin: CGPoint(x: 0,
-                                                                 y: 0),
-                                                 size: CGSize(width: view.frame.width,
-                                                              height: 43)
-        )
-        )
+        let navBar = NavigationBar(frame: CGRect(origin: CGPoint(x: 0,y: 0),size: CGSize(width:view.frame.width,height: 43)))
         view.addSubview(navBar)
         let navItem = UINavigationItem(title: "Administrar módulos")
         navBar.backgroundColor = .eMainBlue
-//        let img = UIImage(named: "navbar_image",in: Bundle.local,compatibleWith: nil)
-//        navBar.setBackgroundImage(img, for: .default)
-        navBar.backgroundColor = .eMainBlue
-        
         navBar.titleTextAttributes = [NSAttributedString.Key.font: UIFont.boldSystemFont(ofSize: 22.0)]
         let textAttributes = [NSAttributedString.Key.foregroundColor:UIColor.white]
         navBar.titleTextAttributes = textAttributes
@@ -161,16 +151,15 @@ class MainConfigView: UIViewController {
         let leftBarButtonItem = UIBarButtonItem(image: image, style: .plain, target: self, action: #selector(addTapped))
         leftBarButtonItem.tintColor = .white
         navItem.leftBarButtonItem = leftBarButtonItem
-        
-//        let rightBarButtonItem = UIBarButtonItem(title: "Listo", style: .plain, target: self, action: #selector(addTapped))
-//        rightBarButtonItem.tintColor = UIColor(red: 190/255, green: 169/255, blue: 120/255, alpha: 1)
-//        navItem.rightBarButtonItem = rightBarButtonItem
-        
+//      let rightBarButtonItem = UIBarButtonItem(title: "Listo", style: .plain, target: self, action: #selector(addTapped))
+//      rightBarButtonItem.tintColor = UIColor(red: 190/255, green: 169/255, blue: 120/255, alpha: 1)
+//      navItem.rightBarButtonItem = rightBarButtonItem
         navBar.setItems([navItem], animated: false)
     }
+    
     func showLoading() {
-        let imageView = UIImageView(frame: CGRect(x: 75, y: 25, width: 140, height: 60))
-        imageView.image = UIImage(named: "logoEncuentro", in: Bundle.local, compatibleWith: nil)
+        let imageView = UIImageView(frame: CGRect(x: 100, y: 15, width: 80, height: 80))//mitad es en 145dp
+        imageView.image = UIImage(named: "iconoIglesia3", in: Bundle.local, compatibleWith: nil)
         loadingAlert.view.addSubview(imageView)
         present(loadingAlert, animated: true, completion: nil)
         DispatchQueue.main.asyncAfter(deadline: .now() + 2, execute: {
@@ -178,11 +167,10 @@ class MainConfigView: UIViewController {
         })
     }
     
-    
     private func logOut() {
         UserDefaults.standard.removeObject(forKey: "nombre")
         UserDefaults.standard.removeObject(forKey: "id")
-        
+        UserDefaults.standard.removeObject(forKey: "isNewUser")
         presentertoLogOut?.cerrarSesion()
         self.view.window?.rootViewController?.dismiss(animated: true, completion: {
             NotificationCenter.default.post(Notification(name: Notification.Name(rawValue: "newLogOut"),
@@ -195,8 +183,6 @@ class MainConfigView: UIViewController {
         self.navigationController?.popViewController(animated: true)
     }
 }
-
-
 
 extension MainConfigView: UICollectionViewDelegate, UICollectionViewDataSource, UICollectionViewDelegateFlowLayout {
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {

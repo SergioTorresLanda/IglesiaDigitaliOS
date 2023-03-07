@@ -73,8 +73,8 @@ class ForgotPViewController: UIViewController, ForgotViewProtocol {
     
     func showLoader(){
         alertLoader = UIAlertController(title: "", message: "\n \n \n \n \nCargando...", preferredStyle: .alert)
-        let imageView = UIImageView(frame: CGRect(x: 75, y: 25, width: 140, height: 60))
-        imageView.image = UIImage(named: "logoEncuentro", in: Bundle.local, compatibleWith: nil)
+        let imageView = UIImageView(frame: CGRect(x: 100, y: 15, width: 80, height: 80))//mitad es en 145dp
+        imageView.image = UIImage(named: "iconoIglesia3", in: Bundle.local, compatibleWith: nil)
         alertLoader.view.addSubview(imageView)
         self.present(alertLoader, animated: false, completion: nil)
     }

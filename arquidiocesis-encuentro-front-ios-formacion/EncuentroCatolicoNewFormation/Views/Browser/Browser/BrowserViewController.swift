@@ -14,6 +14,8 @@ class BrowserViewController: UIViewController, URLSessionDelegate {
     //MARK: - @IBOutlets
     @IBOutlet weak var webView: WKWebView!
     @IBOutlet weak var btnDownload: UIButton!
+    @IBOutlet weak var viewHead: UIView!
+    
     //MARK: - Properties
     var defaultSession: URLSession!
     var downloadTask: URLSessionDownloadTask!
@@ -24,7 +26,11 @@ class BrowserViewController: UIViewController, URLSessionDelegate {
     //MARK: - Life Cycle
     override func viewDidLoad() {
         super.viewDidLoad()
-        
+        viewHead.layer.cornerRadius = 30
+        viewHead.layer.shadowRadius = 5
+        viewHead.layer.shadowOpacity = 0.5
+        viewHead.layer.shadowColor = UIColor.black.cgColor
+        viewHead.layer.maskedCorners = [.layerMinXMaxYCorner, .layerMaxXMaxYCorner]
         guard let urlString = screenURL,
               let url = URL(string: urlString) else {
             return
@@ -35,7 +41,6 @@ class BrowserViewController: UIViewController, URLSessionDelegate {
         webView.navigationDelegate = self
         webView.load(URLRequest(url: url))
         webView.allowsBackForwardNavigationGestures = true
-        
         let backgroundSessionConfig = URLSessionConfiguration.background(withIdentifier: "backgroundSession")
         
         defaultSession = Foundation.URLSession(configuration: backgroundSessionConfig, delegate: self, delegateQueue: OperationQueue.main)
@@ -43,8 +48,8 @@ class BrowserViewController: UIViewController, URLSessionDelegate {
     
     //MARK: - Methods
     func showLoading(){
-        let imageView = UIImageView(frame: CGRect(x: 75, y: 25, width: 140, height: 60))
-        imageView.image = UIImage(named: "logoEncuentro", in: Bundle().getBundle(), compatibleWith: nil)
+        let imageView = UIImageView(frame: CGRect(x: 100, y: 15, width: 80, height: 80))
+        imageView.image = UIImage(named: "iconoIglesia3", in: Bundle().getBundle(), compatibleWith: nil)
         alert.view.addSubview(imageView)
         self.present(alert, animated: false, completion: nil)
     }

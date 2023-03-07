@@ -7,7 +7,7 @@
 
 import UIKit
 
-class FollowersViewController: UIViewController {
+class RedSocial_MiRed: UIViewController {
     
     @IBOutlet weak var imgProfile: UIImageView!
     @IBOutlet weak var lblNameProfile: UILabel!
@@ -157,13 +157,13 @@ class FollowersViewController: UIViewController {
     }
     
     func setTapGestures(){
-        let tap1 = UITapGestureRecognizer(target: self, action: #selector(FollowersViewController.tFpublics))
+        let tap1 = UITapGestureRecognizer(target: self, action: #selector(RedSocial_MiRed.tFpublics))
         publicV.isUserInteractionEnabled = true
         publicV.addGestureRecognizer(tap1)
-        let tap2 = UITapGestureRecognizer(target: self, action: #selector(FollowersViewController.tFfollowers))
+        let tap2 = UITapGestureRecognizer(target: self, action: #selector(RedSocial_MiRed.tFfollowers))
         followersV.isUserInteractionEnabled = true
         followersV.addGestureRecognizer(tap2)
-        let tap3 = UITapGestureRecognizer(target: self, action: #selector(FollowersViewController.tFfollowed))
+        let tap3 = UITapGestureRecognizer(target: self, action: #selector(RedSocial_MiRed.tFfollowed))
         followedV.isUserInteractionEnabled = true
         followedV.addGestureRecognizer(tap3)
         
@@ -302,7 +302,7 @@ class FollowersViewController: UIViewController {
     
 }
 
-extension FollowersViewController: UITableViewDelegate, UITableViewDataSource{
+extension RedSocial_MiRed: UITableViewDelegate, UITableViewDataSource{
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         if disclaimer == 0{
             return newPosts.count
@@ -385,12 +385,12 @@ extension FollowersViewController: UITableViewDelegate, UITableViewDataSource{
     
 }
 
-extension FollowersViewController: CustomSegmentedControlDelegate{
+extension RedSocial_MiRed: CustomSegmentedControlDelegate{
     func changeToIndex(index: Int) {
     }
 }
 
-extension FollowersViewController: FollowersCellProtocol{
+extension RedSocial_MiRed: FollowersCellProtocol{
     func actionSelected(follower: Followers?, and index: Int) {
         loadingView.isHidden = false
         activityIndicator.startAnimating()
@@ -409,7 +409,7 @@ extension FollowersViewController: FollowersCellProtocol{
     }
 }
 
-extension FollowersViewController: FollowersViewProtocol {
+extension RedSocial_MiRed: FollowersViewProtocol {
     
     func followServiceSuccess(fuf:Bool) {
         if userImg == "self"{

@@ -69,8 +69,10 @@ public class Home_RedSocial: UIViewController, FeedViewProtocol, FeedViewControl
         let dQ = DispatchQueue.global(qos: .background)
         ds.enter()
         dQ.async {
-            self.presenter?.getFollowed(snId:self.SNId)
-            self.sm.wait()
+            if self.SNId != 1229 {//arquidiocesis no buscar followers
+                self.presenter?.getFollowed(snId:self.SNId)
+                self.sm.wait()
+            }
             print("SALIO DE FLL")
             print(String(self.followsIds.count))
             self.presenter?.getNewPosts(isFromPage: false, isRefresh: false)
@@ -108,8 +110,6 @@ public class Home_RedSocial: UIViewController, FeedViewProtocol, FeedViewControl
     }
     
     private func setUpView() {
-        
-        
         let img = UIImage(named: "iconSearch", in: Bundle(for: Home_RedSocial.self), compatibleWith: nil)
         setPaddingWithImage(image: img ?? UIImage(), textField: txfSearch)
         imgProfile.layer.borderWidth = 0.5
@@ -175,13 +175,14 @@ public class Home_RedSocial: UIViewController, FeedViewProtocol, FeedViewControl
         var postsFinal = [Posts]()
         for post in posts {
           
-            if followsIds.contains(post.author?.id ?? 0){
-                print("si esta en seguidores::")
+            if followsIds.contains(post.author?.id ?? 0) || post.author?.id==1229 || SNId == 1229 {
+                print("está en seguidores o es arqui, o soy arqui::")
                 print(post.author?.name ?? "x")
                 postsFinal.append(post)
             }else{
                 print("Se quito publicacion de::::")
-                print(post.author?.name ?? "xx")
+                print(post.author?.name ?? "id:")
+                print(post.author?.id ?? "x")
             }
         }
         newPosts = postsFinal
@@ -256,7 +257,7 @@ public class Home_RedSocial: UIViewController, FeedViewProtocol, FeedViewControl
     
     
     @IBAction func btnActionCreatePost(_ sender: UIButton) {
-        let view = CreatePostViewController.showModalPost(type: "Crear")
+        let view = RedSocial_CrearPost.showModalPost(type: "Crear")
         view.transitioningDelegate = self
         view.delegateTbl = self
         self.present(view, animated: true, completion: nil)

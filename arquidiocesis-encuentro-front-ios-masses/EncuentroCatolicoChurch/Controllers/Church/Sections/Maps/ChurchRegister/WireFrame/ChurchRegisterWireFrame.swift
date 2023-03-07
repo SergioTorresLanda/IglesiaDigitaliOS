@@ -12,7 +12,7 @@ import UIKit
 open class ChurchRegisterWireFrame: ChurchRegisterWireFrameProtocol {
     public static func presentChurchRegisterModuleCommunity(selector: Int, from contoller: AnyObject, isPricipalBool: Bool) {
         // Generating module components
-        let storyboard = UIStoryboard(name: "ChurchRegister", bundle: Bundle(for: ChurchRegisterViewController.self))
+        let storyboard = UIStoryboard(name: "ChurchRegister", bundle: Bundle(for: MiIglesia_MapaIglesias.self))
         let view: ChurchRegisterViewProtocol = storyboard.instantiateViewController(withIdentifier: "ChurchRegisterViewController") as! ChurchRegisterViewProtocol
         let presenter: ChurchRegisterPresenterProtocol & ChurchRegisterInteractorOutputProtocol = ChurchRegisterPresenter()
         let interactor: ChurchRegisterInteractorInputProtocol = ChurchRegisterInteractor()
@@ -24,8 +24,8 @@ open class ChurchRegisterWireFrame: ChurchRegisterWireFrameProtocol {
         presenter.wireFrame = wireFrame
         presenter.interactor = interactor
         interactor.presenter = presenter
-        (view as? ChurchRegisterViewController)?.isPrincpalBool = isPricipalBool
-        (view as? ChurchRegisterViewController)?.isPrincipal = selector
+        (view as? MiIglesia_MapaIglesias)?.isPrincpalBool = isPricipalBool
+        (view as? MiIglesia_MapaIglesias)?.isPrincipal = selector
         if let vc = contoller as? UIViewController{
             vc.navigationController?.pushViewController(view as! UIViewController, animated: true)
         }
@@ -41,28 +41,27 @@ open class ChurchRegisterWireFrame: ChurchRegisterWireFrameProtocol {
     }
     
     public static func presentChurchRegisterModule(selector isPrincipal: Int, from vc:AnyObject) {
-        
         // Generating module components
-        let storyboard = UIStoryboard(name: "ChurchRegister", bundle: Bundle(for: ChurchRegisterViewController.self))
+        let storyboard = UIStoryboard(name: "ChurchRegister", bundle: Bundle(for: MiIglesia_MapaIglesias.self))
         let view: ChurchRegisterViewProtocol = storyboard.instantiateViewController(withIdentifier: "ChurchRegisterViewController") as! ChurchRegisterViewProtocol
         let presenter: ChurchRegisterPresenterProtocol & ChurchRegisterInteractorOutputProtocol = ChurchRegisterPresenter()
         let interactor: ChurchRegisterInteractorInputProtocol = ChurchRegisterInteractor()
         let wireFrame: ChurchRegisterWireFrameProtocol = ChurchRegisterWireFrame()
-        
         // Connecting
         view.presenter = presenter
         presenter.view = view
         presenter.wireFrame = wireFrame
         presenter.interactor = interactor
         interactor.presenter = presenter
-        (view as? ChurchRegisterViewController)?.isPrincipal = isPrincipal
+        (view as? MiIglesia_MapaIglesias)?.isPrincipal = isPrincipal
         if let vc = vc as? UIViewController{
             vc.navigationController?.pushViewController(view as! UIViewController, animated: true)
         }
     }
+    
     open class ServicesRouter: UINavigationController {
         public static func createModule(navigation: UINavigationController) -> UIViewController {
-            let storyBoard = UIStoryboard(name: "ChurchRegister", bundle: Bundle(for: ChurchRegisterViewController.self))
+            let storyBoard = UIStoryboard(name: "ChurchRegister", bundle: Bundle(for: MiIglesia_MapaIglesias.self))
             let controller = storyBoard.instantiateViewController(withIdentifier: "ChurchRegisterViewController")
             return controller
         }

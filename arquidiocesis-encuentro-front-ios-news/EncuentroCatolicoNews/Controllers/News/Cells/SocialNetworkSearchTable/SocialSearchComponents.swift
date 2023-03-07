@@ -9,7 +9,7 @@ import Foundation
 import UIKit
 
 @available(iOS 13.0, *)
-extension SocialSearchView: UITableViewDelegate, UITableViewDataSource {
+extension RedSocial_Buscador: UITableViewDelegate, UITableViewDataSource {
    
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return arrayResults.count

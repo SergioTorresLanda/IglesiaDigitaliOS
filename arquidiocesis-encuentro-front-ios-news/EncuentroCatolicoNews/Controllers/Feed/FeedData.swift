@@ -207,7 +207,7 @@ extension Home_RedSocial: FeedTVCProtocol {
 //        guard let post = newPosts[id] else { return }
 //        showEditPost(snder, editPost: true, post: post)
         print("·$%&")
-        guard let vc = CreatePostRouter.createModule() as? CreatePostViewController else { return }
+        guard let vc = CreatePostRouter.createModule() as? RedSocial_CrearPost else { return }
         vc.hasManyGroups = false
         vc.editPost = true
         vc.typeData = "Normal"

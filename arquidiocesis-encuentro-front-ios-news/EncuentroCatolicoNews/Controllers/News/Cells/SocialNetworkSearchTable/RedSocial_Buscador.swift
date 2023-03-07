@@ -8,7 +8,7 @@
 import UIKit
 import EncuentroCatolicoVirtualLibrary
 
-class SocialSearchView: UIViewController, SocialSearchViewProtocol {
+class RedSocial_Buscador: UIViewController, SocialSearchViewProtocol {
     
 // MARK: PROTOCOL VAR -
     var presenter: SocialSearchPresenterProtocol?
@@ -114,8 +114,8 @@ class SocialSearchView: UIViewController, SocialSearchViewProtocol {
     }
     
     func showLoading() {
-        let imageView = UIImageView(frame: CGRect(x: 75, y: 25, width: 140, height: 60))
-        imageView.image = UIImage(named: "logoEncuentro", in: Bundle.local, compatibleWith: nil)
+        let imageView = UIImageView(frame: CGRect(x: 100, y: 15, width: 80, height: 80))//mitad es en 145dp
+        imageView.image = UIImage(named: "iconoIglesia3", in: Bundle.local, compatibleWith: nil)
         loadingAlert.view.addSubview(imageView)
         present(loadingAlert, animated: true, completion: nil)
     }
@@ -175,7 +175,7 @@ class SocialSearchView: UIViewController, SocialSearchViewProtocol {
 }
 
 // MARK: SEARCH REPONSE -
-extension SocialSearchView {
+extension RedSocial_Buscador {
     func successSearch(data: SerachResponse) {
         arrayResults = data.result?.results ?? arrayResults
         mainTableView.reloadData()
@@ -186,7 +186,7 @@ extension SocialSearchView {
     }
 }
 
-extension SocialSearchView {
+extension RedSocial_Buscador {
     func successFollowUF(data: FollowResponse) {
         self.presenter?.requestSearch(searchText: searchField.text ?? "")
     }
@@ -196,7 +196,7 @@ extension SocialSearchView {
     }
 }
 
-extension SocialSearchView: followCellProtocol{
+extension RedSocial_Buscador: followCellProtocol{
     func actionSelected(index: Int) {
         showLoading()
         let sectionData = arrayResults[index]

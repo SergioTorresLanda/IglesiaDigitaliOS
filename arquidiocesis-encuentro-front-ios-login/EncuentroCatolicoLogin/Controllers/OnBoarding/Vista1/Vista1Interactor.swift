@@ -11,7 +11,6 @@ class Vista1Interactor: Vista1InteractorInputProtocol {
         let defaults = UserDefaults.standard
         defaults.setValue(true, forKey: "onboarding")
     }
-
 }
 
 extension Vista1Interactor: Vista1RemoteDataManagerOutputProtocol {

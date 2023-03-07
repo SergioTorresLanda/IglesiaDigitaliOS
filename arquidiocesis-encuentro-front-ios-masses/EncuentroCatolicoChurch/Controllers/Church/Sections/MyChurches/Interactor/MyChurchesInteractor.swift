@@ -19,6 +19,8 @@ class MyChurchesInteractor: MyChurchesInteractorInputProtocol {
         DoCallChurches.init(id: String(id)).execute { (result) in
             self.presenter?.responseChurches(result: result)
         } onError: { (error, msg) in
+            print("ERROR iglesias id::")
+            print(id)
             self.presenter?.isError(msg: msg)
         }
 

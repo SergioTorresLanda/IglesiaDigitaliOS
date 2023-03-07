@@ -8,10 +8,9 @@
 import Foundation
 import UIKit
 
-class OracionesDetailViewController: UIViewController {
+class Oraciones_Oracion: UIViewController {
     
     var id: Int?
-    
     @IBOutlet weak var scrollView: UIScrollView!
     @IBOutlet weak var lblTitle: UILabel!
     @IBOutlet weak var imgImage: UIImageView!
@@ -167,12 +166,10 @@ class OracionesDetailViewController: UIViewController {
     }
     
     func showLoading(){
-       let imageView = UIImageView(frame: CGRect(x: 75, y: 25, width: 140, height: 60))
-       if #available(iOS 13.0, *) {
-           imageView.image = UIImage(named: "logoEncuentro", in: Bundle.local, compatibleWith: nil)
-       } else {
-           // Fallback on earlier versions
-       }
+        let imageView = UIImageView(frame: CGRect(x: 100, y: 15, width: 80, height: 80))//mitad es en 145dp
+        if #available(iOS 13.0, *) {
+            imageView.image = UIImage(named: "iconoIglesia3", in: Bundle.local, compatibleWith: nil)
+        }
        loadingAlert.view.addSubview(imageView)
        self.present(loadingAlert, animated: true, completion: nil)
     }
@@ -188,7 +185,7 @@ class OracionesDetailViewController: UIViewController {
     
 }
 
-extension OracionesDetailViewController: ViewOracionesDetailProtocol {
+extension Oraciones_Oracion: ViewOracionesDetailProtocol {
     
     func showError(message: String) {
         DispatchQueue.main.async {
@@ -207,7 +204,7 @@ extension OracionesDetailViewController: ViewOracionesDetailProtocol {
     }
 }
 
-extension OracionesDetailViewController: UITableViewDelegate, UITableViewDataSource {
+extension Oraciones_Oracion: UITableViewDelegate, UITableViewDataSource {
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         similarArray.count
     }

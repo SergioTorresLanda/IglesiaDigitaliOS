@@ -14,7 +14,7 @@ class ChurchDetailWireFrame: ChurchDetailWireFrameProtocol {
     static func presentChurchDetailModule(with id: Int, fromView vc:AnyObject, selector isPrincipal: Int) {
 
         // Generating module components
-        let storyboard = UIStoryboard(name: "ChurchDetail", bundle: Bundle(for: ChurchDetailViewController.self))
+        let storyboard = UIStoryboard(name: "ChurchDetail", bundle: Bundle(for: MiIglesia_InfoIglesia.self))
         let view: ChurchDetailViewProtocol = storyboard.instantiateViewController(withIdentifier: "ChurchDetailViewController") as! ChurchDetailViewProtocol
         let presenter: ChurchDetailPresenterProtocol & ChurchDetailInteractorOutputProtocol = ChurchDetailPresenter()
         let interactor: ChurchDetailInteractorInputProtocol = ChurchDetailInteractor()
@@ -27,8 +27,8 @@ class ChurchDetailWireFrame: ChurchDetailWireFrameProtocol {
         presenter.interactor = interactor
         interactor.presenter = presenter
         
-        (view as? ChurchDetailViewController)?.churchId = id
-        (view as? ChurchDetailViewController)?.isPrincipal = isPrincipal
+        (view as? MiIglesia_InfoIglesia)?.churchId = id
+        (view as? MiIglesia_InfoIglesia)?.isPrincipal = isPrincipal
         
         if let vc = vc as? UIViewController{
             vc.navigationController?.pushViewController(view as! UIViewController, animated: true)

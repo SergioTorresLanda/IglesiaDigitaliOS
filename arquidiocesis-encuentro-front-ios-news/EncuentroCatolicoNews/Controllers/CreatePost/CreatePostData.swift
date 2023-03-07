@@ -9,7 +9,7 @@
 import UIKit
 
 //MARK: - UITableViewDataSource
-extension CreatePostViewController: UITableViewDataSource {
+extension RedSocial_CrearPost: UITableViewDataSource {
     public func numberOfSections(in tableView: UITableView) -> Int {
         return 2
     }
@@ -48,7 +48,7 @@ extension CreatePostViewController: UITableViewDataSource {
 }
 
 //MARK: - UITableViewDelegate
-extension CreatePostViewController: UITableViewDelegate {
+extension RedSocial_CrearPost: UITableViewDelegate {
     public func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
         switch indexPath.section {
         case 0:

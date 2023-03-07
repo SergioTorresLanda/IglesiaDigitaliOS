@@ -11,8 +11,8 @@ open class OracionesDetailRouter: RouterOracionesDetailProtocol {
    public static func getDetailView( id: Int) -> UIViewController {
         // Generating module components
         
-        let storyboard = UIStoryboard(name: "Main", bundle: Bundle(for: OracionesDetailViewController.self))
-        let view: ViewOracionesDetailProtocol = storyboard.instantiateViewController(withIdentifier: "OracionesDetailViewController") as! OracionesDetailViewController
+        let storyboard = UIStoryboard(name: "Main", bundle: Bundle(for: Oraciones_Oracion.self))
+        let view: ViewOracionesDetailProtocol = storyboard.instantiateViewController(withIdentifier: "OracionesDetailViewController") as! Oraciones_Oracion
         
         
         let presenter: PresenterOracionesDetailProtocol & InteractorOutputOracionesDetailProtocolo = OracionesDetailPresenter()
@@ -25,7 +25,7 @@ open class OracionesDetailRouter: RouterOracionesDetailProtocol {
         presenter.router = router
         presenter.interactor = interactor
         interactor.presenter = presenter
-        (view as? OracionesDetailViewController)?.id = id
+        (view as? Oraciones_Oracion)?.id = id
         
        
         // vc.navigationController?.pushViewController(view as! UIViewController, animated: true)

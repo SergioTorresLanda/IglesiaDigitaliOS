@@ -9,6 +9,7 @@ import UIKit
 import EncuentroCatolicoUtils
 
 class Home_BibliotecaVirtual: UIViewController {
+
     //MARK: - Protocol Properties
     var _presenter: FYV_VIPER_ViewToPresenterProtocol?
     
@@ -176,12 +177,9 @@ extension Home_BibliotecaVirtual: UITableViewDelegate {
               let url = URL(string: libraryDataURL) ?? URL(string: libraryDataURL.addingPercentEncoding(withAllowedCharacters: .urlQueryAllowed) ?? "") else {
             return
         }
-        
-        
+
         let view = BrowserViewController(nibName: "BrowserViewController", bundle: Bundle().getBundle())
-        
         view.screenURL = url.absoluteString
-        
         self.navigationController?.pushViewController(view, animated: true)
     }
 }
@@ -323,24 +321,24 @@ extension Home_BibliotecaVirtual {
         
         NSLayoutConstraint.activate([
             searchField.heightAnchor.constraint(equalToConstant: 50),
-            searchField.topAnchor.constraint(equalTo: safeArea.topAnchor, constant: 60),
+            searchField.topAnchor.constraint(equalTo: safeArea.topAnchor, constant: 75),
             searchField.rightAnchor.constraint(equalTo: safeArea.rightAnchor, constant: -16.3),
             searchField.leftAnchor.constraint(equalTo: safeArea.leftAnchor, constant: 16.3),
             
             collectionViewCatalg.heightAnchor.constraint(equalToConstant: 65),
-            collectionViewCatalg.topAnchor.constraint(equalTo: searchField.bottomAnchor, constant: 4),
+            collectionViewCatalg.topAnchor.constraint(equalTo: searchField.bottomAnchor, constant: 5),
             collectionViewCatalg.rightAnchor.constraint(equalTo: safeArea.rightAnchor, constant: 0),
             collectionViewCatalg.leftAnchor.constraint(equalTo: safeArea.leftAnchor, constant: 0),
             
             fileTypeList.heightAnchor.constraint(equalToConstant: 50),
-            fileTypeList.topAnchor.constraint(equalTo: collectionViewCatalg.bottomAnchor, constant: 4),
+            fileTypeList.topAnchor.constraint(equalTo: collectionViewCatalg.bottomAnchor, constant: 5),
             fileTypeList.rightAnchor.constraint(equalTo: safeArea.rightAnchor, constant: 0),
             fileTypeList.leftAnchor.constraint(equalTo: safeArea.leftAnchor, constant: 0),
             
             tableYoung.topAnchor.constraint(equalTo: fileTypeList.bottomAnchor, constant: 8),
             tableYoung.rightAnchor.constraint(equalTo: self.view.rightAnchor, constant: -17),
             tableYoung.leftAnchor.constraint(equalTo: self.view.leftAnchor, constant: 17),
-            tableYoung.bottomAnchor.constraint(equalTo: self.view.bottomAnchor, constant: -70),
+            tableYoung.bottomAnchor.constraint(equalTo: self.view.bottomAnchor, constant: -80),
         ])
     }
     
@@ -357,7 +355,7 @@ extension Home_BibliotecaVirtual {
         self.view.addSubview(view1)
         
         NSLayoutConstraint.activate([
-            view1.topAnchor.constraint(equalTo: safeArea.topAnchor, constant: -50),
+            view1.topAnchor.constraint(equalTo: safeArea.topAnchor, constant: -35),
             view1.rightAnchor.constraint(equalTo: self.view.rightAnchor, constant: 0),
             view1.leftAnchor.constraint(equalTo: self.view.leftAnchor, constant: 0),
             view1.heightAnchor.constraint(equalToConstant: 100),
@@ -367,5 +365,11 @@ extension Home_BibliotecaVirtual {
             backSearch.leftAnchor.constraint(equalTo: self.view.leftAnchor, constant: 0),
             backSearch.heightAnchor.constraint(equalToConstant: 100)
         ])
+        
+        view1.layer.cornerRadius = 30
+        view1.layer.shadowRadius = 5
+        view1.layer.shadowOpacity = 0.5
+        view1.layer.shadowColor = UIColor.black.cgColor
+        view1.layer.maskedCorners = [.layerMinXMaxYCorner, .layerMaxXMaxYCorner]
     }
 }

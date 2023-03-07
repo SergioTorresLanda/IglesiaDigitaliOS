@@ -63,8 +63,8 @@ class Home_SOSPrincipal: UIViewController, PrincipalViewProtocol, UIViewControll
 // MARK: UI FUNCTIONS -
     
     func showLoading(){
-        let imageView = UIImageView(frame: CGRect(x: 75, y: 25, width: 140, height: 60))
-        imageView.image = UIImage(named: "logoEncuentro", in: Bundle.local, compatibleWith: nil)
+        let imageView = UIImageView(frame: CGRect(x: 100, y: 15, width: 80, height: 80))//mitad es en 145dp
+        imageView.image = UIImage(named: "iconoIglesia3", in: Bundle.local, compatibleWith: nil)
         alertLoader.view.addSubview(imageView)
         self.present(alertLoader, animated: false, completion: nil)
     }
@@ -103,15 +103,20 @@ class Home_SOSPrincipal: UIViewController, PrincipalViewProtocol, UIViewControll
     
     func successGetLastSOS(data: LastSosModel) {
         print("Vamoh directo al service")
-        alertLoader.dismiss(animated: true, completion: nil)
-        
+        DispatchQueue.main.asyncAfter(deadline: .now() + 0.2) {
+            self.alertLoader.dismiss(animated: true, completion: nil)
+        }
         switch data.status {
         case "CANCELLED", "SUCCESSFULLY", "UNSUCCESSFULLY", "COMPLETED":
+            print("CAse 1")
+            print(data.status)
             let module = UncionMapRouter.createModuleMap()
             DispatchQueue.main.asyncAfter(deadline: .now() + 0.3) {
                 self.navigationController?.pushViewController(module, animated: true)
             }
         default:
+            print("CAse 2")
+            print(data.status)
             let singleton = UncionSOSView.singleton
             singleton.newServiceID = data.service_id ?? 0
             let module = UncionServiceSOSRouter.createModule()
@@ -124,12 +129,17 @@ class Home_SOSPrincipal: UIViewController, PrincipalViewProtocol, UIViewControll
     }
     
     func failGetLastSOS(message: String) {
+        print("ERROR SOS:::::")
         print(message)
-        alertLoader.dismiss(animated: true, completion: nil)
         if message == "Error en la data" {
             let module = UncionMapRouter.createModuleMap()
             DispatchQueue.main.asyncAfter(deadline: .now() + 0.3) {
+                self.alertLoader.dismiss(animated: true, completion: nil)
                 self.navigationController?.pushViewController(module, animated: true)
+            }
+        }else{
+            DispatchQueue.main.asyncAfter(deadline: .now() + 0.3) {
+                self.alertLoader.dismiss(animated: true, completion: nil)
             }
         }
     }

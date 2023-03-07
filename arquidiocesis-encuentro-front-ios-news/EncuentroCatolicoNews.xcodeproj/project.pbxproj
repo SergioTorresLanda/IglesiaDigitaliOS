@@ -36,7 +36,7 @@
 		6D1D406427A373A2007FE35E /* SocialSearchProtocols.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6D1D405A27A373A2007FE35E /* SocialSearchProtocols.swift */; };
 		6D1D406527A373A2007FE35E /* SocialNetworkSearchView.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 6D1D405B27A373A2007FE35E /* SocialNetworkSearchView.storyboard */; };
 		6D1D406627A373A2007FE35E /* SocialSearchInteractor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6D1D405C27A373A2007FE35E /* SocialSearchInteractor.swift */; };
-		6D1D406727A373A2007FE35E /* SocialSearchView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6D1D405D27A373A2007FE35E /* SocialSearchView.swift */; };
+		6D1D406727A373A2007FE35E /* RedSocial_Buscador.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6D1D405D27A373A2007FE35E /* RedSocial_Buscador.swift */; };
 		6D1D406827A373A2007FE35E /* SocialSearchEntity.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6D1D405E27A373A2007FE35E /* SocialSearchEntity.swift */; };
 		6D1D406927A373A2007FE35E /* SocialSearchComponents.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6D1D405F27A373A2007FE35E /* SocialSearchComponents.swift */; };
 		6DE2E373279B72D2000ED1F0 /* APIType.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6DE2E372279B72D2000ED1F0 /* APIType.swift */; };
@@ -56,7 +56,7 @@
 		98A6C1902603EB8D009FBE59 /* CreatePostPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 98A6C18F2603EB8D009FBE59 /* CreatePostPresenter.swift */; };
 		98A6C1932603EB90009FBE59 /* CreatePostProtocols.swift in Sources */ = {isa = PBXBuildFile; fileRef = 98A6C1922603EB90009FBE59 /* CreatePostProtocols.swift */; };
 		98A6C1962603EB93009FBE59 /* CreatePostRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 98A6C1952603EB93009FBE59 /* CreatePostRouter.swift */; };
-		98A6C1982603EB95009FBE59 /* CreatePostViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 98A6C1972603EB95009FBE59 /* CreatePostViewController.swift */; };
+		98A6C1982603EB95009FBE59 /* RedSocial_CrearPost.swift in Sources */ = {isa = PBXBuildFile; fileRef = 98A6C1972603EB95009FBE59 /* RedSocial_CrearPost.swift */; };
 		98A6C1A2260409DD009FBE59 /* FeelingsInteractor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 98A6C1A1260409DD009FBE59 /* FeelingsInteractor.swift */; };
 		98A6C1A4260409E1009FBE59 /* FeelingsPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 98A6C1A3260409E1009FBE59 /* FeelingsPresenter.swift */; };
 		98A6C1A7260409E4009FBE59 /* FeelingsProtocols.swift in Sources */ = {isa = PBXBuildFile; fileRef = 98A6C1A6260409E4009FBE59 /* FeelingsProtocols.swift */; };
@@ -263,7 +263,7 @@
 		C85FC8CF27A442140095378A /* FollowersWireFrame.swift in Sources */ = {isa = PBXBuildFile; fileRef = C85FC8C427A442100095378A /* FollowersWireFrame.swift */; };
 		C85FC8D027A442140095378A /* FollowersTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = C85FC8C527A442100095378A /* FollowersTableViewCell.swift */; };
 		C85FC8D127A442140095378A /* FollowersInteractor.swift in Sources */ = {isa = PBXBuildFile; fileRef = C85FC8C627A442110095378A /* FollowersInteractor.swift */; };
-		C85FC8D227A442140095378A /* FollowersViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C85FC8C727A442110095378A /* FollowersViewController.swift */; };
+		C85FC8D227A442140095378A /* RedSocial_MiRed.swift in Sources */ = {isa = PBXBuildFile; fileRef = C85FC8C727A442110095378A /* RedSocial_MiRed.swift */; };
 		C85FC8D327A442140095378A /* Followers.swift in Sources */ = {isa = PBXBuildFile; fileRef = C85FC8C827A442120095378A /* Followers.swift */; };
 		C85FC8D427A442140095378A /* FollowersRemoteDataManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = C85FC8C927A442120095378A /* FollowersRemoteDataManager.swift */; };
 		C85FC8D527A442140095378A /* CustomSegmentedControl.swift in Sources */ = {isa = PBXBuildFile; fileRef = C85FC8CA27A442130095378A /* CustomSegmentedControl.swift */; };
@@ -304,7 +304,7 @@
 		6D1D405A27A373A2007FE35E /* SocialSearchProtocols.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SocialSearchProtocols.swift; sourceTree = "<group>"; };
 		6D1D405B27A373A2007FE35E /* SocialNetworkSearchView.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = SocialNetworkSearchView.storyboard; sourceTree = "<group>"; };
 		6D1D405C27A373A2007FE35E /* SocialSearchInteractor.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SocialSearchInteractor.swift; sourceTree = "<group>"; };
-		6D1D405D27A373A2007FE35E /* SocialSearchView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SocialSearchView.swift; sourceTree = "<group>"; };
+		6D1D405D27A373A2007FE35E /* RedSocial_Buscador.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RedSocial_Buscador.swift; sourceTree = "<group>"; };
 		6D1D405E27A373A2007FE35E /* SocialSearchEntity.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SocialSearchEntity.swift; sourceTree = "<group>"; };
 		6D1D405F27A373A2007FE35E /* SocialSearchComponents.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SocialSearchComponents.swift; sourceTree = "<group>"; };
 		6DE2E372279B72D2000ED1F0 /* APIType.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = APIType.swift; sourceTree = "<group>"; };
@@ -327,7 +327,7 @@
 		98A6C18F2603EB8D009FBE59 /* CreatePostPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreatePostPresenter.swift; sourceTree = "<group>"; };
 		98A6C1922603EB90009FBE59 /* CreatePostProtocols.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreatePostProtocols.swift; sourceTree = "<group>"; };
 		98A6C1952603EB93009FBE59 /* CreatePostRouter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreatePostRouter.swift; sourceTree = "<group>"; };
-		98A6C1972603EB95009FBE59 /* CreatePostViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreatePostViewController.swift; sourceTree = "<group>"; };
+		98A6C1972603EB95009FBE59 /* RedSocial_CrearPost.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RedSocial_CrearPost.swift; sourceTree = "<group>"; };
 		98A6C19A2603EB99009FBE59 /* CreatePostViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = CreatePostViewController.xib; sourceTree = "<group>"; };
 		98A6C1A1260409DD009FBE59 /* FeelingsInteractor.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FeelingsInteractor.swift; sourceTree = "<group>"; };
 		98A6C1A3260409E1009FBE59 /* FeelingsPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FeelingsPresenter.swift; sourceTree = "<group>"; };
@@ -533,7 +533,7 @@
 		C85FC8C427A442100095378A /* FollowersWireFrame.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FollowersWireFrame.swift; sourceTree = "<group>"; };
 		C85FC8C527A442100095378A /* FollowersTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FollowersTableViewCell.swift; sourceTree = "<group>"; };
 		C85FC8C627A442110095378A /* FollowersInteractor.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FollowersInteractor.swift; sourceTree = "<group>"; };
-		C85FC8C727A442110095378A /* FollowersViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FollowersViewController.swift; sourceTree = "<group>"; };
+		C85FC8C727A442110095378A /* RedSocial_MiRed.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RedSocial_MiRed.swift; sourceTree = "<group>"; };
 		C85FC8C827A442120095378A /* Followers.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Followers.swift; sourceTree = "<group>"; };
 		C85FC8C927A442120095378A /* FollowersRemoteDataManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FollowersRemoteDataManager.swift; sourceTree = "<group>"; };
 		C85FC8CA27A442130095378A /* CustomSegmentedControl.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CustomSegmentedControl.swift; sourceTree = "<group>"; };
@@ -629,7 +629,7 @@
 				6D1D405A27A373A2007FE35E /* SocialSearchProtocols.swift */,
 				6D1D405B27A373A2007FE35E /* SocialNetworkSearchView.storyboard */,
 				6D1D405C27A373A2007FE35E /* SocialSearchInteractor.swift */,
-				6D1D405D27A373A2007FE35E /* SocialSearchView.swift */,
+				6D1D405D27A373A2007FE35E /* RedSocial_Buscador.swift */,
 				6D1D405E27A373A2007FE35E /* SocialSearchEntity.swift */,
 				6D1D405F27A373A2007FE35E /* SocialSearchComponents.swift */,
 			);
@@ -705,7 +705,7 @@
 				98A6C18F2603EB8D009FBE59 /* CreatePostPresenter.swift */,
 				98A6C1922603EB90009FBE59 /* CreatePostProtocols.swift */,
 				98A6C1952603EB93009FBE59 /* CreatePostRouter.swift */,
-				98A6C1972603EB95009FBE59 /* CreatePostViewController.swift */,
+				98A6C1972603EB95009FBE59 /* RedSocial_CrearPost.swift */,
 				98A6C19A2603EB99009FBE59 /* CreatePostViewController.xib */,
 			);
 			path = CreatePost;
@@ -1431,7 +1431,7 @@
 				C85FC8C927A442120095378A /* FollowersRemoteDataManager.swift */,
 				C85FC8C527A442100095378A /* FollowersTableViewCell.swift */,
 				C85FC8CC27A442140095378A /* FollowersTableViewCell.xib */,
-				C85FC8C727A442110095378A /* FollowersViewController.swift */,
+				C85FC8C727A442110095378A /* RedSocial_MiRed.swift */,
 				C85FC8C327A4420F0095378A /* FollowersViewController.xib */,
 				C85FC8C427A442100095378A /* FollowersWireFrame.swift */,
 			);
@@ -1639,7 +1639,7 @@
 				AA9FFACF25E9A3FF00AC70ED /* ColorExtension.swift in Sources */,
 				AA9FFAE625E9A3FF00AC70ED /* PhotoGalleryHintLabel.swift in Sources */,
 				AA9FFAC425E9A3FE00AC70ED /* DefaultValues.swift in Sources */,
-				C85FC8D227A442140095378A /* FollowersViewController.swift in Sources */,
+				C85FC8D227A442140095378A /* RedSocial_MiRed.swift in Sources */,
 				AA9FFAD625E9A3FF00AC70ED /* RCValues.swift in Sources */,
 				AA9FFAE025E9A3FF00AC70ED /* UIFont+Style.swift in Sources */,
 				AA9FFAF725E9A3FF00AC70ED /* VideoPropertyView.swift in Sources */,
@@ -1740,7 +1740,7 @@
 				AA9FFA6825E9A3FE00AC70ED /* VideoCVC.swift in Sources */,
 				AA9FFA9125E9A3FE00AC70ED /* DetailPostData.swift in Sources */,
 				AA9FFA9725E9A3FE00AC70ED /* ImagePresenterInteractor.swift in Sources */,
-				98A6C1982603EB95009FBE59 /* CreatePostViewController.swift in Sources */,
+				98A6C1982603EB95009FBE59 /* RedSocial_CrearPost.swift in Sources */,
 				AA9FFB0125E9A3FF00AC70ED /* Shimmer.swift in Sources */,
 				AA9FFAA625E9A3FE00AC70ED /* NotificationsInteractor.swift in Sources */,
 				AA9FFA9F25E9A3FE00AC70ED /* ReactionsModalRouter.swift in Sources */,
@@ -1798,7 +1798,7 @@
 				98A6C212260414D5009FBE59 /* LocationsSelectionTVC.swift in Sources */,
 				AA9FFA7E25E9A3FE00AC70ED /* NotificationsModalViewController.swift in Sources */,
 				98A6C21F26041588009FBE59 /* LocationsProtocols.swift in Sources */,
-				6D1D406727A373A2007FE35E /* SocialSearchView.swift in Sources */,
+				6D1D406727A373A2007FE35E /* RedSocial_Buscador.swift in Sources */,
 				44F95E5B2995B90D00CA513E /* RedSocial_Perfil.swift in Sources */,
 				16C0553F274B14360084445D /* RSTimeLineRealm.swift in Sources */,
 				AA9FFA9B25E9A3FE00AC70ED /* ReactionsModalTVData.swift in Sources */,

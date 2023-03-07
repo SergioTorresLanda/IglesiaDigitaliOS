@@ -32,16 +32,13 @@ class PrincipalInteractorSOS: PrincipalInteractorProtocol {
             if (response as! HTTPURLResponse).statusCode == 200 {
                 
                 do {
-                    
                     let resp = try JSONSerialization.jsonObject(with: data!, options: .allowFragments)
                     let contentResponse : [PModelSOS] = try JSONDecoder().decode([PModelSOS].self, from: data!)
                     self.presenter?.getResponse(data: contentResponse)
-                   
                 }catch{
                     APIType.shared.refreshToken()
                     print("error", error.localizedDescription)
                 }
-               
             } else {
                 print("Error al llamar ep", (response as! HTTPURLResponse).statusCode)
             }
@@ -49,18 +46,31 @@ class PrincipalInteractorSOS: PrincipalInteractorProtocol {
         tarea.resume()
     }
     
+    let staged = UserDefaults.standard.string(forKey: "stage")
     func getLastSOS(serviceID: Int) {
-        guard let apiURL: URL = URL(string: "\(APIType.shared.User())/services?catalog_service_id=\(serviceID)") else { return }
-        
+        //guard let apiURL: URL = URL(string: "\(APIType.shared.User())/services?catalog_service_id=\(serviceID)") else { return }
+        var API2=""
+        if staged == "Qa" {
+             API2 = "https://27zdzowufmqtlz5irszrwraxbu0hkzts.lambda-url.us-east-1.on.aws"
+        }else if staged == "Prod" {
+            API2 = "\(APIType.shared.User())"
+        }
+        guard let apiURL: URL = URL(string: "\(API2)/services?catalog_service_id=\(serviceID)") else { return }
+        //
+        print("LA URL sOs ESS :::")
+        //print(apiURL.absoluteString)
         var request = URLRequest(url: apiURL)
         let defaults = UserDefaults.standard
         let idUser = defaults.integer(forKey: "id")
-        
+        print("ID USER")
+        print(idUser)
         request.setValue("application/json", forHTTPHeaderField: "Content-Type")
         request.httpMethod = "GET"
         request.setValue("\(idUser)", forHTTPHeaderField: "X-User-Id")
         request.setValue("FIEL", forHTTPHeaderField: "X-Role")
         let tksession = UserDefaults.standard.string(forKey: "idToken")
+        print("TK SESSION")
+        print(tksession)
         request.setValue("Bearer \( tksession ?? "")", forHTTPHeaderField: "Authorization")
         
         let tarea = URLSession.shared.dataTask(with: request) { data, response, error in
@@ -71,15 +81,17 @@ class PrincipalInteractorSOS: PrincipalInteractorProtocol {
                 print("Hubo un error")
                 return
             }
-                        
             do {
-                
                 if data != nil {
+                    print("DATA Xxfftyyt")
+                    let responseData = String(data: data!, encoding: String.Encoding.utf8)
+                    print(responseData!)
+                    //let someDictionaryFromJSON = try JSONSerialization.jsonObject(with: data ?? Data(), options: .allowFragments) as! [String: Any]
+                    //print(someDictionaryFromJSON)
                     let contentResponse : LastSosModel = try JSONDecoder().decode(LastSosModel.self, from: data!)
                     print(contentResponse)
                     self.presenter?.onSuccessGetLastSOS(data: contentResponse, response: (response as! HTTPURLResponse))
                 }
-                
             }catch{
                 APIType.shared.refreshToken()
                 print("error", error.localizedDescription)

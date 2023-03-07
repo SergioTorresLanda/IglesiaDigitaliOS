@@ -35,12 +35,10 @@ class NewOnboardingsView: UIViewController, NewOnboardingViewProtocol {
         super.viewDidLoad()
         validateFormView(typeView: typeView)
         setupGestures()
-
     }
     
     override func viewWillAppear(_ animated: Bool) {
         print("VC ECProfile - NewonboardingsV ")
-
     }
     
     func validateFormView(typeView: String) {
@@ -51,38 +49,32 @@ class NewOnboardingsView: UIViewController, NewOnboardingViewProtocol {
         
         switch  typeView{
         case "FirstOnboarding":
-            
             showViñetas = [false, false, false]
             titulosText = ["Bienvenido", "", ""]
-            normalText = ["A este espacio de Encuentro de la Arquidiócesis de México, donde fieles sacerdotes, religiosos, comunidades en instituciones de inspiración católica tenemos un lugar especial.", "En la app encontrarás espacios de oración, formación, interacción e información relevante de iglesias y comunidades que te ayudarán a vivir tu fe", "Te invitamos a completar tu registro para concerte mejor y darte acceso a las funciones que podrás utilizar según tu rol."]
+            normalText = ["A este espacio de Iglesia Digital de la Arquidiócesis de México, donde fieles, sacerdotes, religiosos, comunidades e instituciones de inspiración católica tenemos un lugar especial.", "En esta app encontrarás espacios de oración, formación, interacción e información relevante de iglesias y comunidades que te ayudarán a vivir tu fe.", "Te invitamos a completar tu registro para conocerte mejor y darte acceso a las funciones que podrás utilizar según tu rol."]
             imgNames = ["FirstA", "FirstB", "FirstC"]
-            
         case "PriestAdmin":
             showViñetas = [true, false]
             titulosText = ["", ""]
             normalText = ["Gracias padre \(name) has sido registrado como sarcedote administrador y ahora puedes:", "Necesitamos que definas los módulos que quieres aplicar en tu iglesia y las personas que pueden ayudarte como administradoras de las funcionalidades de la app." ]
             imgNames = ["PriestAdminA", "PriestAdminB"]
             viñetasText = ["Ver y editar el perfil con la información de tu iglesia", "Consultar el historial de ofrenda recibidas, publicar en red social a nombre propio y de tu iglesia", "Recibir notificaciones"]
-            
         case "CommunityResp":
             showViñetas = [true, false]
             titulosText = ["", ""]
             normalText = ["Gracias \(name) te registraste como responsable de comunidad, a partir de ahora tu tienes la posibildad de:", "Necesitamos que definas en 'Configuración' los módulos que quieres aplicar en tu comunidad y las personas que pueden ayudarte como administradoras de las funcionalidades de la app." ]
             imgNames = ["ComRespA", "ComRespB"]
             viñetasText = ["Editar el perfil de tu comunidad", "Publicar en red social a nombre propio y de tu comunidad", "Recibir notificaciones"]
-            
         case "Priest":
             goIcon.isHidden = true
             btnContinue.isHidden = false
             pagerControl.isHidden = true
             showViñetas = [true]
             titulosText = [""]
-            normalText = ["Estamos trabajando en la actualización de los datos. Agradecemos su comprensión"]
-            //normalText = ["Gracias padre \(name) has sido registrado como sacerdote y ahora tienes derecho a:" ]
+            //normalText = ["Estamos trabajando en la actualización de los datos. Agradecemos su comprensión"]
+            normalText = ["Gracias padre \(name) has sido registrado como sacerdote y ahora tienes derecho a:" ]
             imgNames = ["Priest"]
             viñetasText = ["Ver y editar tu perfil", "Consultar el historial de ofrendas recibidas", "Publicar en red social a nombre propio"]
-            
-            
         case "FaithfulAdmin":
             goIcon.isHidden = true
             btnContinue.isHidden = false
@@ -201,7 +193,7 @@ class NewOnboardingsView: UIViewController, NewOnboardingViewProtocol {
             self.dismiss(animated: true, completion: nil)
             //let view = ProfileInfoRouter.createModule()
             //self.navigationController?.pushViewController(view, animated: true)
-            defaults.setValue(false, forKey: "isNewUser")
+            //defaults.setValue(false, forKey: "isNewUser")
         }else {
             self.dismiss(animated: true, completion: nil)
         }
@@ -212,10 +204,9 @@ class NewOnboardingsView: UIViewController, NewOnboardingViewProtocol {
         let newUser = defaults.bool(forKey: "isNewUser")
         if newUser == true {
             self.dismiss(animated: true, completion: nil)
-
             //let view = ProfileInfoRouter.createModule()
             //self.navigationController?.pushViewController(view, animated: true)
-            defaults.setValue(false, forKey: "isNewUser")
+            //defaults.setValue(false, forKey: "isNewUser")
         }else {
             self.dismiss(animated: true, completion: nil)
         }

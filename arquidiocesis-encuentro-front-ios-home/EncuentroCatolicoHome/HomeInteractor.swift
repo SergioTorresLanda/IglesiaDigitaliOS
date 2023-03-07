@@ -14,7 +14,8 @@ import EncuentroCatolicoNews
 class HomeInteractor: HomeInteractorProtocol {
     
     weak var presenter: HomePresenterProtocol?
-    let  tksession = UserDefaults.standard.string(forKey: "idToken")
+    let  tksession = UserDefaults.standard.string(forKey: "idToken") ?? ""
+    
     func cargarDatosPersona() {
         guard let endpoint: URL = URL(string: "\(APIType.shared.Auth())/user/info") else {
             print("Error formando url")
@@ -24,7 +25,7 @@ class HomeInteractor: HomeInteractorProtocol {
         
         var request = URLRequest(url: endpoint)
 //        request.setValue("application/json", forHTTPHeaderField: "Content-Type")
-        request.setValue("Bearer \( tksession ?? "")", forHTTPHeaderField: "Authorization")
+        request.setValue("Bearer \(tksession)", forHTTPHeaderField: "Authorization")
         request.httpMethod = "POST"
         
         guard let cuerpo: Data = try? JSONEncoder().encode(cargarInfoUserDefault()) else {
@@ -42,7 +43,13 @@ class HomeInteractor: HomeInteractorProtocol {
             if error != nil {
                 return
             }
-            
+            print("TS 1::")
+            //print(self.tksession)
+            print("DATA 333:")
+            let responseData = String(data: data!, encoding: String.Encoding.utf8)
+                                print(responseData!)
+            print("STATUS CODE:")
+            print((response as! HTTPURLResponse).statusCode)
             if (response as! HTTPURLResponse).statusCode == 200 {
                 guard let allData = data else { return }
                 let userHome: UserRespHome? = try? JSONDecoder().decode(UserRespHome.self, from: allData)
@@ -84,31 +91,25 @@ class HomeInteractor: HomeInteractorProtocol {
         
         request.httpMethod = "GET"
 //        request.setValue("application/json", forHTTPHeaderField: "Content-Type")
-        request.setValue("Bearer \( tksession ?? "" ?? "")", forHTTPHeaderField: "Authorization")
-        
+        request.setValue("Bearer \( tksession )", forHTTPHeaderField: "Authorization")
+        print("TS 2::")
+        //print(tksession)
         let tarea = URLSession.shared.dataTask(with: request) { data, response, error in
-            
-            //print("->  respuesta Status Code: ", response as Any)
-            //print("->  error: ", error as Any)
             guard let model = data else {
                 return
             }
-            let responseServer = try! JSONSerialization.jsonObject(with: model, options: []) as? NSDictionary
-            //print("->✅  responseServer: ", responseServer as Any)
-
-
+            //let responseServer = try! JSONSerialization.jsonObject(with: model, options: []) as? NSDictionary
+            //print("->  responseServer: ", responseServer as Any)
             if error != nil {
                 print("Hubo un error")
                 return
             }
             
             do {
-                
                 if data != nil {
                     let contResponse : ProfileDetailImgH = try JSONDecoder().decode(ProfileDetailImgH.self, from: data!)
                     self.presenter?.responseGetProfile(responseCode: response as! HTTPURLResponse, dataResponse: contResponse)
                 }
-                
             }catch{
                 print("error al obtener detalle del usuario", error.localizedDescription)
                 APIType.shared.refreshToken()
@@ -128,22 +129,20 @@ class HomeInteractor: HomeInteractorProtocol {
         let defaults = UserDefaults.standard
         let idUser = defaults.integer(forKey: "id")
         request.httpMethod = "GET"
-        request.setValue("Bearer \( tksession ?? "")", forHTTPHeaderField: "Authorization")
+        request.setValue("Bearer \( tksession )", forHTTPHeaderField: "Authorization")
         request.setValue("\(idUser)", forHTTPHeaderField: "X-User-Id")
-        
+        print("TS 3::")
+        //print(tksession)
         let work = URLSession.shared.dataTask(with: request) { data, response, error in
-            //print("->  respuesta Status Code: ", response as Any)
-            //print("->  error: ", error as Any)
             guard let datamodel = data else{
                 return
             }
-            
             do{
                 if(type=="SAINT"){
-                print("ENDPOINT SAINT")
-                //
-                let cR = try JSONDecoder().decode([HomePosts].self, from: datamodel)
-                self.presenter?.trasportResponseHome(response: (response as! HTTPURLResponse), data: cR)
+                    print("ENDPOINT SAINT::")
+                    print()
+                    let cR = try JSONDecoder().decode([HomePosts].self, from: datamodel)
+                    self.presenter?.trasportResponseHome(response: (response as! HTTPURLResponse), data: cR)
                 }else{
                     print("ENDPOINT POSTS")
                     let cR = try JSONDecoder().decode([HomePosts].self, from: datamodel)
@@ -166,7 +165,7 @@ class HomeInteractor: HomeInteractorProtocol {
         let idUser = defaults.integer(forKey: "id")
         
         request.httpMethod = "GET"
-        request.setValue("Bearer \( tksession ?? "")", forHTTPHeaderField: "Authorization")
+        request.setValue("Bearer \( tksession )", forHTTPHeaderField: "Authorization")
 //        request.setValue("application/json", forHTTPHeaderField: "Content-Type")
         request.setValue("\(idUser)", forHTTPHeaderField: "X-User-Id")
         
@@ -193,7 +192,7 @@ class HomeInteractor: HomeInteractorProtocol {
 //        guard let apiURL: URL = URL(string: "https://api-develop.arquidiocesis.mx/streaming") else { return }
         guard let apiURL: URL = URL(string: "\(APIType.shared.User())/streaming") else { return }
         var request = URLRequest(url: apiURL)
-        request.setValue("Bearer \( tksession ?? "")", forHTTPHeaderField: "Authorization")
+        request.setValue("Bearer \( tksession )", forHTTPHeaderField: "Authorization")
 //        request.setValue("application/json", forHTTPHeaderField: "Content-Type")
         request.httpMethod = "GET"
         

@@ -8,17 +8,17 @@
 import Foundation
 
 
-protocol ViewOracionesProtocol:class {
+protocol ViewOracionesProtocol:AnyObject {
     var presenter: PresenterOracionesProtocol? {get set}
     func showError(message: String)
     func isSuccess(data: [DataResponse])
 }
 
-protocol RouterOracionesProtocol: class {
+protocol RouterOracionesProtocol: AnyObject {
     static func presentModule(fromView vc: AnyObject)
 }
 
-protocol PresenterOracionesProtocol: class {
+protocol PresenterOracionesProtocol: AnyObject {
     var view: ViewOracionesProtocol? {get set}
     var interactor: InteractorInputOracionesProtocolo? {get set}
     var router: RouterOracionesProtocol? {get set}
@@ -28,11 +28,11 @@ protocol PresenterOracionesProtocol: class {
     
 }
 
-protocol InteractorOutputOracionesProtocolo: class {
+protocol InteractorOutputOracionesProtocolo: AnyObject {
     func isSuccessServiceInteractor(data: [DataResponse])
     func isErrorService(msg: String)
 }
-protocol InteractorInputOracionesProtocolo: class {
+protocol InteractorInputOracionesProtocolo: AnyObject {
     var presenter: InteractorOutputOracionesProtocolo? {get set}
     func getOracion(name: String)
     func getOracionSearchBar(type: String)

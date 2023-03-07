@@ -59,7 +59,7 @@ class ChurchPriestViewController: BaseViewController {
     
     //MARK: - IBActions
     @IBAction func editPhotoAction() {
-        let alert = UIAlertController(title: "App encuentro", message: "Selecciona una método para obtener la imagen", preferredStyle: UIAlertController.Style.actionSheet)
+        let alert = UIAlertController(title: "Iglesia Digital", message: "Selecciona una método para obtener la imagen", preferredStyle: UIAlertController.Style.actionSheet)
         
         let galery = UIAlertAction(title: "Seleccionar foto", style: .default) {
             [weak self] UIAlertAction in

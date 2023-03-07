@@ -11,7 +11,8 @@ class LoginRemoteDataManager:LoginRemoteDataManagerInputProtocol {
     //    #endif
     
     func login(user: UserLogin) {
-        
+        print("remote login")
+
         guard let endpoint: URL = URL(string: "\(APIType.shared.Auth())/user/login") else {
             print("Error formando url")
             self.remoteRequestHandler?.callbackResponse(respuesta: nil, error: ErroresServidorLogin.ErrorInterno, user: user)

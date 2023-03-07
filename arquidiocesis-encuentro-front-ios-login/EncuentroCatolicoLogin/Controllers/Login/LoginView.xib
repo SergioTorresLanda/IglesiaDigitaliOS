@@ -1,8 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="20037" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES">
-    <device id="retina4_0" orientation="portrait" appearance="light"/>
     <dependencies>
-        <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="20020"/>
         <capability name="Named colors" minToolsVersion="9.0"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
@@ -10,8 +8,9 @@
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <objects>
-        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="LoginView" customModule="EncuentroCatolicoLogin" customModuleProvider="target">
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="Login_Login" customModule="EncuentroCatolicoLogin" customModuleProvider="target">
             <connections>
+                <outlet property="btnAutoLogin" destination="vIB-h5-EVB" id="biA-9W-chc"/>
                 <outlet property="btnBack" destination="S2G-EI-m2m" id="RNP-cm-Wfm"/>
                 <outlet property="btnBiometric" destination="ExY-ob-rwD" id="tJj-38-Dgv"/>
                 <outlet property="btnEtich" destination="5hN-Ms-RMc" id="xJW-SR-uN6"/>
@@ -109,7 +108,7 @@
                                                             </userDefinedRuntimeAttributes>
                                                         </view>
                                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="¡Bienvenido!" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="aCA-hq-LzT">
-                                                            <rect key="frame" x="0.0" y="36.5" width="280" height="27.5"/>
+                                                            <rect key="frame" x="0.0" y="24" width="280" height="27.5"/>
                                                             <constraints>
                                                                 <constraint firstAttribute="height" constant="27.5" id="x9n-HE-JJB"/>
                                                             </constraints>
@@ -118,16 +117,16 @@
                                                             <nil key="highlightedColor"/>
                                                         </label>
                                                         <label opaque="NO" userInteractionEnabled="NO" alpha="0.80000000000000004" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="¿Aún no tienes una cuenta?" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="4FZ-iA-sU3">
-                                                            <rect key="frame" x="0.0" y="100" width="280" height="19.5"/>
+                                                            <rect key="frame" x="0.0" y="74" width="280" height="19.5"/>
                                                             <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="16"/>
                                                             <nil key="textColor"/>
                                                             <nil key="highlightedColor"/>
                                                         </label>
                                                         <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="yOZ-g9-33p">
-                                                            <rect key="frame" x="0.0" y="155" width="280" height="48"/>
+                                                            <rect key="frame" x="0.0" y="116.5" width="280" height="50"/>
                                                             <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                             <constraints>
-                                                                <constraint firstAttribute="height" constant="48" id="0CX-Gf-Jhs"/>
+                                                                <constraint firstAttribute="height" constant="50" id="0CX-Gf-Jhs"/>
                                                             </constraints>
                                                             <fontDescription key="fontDescription" type="system" weight="medium" pointSize="16"/>
                                                             <state key="normal" title="Registrarme">
@@ -148,8 +147,33 @@
                                                                 <action selector="crearCuenta:" destination="-1" eventType="touchUpInside" id="Gfi-YM-SHm"/>
                                                             </connections>
                                                         </button>
+                                                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="vIB-h5-EVB">
+                                                            <rect key="frame" x="0.0" y="189.5" width="280" height="50"/>
+                                                            <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                                            <constraints>
+                                                                <constraint firstAttribute="height" constant="50" id="vUf-65-U0T"/>
+                                                            </constraints>
+                                                            <fontDescription key="fontDescription" type="system" weight="medium" pointSize="16"/>
+                                                            <state key="normal" title="Continuar sin registro">
+                                                                <color key="titleColor" red="0.094609208410000006" green="0.14886996150000001" blue="0.47061544659999999" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                                                            </state>
+                                                            <userDefinedRuntimeAttributes>
+                                                                <userDefinedRuntimeAttribute type="number" keyPath="layer.cornerRadius">
+                                                                    <integer key="value" value="10"/>
+                                                                </userDefinedRuntimeAttribute>
+                                                                <userDefinedRuntimeAttribute type="number" keyPath="layer.borderWidth">
+                                                                    <integer key="value" value="1"/>
+                                                                </userDefinedRuntimeAttribute>
+                                                                <userDefinedRuntimeAttribute type="color" keyPath="layer.borderColor">
+                                                                    <color key="value" red="0.1084837541" green="0.1543650627" blue="0.45100605490000001" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                                                                </userDefinedRuntimeAttribute>
+                                                            </userDefinedRuntimeAttributes>
+                                                            <connections>
+                                                                <action selector="autoLoginClick:" destination="-1" eventType="touchUpInside" id="qiC-Y7-RGx"/>
+                                                            </connections>
+                                                        </button>
                                                         <label opaque="NO" userInteractionEnabled="NO" alpha="0.80000001192092896" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Accede con tu usuario y contraseña." textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="GaX-Xz-7gZ">
-                                                            <rect key="frame" x="0.0" y="238.5" width="280" height="40"/>
+                                                            <rect key="frame" x="0.0" y="262.5" width="280" height="40"/>
                                                             <constraints>
                                                                 <constraint firstAttribute="height" constant="40" id="o8Q-dD-chU"/>
                                                             </constraints>
@@ -158,10 +182,10 @@
                                                             <nil key="highlightedColor"/>
                                                         </label>
                                                         <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="3Fz-PI-tYq">
-                                                            <rect key="frame" x="0.0" y="314.5" width="280" height="48"/>
+                                                            <rect key="frame" x="0.0" y="325" width="280" height="50"/>
                                                             <color key="backgroundColor" red="0.06847123057" green="0.1287259758" blue="0.5059124827" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                                                             <constraints>
-                                                                <constraint firstAttribute="height" constant="48" id="6g8-Rh-MV2"/>
+                                                                <constraint firstAttribute="height" constant="50" id="6g8-Rh-MV2"/>
                                                             </constraints>
                                                             <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="16"/>
                                                             <state key="normal" title="Ingresar">

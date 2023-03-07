@@ -11,6 +11,7 @@ class LoginInteractor: LoginInteractorInputProtocol {
         if user.trimmingCharacters(in: .whitespaces) == "" || password.trimmingCharacters(in: .whitespaces) == "" {
             presenter?.respuestaValidacion(error: ErroresLogin.DatosVacios)
         } else {
+            print("interactor login")
             remoteDatamanager?.login(user: UserLogin(username: user, password: password))
         }
     }

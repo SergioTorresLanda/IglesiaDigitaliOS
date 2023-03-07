@@ -6,7 +6,7 @@ import EncuentroCatolicoHome
 open class LoginRouter: LoginWireFrameProtocol {
 
     open class func createModule(version: Double, forceUpdate: Bool) -> UIViewController {
-        let navController = LoginView(nibName: "LoginView", bundle: Bundle(for: LoginView.self))
+        let navController = Login_Login(nibName: "LoginView", bundle: Bundle(for: Login_Login.self))
         print("RemoteConfig: willSetData force \(forceUpdate)")
         print("RemoteConfig: willSetData version \(version)")
         

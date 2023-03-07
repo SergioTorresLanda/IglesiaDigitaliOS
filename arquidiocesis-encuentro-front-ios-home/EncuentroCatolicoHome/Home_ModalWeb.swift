@@ -10,7 +10,7 @@ import WebKit
 import AVKit
 import AVFoundation
 
-open class ModalWebViewController: UIViewController {
+open class Home_ModalWeb: UIViewController {
 
 // MARK: @IBOUTLET -
     //GENERAL
@@ -301,11 +301,14 @@ open class ModalWebViewController: UIViewController {
 // MARK: @OBJC FUNCTIONS -
     @objc func TapBack() {
         print("Tap back")
-        self.dismiss(animated: false, completion: nil)
+        willMove(toParent: nil)
+        view.removeFromSuperview()
+        removeFromParent()
+        //self.dismiss(animated: false, completion: nil)// esta haciendo pop hasta login
         if isPlayer{
             if player.isPlaying{
                 player.stop()
-                playBtn.image=UIImage(named: "playxxx", in: Bundle(for: ModalWebViewController.self), compatibleWith: nil)
+                playBtn.image=UIImage(named: "playxxx", in: Bundle(for: Home_ModalWeb.self), compatibleWith: nil)
             }
             isplaying=false
             stopTimer()
@@ -335,7 +338,7 @@ open class ModalWebViewController: UIViewController {
             player.volume = 2.0
             player.play()
             isplaying=true
-            playBtn.image=UIImage(named: "pause", in: Bundle(for: ModalWebViewController.self), compatibleWith: nil)
+            playBtn.image=UIImage(named: "pause", in: Bundle(for: Home_ModalWeb.self), compatibleWith: nil)
         }catch{
             print("AVAudioPlayer init failed dataglobal nil")
         }
@@ -346,11 +349,11 @@ open class ModalWebViewController: UIViewController {
         if player.isPlaying{
             isplaying=false
             player.pause()
-            playBtn.image=UIImage(named: "playxxx", in: Bundle(for: ModalWebViewController.self), compatibleWith: nil)
+            playBtn.image=UIImage(named: "playxxx", in: Bundle(for: Home_ModalWeb.self), compatibleWith: nil)
         }else{
             isplaying=true
             player.play()
-            playBtn.image=UIImage(named: "pause", in: Bundle(for: ModalWebViewController.self), compatibleWith: nil)
+            playBtn.image=UIImage(named: "pause", in: Bundle(for: Home_ModalWeb.self), compatibleWith: nil)
         }
     }
     
@@ -385,9 +388,9 @@ open class ModalWebViewController: UIViewController {
     
 
 //MARK: - Inicialización
-    class public func showWebModal(url: String, type: String, title:String) -> ModalWebViewController {
-        let storyboard = UIStoryboard(name: "Main", bundle: Bundle(for: ModalWebViewController.self))
-        let view = storyboard.instantiateViewController(withIdentifier: "webViewModal") as! ModalWebViewController
+    class public func showWebModal(url: String, type: String, title:String) -> Home_ModalWeb {
+        let storyboard = UIStoryboard(name: "Main", bundle: Bundle(for: Home_ModalWeb.self))
+        let view = storyboard.instantiateViewController(withIdentifier: "webViewModal") as! Home_ModalWeb
         
         view.url = url
         view.viewType = type

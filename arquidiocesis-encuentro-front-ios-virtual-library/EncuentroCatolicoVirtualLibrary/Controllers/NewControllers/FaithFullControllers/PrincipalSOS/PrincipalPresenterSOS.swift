@@ -35,8 +35,6 @@ class PrincipalPresenterSOS: PrincipalPresenterProtocol {
     
     func onSuccessGetLastSOS(data: LastSosModel, response: HTTPURLResponse) {
         DispatchQueue.main.async {
-            
-            
             if response.statusCode == 200 {
                 self.view?.successGetLastSOS(data: data)
             }else{

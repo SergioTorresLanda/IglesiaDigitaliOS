@@ -37,7 +37,7 @@ public class MediaTemp {
     var temp = [MediaData]()
 }
 
-public class CreatePostViewController: UIViewController, CreatePostViewProtocol {
+public class RedSocial_CrearPost: UIViewController, CreatePostViewProtocol {
 
 	var presenter: CreatePostPresenterProtocol?
     
@@ -445,8 +445,8 @@ public class CreatePostViewController: UIViewController, CreatePostViewProtocol 
         dropDown.showDropDown(height: self.dropDownRowHeight * CGFloat(2))
     }
     
-    class public func showModalPost(type: String) -> CreatePostViewController{
-        let view = CreatePostViewController(nibName: "CreatePostViewController", bundle: Bundle(identifier: "mx.arquidiocesis.EncuentroCatolicoNews"))
+    class public func showModalPost(type: String) -> RedSocial_CrearPost{
+        let view = RedSocial_CrearPost(nibName: "CreatePostViewController", bundle: Bundle(identifier: "mx.arquidiocesis.EncuentroCatolicoNews"))
         
         let interactor = CreatePostInteractor()
         let router = CreatePostRouter()
@@ -528,7 +528,7 @@ public class CreatePostViewController: UIViewController, CreatePostViewProtocol 
     }
 }
 
-extension CreatePostViewController: UITextViewDelegate {
+extension RedSocial_CrearPost: UITextViewDelegate {
     public func textView(_ textView: UITextView, shouldChangeTextIn range: NSRange, replacementText text: String) -> Bool {
         if text == "\n" {
             textView.resignFirstResponder()
@@ -550,7 +550,7 @@ extension CreatePostViewController: UITextViewDelegate {
 
 }
 
-extension CreatePostViewController: MakeDropDownDataSourceProtocol {
+extension RedSocial_CrearPost: MakeDropDownDataSourceProtocol {
     public func getDataToDropDown(cell: UITableViewCell, indexPos: Int, makeDropDownIdentifier: String) {
         if makeDropDownIdentifier == "DROP_DOWN_NEW" {
             let customCell = cell as? UserSelectorTVC
@@ -589,7 +589,7 @@ extension CreatePostViewController: MakeDropDownDataSourceProtocol {
 
 }
 
-extension CreatePostViewController: UIPickerViewDelegate, UIPickerViewDataSource{
+extension RedSocial_CrearPost: UIPickerViewDelegate, UIPickerViewDataSource{
     public func numberOfComponents(in pickerView: UIPickerView) -> Int {
         return 1
     }
@@ -623,7 +623,7 @@ extension CreatePostViewController: UIPickerViewDelegate, UIPickerViewDataSource
 }
 
 // MARK: RELATIONS RESPONSE -
-extension CreatePostViewController {
+extension RedSocial_CrearPost {
     func successGetRelations(data: RelationsData) {
         
         let addUser = ResultsRelations(id: nil, image: nil, name: defaults.string(forKey: "COMPLETENAME"), type: 1)
@@ -653,7 +653,7 @@ extension CreatePostViewController {
     }
 }
 
-extension CreatePostViewController {
+extension RedSocial_CrearPost {
     func successEditComment(data: ResultEditComment) {
         didFinishMakingPost()
     }
