@@ -9,8 +9,12 @@
 /* Begin PBXBuildFile section */
 		3624761326095B3C00323160 /* PresentFrameworks.swift in Sources */ = {isa = PBXBuildFile; fileRef = 98BF4F7825E593DF00299001 /* PresentFrameworks.swift */; };
 		368A2040260BAB3700188539 /* newPrayer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 368A203F260BAB3700188539 /* newPrayer.swift */; };
+		443B5C4829BA987E00A52965 /* Actividades_CrearComedor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 443B5C4729BA987E00A52965 /* Actividades_CrearComedor.swift */; };
+		443B5C4A29BA989600A52965 /* CrearComedorSB.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 443B5C4929BA989600A52965 /* CrearComedorSB.storyboard */; };
+		443B5C4C29BAA7D500A52965 /* CrearComedor_Mapa.swift in Sources */ = {isa = PBXBuildFile; fileRef = 443B5C4B29BAA7D500A52965 /* CrearComedor_Mapa.swift */; };
 		4444BFB229B1EE2700FB0624 /* Home_Actividades.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4444BFB129B1EE2700FB0624 /* Home_Actividades.swift */; };
 		4444BFB429B1FD6800FB0624 /* activitiesView2.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 4444BFB329B1FD6800FB0624 /* activitiesView2.storyboard */; };
+		44C8AA5729C10FFD0063FD85 /* ComedorCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 44C8AA5629C10FFD0063FD85 /* ComedorCell.swift */; };
 		6D71F6A7DE354F184B60AA54 /* Pods_EncuentroCatolicoHome.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A5B217854BC3EC960CCEC1CF /* Pods_EncuentroCatolicoHome.framework */; };
 		6D754A6B28F969FA00226166 /* ChurchRemoteInfo.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6D754A6A28F969FA00226166 /* ChurchRemoteInfo.swift */; };
 		6DE2E35F279B6EB5000ED1F0 /* APIType.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6DE2E35E279B6EB5000ED1F0 /* APIType.swift */; };
@@ -93,8 +97,12 @@
 		27A1997AFDAC8D2971166D09 /* Pods-EncuentroCatolicoPromise.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-EncuentroCatolicoPromise.debug.xcconfig"; path = "Target Support Files/Pods-EncuentroCatolicoPromise/Pods-EncuentroCatolicoPromise.debug.xcconfig"; sourceTree = "<group>"; };
 		362475B52609587E00323160 /* EncuentroCatolicoUtils.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = EncuentroCatolicoUtils.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		368A203F260BAB3700188539 /* newPrayer.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = newPrayer.swift; sourceTree = "<group>"; };
+		443B5C4729BA987E00A52965 /* Actividades_CrearComedor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Actividades_CrearComedor.swift; sourceTree = "<group>"; };
+		443B5C4929BA989600A52965 /* CrearComedorSB.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = CrearComedorSB.storyboard; sourceTree = "<group>"; };
+		443B5C4B29BAA7D500A52965 /* CrearComedor_Mapa.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CrearComedor_Mapa.swift; sourceTree = "<group>"; };
 		4444BFB129B1EE2700FB0624 /* Home_Actividades.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Home_Actividades.swift; sourceTree = "<group>"; };
 		4444BFB329B1FD6800FB0624 /* activitiesView2.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = activitiesView2.storyboard; sourceTree = "<group>"; };
+		44C8AA5629C10FFD0063FD85 /* ComedorCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ComedorCell.swift; sourceTree = "<group>"; };
 		4AD2FA07A77D2F5792126D5A /* Pods-EncuentroCatolicoHome.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-EncuentroCatolicoHome.release.xcconfig"; path = "Target Support Files/Pods-EncuentroCatolicoHome/Pods-EncuentroCatolicoHome.release.xcconfig"; sourceTree = "<group>"; };
 		4FA9FB44CBD8B70D6943B9CD /* Pods-EncuentroCatolicoPromise.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-EncuentroCatolicoPromise.release.xcconfig"; path = "Target Support Files/Pods-EncuentroCatolicoPromise/Pods-EncuentroCatolicoPromise.release.xcconfig"; sourceTree = "<group>"; };
 		51C3DC7543BEC99405F101A4 /* Pods-EncuentroCatolicoHome.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-EncuentroCatolicoHome.debug.xcconfig"; path = "Target Support Files/Pods-EncuentroCatolicoHome/Pods-EncuentroCatolicoHome.debug.xcconfig"; sourceTree = "<group>"; };
@@ -221,6 +229,19 @@
 				983D1CAC260959B000455355 /* EncuentroCatolicoScanner.framework */,
 			);
 			name = "Recovered References";
+			sourceTree = "<group>";
+		};
+		443B5C4629BA980500A52965 /* Activities */ = {
+			isa = PBXGroup;
+			children = (
+				4444BFB129B1EE2700FB0624 /* Home_Actividades.swift */,
+				4444BFB329B1FD6800FB0624 /* activitiesView2.storyboard */,
+				443B5C4729BA987E00A52965 /* Actividades_CrearComedor.swift */,
+				443B5C4929BA989600A52965 /* CrearComedorSB.storyboard */,
+				443B5C4B29BAA7D500A52965 /* CrearComedor_Mapa.swift */,
+				44C8AA5629C10FFD0063FD85 /* ComedorCell.swift */,
+			);
+			path = Activities;
 			sourceTree = "<group>";
 		};
 		6F19B0532745FE7400B32813 /* ModalWebView */ = {
@@ -434,6 +455,7 @@
 		98F393CD25E580E80077B623 /* Controllers */ = {
 			isa = PBXGroup;
 			children = (
+				443B5C4629BA980500A52965 /* Activities */,
 				6F19B0532745FE7400B32813 /* ModalWebView */,
 				EEEAA369260D514B00EBEF10 /* Education */,
 				983D1CB7260A418800455355 /* PrayerChain */,
@@ -546,8 +568,6 @@
 				EEEAA395260DA12E00EBEF10 /* Mentors */,
 				EEEAA38B260D976B00EBEF10 /* Courses */,
 				EEEAA385260D8D9700EBEF10 /* Featured */,
-				4444BFB129B1EE2700FB0624 /* Home_Actividades.swift */,
-				4444BFB329B1FD6800FB0624 /* activitiesView2.storyboard */,
 			);
 			name = Sections;
 			sourceTree = "<group>";
@@ -682,6 +702,7 @@
 				EEEAA38F260D979800EBEF10 /* coursesHeader.xib in Resources */,
 				9DB3244E273B07DE005841D4 /* SliderCellView.xib in Resources */,
 				EEEAA38A260D8DD800EBEF10 /* featuredCell.xib in Resources */,
+				443B5C4A29BA989600A52965 /* CrearComedorSB.storyboard in Resources */,
 				983D1CC4260A429400455355 /* Main.storyboard in Resources */,
 				98F393DA25E581A60077B623 /* HomeViewController.xib in Resources */,
 				EEEAA36B260D56AB00EBEF10 /* Education.storyboard in Resources */,
@@ -742,6 +763,7 @@
 				989120D825E984B600D666F4 /* TabNavigationMenu.swift in Sources */,
 				368A2040260BAB3700188539 /* newPrayer.swift in Sources */,
 				EEEAA389260D8DD800EBEF10 /* featuredCell.swift in Sources */,
+				44C8AA5729C10FFD0063FD85 /* ComedorCell.swift in Sources */,
 				EE13C0FD260E453000D72448 /* coursesCVC.swift in Sources */,
 				3624761326095B3C00323160 /* PresentFrameworks.swift in Sources */,
 				EED013052647054E0054F6AE /* DonationsWindow.swift in Sources */,
@@ -753,6 +775,7 @@
 				EEEAA398260DA15400EBEF10 /* mentorsCVC.swift in Sources */,
 				6DE2E35F279B6EB5000ED1F0 /* APIType.swift in Sources */,
 				9DB3245A273B09E5005841D4 /* ListPrayCell.swift in Sources */,
+				443B5C4C29BAA7D500A52965 /* CrearComedor_Mapa.swift in Sources */,
 				6D754A6B28F969FA00226166 /* ChurchRemoteInfo.swift in Sources */,
 				989120D625E984B600D666F4 /* SocialNetworkController.swift in Sources */,
 				EEEAA38E260D979800EBEF10 /* coursesHeader.swift in Sources */,
@@ -764,6 +787,7 @@
 				983D1D16260A565300455355 /* newPrayerCell.swift in Sources */,
 				989120DA25E984B600D666F4 /* CustomTabBarTransition.swift in Sources */,
 				98A0960C26563CC400110BE8 /* Home_CadenaOracion.swift in Sources */,
+				443B5C4829BA987E00A52965 /* Actividades_CrearComedor.swift in Sources */,
 				98F393D625E581A60077B623 /* HomeRouter.swift in Sources */,
 				983D1CB9260A422D00455355 /* GlobalFunctions.swift in Sources */,
 				98F393D925E581A60077B623 /* HomeInteractor.swift in Sources */,

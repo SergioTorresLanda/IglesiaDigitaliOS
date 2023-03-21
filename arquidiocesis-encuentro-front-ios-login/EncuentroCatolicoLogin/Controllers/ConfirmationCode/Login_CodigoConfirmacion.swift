@@ -9,7 +9,7 @@ import UIKit
 import EncuentroCatolicoVirtualLibrary
 import EncuentroCatolicoUtils
 
-class ConfirmationCodeView: UIViewController, ConfirmationCodeViewProtocol {
+class Login_CodigoConfirmacion: UIViewController, ConfirmationCodeViewProtocol {
     
     var presenter: ConfirmationCodePresenterProtocol?
     lazy var fieldList: [ECUField] = [
@@ -366,7 +366,7 @@ class ConfirmationCodeView: UIViewController, ConfirmationCodeViewProtocol {
     
 }
 
-extension ConfirmationCodeView: UITextFieldDelegate {
+extension Login_CodigoConfirmacion: UITextFieldDelegate {
     func textFieldShouldReturn(_ textField: UITextField) -> Bool {
         return true
         print("ConfirmationCodeView")
@@ -742,7 +742,7 @@ extension BidirectionalCollection {
 }
 
 //MARK: - ECUTimerDelegate
-extension ConfirmationCodeView: ECUTimerDelegate {
+extension Login_CodigoConfirmacion: ECUTimerDelegate {
     func timerOnStop() {
         self.lblDescTimer.alpha = 0
         self.lblTimer.alpha = 0
@@ -757,7 +757,7 @@ extension ConfirmationCodeView: ECUTimerDelegate {
 
 
 //MARK: - Private functions
-extension ConfirmationCodeView {
+extension Login_CodigoConfirmacion {
     private func setupUI() {
         setupFields()
     }

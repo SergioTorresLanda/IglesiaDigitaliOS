@@ -13,7 +13,6 @@ import MapKit
 import MessageUI
 import Toast_Swift
 import EncuentroCatolicoVirtualLibrary
-//import EncuentroCatolicoProfile
 
 struct NewMassesData {
     var daysStr: String?
@@ -21,7 +20,7 @@ struct NewMassesData {
 }
 
 class MiIglesia_InfoIglesia: BaseViewController {
-    
+    var alertFields : AcceptAlert?
     var presenter: ChurchDetailPresenterProtocol?
     var showTutorial = true
     let transition = SlideTransition()
@@ -54,29 +53,23 @@ class MiIglesia_InfoIglesia: BaseViewController {
     var serviceCatalog: ServiceCatalogModel?
     var serviceHourEditlv: [AttentionEditChurch] = []
     var serviceHourEditsd: [AttentionEditChurch] = []
-    
     var serviceDayEdit: [ServiceHourEditProfile] = []
     var serviceHourEdit: [ScheduleEditPrifile] = []
-    
     var serviceEditNew: [DayEditChurch] = []
     var serviceDaySd: [DayEditChurch] = []
     var serviceDaylv: [DayEditChurch] = []
-    
     var masesNuew: [MassEditChurch] = []
     var massesDayNew: [DayEditChurch] = []
     var strDaysAct = [String]()
     var arrayOfIndex = [[Int]]()
-    
     var attentionnew: [AttentionEditChurch] = []
     var attentionDaysNew: [DayEditChurch] = []
     var serviceType: TypeClassEditChurch?
     var serviceSchedules: [AttentionEditChurch] = []
     var serviceDay: [DayEditChurch] = []
     var serviceNew: [ServiceEditChurch] = []
-    
     var scheduleDay: [AttentionEditChurch] = []
     var scheduleHour: [DayEditChurch] = []
-    
     var commentList: [CommentsList] = []
     
     var churcuPrincipalId: Int?
@@ -98,30 +91,25 @@ class MiIglesia_InfoIglesia: BaseViewController {
     var scheduleHoreResponse: String?
     var offieceHourResponse: String?
     let defaults = UserDefaults.standard
-    
+    let loadingAlert = UIAlertController(title: "", message: "\n \n \n \n \nCargando...", preferredStyle: .alert)
     var arrayNewObject = [NewMassesData]()
     var globalArray: Any?
-    
+    //MARK: - IBOutlets
     @IBOutlet weak var btnRealPhone: UIButton!
     @IBOutlet weak var socialTableView: UITableView!
     @IBOutlet weak var addSocialButton: UIButton!
     @IBOutlet weak var addMassesButton: UIButton!
     @IBOutlet weak var addServicesButton: UIButton!
-    
     @IBOutlet weak var btnRealMail: UIButton!
     @IBOutlet var imgFav: UIImageView!
-    //MARK: - IBOutlets
+  
     @IBOutlet weak var churchHeaderImage: UIImageView!
-    
     @IBOutlet weak var churchNameLabel: UILabel!
     @IBOutlet weak var churchSubtitleLabel: UILabel!
-    
     @IBOutlet weak var churchAddressLabel: UILabel!
-    
     @IBOutlet weak var churchResponsibleLabel: UILabel!
     @IBOutlet weak var churchScheduleLabel: UILabel!
     @IBOutlet weak var churchOfficeScheduleLabel: UILabel!
-    
     @IBOutlet weak var massCollectionView: UICollectionView!
     @IBOutlet weak var churchMassContainer: UIView!
     
@@ -129,15 +117,11 @@ class MiIglesia_InfoIglesia: BaseViewController {
     @IBOutlet weak var churchServicesContainer: UIView!
     
     @IBOutlet weak var btnPhoneNumber: UIButton!
-    //    @IBOutlet weak var btnEdit: UIButton!
     @IBOutlet weak var btnMailInfo: UIButton!
     @IBOutlet weak var lblPhoneNumber: UILabel!
     @IBOutlet weak var lblEmail: UILabel!
     @IBOutlet weak var stackLblMail: UIStackView!
     @IBOutlet weak var stackLblPhone: UIStackView!
-    
-    let loadingAlert = UIAlertController(title: "", message: "\n \n \n \n \nCargando...", preferredStyle: .alert)
-    
     @IBOutlet weak var firstCardStack: UIStackView!
     @IBOutlet weak var stkPhone: UIStackView!
     @IBOutlet weak var stkMail: UIStackView!
@@ -172,6 +156,7 @@ class MiIglesia_InfoIglesia: BaseViewController {
     @IBOutlet weak var hMasses: NSLayoutConstraint!
     @IBOutlet weak var hSocial: NSLayoutConstraint!
     @IBOutlet weak var lblRedesSociales: UILabel!
+    @IBOutlet weak var hSocialS: NSLayoutConstraint!
     
     var church: ChurchDetail?
     var churchId: Int?
@@ -188,22 +173,18 @@ class MiIglesia_InfoIglesia: BaseViewController {
     //MARK: - Life cycle
     override func viewDidLoad() {
         super.viewDidLoad()
-        
+        isSave(b:false)
         let flagTutorial = defaults.bool(forKey: "SHOWTUTORIAL")
-        
         if flagTutorial == false {
             let view = TutorialView.showTutorial()
             view.transitioningDelegate = self
             self.present(view, animated: false, completion: nil)
             defaults.set(true, forKey: "SHOWTUTORIAL")
-            
         }else{
             print("Dont show tutorial")
             initContent()
             showTutorial = false
         }
-        
-        //  defaults.removeObject(forKey: "SHOWTUTORIAL")
         
         if let count = navigationController?.viewControllers.count {
             navigationController?.viewControllers[0..<(count-1)].removeAll(where: {$0 is MiIglesia_InfoIglesia})
@@ -218,27 +199,29 @@ class MiIglesia_InfoIglesia: BaseViewController {
         servicesCollectionView.isHidden = true
         churchNameLabel.adjustsFontSizeToFitWidth = true
         
-        if showTutorial == false {
-            if isPrincipal == 0 {
-                self.isTappedFav = false
+        if !showTutorial {
+            switch isPrincipal {
+            case 0:
+                isTappedFav = false
                 imgFav.alpha = 0
                 btnPrincipal.isHidden = false
-            }else if isPrincipal == 1{
-                self.imgFav.image = UIImage(named: "unfav", in: Bundle(for: MiIglesia_InfoIglesia.self), compatibleWith: nil)
+            case 1:
+                imgFav.image = UIImage(named: "unfav", in: Bundle(for: MiIglesia_InfoIglesia.self), compatibleWith: nil)
                 btnPrincipal.isHidden = true
-                self.isTappedFav = false
-                self.imgFav.isUserInteractionEnabled = true
-            }else if isPrincipal == 2{
-                self.imgFav.image = UIImage(named: "fav", in: Bundle(for: MiIglesia_InfoIglesia.self), compatibleWith: nil)
+                isTappedFav = false
+                imgFav.isUserInteractionEnabled = true
+            case 2:
+                imgFav.image = UIImage(named: "fav", in: Bundle(for: MiIglesia_InfoIglesia.self), compatibleWith: nil)
                 btnPrincipal.isHidden = true
-                self.isTappedFav = true
-                self.imgFav.isUserInteractionEnabled = true
-            }else if isPrincipal == 3 {
+                isTappedFav = true
+                imgFav.isUserInteractionEnabled = true
+            case 3:
                 imgFav.alpha = 0
                 btnPrincipal.isHidden = true
+            default:
+                break
             }
         }
-        
     }
     
     override func viewWillAppear(_ animated: Bool) {
@@ -291,19 +274,6 @@ class MiIglesia_InfoIglesia: BaseViewController {
             }
         }
         
-        //            let waze = UIAlertAction(title: "Waze", style: .default) {
-        //                _ in
-        //
-        //                let mapsUrl = URL(string:"https://www.waze.com/ul?ll=\(coordinates.latitude),\(coordinates.longitude)&navigate=yes&zoom=17")!
-        //
-        //                if (UIApplication.shared.canOpenURL(URL(string:"waze://")!)) {
-        //                    UIApplication.shared.open(mapsUrl, options: [:]) {
-        //                        _ in
-        //                    }
-        //
-        //                }
-        //            }
-        
         let waze = UIAlertAction(title: "Waze", style: .default) {
             _ in
             
@@ -315,22 +285,25 @@ class MiIglesia_InfoIglesia: BaseViewController {
                 }
             }
         }
-        
         let cancelAction = UIAlertAction(title: "Cancelar", style: .cancel)
         
         mapsAlert.addAction(appleMaps)
         mapsAlert.addAction(googleMaps)
         mapsAlert.addAction(waze)
         mapsAlert.addAction(cancelAction)
-        
-        
         present(mapsAlert, animated: true)
     }
     
     @IBAction func goToComments(_ sender: Any) {
-        commentList.removeAll()
-        let view = CommentsRouter.createModule(param: "\(churchId ?? 1)/reviews?page=1&per_page=10", locationID: churchId ?? 1, churchName: churchNameLabel.text ?? "")
-        self.navigationController?.pushViewController(view, animated: true)
+        let newUser = UserDefaults.standard.bool(forKey: "isNewUser")
+        if newUser {//esta logueado proceder
+            commentList.removeAll()
+            let view = CommentsRouter.createModule(param: "\(churchId ?? 1)/reviews?page=1&per_page=10", locationID: churchId ?? 1, churchName: churchNameLabel.text ?? "")
+            self.navigationController?.pushViewController(view, animated: true)
+        }else{
+            showCanonAlert(title: "Atención", msg: "Regístrate o inicia sesión para escribir una opinión.")
+        }
+        
     }
     
     @IBAction func editAction(_ sender: Any) {
@@ -344,6 +317,7 @@ class MiIglesia_InfoIglesia: BaseViewController {
         RegisterFirmulary.instance.separator1View.isHidden = true
         RegisterFirmulary.instance.separator2View.isHidden = true
         RegisterFirmulary.instance.separator3View.isHidden = true
+        
         RegisterFirmulary.instance.title4Label.text = "Nombre de la Iglesia"
         RegisterFirmulary.instance.title5Label.text = "Párroco Responsable"
         RegisterFirmulary.instance.responsableTextField.placeholder = "Parroquia del Señor de la Santísima Resurrección"
@@ -379,13 +353,15 @@ class MiIglesia_InfoIglesia: BaseViewController {
         if church?.attention?.isEmpty == false {
             RegisterFirmulary.instance.sdTextField.text = "\(firstDayAt.lowercased())  \(lastDayAt.lowercased())"
         }
+        RegisterFirmulary.instance.responsableTextField.isUserInteractionEnabled=false
+        RegisterFirmulary.instance.descriptionTextField.isUserInteractionEnabled=false
         
         RegisterFirmulary.instance.delegate = self
         RegisterFirmulary.instance.delegateData = self
-        let mainViewHeight = view.frame.size.height
-        RegisterFirmulary.instance.parentView.frame = CGRect(x: 0, y: mainViewHeight - 800, width: self.view.frame.width, height: RegisterFirmulary.instance.parentView.frame.height)
-        self.view.isUserInteractionEnabled = false
-        self.view.alpha = 0.5
+        //let mainViewHeight = view.frame.size.height y:100-200 de los campos que no aparecen
+        RegisterFirmulary.instance.parentView.frame = CGRect(x: 0, y: 100, width: self.view.frame.width, height: RegisterFirmulary.instance.parentView.frame.height-125)
+        //self.view.isUserInteractionEnabled = false
+        //self.view.alpha = 0.5
         flagEdit = true
         validateProfile()
     }
@@ -393,18 +369,37 @@ class MiIglesia_InfoIglesia: BaseViewController {
     //MARK: - Local variables
     
     @IBAction func makePrincipal(_ sender: Any) {
-        if self.isTappedFav {
-            self.removeFavoriteFiel()
-        } else {
-            self.addFavoriteFiel()
+        //verificar login
+        let newUser = UserDefaults.standard.bool(forKey: "isNewUser")
+        if newUser {//esta logueado proceder
+            if self.isTappedFav {
+                self.removeFavoriteFiel()
+            } else {
+                self.addFavoriteFiel()
+            }
+        }else{
+            showCanonAlert(title: "Atención", msg: "Regístrate o inicia sesión para agregar esta iglesia como principal.")
         }
+       
+    }
+    
+    func showCanonAlert(title:String, msg:String){
+        alertFields = AcceptAlert.showAlert(titulo: title, mensaje: msg)
+        alertFields!.view.backgroundColor = .clear
+        self.present(alertFields!, animated: true)
     }
     
     @IBAction func addSocialButtonAction(_ sender: Any) {
         goToAddSocial()
-        self.stkButtonSave.isHidden = false
-        self.btnGoComments.isHidden = true
-        
+        isSave(b:true)
+    }
+    
+    func isSave(b:Bool){
+        print("IS SAVE::PPP")
+        stkButtonSave.isHidden = !b
+        btnSave.isHidden = !b
+        btnCancel.isHidden = !b
+        btnGoComments.isHidden = b
     }
     
     func goToAddSocial() {
@@ -418,28 +413,20 @@ class MiIglesia_InfoIglesia: BaseViewController {
     }
     
     @IBAction func addMassesButtonAction(_ sender: Any) {
-        self.stkButtonSave.isHidden = false
-        self.btnGoComments.isHidden = true
+        print("addMasses")
+        isSave(b:true)
         let storyboard = UIStoryboard(name: "StoryboardAddMasses", bundle: Bundle.local)
-    
         if let newAddMasses: NewAddMassesView = storyboard.instantiateViewController(withIdentifier: "NewAddMasses") as? NewAddMassesView {
-            //newAddSocial.delegate = self
             newAddMasses.delegate = self
             newAddMasses.modalPresentationStyle = .overFullScreen
             self.present(newAddMasses, animated: true, completion: nil)
         }
-//        AddMasses.instance.showAllert()
-       // AddMasses.instance.delegate = self
-//        let mainViewHeight = view.frame.size.height
-//        AddMasses.instance.parentView.frame = CGRect(x: 0, y: mainViewHeight - 300, width: self.view.frame.width, height: AddMasses.instance.parentView.frame.height)
-//        view.isUserInteractionEnabled = false
-//        view.alpha = 0.5
     }
     
     @IBAction func addServicesButtonAction(_ sender: Any) {
-        self.stkButtonSave.isHidden = false
-        self.btnGoComments.isHidden = true
-        guard let service = serviceCatalog else {return}
+        print("addMasses")
+        isSave(b:true)
+        guard let service = serviceCatalog else {return} //no hay servicios
         AddService.instance.showAllertChurch(data: service)
         AddService.instance.delegate = self
         let mainViewHeight = view.frame.size.height
@@ -460,7 +447,7 @@ class MiIglesia_InfoIglesia: BaseViewController {
     private func setupUI() {
         customNavBar.layer.cornerRadius = 20
         customNavBar.ShadowNavBar()
-        btnGoComments.layer.cornerRadius = 6
+        btnGoComments.layer.cornerRadius = 20
         socialShadowCard.layer.cornerRadius = 10
         socialTableView.layer.cornerRadius = 10
         socialShadowCard.ShadowCard()
@@ -472,27 +459,29 @@ class MiIglesia_InfoIglesia: BaseViewController {
     }
     
     @objc func TapBack() {
-        self.navigationController?.popViewController(animated: true)
+        if flagEdit{
+            RegisterFirmulary.instance.parentView.frame = CGRect(x: 0, y: 100, width: self.view.frame.width, height: RegisterFirmulary.instance.parentView.frame.height+125)
+            RegisterFirmulary.instance.parentView.removeFromSuperview()
+            flagEdit=false
+        }else{
+            self.navigationController?.popViewController(animated: true)
+        }
     }
     
     func setupCollectionDelegates() {
-        servicesCollectionView.register(ServiceCollectionViewCell.nib,
-                                        forCellWithReuseIdentifier: ServiceCollectionViewCell.reuseIdentifier)
+        servicesCollectionView.register(ServiceCollectionViewCell.nib, forCellWithReuseIdentifier: ServiceCollectionViewCell.reuseIdentifier)
         servicesCollectionView.delegate = self
         servicesCollectionView.dataSource = self
-        
-        massCollectionView.register(ServiceCollectionViewCell.nib,
-                                    forCellWithReuseIdentifier: ServiceCollectionViewCell.reuseIdentifier)
+        massCollectionView.register(ServiceCollectionViewCell.nib, forCellWithReuseIdentifier: ServiceCollectionViewCell.reuseIdentifier)
         massCollectionView.delegate = self
         massCollectionView.dataSource = self
-        
         newChurchMassCollection.register(UINib(nibName: "ServiceCollectionViewCell", bundle: Bundle.local), forCellWithReuseIdentifier: "ServiceCollectionViewCell")
         newChurchMassCollection.delegate = self
         newChurchMassCollection.dataSource = self
+      
+        socialTableView.register(SocialTableViewCell.nib, forCellReuseIdentifier: SocialTableViewCell.reuseIdentifier)
         socialTableView.delegate = self
         socialTableView.dataSource = self
-        socialTableView.register(SocialTableViewCell.nib, forCellReuseIdentifier: SocialTableViewCell.reuseIdentifier)
-        
     }
     
     func loadUserAttributs() {
@@ -511,11 +500,17 @@ class MiIglesia_InfoIglesia: BaseViewController {
             break
         }
     }
+    
     @objc private func tapImageFav() {
-        if self.isTappedFav {
-            self.removeFavoriteFiel()
-        } else {
-            self.addFavoriteFiel()
+        let newUser = UserDefaults.standard.bool(forKey: "isNewUser")
+        if newUser {//esta logueado proceder
+            if self.isTappedFav {
+                self.removeFavoriteFiel()
+            } else {
+                self.addFavoriteFiel()
+            }
+        }else{
+            showCanonAlert(title: "Atención", msg: "Regístrate o inicia sesión para agregar esta iglesia como favorita.")
         }
     }
     
@@ -562,204 +557,86 @@ class MiIglesia_InfoIglesia: BaseViewController {
     
     private func validateProfile() {
         if locationComponent != 0 {
-            if locationId == churchId && locationComponent == churchId {
+            if locationComponent == churchId { //condicion locationId == churchId sobra
                 switch profileRole {
                 case UserProfileEnum.Sacerdoteadministrador.rawValue, UserProfileEnum.Sacerdotedecano.rawValue:
-                    
-                    self.stkButtonSave.isHidden = false
-                    self.btnGoComments.isHidden = true
-                    
-                    self.btnEdit.isHidden = false
-                    self.imgFav.isHidden = true
-                    self.btnCancel.isHidden = false
-                    self.btnSave.isHidden = false
-                    self.addMassesButton.isHidden = false
-                    self.addSocialButton.isHidden = false
-                    self.addServicesButton.isHidden = false
-                    self.socialContainer.isHidden = false
-                    self.churchMassContainer.isHidden = false
-                    self.churchServicesContainer.isHidden = false
-                    self.lblSectionComments.isHidden = true
-                    self.commentsCard.isHidden = true
-                    self.commentsTable.isHidden = true
-                    
+                    isSave(b:true)
+                    formatYYY()
                 case UserProfileEnum.fieladministrador.rawValue:
                     if ((locationcomponents?.contains("LOCATION_INFORMATION")) == true){
-                        
-                        
-                        self.stkButtonSave.isHidden = false
-                        self.btnGoComments.isHidden = true
-                        
-                        self.btnEdit.isHidden = false
-                        self.imgFav.isHidden = true
-                        self.btnCancel.isHidden = false
-                        self.btnSave.isHidden = false
-                        self.addMassesButton.isHidden = false
-                        self.addSocialButton.isHidden = false
-                        self.addServicesButton.isHidden = false
-                        self.socialContainer.isHidden = false
-                        self.churchMassContainer.isHidden = false
-                        self.churchServicesContainer.isHidden = false
-                        self.lblSectionComments.isHidden = true
-                        self.commentsCard.isHidden = true
-                        self.commentsTable.isHidden = true
+                        isSave(b:true)
+                        formatYYY()
                     }else {
-                        self.btnEdit.isHidden = true
-                        self.imgFav.isHidden = false
-                        self.stkButtonSave.isHidden = true
-                        self.btnCancel.isHidden = true
-                        self.btnSave.isHidden = true
-                        self.btnGoComments.isHidden = false
-                        self.addMassesButton.isHidden = true
-                        self.addSocialButton.isHidden = true
-                        self.addServicesButton.isHidden = true
-                    }
-                    
-                case UserProfileEnum.AdministradorComunidad.rawValue, UserProfileEnum.sacerdote.rawValue, UserProfileEnum.ResponsableComunidad.rawValue, UserProfileEnum.fiel.rawValue, UserProfileEnum.MiembroComunidad.rawValue:
-                    self.btnEdit.isHidden = true
-                    self.imgFav.isHidden = false
-                    self.stkButtonSave.isHidden = true
-                    self.btnCancel.isHidden = true
-                    self.btnSave.isHidden = true
-                    self.btnGoComments.isHidden = false
-                    self.addMassesButton.isHidden = true
-                    self.addSocialButton.isHidden = true
-                    self.addServicesButton.isHidden = true
-                default:
-                    break
-                }
-            }
-            else if locationComponent == self.churchId {
-                switch profileRole {
-                case UserProfileEnum.Sacerdoteadministrador.rawValue, UserProfileEnum.Sacerdotedecano.rawValue:
-                    self.stkButtonSave.isHidden = false
-                    self.btnGoComments.isHidden = true
-                    self.btnEdit.isHidden = false
-                    self.imgFav.isHidden = true
-                    self.btnCancel.isHidden = false
-                    self.btnSave.isHidden = false
-                    self.addMassesButton.isHidden = false
-                    self.addSocialButton.isHidden = false
-                    self.addServicesButton.isHidden = false
-                    self.socialContainer.isHidden = false
-                    self.churchMassContainer.isHidden = false
-                    self.churchServicesContainer.isHidden = false
-                    self.lblSectionComments.isHidden = true
-                    self.commentsCard.isHidden = true
-                    self.commentsTable.isHidden = true
-                    
-                case UserProfileEnum.fieladministrador.rawValue:
-                    if ((locationcomponents?.contains{ $0 == "LOCATION_INFORMATION"}) == true){
-                        
-                        self.stkButtonSave.isHidden = false
-                        self.btnGoComments.isHidden = true
-                        
-                        self.btnEdit.isHidden = false
-                        self.imgFav.isHidden = true
-                        self.btnCancel.isHidden = false
-                        self.btnSave.isHidden = false
-                        self.addMassesButton.isHidden = false
-                        self.addSocialButton.isHidden = false
-                        self.addServicesButton.isHidden = false
-                        self.socialContainer.isHidden = false
-                        self.churchMassContainer.isHidden = false
-                        self.churchServicesContainer.isHidden = false
-                        self.lblSectionComments.isHidden = true
-                        self.commentsCard.isHidden = true
-                        self.commentsTable.isHidden = true
-                    }else {
-                        self.btnEdit.isHidden = true
-                        self.imgFav.isHidden = false
-                        self.stkButtonSave.isHidden = true
-                        self.btnCancel.isHidden = true
-                        self.btnSave.isHidden = true
-                        self.btnGoComments.isHidden = false
-                        self.addMassesButton.isHidden = true
-                        self.addSocialButton.isHidden = true
-                        self.addServicesButton.isHidden = true
+                        isSave(b:false)
+                        formatXXX()
                     }
                 case UserProfileEnum.AdministradorComunidad.rawValue, UserProfileEnum.sacerdote.rawValue, UserProfileEnum.ResponsableComunidad.rawValue, UserProfileEnum.fiel.rawValue, UserProfileEnum.MiembroComunidad.rawValue:
-                    self.stkButtonSave.isHidden = true
-                    self.btnGoComments.isHidden = false
-                    self.btnEdit.isHidden = true
-                    self.imgFav.isHidden = false
-                    self.stkButtonSave.isHidden = true
-                    self.btnCancel.isHidden = true
-                    self.btnSave.isHidden = true
-                    self.btnGoComments.isHidden = false
-                    self.addMassesButton.isHidden = true
-                    self.addSocialButton.isHidden = true
-                    self.addServicesButton.isHidden = true
-                    
+                    isSave(b:false)
+                    formatXXX()
                 default:
                     break
-                    
                 }
             }else{
-                self.btnEdit.isHidden = true
-                self.imgFav.isHidden = false
-                self.stkButtonSave.isHidden = true
-                self.btnCancel.isHidden = true
-                self.btnSave.isHidden = true
-                self.btnGoComments.isHidden = false
-                self.addMassesButton.isHidden = true
-                self.addSocialButton.isHidden = true
-                self.addServicesButton.isHidden = true
+                isSave(b:false)
+                formatXXX()
             }
         }else {
-            self.btnEdit.isHidden = true
-            self.imgFav.isHidden = false
-            self.stkButtonSave.isHidden = true
-            self.btnCancel.isHidden = true
-            self.btnSave.isHidden = true
-            self.btnGoComments.isHidden = false
-            self.addMassesButton.isHidden = true
-            self.addSocialButton.isHidden = true
-            self.addServicesButton.isHidden = true
+            isSave(b:false)
+            formatXXX()
         }
     }
     
+    func formatXXX(){
+        print("formato XXX")
+        btnEdit.isHidden = true
+        imgFav.isHidden = false
+        addMassesButton.isHidden = true
+        addSocialButton.isHidden = true
+        addServicesButton.isHidden = true
+    }
+    
+    func formatYYY(){
+        btnEdit.isHidden = false
+        imgFav.isHidden = true
+        addMassesButton.isHidden = false
+        addSocialButton.isHidden = false
+        addServicesButton.isHidden = false
+        socialContainer.isHidden = false
+        churchMassContainer.isHidden = false
+        churchServicesContainer.isHidden = false
+        lblSectionComments.isHidden = true
+        commentsCard.isHidden = true
+        commentsTable.isHidden = true
+    }
+    
     private func initContent() {
-        
         churchHeaderImage.image = UIImage(named: "church-placeholder", in: Bundle(for: MiIglesia_InfoIglesia.self), compatibleWith: nil)
-        presenter?.getServiceCatalog()
+        //presenter?.getServiceCatalog() //no funciona
         if let id = churchId {
             showLoading()
             presenter?.getDetail(id: id)
-            
         }
     }
     
     private func validatePhoneAndMail() {
-        // btnPhoneNumber.setTitle(church?.phone, for: .normal)
-        // btnMailInfo.setTitle(church?.email, for: .normal)
         lblPhoneNumber.text = church?.phone
         lblEmail.text = church?.email
-        
-        if church?.phone == nil {
-            stkPhone.isHidden = true
-            btnRealPhone.isHidden = true
-            btnPhoneNumber.isHidden = true
-            stackLblPhone.isHidden = true
-            
-        }else{
-            stkPhone.isHidden = false
-            btnRealPhone.isHidden = false
-            btnPhoneNumber.isHidden = false
-            stackLblPhone.isHidden = false
-            
-        }
-        if church?.email == nil {
-            stkMail.isHidden = true
-            btnMailInfo.isHidden = true
-            btnRealMail.isHidden = true
-            stackLblMail.isHidden = true
-        }else {
-            stkMail.isHidden = false
-            btnMailInfo.isHidden = false
-            btnRealMail.isHidden = false
-            stackLblMail.isHidden = false
-        }
+        hidePhone(b: church?.phone == nil)
+        hideMail(b: church?.email == nil)
+    }
+    
+    func hidePhone(b:Bool){
+        stkPhone.isHidden = b
+        btnRealPhone.isHidden = b
+        btnPhoneNumber.isHidden = b
+        stackLblPhone.isHidden = b
+    }
+    
+    func hideMail(b:Bool){
+        stkMail.isHidden = b
+        btnMailInfo.isHidden = b
+        btnRealMail.isHidden = b
+        stackLblMail.isHidden = b
     }
     
     private func fillData() {
@@ -812,8 +689,9 @@ class MiIglesia_InfoIglesia: BaseViewController {
             socialShadowCard.isHidden = false
         }
         socialData = [church?.facebook, church?.instagram, church?.twitter, church?.website, church?.stream]
-       
+        print("RELOADD")
         socialTableView.reloadData()
+      
         nameNew = church?.name ?? ""
         descriptionNew = church?.description ?? ""
         addressNew = church?.address ?? ""
@@ -832,7 +710,7 @@ class MiIglesia_InfoIglesia: BaseViewController {
         }
         bankNew = church?.bank_account ?? ""
         print("CHURCH ... CHURCH ... CHURCH ... CHURCH")
-        print(church)
+        //print(church)
         var scheduleTempl = "No disponible"
         for response in church?.horary ?? [] {
             if church?.horary?.isEmpty == false {
@@ -852,8 +730,6 @@ class MiIglesia_InfoIglesia: BaseViewController {
                     let churchScheduleText = "\(firstDay?.name ?? "") a \(lastDay?.name ?? "") de \(response.hour_start ?? "") a \(response.hour_end ?? "")"
                     scheduleTempl = ""
                     scheduleTempl = churchScheduleText
-//                    churchScheduleLabel.text = churchScheduleText != " " ? churchScheduleText : "No disponible"
-//                    churchScheduleLabel.adjustsFontSizeToFitWidth = true
                 }
                 if scheduleDay.isEmpty {
                     scheduleDay.insert(AttentionEditChurch.init(days: scheduleHour.unique(map: {$0.id}), hourStart: response.hour_start, hourEnd: response.hour_end), at: 0)
@@ -901,14 +777,7 @@ class MiIglesia_InfoIglesia: BaseViewController {
         let atten = church?.attention ?? []
         let att = atten.sorted{ $0.hour_start!.compare($1.hour_start!, options: .numeric) == .orderedAscending}
         for response in att {
-//            [{
-//                day: "Domingo",
-//                schedule: [
-//                    hours: "01:00 a 03:00",
-//                    hours: "05:00 a 09:00",
-//                    hours: "12:00 a 15:00"
-//                ]
-//            }]
+
             if church?.attention?.isEmpty == false {
                 for respDays in response.days ?? [] {
                     if respDays.checked! {
@@ -1136,22 +1005,9 @@ class MiIglesia_InfoIglesia: BaseViewController {
         }
     }
     
-    
-    @IBAction func returnTo(_ sender: Any) {
-        if isPrincipal == 0 {
-            DispatchQueue.main.async {
-                self.presenter?.goToMyChourch()
-            }
-        }else {
-            _ = navigationController?.popViewController(animated: true)
-        }
-    }
-    
-    
     @IBAction func goToLive(_ sender: Any) {
         goToYt()
     }
-    
     
     @IBAction func goToDismiss(_ sender: Any) {
         self.navigationController?.popViewController(animated: true)
@@ -1162,11 +1018,9 @@ class MiIglesia_InfoIglesia: BaseViewController {
         default:
             break
         }
-        
     }
     
     @IBAction func goToSAve(_ sender: Any) {
-        //  print(masesNuew)
         presenter?.putChurchEdition(locationId: churchId ?? 1, description: descriptionNew, email: emailNew, phone: phoneNew, website: webNew, instagram: instaNew, twitter: twittNew, facebook: faceNew, streaming: streamNew, bankAcount: bankNew, principal: pricipalID, schedules: scheduleDay, attention: attentionnew, masses: masesNuew, services: serviceNew)
     }
     
@@ -1191,10 +1045,9 @@ class MiIglesia_InfoIglesia: BaseViewController {
         print(data, "$$$$")
         var ratings: [Double] = []
         if data.my_review != nil {
-            let myComment = CommentsList(id: data.my_review?.id, review: data.my_review?.review, creation_date: data.my_review?.creation_date, rating: data.my_review?.rating, devotee: data.my_review?.devotee)//CommentsList(id: data.my_review?.id, review: data.my_review?.review, rating: data.my_review?.rating, devotee: data.my_review?.devotee)
+            let myComment = CommentsList(id: data.my_review?.id, review: data.my_review?.review, creation_date: data.my_review?.creation_date, rating: data.my_review?.rating, devotee: data.my_review?.devotee)
             commentList.append(myComment)
             ratings.append(data.my_review?.rating ?? 0.0)
-            
         }
         
         data.other_reviews?.forEach({ item in
@@ -1214,7 +1067,6 @@ class MiIglesia_InfoIglesia: BaseViewController {
             lblNmberComments.text = "\(ratings.count) comentarios"
         }
         ratings.removeAll()
-        
     }
     
     func failRequestComments() {
@@ -1245,7 +1097,6 @@ class MiIglesia_InfoIglesia: BaseViewController {
             return second == 1 ? "hace \(second)" + " " + "segundo" : "\(second)" + " " + "segundos"
         } else {
             return "hace un momento"
-            
         }
     }
     
@@ -1257,8 +1108,6 @@ class MiIglesia_InfoIglesia: BaseViewController {
             let imgEmpty = UIImage(named: "Trazado 6945", in: Bundle.local, compatibleWith: nil)
             
             if #available(iOS 13.0, *) {
-                // let imgFill = UIImage(named: "Trazado 6941")
-                
                 if finalRate == 0 {
                     print("Is zero")
                     star1.image = imgEmpty
@@ -1298,7 +1147,6 @@ class MiIglesia_InfoIglesia: BaseViewController {
                     star5.image = imgFill
                 }
             }
-            
         }else{
             lblSectionComments.isHidden = true
             commentsCard.isHidden = true
@@ -1361,7 +1209,6 @@ class MiIglesia_InfoIglesia: BaseViewController {
         validateSameDaysChurch()
         
         newChurchMassCollection.reloadData()
-        
     }
     
     @objc func deleteServices(sender: UIButton) {
@@ -1400,34 +1247,39 @@ extension MiIglesia_InfoIglesia: UITableViewDelegate, UITableViewDataSource {
         
         switch tableView {
         case socialTableView:
-            
             countTable = social.count
-            
             if addSocialButton.isHidden {
-                
+                print("VVV: addsocial is hidden")
                 if !(social.count > 0 ) {
-                    
+                    print("VVV: social count mayor 0")
                     self.lblRedesSociales.isHidden = true
                     self.hSocial.constant = 0
+                    self.hSocialS.constant = 0
                     self.view.layoutIfNeeded()
+                }else{
+                    print("VVV: social 0")
                 }
+            }else{
+                print("VVV: addsocial no hidden")
+                print(social.count)
             }
-            
         case commentsTable:
             countTable = commentList.count
-            
         default:
             break
         }
-        
+        print("return noris:")
+        print(social.count)
         return countTable
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        print("c4rat 00*")
         switch tableView {
         case socialTableView:
+            print("c4rat 0*")
             let cell = socialTableView.dequeueReusableCell(withIdentifier: SocialTableViewCell.reuseIdentifier, for: indexPath) as! SocialTableViewCell
-            
+            print("c4rat 1*")
             cell.titleLabel.text = social[indexPath.row]
             cell.selectionStyle = .none
             switch socialIdentifier[indexPath.row] {
@@ -1441,19 +1293,22 @@ extension MiIglesia_InfoIglesia: UITableViewDelegate, UITableViewDataSource {
                 cell.iconImage.image = instaIcon
             case "S":
                 cell.iconImage.image = stramIcon
-                
             default:
                 break
             }
-            //cell.deleteButton.isHidden = true
+            print("c4rat 2*")
             showDeleteBtn(btn: cell.deleteButton)
             cell.deleteButton.tag = indexPath.row
             cell.deleteButton.addTarget(self, action: #selector(deleteSocial), for: .touchUpInside)
             hSocial.constant = cell.frame.height * CGFloat(social.count)
+            hSocialS.constant = hSocial.constant+10
             self.view.layoutIfNeeded()
+            print("la altura es: x*")
+            print(social.count)
             return cell
             
         default:
+            print("c4rat DEF0*")
             let cell = tableView.dequeueReusableCell(withIdentifier: "COMMCELL", for: indexPath) as! ChurchCommentCell
             cell.cardView.layer.cornerRadius = 10
             cell.cardView.ShadowCard()
@@ -1497,7 +1352,6 @@ extension MiIglesia_InfoIglesia: UITableViewDelegate, UITableViewDataSource {
                 }
                 
             }
-            
             return cell
         }
         
@@ -1531,23 +1385,20 @@ extension MiIglesia_InfoIglesia: UICollectionViewDelegate, UICollectionViewDataS
         default:
             break
         }
-        
         return numberOfItems
     }
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
-        let cell = collectionView.dequeueReusableCell(withReuseIdentifier: ServiceCollectionViewCell.reuseIdentifier,
-                                                      for: indexPath) as! ServiceCollectionViewCell
-        (cell as? ServiceCollectionViewCell)?.delegate = self
+        let cell = collectionView.dequeueReusableCell(withReuseIdentifier: ServiceCollectionViewCell.reuseIdentifier, for: indexPath) as! ServiceCollectionViewCell
+        cell.delegate = self
         switch collectionView {
         case newChurchMassCollection:
-            
+    
             cell.deleteBtn.tag = indexPath.item
             cell.deleteBtn.addTarget(self, action: #selector(deleteMasses), for: .touchUpInside)
             showDeleteBtn(btn: cell.deleteBtn)
             let array = globalArray as? Array<Array<NewMassesData>>
             let dataCount = array?.count ?? 0
-            
             if dataCount > 2 {
                 hMasses.constant = CGFloat(120 * dataCount)
             }else{
@@ -1555,7 +1406,7 @@ extension MiIglesia_InfoIglesia: UICollectionViewDelegate, UICollectionViewDataS
             }
             if let churchData = church {
                 if let array = globalArray as? Array<Array<NewMassesData>> {
-                    (cell as? ServiceCollectionViewCell)?.fill(with: array, index: indexPath.item)
+                    cell.fill(with: array, index: indexPath.item)
                 }
             }
         case servicesCollectionView:
@@ -1571,18 +1422,16 @@ extension MiIglesia_InfoIglesia: UICollectionViewDelegate, UICollectionViewDataS
                     hServices.constant = CGFloat(160 * dataCount)
                 }
                 
-                (cell as? ServiceCollectionViewCell)?.isHidden = true
+                cell.isHidden = true
                 if church?.services?.isEmpty == false {
-                    (cell as? ServiceCollectionViewCell)?.isHidden = false
-                    (cell as? ServiceCollectionViewCell)?.fillService(with: churchData, index: indexPath.row)
+                    cell.isHidden = false
+                    cell.fillService(with: churchData, index: indexPath.row)
                 }
             }
         default:
             break
         }
-        
         return cell
-        
     }
     
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
@@ -1616,9 +1465,7 @@ extension MiIglesia_InfoIglesia: ChurchDetailViewProtocol {
     
     func serviceCatalogError() {
         DispatchQueue.main.async { [self] in
-            let alert = UIAlertController(title: "Error", message: "Error en el servico, intenta de nuevo más tarde", preferredStyle: UIAlertController.Style.alert)
-            alert.addAction(UIAlertAction(title: "Aceptar", style: UIAlertAction.Style.default, handler: nil))
-            present(alert, animated: true, completion: nil)
+            self.showCanonAlert(title: "Atención", msg: "Error en el servicio, intenta de nuevo más tarde.")
         }
     }
     
@@ -1638,9 +1485,7 @@ extension MiIglesia_InfoIglesia: ChurchDetailViewProtocol {
     
     func saveChurchError() {
         DispatchQueue.main.async { [self] in
-            let alert = UIAlertController(title: "Error", message: "Error en el servico, intenta de nuevo más tarde", preferredStyle: UIAlertController.Style.alert)
-            alert.addAction(UIAlertAction(title: "Aceptar", style: UIAlertAction.Style.default, handler: nil))
-            present(alert, animated: true, completion: nil)
+            self.showCanonAlert(title: "Error", msg: "Error en el servicio 401, reporta esta falla a un administrador.")
         }
     }
     
@@ -1762,9 +1607,10 @@ extension MiIglesia_InfoIglesia: MFMailComposeViewControllerDelegate {
 
 extension MiIglesia_InfoIglesia: RefisterFormularyButtonDelegate, RegisterFormDataSendingDelegateProtocol{
     func didPressReadyFormularyButton(_ sender: UIButton) {
+        RegisterFirmulary.instance.parentView.frame = CGRect(x: 0, y: 100, width: self.view.frame.width, height: RegisterFirmulary.instance.parentView.frame.height+125)
         RegisterFirmulary.instance.parentView.removeFromSuperview()
-        view.alpha = 1
-        view.isUserInteractionEnabled = true
+        //view.alpha = 1
+        //view.isUserInteractionEnabled = true
     }
     
     func sendDataFormToComMainViewController(name: String, intitution: String, charism: String, resposable: String, description: String, address: String, lvText: String, lvHour: String, sdText: String, sdHour: String, email: String, phone: String, latitude: Double, longitude: Double) {
@@ -1872,19 +1718,12 @@ extension MiIglesia_InfoIglesia: RefisterFormularyButtonDelegate, RegisterFormDa
         if RegisterFirmulary.instance.institutinTextField.text?.isEmpty == false {
             intitutionNew = intitution
         }
-        //        if RegisterFirmulary.instance.charismaTextField.text?.isEmpty == false {
-        //            charismNew = charism
-        //        }
         if RegisterFirmulary.instance.responsableTextField.text?.isEmpty == false {
             nameNew = resposable
             churchNameLabel.text = nameNew
         }
         if RegisterFirmulary.instance.nameTextField.text?.isEmpty == false {
         }
-        //        if RegisterFirmulary.instance.descriptionTextField.text?.isEmpty == false {
-        //            resposableNew = description
-        //            churchResponsibleLabel.text = description
-        //        }
         if RegisterFirmulary.instance.emailTextField.text?.isEmpty == false {
             emailNew = email
             lblEmail.text = email
@@ -2317,6 +2156,10 @@ extension MiIglesia_InfoIglesia: AddMassesModalButtonDelegate{
 }
 
 extension MiIglesia_InfoIglesia: AddSocialModalButtonDelegate {
+    
+    func didPressReadySocialButton(_ sender: UIButton){
+        print("nada")
+    }
     func pressAddSocial(sender: UIButton, socialTxt: String, socialIndex: Int) {
         switch socialIndex {
         case 0:
@@ -2335,7 +2178,7 @@ extension MiIglesia_InfoIglesia: AddSocialModalButtonDelegate {
         
         self.view.makeToast("Red social agregada correctamente", duration: 3.0, position: .top)
         socialTableView.isHidden = false
-       // socialTableView.reloadData()
+        socialTableView.reloadData()
     }
     
     func pressReadySocial(sender: UIButton, socialTxt: String, socialIndex: Int) {
@@ -2358,33 +2201,11 @@ extension MiIglesia_InfoIglesia: AddSocialModalButtonDelegate {
         view.isUserInteractionEnabled = true
         view.alpha = 1
         socialTableView.isHidden = false
-       // socialTableView.reloadData()
+        socialTableView.reloadData()
     }
     
 // OLD AND USELESS
-    func didPressReadySocialButton(_ sender: UIButton) {
-//        switch AddSocial.instance.sellectedSocial {
-//        case 0:
-//            faceNew = AddSocial.instance.socialTextField.text ?? ""
-//            socialData[0] = faceNew
-//        case 1:
-//            twittNew = AddSocial.instance.socialTextField.text ?? ""
-//            socialData[1] = twittNew
-//        case 2:
-//            instaNew = AddSocial.instance.socialTextField.text ?? ""
-//            socialData[2] = instaNew
-//        case 3:
-//            streamNew = AddSocial.instance.socialTextField.text ?? ""
-//            socialData[4] = streamNew
-//        case 4:
-//            webNew = AddSocial.instance.socialTextField.text ?? ""
-//            socialData[3] = webNew
-//        default:
-//            break
-//        }
-        
-    }
-    
+   
     func didPressAddSocialmButton(_ sender: UIButton) {
         switch AddSocial.instance.sellectedSocial {
         case 0:

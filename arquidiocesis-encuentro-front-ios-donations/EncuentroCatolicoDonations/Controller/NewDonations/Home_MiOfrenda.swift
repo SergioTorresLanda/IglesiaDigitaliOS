@@ -169,7 +169,7 @@ class Home_MiOfrenda: BaseVC, NewDontaionsViewProtocol {
     var menuIcons = ["", "heart.fill", "", "doc.plaintext.fill", ""]
     var itemsRadioBtn = ["Si", "No"]
     var conceptType = ["Selecciona concepto", "Ofrenda", "Diezmo", "Limosna", "Pago de una intención", "Pago de un servicio", "Otro"]
-    var amountList = ["10", "50", "100", "200", "300", "400", "500", "1000", "Otra"]
+    var amountList = ["50", "100", "200", "300", "400", "500", "1000", "Otra"]
     var isActive = [false, true]
     var withBill: Bool {
         isActive[safe: 0] ?? false
@@ -236,7 +236,7 @@ class Home_MiOfrenda: BaseVC, NewDontaionsViewProtocol {
             presenter?.requestChurchList(category: "CHURCH")
             presenter?.requestSuggestedList()
         } else {
-            self.alertFields = AcceptAlert.showAlert(titulo: " ¡Atención!", mensaje: "No tienes conexión a internet")
+            self.alertFields = AcceptAlert.showAlert(titulo: "Atención", mensaje: "No tienes conexión a internet.")
             self.alertFields!.view.backgroundColor = .clear
             self.present(self.alertFields!, animated: true)
         }

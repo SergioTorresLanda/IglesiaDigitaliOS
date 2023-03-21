@@ -40,7 +40,6 @@ public class MediaTemp {
 public class RedSocial_CrearPost: UIViewController, CreatePostViewProtocol {
 
 	var presenter: CreatePostPresenterProtocol?
-    
     //MARK: - @IBoutlets
     @IBOutlet public weak var loadingView: UIView!
     @IBOutlet public weak var activityIndicator: UIActivityIndicatorView!
@@ -62,38 +61,32 @@ public class RedSocial_CrearPost: UIViewController, CreatePostViewProtocol {
     @IBOutlet weak var cntView: NSLayoutConstraint!
     @IBOutlet weak var btnPublicar: UIButton!
     @IBOutlet weak var btnCancel: UIButton!
-    
     @IBOutlet weak var vwOptionsMedia: UIView!
-    //@IBOutlet weak var postImage: UIImageView!
-    var delegateTbl: FeedViewControllerDelegate?
-    
     @IBOutlet weak var pickerView: UIPickerView!
     @IBOutlet weak var btnShowPicker: UIButton!
+
+    var delegateTbl: FeedViewControllerDelegate?
     var defaults = UserDefaults.standard
     var orgId: Int?
     var asPrm: Int = 1
     var scope: Int = 1
-    //var imagePicker = UIImagePickerController()
     var picker = UIImagePickerController()
     
     @IBOutlet public weak var userContainerImage: UIImageView! = {
         let imageView = UIImageView()
         imageView.image = "adminIconYellow".getImage()
-        
         return imageView
     }()
     
     @IBOutlet public weak var smileFaceImage2: UIImageView! = {
         let imageView = UIImageView()
         imageView.image = "smileFaceIcon".getImage()
-       
        return imageView
     }()
     
     @IBOutlet public weak var locationImage2: UIImageView! = {
         let imageView = UIImageView()
         imageView.image = "locationIcon".getImage()
-       
        return imageView
     }()
     
@@ -275,12 +268,8 @@ public class RedSocial_CrearPost: UIViewController, CreatePostViewProtocol {
         addMoreView.roundCorners(corners: [.layerMinXMinYCorner, .layerMaxXMinYCorner], radius: 60)
         addMoreView.setBorder(borderColor: UIColor(red: 0.91, green: 0.89, blue: 0.91, alpha: 1.00))
     
-        /*Awqui tiene que ir toda la logica del objeto del servicio,
-         si viene vacio el taPicker nameLabel.ishidden = false &
-         btnShowPicker.isHidden = true
-         */
-        nameLabel.isHidden = true
-        btnShowPicker.isHidden = false
+        //nameLabel.isHidden = true
+        //btnShowPicker.isHidden = false
         pickerView.isHidden = true
        
     }
@@ -604,7 +593,7 @@ extension RedSocial_CrearPost: UIPickerViewDelegate, UIPickerViewDataSource{
     }
     
     public func pickerView(_ pickerView: UIPickerView, didSelectRow row: Int, inComponent component: Int) {
-        btnShowPicker.setTitle(arrayRelations[row].name, for: .normal)
+        //btnShowPicker.setTitle(arrayRelations[row].name, for: .normal)
         
         if arrayRelations[row].id == nil {
             // Es la publicacion de usuario normal
@@ -632,24 +621,18 @@ extension RedSocial_CrearPost {
         pickerView.delegate = self
         pickerView.dataSource = self
         
-        /*Awqui tiene que ir toda la logica del objeto del servicio,
-         si viene vacio el taPicker nameLabel.ishidden = false &
-         btnShowPicker.isHidden = true
-         */
-        if data.result?.count == 0 {
-            btnShowPicker.isHidden = true
-            nameLabel.isHidden = false
-           
-        }else{
-            btnShowPicker.isHidden = false
-            nameLabel.isHidden = true
-            
-        }
-        
+        //if data.result?.count == 0 {
+            //btnShowPicker.isHidden = true
+            //nameLabel.isHidden = false
+        //}else{
+            //btnShowPicker.isHidden = false
+            //nameLabel.isHidden = true
+        //}
     }
     
     func failGetRelations(mesage: String) {
-        btnShowPicker.isHidden = true
+        print("FailGetRelations")
+        //btnShowPicker.isHidden = true
     }
 }
 

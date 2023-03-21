@@ -577,7 +577,7 @@ class Home_Perfil: UIViewController {
         self.view.endEditing(true)
         print("TEXT BOX ON")
         if arrayChurches.count==10{
-            showCanonAlert(title: "¡Atención!", msg: "Puedes seleccionar un máximo de 10 iglesias")
+            showCanonAlert(title: "Atención", msg: "Puedes seleccionar un máximo de 10 iglesias.")
             return
         }
         if isCongregation == false {
@@ -805,7 +805,7 @@ class Home_Perfil: UIViewController {
         
         //Si es comunidad, tener seleccionado un servicio.
          if serviceProvider == "COMMUNITY" && sPerfil.selectedServiceID == 0 {
-                showCanonAlert(title: "¡Atención!", msg: "Selecciona el servicio que prestas.")
+                showCanonAlert(title: "Atención", msg: "Selecciona el servicio que prestas.")
                 return
             }
         print("::::;;COUNTS::::::")
@@ -815,7 +815,7 @@ class Home_Perfil: UIViewController {
         print(String(arrayChurchesId.count))
         //Si es iglesia, para cada iglesia debe tener asignado un servicio
         if serviceProvider == "CHURCH" && resta > 0 {
-            showCanonAlert(title: "¡Atención!", msg: "Falta seleccionar el servicio que prestas en "+String(resta)+" iglesia(s)")
+            showCanonAlert(title: "Atención", msg: "Falta seleccionar el servicio que prestas en "+String(resta)+" iglesia(s).")
             return
         }
         //singleton2.

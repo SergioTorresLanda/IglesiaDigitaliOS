@@ -21,7 +21,6 @@ public class APIType {
     let staged = UserDefaults.standard.string(forKey: "stage")
     var API: String = ""
     func Auth()-> String{
-        
         if staged == "Qa" {
              API = "https://api.qa-iglesia-digital.com/arquidiocesis/gestion-usuarios/v1"
         }else if staged == "Prod" {

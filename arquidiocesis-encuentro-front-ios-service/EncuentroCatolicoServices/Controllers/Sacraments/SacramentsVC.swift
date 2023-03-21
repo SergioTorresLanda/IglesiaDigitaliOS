@@ -12,6 +12,7 @@ import UIKit
 
 class SacramentsViewController: UIViewController, SacramentsViewProtocol {
    
+    @IBOutlet weak var customNavBar: UIView!
     @IBOutlet weak var table: UITableView! 
 
     var presenter: SacramentsPresenterProtocol?
@@ -26,6 +27,9 @@ class SacramentsViewController: UIViewController, SacramentsViewProtocol {
         table.register(UINib(nibName: "OptionCell", bundle: viewBundle), forCellReuseIdentifier: "optionCell")
         showLoading()
         presenter?.getSacraments()
+        customNavBar.layer.cornerRadius = 20
+        customNavBar.layer.maskedCorners = [.layerMinXMaxYCorner, .layerMaxXMaxYCorner]
+        customNavBar.ShadowNavBar()
     }
     
     override func viewWillAppear(_ animated: Bool) {

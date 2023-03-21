@@ -153,7 +153,7 @@ public class TabNavigationMenu: UIImageView {
     @objc private func handleTap(_ sender: UIGestureRecognizer) {
         print("handle SOS tap virtual, si se activa en SOS y perfil")
         let newUser = defaults.bool(forKey: "isNewUser")
-        if newUser || sender.view!.tag==0 {
+        if newUser || sender.view!.tag==0 || sender.view!.tag==1 {
             if activeItem != sender.view!.tag {
                 switchTab(from: activeItem, to: sender.view!.tag)
             }else{

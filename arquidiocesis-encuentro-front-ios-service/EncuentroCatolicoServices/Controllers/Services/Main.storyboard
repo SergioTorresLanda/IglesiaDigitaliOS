@@ -18,46 +18,34 @@
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="OPt-Qk-kxL">
-                                <rect key="frame" x="0.0" y="0.0" width="414" height="100"/>
+                            <view contentMode="scaleToFill" ambiguous="YES" translatesAutoresizingMaskIntoConstraints="NO" id="ARp-Ds-Idq">
+                                <rect key="frame" x="0.0" y="392" width="414" height="112"/>
                                 <subviews>
-                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="ARp-Ds-Idq">
-                                        <rect key="frame" x="0.0" y="-20" width="434" height="112"/>
-                                        <subviews>
-                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Servicios" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="kGp-Ny-nsH">
-                                                <rect key="frame" x="52" y="71" width="310" height="23"/>
-                                                <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="19"/>
-                                                <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                                <nil key="highlightedColor"/>
-                                            </label>
-                                            <imageView clipsSubviews="YES" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="back" translatesAutoresizingMaskIntoConstraints="NO" id="Bim-EH-i1u">
-                                                <rect key="frame" x="15" y="73" width="23" height="19"/>
-                                                <constraints>
-                                                    <constraint firstAttribute="height" constant="19" id="BOu-Og-Y3B"/>
-                                                    <constraint firstAttribute="width" constant="23" id="jcx-DX-AmI"/>
-                                                </constraints>
-                                            </imageView>
-                                        </subviews>
-                                        <color key="backgroundColor" name="eMainBlue"/>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Servicios" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="kGp-Ny-nsH">
+                                        <rect key="frame" x="52" y="57" width="290" height="23"/>
+                                        <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="19"/>
+                                        <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                    <imageView clipsSubviews="YES" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="back" translatesAutoresizingMaskIntoConstraints="NO" id="Bim-EH-i1u">
+                                        <rect key="frame" x="15" y="40" width="40" height="40"/>
                                         <constraints>
-                                            <constraint firstItem="kGp-Ny-nsH" firstAttribute="leading" secondItem="ARp-Ds-Idq" secondAttribute="leading" constant="52" id="7b5-RF-EC7"/>
-                                            <constraint firstItem="Bim-EH-i1u" firstAttribute="leading" secondItem="ARp-Ds-Idq" secondAttribute="leading" constant="15" id="Stk-Tg-9AH"/>
-                                            <constraint firstAttribute="bottom" secondItem="Bim-EH-i1u" secondAttribute="bottom" constant="20" id="eUR-Le-ffO"/>
-                                            <constraint firstAttribute="bottom" secondItem="kGp-Ny-nsH" secondAttribute="bottom" constant="18" id="mbc-5b-pgn"/>
-                                            <constraint firstAttribute="trailing" secondItem="kGp-Ny-nsH" secondAttribute="trailing" constant="72" id="pUi-Hw-P1F"/>
+                                            <constraint firstAttribute="height" constant="40" id="BOu-Og-Y3B"/>
+                                            <constraint firstAttribute="width" constant="40" id="jcx-DX-AmI"/>
                                         </constraints>
-                                    </view>
+                                    </imageView>
                                 </subviews>
-                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <color key="backgroundColor" name="eMainBlue"/>
                                 <constraints>
-                                    <constraint firstAttribute="height" constant="100" id="4Qq-OL-jtS"/>
-                                    <constraint firstAttribute="trailing" secondItem="ARp-Ds-Idq" secondAttribute="trailing" constant="-20" id="4ef-Ah-qCP"/>
-                                    <constraint firstItem="ARp-Ds-Idq" firstAttribute="leading" secondItem="OPt-Qk-kxL" secondAttribute="leading" id="82s-QL-fdc"/>
-                                    <constraint firstItem="ARp-Ds-Idq" firstAttribute="top" secondItem="OPt-Qk-kxL" secondAttribute="top" constant="-20" id="ePu-4E-Ffd"/>
-                                    <constraint firstAttribute="bottom" secondItem="ARp-Ds-Idq" secondAttribute="bottom" constant="8" id="yo9-aC-UCY"/>
+                                    <constraint firstAttribute="height" constant="100" id="1jA-eA-pVd"/>
+                                    <constraint firstItem="kGp-Ny-nsH" firstAttribute="leading" secondItem="ARp-Ds-Idq" secondAttribute="leading" constant="52" id="7b5-RF-EC7"/>
+                                    <constraint firstItem="Bim-EH-i1u" firstAttribute="leading" secondItem="ARp-Ds-Idq" secondAttribute="leading" constant="15" id="Stk-Tg-9AH"/>
+                                    <constraint firstAttribute="bottom" secondItem="Bim-EH-i1u" secondAttribute="bottom" constant="20" id="eUR-Le-ffO"/>
+                                    <constraint firstAttribute="bottom" secondItem="kGp-Ny-nsH" secondAttribute="bottom" constant="20" id="mbc-5b-pgn"/>
+                                    <constraint firstAttribute="trailing" secondItem="kGp-Ny-nsH" secondAttribute="trailing" constant="72" id="pUi-Hw-P1F"/>
                                 </constraints>
                             </view>
-                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="none" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="flV-Hi-YdB">
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" ambiguous="YES" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="none" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="flV-Hi-YdB">
                                 <rect key="frame" x="0.0" y="110" width="414" height="672"/>
                                 <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                                 <prototypes>
@@ -116,17 +104,16 @@
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
                             <constraint firstItem="flV-Hi-YdB" firstAttribute="leading" secondItem="vDu-zF-Fre" secondAttribute="leading" id="010-M7-2gS"/>
-                            <constraint firstItem="OPt-Qk-kxL" firstAttribute="top" secondItem="5EZ-qb-Rvc" secondAttribute="top" id="1y8-0E-vdM"/>
+                            <constraint firstAttribute="trailing" secondItem="ARp-Ds-Idq" secondAttribute="trailing" id="Dlt-nX-FNI"/>
+                            <constraint firstItem="ARp-Ds-Idq" firstAttribute="leading" secondItem="5EZ-qb-Rvc" secondAttribute="leading" id="GrP-8G-Pii"/>
                             <constraint firstItem="flV-Hi-YdB" firstAttribute="trailing" secondItem="vDu-zF-Fre" secondAttribute="trailing" id="SX6-9t-WGk"/>
-                            <constraint firstItem="OPt-Qk-kxL" firstAttribute="leading" secondItem="5EZ-qb-Rvc" secondAttribute="leading" id="ewQ-hK-d3s"/>
-                            <constraint firstItem="vDu-zF-Fre" firstAttribute="trailing" secondItem="OPt-Qk-kxL" secondAttribute="trailing" id="pm5-kY-3YG"/>
-                            <constraint firstItem="flV-Hi-YdB" firstAttribute="top" secondItem="OPt-Qk-kxL" secondAttribute="bottom" constant="10" id="qJ9-qJ-9h3"/>
+                            <constraint firstItem="ARp-Ds-Idq" firstAttribute="top" secondItem="5EZ-qb-Rvc" secondAttribute="bottom" id="bEW-tA-0VX"/>
+                            <constraint firstItem="flV-Hi-YdB" firstAttribute="top" secondItem="ARp-Ds-Idq" secondAttribute="bottom" constant="10" id="qJ9-qJ-9h3"/>
                             <constraint firstItem="vDu-zF-Fre" firstAttribute="bottom" secondItem="flV-Hi-YdB" secondAttribute="bottom" constant="80" id="uRT-de-OFG"/>
                         </constraints>
                     </view>
                     <connections>
                         <outlet property="backIcon" destination="Bim-EH-i1u" id="cz2-tG-CAe"/>
-                        <outlet property="contentNavBar" destination="OPt-Qk-kxL" id="Ifl-dk-uOj"/>
                         <outlet property="customNavBar" destination="ARp-Ds-Idq" id="Z8b-In-1Wg"/>
                         <outlet property="lblNavBarTitle" destination="kGp-Ny-nsH" id="XEw-cH-Wid"/>
                         <outlet property="mainTable" destination="flV-Hi-YdB" id="gKi-1K-o4M"/>

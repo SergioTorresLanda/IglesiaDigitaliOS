@@ -29,7 +29,7 @@ open class ProfileInfoRouter: ProfileInfoWireFrameProtocol {
     }
     
     open class func createModuleTwo() -> UIViewController {
-        let storyboard = UIStoryboard(name: "register", bundle: Bundle(for: RegisterProfileViewController.self))
+        let storyboard = UIStoryboard(name: "register", bundle: Bundle(for: MiPerfil_RegistroSacerdote.self))
         let view: ProfileInfoViewProtocol = storyboard.instantiateViewController(withIdentifier: "RegisterProfileViewController") as! ProfileInfoViewProtocol
         let presenter: ProfileInfoPresenterProtocol & ProfileInfoInteractorOutputProtocol = ProfileInfoPresenter()
         let interactor: ProfileInfoInteractorInputProtocol & ProfileInfoRemoteDataManagerOutputProtocol = ProfileInfoInteractor()

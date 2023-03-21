@@ -11,6 +11,7 @@
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="IntentionsViewController" customModule="EncuentroCatolicoServices" customModuleProvider="target">
             <connections>
                 <outlet property="collection" destination="HeF-2c-Bmg" id="zQd-Nb-ixu"/>
+                <outlet property="customNavBar" destination="by3-Hj-EbH" id="Ln6-xV-NbA"/>
                 <outlet property="featuredChurchView" destination="Adw-rk-VpO" id="csz-U7-OaV"/>
                 <outlet property="imgView" destination="oy3-Ua-oID" id="RA4-TU-6qK"/>
                 <outlet property="lblChurch" destination="Xka-ec-mza" id="BwP-pB-Wv6"/>
@@ -23,16 +24,16 @@
             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
             <subviews>
                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="by3-Hj-EbH">
-                    <rect key="frame" x="0.0" y="0.0" width="375" height="80"/>
+                    <rect key="frame" x="0.0" y="0.0" width="375" height="90"/>
                     <subviews>
                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Agendar" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="N6p-Sn-23m">
-                            <rect key="frame" x="152" y="38.5" width="71.5" height="21.5"/>
+                            <rect key="frame" x="152" y="48.5" width="71.5" height="21.5"/>
                             <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="18"/>
                             <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                             <nil key="highlightedColor"/>
                         </label>
                         <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="veK-Jt-qky">
-                            <rect key="frame" x="8" y="29.5" width="40" height="40"/>
+                            <rect key="frame" x="8" y="39.5" width="40" height="40"/>
                             <constraints>
                                 <constraint firstAttribute="width" constant="40" id="eOB-xL-AX6"/>
                                 <constraint firstAttribute="height" constant="40" id="xi1-zi-E4P"/>
@@ -49,12 +50,12 @@
                         <constraint firstItem="N6p-Sn-23m" firstAttribute="centerX" secondItem="by3-Hj-EbH" secondAttribute="centerX" id="Ap9-nN-8fn"/>
                         <constraint firstItem="veK-Jt-qky" firstAttribute="centerY" secondItem="N6p-Sn-23m" secondAttribute="centerY" id="BHo-bG-Ckf"/>
                         <constraint firstItem="veK-Jt-qky" firstAttribute="leading" secondItem="by3-Hj-EbH" secondAttribute="leading" constant="8" id="JBN-AB-1xG"/>
-                        <constraint firstAttribute="height" constant="80" id="WHP-sm-VFn"/>
+                        <constraint firstAttribute="height" constant="90" id="WHP-sm-VFn"/>
                         <constraint firstAttribute="bottom" secondItem="N6p-Sn-23m" secondAttribute="bottom" constant="20" id="Z6G-r5-sjC"/>
                     </constraints>
                 </view>
                 <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="equalSpacing" translatesAutoresizingMaskIntoConstraints="NO" id="Jcs-Mn-Y16">
-                    <rect key="frame" x="10" y="130" width="355" height="457"/>
+                    <rect key="frame" x="10" y="150" width="355" height="437"/>
                     <subviews>
                         <stackView opaque="NO" contentMode="scaleToFill" horizontalCompressionResistancePriority="751" axis="vertical" distribution="equalSpacing" translatesAutoresizingMaskIntoConstraints="NO" id="scD-8Y-53x">
                             <rect key="frame" x="0.0" y="0.0" width="355" height="170"/>
@@ -117,7 +118,7 @@
                             </subviews>
                         </stackView>
                         <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="equalSpacing" translatesAutoresizingMaskIntoConstraints="NO" id="bwZ-Ko-5CY">
-                            <rect key="frame" x="0.0" y="170" width="355" height="287"/>
+                            <rect key="frame" x="0.0" y="170" width="355" height="267"/>
                             <subviews>
                                 <view contentMode="scaleToFill" verticalCompressionResistancePriority="751" translatesAutoresizingMaskIntoConstraints="NO" id="x9b-Kg-aTW">
                                     <rect key="frame" x="0.0" y="0.0" width="355" height="40"/>
@@ -137,7 +138,7 @@
                                     </constraints>
                                 </view>
                                 <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="none" translatesAutoresizingMaskIntoConstraints="NO" id="HeF-2c-Bmg">
-                                    <rect key="frame" x="0.0" y="40" width="355" height="247"/>
+                                    <rect key="frame" x="0.0" y="40" width="355" height="227"/>
                                     <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                                     <constraints>
                                         <constraint firstAttribute="height" priority="750" constant="265" id="GkN-9U-tPB"/>
@@ -160,7 +161,7 @@
                 <constraint firstAttribute="trailing" secondItem="Jcs-Mn-Y16" secondAttribute="trailing" constant="10" id="GM6-NI-psC"/>
                 <constraint firstItem="by3-Hj-EbH" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" id="Om2-iF-SYP"/>
                 <constraint firstAttribute="bottom" secondItem="Jcs-Mn-Y16" secondAttribute="bottom" constant="80" id="S3o-mQ-Fw0"/>
-                <constraint firstItem="Jcs-Mn-Y16" firstAttribute="top" secondItem="by3-Hj-EbH" secondAttribute="bottom" constant="50" id="Une-Lm-E8q"/>
+                <constraint firstItem="Jcs-Mn-Y16" firstAttribute="top" secondItem="by3-Hj-EbH" secondAttribute="bottom" constant="60" id="Une-Lm-E8q"/>
                 <constraint firstItem="Jcs-Mn-Y16" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" constant="10" id="ln7-8m-xcn"/>
                 <constraint firstItem="by3-Hj-EbH" firstAttribute="top" secondItem="i5M-Pr-FkT" secondAttribute="top" id="wb4-N0-qxl"/>
             </constraints>

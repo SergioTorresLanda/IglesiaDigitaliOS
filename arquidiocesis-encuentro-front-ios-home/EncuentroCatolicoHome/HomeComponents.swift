@@ -120,24 +120,15 @@ extension Home_Home: UICollectionViewDataSource {
 extension Home_Home: UICollectionViewDelegate {
     public func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
         
-        let newUser = defaults.bool(forKey: "isNewUser")
         switch indexPath.row {
         case 0:
-            if newUser {//esta logueado, puede avanzar al modulo
-                let storyboard = UIStoryboard(name: "Main", bundle: Bundle.local)
-                let vc = storyboard.instantiateViewController(withIdentifier: "prayerChainFeed") as! Home_CadenaOracion
-                vc.userName = nombrePersona.text!
-                self.navigationController?.pushViewController(vc, animated: true)
-            }else{
-                showCanonAlert(title: "¡Atención!", msg: "Regístrate o inicia sesión para poder acceder a este módulo")
-            }
+            let storyboard = UIStoryboard(name: "Main", bundle: Bundle.local)
+            let vc = storyboard.instantiateViewController(withIdentifier: "prayerChainFeed") as! Home_CadenaOracion
+            vc.userName = nombrePersona.text!
+            self.navigationController?.pushViewController(vc, animated: true)
         case 1:
-            if newUser {
-                let view = MyChurchesWireFrame.getController()
-                self.navigationController?.pushViewController(view, animated: true)
-            }else{
-                showCanonAlert(title: "¡Atención!", msg: "Regístrate o inicia sesión para poder acceder a este módulo")
-            }
+            let view = MyChurchesWireFrame.getController()
+            self.navigationController?.pushViewController(view, animated: true)
         case 2:
             let view = YoungView_Route.createView(navigation: self.navigationController!)
             self.navigationController?.pushViewController(view, animated: true)
@@ -145,27 +136,15 @@ extension Home_Home: UICollectionViewDelegate {
             let view = OracionesRouter.getController()
             self.navigationController?.pushViewController(view, animated: true)
         case 4:
-            if newUser {
-                let view = HomeServiceWireFrame.createModule()
-                self.navigationController?.pushViewController(view, animated: true)
-            }else{
-                showCanonAlert(title: "¡Atención!", msg: "Regístrate o inicia sesión para poder acceder a este módulo")
-            }
+            let view = HomeServiceWireFrame.createModule()
+            self.navigationController?.pushViewController(view, animated: true)
         case 5:
-            if newUser {
-                let instance = SocialNetworkConstant.shared.instance
-                let view =  SocialNetworkNews.openSocialNetowrk(firebaseApp: instance)
-                self.navigationController?.pushViewController(view, animated: true)
-            }else{
-                showCanonAlert(title: "¡Atención!", msg: "Regístrate o inicia sesión para poder acceder a este módulo")
-            }
+            let instance = SocialNetworkConstant.shared.instance
+            let view =  SocialNetworkNews.openSocialNetowrk(firebaseApp: instance)
+            self.navigationController?.pushViewController(view, animated: true)
         case 6:
-            if newUser {
             let view = MyCommunitiesMainViewwWireFrame.getController()
             self.navigationController?.pushViewController(view, animated: true)
-            }else{
-                showCanonAlert(title: "¡Atención!", msg: "Regístrate o inicia sesión para poder acceder a este módulo")
-            }
         default:
             break
         }
@@ -175,7 +154,7 @@ extension Home_Home: UICollectionViewDelegate {
 //MARK: - UICollectionViewDelegateFlowLayout
 extension Home_Home: UICollectionViewDelegateFlowLayout {
     public func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
-        let widthScreen = UIScreen.main.bounds.width
+        //let widthScreen = UIScreen.main.bounds.width
         return CGSize(width: 83, height: 124) //height: 124)
     }
     
@@ -199,15 +178,15 @@ extension Home_Home: UITableViewDelegate, UITableViewDataSource {
             numberOfRowsT = allSections.count  //saintOfDay.count + realesesPost.count + 1
         }
         print(":::NORIS:::"+String(numberOfRowsT))
-        var extraH = 0
-        if isActivities{
-            extraH=80
-        }
+        //var extraH = 70
+        //if !isActivities{
+          //  extraH=0
+        //}
         if numberOfRowsT == 1 {
-            SVheight.constant=CGFloat(555+extraH)
+            SVheight.constant=CGFloat(625)
             tableHeight.constant=300//
         }else{
-            SVheight.constant=CGFloat(855+extraH)
+            SVheight.constant=CGFloat(925)
             tableHeight.constant=600
         }
         

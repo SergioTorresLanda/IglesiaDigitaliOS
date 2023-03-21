@@ -256,6 +256,7 @@ class RedSocial_MiRed: UIViewController {
             publicV.layer.shadowColor = UIColor.gray.cgColor
         }
     }
+    
     func formatoFollowersActive(bool:Bool){
         if bool {
             followersLbl.textColor=azulito

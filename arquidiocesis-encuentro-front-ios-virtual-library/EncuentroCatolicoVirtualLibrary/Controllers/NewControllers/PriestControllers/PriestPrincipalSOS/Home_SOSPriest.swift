@@ -74,7 +74,7 @@ class Home_SOSPriest: UIViewController, PriestPSOSViewProtocol {
             }
         }else{
             print("INTERNET OFF SOS")
-            self.alertFields = AcceptAlert.showAlert(titulo: "¡Atención!", mensaje: "No tienes conexión a internet")
+            self.alertFields = AcceptAlert.showAlert(titulo: "Atención", mensaje: "No tienes conexión a internet.")
             self.alertFields!.view.backgroundColor = .clear
             self.present(self.alertFields!, animated: true)
         }

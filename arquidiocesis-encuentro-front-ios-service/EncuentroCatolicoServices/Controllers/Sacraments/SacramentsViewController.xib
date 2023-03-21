@@ -10,6 +10,7 @@
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="SacramentsViewController" customModule="EncuentroCatolicoServices" customModuleProvider="target">
             <connections>
+                <outlet property="customNavBar" destination="Xsw-Aa-H1Z" id="jPG-Te-jNK"/>
                 <outlet property="table" destination="Iyo-nC-svp" id="R6z-Hn-YXo"/>
                 <outlet property="view" destination="i5M-Pr-FkT" id="sfx-zR-JGt"/>
             </connections>
@@ -19,17 +20,17 @@
             <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
             <subviews>
-                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Xsw-Aa-H1Z">
-                    <rect key="frame" x="0.0" y="0.0" width="375" height="108"/>
+                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Xsw-Aa-H1Z" userLabel="ViewH">
+                    <rect key="frame" x="0.0" y="0.0" width="375" height="90"/>
                     <subviews>
                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Sacramentos" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="3FD-nM-Z2N">
-                            <rect key="frame" x="132" y="66.5" width="111" height="21.5"/>
+                            <rect key="frame" x="132" y="48.5" width="111" height="21.5"/>
                             <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="18"/>
                             <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                             <nil key="highlightedColor"/>
                         </label>
                         <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="EXH-sc-avt">
-                            <rect key="frame" x="8" y="57.5" width="40" height="40"/>
+                            <rect key="frame" x="8" y="39.5" width="40" height="40"/>
                             <constraints>
                                 <constraint firstAttribute="width" constant="40" id="Shv-pP-2Su"/>
                                 <constraint firstAttribute="height" constant="40" id="YKk-4Q-qSK"/>
@@ -43,7 +44,7 @@
                     </subviews>
                     <color key="backgroundColor" red="0.074509803920000006" green="0.1529411765" blue="0.48627450979999998" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                     <constraints>
-                        <constraint firstAttribute="height" constant="108" id="3Hy-6A-IvU"/>
+                        <constraint firstAttribute="height" constant="90" id="3Hy-6A-IvU"/>
                         <constraint firstItem="3FD-nM-Z2N" firstAttribute="centerX" secondItem="Xsw-Aa-H1Z" secondAttribute="centerX" id="5g4-Sq-olO"/>
                         <constraint firstAttribute="bottom" secondItem="3FD-nM-Z2N" secondAttribute="bottom" constant="20" id="9tJ-lY-HmN"/>
                         <constraint firstItem="EXH-sc-avt" firstAttribute="centerY" secondItem="3FD-nM-Z2N" secondAttribute="centerY" id="ts0-Ff-vW5"/>
@@ -51,7 +52,7 @@
                     </constraints>
                 </view>
                 <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" style="plain" separatorStyle="none" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="Iyo-nC-svp">
-                    <rect key="frame" x="0.0" y="138" width="375" height="529"/>
+                    <rect key="frame" x="0.0" y="110" width="375" height="557"/>
                     <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                 </tableView>
             </subviews>
@@ -61,7 +62,7 @@
                 <constraint firstAttribute="bottom" secondItem="Iyo-nC-svp" secondAttribute="bottom" id="Gcx-rg-VaX"/>
                 <constraint firstAttribute="trailing" secondItem="Iyo-nC-svp" secondAttribute="trailing" id="Olp-Rg-9Rb"/>
                 <constraint firstAttribute="trailing" secondItem="Xsw-Aa-H1Z" secondAttribute="trailing" id="cUB-wx-kfZ"/>
-                <constraint firstItem="Iyo-nC-svp" firstAttribute="top" secondItem="Xsw-Aa-H1Z" secondAttribute="bottom" constant="30" id="esZ-VK-nWl"/>
+                <constraint firstItem="Iyo-nC-svp" firstAttribute="top" secondItem="Xsw-Aa-H1Z" secondAttribute="bottom" constant="20" id="esZ-VK-nWl"/>
                 <constraint firstItem="Xsw-Aa-H1Z" firstAttribute="top" secondItem="i5M-Pr-FkT" secondAttribute="top" id="p97-V7-pUC"/>
                 <constraint firstItem="Xsw-Aa-H1Z" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" id="rID-Fa-qwm"/>
             </constraints>

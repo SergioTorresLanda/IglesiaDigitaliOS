@@ -17,6 +17,14 @@ protocol RegisterFormDataSendingDelegateProtocol {
 class RegisterFirmulary: UIView, UITextFieldDelegate {
     public weak var delegate: RefisterFormularyButtonDelegate?
     public var delegateData: RegisterFormDataSendingDelegateProtocol? = nil
+    
+    @IBOutlet weak var title1LabelH: NSLayoutConstraint!
+    @IBOutlet weak var nameTFH: NSLayoutConstraint!
+    @IBOutlet weak var title2LabelH: NSLayoutConstraint!
+    @IBOutlet weak var institutinTFH: NSLayoutConstraint!
+    @IBOutlet weak var title3LabelH: NSLayoutConstraint!
+    @IBOutlet weak var charismaTFH: NSLayoutConstraint!
+    
     @IBOutlet weak var lvTitleLabel: UILabel!
     @IBOutlet weak var sdTitleLabel: UILabel!
     @IBOutlet weak var title1Label: UILabel!
@@ -95,6 +103,7 @@ class RegisterFirmulary: UIView, UITextFieldDelegate {
         super.init(coder: aDecoder)
         nibSetup()
     }
+    
     private func nibSetup() {
         
         NotificationCenter.default.addObserver(self, selector: #selector(keyboardWillShow), name: UIResponder.keyboardWillShowNotification, object: nil)
@@ -152,19 +161,26 @@ class RegisterFirmulary: UIView, UITextFieldDelegate {
         lvTextField.inputAccessoryView = toolBar
         sdTextField.inputAccessoryView = toolBar
         phoneTextField.inputAccessoryView = toolBar
-        
+        descriptionTextField.inputAccessoryView = toolBar
+        addressTextField.inputAccessoryView = toolBar
+        emailTextField.inputAccessoryView = toolBar
         phoneTextField.keyboardType = .asciiCapableNumberPad
         
     }
+    
     func showAllert() {
         UIApplication.shared.keyWindow?.addSubview(parentView)
     }
+    
     @objc func doneClick() {
         lvHourTextField.resignFirstResponder()
         sdHourTextField.resignFirstResponder()
         lvTextField.resignFirstResponder()
         sdTextField.resignFirstResponder()
         phoneTextField.resignFirstResponder()
+        descriptionTextField.resignFirstResponder()
+        addressTextField.resignFirstResponder()
+        emailTextField.resignFirstResponder()
      }
     func textFieldShouldReturn(_ textField: UITextField) -> Bool {
         self.tagBasedTextField(textField)
@@ -182,14 +198,14 @@ class RegisterFirmulary: UIView, UITextFieldDelegate {
     @objc func keyboardWillShow(notification: NSNotification) {
         if let keyboardSize = (notification.userInfo?[UIResponder.keyboardFrameEndUserInfoKey] as? NSValue)?.cgRectValue {
             if self.parentView.frame.origin.y == 0 {
-                self.parentView.frame.origin.y -= keyboardSize.height
+                //self.parentView.frame.origin.y -= keyboardSize.height
             }
         }
     }
     
     @objc func keyboardWillHide(notification: NSNotification) {
         if self.parentView.frame.origin.y != 0 {
-            self.parentView.frame.origin.y = 0
+            //self.parentView.frame.origin.y = 0
         }
     }
     private func switchBasedNextTextField(_ textField: UITextField) {

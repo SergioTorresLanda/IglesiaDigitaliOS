@@ -10,7 +10,7 @@ import IQKeyboardManagerSwift
 import EncuentroCatolicoVirtualLibrary
 
 
-class RegisterProfileViewController: BaseViewController, ProfileInfoViewProtocol{
+class MiPerfil_RegistroSacerdote: BaseViewController, ProfileInfoViewProtocol{
     func isSuccesDelete(result: Bool) {
     }
     
@@ -463,7 +463,7 @@ class RegisterProfileViewController: BaseViewController, ProfileInfoViewProtocol
     }
 }
 
-extension RegisterProfileViewController: UICollectionViewDelegate, UICollectionViewDataSource{
+extension MiPerfil_RegistroSacerdote: UICollectionViewDelegate, UICollectionViewDataSource{
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
         return activitiesArray.count
     }
@@ -477,7 +477,7 @@ extension RegisterProfileViewController: UICollectionViewDelegate, UICollectionV
     }
 }
 
-extension RegisterProfileViewController: ActivitiesCardDelegate{
+extension MiPerfil_RegistroSacerdote: ActivitiesCardDelegate{
     func deleteActivity(index: IndexPath) {
         activitiesArray.remove(at: index.item)
         //activitiesColletionView.reloadData()
@@ -485,7 +485,7 @@ extension RegisterProfileViewController: ActivitiesCardDelegate{
 }
 
 //MARK: - TextField Delegate Implementation
-extension RegisterProfileViewController: UITextFieldDelegate {
+extension MiPerfil_RegistroSacerdote: UITextFieldDelegate {
     func textField(_ textField: UITextField, shouldChangeCharactersIn range: NSRange, replacementString string: String) -> Bool {
         var returnVa: Bool = true
         
@@ -527,7 +527,7 @@ extension RegisterProfileViewController: UITextFieldDelegate {
 }
 
 //MARK: - TextView Delegate Implementation
-extension RegisterProfileViewController: UITextViewDelegate {
+extension MiPerfil_RegistroSacerdote: UITextViewDelegate {
     func textView(_ textView: UITextView, shouldChangeTextIn range: NSRange, replacementText text: String) -> Bool {
         textView.text.count < 255
     }

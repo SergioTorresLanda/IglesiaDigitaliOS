@@ -59,7 +59,7 @@ class ScheduleMassTimeViewController: UIViewController, ScheduleMassTimeViewProt
     var location: Assigned!
     let picker = UIPickerView()
     let pickerAmount = UIPickerView()
-    let amountList = ["10", "50", "100", "200", "300", "400", "500", "1000", "Otra"]
+    let amountList = ["50", "100", "200", "300", "400", "500", "1000", "Otra"]
     let pckData: Array<String> = ["Catálogo de intenciones",
                                   "Por el cumpleaños de",
                                   "Por el aniversario de matrimonio de",

@@ -15,6 +15,7 @@ class OtherServicesViewController: UIViewController, OtherServicesViewProtocol {
     
     @IBOutlet weak var table            : UITableView!
     @IBOutlet weak var notificationView : UIView!
+    @IBOutlet weak var customNavBar: UIView!
     
     var presenter: OtherServicesPresenterProtocol?
     var options: Array<otherServicesOptions> = []
@@ -32,26 +33,24 @@ class OtherServicesViewController: UIViewController, OtherServicesViewProtocol {
         table.dataSource = self
         table.register(UINib(nibName: "OptionCell", bundle: viewBundle), forCellReuseIdentifier: "optionCell")
         table.register(UINib(nibName: "SubOptionCell", bundle: viewBundle), forCellReuseIdentifier: "subOptionCell")
-//        options.append(otherServicesOptions(title: "Celebraciones", type: "option"))
         options.append(otherServicesOptions(title: "Bendiciones", type: "option"))
         options.append(otherServicesOptions(title: "Otros servicios", type: "option"))
         collepsedCells = [false,false,false]
         showLoading()
         presenter?.getOptions(type: .Bendiciones)
+        customNavBar.layer.cornerRadius = 20
+        customNavBar.layer.maskedCorners = [.layerMinXMaxYCorner, .layerMaxXMaxYCorner]
+        customNavBar.ShadowNavBar()
     }
     
     override func viewWillAppear(_ animated: Bool) {
         print("VC ECServices - OtherServicesVC ")
-
     }
-    
     
     func addSubOptions(toOption: cases, type: String, optionsToAdd: Array<servicesSubOption>){
         if optionsToAdd.count > 0{
             var index = 0
             switch toOption {
-//            case .Celebraciones:
-//                index = options.firstIndex(of: otherServicesOptions(title: "Celebraciones", type: "option"))!
             case .Bendiciones:
                 index = options.firstIndex(of: otherServicesOptions(title: "Bendiciones", type: "option"))!
             case .OtrosServicios:
@@ -75,8 +74,6 @@ class OtherServicesViewController: UIViewController, OtherServicesViewProtocol {
             switch type {
             case .Bendiciones:
                 blessings.append(item)
-//            case .Celebraciones:
-//                celebrations.append(item)
             case .OtrosServicios:
                 others.append(item)
             }
@@ -84,9 +81,6 @@ class OtherServicesViewController: UIViewController, OtherServicesViewProtocol {
         if type == .Bendiciones{
             presenter?.getOptions(type: .OtrosServicios)
         }
-//        if type == .Celebraciones{
-//            presenter?.getOptions(type: .OtrosServicios)
-//        }
         if type == .OtrosServicios{
             self.alert.dismiss(animated: false, completion: nil)
         }
@@ -128,8 +122,6 @@ extension OtherServicesViewController: UITableViewDelegate, UITableViewDataSourc
             cell.accessibilityLabel = data.title
             var collapsedIndex = 0
             switch data.title {
-//            case "Celebraciones":
-//                collapsedIndex = 0
             case "Bendiciones":
                 collapsedIndex = 1
             case "Otros servicios":
@@ -172,8 +164,6 @@ extension OtherServicesViewController: UITableViewDelegate, UITableViewDataSourc
             }else{
                 collepsedCells[0] = true
                 optionCell.imgView.image = UIImage(named: "arrowUp", in: viewBundle, compatibleWith: nil)
-//                notificationView.isHidden = false
-//                addSubOptions(toOption: .Celebraciones, type: "subOption", optionsToAdd: celebrations)
             }
         }
         else if cell.accessibilityLabel == "Bendiciones"{
@@ -208,26 +198,21 @@ extension OtherServicesViewController: UITableViewDelegate, UITableViewDataSourc
         else{
             //HOME SERVICE BENDICIONES A CASA
             //comunion enfermos
-            
             switch options[indexPath.row].action{
             case "NONE":
                 let alert = AlertOneButtonViewController.showAlert(titulo: options[indexPath.row].title, mensaje: options[indexPath.row].description ?? "")
                 alert.presentartAlerta(en: self)
             break
-           
             case "FORM_COMMUNION_OF_SICK":
                UserDefaults.standard.setValue(true, forKey: "DetailView")
                 let view = DetailServiceWireFrame.createModule()
                 self.navigationController?.pushViewController(view, animated: true)
                 break
-            
             case "FORM_BLESSING_HOME":
                 UserDefaults.standard.setValue(false, forKey: "DetailView")
                 let view = DetailServiceWireFrame.createModule()
                 self.navigationController?.pushViewController(view, animated: true)
                 break
-                
-                
             case .some(_):
                 let alert = AlertOneButtonViewController.showAlert(titulo: options[indexPath.row].title, mensaje: options[indexPath.row].description ?? "")
                 alert.presentartAlerta(en: self)
@@ -235,7 +220,6 @@ extension OtherServicesViewController: UITableViewDelegate, UITableViewDataSourc
             case .none:
                 break
             }
-            
         }
     }
     

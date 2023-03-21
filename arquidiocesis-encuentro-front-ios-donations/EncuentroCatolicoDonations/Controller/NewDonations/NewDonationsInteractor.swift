@@ -23,15 +23,12 @@ class NewDontaionsInteractor: NewDontaionsInteractorProtocol {
         request.httpMethod = "GET"
         
         let work = URLSession.shared.dataTask(with: request) { data, response, error in
-
             //print("->  respuesta Status Code: ", response as Any)
             //print("->  error: ", error as Any)
-            
             do {
                 guard let allData = data else { return }
                 let contentResponse = try JSONDecoder().decode(ChurchesDontaions.self, from: allData)
                 self.presenter?.onSuccessChurchList(data: contentResponse, responseCode: (response as! HTTPURLResponse))
-                
             }catch{
                 print("Get list church error", error.localizedDescription, error)
                 self.presenter?.onFailChurchList(error: error)

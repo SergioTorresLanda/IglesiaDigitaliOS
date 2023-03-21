@@ -68,7 +68,7 @@ class Home_Home: UIViewController, HomeViewProtocol, UITextFieldDelegate, UNUser
         self.navigationController?.pushViewController(view, animated: true)
     }
     
-    var isActivities=false
+    var isActivities=true
     
     static let singleton = Home_Home()
     var arraySelectedCell = [false, false, false, false, false, false, false]
@@ -262,7 +262,7 @@ class Home_Home: UIViewController, HomeViewProtocol, UITextFieldDelegate, UNUser
             
         }else{
             print("INTERNET OFF VWA")
-            showCanonAlert(title: "¡Atención!", msg: "No tienes conexión a internet")
+            showCanonAlert(title: "Atención", msg: "No tienes conexión a internet.")
         }
     }
     
@@ -273,7 +273,7 @@ class Home_Home: UIViewController, HomeViewProtocol, UITextFieldDelegate, UNUser
     }
     
     @objc func showCanonAlertO(){
-        alertFields = AcceptAlert.showAlert(titulo: "¡Atención!", mensaje: "Regístrate o inicia sesión para poder acceder a este módulo")
+        alertFields = AcceptAlert.showAlert(titulo: "Atención", mensaje: "Regístrate o inicia sesión para poder acceder a este módulo.")
         alertFields!.view.backgroundColor = .clear
         self.present(alertFields!, animated: true)
     }
@@ -661,6 +661,7 @@ class Home_Home: UIViewController, HomeViewProtocol, UITextFieldDelegate, UNUser
             noticias.append(saintOfDay[0])
         }
         allSections.append(noticias)
+        mainTable.reloadData() //actualizar tabla, ya se cargo noticias
         self.presenter?.requestSuggestions(type: "SUGGESTIONS")
     }
     
@@ -839,7 +840,7 @@ class Home_Home: UIViewController, HomeViewProtocol, UITextFieldDelegate, UNUser
             let view = NewDonationsRouter.createModule()
             self.navigationController?.pushViewController(view, animated: true)
         }else{
-            showCanonAlert(title: "¡Atención!", msg: "Regístrate o inicia sesión para poder acceder a este módulo")
+            showCanonAlert(title: "Atención", msg: "Regístrate o inicia sesión para poder acceder a este módulo.")
         }
         //self.present(view, animated: true, completion: nil)
     }
@@ -851,7 +852,7 @@ class Home_Home: UIViewController, HomeViewProtocol, UITextFieldDelegate, UNUser
             let view = ProfileInfoRouter.createModule()
             self.navigationController?.pushViewController(view, animated: true)
         }else{
-            showCanonAlert(title: "¡Atención!", msg: "Regístrate o inicia sesión para poder acceder a este módulo")
+            showCanonAlert(title: "Atención", msg: "Regístrate o inicia sesión para poder acceder a este módulo.")
         }
     }
     

@@ -13,6 +13,7 @@ class MiIglesia_MapaIglesias: BaseViewController, ChurchRegisterViewProtocol, Ut
     @IBOutlet weak var goToCurrentLocationButton: UIButton!
     @IBOutlet weak var starButton: UIButton!
     @IBOutlet weak var mapKit: MKMapView!
+    @IBOutlet weak var headView: UIView!
     
     var isPrincipal: Int?
     var isPrincpalBool: Bool?

@@ -10,6 +10,7 @@
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="OtherServicesViewController" customModule="EncuentroCatolicoServices" customModuleProvider="target">
             <connections>
+                <outlet property="customNavBar" destination="v85-kI-VvH" id="r3N-5l-bC5"/>
                 <outlet property="notificationView" destination="pd2-Wo-EVr" id="r10-UO-chb"/>
                 <outlet property="table" destination="N7P-SO-1k4" id="Ubz-oe-bSF"/>
                 <outlet property="view" destination="i5M-Pr-FkT" id="sfx-zR-JGt"/>
@@ -20,17 +21,17 @@
             <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
             <subviews>
-                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="v85-kI-VvH">
-                    <rect key="frame" x="0.0" y="0.0" width="375" height="108"/>
+                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="v85-kI-VvH" userLabel="ViewH">
+                    <rect key="frame" x="0.0" y="0.0" width="375" height="90"/>
                     <subviews>
                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Otros Servicios" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="9EI-g9-agG">
-                            <rect key="frame" x="123.5" y="66.5" width="128.5" height="21.5"/>
+                            <rect key="frame" x="123.5" y="48.5" width="128.5" height="21.5"/>
                             <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="18"/>
                             <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                             <nil key="highlightedColor"/>
                         </label>
                         <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="34B-Da-Za4">
-                            <rect key="frame" x="8" y="57.5" width="40" height="40"/>
+                            <rect key="frame" x="8" y="39.5" width="40" height="40"/>
                             <constraints>
                                 <constraint firstAttribute="height" constant="40" id="4P2-Xf-JwE"/>
                                 <constraint firstAttribute="width" constant="40" id="CrY-u9-Ium"/>
@@ -47,13 +48,13 @@
                     <constraints>
                         <constraint firstItem="34B-Da-Za4" firstAttribute="centerY" secondItem="9EI-g9-agG" secondAttribute="centerY" id="4dw-9c-FoQ"/>
                         <constraint firstAttribute="bottom" secondItem="9EI-g9-agG" secondAttribute="bottom" constant="20" id="8HK-Hs-SKZ"/>
-                        <constraint firstAttribute="height" constant="108" id="9fE-eO-uyx"/>
+                        <constraint firstAttribute="height" constant="90" id="9fE-eO-uyx"/>
                         <constraint firstItem="9EI-g9-agG" firstAttribute="centerX" secondItem="v85-kI-VvH" secondAttribute="centerX" id="XrY-PW-2NY"/>
                         <constraint firstItem="34B-Da-Za4" firstAttribute="leading" secondItem="v85-kI-VvH" secondAttribute="leading" constant="8" id="hlb-wW-ok0"/>
                     </constraints>
                 </view>
                 <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" translatesAutoresizingMaskIntoConstraints="NO" id="kZp-mB-uLa">
-                    <rect key="frame" x="0.0" y="108" width="375" height="479"/>
+                    <rect key="frame" x="0.0" y="98" width="375" height="489"/>
                     <subviews>
                         <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="pd2-Wo-EVr">
                             <rect key="frame" x="0.0" y="0.0" width="375" height="85"/>
@@ -97,7 +98,7 @@
                             </constraints>
                         </view>
                         <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" style="plain" separatorStyle="none" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="N7P-SO-1k4">
-                            <rect key="frame" x="0.0" y="115" width="375" height="364"/>
+                            <rect key="frame" x="0.0" y="115" width="375" height="374"/>
                             <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                         </tableView>
                     </subviews>
@@ -105,7 +106,7 @@
             </subviews>
             <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
             <constraints>
-                <constraint firstItem="kZp-mB-uLa" firstAttribute="top" secondItem="v85-kI-VvH" secondAttribute="bottom" id="KUC-V9-Kv3"/>
+                <constraint firstItem="kZp-mB-uLa" firstAttribute="top" secondItem="v85-kI-VvH" secondAttribute="bottom" constant="8" id="KUC-V9-Kv3"/>
                 <constraint firstItem="kZp-mB-uLa" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" id="LFE-1i-ct5"/>
                 <constraint firstAttribute="trailing" secondItem="kZp-mB-uLa" secondAttribute="trailing" id="UmW-Pe-gj6"/>
                 <constraint firstItem="v85-kI-VvH" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" id="gWV-e8-vz3"/>

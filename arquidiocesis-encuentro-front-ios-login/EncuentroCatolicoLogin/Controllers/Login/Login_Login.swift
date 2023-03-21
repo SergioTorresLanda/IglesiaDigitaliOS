@@ -148,7 +148,7 @@ class Login_Login: UIViewController {
         db.collection(collection).whereField("activo", isEqualTo: true)
             .getDocuments() { (qS, err) in
                 if let err = err {
-                    self.showCanonAlert(titulo: "¡Atención!", mensaje: "Por el momento no se puede acceder a la app sin registro previo.")
+                    self.showCanonAlert(titulo: "Atención", mensaje: "Por el momento no se puede acceder a la app sin registro previo.")
                     print("Error getting documents: \(err)")
                 } else {
                     for doc in qS!.documents {
@@ -400,7 +400,7 @@ class Login_Login: UIViewController {
             presenter?.controla = self
             presenter?.login(user: validatedData, password: txtPassword.text ?? "")
         } else {
-            showCanonAlert(titulo: "¡Atención!", mensaje: "No tienes conexión a internet")
+            showCanonAlert(titulo: "Atención", mensaje: "No tienes conexión a internet.")
         }
     }
     
@@ -449,7 +449,7 @@ class Login_Login: UIViewController {
         if isInternet{
             biometricValidations()
         } else {
-            self.alertFields = AcceptAlert.showAlert(titulo: " ¡Atención!", mensaje: "No tienes conexión a internet")
+            self.alertFields = AcceptAlert.showAlert(titulo: "Atención", mensaje: "No tienes conexión a internet.")
             self.alertFields!.view.backgroundColor = .clear
             self.present(self.alertFields!, animated: true)
         }

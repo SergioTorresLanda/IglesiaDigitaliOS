@@ -7,6 +7,7 @@
 
 import UIKit
 import CoreLocation
+import EncuentroCatolicoVirtualLibrary
 
 enum UserCommunityStatus: String {
     case pendingApproval = "PENDING_VICARAGE_APPROVAL"
@@ -18,19 +19,19 @@ class Home_Comunidades: UIViewController, MyCommunitiesMainViewProtocol, CLLocat
     
     var presenter: MyCommunitiesMainViewPresenterProtocol?
     let loadingAlert = UIAlertController(title: "", message: "\n \n \n \n \nCargando...", preferredStyle: .alert)
-//    let label1 = "Señora de Jesuz"
-//    let label2 = "Misioneras franciscanas"
     let id = UserDefaults.standard.integer(forKey: "id")
     var communitiesID = Int()
     var communitiesFavID = Int()
     var communities: CommunityMainList?
     var searchBarResult: CommunitySearchList?
     var comoesFromSerach: Bool = false
-    
     var locationManager = CLLocationManager()
     var latitude: CLLocationDegrees!
     var longitude: CLLocationDegrees!
     let communityStatus = UserDefaults.standard.string(forKey: "communityStatus")
+    let newUser = UserDefaults.standard.bool(forKey: "isNewUser")
+    var alertFields : AcceptAlert?
+    
     @IBOutlet weak var searchBar: UISearchBar!
     @IBOutlet weak var mapButton: UIButton!
     @IBOutlet weak var mainComTableView: UITableView!
@@ -53,8 +54,13 @@ class Home_Comunidades: UIViewController, MyCommunitiesMainViewProtocol, CLLocat
     }
     override func viewWillAppear(_ animated: Bool) {
         print("VC ECChurch - MyCommunitiesMV- MyCommunitiesVC")
+        let newUser = UserDefaults.standard.bool(forKey: "isNewUser")
+        if newUser{
         presenter?.getCommunitiesData(id: id)
-        self.showLoading()
+            self.showLoading()
+        }else{
+            //no busca coms
+        }
     }
     func initView() {
         favotitesLbl.adjustsFontSizeToFitWidth = true
@@ -94,11 +100,27 @@ class Home_Comunidades: UIViewController, MyCommunitiesMainViewProtocol, CLLocat
         self.navigationController?.popViewController(animated: true)
     }
     @IBAction func addAction(_ sender: Any) {
+        print("add 1")
+        if newUser{
         presenter?.goToMaps(isPrincipal: 3, isPrincialBool: false)
+        }else{
+            showCanonAlert(title: "Atención", msg: "Regístrate o inicia sesión para agregar una comunidad como favorita.")
+        }
     }
     
     @IBAction func addPrincipal(_ sender: Any) {
-        presenter?.goToMaps(isPrincipal: 3, isPrincialBool: true)
+        print("add 2")
+        if newUser{
+            presenter?.goToMaps(isPrincipal: 3, isPrincialBool: true)
+        }else{
+            showCanonAlert(title: "Atención", msg: "Regístrate o inicia sesión para agregar una comunidad como principal.")
+        }
+    }
+    
+    func showCanonAlert(title:String, msg:String){
+        alertFields = AcceptAlert.showAlert(titulo: title, mensaje: msg)
+        alertFields!.view.backgroundColor = .clear
+        self.present(alertFields!, animated: true)
     }
     
     @IBAction func addActionCard(_ sender: Any) {
@@ -134,7 +156,7 @@ class Home_Comunidades: UIViewController, MyCommunitiesMainViewProtocol, CLLocat
     
     func communitySuccess(response: CommunityMainList) {
         communities = response
-        print(communities, "****")
+        //print(communities, "****")
         DispatchQueue.main.async { [self] in
             mainComTableView.reloadData()
             favComTableView.reloadData()
@@ -147,7 +169,6 @@ class Home_Comunidades: UIViewController, MyCommunitiesMainViewProtocol, CLLocat
                 addTitleIconP.isHidden = true
                 btnTitleAdd.setTitle("Cambiar", for: .normal)
                 btnTitleAdd.isHidden = false
-                
             }
             
             if communities?.locations?.count != 0 {
@@ -184,8 +205,6 @@ class Home_Comunidades: UIViewController, MyCommunitiesMainViewProtocol, CLLocat
     }
 }
 
-
-
 extension Home_Comunidades: UITableViewDelegate, UITableViewDataSource {
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         if tableView == mainComTableView {
@@ -209,7 +228,7 @@ extension Home_Comunidades: UITableViewDelegate, UITableViewDataSource {
                 cell.cardView.ShadowCard()
                 cell.delegate = self
                 return cell
-            }else {
+            }else{
                 let cell = mainComTableView.dequeueReusableCell(withIdentifier: CommunityTableViewCell.reuseIdentifier, for: indexPath) as! CommunityTableViewCell
                 cell.subtitleLabel.text = communities?.assigned?.name
                 communitiesID = communities?.assigned?.id ?? 1
@@ -228,7 +247,7 @@ extension Home_Comunidades: UITableViewDelegate, UITableViewDataSource {
                 cell.selectionStyle = .none
                 cell.delegate = self
                 return cell
-            }else {
+            }else{
                 let cell = favComTableView.dequeueReusableCell(withIdentifier: CommunityTableViewCell.reuseIdentifier, for: indexPath) as! CommunityTableViewCell
                 if comoesFromSerach == false {
                     cell.subtitleLabel.text = communities?.locations?[indexPath.row].name

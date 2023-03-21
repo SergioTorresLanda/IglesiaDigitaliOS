@@ -169,23 +169,34 @@ public class FeedTVC: UITableViewCell, CustomPopOverDelegate {
     @IBAction private func setReaction(_ sender: UIButton) {
         print("SET REACTION")
 //        let identifier = storedData.defaultReactionId
-        let SNId = UserDefaults.standard.integer(forKey: "SNId")
-        loading.isHidden = false
-        loading.startAnimating()
-        if newPost?.reaction?.type == 1{
-            //Elimina like
-            print("Debe de eliminar el like")
-            //let stUrl = "\(APIType.shared.SN())/reactions/666"
-            newMakeDeleteResaction(reactionId: 0, userID: SNId, strUrl: "")
+        let newUser = UserDefaults.standard.bool(forKey: "isNewUser")
+        if newUser{
+            let SNId = UserDefaults.standard.integer(forKey: "SNId")
+            loading.isHidden = false
+            loading.startAnimating()
+            if newPost?.reaction?.type == 1{
+                //Elimina like
+                print("Debe de eliminar el like")
+                //let stUrl = "\(APIType.shared.SN())/reactions/666"
+                newMakeDeleteResaction(reactionId: 0, userID: SNId, strUrl: "")
+            }else{
+                print("LIKE")
+                let strUrl = "\(APIType.shared.SN())/posts/\(pistId)/react"
+                newMakeReaction(reactionId: 1, userID: SNId, strUrl: strUrl)
+            }
+                
         }else{
-            print("LIKE")
-            let strUrl = "\(APIType.shared.SN())/posts/\(pistId)/react"
-            newMakeReaction(reactionId: 1, userID: SNId, strUrl: strUrl)
+            self.delegate?.actionSelected(idx: self.btnComments.tag, typeAction: "Alert")
         }
     }
     
     @IBAction func btnActionComments(_ sender: UIButton) {
-        self.delegate?.actionSelected(idx: self.btnComments.tag, typeAction: "Comentarios")
+        let newUser = UserDefaults.standard.bool(forKey: "isNewUser")
+        if newUser{
+            self.delegate?.actionSelected(idx: self.btnComments.tag, typeAction: "Comentarios")
+        }else{
+            self.delegate?.actionSelected(idx: self.btnComments.tag, typeAction: "Alert")
+        }
     }
     
     @IBAction func btnActionCompartit(_ sender: UIButton) {

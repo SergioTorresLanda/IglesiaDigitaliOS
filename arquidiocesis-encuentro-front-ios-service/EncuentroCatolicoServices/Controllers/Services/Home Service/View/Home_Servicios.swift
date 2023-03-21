@@ -6,9 +6,11 @@
 //
 
 import UIKit
+import EncuentroCatolicoVirtualLibrary
 
 class Home_Servicios: BaseViewController,HomeServiceViewProtocol, UITableViewDelegate, UITableViewDataSource {
     
+    @IBOutlet weak var customNavBar: UIView!
     @IBAction func dissButton(_ sender: Any) {
         navigationController?.popViewController(animated: true)
         dismiss(animated: true, completion: nil)
@@ -19,16 +21,19 @@ class Home_Servicios: BaseViewController,HomeServiceViewProtocol, UITableViewDel
     let locationcomponents = UserDefaults.standard.object(forKey: "locationModuleComponents") as? [String]
     var imageDat: [UIImage?] = []
     var presenter: HomeServicePresenterProtocol?
+    let newUser = UserDefaults.standard.bool(forKey: "isNewUser")
+    var alertFields : AcceptAlert?
     
     override func viewDidLoad() {
         super.viewDidLoad()
         setImage()
-        
+        customNavBar.layer.cornerRadius = 20
+        customNavBar.layer.maskedCorners = [.layerMinXMaxYCorner, .layerMaxXMaxYCorner]
+        customNavBar.ShadowNavBar()
     }
     
     override func viewWillAppear(_ animated: Bool) {
         print("VC ECServices - HomeServiceVC ")
-
     }
     
     private func setImage() {
@@ -38,11 +43,17 @@ class Home_Servicios: BaseViewController,HomeServiceViewProtocol, UITableViewDel
             UIImage(named: "sacramentos",in: Bundle.local,compatibleWith: nil)]
     }
     
+    func showCanonAlert(title:String, msg:String){
+        alertFields = AcceptAlert.showAlert(titulo: title, mensaje: msg)
+        alertFields!.view.backgroundColor = .clear
+        self.present(alertFields!, animated: true)
+    }
 
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         titleData.count
     }
     
+    //MARK: -TableView delegates
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "ServiceCell", for: indexPath) as! ServiceTableViewCell
         cell.titleText.text = titleData[indexPath.row]
@@ -54,21 +65,27 @@ class Home_Servicios: BaseViewController,HomeServiceViewProtocol, UITableViewDel
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         
         switch profile {
-          
         case "PRIEST_ADMIN", "DEAN_PRIEST":
             switch indexPath.row {
             case 0:
-                let view = NewListIntentionsRouter.createModule()
-                self.navigationController?.pushViewController(view, animated: true)
+                if newUser {//esta logueado proceder
+                    let view = NewListIntentionsRouter.createModule()
+                    self.navigationController?.pushViewController(view, animated: true)
+                }else{
+                    showCanonAlert(title: "Atención", msg: "Regístrate o inicia sesión para solicitar una intención.")
+                }
             case 1:
-                let view = ListServiceRouter.createModule()
-                self.navigationController?.pushViewController(view, animated: true)
+                if newUser {//esta logueado proceder
+                    let view = ListServiceRouter.createModule()
+                    self.navigationController?.pushViewController(view, animated: true)
+                }else{
+                    showCanonAlert(title: "Atención", msg: "Regístrate o inicia sesión para solicitar servicios.")
+                }
             case 2:
                 let view = SacramentsRouter.createModule()
                 self.navigationController?.pushViewController(view, animated: true)
             default:
                 break
-                
             }
             
         case  "DEVOTED_ADMIN":
@@ -85,10 +102,8 @@ class Home_Servicios: BaseViewController,HomeServiceViewProtocol, UITableViewDel
                     self.navigationController?.pushViewController(view, animated: true)
                 default:
                     break
-                    
                 }
-                
-            }else {
+            }else{
                 switch indexPath.row {
                 case 0:
                     let view = IntentionsRouter.createModule()
@@ -101,18 +116,24 @@ class Home_Servicios: BaseViewController,HomeServiceViewProtocol, UITableViewDel
                     self.navigationController?.pushViewController(view, animated: true)
                 default:
                     break
-                    
                 }
             }
-            
         default:
             switch indexPath.row {
             case 0:
-                let view = IntentionsRouter.createModule()
-                self.navigationController?.pushViewController(view, animated: true)
+                if newUser{
+                    let view = IntentionsRouter.createModule()
+                    self.navigationController?.pushViewController(view, animated: true)
+                }else{
+                    showCanonAlert(title: "Atención", msg: "Regístrate o inicia sesión para solicitar una intención.")
+                }
             case 1:
-                let view = OtherServicesRouter.createModule()
-                self.navigationController?.pushViewController(view, animated: true)
+                if newUser{
+                    let view = OtherServicesRouter.createModule()
+                    self.navigationController?.pushViewController(view, animated: true)
+                }else{
+                    showCanonAlert(title: "Atención", msg: "Regístrate o inicia sesión para solicitar otros servicios.")
+                }
             case 2:
                 let view = SacramentsRouter.createModule()
                 self.navigationController?.pushViewController(view, animated: true)
@@ -120,8 +141,6 @@ class Home_Servicios: BaseViewController,HomeServiceViewProtocol, UITableViewDel
                 break
                 
             }
-        
         }
-        
     }
 }

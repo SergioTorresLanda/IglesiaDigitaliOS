@@ -16,8 +16,6 @@ class Home_SOSPrincipal: UIViewController, PrincipalViewProtocol, UIViewControll
     var titlesArray: [String] = []
     var subTitArray: [String] = []
     var idServices: [Int] = []
-//    var titlesArray = ["Unción de los enfermos", "Celebrar misa de difuntos en funeraria"]
-//    var subTitArray = ["Sacramento por el que Jesús cura, fortalece y consuela", ""]
     var indexCircle : Int?
     var stateCell = [false, false]
     var selctedCell = 100
@@ -27,11 +25,12 @@ class Home_SOSPrincipal: UIViewController, PrincipalViewProtocol, UIViewControll
     let alertLoader = UIAlertController(title: "", message: "\n \n \n \n \nCargando...", preferredStyle: .alert)
     var globalIndex = 100
     var selectedId = 0
-    
 // MARK: SEND DATA VAR -
     var direction = ""
     var serviceID = 0
     var nameService = ""
+    let newUser = UserDefaults.standard.bool(forKey: "isNewUser")
+    var alertFields : AcceptAlert?
         
 //MARK: @IBOUTLETS -
     @IBOutlet weak var contentNavBar: UIView!
@@ -45,23 +44,19 @@ class Home_SOSPrincipal: UIViewController, PrincipalViewProtocol, UIViewControll
         
 //MARK: LIFE CYCLE -
     override func viewDidLoad() {
-        
         super.viewDidLoad()
         showLoading()
         setupUI()
         presenter?.getData()
         let singleton = Home_SOSPrincipal.singleton
         singleton.isTap = false
-        
     }
     
     override func viewWillAppear(_ animated: Bool) {
         print("ECVirualLibrary - NewControllers - PrincipalSOS")
-
     }
     
-// MARK: UI FUNCTIONS -
-    
+// MARK: UI FUNCTIONS
     func showLoading(){
         let imageView = UIImageView(frame: CGRect(x: 100, y: 15, width: 80, height: 80))//mitad es en 145dp
         imageView.image = UIImage(named: "iconoIglesia3", in: Bundle.local, compatibleWith: nil)
@@ -75,9 +70,8 @@ class Home_SOSPrincipal: UIViewController, PrincipalViewProtocol, UIViewControll
         lblTitle2.adjustsFontSizeToFitWidth = true
         CustomNavBar.layer.cornerRadius = 20
         btnEmergency.layer.cornerRadius = 10
-//        mainTable.delegate = self
-//        mainTable.dataSource = self
-       
+        //mainTable.delegate = self
+        //mainTable.dataSource = self
     }
     
     func loadData(data: [PModelSOS]?) {
@@ -90,15 +84,6 @@ class Home_SOSPrincipal: UIViewController, PrincipalViewProtocol, UIViewControll
         mainTable.dataSource = self
         mainTable.reloadData()
         alertLoader.dismiss(animated: true, completion: nil)
-        
-//        let module = UncionServiceSOSRouter.createModule()
-//        let SOSId = defaults.integer(forKey: "SOSId")
-//        print("%$%", SOSId)
-//        if SOSId > 0 {
-//            DispatchQueue.main.asyncAfter(deadline: .now()) {
-//                self.navigationController?.pushViewController(module, animated: true)
-//            }
-//        }
     }
     
     func successGetLastSOS(data: LastSosModel) {
@@ -143,35 +128,34 @@ class Home_SOSPrincipal: UIViewController, PrincipalViewProtocol, UIViewControll
             }
         }
     }
-    
-
 //MARK: @IBACTIONS -
     
     @IBAction func btnEmergency(_ sender: Any) {
+        print("aqui nos quedamos")
         
-        var toContinue = false
-        
-        stateCell.forEach { (state) in
-            if state == true {
-                toContinue = true
+        if newUser{
+            var toContinue = false
+            stateCell.forEach { (state) in
+                if state == true {
+                    toContinue = true
+                }
             }
-        }
-        
-        if toContinue == true {
-            self.present(alertLoader, animated: true, completion: nil)
-            presenter?.getLastSOS(serviceID: selectedId)
-            
+            if toContinue == true {
+                self.present(alertLoader, animated: true, completion: nil)
+                presenter?.getLastSOS(serviceID: selectedId)
+            }else{
+                showCanonAlert(title: "Atención", msg: "Debes seleccionar un servicio para poder continuar.")
+            }
         }else{
-
-            let singleton = AcceptAlert.singleton
-            singleton.type = "Main"
-            let alert = AcceptAlert.showAlert(titulo: "Aviso", mensaje: "Debes seleccionar un servicio para poder continuar")
-            alert.view.backgroundColor = .clear
-            present(alert, animated: true)
+            showCanonAlert(title: "Atención", msg: "Regístrate o inicia sesión para solicitar un servicio de emergencia.")
         }
-
     }
     
+    func showCanonAlert(title:String, msg:String){
+        alertFields = AcceptAlert.showAlert(titulo: title, mensaje: msg)
+        alertFields!.view.backgroundColor = .clear
+        self.present(alertFields!, animated: true)
+    }
 }
 
 class SlideTransition: NSObject, UIViewControllerAnimatedTransitioning {

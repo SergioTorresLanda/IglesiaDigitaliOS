@@ -11,6 +11,7 @@
 import UIKit
 import RealmSwift
 import EncuentroCatolicoProfile
+import EncuentroCatolicoVirtualLibrary
 
 protocol FeedViewControllerDelegate{
     func reloadTblData()
@@ -51,6 +52,8 @@ public class Home_RedSocial: UIViewController, FeedViewProtocol, FeedViewControl
     var followsIds : [Int] = []
     let ds = DispatchGroup()
     let sm = DispatchSemaphore(value: 0)
+    let newUser = UserDefaults.standard.bool(forKey: "isNewUser")
+    var alertFields : AcceptAlert?
 
     //MARK: - Life cycle
     override public func viewDidLoad() {
@@ -93,11 +96,19 @@ public class Home_RedSocial: UIViewController, FeedViewProtocol, FeedViewControl
     }
     
     @IBAction func miRedClick(_ sender: Any) {
-        
-        self.navigationController?.pushViewController(FollowersWireFrame.createFollowersModule(user: UserBasic(id:SNId, name: name, image: "self")), animated: false)
+        if newUser{
+            self.navigationController?.pushViewController(FollowersWireFrame.createFollowersModule(user: UserBasic(id:SNId, name: name, image: "self")), animated: false)
+        }else{
+            showCanonAlert(title: "Atención", msg: "Regístrate o inicia sesión para tener un perfil en nuestra red social.")
+        }
     }
     
-
+    func showCanonAlert(title:String, msg:String){
+        alertFields = AcceptAlert.showAlert(titulo: title, mensaje: msg)
+        alertFields!.view.backgroundColor = .clear
+        self.present(alertFields!, animated: true)
+    }
+    
     //MARK: - Methods
     func setupTabBar(){
         let tabBar = self.tabBarController as? SocialNetworkController
@@ -169,17 +180,16 @@ public class Home_RedSocial: UIViewController, FeedViewProtocol, FeedViewControl
     func didFinishGettingPosts(isFromPage: Bool, posts: [Posts]) {
         if isFromPage {
             isPrefetching = false
-        } else {
+        }else{
             refreshControl.endRefreshing()
         }
         var postsFinal = [Posts]()
         for post in posts {
-          
-            if followsIds.contains(post.author?.id ?? 0) || post.author?.id==1229 || SNId == 1229 {
-                print("está en seguidores o es arqui, o soy arqui::")
+            if followsIds.contains(post.author?.id ?? 0) || post.author?.id==1229 || SNId == 1229 || post.author?.id==SNId{
+                print("está en seguidores o es arqui, o soy arqui o soy yo::")
                 print(post.author?.name ?? "x")
                 postsFinal.append(post)
-            }else{
+            } else {
                 print("Se quito publicacion de::::")
                 print(post.author?.name ?? "id:")
                 print(post.author?.id ?? "x")
@@ -237,9 +247,13 @@ public class Home_RedSocial: UIViewController, FeedViewProtocol, FeedViewControl
     }
     
     @IBAction func goToFollow(_ sender: Any) {
-        self.navigationController?.pushViewController(FollowersWireFrame.createFollowersModule(user: UserBasic(id:SNId, name: name, image: "self")), animated: true)
+        print("Click en foto")
+        if newUser{
+            self.navigationController?.pushViewController(FollowersWireFrame.createFollowersModule(user: UserBasic(id:SNId, name: name, image: "self")), animated: true)
+        }else{
+            //showCanonAlert(title: "Atención", msg: "Regístrate o inicia sesión para solicitar una intención.")
+        }
     }
-    
     
     @IBAction private func showNotifications(_ sender: UIButton) {
         let vc = NotificationsRouter.createModule()
@@ -249,18 +263,24 @@ public class Home_RedSocial: UIViewController, FeedViewProtocol, FeedViewControl
     
     @available(iOS 13.0, *)
     @IBAction func goToSearch(_ sender: Any) {
-        let view = SocialSearchRouter.createModule()
         self.view.endEditing(true)
-        self.navigationController?.pushViewController(view, animated: true)
+        if newUser{
+            let view = SocialSearchRouter.createModule()
+            self.navigationController?.pushViewController(view, animated: true)
+        }else{
+            showCanonAlert(title: "Atención", msg: "Regístrate o inicia sesión para buscar y seguir a otros usuarios.")
+        }
     }
     
-    
-    
     @IBAction func btnActionCreatePost(_ sender: UIButton) {
-        let view = RedSocial_CrearPost.showModalPost(type: "Crear")
-        view.transitioningDelegate = self
-        view.delegateTbl = self
-        self.present(view, animated: true, completion: nil)
+        if newUser{
+            let view = RedSocial_CrearPost.showModalPost(type: "Crear")
+            view.transitioningDelegate = self
+            view.delegateTbl = self
+            self.present(view, animated: true, completion: nil)
+        }else{
+            showCanonAlert(title: "Atención", msg: "Regístrate o inicia sesión para publicar en nuestra red social.")
+        }
     }
     
     func reloadTblData() {

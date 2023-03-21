@@ -83,7 +83,6 @@ extension Home_RedSocial: UITableViewDataSource {
 //            let stImgReation = newPosts[indexPath.row].totalReactions ?? 0 > 0 ? "iconOracion" : "iconOracion2"
             let stImgReation = newPosts[indexPath.row].reaction?.type == 1 ? "iconOracion2" : "iconOracion"
             cell.newreactionImage.image = UIImage(named: stImgReation, in: Bundle.local, compatibleWith: nil)
-            
             if (newPosts[indexPath.row].multimedia?.count ?? 0 > 0){
                 cell.collectionViewHeight.constant = 220
             }else{
@@ -225,15 +224,14 @@ extension Home_RedSocial: FeedTVCProtocol {
             self.navigationController?.pushViewController(vc, animated: true)
         case "Seguir":
             self.navigationController?.pushViewController(FollowersWireFrame.createFollowersModule(user: UserBasic(id:SNId, name: name, image: "self")), animated: true)
-            
+        case "Alert":
+            self.showCanonAlert(title: "Atención", msg: "Regístrate o inicia sesión para interactuar con el contenido de la red social.")
         default:
             break
         }
     }
     
     public func showDetailPost(id: Int) {
-        //guard let post = RealmManager.fetchDataForPK(object: PublicationRealm.self, id: id) else { return }
-        //presenter?.showPostDetail(navController: self.navigationController, post: post)
         print("Holaaaaa--------2")
         let post = newPosts[id]
         let storyBoard: UIStoryboard = UIStoryboard(name: "RedSocialSB", bundle: Bundle.local)

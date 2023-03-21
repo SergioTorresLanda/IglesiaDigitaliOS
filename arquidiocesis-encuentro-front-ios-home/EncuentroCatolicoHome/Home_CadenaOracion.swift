@@ -8,6 +8,7 @@
 import UIKit
 import RealmSwift
 import AlamofireImage
+import EncuentroCatolicoVirtualLibrary
 
 class Home_CadenaOracion: UIViewController {
     @IBOutlet weak var collection: UICollectionView!
@@ -29,6 +30,7 @@ class Home_CadenaOracion: UIViewController {
     let transition = SlideTransition()
     let imageURLDeafult = URL(string: "")
     var statePray: [Bool] = []
+    var alertFields : AcceptAlert?
     
     static let singleton = Home_CadenaOracion()
     
@@ -279,13 +281,16 @@ class Home_CadenaOracion: UIViewController {
     }
     
     @objc func prayAction(sender: UIButton) {
+        print("PRAY actION :::")
         print(sender.tag)
     }
     
     @objc func reactToPromise(sender: UIButton) {
         print(":::TAGG:::")
         print(sender.tag)
-        
+        let newUser = UserDefaults.standard.bool(forKey: "isNewUser")
+        if newUser {//esta logueado proceder
+          
         let index0 = Int(sender.accessibilityLabel ?? "0")
         let index = index0!
         //let index = indexNeg!+1
@@ -295,13 +300,11 @@ class Home_CadenaOracion: UIViewController {
         print(":::state count:::")
         print(statePray.count)
         print(":::new taggg:::")
-        //let newtag = String(693-index)
         /*if statePray[index] == false {
             statePray[index] = true
         }else{
             statePray[index] = false
         }*/
-        //print(sender.title(for: .normal) ?? "SIN TITULO")
         let cell = self.collection.cellForItem(at: [0,Int(sender.accessibilityHint ?? "1")!]) as! prayerCell
         cell.loading.isHidden = false
         cell.loading.startAnimating()
@@ -314,8 +317,6 @@ class Home_CadenaOracion: UIViewController {
         
         let id = self.dbPrayers[index].id
         let item = self.realm.objects(prayerChainModel.self).filter("id = %@", id).first!
-        
-//        let endpoint: URL = URL(string: "https://api-develop.arquidiocesis.mx/prayers/\(sender.tag)/reaction")!
         let endpoint: URL = URL(string: "\(APIType.shared.User())/prayers/\(sender.tag)/reaction")!
       
         DispatchQueue.main.asyncAfter(deadline: .now() + 5, execute: {
@@ -340,9 +341,6 @@ class Home_CadenaOracion: UIViewController {
         let tksession = UserDefaults.standard.string(forKey: "idToken")
         request.setValue("Bearer \( tksession ?? "")", forHTTPHeaderField: "Authorization")
         let tarea = URLSession.shared.dataTask(with: request) { data, response, error in
-            //print("->>  data: ", data)
-            //print("->>  response: ", response)
-            //print("->>  error: ", error)
 
             if error != nil {
                 print("Error")
@@ -405,7 +403,11 @@ class Home_CadenaOracion: UIViewController {
              
             }
         }
-        tarea.resume()
+            tarea.resume()
+            
+        }else{
+            showCanonAlert(title: "Atención", msg: "Regístrate o inicia sesión para interactuar con el contenido.")
+        }
     }
     
     @IBAction func close(_ sender: Any){
@@ -413,9 +415,21 @@ class Home_CadenaOracion: UIViewController {
     }
     
     @IBAction func createPrayAction(_ sender: Any) {
-        let view = ModalPrayController.showModal(type: "ADD", personList: persons)
-        view.transitioningDelegate = self
-        self.present(view, animated: true, completion: nil)
+        let newUser = UserDefaults.standard.bool(forKey: "isNewUser")
+        if newUser {//esta logueado proceder
+            let view = ModalPrayController.showModal(type: "ADD", personList: persons)
+            view.transitioningDelegate = self
+            self.present(view, animated: true, completion: nil)
+        }else{
+            showCanonAlert(title: "Atención", msg: "Regístrate o inicia sesión para crear una oración.")
+        }
+    
+    }
+    
+    func showCanonAlert(title:String, msg:String){
+        alertFields = AcceptAlert.showAlert(titulo: title, mensaje: msg)
+        alertFields!.view.backgroundColor = .clear
+        self.present(alertFields!, animated: true)
     }
     
 }

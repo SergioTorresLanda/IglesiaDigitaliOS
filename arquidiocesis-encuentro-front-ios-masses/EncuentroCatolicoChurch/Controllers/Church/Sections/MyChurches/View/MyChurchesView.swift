@@ -11,26 +11,21 @@ import UIKit
 import AlamofireImage
 import MapKit
 import SkeletonView
+import EncuentroCatolicoVirtualLibrary
 
 class Home_MiIglesia: BaseViewController {
+
+    //MARK: - IBOutlets
+    @IBOutlet weak var otherChurchesCollectionView: UICollectionView!
+    @IBOutlet weak var btnReturn: UIButton!
+    @IBOutlet weak var customNavBar: UIView!
+    
+
     public typealias SkeletonLayerAnimation = (CALayer) -> CAAnimation
     weak var delegateUtils: UtilsDetailsChurchButtonDelegate!
     var presenter: MyChurchesPresenterProtocol?
     var locationManager = CLLocationManager()
     let cell = MyChurchCollectionViewCell()
-    //MARK: - IBOutlets
-    ///Main church
-    //    @IBOutlet weak var mainChurchImage: UIImageView!
-    //    @IBOutlet weak var mainChurchName: UILabel!
-    //    @IBOutlet weak var mainChurchButton: UIButton!
-    ///Favourites
-    @IBOutlet weak var otherChurchesCollectionView: UICollectionView!
-    //@IBOutlet weak var fabAddChurchButton: UIButton!
-    
-    @IBOutlet weak var btnReturn: UIButton!
-    //    @IBOutlet weak var lblTitle: UILabel!
-    //
-    //    @IBOutlet weak var lblChurchFavorite: UILabel!
     let isPrayer = UserDefaults.standard.bool(forKey: "isPriest")
     let userRole = UserDefaults.standard.string(forKey: "role")
     var utilsChourcid = Int()
@@ -38,7 +33,10 @@ class Home_MiIglesia: BaseViewController {
     var currentUser: Int?
     var locations: [Assigned] = []
     var comesFromSearch: Bool = false
+    var alertFields : AcceptAlert?
     let loadingAlert = UIAlertController(title: "", message: "\n \n \n \n \nCargando...", preferredStyle: .alert)
+    let newUser = UserDefaults.standard.bool(forKey: "isNewUser")
+    
     lazy var searchBarF: UISearchBar = {
         let searchBar:UISearchBar = UISearchBar(frame: CGRect(x: 10, y: 108, width: self.view.frame.width-20, height: self.view.frame.height-20))
         searchBar.searchBarStyle = UISearchBar.Style.prominent
@@ -86,10 +84,14 @@ class Home_MiIglesia: BaseViewController {
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         print("VC ECChurch - MyChurches - MyChurchesView ")
-        let idPriest =  UserDefaults.standard.integer(forKey: "id")
-        print(idPriest)
-        currentUser = idPriest
-        presenter?.getChurches(with: currentUser ?? 0)
+        let newUser = UserDefaults.standard.bool(forKey: "isNewUser")
+        if newUser {//esta logueado proceder
+            let idPriest =  UserDefaults.standard.integer(forKey: "id")
+            print(idPriest)
+            currentUser = idPriest
+            presenter?.getChurches(with: currentUser ?? 0)
+        }
+      
     }
     
     //MARK: - View controls,
@@ -109,6 +111,9 @@ class Home_MiIglesia: BaseViewController {
         otherChurchesCollectionView.delegate = self
         otherChurchesCollectionView.dataSource = self
         searchBarF.setImage(UIImage(), for: .clear, state: .normal)
+        customNavBar.layer.cornerRadius = 20
+        customNavBar.layer.maskedCorners = [.layerMinXMaxYCorner, .layerMaxXMaxYCorner]
+        customNavBar.ShadowNavBar()
     }
     
     private func addSearchBar() {
@@ -138,27 +143,50 @@ class Home_MiIglesia: BaseViewController {
     
     @objc func addActionPrin() {
         print("Tap en el btn del collectionview principal")
-        presenter?.goToChourchMap(id: 1, selector: 0)
+        if newUser {//esta logueado proceder
+            presenter?.goToChourchMap(id: 1, selector: 0)
+        }else{
+            showCanonAlert(title: "Atención", msg: "Regístrate o inicia sesión para agregar una iglesia principal.")
+        }
+        
     }
     
     @objc func addActionFav() {
         print("Tap en el btn del collectionview favoritos")
-        presenter?.goToChourchMap(id: 1, selector: 1)
+        if newUser {//esta logueado proceder
+            presenter?.goToChourchMap(id: 1, selector: 1)
+        }else{
+            showCanonAlert(title: "Atención", msg: "Regístrate o inicia sesión para agregar una iglesia favorita.")
+        }
     }
     
     @objc private func hideKeyBoard() {
         view.endEditing(true)
+    }
+    
+    func showCanonAlert(title:String, msg:String){
+        alertFields = AcceptAlert.showAlert(titulo: title, mensaje: msg)
+        alertFields!.view.backgroundColor = .clear
+        self.present(alertFields!, animated: true)
     }
 }
 
 //MARK: - Collection view delegates
 extension Home_MiIglesia: UICollectionViewDelegate, UICollectionViewDataSource, UICollectionViewDelegateFlowLayout, AddChourchButtonDelegate, ChangeChourchButtonDelegate {
     func didPressChangeButton(_ tag: Int) {
-        presenter?.goToChourchMap(id: tag, selector: 0)
+        if newUser {//esta logueado proceder
+            presenter?.goToChourchMap(id: tag, selector: 0)
+        }else{
+            showCanonAlert(title: "Atención", msg: "Regístrate o inicia sesión para cambiar tu iglesia principal.")
+        }
     }
     
     func didPressAddButton(_ tag: Int) {
-        presenter?.goToChourchMap(id: tag, selector: 1)
+        if newUser {//esta logueado proceder
+            presenter?.goToChourchMap(id: tag, selector: 1)
+        }else{
+            showCanonAlert(title: "Atención", msg: "Regístrate o inicia sesión para agregar una iglesia favorita.")
+        }
     }
     
     func collectionView(_ collectionView: UICollectionView, viewForSupplementaryElementOfKind kind: String, at indexPath: IndexPath) -> UICollectionReusableView {
@@ -401,7 +429,16 @@ extension Home_MiIglesia: MyChurchesViewProtocol {
         DispatchQueue.main.async {
             [weak self] in
             self?.reloadContent()
-
+//            self!.hideLoading()
+        }
+    }
+    
+    func showEmpty() {
+        //self.priestChurches = []
+        self.locations.removeAll()
+        DispatchQueue.main.async {
+            [weak self] in
+            self?.reloadContent()
 //            self!.hideLoading()
         }
     }
@@ -412,14 +449,15 @@ extension Home_MiIglesia: UISearchBarDelegate {
     
     @objc func seachEvent(){
         if (searchBarF.text?.isEmpty ?? true) == false {
-//            self.showLoading()
             self.presenter?.searchBarChurch(name: searchBarF.text ?? "")
         }else{
-//            self.showLoading()
-            presenter?.getChurches(with: self.currentUser ?? 0)
+            if newUser {//esta logueado proceder
+                presenter?.getChurches(with: self.currentUser ?? 0)
+            }else{
+                showEmpty()
+            }
         }
     }
-    
     
     func searchBar(_ searchBar: UISearchBar, textDidChange textSearched: String) {
         NSObject.cancelPreviousPerformRequests(withTarget: self, selector: #selector(self.seachEvent), object: nil)
@@ -429,7 +467,11 @@ extension Home_MiIglesia: UISearchBarDelegate {
     func searchBarCancelButtonClicked(_ searchBar: UISearchBar) {
         searchBar.resignFirstResponder()
         searchBar.text = ""
-        self.presenter?.getChurches(with: currentUser ?? 1)
+        if newUser {//esta logueado proceder
+            self.presenter?.getChurches(with: currentUser ?? 1)
+        }else{
+            showEmpty()
+        }
 //        self.hideLoading()
     }
     func searchBarSearchButtonClicked(_ searchBar: UISearchBar) {
