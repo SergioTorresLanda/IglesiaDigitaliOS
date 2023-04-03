@@ -8,7 +8,7 @@
 
 import Foundation
 
-protocol MyChurchesViewProtocol: class {
+protocol MyChurchesViewProtocol: AnyObject {
     var presenter: MyChurchesPresenterProtocol? { get set }
     /**
     * Add here your methods for communication PRESENTER -> VIEW
@@ -18,7 +18,7 @@ protocol MyChurchesViewProtocol: class {
     func showSearchBarResponse(result: [Assigned])
 }
 
-protocol MyChurchesWireFrameProtocol: class {
+protocol MyChurchesWireFrameProtocol: AnyObject {
     static func presentMyChurchesModule(fromView vc: AnyObject)
     /**
     * Add here your methods for communication PRESENTER -> WIREFRAME
@@ -27,7 +27,7 @@ protocol MyChurchesWireFrameProtocol: class {
     func pushChurchMap(id: Int, from contoller: AnyObject, selector: Int)
 }
 
-protocol MyChurchesPresenterProtocol: class {
+protocol MyChurchesPresenterProtocol: AnyObject {
     var view: MyChurchesViewProtocol? { get set }
     var interactor: MyChurchesInteractorInputProtocol? { get set }
     var wireFrame: MyChurchesWireFrameProtocol? { get set }
@@ -41,7 +41,7 @@ protocol MyChurchesPresenterProtocol: class {
     func isError(error: String)
 }
 
-protocol MyChurchesInteractorOutputProtocol: class {
+protocol MyChurchesInteractorOutputProtocol: AnyObject {
     /**
     * Add here your methods for communication INTERACTOR -> PRESENTER
     */
@@ -50,7 +50,7 @@ protocol MyChurchesInteractorOutputProtocol: class {
     func isError(msg: String)
 }
 
-protocol MyChurchesInteractorInputProtocol: class
+protocol MyChurchesInteractorInputProtocol: AnyObject
 {
     var presenter: MyChurchesInteractorOutputProtocol? { get set }
     /**

@@ -94,14 +94,14 @@ class Home_SOSPrincipal: UIViewController, PrincipalViewProtocol, UIViewControll
         switch data.status {
         case "CANCELLED", "SUCCESSFULLY", "UNSUCCESSFULLY", "COMPLETED":
             print("CAse 1")
-            print(data.status)
+            //print(data.status)
             let module = UncionMapRouter.createModuleMap()
             DispatchQueue.main.asyncAfter(deadline: .now() + 0.3) {
                 self.navigationController?.pushViewController(module, animated: true)
             }
         default:
             print("CAse 2")
-            print(data.status)
+            //print(data.status)
             let singleton = UncionSOSView.singleton
             singleton.newServiceID = data.service_id ?? 0
             let module = UncionServiceSOSRouter.createModule()

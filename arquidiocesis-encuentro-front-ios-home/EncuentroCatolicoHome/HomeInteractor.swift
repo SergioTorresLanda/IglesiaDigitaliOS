@@ -17,30 +17,32 @@ class HomeInteractor: HomeInteractorProtocol {
     let  tksession = UserDefaults.standard.string(forKey: "idToken") ?? ""
     
     func cargarDatosPersona() {
+        print("Llego a XXX200")
         guard let endpoint: URL = URL(string: "\(APIType.shared.Auth())/user/info") else {
             print("Error formando url")
             self.presenter?.obtieneRespuetaUsuario(errores: ErroresServidorHome.ErrorInterno, user: nil)
             return
         }
-        
+        print("Llego a XXX20")
         var request = URLRequest(url: endpoint)
 //        request.setValue("application/json", forHTTPHeaderField: "Content-Type")
         request.setValue("Bearer \(tksession)", forHTTPHeaderField: "Authorization")
         request.httpMethod = "POST"
         
         guard let cuerpo: Data = try? JSONEncoder().encode(cargarInfoUserDefault()) else {
+            print("Error XXX21")
             self.presenter?.obtieneRespuetaUsuario(errores: ErroresServidorHome.ErrorInterno, user: nil)
             return
         }
-        
         request.httpBody = cuerpo
+        request.timeoutInterval = 60
         
         let tarea = URLSession.shared.dataTask(with: request) { data, response, error in
-            
             //print("->  respuesta Status Code: ", response as Any)
             //print("->  error: ", error as Any)
-
             if error != nil {
+                print("Error XXX22::")
+                print(error.debugDescription)
                 return
             }
             print("TS 1::")
@@ -95,13 +97,13 @@ class HomeInteractor: HomeInteractorProtocol {
         print("TS 2::")
         //print(tksession)
         let tarea = URLSession.shared.dataTask(with: request) { data, response, error in
-            guard let model = data else {
+            guard data != nil else {
                 return
             }
             //let responseServer = try! JSONSerialization.jsonObject(with: model, options: []) as? NSDictionary
             //print("->  responseServer: ", responseServer as Any)
             if error != nil {
-                print("Hubo un error")
+                print("Hubo un error 059")
                 return
             }
             
@@ -137,21 +139,33 @@ class HomeInteractor: HomeInteractorProtocol {
             guard let datamodel = data else{
                 return
             }
-            do{
+         
                 if(type=="SAINT"){
                     print("ENDPOINT SAINT::")
                     print()
-                    let cR = try JSONDecoder().decode([HomePosts].self, from: datamodel)
-                    self.presenter?.trasportResponseHome(response: (response as! HTTPURLResponse), data: cR)
+                    do{
+                        let cR = try JSONDecoder().decode([HomePosts].self, from: datamodel)
+                        self.presenter?.trasportResponseHome(response: (response as! HTTPURLResponse), data: cR)
+                    }catch{
+                        self.presenter?.onFailCarrusel(type: "SAINT")
+                        print("Download new home data error", error.localizedDescription, error)
+                        APIType.shared.refreshToken()
+                    }
                 }else{
-                    print("ENDPOINT POSTS")
-                    let cR = try JSONDecoder().decode([HomePosts].self, from: datamodel)
-                    self.presenter?.transportResponsePosts(response: (response as! HTTPURLResponse), data: cR)
+                    print("ENDPOINT POSTS::")
+                    let responseData = String(data: data!, encoding: String.Encoding.utf8)
+                    print(responseData!)
+                    print(apiURL.absoluteString)
+                    do{
+                        let cR = try JSONDecoder().decode([HomePosts].self, from: datamodel)
+                        self.presenter?.transportResponsePosts(response: (response as! HTTPURLResponse), data: cR)
+                    }catch{
+                        self.presenter?.onFailCarrusel(type: "POST")
+                        print("Download new home data error", error.localizedDescription, error)
+                        APIType.shared.refreshToken()
+                    }
                 }
-            }catch{
-                print("Download new home data error", error.localizedDescription, error)
-                APIType.shared.refreshToken()
-            }
+         
         }
         work.resume()
     }
@@ -179,6 +193,7 @@ class HomeInteractor: HomeInteractorProtocol {
                 self.presenter?.transportResponseSuggestions(response: (response as! HTTPURLResponse), data: contentResponse)
                 
             }catch{
+                self.presenter?.onFailCarrusel(type: "SUGG")
                 print("Download new home suggestions error", error.localizedDescription, error)
                 APIType.shared.refreshToken()
             }
@@ -195,14 +210,15 @@ class HomeInteractor: HomeInteractorProtocol {
         request.setValue("Bearer \( tksession )", forHTTPHeaderField: "Authorization")
 //        request.setValue("application/json", forHTTPHeaderField: "Content-Type")
         request.httpMethod = "GET"
+        request.timeoutInterval = 40
         
         let tarea = URLSession.shared.dataTask(with: request) { data, response, error in
-            
             //print("->  respuesta Status Code: ", response as Any)
             //print("->  error: ", error as Any)
-
             if error != nil {
-                print("Hubo un error")
+                print("Hubo un error 058:;")
+                print(error.debugDescription)
+                print(error!.localizedDescription)
                 return
             }
             

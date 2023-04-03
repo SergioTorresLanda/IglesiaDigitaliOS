@@ -27,10 +27,10 @@ public extension ResponseDispatcher {
                         let jsonData: Data = responseData
                         let jsonDict = try JSONSerialization.jsonObject(with: jsonData) as? NSDictionary
                         
-                        if let message = jsonDict?["error"]  {
-                            onError(ErrorManager.errorServicio,"Error en webs service")
+                        if (jsonDict?["error"]) != nil  {
+                            onError(ErrorManager.errorServicio,"Error en webs service: ")
                         }
-                        if let error = jsonDict?["message"] {
+                        if (jsonDict?["message"]) != nil {
                             onError(ErrorManager.errorServicio,"Error en webs service")
                         }
                         

@@ -25,7 +25,7 @@ class PrincipalInteractorSOS: PrincipalInteractorProtocol {
             //print("->>  response: ", response)
             //print("->>  error: ", error)
             if error != nil {
-                print("Hubo un error")
+                print("Hubo un error 011")
                 return
             }
             
@@ -78,7 +78,7 @@ class PrincipalInteractorSOS: PrincipalInteractorProtocol {
             //print("->>  response: ", response)
             //print("->>  error: ", error)
             if error != nil {
-                print("Hubo un error")
+                print("Hubo un error 010")
                 return
             }
             do {

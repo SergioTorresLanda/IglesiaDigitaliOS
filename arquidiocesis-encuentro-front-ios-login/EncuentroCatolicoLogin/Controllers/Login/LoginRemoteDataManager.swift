@@ -41,7 +41,6 @@ class LoginRemoteDataManager:LoginRemoteDataManagerInputProtocol {
             let outputStr  = String(data: allData, encoding: String.Encoding.utf8) as String?
             print("-->✅  LOGIN Response ->  ", outputStr as Any)
             
-            
             if error != nil {
                 self.remoteRequestHandler?.callbackResponse(respuesta: nil, error: ErroresServidorLogin.ErrorServidor, user: user)
                 return
@@ -66,6 +65,7 @@ class LoginRemoteDataManager:LoginRemoteDataManagerInputProtocol {
                 defaults.setValue(resp.UserAttributes.name, forKey: "OnlyName")
                 defaults.setValue(resp.UserAttributes.phone_number, forKey: "telefono")
                 defaults.setValue(resp.UserAttributes.email, forKey: "email")
+                defaults.setValue(resp.UserAttributes.email, forKey: "emailForBiometric")
                 defaults.setValue(resp.UserAttributes.role, forKey: "role")
                 defaults.setValue(resp.UserAttributes.profile, forKey: "profile")
                 
@@ -86,7 +86,7 @@ class LoginRemoteDataManager:LoginRemoteDataManagerInputProtocol {
                     //print("->  respuesta Status Code: ", response as Any)
                     //print("->  error: ", error as Any)
                     if error != nil {
-                        print("Hubo un error")
+                        print("Hubo un error 051")
                         return
                     }
                     

@@ -31,7 +31,7 @@ public class APIType {
         return API
         
     }
-    
+  
     func User()-> String{
         
         if staged == "Qa" {//https://o01wjuhwec.execute-api.us-east-1.amazonaws.com/qa/prayers

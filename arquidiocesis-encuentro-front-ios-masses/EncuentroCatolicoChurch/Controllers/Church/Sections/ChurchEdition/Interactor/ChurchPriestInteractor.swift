@@ -54,7 +54,7 @@ class ChurchPriestInteractor: ChurchPriestInteractorInputProtocol {
         let dispatchqueque = OperationQueue()
         dispatchqueque.qualityOfService = .background
         
-        let operationDetail = BlockOperation()
+        //let operationDetail = BlockOperation()
         let operationHours = BlockOperation()
         let operationServicesCatalog = BlockOperation()
         let operationMassesCatalog = BlockOperation()

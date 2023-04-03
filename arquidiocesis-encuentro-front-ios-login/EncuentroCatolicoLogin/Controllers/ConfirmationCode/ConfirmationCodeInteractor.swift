@@ -31,7 +31,7 @@ class ConfirmationCodeInteractor: ConfirmationCodeInteractorProtocol {
             //print("->  error: ", error as Any)
 
             if error != nil {
-                print("Hubo un error")
+                print("Hubo un error 055")
                 return
             }
             
@@ -79,7 +79,7 @@ class ConfirmationCodeInteractor: ConfirmationCodeInteractorProtocol {
             //print("->  error: ", error as Any)
 
             if error != nil {
-                print("Hubo un error")
+                print("Hubo un error 054")
                 return
             }
             

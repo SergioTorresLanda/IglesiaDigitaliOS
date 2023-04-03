@@ -43,7 +43,7 @@ class InteractorAdminModules: ProtocolosAdminModulesInteractorInput {
             //print("->  error: ", error as Any)
 
             if error != nil {
-                print("Hubo un error")
+                print("Hubo un error 039")
                 return
             }
             
@@ -91,7 +91,7 @@ class InteractorAdminModules: ProtocolosAdminModulesInteractorInput {
             //print("->  respuesta Status Code: ", response as Any)
             //print("->  error: ", error as Any)
             if error != nil {
-                print("Hubo un error")
+                print("Hubo un error 038")
                 return
             }
             

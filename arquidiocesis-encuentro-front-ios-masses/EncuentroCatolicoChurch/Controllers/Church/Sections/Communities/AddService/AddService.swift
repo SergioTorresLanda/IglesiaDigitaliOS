@@ -109,8 +109,11 @@ class AddService: UIView, UITextFieldDelegate {
     func showAllertChurch(data: ServiceCatalogModel) {
         UIApplication.shared.keyWindow?.addSubview(parentView)
         serviceCatalog = data
+        print("serviceCatalog es:")
+        print(serviceCatalog)
         setupServicePicker()
     }
+    
     func setupServicePicker() {
         let toolBar = UIToolbar()
         toolBar.barStyle = UIBarStyle.default
@@ -123,12 +126,15 @@ class AddService: UIView, UITextFieldDelegate {
         nameServiceTextField.inputAccessoryView = toolBar
         nameServiceTextField.inputView = pickerView
         pickerView.delegate = self
+        pickerView.dataSource=self
     }
+    
     @objc func doneClick() {
         timeTextField.resignFirstResponder()
         daysTextField.resignFirstResponder()
         nameServiceTextField.resignFirstResponder()
     }
+    
     func textFieldDidEndEditing(_ textField: UITextField) {
         if textField == daysTextField {
             let dyasString = daysTextField.text
@@ -180,20 +186,23 @@ class AddService: UIView, UITextFieldDelegate {
             self.descriptionTextField.resignFirstResponder()
         }
     }
+    
     @objc func keyboardWillShow(notification: NSNotification) {
-        if let keyboardSize = (notification.userInfo?[UIResponder.keyboardFrameEndUserInfoKey] as? NSValue)?.cgRectValue {
+        //if let keyboardSize = (notification.userInfo?[UIResponder.keyboardFrameEndUserInfoKey] as? NSValue)?.cgRectValue {
             if keyboardShown == false {
-                self.parentView.frame.origin.y -= keyboardSize.height
+                self.parentView.frame.origin.y -= 100
+                //self.parentView.frame.origin.y -= keyboardSize.height
                 keyboardShown = true
             }
-        }
+        //}
     }
     
     @objc func keyboardWillHide(notification: NSNotification) {
         if self.parentView.frame.origin.y != 0 {
             if let keyboardSize = (notification.userInfo?[UIResponder.keyboardFrameEndUserInfoKey] as? NSValue)?.cgRectValue {
                 if keyboardShown == true {
-                    self.parentView.frame.origin.y += keyboardSize.height
+                    //self.parentView.frame.origin.y += keyboardSize.height
+                    self.parentView.frame.origin.y += 100
                     keyboardShown = false
                 }
             }

@@ -161,7 +161,7 @@ public struct StorageService {
                 guard let allData = data else { return }
               
                 if error != nil {
-                    print("Hubo un error")
+                    print("Hubo un error 040")
                     completation(nil, nil)
                     return
                 }

@@ -70,28 +70,19 @@ class ServiceCollectionViewCell: UICollectionViewCell {
     //MARK: - Local variables
     weak var delegate: ServiceCellDelegate?
     weak var controller: UIViewController? = UIApplication.topViewController()
-    
+    let arrWeek:[String]=["Domingo","Lunes","Martes","Miércoles","Jueves","Viernes","Sábado"]
     //MARK: Init
    // func fill(with mass: ChurchDetail, index: Int) {
-    func fill(with mass: Array<Array<NewMassesData>>, index: Int) {
+    func fill(with mass: NewMassesData, index: Int) {
         self.cardView.layer.cornerRadius = 10
         self.cardView.ShadowCard()
-        
-        print(mass[index].first?.daysStr ?? "")
-        serviceNameLabel.text = mass[index].first?.daysStr
+        print(mass.daysStr ?? "0")
+        serviceNameLabel.text = arrWeek[Int(mass.daysStr!) ?? 0]
         availableHoursLabel.numberOfLines = 0
-        
-        var hours = [String]()
-        mass[index].forEach { item in
-            hours.append(item.hour)
-        }
-        let sortedHour = hours.sorted()
-        availableHoursLabel.text = sortedHour.joined(separator: ", ")
+        availableHoursLabel.text = mass.hour
         availableHoursLabel.adjustsFontSizeToFitWidth = true
         deleteBtn.setTitle("", for: .normal)
-        print(mass[index])
-        print()
-
+        deleteBtn.isHidden=true
     }
     
     func fillService(with service: ChurchDetail, index: Int) {
@@ -111,7 +102,7 @@ class ServiceCollectionViewCell: UICollectionViewCell {
 //            })
 //        }
         
-        let serviceName = "Servicios"
+        //let serviceName = "Servicios"
 //        self.serviceIconImage.image = UIImage(named: "encuentro-icon")
 //        self.serviceIconImage.tintColor = .eDarkGold
         
@@ -134,7 +125,7 @@ class ServiceCollectionViewCell: UICollectionViewCell {
         }
         
         let horaS = service.services?[index].schedules?.first?.hour_start//service.services?.first?.schedules?.first?.hour_start
-        let horaE = service.services?.first?.schedules?.first?.hour_end
+        //let horaE = service.services?.first?.schedules?.first?.hour_end
         serviceNameLabel.text = service.services?[index].type?.name ?? ""
         availableHoursLabel.text = "\(horaS ?? "") hrs."
         deleteBtn.setTitle("", for: .normal)
@@ -158,7 +149,7 @@ class ServiceCollectionViewCell: UICollectionViewCell {
 }
 
 //MARK: Protocol delegate
-protocol ServiceCellDelegate: class {
+protocol ServiceCellDelegate: AnyObject {
     func editHours(collectionView: UICollectionView, at indexPath: IndexPath, hours: String)
     func editDays(collectionView: UICollectionView, at indexPath: IndexPath, days: String)
     func delete(collectionView: UICollectionView, at indexPath: IndexPath)

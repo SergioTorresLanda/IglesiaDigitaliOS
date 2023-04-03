@@ -20,6 +20,72 @@ struct NewMassesData {
 }
 
 class MiIglesia_InfoIglesia: BaseViewController {
+
+    //MARK: - IBOutlets
+    @IBOutlet weak var btnRealPhone: UIButton!
+    @IBOutlet weak var socialTableView: UITableView!
+    @IBOutlet weak var addSocialButton: UIButton!
+    @IBOutlet weak var addMassesButton: UIButton!
+    @IBOutlet weak var addServicesButton: UIButton!
+    @IBOutlet weak var btnRealMail: UIButton!
+    @IBOutlet var imgFav: UIImageView!
+  
+    @IBOutlet weak var churchHeaderImage: UIImageView!
+    @IBOutlet weak var churchNameLabel: UILabel!
+    @IBOutlet weak var churchSubtitleLabel: UILabel!
+    @IBOutlet weak var churchAddressLabel: UILabel!
+    @IBOutlet weak var churchResponsibleLabel: UILabel!
+    @IBOutlet weak var churchScheduleLabel: UILabel!
+    @IBOutlet weak var churchOfficeScheduleLabel: UILabel!
+    @IBOutlet weak var massCollectionView: UICollectionView!
+    @IBOutlet weak var churchMassContainer: UIView!
+    
+    @IBOutlet weak var servicesCollectionView: UICollectionView!
+    @IBOutlet weak var churchServicesContainer: UIView!
+    
+    @IBOutlet weak var btnPhoneNumber: UIButton!
+    @IBOutlet weak var btnMailInfo: UIButton!
+    @IBOutlet weak var lblPhoneNumber: UILabel!
+    @IBOutlet weak var lblEmail: UILabel!
+    @IBOutlet weak var stackLblMail: UIStackView!
+    @IBOutlet weak var stackLblPhone: UIStackView!
+    @IBOutlet weak var firstCardStack: UIStackView!
+    @IBOutlet weak var stkPhone: UIStackView!
+    @IBOutlet weak var stkMail: UIStackView!
+    @IBOutlet weak var contentCardView: UIView!
+    @IBOutlet weak var subContentCard: UIView!
+    @IBOutlet weak var btnGoComments: UIButton!
+    @IBOutlet weak var btnEdit: UIButton!
+    @IBOutlet weak var btnCancel: UIButton!
+    @IBOutlet weak var btnSave: UIButton!
+    @IBOutlet weak var stkButtonSave: UIStackView!
+    @IBOutlet weak var newChurchMassCollection: UICollectionView!
+    @IBOutlet weak var socialContainer: UIView!
+    @IBOutlet weak var contentNavBar: UIView!
+    @IBOutlet weak var customNavBar: UIView!
+    @IBOutlet weak var lblTitleNavBar: UILabel!
+    @IBOutlet weak var backIcon: UIImageView!
+    // COMMENTS SECTION
+    @IBOutlet weak var commentsCard: UIView!
+    @IBOutlet weak var lblSectionComments: UILabel!
+    @IBOutlet weak var star1: UIImageView!
+    @IBOutlet weak var star2: UIImageView!
+    @IBOutlet weak var star3: UIImageView!
+    @IBOutlet weak var star4: UIImageView!
+    @IBOutlet weak var star5: UIImageView!
+    @IBOutlet weak var lblNmberComments: UILabel!
+    @IBOutlet weak var commentsTable: UITableView!
+    @IBOutlet weak var socialShadowCard: UIView!
+    @IBOutlet weak var btnPrincipal: UIButton!
+    @IBOutlet weak var hComments: NSLayoutConstraint!
+    @IBOutlet weak var hServices: NSLayoutConstraint!
+    
+    @IBOutlet weak var hMasses: NSLayoutConstraint!
+    @IBOutlet weak var hSocial: NSLayoutConstraint!
+    @IBOutlet weak var lblRedesSociales: UILabel!
+    @IBOutlet weak var hSocialS: NSLayoutConstraint!
+    @IBOutlet weak var progress: UIActivityIndicatorView!
+    
     var alertFields : AcceptAlert?
     var presenter: ChurchDetailPresenterProtocol?
     var showTutorial = true
@@ -73,7 +139,6 @@ class MiIglesia_InfoIglesia: BaseViewController {
     var commentList: [CommentsList] = []
     
     var churcuPrincipalId: Int?
-    var socialData = [String?]()
     var social: [String] = []
     var socialIdentifier: [String] = []
     let facebookIcon = UIImage(named: "facebookIcon", in: Bundle.local, compatibleWith: nil)
@@ -93,71 +158,7 @@ class MiIglesia_InfoIglesia: BaseViewController {
     let defaults = UserDefaults.standard
     let loadingAlert = UIAlertController(title: "", message: "\n \n \n \n \nCargando...", preferredStyle: .alert)
     var arrayNewObject = [NewMassesData]()
-    var globalArray: Any?
-    //MARK: - IBOutlets
-    @IBOutlet weak var btnRealPhone: UIButton!
-    @IBOutlet weak var socialTableView: UITableView!
-    @IBOutlet weak var addSocialButton: UIButton!
-    @IBOutlet weak var addMassesButton: UIButton!
-    @IBOutlet weak var addServicesButton: UIButton!
-    @IBOutlet weak var btnRealMail: UIButton!
-    @IBOutlet var imgFav: UIImageView!
-  
-    @IBOutlet weak var churchHeaderImage: UIImageView!
-    @IBOutlet weak var churchNameLabel: UILabel!
-    @IBOutlet weak var churchSubtitleLabel: UILabel!
-    @IBOutlet weak var churchAddressLabel: UILabel!
-    @IBOutlet weak var churchResponsibleLabel: UILabel!
-    @IBOutlet weak var churchScheduleLabel: UILabel!
-    @IBOutlet weak var churchOfficeScheduleLabel: UILabel!
-    @IBOutlet weak var massCollectionView: UICollectionView!
-    @IBOutlet weak var churchMassContainer: UIView!
-    
-    @IBOutlet weak var servicesCollectionView: UICollectionView!
-    @IBOutlet weak var churchServicesContainer: UIView!
-    
-    @IBOutlet weak var btnPhoneNumber: UIButton!
-    @IBOutlet weak var btnMailInfo: UIButton!
-    @IBOutlet weak var lblPhoneNumber: UILabel!
-    @IBOutlet weak var lblEmail: UILabel!
-    @IBOutlet weak var stackLblMail: UIStackView!
-    @IBOutlet weak var stackLblPhone: UIStackView!
-    @IBOutlet weak var firstCardStack: UIStackView!
-    @IBOutlet weak var stkPhone: UIStackView!
-    @IBOutlet weak var stkMail: UIStackView!
-    @IBOutlet weak var contentCardView: UIView!
-    @IBOutlet weak var subContentCard: UIView!
-    @IBOutlet weak var btnGoComments: UIButton!
-    @IBOutlet weak var btnEdit: UIButton!
-    @IBOutlet weak var btnCancel: UIButton!
-    @IBOutlet weak var btnSave: UIButton!
-    @IBOutlet weak var stkButtonSave: UIStackView!
-    @IBOutlet weak var newChurchMassCollection: UICollectionView!
-    @IBOutlet weak var socialContainer: UIView!
-    @IBOutlet weak var contentNavBar: UIView!
-    @IBOutlet weak var customNavBar: UIView!
-    @IBOutlet weak var lblTitleNavBar: UILabel!
-    @IBOutlet weak var backIcon: UIImageView!
-    
-    // COMMENTS SECTION
-    @IBOutlet weak var commentsCard: UIView!
-    @IBOutlet weak var lblSectionComments: UILabel!
-    @IBOutlet weak var star1: UIImageView!
-    @IBOutlet weak var star2: UIImageView!
-    @IBOutlet weak var star3: UIImageView!
-    @IBOutlet weak var star4: UIImageView!
-    @IBOutlet weak var star5: UIImageView!
-    @IBOutlet weak var lblNmberComments: UILabel!
-    @IBOutlet weak var commentsTable: UITableView!
-    @IBOutlet weak var socialShadowCard: UIView!
-    @IBOutlet weak var btnPrincipal: UIButton!
-    @IBOutlet weak var hComments: NSLayoutConstraint!
-    @IBOutlet weak var hServices: NSLayoutConstraint!
-    @IBOutlet weak var hMasses: NSLayoutConstraint!
-    @IBOutlet weak var hSocial: NSLayoutConstraint!
-    @IBOutlet weak var lblRedesSociales: UILabel!
-    @IBOutlet weak var hSocialS: NSLayoutConstraint!
-    
+    var globalArray: [NewMassesData] = []
     var church: ChurchDetail?
     var churchId: Int?
     
@@ -173,7 +174,6 @@ class MiIglesia_InfoIglesia: BaseViewController {
     //MARK: - Life cycle
     override func viewDidLoad() {
         super.viewDidLoad()
-        isSave(b:false)
         let flagTutorial = defaults.bool(forKey: "SHOWTUTORIAL")
         if flagTutorial == false {
             let view = TutorialView.showTutorial()
@@ -190,6 +190,7 @@ class MiIglesia_InfoIglesia: BaseViewController {
             navigationController?.viewControllers[0..<(count-1)].removeAll(where: {$0 is MiIglesia_InfoIglesia})
         }
         
+        presenter?.getServiceCatalog()
         initView()
         validateProfile()
         setupUI()
@@ -227,6 +228,7 @@ class MiIglesia_InfoIglesia: BaseViewController {
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         print("EC MiIglesia_InfoIglesia")
+        progress.isHidden=true
         presenter?.requestListComments(queryParams: "\(churchId ?? 1)/reviews?page=1&per_page=10")
     }
     
@@ -241,6 +243,14 @@ class MiIglesia_InfoIglesia: BaseViewController {
             }
             presenter?.goToEdition(id: id, churchDetail: church)
         }
+    }
+    
+    func actionSave(){
+        stkButtonSave.isHidden=true
+        view.alpha = 0.5
+        progress.isHidden=false
+        progress.startAnimating()
+        presenter?.putChurchEdition(locationId: churchId ?? 1, description: descriptionNew, email: emailNew, phone: phoneNew, website: webNew, instagram: instaNew, twitter: twittNew, facebook: faceNew, streaming: streamNew, bankAcount: bankNew, principal: pricipalID, schedules: scheduleDay, attention: attentionnew, masses: masesNuew, services: serviceNew)
     }
     
     @IBAction func goToMapsActions() {
@@ -260,9 +270,7 @@ class MiIglesia_InfoIglesia: BaseViewController {
         
         let googleMaps = UIAlertAction(title: "Google Maps", style: .default) {
             _ in
-            
             let mapsUrl = URL(string:"https://www.google.com/maps/place/\(coordinates.latitude),\(coordinates.longitude)")!
-            
             if (UIApplication.shared.canOpenURL(URL(string:"comgooglemaps://")!)) {
                 UIApplication.shared.open(mapsUrl, options: [:]) {
                     _ in
@@ -276,7 +284,6 @@ class MiIglesia_InfoIglesia: BaseViewController {
         
         let waze = UIAlertAction(title: "Waze", style: .default) {
             _ in
-            
             let mapsUrl = URL(string:"https://www.waze.com/ul?ll=\(coordinates.latitude),\(coordinates.longitude)&navigate=yes&zoom=17")!
             
             if (UIApplication.shared.canOpenURL(URL(string:"waze://")!)) || (UIApplication.shared.canOpenURL(URL(string:"https://www.waze.com/")!)) {
@@ -286,7 +293,6 @@ class MiIglesia_InfoIglesia: BaseViewController {
             }
         }
         let cancelAction = UIAlertAction(title: "Cancelar", style: .cancel)
-        
         mapsAlert.addAction(appleMaps)
         mapsAlert.addAction(googleMaps)
         mapsAlert.addAction(waze)
@@ -303,7 +309,6 @@ class MiIglesia_InfoIglesia: BaseViewController {
         }else{
             showCanonAlert(title: "Atención", msg: "Regístrate o inicia sesión para escribir una opinión.")
         }
-        
     }
     
     @IBAction func editAction(_ sender: Any) {
@@ -317,14 +322,12 @@ class MiIglesia_InfoIglesia: BaseViewController {
         RegisterFirmulary.instance.separator1View.isHidden = true
         RegisterFirmulary.instance.separator2View.isHidden = true
         RegisterFirmulary.instance.separator3View.isHidden = true
-        
         RegisterFirmulary.instance.title4Label.text = "Nombre de la Iglesia"
         RegisterFirmulary.instance.title5Label.text = "Párroco Responsable"
         RegisterFirmulary.instance.responsableTextField.placeholder = "Parroquia del Señor de la Santísima Resurrección"
         RegisterFirmulary.instance.descriptionTextField.placeholder = "Pbro Juan José López Rodríguez"
-        RegisterFirmulary.instance.lvTitleLabel.text = "Horario"
+        RegisterFirmulary.instance.lvTitleLabel.text = "Horario de templo"
         RegisterFirmulary.instance.sdTitleLabel.text = "Horario de oficina"
-        
         if addressNew != "" {
             RegisterFirmulary.instance.addressTextField.text = addressNew
         }
@@ -346,7 +349,6 @@ class MiIglesia_InfoIglesia: BaseViewController {
         if church?.attention?.isEmpty == false {
             RegisterFirmulary.instance.sdHourTextField.text = "\(hStartAt)  \(hEndAt)"
         }
-        
         if church?.horary?.isEmpty == false {
             RegisterFirmulary.instance.lvTextField.text = "\(firstDaySer.lowercased())  \(lastDaySer.lowercased())"
         }
@@ -355,13 +357,9 @@ class MiIglesia_InfoIglesia: BaseViewController {
         }
         RegisterFirmulary.instance.responsableTextField.isUserInteractionEnabled=false
         RegisterFirmulary.instance.descriptionTextField.isUserInteractionEnabled=false
-        
         RegisterFirmulary.instance.delegate = self
         RegisterFirmulary.instance.delegateData = self
-        //let mainViewHeight = view.frame.size.height y:100-200 de los campos que no aparecen
         RegisterFirmulary.instance.parentView.frame = CGRect(x: 0, y: 100, width: self.view.frame.width, height: RegisterFirmulary.instance.parentView.frame.height-125)
-        //self.view.isUserInteractionEnabled = false
-        //self.view.alpha = 0.5
         flagEdit = true
         validateProfile()
     }
@@ -380,7 +378,6 @@ class MiIglesia_InfoIglesia: BaseViewController {
         }else{
             showCanonAlert(title: "Atención", msg: "Regístrate o inicia sesión para agregar esta iglesia como principal.")
         }
-       
     }
     
     func showCanonAlert(title:String, msg:String){
@@ -391,56 +388,42 @@ class MiIglesia_InfoIglesia: BaseViewController {
     
     @IBAction func addSocialButtonAction(_ sender: Any) {
         goToAddSocial()
-        isSave(b:true)
-    }
-    
-    func isSave(b:Bool){
-        print("IS SAVE::PPP")
-        stkButtonSave.isHidden = !b
-        btnSave.isHidden = !b
-        btnCancel.isHidden = !b
-        btnGoComments.isHidden = b
     }
     
     func goToAddSocial() {
         let storyboard = UIStoryboard(name: "AddSocial", bundle: Bundle.local)
-        if let newAddSocial: NewAddSocialController = storyboard.instantiateViewController(withIdentifier: "NewAddSocial") as? NewAddSocialController {
-            newAddSocial.delegate = self
-            newAddSocial.modalPresentationStyle = .overFullScreen
-            self.present(newAddSocial, animated: true, completion: nil)
+        if let nAS: NewAddSocialController = storyboard.instantiateViewController(withIdentifier: "NewAddSocial") as? NewAddSocialController {
+            nAS.delegate = self
+            nAS.modalPresentationStyle = .overFullScreen
+            self.present(nAS, animated: true, completion: nil)
         }
-        
     }
     
     @IBAction func addMassesButtonAction(_ sender: Any) {
         print("addMasses")
-        isSave(b:true)
         let storyboard = UIStoryboard(name: "StoryboardAddMasses", bundle: Bundle.local)
-        if let newAddMasses: NewAddMassesView = storyboard.instantiateViewController(withIdentifier: "NewAddMasses") as? NewAddMassesView {
-            newAddMasses.delegate = self
-            newAddMasses.modalPresentationStyle = .overFullScreen
-            self.present(newAddMasses, animated: true, completion: nil)
+        if let nAM: NewAddMassesView = storyboard.instantiateViewController(withIdentifier: "NewAddMasses") as? NewAddMassesView {
+            nAM.delegate = self
+            nAM.modalPresentationStyle = .overFullScreen
+            self.present(nAM, animated: true, completion: nil)
         }
     }
     
     @IBAction func addServicesButtonAction(_ sender: Any) {
-        print("addMasses")
-        isSave(b:true)
+        print("addServices")
         guard let service = serviceCatalog else {return} //no hay servicios
         AddService.instance.showAllertChurch(data: service)
         AddService.instance.delegate = self
         let mainViewHeight = view.frame.size.height
-        AddService.instance.parentView.frame = CGRect(x: 0, y: mainViewHeight - 450, width: self.view.frame.width, height: AddService.instance.parentView.frame.height)
+        AddService.instance.parentView.frame = CGRect(x: 0, y: 105, width: self.view.frame.width, height: AddService.instance.parentView.frame.height)
         view.isUserInteractionEnabled = false
         view.alpha = 0.5
     }
     //MARK: - View controls
     private func initView() {
         navigationController?.setNavigationBarHidden(false, animated: true)
-        
         let tapGestureRecognizer = UITapGestureRecognizer(target: self, action: #selector(tapImageFav))
         self.imgFav.addGestureRecognizer(tapGestureRecognizer)
-        //self.imgFav.isUserInteractionEnabled = true
         self.validatePhoneAndMail()
     }
     
@@ -475,7 +458,8 @@ class MiIglesia_InfoIglesia: BaseViewController {
         massCollectionView.register(ServiceCollectionViewCell.nib, forCellWithReuseIdentifier: ServiceCollectionViewCell.reuseIdentifier)
         massCollectionView.delegate = self
         massCollectionView.dataSource = self
-        newChurchMassCollection.register(UINib(nibName: "ServiceCollectionViewCell", bundle: Bundle.local), forCellWithReuseIdentifier: "ServiceCollectionViewCell")
+        //newChurchMassCollection.register(UINib(nibName: "ServiceCollectionViewCell", bundle: Bundle.local), forCellWithReuseIdentifier: "ServiceCollectionViewCell")
+        newChurchMassCollection.register(ServiceCollectionViewCell.nib, forCellWithReuseIdentifier: ServiceCollectionViewCell.reuseIdentifier)
         newChurchMassCollection.delegate = self
         newChurchMassCollection.dataSource = self
       
@@ -556,32 +540,28 @@ class MiIglesia_InfoIglesia: BaseViewController {
     }
     
     private func validateProfile() {
+        print("VALIDATE PROFILE::")
+        print(profileRole)
         if locationComponent != 0 {
             if locationComponent == churchId { //condicion locationId == churchId sobra
                 switch profileRole {
                 case UserProfileEnum.Sacerdoteadministrador.rawValue, UserProfileEnum.Sacerdotedecano.rawValue:
-                    isSave(b:true)
                     formatYYY()
                 case UserProfileEnum.fieladministrador.rawValue:
                     if ((locationcomponents?.contains("LOCATION_INFORMATION")) == true){
-                        isSave(b:true)
                         formatYYY()
                     }else {
-                        isSave(b:false)
                         formatXXX()
                     }
                 case UserProfileEnum.AdministradorComunidad.rawValue, UserProfileEnum.sacerdote.rawValue, UserProfileEnum.ResponsableComunidad.rawValue, UserProfileEnum.fiel.rawValue, UserProfileEnum.MiembroComunidad.rawValue:
-                    isSave(b:false)
                     formatXXX()
                 default:
                     break
                 }
             }else{
-                isSave(b:false)
                 formatXXX()
             }
         }else {
-            isSave(b:false)
             formatXXX()
         }
     }
@@ -611,7 +591,6 @@ class MiIglesia_InfoIglesia: BaseViewController {
     
     private func initContent() {
         churchHeaderImage.image = UIImage(named: "church-placeholder", in: Bundle(for: MiIglesia_InfoIglesia.self), compatibleWith: nil)
-        //presenter?.getServiceCatalog() //no funciona
         if let id = churchId {
             showLoading()
             presenter?.getDetail(id: id)
@@ -640,17 +619,14 @@ class MiIglesia_InfoIglesia: BaseViewController {
     }
     
     private func fillData() {
-        
         let url = church?.image_url ?? "https://arquidiocesis-app-mx.s3.amazonaws.com/SEDES/0/image.png"
         if let imageUrl = URL(string: url) {
             churchHeaderImage.af.setImage(withURL: imageUrl)
         }
-        
         churchNameLabel.text = church?.name
-        churchSubtitleLabel.text = church?.description
+        //churchSubtitleLabel.text = church?.description
         churchAddressLabel.text = church?.address
         churchResponsibleLabel.text = church?.principal?.name ?? "No disponible"
-        //        churchLiveTransmissionsLabel.text = church?.stream.url
         scheduleHoreResponse = "\(church?.horary?.first?.hour_start ?? "") \(church?.attention?.first?.hour_end ?? "")"
         print("scheduleHoreResponse...scheduleHoreResponse")
         print("\(church?.horary?.first?.hour_start ?? "") \(church?.attention?.first?.hour_end ?? "")")
@@ -663,6 +639,7 @@ class MiIglesia_InfoIglesia: BaseViewController {
         pricipalID = church?.principal?.id ?? 1
         //New social logic
         social.removeAll()
+        socialIdentifier.removeAll()
         if let fb = church?.facebook {
             social.append(fb)
             socialIdentifier.append("F")
@@ -688,8 +665,9 @@ class MiIglesia_InfoIglesia: BaseViewController {
         }else{
             socialShadowCard.isHidden = false
         }
-        socialData = [church?.facebook, church?.instagram, church?.twitter, church?.website, church?.stream]
-        print("RELOADD")
+
+        print("RELOADD:; redes")
+        print(social)
         socialTableView.reloadData()
       
         nameNew = church?.name ?? ""
@@ -699,7 +677,7 @@ class MiIglesia_InfoIglesia: BaseViewController {
         phoneNew = church?.phone ?? ""
         faceNew = church?.facebook ?? ""
         instaNew = church?.instagram ?? ""
-        twittNew = church?.instagram ?? ""
+        twittNew = church?.twitter ?? ""
         webNew = church?.website ?? ""
         streamNew = church?.stream ?? ""
         latitudeNew = church?.latitude ?? 0.0
@@ -740,7 +718,6 @@ class MiIglesia_InfoIglesia: BaseViewController {
         }
         churchScheduleLabel.text = scheduleTempl
         churchScheduleLabel.adjustsFontSizeToFitWidth = true
-        churchScheduleLabel.numberOfLines = 0
         for response in church?.services ?? [] {
             if church?.services?.isEmpty == false {
                 for respHoray in response.schedules ?? [] {
@@ -774,6 +751,8 @@ class MiIglesia_InfoIglesia: BaseViewController {
         var thursdayActive = [String]() // Jueves
         var fridayActive = [String]() // Viernes
         var saturdayActive = [String]() // Sabado
+        var weekActive = [[String]]()
+        let mapDays:[String] = ["Domingo","Lunes","Martes","Miércoles","Jueves","Viernes","Sábado"]
         let atten = church?.attention ?? []
         let att = atten.sorted{ $0.hour_start!.compare($1.hour_start!, options: .numeric) == .orderedAscending}
         for response in att {
@@ -781,26 +760,23 @@ class MiIglesia_InfoIglesia: BaseViewController {
             if church?.attention?.isEmpty == false {
                 for respDays in response.days ?? [] {
                     if respDays.checked! {
-                        if respDays.name == "Domingo" {
+                        switch respDays.name{
+                        case "Domingo":
                             sundayActive.append("\(response.hour_start ?? "") a \(response.hour_end ?? "")")
-                        }
-                        if respDays.name == "Lunes" {
+                        case "Lunes":
                             mondayActive.append("\(response.hour_start ?? "") a \(response.hour_end ?? "")")
-                        }
-                        if respDays.name == "Martes" {
+                        case "Martes":
                             tuesdayActive.append("\(response.hour_start ?? "") a \(response.hour_end ?? "")")
-                        }
-                        if respDays.name == "Miércoles" {
+                        case "Miércoles":
                             wednesdayActive.append("\(response.hour_start ?? "") a \(response.hour_end ?? "")")
-                        }
-                        if respDays.name == "Jueves" {
+                        case "Jueves":
                             thursdayActive.append("\(response.hour_start ?? "") a \(response.hour_end ?? "")")
-                        }
-                        if respDays.name == "Viernes" {
+                        case "Viernes":
                             fridayActive.append("\(response.hour_start ?? "") a \(response.hour_end ?? "")")
-                        }
-                        if respDays.name == "Sábado" {
+                        case "Sábado":
                             saturdayActive.append("\(response.hour_start ?? "") a \(response.hour_end ?? "")")
+                        default:
+                        print("no pasa")
                         }
                     }
                     if attentionDaysNew.isEmpty {
@@ -823,93 +799,34 @@ class MiIglesia_InfoIglesia: BaseViewController {
                 }
             }
         }
-        if sundayActive.count > 0{
-            var hoursDay = ""
-            for sunday in sundayActive{
-                hoursDay = "\(hoursDay) \n \(sunday)"
+        weekActive.append(sundayActive)
+        weekActive.append(mondayActive)
+        weekActive.append(tuesdayActive)
+        weekActive.append(wednesdayActive)
+        weekActive.append(thursdayActive)
+        weekActive.append(fridayActive)
+        weekActive.append(saturdayActive)
+        var i = 0
+        for dayActive in weekActive{
+            if dayActive.count > 0{
+                var hoursDay = ""
+                for day in dayActive{
+                    print("un dia mas en day active::")
+                    hoursDay = "\(hoursDay) \n \(day)"
+                }
+                if churchOfficeScheduleTextt != "No disponible" {
+                    churchOfficeScheduleTextt = "\(churchOfficeScheduleTextt) \n \(mapDays[i]) : \(hoursDay)"
+                    print("Se agrego el texto a texto:")
+                    print("\(churchOfficeScheduleTextt) \n \(mapDays[i]) : \(hoursDay)")
+                } else {
+                    churchOfficeScheduleTextt = ""
+                    churchOfficeScheduleTextt = "\(mapDays[i]) : \(hoursDay)"
+                }
             }
-            if churchOfficeScheduleTextt != "No disponible" {
-                churchOfficeScheduleTextt = "\(churchOfficeScheduleTextt) \n Domingo : \(hoursDay)"
-            } else {
-                churchOfficeScheduleTextt = ""
-                churchOfficeScheduleTextt = "Domingo : \(hoursDay)"
-            }
-        }
-        if mondayActive.count > 0{
-            var hoursDay = ""
-            for sunday in mondayActive{
-                hoursDay = "\(hoursDay) \n \(sunday)"
-            }
-            if churchOfficeScheduleTextt != "No disponible" {
-                churchOfficeScheduleTextt = "\(churchOfficeScheduleTextt) \n Lunes : \(hoursDay)"
-            } else {
-                churchOfficeScheduleTextt = ""
-                churchOfficeScheduleTextt = "Lunes : \(hoursDay)"
-            }
-        }
-        if tuesdayActive.count > 0{
-            var hoursDay = ""
-            for sunday in tuesdayActive{
-                hoursDay = "\(hoursDay) \n \(sunday)"
-            }
-            if churchOfficeScheduleTextt != "No disponible" {
-                churchOfficeScheduleTextt = "\(churchOfficeScheduleTextt) \n Martes : \(hoursDay)"
-            } else {
-                churchOfficeScheduleTextt = ""
-                churchOfficeScheduleTextt = "Martes : \(hoursDay)"
-            }
-        }
-        if wednesdayActive.count > 0{
-            var hoursDay = ""
-            for sunday in wednesdayActive{
-                hoursDay = "\(hoursDay) \n \(sunday)"
-            }
-            if churchOfficeScheduleTextt != "No disponible" {
-                churchOfficeScheduleTextt = "\(churchOfficeScheduleTextt) \n Miércoles : \(hoursDay)"
-            } else {
-                churchOfficeScheduleTextt = ""
-                churchOfficeScheduleTextt = "Miércoles : \(hoursDay)"
-            }
-        }
-        if thursdayActive.count > 0{
-            var hoursDay = ""
-            for sunday in thursdayActive{
-                hoursDay = "\(hoursDay) \n \(sunday)"
-            }
-            if churchOfficeScheduleTextt != "No disponible" {
-                churchOfficeScheduleTextt = "\(churchOfficeScheduleTextt) \n Jueves : \(hoursDay)"
-            } else {
-                churchOfficeScheduleTextt = ""
-                churchOfficeScheduleTextt = "Jueves : \(hoursDay)"
-            }
-        }
-        if fridayActive.count > 0{
-            var hoursDay = ""
-            for sunday in fridayActive{
-                hoursDay = "\(hoursDay) \n \(sunday)"
-            }
-            if churchOfficeScheduleTextt != "No disponible" {
-                churchOfficeScheduleTextt = "\(churchOfficeScheduleTextt) \n Viernes : \(hoursDay)"
-            } else {
-                churchOfficeScheduleTextt = ""
-                churchOfficeScheduleTextt = "Viernes : \(hoursDay)"
-            }
-        }
-        if saturdayActive.count > 0{
-            var hoursDay = ""
-            for sunday in saturdayActive{
-                hoursDay = "\(hoursDay) \n \(sunday)"
-            }
-            if churchOfficeScheduleTextt != "No disponible" {
-                churchOfficeScheduleTextt = "\(churchOfficeScheduleTextt) \n Sábado : \(hoursDay)"
-            } else {
-                churchOfficeScheduleTextt = ""
-                churchOfficeScheduleTextt = "Sábado : \(hoursDay)"
-            }
+            i+=1
         }
         churchOfficeScheduleLabel.text = churchOfficeScheduleTextt
-        churchOfficeScheduleLabel.textAlignment = NSTextAlignment.justified
-        churchOfficeScheduleLabel.numberOfLines = 0
+        masesNuew.removeAll()
         for response in church?.masses ?? [] {
             if church?.masses?.isEmpty == false {
                 massesDayNew.removeAll()
@@ -920,39 +837,19 @@ class MiIglesia_InfoIglesia: BaseViewController {
                         massesDayNew.append(DayEditChurch.init(id: respDays.id, name: respDays.name, checked: respDays.checked))
                     }
                 }
-                var isAppend = false
                 var days = [String]()
                 massesDayNew.forEach { item in
                     if item.checked == true {
                         days.append(item.name ?? "")
-                    }else{
-                        print("Dont append")
                     }
-                    
                 }
-                
-                let str = days.joined(separator: ",")
-                if strDaysAct.contains(str) {
-                    isAppend = false
-                }else{
-                    strDaysAct.append(days.joined(separator: ","))
-                    isAppend = true
-                }
-                
                 if masesNuew.isEmpty {
-                  //  if isAppend == true {
                     masesNuew.insert(MassEditChurch.init(days: massesDayNew.unique(map: {$0.id}), hourStart: response.hour_start, hourEnd: response.hour_end), at: 0)
-                   // }
-                    
                 }else {
-                 //   if isAppend == true {
                     masesNuew.append(MassEditChurch.init(days: massesDayNew.unique(map: {$0.id}), hourStart: response.hour_start, hourEnd: response.hour_end))
-                  //  }
-                    
                 }
             }
         }
-        
         setupCollectionDelegates()
         validateProfile()
         validateSameDaysChurch()
@@ -1021,7 +918,7 @@ class MiIglesia_InfoIglesia: BaseViewController {
     }
     
     @IBAction func goToSAve(_ sender: Any) {
-        presenter?.putChurchEdition(locationId: churchId ?? 1, description: descriptionNew, email: emailNew, phone: phoneNew, website: webNew, instagram: instaNew, twitter: twittNew, facebook: faceNew, streaming: streamNew, bankAcount: bankNew, principal: pricipalID, schedules: scheduleDay, attention: attentionnew, masses: masesNuew, services: serviceNew)
+        actionSave()
     }
     
     private func addFavoriteFiel() {
@@ -1187,10 +1084,8 @@ class MiIglesia_InfoIglesia: BaseViewController {
                     }
                 case UserProfileEnum.AdministradorComunidad.rawValue, UserProfileEnum.sacerdote.rawValue, UserProfileEnum.ResponsableComunidad.rawValue, UserProfileEnum.fiel.rawValue, UserProfileEnum.MiembroComunidad.rawValue:
                     btn.isHidden = true
-                    
                 default:
                     break
-                    
                 }
             }else{
                 btn.isHidden = true
@@ -1201,20 +1096,25 @@ class MiIglesia_InfoIglesia: BaseViewController {
     }
     
     @objc func deleteMasses(sender: UIButton) {
+        print("Se pretende a borrar misa elemento::") // nofunciona pq ya no van en el mismo formto las listas
         print(sender.tag)
+        print("tamaño:;")
+        print(masesNuew.count)
+        /*
         masesNuew.remove(at: sender.tag)
         church?.masses?.remove(at: sender.tag)
         arrayNewObject.removeAll()
-        globalArray = Array<Array<NewMassesData>>()
+        globalArray = []
         validateSameDaysChurch()
         
-        newChurchMassCollection.reloadData()
+        newChurchMassCollection.reloadData()*/
     }
     
     @objc func deleteServices(sender: UIButton) {
         church?.services?.remove(at: sender.tag)
         serviceNew.remove(at: sender.tag)
         servicesCollectionView.reloadData()
+        actionSave()
     }
     
     @objc func deleteSocial(sender: UIButton) {
@@ -1237,6 +1137,7 @@ class MiIglesia_InfoIglesia: BaseViewController {
         social.remove(at: sender.tag)
         socialIdentifier.remove(at: sender.tag)
         socialTableView.reloadData()
+        actionSave()
     }
 }
 //MARK: - TableView view delegates
@@ -1274,12 +1175,9 @@ extension MiIglesia_InfoIglesia: UITableViewDelegate, UITableViewDataSource {
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        print("c4rat 00*")
         switch tableView {
         case socialTableView:
-            print("c4rat 0*")
             let cell = socialTableView.dequeueReusableCell(withIdentifier: SocialTableViewCell.reuseIdentifier, for: indexPath) as! SocialTableViewCell
-            print("c4rat 1*")
             cell.titleLabel.text = social[indexPath.row]
             cell.selectionStyle = .none
             switch socialIdentifier[indexPath.row] {
@@ -1296,15 +1194,12 @@ extension MiIglesia_InfoIglesia: UITableViewDelegate, UITableViewDataSource {
             default:
                 break
             }
-            print("c4rat 2*")
             showDeleteBtn(btn: cell.deleteButton)
             cell.deleteButton.tag = indexPath.row
             cell.deleteButton.addTarget(self, action: #selector(deleteSocial), for: .touchUpInside)
             hSocial.constant = cell.frame.height * CGFloat(social.count)
             hSocialS.constant = hSocial.constant+10
             self.view.layoutIfNeeded()
-            print("la altura es: x*")
-            print(social.count)
             return cell
             
         default:
@@ -1350,11 +1245,9 @@ extension MiIglesia_InfoIglesia: UITableViewDelegate, UITableViewDataSource {
                     cell.starComm4.image = imgFill
                     cell.starComm5.image = imgFill
                 }
-                
             }
             return cell
         }
-        
     }
     
 }
@@ -1362,66 +1255,58 @@ extension MiIglesia_InfoIglesia: UITableViewDelegate, UITableViewDataSource {
 extension MiIglesia_InfoIglesia: UICollectionViewDelegate, UICollectionViewDataSource, UICollectionViewDelegateFlowLayout {
     
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        
+        print("c4r@::0")
         var numberOfItems = 0
-        
         switch collectionView {
         case newChurchMassCollection:
-            
-            let array = globalArray as? Array<Array<NewMassesData>>
-            numberOfItems = array?.count ?? 0//church?.masses?.count ?? 1//7
-            if locationId != churchId {
-                churchMassContainer.isHidden = church?.masses?.count == 0
-            }else if locationComponent != churchId {
+            print("c4r@::newChurch")
+            numberOfItems = globalArray.count //church?.masses?.count ??
+            if locationId != churchId || locationComponent != churchId {
+                print("condicion rara")
                 churchMassContainer.isHidden = church?.masses?.count == 0
             }
+            print(numberOfItems)
         case servicesCollectionView:
+            print("c4r@::services")
             numberOfItems = church?.services?.count ?? 0
-            if locationId != churchId {
-                churchServicesContainer.isHidden = numberOfItems == 0
-            } else if locationComponent != churchId {
+            if locationId != churchId || locationComponent != churchId{
                 churchServicesContainer.isHidden = numberOfItems == 0
             }
+            print(numberOfItems)
         default:
+            print("c4r@::default")
             break
         }
         return numberOfItems
     }
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
+        print("c4i@::00")
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: ServiceCollectionViewCell.reuseIdentifier, for: indexPath) as! ServiceCollectionViewCell
         cell.delegate = self
         switch collectionView {
         case newChurchMassCollection:
-    
+            print("c4i@::01")
             cell.deleteBtn.tag = indexPath.item
             cell.deleteBtn.addTarget(self, action: #selector(deleteMasses), for: .touchUpInside)
             showDeleteBtn(btn: cell.deleteBtn)
-            let array = globalArray as? Array<Array<NewMassesData>>
-            let dataCount = array?.count ?? 0
-            if dataCount > 2 {
-                hMasses.constant = CGFloat(120 * dataCount)
-            }else{
-                hMasses.constant = CGFloat(110 * dataCount)
+            let dataCount = globalArray.count
+            print(dataCount)
+            hMasses.constant = CGFloat(120 * dataCount)
+            let sortedDays = globalArray.sorted {
+                $0.daysStr! < $1.daysStr!
             }
-            if let churchData = church {
-                if let array = globalArray as? Array<Array<NewMassesData>> {
-                    cell.fill(with: array, index: indexPath.item)
-                }
+            if church != nil {
+                cell.fill(with: sortedDays[indexPath.item], index: indexPath.item)
             }
         case servicesCollectionView:
-            
+            print("c4i@::02")
             if let churchData = church {
                 cell.deleteBtn.tag = indexPath.item
                 cell.deleteBtn.addTarget(self, action: #selector(deleteServices), for: .touchUpInside)
                 showDeleteBtn(btn: cell.deleteBtn)
                 let dataCount = church?.services?.count ?? 0
-                if dataCount > 2 {
-                    hServices.constant = CGFloat(150 * dataCount)
-                }else{
-                    hServices.constant = CGFloat(160 * dataCount)
-                }
-                
+                hServices.constant = CGFloat(150 * dataCount)
                 cell.isHidden = true
                 if church?.services?.isEmpty == false {
                     cell.isHidden = false
@@ -1460,10 +1345,12 @@ extension MiIglesia_InfoIglesia: UICollectionViewDelegate, UICollectionViewDataS
 extension MiIglesia_InfoIglesia: ChurchDetailViewProtocol {
     
     func serviceCatalogSuccess(response: ServiceCatalogModel) {
+        print("CATALOG SUCCESS")
         serviceCatalog = response
     }
     
     func serviceCatalogError() {
+        print("CATALOG ERROR")
         DispatchQueue.main.async { [self] in
             self.showCanonAlert(title: "Atención", msg: "Error en el servicio, intenta de nuevo más tarde.")
         }
@@ -1471,11 +1358,12 @@ extension MiIglesia_InfoIglesia: ChurchDetailViewProtocol {
     
     func saveChurchSucces() {
         DispatchQueue.main.async { [self] in
-            let alert = UIAlertController(title: "", message: "Los datos fueron guardados con éxito", preferredStyle: UIAlertController.Style.alert)
-            alert.addAction(UIAlertAction(title: "Aceptar", style: UIAlertAction.Style.default, handler: nil))
+            self.view.alpha=1
+            self.progress.stopAnimating()
+            self.progress.isHidden=true
+            self.showCanonAlert(title: "Éxito", msg: "Datos guardados correctamente.")
             flagEdit = false
             validateProfile()
-            present(alert, animated: true, completion: nil)
             if let id = churchId {
                 showLoading()
                 presenter?.getDetail(id: id)
@@ -1485,6 +1373,9 @@ extension MiIglesia_InfoIglesia: ChurchDetailViewProtocol {
     
     func saveChurchError() {
         DispatchQueue.main.async { [self] in
+            self.view.alpha=1
+            self.progress.stopAnimating()
+            self.progress.isHidden=true
             self.showCanonAlert(title: "Error", msg: "Error en el servicio 401, reporta esta falla a un administrador.")
         }
     }
@@ -1496,7 +1387,6 @@ extension MiIglesia_InfoIglesia: ChurchDetailViewProtocol {
             self.massCollectionView.reloadData()
         }
     }
-    
     
     func showError(_ error: String) {
         self.isTappedFav = false
@@ -1518,54 +1408,58 @@ extension MiIglesia_InfoIglesia: ChurchDetailViewProtocol {
            // self?.validateSameDaysChurch()
             self?.initView()
             self?.fillData()
-            
         }
     }
     
     func validateSameDaysChurch() {
+        let mapDayInt:[String:String]=["Domingo":"0","Lunes":"1","Martes":"2","Miércoles":"3","Jueves":"4","Viernes":"5","Sábado":"6"]
+        var mapDayhour:[String:[String]]=["0":[],"1":[],"2":[],"3":[],"4":[],"5":[],"6":[]]
         // print(church?.masses)
         print(masesNuew, "-----------------------------")
         var arrayOfDays = [NewMassesData]()
-        var arry = [String]()
-        let object = NewMassesData(daysStr: "", hour: "")
-            masesNuew.forEach { item in
-                var days = [String]()
-                var checked = [Bool]()
-                arry.append("\(item)")
-                item.days?.forEach({ day in
-                    checked.append(day.checked ?? false)
-                    if day.checked == true {
-                        days.append(day.name ?? "")
-                    }else{
-                        print("Is disable day")
-                    }
-                })
-                
-                var strOfDays = ""
-                if days.count != 0 && days.count != 1{
-                     strOfDays = "\(days.first ?? "") a \(days.last ?? "")"
-                    
-                    if days.first == "Domingo" && checked[1] == false {
-                        strOfDays = "\(days.last ?? "") a \(days.first ?? "")"
-                    }else if days.first == "Domingo" && days.last == "Sábado" {
-                        strOfDays = "Lunes a Domingo"
-                    }
-                }else if days.count == 1 {
-                    strOfDays = "\(days.first ?? "")"
+        //var arry = [String]()
+        masesNuew.forEach { item in
+            //var days = [String]()
+            //var checked = [Bool]()
+            //arry.append("\(item)")
+            item.days?.forEach({ day in
+                //checked.append(day.checked ?? false)
+                if day.checked == true {
+                    mapDayhour[mapDayInt[day.name!]!]!.append(item.hourStart ?? "")
+                    //days.append(day.name ?? "")
                 }
+            })
+      
+            /*var strOfDays = ""
+            if days.count != 0 && days.count != 1{
+                 strOfDays = "\(days.first ?? "") a \(days.last ?? "")"
                 
-                let newObject = NewMassesData(daysStr: strOfDays, hour: item.hourStart ?? "")
-                arrayOfDays.append(newObject)
-                
-                
+                if days.first == "Domingo" && checked[1] == false {
+                    strOfDays = "\(days.last ?? "") a \(days.first ?? "")"
+                }else if days.first == "Domingo" && days.last == "Sábado" {
+                    strOfDays = "Lunes a Domingo"
+                }
+            }else if days.count == 1 {
+                strOfDays = "\(days.first ?? "")"
+            }*/
+            //let newObject = NewMassesData(daysStr: strOfDays, hour: item.hourStart ?? "")
+            //arrayOfDays.append(newObject)
+        }
+        
+        for item in mapDayhour{
+            if !item.value.isEmpty{
+                let sortedHours = item.value.sorted()
+                let newO = NewMassesData(daysStr: item.key, hour: sortedHours.joined(separator:", "))
+                arrayOfDays.append(newO)
             }
-        
-        print(arrayOfDays)
-        let group = Dictionary(grouping: arrayOfDays, by: { $0.daysStr })
-        let arrayGrouped = Array(group.values)
-        print(arrayGrouped)
-        globalArray = arrayGrouped
-        
+        }
+        globalArray=arrayOfDays
+        newChurchMassCollection.reloadData()
+        //print(arrayOfDays)
+        //let group = Dictionary(grouping: arrayOfDays, by: {$0.daysStr})
+        //let arrayGrouped = Array(group.values)
+        //print(arrayGrouped)
+        //globalArray = arrayGrouped
     }
     
 }
@@ -1609,112 +1503,22 @@ extension MiIglesia_InfoIglesia: RefisterFormularyButtonDelegate, RegisterFormDa
     func didPressReadyFormularyButton(_ sender: UIButton) {
         RegisterFirmulary.instance.parentView.frame = CGRect(x: 0, y: 100, width: self.view.frame.width, height: RegisterFirmulary.instance.parentView.frame.height+125)
         RegisterFirmulary.instance.parentView.removeFromSuperview()
-        //view.alpha = 1
-        //view.isUserInteractionEnabled = true
+        flagEdit=false
     }
     
     func sendDataFormToComMainViewController(name: String, intitution: String, charism: String, resposable: String, description: String, address: String, lvText: String, lvHour: String, sdText: String, sdHour: String, email: String, phone: String, latitude: Double, longitude: Double) {
+        print("sendDataToComMain 11::")
         let daylv = [1, 2, 3, 4, 5, 6, 7]
+        print(lvText)
         var daysActiveLv: [Bool] {
-            switch lvText{
-            case "lunes  martes" : return [false, true, true, false, false, false, false]
-            case "lunes  miércoles": return [false, true, true, true, false, false, false]
-            case "lunes  jueves": return [true, true, true, true, false, false, false]
-            case "lunes  viernes" : return [false, true, true, true, true, true, false]
-            case "lunes  sábado": return [true, true, true, true, true, true, false]
-            case "lunes  domingo": return [true, true, true, true, true, true, true]
-            case "martes  miércoles": return [false, false, true, true, false, false, false]
-            case "martes  jueves": return [false, false, true, true, true, false, false]
-            case "martes  viernes": return [false, false, true, true, true, true, false]
-            case "martes  sábado": return [false, false, true, true, true, true, true]
-            case "martes  domingo": return [true, false, true, true, true, true, true]
-            case "Martes  lunes": return [true, true, true, true, true, true, true]
-            case "miércoles  jueves": return [false, false, false, true, true, false, false]
-            case "miércoles  viernes":  return [false, false, false, true, true, true, false]
-            case "miércoles  sábado": return [false, false, false, true, true, true, true]
-            case "miércoles  domingo": return [true, false, false, true, true, true, true]
-            case "miércoles  lunes": return [true, true, false, true, true, true, true]
-            case "miércoles  martes": return [true, true, true, true, true, true, true]
-            case "jueves  viernes": return [false, false, false, false, true, true, false]
-            case "jueves  sábado": return [false, false, false, false, true, true, true]
-            case "jueves  domingo": return [true, false, false, false, true, true, true]
-            case "jueves  lunes": return [true, true, false, false, true, true, true]
-            case "jueves  martes": return [true, true, true, false, true, true, true]
-            case "jueves  miércoles": return [true, true, true, true, true, true, true]
-            case "viernes  sábado": return [false, false, false, false, false, true, true]
-            case "viernes  domingo": return [true, false, false, false, false, true, true]
-            case "viernes  lunes": return [true, true, false, false, false, true, true]
-            case "viernes  martes": return [true, true, true, false, false, true, true]
-            case "viernes  miércoles": return [true, true, true, true, false, true, true]
-            case "viernes  jueves": return [true, true, true, true, true, true, true]
-            case "sábado  domingo": return [true, false, false, false, false, false, true]
-            case "sábado  lunes": return [true, true, false, false, false, false, true]
-            case "sábado  martes": return [true, true, true, false, false, false, true]
-            case "sábado  miércoles": return [true, true, true, true, false, false, true]
-            case "sábado  jueves": return [true, true, true, true, true, false, true]
-            case "sábado  viernes": return [true, true, true, true, true, true, true]
-            case "domingo  lunes": return [true, true, false, false, false, false, false]
-            case "domingo  martes": return [true, true, true, false, false, false, false]
-            case "domingo  miércoles": return [true, true, true, true, false, false, false]
-            case "domingo  jueves": return [true, true, true, true, true, false, false]
-            case "domingo  viernes": return [true, true, true, true, true, true, false]
-            case "domingo  sábado": return [true, true, true, true, true, true, true]
-            default:
-                return [true, true, true, true, true, true, true]
-            }
+            returnBooleanWeekArray(s: lvText)
         }
         let daysd = [1, 2, 3, 4, 5, 6, 7]
         var daysActiveSd: [Bool] {
-            switch sdText{
-            case "lunes  martes" : return [false, true, true, false, false, false, false]
-            case "lunes  miércoles": return [false, true, true, true, false, false, false]
-            case "lunes  jueves": return [true, true, true, true, false, false, false]
-            case "lunes  viernes" : return [false, true, true, true, true, true, false]
-            case "lunes  sábado": return [true, true, true, true, true, true, false]
-            case "lunes  domingo": return [true, true, true, true, true, true, true]
-            case "martes  miércoles": return [false, false, true, true, false, false, false]
-            case "martes  jueves": return [false, false, true, true, true, false, false]
-            case "martes  viernes": return [false, false, true, true, true, true, false]
-            case "martes  sábado": return [false, false, true, true, true, true, true]
-            case "martes  domingo": return [true, false, true, true, true, true, true]
-            case "Martes  lunes": return [true, true, true, true, true, true, true]
-            case "miércoles  jueves": return [false, false, false, true, true, false, false]
-            case "miércoles  viernes":  return [false, false, false, true, true, true, false]
-            case "miércoles  sábado": return [false, false, false, true, true, true, true]
-            case "miércoles  domingo": return [true, false, false, true, true, true, true]
-            case "miércoles  lunes": return [true, true, false, true, true, true, true]
-            case "miércoles  martes": return [true, true, true, true, true, true, true]
-            case "jueves  viernes": return [false, false, false, false, true, true, false]
-            case "jueves  sábado": return [false, false, false, false, true, true, true]
-            case "jueves  domingo": return [true, false, false, false, true, true, true]
-            case "jueves  lunes": return [true, true, false, false, true, true, true]
-            case "jueves  martes": return [true, true, true, false, true, true, true]
-            case "jueves  miércoles": return [true, true, true, true, true, true, true]
-            case "viernes  sábado": return [false, false, false, false, false, true, true]
-            case "viernes  domingo": return [true, false, false, false, false, true, true]
-            case "viernes  lunes": return [true, true, false, false, false, true, true]
-            case "viernes  martes": return [true, true, true, false, false, true, true]
-            case "viernes  miércoles": return [true, true, true, true, false, true, true]
-            case "viernes  jueves": return [true, true, true, true, true, true, true]
-            case "sábado  domingo": return [true, false, false, false, false, false, true]
-            case "sábado  lunes": return [true, true, false, false, false, false, true]
-            case "sábado  martes": return [true, true, true, false, false, false, true]
-            case "sábado  miércoles": return [true, true, true, true, false, false, true]
-            case "sábado  jueves": return [true, true, true, true, true, false, true]
-            case "sábado  viernes": return [true, true, true, true, true, true, true]
-            case "domingo  lunes": return [true, true, false, false, false, false, false]
-            case "domingo  martes": return [true, true, true, false, false, false, false]
-            case "domingo  miércoles": return [true, true, true, true, false, false, false]
-            case "domingo  jueves": return [true, true, true, true, true, false, false]
-            case "domingo  viernes": return [true, true, true, true, true, true, false]
-            case "domingo  sábado": return [true, true, true, true, true, true, true]
-            default:
-                return [true, true, true, true, true, true, true]
-            }
+            returnBooleanWeekArray(s: sdText)
         }
         let hoursStringArray = lvHour.components(separatedBy: " ")
         let hoursSdStringArray = sdHour.components(separatedBy: " ")
-        //lvInt = daylv
         if RegisterFirmulary.instance.institutinTextField.text?.isEmpty == false {
             intitutionNew = intitution
         }
@@ -1722,8 +1526,7 @@ extension MiIglesia_InfoIglesia: RefisterFormularyButtonDelegate, RegisterFormDa
             nameNew = resposable
             churchNameLabel.text = nameNew
         }
-        if RegisterFirmulary.instance.nameTextField.text?.isEmpty == false {
-        }
+        //if RegisterFirmulary.instance.nameTextField.text?.isEmpty == false {}
         if RegisterFirmulary.instance.emailTextField.text?.isEmpty == false {
             emailNew = email
             lblEmail.text = email
@@ -1756,42 +1559,41 @@ extension MiIglesia_InfoIglesia: RefisterFormularyButtonDelegate, RegisterFormDa
         if RegisterFirmulary.instance.lvHourTextField.text?.isEmpty == false && RegisterFirmulary.instance.sdHourTextField.text?.isEmpty == false && RegisterFirmulary.instance.lvTextField.text?.isEmpty == false && RegisterFirmulary.instance.sdTextField.text?.isEmpty == false {
             scheduleDay.removeAll()
             attentionnew.removeAll()
+            print("Horarios fin::")
             var getHoraryData: String {
-                if hoursStringArray.count < 4{
-                    return hoursStringArray[1]
-                }else {
+                print("N")
+                if hoursStringArray.count < 4{//sin am pm
+                    print(hoursStringArray[2])
+                    return hoursStringArray[2]
+                }else{
+                    print(hoursStringArray[3])
                     return hoursStringArray[3]
                 }
             }
             var getHorarySDData: String {
+                print("SD")
                 if hoursSdStringArray.count < 4{
-                    return hoursSdStringArray[1]
+                    print(hoursSdStringArray[2])
+                    return hoursSdStringArray[2]
                 }else {
+                    print(hoursSdStringArray[3])
                     return hoursSdStringArray[3]
                 }
             }
-            
-            if isEditProfile == true {
+            if isEditProfile {
                 if scheduleDay.isEmpty {
                     scheduleDay.insert(AttentionEditChurch.init(days: serviceDaylv.unique(map: {$0.id}), hourStart: hoursStringArray[0], hourEnd: getHoraryData), at: 0)
-                }else {
+                }else{
                     scheduleDay.append(AttentionEditChurch.init(days: serviceDaylv.unique(map: {$0.id}), hourStart: hoursStringArray[0], hourEnd: getHoraryData))
                 }
-            }
-            if isEditProfile == true {
                 if attentionnew.isEmpty {
                     attentionnew.insert(AttentionEditChurch.init(days: serviceDaySd.unique(map: {$0.id}), hourStart: hoursSdStringArray[0], hourEnd: getHorarySDData), at: 0)
                 }else {
                     attentionnew.append(AttentionEditChurch.init(days: serviceDaySd.unique(map: {$0.id}), hourStart: hoursSdStringArray[0], hourEnd: getHorarySDData))
                 }
             }
-            let churchScheduleText = "\(lvText) \(lvHour)"
-            churchScheduleLabel.text = churchScheduleText != " " ? churchScheduleText : "No disponible"
-            let churchOfficeScheduleText = "\(sdText) \(sdHour)"
-            churchOfficeScheduleLabel.text = churchOfficeScheduleText != " " ? churchOfficeScheduleText : "No disponible"
-            churchScheduleLabel.adjustsFontSizeToFitWidth = true
-            churchOfficeScheduleLabel.adjustsFontSizeToFitWidth = true
         }
+        actionSave()
     }
 }
 
@@ -1805,52 +1607,7 @@ extension MiIglesia_InfoIglesia: AddServiceModalButtonDelegate {
     func didPressReadyServiceButton(_ sender: UIButton) {
         let day = [1, 2, 3, 4, 5, 6, 7]
         var daysActive: [Bool] {
-            switch AddService.instance.daysTextField.text{
-            case "lunes  martes" : return [false, true, true, false, false, false, false]
-            case "lunes  miércoles": return [false, true, true, true, false, false, false]
-            case "lunes  jueves": return [true, true, true, true, false, false, false]
-            case "lunes  viernes" : return [false, true, true, true, true, true, false]
-            case "lunes  sábado": return [true, true, true, true, true, true, false]
-            case "lunes  domingo": return [true, true, true, true, true, true, true]
-            case "martes  miércoles": return [false, false, true, true, false, false, false]
-            case "martes  jueves": return [false, false, true, true, true, false, false]
-            case "martes  viernes": return [false, false, true, true, true, true, false]
-            case "martes  sábado": return [false, false, true, true, true, true, true]
-            case "martes  domingo": return [true, false, true, true, true, true, true]
-            case "Martes  lunes": return [true, true, true, true, true, true, true]
-            case "miércoles  jueves": return [false, false, false, true, true, false, false]
-            case "miércoles  viernes":  return [false, false, false, true, true, true, false]
-            case "miércoles  sábado": return [false, false, false, true, true, true, true]
-            case "miércoles  domingo": return [true, false, false, true, true, true, true]
-            case "miércoles  lunes": return [true, true, false, true, true, true, true]
-            case "miércoles  martes": return [true, true, true, true, true, true, true]
-            case "jueves  viernes": return [false, false, false, false, true, true, false]
-            case "jueves  sábado": return [false, false, false, false, true, true, true]
-            case "jueves  domingo": return [true, false, false, false, true, true, true]
-            case "jueves  lunes": return [true, true, false, false, true, true, true]
-            case "jueves  martes": return [true, true, true, false, true, true, true]
-            case "jueves  miércoles": return [true, true, true, true, true, true, true]
-            case "viernes  sábado": return [false, false, false, false, false, true, true]
-            case "viernes  domingo": return [true, false, false, false, false, true, true]
-            case "viernes  lunes": return [true, true, false, false, false, true, true]
-            case "viernes  martes": return [true, true, true, false, false, true, true]
-            case "viernes  miércoles": return [true, true, true, true, false, true, true]
-            case "viernes  jueves": return [true, true, true, true, true, true, true]
-            case "sábado  domingo": return [true, false, false, false, false, false, true]
-            case "sábado  lunes": return [true, true, false, false, false, false, true]
-            case "sábado  martes": return [true, true, true, false, false, false, true]
-            case "sábado  miércoles": return [true, true, true, true, false, false, true]
-            case "sábado  jueves": return [true, true, true, true, true, false, true]
-            case "sábado  viernes": return [true, true, true, true, true, true, true]
-            case "domingo  lunes": return [true, true, false, false, false, false, false]
-            case "domingo  martes": return [true, true, true, false, false, false, false]
-            case "domingo  miércoles": return [true, true, true, true, false, false, false]
-            case "domingo  jueves": return [true, true, true, true, true, false, false]
-            case "domingo  viernes": return [true, true, true, true, true, true, false]
-            case "domingo  sábado": return [true, true, true, true, true, true, true]
-            default:
-                return [true, true, true, true, true, true, true]
-            }
+            returnBooleanWeekArray(s: AddService.instance.daysTextField.text ?? " ")
         }
         serviceDay.removeAll()
         serviceSchedules.removeAll()
@@ -1891,61 +1648,17 @@ extension MiIglesia_InfoIglesia: AddServiceModalButtonDelegate {
                 serviceNew.append(ServiceEditChurch.init(type: TypeClassEditChurch.init(id: AddService.instance.serviceID, name: AddService.instance.nameServiceTextField.text), gearedToward: AddService.instance.audienceTextField.text, serviceDescription: AddService.instance.descriptionTextField.text, schedules: serviceSchedules))
             }
             self.view.makeToast("Servicio agregado correctamente", duration: 3.0, position: .top)
-            servicesCollectionView.reloadData()
+            //servicesCollectionView.reloadData()
         }
         view.isUserInteractionEnabled = true
         view.alpha = 1
+        actionSave()
     }
     
     func didPressAdServicemButton(_ sender: UIButton) {
         let day = [1, 2, 3, 4, 5, 6, 7]
         var daysActive: [Bool] {
-            switch AddService.instance.daysTextField.text{
-            case "lunes  martes" : return [false, true, true, false, false, false, false]
-            case "lunes  miércoles": return [false, true, true, true, false, false, false]
-            case "lunes  jueves": return [true, true, true, true, false, false, false]
-            case "lunes  viernes" : return [false, true, true, true, true, true, false]
-            case "lunes  sábado": return [true, true, true, true, true, true, false]
-            case "lunes  domingo": return [true, true, true, true, true, true, true]
-            case "martes  miércoles": return [false, false, true, true, false, false, false]
-            case "martes  jueves": return [false, false, true, true, true, false, false]
-            case "martes  viernes": return [false, false, true, true, true, true, false]
-            case "martes  sábado": return [false, false, true, true, true, true, true]
-            case "martes  domingo": return [true, false, true, true, true, true, true]
-            case "Martes  lunes": return [true, true, true, true, true, true, true]
-            case "miércoles  jueves": return [false, false, false, true, true, false, false]
-            case "miércoles  viernes":  return [false, false, false, true, true, true, false]
-            case "miércoles  sábado": return [false, false, false, true, true, true, true]
-            case "miércoles  domingo": return [true, false, false, true, true, true, true]
-            case "miércoles  lunes": return [true, true, false, true, true, true, true]
-            case "miércoles  martes": return [true, true, true, true, true, true, true]
-            case "jueves  viernes": return [false, false, false, false, true, true, false]
-            case "jueves  sábado": return [false, false, false, false, true, true, true]
-            case "jueves  domingo": return [true, false, false, false, true, true, true]
-            case "jueves  lunes": return [true, true, false, false, true, true, true]
-            case "jueves  martes": return [true, true, true, false, true, true, true]
-            case "jueves  miércoles": return [true, true, true, true, true, true, true]
-            case "viernes  sábado": return [false, false, false, false, false, true, true]
-            case "viernes  domingo": return [true, false, false, false, false, true, true]
-            case "viernes  lunes": return [true, true, false, false, false, true, true]
-            case "viernes  martes": return [true, true, true, false, false, true, true]
-            case "viernes  miércoles": return [true, true, true, true, false, true, true]
-            case "viernes  jueves": return [true, true, true, true, true, true, true]
-            case "sábado  domingo": return [true, false, false, false, false, false, true]
-            case "sábado  lunes": return [true, true, false, false, false, false, true]
-            case "sábado  martes": return [true, true, true, false, false, false, true]
-            case "sábado  miércoles": return [true, true, true, true, false, false, true]
-            case "sábado  jueves": return [true, true, true, true, true, false, true]
-            case "sábado  viernes": return [true, true, true, true, true, true, true]
-            case "domingo  lunes": return [true, true, false, false, false, false, false]
-            case "domingo  martes": return [true, true, true, false, false, false, false]
-            case "domingo  miércoles": return [true, true, true, true, false, false, false]
-            case "domingo  jueves": return [true, true, true, true, true, false, false]
-            case "domingo  viernes": return [true, true, true, true, true, true, false]
-            case "domingo  sábado": return [true, true, true, true, true, true, true]
-            default:
-                return [true, true, true, true, true, true, true]
-            }
+            returnBooleanWeekArray(s: AddService.instance.daysTextField.text ?? " ")
         }
         if AddService.instance.daysTextField.text != ""  && AddService.instance.timeTextField.text != "" && AddService.instance.nameServiceTextField.text != "" && AddService.instance.descriptionTextField.text != "" && AddService.instance.audienceTextField.text != "" {
             
@@ -1994,66 +1707,12 @@ extension MiIglesia_InfoIglesia: AddMassesModalButtonDelegate{
     func didPressReadyMassesButton(_ sender: UIButton, hourTxt: String, daysTxt: String) {
         let day = [1, 2, 3, 4, 5, 6, 7]
         var daysActive: [Bool] {
-            switch daysTxt {//AddMasses.instance.dyasTextfield.text {
-            case "lunes  lunes": return [false, true, false, false, false, false, false]
-            case "lunes  martes" : return [false, true, true, false, false, false, false]
-            case "lunes  miércoles": return [false, true, true, true, false, false, false]
-            case "lunes  jueves": return [false, true, true, true, true, false, false]
-            case "lunes  viernes" : return [false, true, true, true, true, true, false]
-            case "lunes  sábado": return [false, true, true, true, true, true, true]
-            case "lunes  domingo": return [true, true, true, true, true, true, true]
-            case "martes  martes": return [false, false, true, false, false, false, false]
-            case "martes  miércoles": return [false, false, true, true, false, false, false]
-            case "martes  jueves": return [false, false, true, true, true, false, false]
-            case "martes  viernes": return [false, false, true, true, true, true, false]
-            case "martes  sábado": return [false, false, true, true, true, true, true]
-            case "martes  domingo": return [true, false, true, false, false, false, false]
-            case "martes  lunes": return [true, true, true, true, true, true, true]
-            case "miércoles  miércoles": return [false, false, false, true, false, false, false]
-            case "miércoles  jueves": return [false, false, false, true, true, false, false]
-            case "miércoles  viernes":  return [false, false, false, true, true, true, false]
-            case "miércoles  sábado": return [false, false, false, true, true, true, true]
-            case "miércoles  domingo": return [true, false, false, true, true, true, true]
-            case "miércoles  lunes": return [true, true, false, true, true, true, true]
-            case "miércoles  martes": return [true, true, true, true, true, true, true]
-            case "jueves  jueves": return [false, false, false, false, true, false, false]
-            case "jueves  viernes": return [false, false, false, false, true, true, false]
-            case "jueves  sábado": return [false, false, false, false, true, true, true]
-            case "jueves  domingo": return [true, false, false, false, true, false, false]
-            case "jueves  lunes": return [true, true, false, false, true, true, true]
-            case "jueves  martes": return [true, true, true, false, true, true, true]
-            case "jueves  miércoles": return [true, true, true, true, true, true, true]
-            case "viernes  viernes": return [false, false, false, false, false, true, false]
-            case "viernes  sábado": return [false, false, false, false, false, true, true]
-            case "viernes  domingo": return [true, false, false, false, false, true, false]
-            case "viernes  lunes": return [true, true, false, false, false, true, true]
-            case "viernes  martes": return [true, true, true, false, false, true, true]
-            case "viernes  miércoles": return [true, true, true, true, false, true, true]
-            case "viernes  jueves": return [true, true, true, true, true, true, true]
-            case "sábado  sábado": return [false, false, false, false, false, false, true]
-            case "sábado  domingo": return [true, false, false, false, false, false, true]
-            case "sábado  lunes": return [true, true, false, false, false, false, true]
-            case "sábado  martes": return [true, true, true, false, false, false, true]
-            case "sábado  miércoles": return [true, true, true, true, false, false, true]
-            case "sábado  jueves": return [true, true, true, true, true, false, true]
-            case "sábado  viernes": return [true, true, true, true, true, true, true]
-            case "domingo  domingo": return [true, false, false, false, false, false, false]
-            case "domingo  lunes": return [true, true, false, false, false, false, false]
-            case "domingo  martes": return [true, true, true, false, false, false, false]
-            case "domingo  miércoles": return [true, true, true, true, false, false, false]
-            case "domingo  jueves": return [true, true, true, true, true, false, false]
-            case "domingo  viernes": return [true, true, true, true, true, true, false]
-            case "domingo  sábado": return [true, true, true, true, true, true, true]
-            default:
-                return [true, true, true, true, true, true, true]
-            }
+            returnBooleanWeekArray(s: daysTxt)
         }
         massesDayNew.removeAll()
-        print(masesNuew, masesNuew.count)
-       // guard let hoursStringArray = AddMasses.instance.hourTextField.text?.components(separatedBy: " ") else {return}
-         let hoursStringArray = hourTxt.components(separatedBy: " ")
-        //if AddMasses.instance.hourTextField.text?.isEmpty == false && AddMasses.instance.dyasTextfield.text?.isEmpty
-        //AddMasses.instance.dyasTextfield.text?.isEmpty == false {
+   
+        let hoursStringArray = hourTxt.components(separatedBy: " ")
+    
         if hourTxt.isEmpty == false &&  daysTxt.isEmpty == false {
             for (days, daysActive) in zip(day, daysActive) {
                 guard let getDays = DaysInt.init(rawValue: days) else {return}
@@ -2068,74 +1727,20 @@ extension MiIglesia_InfoIglesia: AddMassesModalButtonDelegate{
             }else {
                 masesNuew.append(MassEditChurch.init(days: massesDayNew.unique(map: {$0.id}), hourStart: hoursStringArray[0], hourEnd: hoursStringArray[3]))
             }
-            self.view.makeToast("Misa agregada correctamente", duration: 3.0, position: .top)
         }
         view.isUserInteractionEnabled = true
         view.alpha = 1
-        print(masesNuew, masesNuew.count, "ççç")
+        actionSave()
     }
     
     func didPressAdMassesButton(_ sender: UIButton, hourTxt: String, daysTxt: String) {
         let day = [1, 2, 3, 4, 5, 6, 7]
         var daysActive: [Bool] {
-            switch daysTxt{//AddMasses.instance.dyasTextfield.text {
-            case "lunes  lunes": return [false, true, false, false, false, false, false]
-            case "lunes  martes" : return [false, true, true, false, false, false, false]
-            case "lunes  miércoles": return [false, true, true, true, false, false, false]
-            case "lunes  jueves": return [false, true, true, true, true, false, false]
-            case "lunes  viernes" : return [false, true, true, true, true, true, false]
-            case "lunes  sábado": return [false, true, true, true, true, true, true]
-            case "lunes  domingo": return [true, true, true, true, true, true, true]
-            case "martes  martes": return [false, false, true, false, false, false, false]
-            case "martes  miércoles": return [false, false, true, true, false, false, false]
-            case "martes  jueves": return [false, false, true, true, true, false, false]
-            case "martes  viernes": return [false, false, true, true, true, true, false]
-            case "martes  sábado": return [false, false, true, true, true, true, true]
-            case "martes  domingo": return [true, false, true, false, false, false, false]
-            case "martes  lunes": return [true, true, true, true, true, true, true]
-            case "miércoles  miércoles": return [false, false, false, true, false, false, false]
-            case "miércoles  jueves": return [false, false, false, true, true, false, false]
-            case "miércoles  viernes":  return [false, false, false, true, true, true, false]
-            case "miércoles  sábado": return [false, false, false, true, true, true, true]
-            case "miércoles  domingo": return [true, false, false, true, true, true, true]
-            case "miércoles  lunes": return [true, true, false, true, true, true, true]
-            case "miércoles  martes": return [true, true, true, true, true, true, true]
-            case "jueves  jueves": return [false, false, false, false, true, false, false]
-            case "jueves  viernes": return [false, false, false, false, true, true, false]
-            case "jueves  sábado": return [false, false, false, false, true, true, true]
-            case "jueves  domingo": return [true, false, false, false, true, false, false]
-            case "jueves  lunes": return [true, true, false, false, true, true, true]
-            case "jueves  martes": return [true, true, true, false, true, true, true]
-            case "jueves  miércoles": return [true, true, true, true, true, true, true]
-            case "viernes  viernes": return [false, false, false, false, false, true, false]
-            case "viernes  sábado": return [false, false, false, false, false, true, true]
-            case "viernes  domingo": return [true, false, false, false, false, true, false]
-            case "viernes  lunes": return [true, true, false, false, false, true, true]
-            case "viernes  martes": return [true, true, true, false, false, true, true]
-            case "viernes  miércoles": return [true, true, true, true, false, true, true]
-            case "viernes  jueves": return [true, true, true, true, true, true, true]
-            case "sábado  sábado": return [false, false, false, false, false, false, true]
-            case "sábado  domingo": return [true, false, false, false, false, false, true]
-            case "sábado  lunes": return [true, true, false, false, false, false, true]
-            case "sábado  martes": return [true, true, true, false, false, false, true]
-            case "sábado  miércoles": return [true, true, true, true, false, false, true]
-            case "sábado  jueves": return [true, true, true, true, true, false, true]
-            case "sábado  viernes": return [true, true, true, true, true, true, true]
-            case "domingo  domingo": return [true, false, false, false, false, false, false]
-            case "domingo  lunes": return [true, true, false, false, false, false, false]
-            case "domingo  martes": return [true, true, true, false, false, false, false]
-            case "domingo  miércoles": return [true, true, true, true, false, false, false]
-            case "domingo  jueves": return [true, true, true, true, true, false, false]
-            case "domingo  viernes": return [true, true, true, true, true, true, false]
-            case "domingo  sábado": return [true, true, true, true, true, true, true]
-            default:
-                return [true, true, true, true, true, true, true]
-            }
+            returnBooleanWeekArray(s: daysTxt)
         }
-        //guard let hoursStringArray = AddMasses.instance.hourTextField.text?.components(separatedBy: " ") else {return}
+       
         let hoursStringArray = hourTxt.components(separatedBy: " ")
         massesDayNew.removeAll()
-        //if AddMasses.instance.hourTextField.text?.isEmpty == false && AddMasses.instance.dyasTextfield.text?.isEmpty
         if hourTxt.isEmpty == false && daysTxt.isEmpty == false {
             for (days, daysActive) in zip(day, daysActive) {
                 guard let getDays = DaysInt.init(rawValue: days) else {return}
@@ -2153,14 +1758,67 @@ extension MiIglesia_InfoIglesia: AddMassesModalButtonDelegate{
             self.view.makeToast("Misa agregada correctamente", duration: 3.0, position: .top)
         }
     }
+    
+    func returnBooleanWeekArray(s:String)  -> [Bool]{
+        switch s{
+        case "lunes  martes" : return [false, true, true, false, false, false, false]
+        case "lunes  miércoles": return [false, true, true, true, false, false, false]
+        case "lunes  jueves": return [true, true, true, true, false, false, false]
+        case "lunes  viernes" : return [false, true, true, true, true, true, false]
+        case "lunes  sábado": return [true, true, true, true, true, true, false]
+        case "lunes  domingo": return [true, true, true, true, true, true, true]
+        case "martes  miércoles": return [false, false, true, true, false, false, false]
+        case "martes  jueves": return [false, false, true, true, true, false, false]
+        case "martes  viernes": return [false, false, true, true, true, true, false]
+        case "martes  sábado": return [false, false, true, true, true, true, true]
+        case "martes  domingo": return [true, false, true, true, true, true, true]
+        case "Martes  lunes": return [true, true, true, true, true, true, true]
+        case "miércoles  jueves": return [false, false, false, true, true, false, false]
+        case "miércoles  viernes":  return [false, false, false, true, true, true, false]
+        case "miércoles  sábado": return [false, false, false, true, true, true, true]
+        case "miércoles  domingo": return [true, false, false, true, true, true, true]
+        case "miércoles  lunes": return [true, true, false, true, true, true, true]
+        case "miércoles  martes": return [true, true, true, true, true, true, true]
+        case "jueves  viernes": return [false, false, false, false, true, true, false]
+        case "jueves  sábado": return [false, false, false, false, true, true, true]
+        case "jueves  domingo": return [true, false, false, false, true, true, true]
+        case "jueves  lunes": return [true, true, false, false, true, true, true]
+        case "jueves  martes": return [true, true, true, false, true, true, true]
+        case "jueves  miércoles": return [true, true, true, true, true, true, true]
+        case "viernes  sábado": return [false, false, false, false, false, true, true]
+        case "viernes  domingo": return [true, false, false, false, false, true, true]
+        case "viernes  lunes": return [true, true, false, false, false, true, true]
+        case "viernes  martes": return [true, true, true, false, false, true, true]
+        case "viernes  miércoles": return [true, true, true, true, false, true, true]
+        case "viernes  jueves": return [true, true, true, true, true, true, true]
+        case "sábado  domingo": return [true, false, false, false, false, false, true]
+        case "sábado  lunes": return [true, true, false, false, false, false, true]
+        case "sábado  martes": return [true, true, true, false, false, false, true]
+        case "sábado  miércoles": return [true, true, true, true, false, false, true]
+        case "sábado  jueves": return [true, true, true, true, true, false, true]
+        case "sábado  viernes": return [true, true, true, true, true, true, true]
+        case "domingo  lunes": return [true, true, false, false, false, false, false]
+        case "domingo  martes": return [true, true, true, false, false, false, false]
+        case "domingo  miércoles": return [true, true, true, true, false, false, false]
+        case "domingo  jueves": return [true, true, true, true, true, false, false]
+        case "domingo  viernes": return [true, true, true, true, true, true, false]
+        case "domingo  sábado": return [true, true, true, true, true, true, true]
+        default:
+            return [true, true, true, true, true, true, true]
+        }
+    }
 }
 
 extension MiIglesia_InfoIglesia: AddSocialModalButtonDelegate {
-    
-    func didPressReadySocialButton(_ sender: UIButton){
-        print("nada")
+    func didPressReadySocialButton(_ sender: UIButton) {
+        print("NA")
     }
+    func didPressAddSocialmButton(_ sender: UIButton) {
+        print("NA")
+    }
+    
     func pressAddSocial(sender: UIButton, socialTxt: String, socialIndex: Int) {
+        print("press add social")
         switch socialIndex {
         case 0:
             faceNew = socialTxt
@@ -2175,7 +1833,6 @@ extension MiIglesia_InfoIglesia: AddSocialModalButtonDelegate {
         default:
             break
         }
-        
         self.view.makeToast("Red social agregada correctamente", duration: 3.0, position: .top)
         socialTableView.isHidden = false
         socialTableView.reloadData()
@@ -2196,48 +1853,16 @@ extension MiIglesia_InfoIglesia: AddSocialModalButtonDelegate {
         default:
             break
         }
-        
-        self.view.makeToast("Red social agregada correctamente", duration: 3.0, position: .top)
         view.isUserInteractionEnabled = true
         view.alpha = 1
-        socialTableView.isHidden = false
-        socialTableView.reloadData()
+        //guardar Directamente
+        actionSave()
     }
-    
-// OLD AND USELESS
-   
-    func didPressAddSocialmButton(_ sender: UIButton) {
-        switch AddSocial.instance.sellectedSocial {
-        case 0:
-            faceNew = AddSocial.instance.socialTextField.text ?? ""
-            socialData[0] = faceNew
-        case 1:
-            twittNew = AddSocial.instance.socialTextField.text ?? ""
-            socialData[1] = twittNew
-        case 2:
-            instaNew = AddSocial.instance.socialTextField.text ?? ""
-            socialData[2] = instaNew
-        case 3:
-            streamNew = AddSocial.instance.socialTextField.text ?? ""
-            socialData[4] = streamNew
-        case 4:
-            webNew = AddSocial.instance.socialTextField.text ?? ""
-            socialData[3] = webNew
-        default:
-            break
-        }
-        self.view.makeToast("Red social agregada correctamente", duration: 3.0, position: .top)
-        socialTableView.isHidden = false
-        socialTableView.reloadData()
-    }
-    
-    
 }
 
 extension MiIglesia_InfoIglesia: UIViewControllerTransitioningDelegate {
     func animationController(forDismissed dismissed: UIViewController) -> UIViewControllerAnimatedTransitioning? {
         transition.isPresenting = false
-        
         DispatchQueue.main.asyncAfter(deadline: .now()) {
             self.initContent()
             
@@ -2259,10 +1884,8 @@ extension MiIglesia_InfoIglesia: UIViewControllerTransitioningDelegate {
                 self.imgFav.alpha = 0
                 self.btnPrincipal.isHidden = true
             }
-            
         }
-        
         return transition
     }
 }
-
+//2260

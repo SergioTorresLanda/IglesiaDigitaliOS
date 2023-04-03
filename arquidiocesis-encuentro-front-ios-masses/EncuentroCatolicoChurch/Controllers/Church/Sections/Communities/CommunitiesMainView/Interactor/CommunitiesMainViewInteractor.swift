@@ -86,7 +86,7 @@ class CommunitiesMainViewInteractor: CommunitiesMainViewInteractorInputProtocol 
             //print("->  error: ", error as Any)
 
             if error != nil {
-                print("Hubo un error")
+                print("Hubo un error 050")
                 return
             }
             
@@ -142,7 +142,7 @@ class CommunitiesMainViewInteractor: CommunitiesMainViewInteractorInputProtocol 
             //print("->  respuesta Status Code: ", response as Any)
             //print("->  error: ", error as Any)
             if error != nil {
-                print("Hubo un error")
+                print("Hubo un error049")
                 return
             }
             
@@ -181,7 +181,7 @@ class CommunitiesMainViewInteractor: CommunitiesMainViewInteractorInputProtocol 
             //print("->  error: ", error as Any)
 
             if error != nil {
-                print("Hubo un error")
+                print("Hubo un error 048")
                 return
             }
             
@@ -214,7 +214,7 @@ class CommunitiesMainViewInteractor: CommunitiesMainViewInteractorInputProtocol 
             //print("->  error: ", error as Any)
 
             if error != nil {
-                print("Hubo un error")
+                print("Hubo un error 047")
                 return
             }
             
@@ -252,7 +252,7 @@ class CommunitiesMainViewInteractor: CommunitiesMainViewInteractorInputProtocol 
             //print("->  error: ", error as Any)
 
             if error != nil {
-                print("Hubo un error")
+                print("Hubo un error 046")
                 return
             }
             

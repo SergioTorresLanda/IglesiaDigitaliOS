@@ -33,7 +33,7 @@ class LibraryAndResourcesInteractor: LibraryAndResourcesInteractorProtocol {
             //print("->>  error: ", error)
             guard let allData = data else { return }
             if error != nil {
-                print("Hubo un error")
+                print("Hubo un error 001")
                 return
             }
             

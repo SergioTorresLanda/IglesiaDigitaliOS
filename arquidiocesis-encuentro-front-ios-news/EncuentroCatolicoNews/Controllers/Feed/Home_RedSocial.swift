@@ -128,10 +128,12 @@ public class Home_RedSocial: UIViewController, FeedViewProtocol, FeedViewControl
         imgProfile.clipsToBounds = true
         imgProfile.makeRounded()
         //imgProfile.setImage(name: name, image: nil)
-        if let imageString = UserDefaults.standard.string(forKey: "imageUrl") {
-            imgProfile.loadS(urlS:imageString)
+        let newUser = UserDefaults.standard.bool(forKey: "isNewUser")
+        if newUser {//esta logueado proceder
+            if let imageString = UserDefaults.standard.string(forKey: "imageUrl") {
+                imgProfile.loadS(urlS:imageString)
+            }
         }
-//        imgProfile.layer.cornerRadius = imgProfile.bounds.width / 2
         btnCreatePost.setTitle("", for: .normal)
         barraNavegacion.layer.cornerRadius = 30
         barraNavegacion.layer.shadowRadius = 5

@@ -27,7 +27,7 @@ protocol ChurchDetailViewProtocol: class {
     
 }
 
-protocol ChurchDetailWireFrameProtocol: class {
+protocol ChurchDetailWireFrameProtocol: AnyObject {
     static func presentChurchDetailModule(with id: Int, fromView vc: AnyObject, selector isPrincipal: Int)
     /**
     * Add here your methods for communication PRESENTER -> WIREFRAME
@@ -36,7 +36,7 @@ protocol ChurchDetailWireFrameProtocol: class {
     func presentMyChurchesModule(fromView vc:AnyObject)
 }
 
-protocol ChurchDetailPresenterProtocol: class {
+protocol ChurchDetailPresenterProtocol: AnyObject {
     var view: ChurchDetailViewProtocol? { get set }
     var interactor: ChurchDetailInteractorInputProtocol? { get set }
     var wireFrame: ChurchDetailWireFrameProtocol? { get set }
@@ -58,7 +58,7 @@ protocol ChurchDetailPresenterProtocol: class {
     
 }
 
-protocol ChurchDetailInteractorOutputProtocol: class {
+protocol ChurchDetailInteractorOutputProtocol: AnyObject {
     /**
     * Add here your methods for communication INTERACTOR -> PRESENTER
     */
@@ -76,7 +76,7 @@ protocol ChurchDetailInteractorOutputProtocol: class {
     func errorTransportCommentList(responseCode: HTTPURLResponse)
 }
 
-protocol ChurchDetailInteractorInputProtocol: class
+protocol ChurchDetailInteractorInputProtocol: AnyObject
 {
     var presenter: ChurchDetailInteractorOutputProtocol? { get set }
     /**

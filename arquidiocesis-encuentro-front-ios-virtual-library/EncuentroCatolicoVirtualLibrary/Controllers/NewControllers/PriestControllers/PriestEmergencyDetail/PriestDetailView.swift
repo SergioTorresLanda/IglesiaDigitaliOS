@@ -411,7 +411,7 @@ class PriestDetailView: UIViewController, PriestDetailViewProtocol {
     }
     
     func failRequest() {
-        print("Hubo un error")
+        print("Hubo un error 009")
     }
     
     func fillStars(rating: Double) {

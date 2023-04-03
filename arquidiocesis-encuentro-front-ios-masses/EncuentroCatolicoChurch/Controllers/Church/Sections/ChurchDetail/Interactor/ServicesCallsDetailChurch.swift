@@ -28,7 +28,7 @@ struct doGetServiceCatalog: ResponseDispatcher {
     var urlOptional: String?
     var parameters: [String : Any]?
     var data: RequestType {
-        return RequestType(path: "/catalog/services?type=DEFAULT" , method: .get, params: nil, url:Endpoints.urlGlobalApp)
+        return RequestType(path: "/catalog/services" , method: .get, params: nil, url:Endpoints.urlGlobalApp)//?type=DEFAULT
     }
 }
 

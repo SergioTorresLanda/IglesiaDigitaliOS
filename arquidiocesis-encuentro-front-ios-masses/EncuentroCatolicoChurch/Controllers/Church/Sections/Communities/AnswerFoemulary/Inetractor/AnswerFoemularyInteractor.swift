@@ -49,10 +49,10 @@ class AnswerFoemularyInteractor: AnswerFoemularyInteractorInputProtocol {
             //print("->  error: ", error as Any)
 
             if error != nil {
-                print("Hubo un error")
+                print("Hubo un error 045")
                 return
             }
-            print(response)
+            //print(response)
             if (response as! HTTPURLResponse).statusCode == 201 {
                 self.presenter?.responseAddCommunity(errores: ServerErrors.OK, data: nil)
             }else{

@@ -368,7 +368,7 @@ extension MiIglesia_MapaIglesias: MKLocalSearchCompleterDelegate {
             churchDetailLocation = churchDetailLocation?.filter { data in
                 let addresText = addresTextField.text
                 let name = data.name!
-                print(name.forSorting, addresText?.forSorting)
+                //print(name.forSorting, addresText?.forSorting)
                 var result: Bool {
                     let addresText = addresTextField.text ?? ""
                     let name = data.name?.forSorting

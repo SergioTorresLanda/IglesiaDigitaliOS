@@ -53,6 +53,8 @@ class RegisterFirmulary: UIView, UITextFieldDelegate {
     static let instance = RegisterFirmulary()
     var latitude: Double = 0.0
     var longitude: Double = 0.0
+    var isComunidad = false
+    
     private lazy var lvTimePicker: TimePicker = {
         let picker = TimePicker()
         picker.setup()
@@ -196,11 +198,11 @@ class RegisterFirmulary: UIView, UITextFieldDelegate {
         }
     }
     @objc func keyboardWillShow(notification: NSNotification) {
-        if let keyboardSize = (notification.userInfo?[UIResponder.keyboardFrameEndUserInfoKey] as? NSValue)?.cgRectValue {
+        /*if let keyboardSize = (notification.userInfo?[UIResponder.keyboardFrameEndUserInfoKey] as? NSValue)?.cgRectValue {
             if self.parentView.frame.origin.y == 0 {
                 //self.parentView.frame.origin.y -= keyboardSize.height
             }
-        }
+        }*/
     }
     
     @objc func keyboardWillHide(notification: NSNotification) {
@@ -282,11 +284,21 @@ class RegisterFirmulary: UIView, UITextFieldDelegate {
             
         }
     }
-    
+    //08:00  16:00
+    //08:00  18:00
+    //08:00 AM  16:00 PM
+    //08:00 AM  18:00 PM
     @IBAction func readyButtonAction(_ sender: UIButton) {
         delegate?.didPressReadyFormularyButton(sender)
+        print("ZZZ guardar click")
         if self.delegateData != nil {
-            delegateData?.sendDataFormToComMainViewController(name: nameTextField.text ?? "", intitution: institutinTextField.text ?? "", charism: charismaTextField.text ?? "", resposable: responsableTextField.text ?? "", description: descriptionTextField.text ?? "", address: addressTextField.text ?? "", lvText: lvTextField.text ?? "", lvHour: lvHourTextField.text ?? "", sdText: sdTextField.text ?? "", sdHour: sdHourTextField.text ?? "", email: emailTextField.text ?? "", phone: phoneTextField.text ?? "", latitude: latitude, longitude: longitude)
+            //if isComunidad{
+                print("ZZZ se esta llendo a comunidades:")
+            print("Horarios temp :")
+            print(lvHourTextField.text ?? "NO")
+            print(sdHourTextField.text ?? "NO")
+                delegateData?.sendDataFormToComMainViewController(name: nameTextField.text ?? "", intitution: institutinTextField.text ?? "", charism: charismaTextField.text ?? "", resposable: responsableTextField.text ?? "", description: descriptionTextField.text ?? "", address: addressTextField.text ?? "", lvText: lvTextField.text ?? "", lvHour: lvHourTextField.text ?? "", sdText: sdTextField.text ?? "", sdHour: sdHourTextField.text ?? "", email: emailTextField.text ?? "", phone: phoneTextField.text ?? "", latitude: latitude, longitude: longitude)
+            //}
         }
     }
 }

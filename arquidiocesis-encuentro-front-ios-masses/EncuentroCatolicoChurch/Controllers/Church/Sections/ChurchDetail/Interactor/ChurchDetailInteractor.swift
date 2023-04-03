@@ -39,14 +39,11 @@ class ChurchDetailInteractor: ChurchDetailInteractorInputProtocol {
         guard let body = try? encoder.encode(dictionary) else { return  }
         request.httpBody = body
         let tarea = URLSession.shared.dataTask(with: request) { data, response, error in
-            //print("->  respuesta Status Code: ", response as Any)
-            //print("->  error: ", error as Any)
-
+            
             if error != nil {
-                print("Hubo un error")
+                print("Hubo un error 044")
                 return
             }
-            
             if (response as! HTTPURLResponse).statusCode == 200 {
                 self.presenter?.responsePutEditChurch(errores: ServerErrors.OK, data: nil)
             }else{
@@ -55,9 +52,7 @@ class ChurchDetailInteractor: ChurchDetailInteractorInputProtocol {
             }
         }
         tarea.resume()
-        
     }
-    
     
     //MARK: Networking
     func requestDetail(id: Int) {
@@ -67,16 +62,67 @@ class ChurchDetailInteractor: ChurchDetailInteractorInputProtocol {
             self.presenter?.errorDetail(msg: msg)
         }
     }
-    
-    func requestServiceCatalog() {
-        doGetServiceCatalog.init().execute { (result) in
-            self.presenter?.responseGetServiceCatalog(data: result)
-        } onError: { error, msg in
-            self.presenter?.errorGetServiceCatalog(msg: msg)
-        }
 
+    func readJsonCom(data:Data) {
+        do {
+            let json = try JSONSerialization.jsonObject(with: data, options: [])
+            if let object = json as? [String: Any] {
+                print("JSONCom is dict")
+                print(object)
+            }else if let object = json as? [Any] {
+                print("JSON SERVICE is array") //esta es la opcion buena
+                print(object)
+                var services : [ServiceCatalogModelElement] = []
+                for x in object{
+                    if let object = x as? [String: Any] { //esta deberia ser la buena
+                        print("exito paps")
+                        print(object)
+                        //let action = object["action"] as? String ?? ""
+                        //let description = object["description"] as? String ?? "noDesc"
+                        let id = object["id"] as? Int ?? 0
+                        let name = object["name"] as? String ?? "noName"
+                        let serviceObj = ServiceCatalogModelElement(id: id, name: name, iconUrl: "")
+                        services.append(serviceObj)
+                    }else{
+                        print("no parseable a String:Any")
+                    }
+                }
+                self.presenter?.responseGetServiceCatalog(data: services)
+            } else {
+                print("JSON is invalid")
+                self.presenter?.errorGetServiceCatalog(msg: "msg")
+            }
+        } catch {
+            print("JSON error")
+            print(error.localizedDescription)
+            self.presenter?.errorGetServiceCatalog(msg: "msg")
+        }
     }
     
+    func requestServiceCatalog() {
+        //AQUI CAMBIAMOS
+        guard let apiURL = URL(string: "\(APIType.shared.User())/catalog/services")
+            
+        else {return}
+        print("LA URL ESSLLL ::")
+        print(apiURL.absoluteString)
+        var request = URLRequest(url: apiURL)
+        let tksession = UserDefaults.standard.string(forKey: "idToken")
+        request.setValue("Bearer \( tksession ?? "")", forHTTPHeaderField: "Authorization")
+        request.httpMethod = "GET"
+        let work = URLSession.shared.dataTask(with: request) { data, response, error in
+            guard let allData = data else {
+                self.presenter?.errorGetServiceCatalog(msg: "msg")
+                return
+            }
+            //let responseData = String(data: allData, encoding: String.Encoding.utf8)
+            //print("response data:::")
+            //print(responseData)
+            self.readJsonCom(data: allData)
+        }
+        work.resume()
+    }
+         
     //Fiel
     func requestAddFavorite(id: Int, idPriest: Int, isPrincipal: Int) {
         var isPrincipalBool: Bool {
@@ -107,7 +153,7 @@ class ChurchDetailInteractor: ChurchDetailInteractorInputProtocol {
             //print("->  error: ", error as Any)
 
             if error != nil {
-                print("Hubo un error")
+                print("Hubo un error 043")
                 return
             }
             if (response as! HTTPURLResponse).statusCode == 200 {
@@ -150,7 +196,7 @@ class ChurchDetailInteractor: ChurchDetailInteractorInputProtocol {
             //print("->  error: ", error as Any)
 
             if error != nil {
-                print("Hubo un error")
+                print("Hubo un error 042")
                 return
             }
             
@@ -173,7 +219,7 @@ class ChurchDetailInteractor: ChurchDetailInteractorInputProtocol {
             self?.presenter?.responseAddChurchSacerdote(msg: "Error")
             print(result)
         } onError: { [weak self](error, msg) in
-            if msg == nil || msg == "" {
+            if msg == "" {
                 self?.presenter?.responseAddChurchSacerdote(msg: nil)
             }else {
                 self?.presenter?.responseAddChurchSacerdote(msg: msg)
@@ -185,7 +231,7 @@ class ChurchDetailInteractor: ChurchDetailInteractorInputProtocol {
         DoRemoveChurchSacerdote.init(idPriest: String(idPriest), locationId: String(idLocation)).execute { [weak self](result) in
             self?.presenter?.responseRemoveChurchSacerdote(msg: "error")
         } onError: { [weak self](error, msg) in
-            if msg == nil || msg == "" {
+            if msg == "" {
                 self?.presenter?.responseRemoveChurchSacerdote(msg: nil)
             }else {
                 self?.presenter?.responseRemoveChurchSacerdote(msg: msg)
@@ -228,6 +274,13 @@ class ChurchDetailInteractor: ChurchDetailInteractorInputProtocol {
         
     }
     
+}
+
+struct Servicio: Codable {
+    var action: String?
+    var description: String?
+    var id: Int?
+    var name: String?
 }
 
 

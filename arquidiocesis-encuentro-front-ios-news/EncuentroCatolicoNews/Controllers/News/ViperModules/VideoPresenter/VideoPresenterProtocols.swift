@@ -11,23 +11,23 @@
 import Foundation
 
 //MARK: Wireframe -
-protocol VideoPresenterWireframeProtocol: class {
+protocol VideoPresenterWireframeProtocol: AnyObject {
 
 }
 
 //MARK: Presenter -
-protocol VideoPresenterPresenterProtocol: class {
+protocol VideoPresenterPresenterProtocol: AnyObject {
 
 }
 
 //MARK: Interactor -
-protocol VideoPresenterInteractorProtocol: class {
+protocol VideoPresenterInteractorProtocol: AnyObject {
     
     var presenter: VideoPresenterPresenterProtocol?  { get set }
 }
 
 //MARK: View -
-protocol VideoPresenterViewProtocol: class {
+protocol VideoPresenterViewProtocol: AnyObject {
 
   var presenter: VideoPresenterPresenterProtocol?  { get set }
 }

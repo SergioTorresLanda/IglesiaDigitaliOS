@@ -118,6 +118,7 @@ class ChurchDetailPresenter: ChurchDetailPresenterProtocol, ChurchDetailInteract
     func getServiceCatalog() {
         interactor?.requestServiceCatalog()
     }
+    
     func responseGetServiceCatalog(data: ServiceCatalogModel) {
         view?.serviceCatalogSuccess(response: data)
     }

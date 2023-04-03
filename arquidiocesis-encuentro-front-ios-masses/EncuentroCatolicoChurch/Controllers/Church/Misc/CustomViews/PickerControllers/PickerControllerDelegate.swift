@@ -7,7 +7,7 @@
 
 import Foundation
 
-protocol PickerControllerDelegate: class {
+protocol PickerControllerDelegate: AnyObject {
     func closeAction(pickerType: PickerType)
     func acceptAction(pickerType: PickerType, selectedText: String)
 }

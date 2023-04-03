@@ -65,7 +65,7 @@ class ConfirmPhoneRemoteDataManager:ConfirmPhoneRemoteDataManagerInputProtocol {
             //print("->  error: ", error as Any)
 
             if error != nil {
-                print("Hubo un error")
+                print("Hubo un error 056")
                 self.remoteRequestHandler?.callbackResponse(respuesta: nil, error: ErroresServidorConfirm.ErrorServidor, user: user)
                 return
             }
@@ -76,6 +76,7 @@ class ConfirmPhoneRemoteDataManager:ConfirmPhoneRemoteDataManagerInputProtocol {
                 defaults.setValue(user.name + " " + user.last_name + " " + user.middle_name, forKey: "nombre")
                 defaults.setValue(user.phone_number, forKey: "telefono")
                 defaults.setValue(user.email, forKey: "email")
+                defaults.setValue(user.email, forKey: "emailForBiometric")
                 
                 self.remoteRequestHandler?.callbackResponse(respuesta: ResponseConfirm(UserConfirmed: true, UserSub: ""), error: ErroresServidorConfirm.Ok, user: user)
             } else if (response as! HTTPURLResponse).statusCode == 500 {

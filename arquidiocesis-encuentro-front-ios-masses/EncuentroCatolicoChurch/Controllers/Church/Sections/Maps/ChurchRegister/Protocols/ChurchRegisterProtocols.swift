@@ -9,7 +9,7 @@
 import Foundation
 import UIKit
 
-protocol ChurchRegisterViewProtocol: class {
+protocol ChurchRegisterViewProtocol: AnyObject {
     var presenter: ChurchRegisterPresenterProtocol? { get set }
     /**
     * Add here your methods for communication PRESENTER -> VIEW
@@ -20,7 +20,7 @@ protocol ChurchRegisterViewProtocol: class {
     func communityLocationError(msg: String)
 }
 
-protocol ChurchRegisterWireFrameProtocol: class {
+protocol ChurchRegisterWireFrameProtocol: AnyObject {
     static func presentChurchRegisterModule(selector: Int, from contoller: AnyObject)
     static func presentChurchRegisterModuleCommunity(selector: Int, from contoller: AnyObject, isPricipalBool: Bool)
     /**
@@ -30,7 +30,7 @@ protocol ChurchRegisterWireFrameProtocol: class {
     func pushCommunityDetail(id: Int, from contoller: AnyObject, myChourch: Bool, isPricipalBool: Bool)
 }
 
-protocol ChurchRegisterPresenterProtocol: class {
+protocol ChurchRegisterPresenterProtocol: AnyObject {
     var view: ChurchRegisterViewProtocol? { get set }
     var interactor: ChurchRegisterInteractorInputProtocol? { get set }
     var wireFrame: ChurchRegisterWireFrameProtocol? { get set }
@@ -43,7 +43,7 @@ protocol ChurchRegisterPresenterProtocol: class {
     func getCommunityDetailMap(lat: Double, lon: Double)
 }
 
-protocol ChurchRegisterInteractorOutputProtocol: class {
+protocol ChurchRegisterInteractorOutputProtocol: AnyObject {
     /**
     * Add here your methods for communication INTERACTOR -> PRESENTER
     */
@@ -52,7 +52,7 @@ protocol ChurchRegisterInteractorOutputProtocol: class {
     func errorCommunityLocation(msg: String)
 }
 
-protocol ChurchRegisterInteractorInputProtocol: class
+protocol ChurchRegisterInteractorInputProtocol: AnyObject
 {
     var presenter: ChurchRegisterInteractorOutputProtocol? { get set }
     /**

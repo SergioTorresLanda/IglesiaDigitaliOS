@@ -16,7 +16,6 @@ class ChurchPriestViewController: BaseViewController {
     var churchDetailFill: ChurchDetail?
     //MARK: - VIPER variables
     var presenter: ChurchPriestPresenterProtocol?
-    
     //MARK: - Local variables
     var churchId: Int?
     var selectedMasses: Array<ChurchDetail.Masses> = Array()
@@ -48,8 +47,6 @@ class ChurchPriestViewController: BaseViewController {
     @IBOutlet weak var txtNumeroDeCuenta: UITextField!
     @IBOutlet weak var otherPriestTableView: UITableView!
     @IBOutlet weak var otherPriestTableViewHeightConstraint: NSLayoutConstraint!
-    
-    
     
     private var maxLengthEmail = 60
     private var maxLengthName = 60
@@ -181,10 +178,7 @@ class ChurchPriestViewController: BaseViewController {
     //MARK: - Life cycle
     override func viewDidLoad() {
         super.viewDidLoad()
-        
-       
-//
-    
+
         setDelegates()
         initUI()
         setData(dataPriest: churchDetailFill)

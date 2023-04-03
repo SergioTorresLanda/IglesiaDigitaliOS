@@ -17,7 +17,6 @@ protocol HomeWireframeProtocol: AnyObject {
 //MARK: Presenter -
 protocol HomePresenterProtocol: AnyObject {
     func cargarDatosUsuario()
-    
     func obtieneRespuetaUsuario(errores: ErroresServidorHome, user: UserRespHome?)
     func abrirBancoAppParaApoyar(mount: String)
     func requestUserDetail()
@@ -30,6 +29,7 @@ protocol HomePresenterProtocol: AnyObject {
     func requestStreaming()
     func onSuccessStreaming(data: [LiveModel], response: HTTPURLResponse)
     func onFailStreaming(message: Error)
+    func onFailCarrusel(type: String)
         
 }
 
@@ -59,6 +59,6 @@ protocol HomeViewProtocol: AnyObject {
     func onSuccessGetPosts(data: [HomePosts])
     func onFialGetSuggestions(message: String)
     func successStreaming(data: [LiveModel])
-    func failStreaming(message: String) 
-    
+    func failStreaming(message: String)
+    func onFailCarruselV(type: String)
 }

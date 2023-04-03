@@ -33,7 +33,7 @@ class CategoriesInteractor: CategoriesInteractorProtocol {
             //print("->>  response: ", response)
             //print("->>  error: ", error)
             if error != nil {
-                print("Hubo un error")
+                print("Hubo un error 003")
                 return
             }
             
@@ -68,7 +68,7 @@ class CategoriesInteractor: CategoriesInteractorProtocol {
                 //print("->>  response: ", response)
                 //print("->>  error: ", error)
                 if error != nil {
-                    print("Hubo un error")
+                    print("Hubo un error 002")
                     return
                 }
                 

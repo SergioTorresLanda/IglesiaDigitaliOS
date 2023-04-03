@@ -107,7 +107,7 @@ extension NewDontaionsInteractor {
         let work = URLSession.shared.dataTask(with: request) { data, response, error in
             
             if error != nil {
-                print("Hubo un error")
+                print("Hubo un error 062")
                 return
             }
             

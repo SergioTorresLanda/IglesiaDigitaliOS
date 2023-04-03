@@ -7,8 +7,13 @@
 
 import UIKit
 
-class ComedorCell: UITableViewCell {
+protocol ComedorCellDelegate: AnyObject{
+    func cellAction(sender:Comedor)
+}
 
+class ComedorCell: UITableViewCell {
+    weak var delegate:ComedorCellDelegate?
+    
     @IBOutlet weak var lblInfo: UILabel!
     @IBOutlet weak var lblDirec: UILabel!
     @IBOutlet weak var lblResponsable: UILabel!
@@ -17,6 +22,7 @@ class ComedorCell: UITableViewCell {
     @IBOutlet weak var lblPrecio: UILabel!
     @IBOutlet weak var lblRequisitos: UILabel!
 
+    @IBOutlet weak var btnAction: UIButton!
     @IBOutlet weak var subContentCard: UIView!
     @IBOutlet weak var lblDias: UILabel!
     @IBOutlet weak var lblHorario: UILabel!
@@ -25,8 +31,15 @@ class ComedorCell: UITableViewCell {
         // Initialization code
     }
     
-    func setComedor(data:Comedor){
-        
+    var comedor:Comedor?
+    
+    @IBAction func actionClick(_ sender: Any) {
+        print("clickAction")
+        delegate?.cellAction(sender: comedor!)
+    }
+    
+    func setComedor(data:Comedor, type:String){
+        comedor=data
         lblInfo.text=data.nombre
         lblDirec.text=data.direccion
         lblResponsable.text=data.responsable
@@ -51,8 +64,25 @@ class ComedorCell: UITableViewCell {
                     lblDias.text = lblDias.text! + dia.name + ", "
                 }
             }
-          
         }
+        
+        switch type {
+        case "Donante":
+            btnAction.isHidden=false
+            btnAction.setTitle("    Donar    ", for: .normal)
+        case "Voluntario":
+            btnAction.isHidden=false
+            btnAction.setTitle("    Participar    ", for: .normal)
+        default://solicitante
+            btnAction.isHidden=true
+        }
+        
+        lblRequisitos.sizeToFit()
+        lblRequisitos.layoutIfNeeded()
+        lblDirec.sizeToFit()
+        lblDirec.layoutIfNeeded()
+        lblDias.sizeToFit()
+        lblDias.layoutIfNeeded()
     }
 
     override func setSelected(_ selected: Bool, animated: Bool) {

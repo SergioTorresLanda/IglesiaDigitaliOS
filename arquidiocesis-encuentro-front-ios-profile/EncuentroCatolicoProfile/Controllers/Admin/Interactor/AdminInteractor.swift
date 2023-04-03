@@ -46,7 +46,7 @@ class AdminInteractor: ProtocolosAdminInteractorInput {
             let outputStr  = String(data: allData, encoding: String.Encoding.utf8) as String?
             //print("-->✅  Response ->  ", outputStr as Any)
             if error != nil {
-                print("Hubo un error")
+                print("Hubo un error 037")
                 return
             }
             if (response as! HTTPURLResponse).statusCode == 200 {

@@ -502,7 +502,7 @@ extension Home_CadenaOracion:  UICollectionViewDelegate, UICollectionViewDataSou
             cell.lblName.text = prayer.title
             cell.tag = prayer.id
             let isoDate = prayer.date
-            let dat = Date()
+            //let dat = Date()
             let dateFormatterGet = DateFormatter()
             dateFormatterGet.timeZone = TimeZone.current
             dateFormatterGet.locale = Locale(identifier: "es_MX")

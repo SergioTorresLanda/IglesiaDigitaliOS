@@ -25,7 +25,7 @@ class UncionSOSInteractor: UncionInteractorProtocol {
             //print("->>  response: ", response)
             //print("->>  error: ", error)
             if error != nil {
-                print("Hubo un error")
+                print("Hubo un error013")
                 return
             }
             
@@ -93,7 +93,7 @@ class UncionSOSInteractor: UncionInteractorProtocol {
             //print("->>  response: ", response)
             //print("->>  error: ", error)
             if error != nil {
-                print("Hubo un error")
+                print("Hubo un error 012")
                 return
             }
             do{

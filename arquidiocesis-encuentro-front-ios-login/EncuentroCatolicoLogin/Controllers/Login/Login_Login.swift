@@ -103,11 +103,10 @@ class Login_Login: UIViewController {
     }
     
     override func viewDidAppear(_ animated: Bool) {
-        biometricCanValidate()
-//        validateButtonBiometric()
-        self.btnRegistar.isEnabled = true
-        self.spinner.stopAnimating()
-        self.spinner.isHidden = true
+        //biometricCanValidate()
+        btnRegistar.isEnabled = true
+        spinner.stopAnimating()
+        spinner.isHidden = true
         
         txtUser.addTarget(self, action: #selector(salta(sender:)), for: .editingDidEndOnExit)
         txtPassword.addTarget(self, action: #selector(finaliza(sender:)), for: .editingDidEndOnExit)
@@ -117,7 +116,6 @@ class Login_Login: UIViewController {
         super.viewWillAppear(animated)
         print("VC ECLogin - LoginView")
         //configureKeyboardObservables()
-        biometricCanValidate()
         let defaults = UserDefaults.standard
         let newUser = defaults.bool(forKey: "isNewUser")
         let wantToLogin = defaults.bool(forKey: "wantToLogin")
@@ -128,7 +126,8 @@ class Login_Login: UIViewController {
         print(wantToLogin)
         if newUser { //ya es usuario, avanza
             print("SE SALTO EL LOGIN/REGISTRO PQ Ya esta logueado")
-            validateFirstController()
+            NotificationCenter.default.addObserver(self, selector: #selector(popViews), name: NSNotification.Name(rawValue: "newLogOut"), object: nil)
+            openHome()
         }else if !wantToLogin{ //no es usuario, se loguea con dummy
             print("SE SALTO EL LOGIN/REGISTRO 2")
             if stage == "Prod"{
@@ -139,7 +138,8 @@ class Login_Login: UIViewController {
                 //autoLogin(user:"5584008568", psw:"I1992i15#")
             }
         }else{
-            print("ni una ni otra, aqui se queda para login")
+            biometricCanValidate()
+            print("ni una ni otra, aqui se queda para login/ registro")
         }
         //else, se queda para hacer registro/login
     }
@@ -184,12 +184,6 @@ class Login_Login: UIViewController {
     
     deinit {
         biometricValidations()
-    }
-    
-    func validateFirstController() {
-        NotificationCenter.default.addObserver(self, selector: #selector(popViews), name: NSNotification.Name(rawValue: "newLogOut"), object: nil)
-        biometricCanValidate()
-        openHome()
     }
     
     @IBAction func autoLoginClick(_ sender: Any) {
@@ -292,7 +286,6 @@ class Login_Login: UIViewController {
             case true:
                 let userValue = UserDefaults.standard.string(forKey: "email")
                 let drws = DAKeychain.shared["miIglesia"]
-                
                     self?.btnRegistar.isEnabled = false
                     self?.spinner.isHidden = false
                     self?.spinner.startAnimating()
@@ -306,17 +299,17 @@ class Login_Login: UIViewController {
     }
     
     private func biometricCanValidate() {
-        let userValue = UserDefaults.standard.string(forKey: "email") ?? ""
+        let userValue = UserDefaults.standard.string(forKey: "emailForBiometric") ?? ""
         let drws = DAKeychain.shared["miIglesia"] ?? ""
-        
+    
         guard userValue != "",
               drws != ""   else {
             print("CONDICION 1 ELSE")
             btnBiometric.isHidden = true
             btnRegistar.backgroundColor = UIColor.init(red: 17/255, green: 33/255, blue: 129/255, alpha: 1)
             btnRegistar.setTitleColor(UIColor.white, for: UIControl.State())
-            btnAutoLogin.backgroundColor = UIColor.init(red: 17/255, green: 33/255, blue: 129/255, alpha: 1)
-            btnAutoLogin.setTitleColor(UIColor.white, for: UIControl.State())
+            //btnAutoLogin.backgroundColor = UIColor.init(red: 17/255, green: 33/255, blue: 129/255, alpha: 1)
+            //btnAutoLogin.setTitleColor(UIColor.white, for: UIControl.State())
            
             btnLogIn.backgroundColor = UIColor.clear
             btnLogIn.setTitleColor(UIColor.init(red: 17/255, green: 33/255, blue: 129/255, alpha: 1), for: UIControl.State())
@@ -333,8 +326,6 @@ class Login_Login: UIViewController {
                 btnBiometric.isHidden = true
                 btnRegistar.backgroundColor = UIColor.init(red: 17/255, green: 33/255, blue: 129/255, alpha: 1)
                 btnRegistar.setTitleColor(UIColor.white, for: UIControl.State())
-                btnAutoLogin.backgroundColor = UIColor.init(red: 17/255, green: 33/255, blue: 129/255, alpha: 1)
-                btnAutoLogin.setTitleColor(UIColor.white, for: UIControl.State())
                
                 btnLogIn.backgroundColor = UIColor.clear
                 btnLogIn.setTitleColor(UIColor.init(red: 17/255, green: 33/255, blue: 129/255, alpha: 1), for: UIControl.State())

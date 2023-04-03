@@ -33,7 +33,7 @@ class MassesListInteractor: MassesListInteractorProtocol {
             //print("->  error: ", error as Any)
 
             if error != nil {
-                print("Hubo un error")
+                print("Hubo un error 041")
                 return
             }
             

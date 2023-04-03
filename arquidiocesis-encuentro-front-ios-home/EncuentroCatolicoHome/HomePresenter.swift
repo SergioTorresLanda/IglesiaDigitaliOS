@@ -25,6 +25,7 @@ class HomePresenter: HomePresenterProtocol {
     }
     
     func cargarDatosUsuario() {
+        print("cargar datos usuario")
         interactor?.cargarDatosPersona()
     }
     
@@ -137,6 +138,11 @@ class HomePresenter: HomePresenterProtocol {
         }
     }
     
+    func onFailCarrusel(type: String){
+        DispatchQueue.main.async {
+            self.view?.onFailCarruselV(type: type)
+        }
+    }
 }
 
 extension HomePresenter{

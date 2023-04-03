@@ -40,7 +40,7 @@ class ScheduleMassTimeInteractor: ScheduleMassTimeInteractorProtocol {
             //print("->  error: ", error as Any)
 
             if error != nil {
-                print("Hubo un error")
+                print("Hubo un error 024")
                 return
             }
             if (response as! HTTPURLResponse).statusCode == 201 {
@@ -75,7 +75,7 @@ class ScheduleMassTimeInteractor: ScheduleMassTimeInteractorProtocol {
             //print("->  error: ", error as Any)
 
             if error != nil {
-                print("Hubo un error")
+                print("Hubo un error 023")
                 return
             }
             

@@ -68,6 +68,8 @@ extension Home_RedSocial: UITableViewDataSource {
                     cell.userImage.image = UIImage(named: "iconProfile", in: Bundle.local, compatibleWith: nil)
                 }
             }
+            
+            cell.watchElements(post:newPosts[indexPath.row])
 
             cell.lblCommentsCount.isHidden = false
             cell.commentImageView.isHidden = false
@@ -216,7 +218,9 @@ extension Home_RedSocial: FeedTVCProtocol {
         self.present(vc, animated: true)
     }
     
+  
     public func actionSelected(idx: Int, typeAction: String) {
+        var arrItems:[AnyObject]=[]
         switch typeAction{
         case "Comentarios":
             guard let vc = SNCommenctsRoute.createNewModule() as? CommentsViewController else { return }
@@ -226,9 +230,58 @@ extension Home_RedSocial: FeedTVCProtocol {
             self.navigationController?.pushViewController(FollowersWireFrame.createFollowersModule(user: UserBasic(id:SNId, name: name, image: "self")), animated: true)
         case "Alert":
             self.showCanonAlert(title: "Atención", msg: "Regístrate o inicia sesión para interactuar con el contenido de la red social.")
+        case "CompartirT": //compartir texto
+            arrItems=[]
+            print("Compartir YYY:: texto")
+            let post = newPosts[idx]
+            if let cont = post.content{
+                arrItems.append(cont as AnyObject)
+            }
+            share(x: arrItems)
+            
+        case "CompartirI"://compartir imagen
+            arrItems=[]
+            for media in newPosts[idx].multimedia! {
+                switch media.format {
+                case "jpeg", "png", "image/jpeg":
+                    if let urlS = media.url{
+                        guard let url = URL(string: urlS) else {
+                            return
+                        }
+                        if let imageData = try? Data(contentsOf: url) {
+                            if let loadedImage = UIImage(data: imageData) {
+                                arrItems.append(loadedImage)
+                            }
+                        }
+                    }
+                default:
+                    print("no format available")
+                }
+            }
+            share(x: arrItems)
+        case "CompartirV"://compartir video
+            arrItems=[]
+            for media in newPosts[idx].multimedia! {
+                switch media.format {
+                case "video/mp4":
+                    if let urlS = media.url{
+                        arrItems.append(urlS as AnyObject)
+                    }
+                default:
+                    print("no format available")
+                }
+            }
+            share(x: arrItems)
         default:
             break
         }
+    }
+    
+    func share(x:[AnyObject]){
+        print("share")
+        let activityVC = UIActivityViewController(activityItems: x, applicationActivities: nil)
+        activityVC.popoverPresentationController?.sourceView = self.view
+          self.present(activityVC, animated: true, completion: nil)
     }
     
     public func showDetailPost(id: Int) {

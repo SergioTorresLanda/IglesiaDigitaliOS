@@ -49,7 +49,6 @@ class NewAddMassesView: UIViewController {
         setupUI()
         setupPicker()
         setupGetures()
-
     }
     
     override func viewWillAppear(_ animated: Bool) {
@@ -64,9 +63,8 @@ class NewAddMassesView: UIViewController {
             }
         }
         cardMasses.layer.cornerRadius = 10
-        btnReady.layer.cornerRadius = 8
+        btnReady.layer.cornerRadius = 20
         btnAdd.setTitle("", for: .normal)
-        
     }
     
     private func setupGetures() {

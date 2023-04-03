@@ -8,7 +8,7 @@
 import Foundation
 import UIKit
 
-protocol ChurchPriestViewProtocol: class {
+protocol ChurchPriestViewProtocol: AnyObject {
     var presenter: ChurchPriestPresenterProtocol? { get set }
     
     func showError(message: String)
@@ -16,11 +16,11 @@ protocol ChurchPriestViewProtocol: class {
     func succesUpdate(response: ChurchEditionResponse?)
 }
 
-protocol ChurchPriestWireFrameProtocol: class {
+protocol ChurchPriestWireFrameProtocol: AnyObject {
     static func presentModule(with churchId: Int, fromView vc: AnyObject, churchDetail: ChurchDetail) 
 }
 
-protocol ChurchPriestPresenterProtocol: class {
+protocol ChurchPriestPresenterProtocol: AnyObject {
     var view: ChurchPriestViewProtocol? { get set }
     var interactor: ChurchPriestInteractorInputProtocol? { get set }
     var wireFrame: ChurchPriestWireFrameProtocol? { get set }
@@ -29,7 +29,7 @@ protocol ChurchPriestPresenterProtocol: class {
     func updateChurchData(id: Int, _ data: ChurchEditionRequest)
 }
 
-protocol ChurchPriestInteractorOutputProtocol: class {
+protocol ChurchPriestInteractorOutputProtocol: AnyObject {
     //Add here your methods for communication INTERACTOR -> PRESENTER
     
     func updateChurchResponse(response: ChurchEditionResponse?)
@@ -38,7 +38,7 @@ protocol ChurchPriestInteractorOutputProtocol: class {
 }
 
 
-protocol ChurchPriestInteractorInputProtocol: class {
+protocol ChurchPriestInteractorInputProtocol: AnyObject {
     var presenter: ChurchPriestInteractorOutputProtocol? { get set }
    
     //* Add here your methods for communication PRESENTER -> INTERACTOR

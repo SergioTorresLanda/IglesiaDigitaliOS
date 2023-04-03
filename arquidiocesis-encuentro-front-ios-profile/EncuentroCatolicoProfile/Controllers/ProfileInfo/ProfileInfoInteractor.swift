@@ -32,7 +32,7 @@ class ProfileInfoInteractor: ProfileInfoInteractorInputProtocol {
         let tarea = URLSession.shared.dataTask(with: request) { (data, response, error) in
        
             if error != nil {
-                print("Hubo un error")
+                print("Hubo un error 035")
                 return
             }
             
@@ -73,7 +73,7 @@ class ProfileInfoInteractor: ProfileInfoInteractorInputProtocol {
         
         let tarea = URLSession.shared.dataTask(with: request) { data, response, error in
             if error != nil {
-                print("Hubo un error")
+                print("Hubo un error 034")
                 return
             }
             
@@ -113,7 +113,7 @@ class ProfileInfoInteractor: ProfileInfoInteractorInputProtocol {
         
         let tarea = URLSession.shared.dataTask(with: request) { data, response, error in
             if error != nil {
-                print("Hubo un error")
+                print("Hubo un error 033")
                 return
             }
             
@@ -158,7 +158,7 @@ class ProfileInfoInteractor: ProfileInfoInteractorInputProtocol {
         
         let tarea = URLSession.shared.dataTask(with: request) { data, response, error in
             if error != nil {
-                print("Hubo un error")
+                print("Hubo un error 032")
                 return
             }
             
@@ -196,7 +196,7 @@ class ProfileInfoInteractor: ProfileInfoInteractorInputProtocol {
         
         let tarea = URLSession.shared.dataTask(with: request) { data, response, error in
             if error != nil {
-                print("Hubo un error")
+                print("Hubo un error 031")
                 return
             }
             
@@ -363,7 +363,7 @@ class ProfileInfoInteractor: ProfileInfoInteractorInputProtocol {
           
             if error != nil {
                 self.presenter?.failPostLaicoReligioso()
-                print("Hubo un error")
+                print("Hubo un error 030")
                 return
             }
             //print(response)
@@ -415,7 +415,7 @@ class ProfileInfoInteractor: ProfileInfoInteractorInputProtocol {
         request.httpBody = body
         let tarea = URLSession.shared.dataTask(with: request) { data, response, error in
             if error != nil {
-                print("Hubo un error")
+                print("Hubo un error 029")
                 self.presenter?.successPostLaicoReligioso()
                 return
             }
@@ -453,7 +453,7 @@ class ProfileInfoInteractor: ProfileInfoInteractorInputProtocol {
         let tarea = URLSession.shared.dataTask(with: request) { data, response, error in
           
             if error != nil {
-                print("Hubo un error")
+                print("Hubo un error 028")
                 return
             }
             if (response as! HTTPURLResponse).statusCode == 200 {

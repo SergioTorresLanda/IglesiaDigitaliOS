@@ -29,7 +29,7 @@ class PriestPSOSInteractor: PriestPSOSInteractorProtocol {
             //print("->>  response: ", response)
             //print("->>  error: ", error)
             if error != nil {
-                print("Hubo un error")
+                print("Hubo un error 004")
                 APIType.shared.refreshToken()
                 return
             }

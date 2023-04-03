@@ -7,12 +7,6 @@
 
 import UIKit
 
-//public protocol AddSocialModalButtonDelegate: AnyObject {
-//    func didPressReadySocialButton(_ sender: UIButton)
-//    func didPressAddSocialmButton(_ sender: UIButton)
-//}
-
-
 class AddSocial: UIView, UITextFieldDelegate {
     
     var keyboardShown: Bool = false

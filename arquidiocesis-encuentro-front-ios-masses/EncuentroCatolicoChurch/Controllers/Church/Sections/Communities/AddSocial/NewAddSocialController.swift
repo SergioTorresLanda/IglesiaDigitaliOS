@@ -10,6 +10,7 @@ import UIKit
 public protocol AddSocialModalButtonDelegate: AnyObject {
     func didPressReadySocialButton(_ sender: UIButton)
     func didPressAddSocialmButton(_ sender: UIButton)
+    //buenos
     func pressReadySocial(sender: UIButton, socialTxt: String, socialIndex: Int)
     func pressAddSocial(sender: UIButton, socialTxt: String, socialIndex: Int)
 }

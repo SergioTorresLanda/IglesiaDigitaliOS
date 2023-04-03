@@ -28,7 +28,7 @@ class PriestDetailInteractor: PriestDetailInteractorProtocol {
             //print("->>  response: ", response)
             //print("->>  error: ", error)
             if error != nil {
-                print("Hubo un error")
+                print("Hubo un error 008")
                 return
             }
             

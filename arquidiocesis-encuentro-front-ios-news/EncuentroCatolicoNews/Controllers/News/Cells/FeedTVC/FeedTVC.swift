@@ -28,10 +28,13 @@ public class FeedTVC: UITableViewCell, CustomPopOverDelegate {
     @IBOutlet public weak var userImage: UIImageView!
     @IBOutlet public weak var dateLabel: UILabel!
     @IBOutlet public weak var contentLabel: CustomLabel!
-    
-    
     @IBOutlet weak var newreactionImage: UIImageView!
     @IBOutlet weak var newreactionImageContainerView: UIView!
+    
+    @IBOutlet weak var formatsV: UIView!
+    @IBOutlet weak var textoBtn: UIButton!
+    @IBOutlet weak var imagenBtn: UIButton!
+    @IBOutlet weak var videoBtn: UIButton!
     
     @IBOutlet weak var newreactionButton: UIButton!
     @IBOutlet public weak var reactionsCountLabel: UILabel!
@@ -66,6 +69,9 @@ public class FeedTVC: UITableViewCell, CustomPopOverDelegate {
     var newPost: Posts?
     var url=""
     var indexpath=0
+    var imagen=false
+    var texto = false
+    var video = false
     
     //MARK: - Properties
     var btnsender: UIButton!
@@ -78,7 +84,6 @@ public class FeedTVC: UITableViewCell, CustomPopOverDelegate {
     //MARK: - Life cycle
     override public func awakeFromNib() {
         super.awakeFromNib()
-        
         setUpView()
     }
     
@@ -102,8 +107,7 @@ public class FeedTVC: UITableViewCell, CustomPopOverDelegate {
         btnFollow.setTitle("", for: .normal)
         collectionView?.setCorner(cornerRadius: 15)
         self.selectionStyle = .none
-//        let SNId = UserDefaults.standard.integer(forKey: "SNId")
-//        btnMoreActions.isHidden = newPost?.author?.id == SNId ? false : true
+
         userImage.image = UIImage(named: "userImage", in: Bundle.local, compatibleWith: nil)
         userImage.layer.cornerRadius = userImage.bounds.width / 2
         
@@ -118,10 +122,46 @@ public class FeedTVC: UITableViewCell, CustomPopOverDelegate {
         collectionView?.register(UINib(nibName: "ImagesCVC", bundle: Bundle(for: ImagesCVC.self)), forCellWithReuseIdentifier: "ImagesCVC")
         collectionView?.register(UINib(nibName: "VideoCVC", bundle: Bundle(for: VideoCVC.self)), forCellWithReuseIdentifier: "VideoCVC")
         collectionView?.register(UINib(nibName: "LocationImageCVC", bundle: Bundle(for: LocationImageCVC.self)), forCellWithReuseIdentifier: "LocationImageCVC")
-//        reactionButton.addGestureRecognizer(UILongPressGestureRecognizer(target: self, action: #selector(handleLongPress)))
-//        reactionImage.image  = UIImage(named: "reactionG")
+
         btnMoreActions.setTitleColor(UIColor(red: 54.0/255.0, green: 54.0/255.0, blue: 54.0/255.0, alpha: 1), for: .normal)
         btnMoreActions.titleLabel?.font = UIFont.systemFont(ofSize: 30, weight: .regular)
+    
+    }
+    
+    func watchElements(post:Posts){
+        if let cont = newPost!.content{
+            if cont != "" {
+                texto=true
+            }else{
+                texto=false
+            }
+        }else{
+            texto=false
+        }
+        
+        if !post.multimedia!.isEmpty{
+            for media in post.multimedia! {
+                switch media.format {
+                case "jpeg", "png", "image/jpeg":
+                    if media.url != nil{
+                        imagen = true
+                        video = false
+                    }
+                    //arrItems.append(url)
+                case "video/mp4":
+                    video=true
+                    imagen=false
+                default:
+                    print("no format xxe:;")
+                    print(media.format)
+                    video=false
+                    imagen=false
+                }
+            }
+        }else{
+            video=false
+            imagen=false
+        }
     }
     
     @IBAction func btnMoreActions(_ sender: UIButton) {
@@ -130,19 +170,32 @@ public class FeedTVC: UITableViewCell, CustomPopOverDelegate {
         customPopOver = CustomPopOverView(frame: CGRect(origin: CGPoint(x: 0.0, y: 0.0), size: CGSize(width: 70.0, height: 60)))
         customPopOver.table.optionSelectDelegate = self
         customPopOver.showPopover(sourceView: sender)
-        
+    }
+    
+    @IBAction func textoClick(_ sender: Any) {
+        print("comp texto")
+        formatsV.isHidden=true
+        self.delegate?.actionSelected(idx: self.btnShared.tag, typeAction: "CompartirT")
+    }
+    @IBAction func imagenClick(_ sender: Any) {
+        print("comp imagen")
+        formatsV.isHidden=true
+        self.delegate?.actionSelected(idx: self.btnShared.tag, typeAction: "CompartirI")
+    }
+    @IBAction func videoClick(_ sender: Any) {
+        print("comp video")
+        formatsV.isHidden=true
+        self.delegate?.actionSelected(idx: self.btnShared.tag, typeAction: "CompartirV")
     }
     
     func selectedOption(select: String) {
         switch select{
         case "Editar":
             customPopOver.dismissPopover(animated: true, completion: {
-                // GGG1
                 self.delegate?.editPost(id: self.btnMoreActions.tag, snder: self.btnsender)
             })
         case "Eliminar", "Denunciar":
             customPopOver.dismissPopover(animated: true, completion: {
-                
                 self.delegate?.deletePost(id: self.btnMoreActions.tag, sender: self.btnsender)
             })
         default:
@@ -199,8 +252,13 @@ public class FeedTVC: UITableViewCell, CustomPopOverDelegate {
         }
     }
     
-    @IBAction func btnActionCompartit(_ sender: UIButton) {
-        self.delegate?.actionSelected(idx: self.btnShared.tag, typeAction: "Seguir")
+    @IBAction func btnActionCompartir(_ sender: UIButton) {
+        print("Compartir XXX::")
+        formatsV.isHidden = !formatsV.isHidden
+        textoBtn.isHidden = !texto
+        imagenBtn.isHidden = !imagen
+        videoBtn.isHidden = !video
+
     }
     
     @IBAction func btnActionFollow(_ sender: UIButton) {

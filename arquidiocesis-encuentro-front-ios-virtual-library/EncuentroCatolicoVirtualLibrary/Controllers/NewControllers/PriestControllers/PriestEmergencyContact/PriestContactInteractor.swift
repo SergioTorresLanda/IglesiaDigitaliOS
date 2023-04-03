@@ -29,7 +29,7 @@ class PriestContactInteractor: PriestContactInteractorProtocol {
             //print("->>  response: ", response)
             //print("->>  error: ", error)
             if error != nil {
-                print("Hubo un error")
+                print("Hubo un error 007")
                 return
             }
             
@@ -76,7 +76,7 @@ class PriestContactInteractor: PriestContactInteractorProtocol {
             //print("->>  response: ", response)
             //print("->>  error: ", error)
             if error != nil {
-                print("Hubo un error")
+                print("Hubo un error 006")
                 return
             }
             
@@ -124,7 +124,7 @@ class PriestContactInteractor: PriestContactInteractorProtocol {
             //print("->>  response: ", response)
             //print("->>  error: ", error)
             if error != nil {
-                print("Hubo un error")
+                print("Hubo un error 005")
                 APIType.shared.refreshToken()
                 return
             }

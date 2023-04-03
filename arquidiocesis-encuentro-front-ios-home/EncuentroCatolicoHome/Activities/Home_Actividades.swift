@@ -17,7 +17,9 @@ class Home_Actividades: UIViewController {
     @IBOutlet weak var tipoPV: UIPickerView!
     @IBOutlet weak var backBtn: UIButton!
     @IBOutlet weak var viewHead: UIView!
+    @IBOutlet weak var zonaLbl: UILabel!
     
+    @IBOutlet weak var despensasBtn: UIButton!
     @IBOutlet weak var nothingLbl: UILabel!
     @IBOutlet weak var progress: UIActivityIndicatorView!
     @IBOutlet weak var viewS: UIView!
@@ -31,15 +33,33 @@ class Home_Actividades: UIViewController {
     
     let mapaIdZonas = ["Álvaro Obregón":10, "Azcapotzalco":2, "Benito Juárez":14, "Coyoacán":3, "Cuajimalpa de Morelos":4, "Cuauhtémoc":15, "Gustavo A. Madero":5, "Iztacalco":6, "Iztapalapa":7, "La Magdalena Contreras":8, "Miguel Hidalgo":16, "Milpa Alta":9, "Tláhuac":11, "Tlalpan":12, "Venustiano Carranza":17, "Xochimilco":13]
     var arrMeses=["Enero", "Febrero", "Marzo", "Abril", "Mayo", "Junio", "Julio", "Agosto", "Septiembre", "Octubre", "Noviembre", "Diciembre"]
-    var arrTipos=["Asistente","Donante","Organizador","Voluntario"]
+    var arrTipos=["Donante","Voluntario","Solicitante"]
+    var tipoSelect="Donante"
     let SNId = UserDefaults.standard.integer(forKey: "SNId")
     var comedores : [Comedor] = []
+    var comedoresFiltroParti : [Comedor] = []
     var comedoresFiltro : [Comedor] = []
     let profile = UserDefaults.standard.string(forKey: "profile")
     var update = false
     var comedorId = "00"
+    var isCapable=true
     //let shimmer = Shimmer()
-    
+    @IBAction func despensasClick(_ sender: Any) {
+        performSegue(withIdentifier: "despensas", sender: self)
+    }
+    // MARK: - Navigation
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        if segue.identifier == "donar" {
+            let vc = segue.destination as! Actividades_CrearDonador
+            let c = sender as! Comedor
+            vc.comedorId = Int(c.id) ?? 0
+        }
+        if segue.identifier == "participar" {
+            let vc = segue.destination as! Actividades_CrearVoluntario
+            let c = sender as! Comedor
+            vc.comedorId = Int(c.id) ?? 0
+        }
+    }
     override func viewDidLoad() {
         super.viewDidLoad()
             
@@ -59,38 +79,46 @@ class Home_Actividades: UIViewController {
         addTapGestures()
         validateProfile()
     }
-    
-    override func viewWillAppear(_ animated: Bool) {
-        comedores=[]
-        comedoresFiltro=[]
-        tableView.reloadData()
-        getComedoresList()
-    }
-    
     func validateProfile(){
         print("PERFIL :::: ")
         print(profile!)
         switch profile {
         case UserProfileEnum.fiel.rawValue, UserProfileEnum.sacerdote.rawValue:
-            createBtn.isHidden=true
-            print("hide")
+            isCapable=false
+            print("will never show create")
         default:
             print("buen perfil")
         }
     }
     
+    override func viewWillAppear(_ animated: Bool) {
+        comedores=[]
+        comedoresFiltro=[]
+        comedoresFiltroParti=[]
+        tableView.reloadData()
+        getComedoresList()
+        initialConfig()
+    }
+    
+    func initialConfig(){
+        createBtn.isHidden=true
+        tipoPV.selectRow(0, inComponent: 0, animated: true)
+        zonaPV.selectRow(0, inComponent: 0, animated: true)
+    }
+    
     func getComedoresList() {
         startShimmer()
-        let defaults = UserDefaults.standard
-        let idUser = defaults.integer(forKey: "id")
         guard let apiURL = URL(string: "\(APIType.shared.User())/act-voluntariado/comedores") else { return }
         var request = URLRequest(url: apiURL)
         let tksession = UserDefaults.standard.string(forKey: "idToken")
         request.setValue("Bearer \( tksession ?? "")", forHTTPHeaderField: "Authorization")
         request.httpMethod = "GET"
         let work = URLSession.shared.dataTask(with: request) { data, response, error in
-            guard let allData = data else { return }
-            let responseData = String(data: allData, encoding: String.Encoding.utf8)
+            guard let allData = data else {
+                self.finishQuery()
+                return
+            }
+            //let responseData = String(data: allData, encoding: String.Encoding.utf8)
             //print(responseData)
             print("Comedores creados:: ")
             self.readJson(data: allData)
@@ -106,10 +134,12 @@ class Home_Actividades: UIViewController {
                 updateOrCreate(rD: object)
             } else {
                 print("JSON is invalid")
+                finishQuery()
             }
         } catch {
             print("JSON error")
             print(error.localizedDescription)
+            finishQuery()
         }
     }
     
@@ -119,11 +149,10 @@ class Home_Actividades: UIViewController {
         for x in rD{
             if let object = x as? [String: Any] { //esta deberia ser la buena
                 if object["FIUSERID"] as? String ?? "" == String(SNId){
-                    print("Tengo un comedor biatch")
-                    print(object)
                     DispatchQueue.main.async {
                         self.update=true
                         self.comedorId=object["FCCOMEDORID"] as? String ?? "0"
+                        //self.createBtn.isHidden=false al final del for
                         self.createLbl.text="Actualizar mi comedor "
                     }
                 }
@@ -163,33 +192,45 @@ class Home_Actividades: UIViewController {
                         print("no se pudo castear")
                     }
                 if object["FCSTATUS"] as? Int ?? 0 == 1 {
-                comedores.append(Comedor(horarios: [Horario(days: dias,//[Dia(id: 1, name: "Lunes", checked: true)],
-                                                            hour_start: hourStart,hour_end: hourEnd)],
+                    print("COMEDOR:::")
+                    print(object)
+                comedores.append(Comedor(horarios: [Horario(days: dias,
+                                                            hour_start: hourStart,
+                                                            hour_end: hourEnd)],
                                          correo: object["FCCORREO"] as? String ?? "sinCorreo",
                                          telefono: object["FCTELEFONO"]  as? String ?? "sinTelefono",
                                          direccion: object["FCDIRECCION"]  as? String ?? "sinDireccion",
                                          cobro: object["FCCOBRO"] as? Int ?? 0,
                                          requisitos: object["FCREQUISITOS"]  as? String ?? "sinRequisitos",
-                                         voluntarios: 0,
-                                         donantes: [0],
+                                         voluntarios: object["FCVOLUNTARIOS"] as? Int ?? 0,
+                                         donantes: [0],//no trae la data correcta de donantes
                                          zona: object["FIZONA"] as? Int ?? 0,
                                          status: object["FCSTATUS"] as? Int ?? 0,
                                          longitud: object["FNLONGITUD"] as? Double ?? 0.0,
                                          latitud: object["FNLATITUD"] as? Double ?? 0.0,
                                          nombre: object["FCNOMBRECOM"]  as? String ?? "sinNombre",
                                          responsable: object["FCRESPONSABLE"]  as? String ?? "sinResponsable",
-                                         user_id: object["FIUSERID"]  as? String ?? "nouserId"))
+                                         user_id: object["FIUSERID"]  as? String ?? "nouserId",
+                                         id: object["FCCOMEDORID"] as? String ?? "0"))
                 }else{
                     print("status inactivo :::")
                     print(object["FCCOMEDORID"] as? String ?? "no id")
                 }
-                
             } else {
                 print("JSON2 is invalid")
+                finishQuery()
             }
         }
+        comedoresFiltroParti=comedores
         comedoresFiltro=comedores
+        finishQuery()
+    }
+    
+    func finishQuery(){
         DispatchQueue.main.async {
+            if self.isCapable{
+            self.createBtn.isHidden=false
+            }
             self.hideOrShowLbl()
             self.stopShimmer()
             self.tableView.reloadData()
@@ -232,8 +273,21 @@ class Home_Actividades: UIViewController {
             nothingLbl.isHidden=false
         }
     }
-    
-    
+}
+
+extension Home_Actividades:ComedorCellDelegate{
+    func cellAction(sender:Comedor) {
+        print("recibio accion")
+        switch tipoSelect{
+        case "Donante":
+            self.performSegue(withIdentifier: "donar", sender: sender)
+        case "Voluntario":
+            print("accion voluntario")
+            self.performSegue(withIdentifier: "participar", sender: sender)
+        default:
+            print("accion ninguno, no pasa")
+        }
+    }
 }
 
 extension Home_Actividades: UIPickerViewDelegate, UIPickerViewDataSource {
@@ -281,13 +335,41 @@ extension Home_Actividades: UIPickerViewDelegate, UIPickerViewDataSource {
             let zonaId=mapaIdZonas[zonaS] ?? 0
             print(zonaId)
             if zonaId==0{
-                comedoresFiltro=comedores
+                comedoresFiltro=comedoresFiltroParti
             }else{
-                comedoresFiltro=comedores.filter{$0.zona==zonaId}
+                comedoresFiltro=comedoresFiltroParti.filter{$0.zona==zonaId}
             }
             hideOrShowLbl()
             tableView.reloadData()
             stopShimmer()
+        case tipoPV:
+            zonaPV.selectRow(0, inComponent: 0, animated: true)
+            startShimmer()
+            print("selecciono::")
+            let t=arrTipos[row]
+            print(t)
+            tipoSelect=arrTipos[row]
+            switch row {
+                case 0://Donante
+                comedoresFiltroParti=comedores
+                comedoresFiltro=comedoresFiltroParti
+                case 1://voluns
+                print("selecciono voluns")
+                comedoresFiltroParti=comedores.filter{$0.voluntarios==1}
+                comedoresFiltro=comedoresFiltroParti
+                case 2://participante
+                print("selecciono donans")
+                comedoresFiltroParti=comedores
+                comedoresFiltro=comedoresFiltroParti
+            default:
+                print("no pasa")
+                comedoresFiltroParti=comedores
+                comedoresFiltro=comedoresFiltroParti
+            }
+            hideOrShowLbl()
+            tableView.reloadData()
+            stopShimmer()
+          
         default:
             print("selecciono otro")
         }
@@ -312,7 +394,8 @@ extension Home_Actividades: UITableViewDelegate, UITableViewDataSource {
         if indexPath.row >= comedoresFiltro.startIndex && indexPath.row < comedoresFiltro.endIndex {
                 print(":::SETUPP Comedores::: ")
                 print(String(indexPath.row))
-            cell.setComedor(data: comedoresFiltro[indexPath.row])
+            cell.setComedor(data: comedoresFiltro[indexPath.row], type: tipoSelect)
+            cell.delegate=self
         }else{
             print("ERROR INDEX PATH: "+String(indexPath.row))
         }

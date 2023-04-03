@@ -11,12 +11,12 @@
 import Foundation
 
 //MARK: Wireframe -
-protocol FeelingsWireframeProtocol: class {
+protocol FeelingsWireframeProtocol: AnyObject {
 
 }
 
 //MARK: Presenter -
-protocol FeelingsPresenterProtocol: class {
+protocol FeelingsPresenterProtocol: AnyObject {
 
     //MARK: - Feelings
     func getFeelings()
@@ -25,7 +25,7 @@ protocol FeelingsPresenterProtocol: class {
 }
 
 //MARK: Interactor -
-protocol FeelingsInteractorProtocol: class {
+protocol FeelingsInteractorProtocol: AnyObject {
     
     var presenter: FeelingsPresenterProtocol?  { get set }
     
@@ -34,7 +34,7 @@ protocol FeelingsInteractorProtocol: class {
 }
 
 //MARK: View -
-protocol FeelingsViewProtocol: class {
+protocol FeelingsViewProtocol: AnyObject {
     
     var presenter: FeelingsPresenterProtocol?  { get set }
     

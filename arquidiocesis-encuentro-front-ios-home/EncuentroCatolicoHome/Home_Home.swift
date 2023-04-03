@@ -212,7 +212,6 @@ class Home_Home: UIViewController, HomeViewProtocol, UITextFieldDelegate, UNUser
         //actionsViewWillAppear()
     }
     
-    
     override var preferredStatusBarStyle: UIStatusBarStyle {
         .lightContent
     }
@@ -239,30 +238,33 @@ class Home_Home: UIViewController, HomeViewProtocol, UITextFieldDelegate, UNUser
             let dateString = formatter.string(from: now)
             presenter?.requestHomeData(type: "SAINT", date: "\(dateString)")
             presenter?.requestStreaming()
-        
-            let newUser = defaults.bool(forKey: "isNewUser")
-            if newUser {//esta logueado
-                print("Qwerty se carga la userDetail 2")
-                loginResgisterSV.isHidden=true
-                gearIcon.isHidden=false
-                presenter?.cargarDatosUsuario()
-                if let imageData = UserDefaults.standard.data(forKey: "userImage"), let image = UIImage(data: imageData) {
-                    userImage.image = image
-                }else{
-                    presenter?.requestUserDetail()
-                }
-            }else{
-                gearIcon.isHidden=true
-                nombrePersona.text = setMessageHour()
-                lblMessage.isHidden=true
-                loginResgisterSV.isHidden=false
-                print("Qwerty no se carga la userDetail 2")
-            }
+            requestUserDataOrNot()
             validateUserColors()
-            
+           
         }else{
             print("INTERNET OFF VWA")
             showCanonAlert(title: "Atención", msg: "No tienes conexión a internet.")
+        }
+    }
+    
+    func requestUserDataOrNot(){
+        let newUser = defaults.bool(forKey: "isNewUser")
+        if newUser {//esta logueado
+            print("Qwerty se carga la userDetail 2")
+            loginResgisterSV.isHidden=true
+            gearIcon.isHidden=false
+            presenter?.cargarDatosUsuario()
+            if let imageData = UserDefaults.standard.data(forKey: "userImage"), let image = UIImage(data: imageData) {
+                userImage.image = image
+            }else{
+                presenter?.requestUserDetail() // para la imagen??
+            }
+        }else{
+            gearIcon.isHidden=true
+            nombrePersona.text = setMessageHour()
+            lblMessage.isHidden=true
+            loginResgisterSV.isHidden=false
+            print("Qwerty no se carga la userDetail 2")
         }
     }
     
@@ -283,10 +285,10 @@ class Home_Home: UIViewController, HomeViewProtocol, UITextFieldDelegate, UNUser
         let tabBar = self.tabBarController as? SocialNetworkController
         tabBar?.tabBar.isHidden = true
         tabBar?.customTabBar.isHidden = false
-        if(EditionPromisseDataManager.shareInstance.findByEmail(profileID: UserDefaults.standard.value(forKey: "email") as? String ?? "").count > 0){
+       /* if(EditionPromisseDataManager.shareInstance.findByEmail(profileID: UserDefaults.standard.value(forKey: "email") as? String ?? "").count > 0){
             let user = EditionPromisseDataManager.shareInstance.findByEmail(profileID: UserDefaults.standard.value(forKey: "email") as? String ?? "")
             userImage.image = HttpRequestSingleton.shareManager.convertBase64StringToImage(imageBase64String: user[0].image ?? "")
-        }
+        }*/
         /*Analytics.logEvent(AnalyticsEventScreenView,
                            parameters: [AnalyticsParameterScreenName: screenName,
                                         AnalyticsParameterScreenClass: screenClass
@@ -636,7 +638,7 @@ class Home_Home: UIViewController, HomeViewProtocol, UITextFieldDelegate, UNUser
     // NEW HOME FUNCTIONS
     func succesGetHome(data: [HomePosts]) {
         DispatchQueue.main.asyncAfter(deadline: .now() + 3, execute: {
-            print("::::::succesGetNoticias::;;;")
+            print("::::::succesGetHome Saint::;;;")
          })
         saintOfDay = data
         let formatter = DateFormatter()
@@ -651,7 +653,7 @@ class Home_Home: UIViewController, HomeViewProtocol, UITextFieldDelegate, UNUser
         allSections=[]
         realesesPost = data
         DispatchQueue.main.asyncAfter(deadline: .now() + 3, execute: {
-            print("::::::succesGetNoticias::;;;")
+            print("::::::succesGetPost News::;;;")
             print(String(self.realesesPost.count))
          })
         for post in realesesPost {
@@ -678,6 +680,23 @@ class Home_Home: UIViewController, HomeViewProtocol, UITextFieldDelegate, UNUser
         }
         allSections.append(espiritualidad)
         mainTable.reloadData()
+    }
+    
+    func onFailCarruselV(type: String){
+        switch type{
+        case "SAINT":
+            let formatter = DateFormatter()
+            formatter.dateFormat = "yyyy-MM-dd"
+            let now = Date()
+            let dateString = formatter.string(from: now)
+            presenter?.requestHomeData(type: "RELEASE", date: "\(dateString)")
+        case "POST":
+            presenter?.requestSuggestions(type: "SUGGESTIONS")
+        case "SUGG":
+            mainTable.reloadData()
+        default:
+            break
+        }
     }
     
     func failGetHome(message: String) {

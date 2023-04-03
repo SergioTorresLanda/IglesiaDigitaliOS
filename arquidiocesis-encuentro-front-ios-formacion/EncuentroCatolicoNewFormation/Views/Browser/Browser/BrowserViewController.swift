@@ -53,6 +53,16 @@ class BrowserViewController: UIViewController, URLSessionDelegate {
         alert.view.addSubview(imageView)
         self.present(alert, animated: false, completion: nil)
     }
+    
+    /*func showCanonAlert(title:String, msg:String){
+        DispatchQueue.main.async {
+            self.progress.stopAnimating()
+            self.progress.isHidden=true
+            self.alertFields = AcceptAlert.showAlert(titulo: title, mensaje: msg)
+            self.alertFields!.view.backgroundColor = .clear
+            self.present(self.alertFields!, animated: true)
+        }
+    }*/
 
     func showFilePath(path: String){
         let fileManager = FileManager.default
@@ -136,6 +146,7 @@ extension BrowserViewController: URLSessionDownloadDelegate {
         downloadTask = nil
         onError()
     }
+    
 }
 
 //MARK: - Private functions
@@ -143,7 +154,8 @@ extension BrowserViewController {
     private func onError() {
         alert.dismiss(animated: true)
         
-        let alert = UIAlertController(title: "Error", message: "Ocurrio algo inesperado, intentelo más tarde", preferredStyle: .alert)
+        //func showCanonAlert(title:"Error", msg:"Ocurrió algo inesperado, inténtelo más tarde")
+        let alert = UIAlertController(title: "Error", message: "Ocurrió algo inesperado, inténtelo más tarde", preferredStyle: .alert)
         
         alert.addAction(UIAlertAction(title: "Aceptar", style: .default, handler: { _ in
             self.navigationController?.popViewController(animated: true)

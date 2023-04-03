@@ -62,7 +62,7 @@ class ConfirmPhoneRemoteDataManager:ConfirmPhoneRemoteDataManagerInputProtocol {
             //print("->  error: ", error as Any)
 
             if error != nil {
-                print("Hubo un error")
+                print("Hubo un error 026")
                 self.remoteRequestHandler?.callbackResponse(respuesta: nil, error: ErroresServidorConfirm.ErrorServidor, user: user)
                 return
             }

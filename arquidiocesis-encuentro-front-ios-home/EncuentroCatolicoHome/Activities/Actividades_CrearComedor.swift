@@ -47,10 +47,17 @@ class Actividades_CrearComedor: UIViewController {
     @IBOutlet weak var nombreTF: UITextField!
     @IBOutlet weak var responsableTF: UITextField!
     
+    @IBOutlet weak var precioSV: UIStackView!
     @IBOutlet weak var charsLbl: UILabel!
     @IBOutlet weak var requisitosTV: UITextView!
     @IBOutlet weak var btnGuardar: UIButton!
     @IBOutlet weak var progress: UIActivityIndicatorView!
+    
+    @IBOutlet weak var btnVerDonadores: UIButton!
+    @IBOutlet weak var btnVerVoluntarios: UIButton!
+    
+    @IBOutlet weak var verVolunsSV: UIStackView!
+    @IBOutlet weak var verDonsSV: UIStackView!
     
     let SNId = UserDefaults.standard.integer(forKey: "SNId")
     var alertFields : AcceptAlert?
@@ -74,17 +81,31 @@ class Actividades_CrearComedor: UIViewController {
     let defaults=UserDefaults.standard
     var update = false
     var comedorId = "00"
-
+   
+    @IBAction func verVoluntariosClick(_ sender: Any) {
+        performSegue(withIdentifier: "verVoluntarios", sender: comedorId)
+    }
+    @IBAction func verDonadoresClick(_ sender: Any) {
+        performSegue(withIdentifier: "verDonadores", sender: comedorId)
+    }
     // MARK: - Navigation
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         if segue.identifier == "map" {
-            let vc = segue.destination as! CrearComedor_Mapa
+            //let vc = segue.destination as! CrearComedor_Mapa
             //vc.deliveryId = sender as? String
+        }
+        if segue.identifier == "verDonadores" {
+            let vc = segue.destination as! CrearComedor_ListaDonadores
+            vc.comedorId = comedorId
+        }
+        if segue.identifier == "verVoluntarios" {
+            let vc = segue.destination as! CrearComedor_ListaVoluntarios
+            vc.comedorId = comedorId
         }
     }
     
     @IBAction func switchPriceClick(_ sender: Any) {
-            precioTF.isHidden = !switchPrice.isOn
+            precioSV.isHidden = !switchPrice.isOn
     }
     
     @IBAction func backClick(_ sender: Any) {
@@ -103,6 +124,8 @@ class Actividades_CrearComedor: UIViewController {
             viewProgress.isHidden=false
             progressLoad.startAnimating()
             titleLbl.text="Actualizar comedor"
+            verDonsSV.isHidden=false
+            verVolunsSV.isHidden=false
             getInfoCom()
         }
     }
@@ -116,7 +139,7 @@ class Actividades_CrearComedor: UIViewController {
         request.httpMethod = "GET"
         let work = URLSession.shared.dataTask(with: request) { data, response, error in
             guard let allData = data else { return }
-            let responseData = String(data: allData, encoding: String.Encoding.utf8)
+            //let responseData = String(data: allData, encoding: String.Encoding.utf8)
             print("Comedor:: "+self.comedorId)
             //print(responseData)
             self.readJsonCom(data: allData)
@@ -180,10 +203,11 @@ class Actividades_CrearComedor: UIViewController {
                     }else{
                         print("no se pudo castear")
                     }
-    
+                let tel = object["FCTELEFONO"]  as? String ?? "sinTelefono"
+                let tel2 = tel.substring(from: 3)
                 let c = Comedor(horarios: [Horario(days: dias, hour_start: openHour,hour_end: closeHour)],
                                  correo: object["FCCORREO"] as? String ?? "sinCorreo",
-                                 telefono: object["FCTELEFONO"]  as? String ?? "sinTelefono",
+                                 telefono: tel2,
                                  direccion: object["FCDIRECCION"]  as? String ?? "sinDireccion",
                                  cobro: object["FCCOBRO"] as? Int ?? 0,
                                  requisitos: object["FCREQUISITOS"]  as? String ?? "sinRequisitos",
@@ -195,7 +219,8 @@ class Actividades_CrearComedor: UIViewController {
                                  latitud: object["FNLATITUD"] as? Double ?? 0.0,
                                  nombre: object["FCNOMBRECOM"]  as? String ?? "sinNombre",
                                  responsable: object["FCRESPONSABLE"]  as? String ?? "sinResponsable",
-                                 user_id: object["FIUSERID"]  as? String ?? "nouserId")
+                                 user_id: object["FIUSERID"]  as? String ?? "nouserId",
+                                id:object["FCCOMEDORID"] as? String ?? "0")
                 setupData(c:c)
             } else {
                 print("JSON2 is invalid")
@@ -219,7 +244,7 @@ class Actividades_CrearComedor: UIViewController {
             self.requisitosTV.text=c.requisitos
             self.charsLbl.text="\(self.requisitosTV.text.count)/250"
             self.switchPrice.setOn(c.cobro>0, animated: true)
-            self.precioTF.isHidden = c.cobro==0
+            self.precioSV.isHidden = c.cobro==0
             self.precioTF.text=String(c.cobro)
             self.nombreTF.text=c.nombre
             self.switchV.setOn(c.voluntarios==1, animated: true)
@@ -276,8 +301,11 @@ class Actividades_CrearComedor: UIViewController {
     }
     
     func setFieldsText(){
-        telefonoTf.text=UserDefaults.standard.string(forKey: "telefono") ?? ""
+        let tel = UserDefaults.standard.string(forKey: "telefono") ?? ""
+        let tel2 = tel.substring(from: 3)
+        telefonoTf.text=tel2
         correoTF.text=UserDefaults.standard.string(forKey: "email") ?? ""
+        nombreTF.text=UserDefaults.standard.string(forKey: "nombre") ?? ""
     }
     
     @IBAction func guardarClick(_ sender: Any) {
@@ -285,12 +313,12 @@ class Actividades_CrearComedor: UIViewController {
         progress.startAnimating()
         //validacion de campos
         if !nombreTF.hasText{
-            self.showCanonAlert(title: "Datos faltantes", msg: "El nombre del comedor no puede quedar vacío." )
+            showCanonAlert(title: "Datos faltantes", msg: "El nombre del comedor no puede quedar vacío." )
             return
         }
         if !locationTV.hasText{
         //guard let adress = defaults.string(forKey: "lastAdress") else {
-            self.showCanonAlert(title: "Datos faltantes", msg: "Actualiza la ubicación de tu comedor." )
+            showCanonAlert(title: "Datos faltantes", msg: "Actualiza la ubicación de tu comedor." )
             return
         //}
         }else{
@@ -298,27 +326,35 @@ class Actividades_CrearComedor: UIViewController {
         }
         
         if !luBool && !maBool && !miBool && !juBool && !viBool && !saBool && !doBool{
-            self.showCanonAlert(title: "Datos faltantes", msg: "Activa por lo menos un día a la semana en el que preste servicio tu comedor." )
+            showCanonAlert(title: "Datos faltantes", msg: "Activa por lo menos un día a la semana en el que preste servicio tu comedor." )
             return
         }
         if openHour==""{
-            self.showCanonAlert(title: "Datos faltantes", msg: "Selecciona un horario de apertura." )
+            showCanonAlert(title: "Datos faltantes", msg: "Selecciona un horario de apertura." )
             return
         }
         if closeHour==""{
-            self.showCanonAlert(title: "Datos faltantes", msg: "Selecciona un horario de cierre." )
+            showCanonAlert(title: "Datos faltantes", msg: "Selecciona un horario de cierre." )
             return
         }
         if !responsableTF.hasText{
-            self.showCanonAlert(title: "Datos faltantes", msg: "El nombre del responsable no puede quedar vacío." )
+            showCanonAlert(title: "Datos faltantes", msg: "El nombre del responsable no puede quedar vacío." )
             return
         }
         if !correoTF.hasText{
-            self.showCanonAlert(title: "Datos faltantes", msg: "El campo de correo no puede quedar vacío." )
+            showCanonAlert(title: "Datos faltantes", msg: "El campo de correo no puede quedar vacío." )
+            return
+        }
+        if !correoTF.text!.contains("@"){
+            showCanonAlert(title: "Datos faltantes", msg: "Ingresa un correo válido." )
             return
         }
         if !telefonoTf.hasText{
-            self.showCanonAlert(title: "Datos faltantes", msg: "El campo de teléfono no puede quedar vacío." )
+            showCanonAlert(title: "Datos faltantes", msg: "El campo de teléfono no puede quedar vacío." )
+            return
+        }
+        if telefonoTf.text!.count>10 || telefonoTf.text!.count<10 {
+            showCanonAlert(title: "Datos faltantes", msg: "El campo de teléfono debe contener 10 caracteres." )
             return
         }
         if switchV.isOn{
@@ -340,7 +376,7 @@ class Actividades_CrearComedor: UIViewController {
         arrDias.append(Dia(id: 7, name: "Sábado", checked: saBool))
         let horario = Horario(days: arrDias, hour_start: openHour, hour_end: closeHour)
         let price = Int(precioTF.text ?? "0") ?? 0
-        let comedor = Comedor(horarios: [horario], correo: correoTF.text!, telefono: telefonoTf.text!, direccion: locationTV.text, cobro: price, requisitos: requisitosTV.text, voluntarios: voluntariosG, donantes: [], zona: idZona, status: statusG, longitud: lon, latitud: lat, nombre: nombreTF.text!, responsable: responsableTF.text!, user_id: String(SNId))
+        let comedor = Comedor(horarios: [horario], correo: correoTF.text!, telefono: "+52"+telefonoTf.text!, direccion: locationTV.text, cobro: price, requisitos: requisitosTV.text, voluntarios: voluntariosG, donantes: [], zona: idZona, status: statusG, longitud: lon, latitud: lat, nombre: nombreTF.text!, responsable: responsableTF.text!, user_id: String(SNId),id:"0")
         if update{
             putComedor(request: comedor)
         }else{
@@ -368,7 +404,7 @@ class Actividades_CrearComedor: UIViewController {
         let tarea = URLSession.shared.dataTask(with: request) { data, response, error in
           
             if error != nil {
-                print("Hubo un error")
+                print("Hubo un error 061")
                 self.showCanonAlert(title: "Error", msg: "No se ha actualizado la información del comedor correctamente." + error.debugDescription)
                 return
             }
@@ -380,6 +416,10 @@ class Actividades_CrearComedor: UIViewController {
                 let responseData = String(data: data!, encoding: String.Encoding.utf8)
                 print(responseData!)
                 self.showCanonAlert(title: "Ėxito", msg: "Se ha actualizado la información del comedor.")
+                DispatchQueue.main.asyncAfter(deadline: .now() + 2.5, execute: {
+                    self.alertFields?.dismiss(animated: true)
+                    self.navigationController?.popViewController(animated: true)
+                })
             }else{
                 print(":;;;;;;;ERROR STATUS COmEDORRR :::::")
                 print(String((response as! HTTPURLResponse).statusCode))
@@ -410,7 +450,7 @@ class Actividades_CrearComedor: UIViewController {
         let tarea = URLSession.shared.dataTask(with: request) { data, response, error in
           
             if error != nil {
-                print("Hubo un error")
+                print("Hubo un error 060")
                 self.showCanonAlert(title: "Error", msg: "No se ha dado de alta el comedor correctamente." + error.debugDescription)
                 return
             }
@@ -418,6 +458,10 @@ class Actividades_CrearComedor: UIViewController {
             if status == 200 || status == 201{
                 print(":;;;;;;;STATUS 200 Comedor :::::")
                 self.showCanonAlert(title: "Ėxito", msg: "Se ha dado de alta el comedor correctamente.")
+                DispatchQueue.main.asyncAfter(deadline: .now() + 2.5, execute: {
+                    self.alertFields?.dismiss(animated: true)
+                    self.navigationController?.popViewController(animated: true)
+                })
             }else{
                 print(":;;;;;;;ERROR STATUS SACERRRRR :::::")
                 print(String((response as! HTTPURLResponse).statusCode))
@@ -659,6 +703,26 @@ extension Actividades_CrearComedor: UITextFieldDelegate {
         //self.nextTextField(textField)
         return true
     }
+    
+    func textField(_ textField: UITextField, shouldChangeCharactersIn range: NSRange, replacementString string: String) -> Bool {
+        print("should change")
+        if textField == telefonoTf{
+            if textField.text!.count>9 {
+                textField.text=textField.text!.substring(to: 9)
+            }
+        }
+        if textField == precioTF{
+            if textField.text!.count>1 {
+                textField.text=textField.text!.substring(to: 1)
+            }
+        }
+        return true
+    }
+    
+    func textFieldDidBeginEditing(_ textField: UITextField) {
+        print("did begin editing")
+    }
+    
 }
 
 extension Actividades_CrearComedor: UITextViewDelegate {
@@ -667,7 +731,6 @@ extension Actividades_CrearComedor: UITextViewDelegate {
         if textView == requisitosTV{
             //print(textView.text)
             charsLbl.text="\(textView.text.count)/250"
-           
         }
         if textView.text.count>250 {
             textView.text=textView.text.substring(to: 250)
@@ -691,7 +754,8 @@ struct Comedor: Codable {
     var latitud: Double
     var nombre : String
     var responsable: String
-    var user_id:String
+    var user_id: String
+    var id: String
 }
 
 struct Horario: Codable {

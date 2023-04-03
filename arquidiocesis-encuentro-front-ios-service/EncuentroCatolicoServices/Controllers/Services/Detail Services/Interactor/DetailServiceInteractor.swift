@@ -36,7 +36,7 @@ class DetailServiceInteractor: DetailServiceInteractorInputProtocol {
             //print("->  respuesta Status Code: ", response as Any)
             //print("->  error: ", error as Any)
             if error != nil {
-                print("Hubo un error")
+                print("Hubo un error 018")
                 return
             }
             
@@ -72,7 +72,7 @@ class DetailServiceInteractor: DetailServiceInteractorInputProtocol {
             //print("->  respuesta Status Code: ", response as Any)
             //print("->  error: ", error as Any)
             if error != nil {
-                print("Hubo un error")
+                print("Hubo un error 017")
                 return
             }
             
