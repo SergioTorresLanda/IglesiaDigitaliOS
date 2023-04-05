@@ -95,6 +95,7 @@ class RegisterFirmulary: UIView, UITextFieldDelegate {
     }()
     
     
+    
     override init(frame: CGRect) {
         super.init(frame: frame)
         Bundle.local.loadNibNamed("RegisterFirmulary", owner: self, options: nil)
@@ -167,7 +168,7 @@ class RegisterFirmulary: UIView, UITextFieldDelegate {
         addressTextField.inputAccessoryView = toolBar
         emailTextField.inputAccessoryView = toolBar
         phoneTextField.keyboardType = .asciiCapableNumberPad
-        
+        addPinToMap()
     }
     
     func showAllert() {
@@ -184,6 +185,7 @@ class RegisterFirmulary: UIView, UITextFieldDelegate {
         addressTextField.resignFirstResponder()
         emailTextField.resignFirstResponder()
      }
+    
     func textFieldShouldReturn(_ textField: UITextField) -> Bool {
         self.tagBasedTextField(textField)
         return true
@@ -230,11 +232,13 @@ class RegisterFirmulary: UIView, UITextFieldDelegate {
             self.phoneTextField.resignFirstResponder()
         }
     }
+    
     func textFieldDidEndEditing(_ textField: UITextField) {
         if textField == addressTextField {
             addPinToMap()
         }
     }
+    
     func addPinToMap() {
         //Activity Indicator
         let activityIndicator = UIActivityIndicatorView()
@@ -249,7 +253,6 @@ class RegisterFirmulary: UIView, UITextFieldDelegate {
         searchRequest.naturalLanguageQuery = addressTextField.text
         
         let activeSearch = MKLocalSearch(request: searchRequest)
-        
         activeSearch.start { (response, error) in
             
             activityIndicator.stopAnimating()
@@ -264,30 +267,23 @@ class RegisterFirmulary: UIView, UITextFieldDelegate {
                 //Remove annotations
                 let annotations = self.mapView.annotations
                 self.mapView.removeAnnotations(annotations)
-                
                 //Getting data
                 self.latitude = response?.boundingRegion.center.latitude ?? 0.0
                 self.longitude = response?.boundingRegion.center.longitude ?? 0.0
-                
                 //Create annotation
                 let annotation = MKPointAnnotation()
                 annotation.title = self.addressTextField.text
                 annotation.coordinate = CLLocationCoordinate2DMake(self.latitude, self.longitude)
                 self.mapView.addAnnotation(annotation)
-                
                 //Zooming in on annotation
                 let coordinate:CLLocationCoordinate2D = CLLocationCoordinate2DMake(self.latitude, self.longitude)
-                let span = MKCoordinateSpan(latitudeDelta: 0.1, longitudeDelta: 0.1)
+                let span = MKCoordinateSpan(latitudeDelta: 0.005, longitudeDelta: 0.005)
                 let region = MKCoordinateRegion(center: coordinate, span: span)
                 self.mapView.setRegion(region, animated: true)
             }
-            
         }
     }
-    //08:00  16:00
-    //08:00  18:00
-    //08:00 AM  16:00 PM
-    //08:00 AM  18:00 PM
+
     @IBAction func readyButtonAction(_ sender: UIButton) {
         delegate?.didPressReadyFormularyButton(sender)
         print("ZZZ guardar click")

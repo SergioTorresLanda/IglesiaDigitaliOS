@@ -82,7 +82,7 @@ class ServiceCollectionViewCell: UICollectionViewCell {
         availableHoursLabel.text = mass.hour
         availableHoursLabel.adjustsFontSizeToFitWidth = true
         deleteBtn.setTitle("", for: .normal)
-        deleteBtn.isHidden=true
+        deleteBtn.isHidden=false
     }
     
     func fillService(with service: ChurchDetail, index: Int) {
@@ -94,18 +94,7 @@ class ServiceCollectionViewCell: UICollectionViewCell {
         lblTo.isHidden = false
         lblDescription.text = service.services?[index].description
         lblDescription.isHidden = false
-//        if let url = URL(string: service.imageUrl ?? "") {
-//            serviceIconImage.af.setImage(withURL: url, completion:  {
-//                [weak self] _ in
-//                self?.serviceIconImage.image = self?.serviceIconImage.image?.withRenderingMode(.alwaysTemplate)
-//                self?.serviceIconImage.tintColor = .eDarkGold
-//            })
-//        }
-        
-        //let serviceName = "Servicios"
-//        self.serviceIconImage.image = UIImage(named: "encuentro-icon")
-//        self.serviceIconImage.tintColor = .eDarkGold
-        
+
         var arrayDays: [String] = []
         
         service.services?[index].schedules?.forEach({ element in

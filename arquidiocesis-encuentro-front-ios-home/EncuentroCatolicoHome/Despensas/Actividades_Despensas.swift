@@ -25,6 +25,7 @@ class Actividades_Despensas: UIViewController {
     @IBOutlet weak var tableView: UITableView!
     @IBOutlet weak var createBtn: UIView!
     @IBOutlet weak var createLbl: UILabel!
+    @IBOutlet weak var comedoresSV: UIStackView!
     
     var arrZona = ["Todas","Álvaro Obregón","Azcapotzalco","Benito Juárez",
                    "Coyoacán","Cuajimalpa de Morelos","Cuauhtémoc","Gustavo A. Madero",
@@ -44,14 +45,7 @@ class Actividades_Despensas: UIViewController {
     // MARK: - Navigation
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         if segue.identifier == "crear" {
-            let vc = segue.destination as! CrearComedor_Mapa
-            //vc.deliveryId = sender as? String
         }
-    }
-    
-    @IBAction func comedoresClick(_ sender: Any) {
-        //performSegue(withIdentifier: "despensas", sender: self)
-        navigationController?.popViewController(animated: false)
     }
     
     override func viewDidLoad() {
@@ -79,6 +73,12 @@ class Actividades_Despensas: UIViewController {
         despensasFiltro=[]
         tableView.reloadData()
         //getDespensasList()
+        progress.startAnimating()
+        DispatchQueue.main.asyncAfter(deadline: .now() + 2, execute: {
+            self.progress.stopAnimating()
+            self.progress.isHidden=true
+            self.nothingLbl.isHidden=false
+          })
     }
     
     func validateProfile(){
@@ -224,15 +224,18 @@ class Actividades_Despensas: UIViewController {
     func addTapGestures(){
         let tapG1 = UITapGestureRecognizer(target: self, action: #selector(Actividades_Despensas.TF1))
         createBtn.addGestureRecognizer(tapG1)
+        
+        let tapG2 = UITapGestureRecognizer(target: self, action: #selector(Actividades_Despensas.TF2))
+        comedoresSV.addGestureRecognizer(tapG2)
     }
     @objc func TF1(gesture: UIGestureRecognizer) {
         print("crear despensa click")
         performSegue(withIdentifier: "crear", sender: self)
-       // let storyboard = UIStoryboard(name: "CrearComedorSB", bundle: Bundle(for: Actividades_CrearDespensa.self))
-        //let view = storyboard.instantiateViewController(withIdentifier: "CrearComedorSB") as! Actividades_CrearComedor
-        //view.update=update
-        //view.comedorId=despensaId
-        //self.navigationController?.pushViewController(view, animated: true)
+    }
+    
+    @objc func TF2(gesture: UIGestureRecognizer) {
+        print("comedoresClick")
+        self.navigationController?.popViewController(animated: false)
     }
     
     @IBAction func backClick(_ sender: Any) {
@@ -246,8 +249,6 @@ class Actividades_Despensas: UIViewController {
             nothingLbl.isHidden=false
         }
     }
-    
-    
 }
 
 extension Actividades_Despensas: UIPickerViewDelegate, UIPickerViewDataSource {

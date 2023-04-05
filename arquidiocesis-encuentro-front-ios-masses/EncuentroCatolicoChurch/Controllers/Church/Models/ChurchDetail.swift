@@ -117,4 +117,5 @@ enum UserProfileEnum: String {
     case ResponsableComunidad = "COMMUNITY_RESPONSIBLE"
     case AdministradorComunidad = "COMMUNITY_ADMIN"
     case MiembroComunidad = "COMMUNITY_MEMBER"
+    case clergyVicarage = "CLERGY_VICARAGE"
 }

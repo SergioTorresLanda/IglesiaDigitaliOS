@@ -19,14 +19,15 @@ class Home_Actividades: UIViewController {
     @IBOutlet weak var viewHead: UIView!
     @IBOutlet weak var zonaLbl: UILabel!
     
-    @IBOutlet weak var despensasBtn: UIButton!
     @IBOutlet weak var nothingLbl: UILabel!
     @IBOutlet weak var progress: UIActivityIndicatorView!
     @IBOutlet weak var viewS: UIView!
     @IBOutlet weak var tableView: UITableView!
     @IBOutlet weak var createBtn: UIView!
     @IBOutlet weak var createLbl: UILabel!
+    @IBOutlet weak var comedoresSV: UIStackView!
     
+    @IBOutlet weak var despensasSV: UIStackView!
     var arrZona = ["Todas","Álvaro Obregón","Azcapotzalco","Benito Juárez",
                    "Coyoacán","Cuajimalpa de Morelos","Cuauhtémoc","Gustavo A. Madero",
                    "Iztacalco","Iztapalapa", "La Magdalena Contreras", "Miguel Hidalgo", "Milpa Alta", "Tláhuac","Tlalpan","Venustiano Carranza","Xochimilco"]
@@ -44,9 +45,6 @@ class Home_Actividades: UIViewController {
     var comedorId = "00"
     var isCapable=true
     //let shimmer = Shimmer()
-    @IBAction func despensasClick(_ sender: Any) {
-        performSegue(withIdentifier: "despensas", sender: self)
-    }
     // MARK: - Navigation
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         if segue.identifier == "donar" {
@@ -252,7 +250,12 @@ class Home_Actividades: UIViewController {
     func addTapGestures(){
         let tapG1 = UITapGestureRecognizer(target: self, action: #selector(Home_Actividades.TF1))
         createBtn.addGestureRecognizer(tapG1)
+        
+        let tapG2 = UITapGestureRecognizer(target: self, action: #selector(Home_Actividades.TF2))
+        despensasSV.addGestureRecognizer(tapG2)
+  
     }
+    
     @objc func TF1(gesture: UIGestureRecognizer) {
         print("crear click")
         let storyboard = UIStoryboard(name: "CrearComedorSB", bundle: Bundle(for: Actividades_CrearComedor.self))
@@ -260,6 +263,11 @@ class Home_Actividades: UIViewController {
         view.update=update
         view.comedorId=comedorId
         self.navigationController?.pushViewController(view, animated: true)
+    }
+    
+    @objc func TF2(gesture: UIGestureRecognizer) {
+        print("desp click")
+        performSegue(withIdentifier: "despensas", sender: self)
     }
     
     @IBAction func backClick(_ sender: Any) {

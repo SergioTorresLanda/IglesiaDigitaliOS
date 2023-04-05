@@ -26,6 +26,8 @@ class MiIglesia_InfoIglesia: BaseViewController {
     @IBOutlet weak var socialTableView: UITableView!
     @IBOutlet weak var addSocialButton: UIButton!
     @IBOutlet weak var addMassesButton: UIButton!
+    
+    @IBOutlet weak var deleteMassesButton: UIButton!
     @IBOutlet weak var addServicesButton: UIButton!
     @IBOutlet weak var btnRealMail: UIButton!
     @IBOutlet var imgFav: UIImageView!
@@ -86,6 +88,8 @@ class MiIglesia_InfoIglesia: BaseViewController {
     @IBOutlet weak var hSocialS: NSLayoutConstraint!
     @IBOutlet weak var progress: UIActivityIndicatorView!
     
+    @IBOutlet weak var viewAsFielBtn: UIButton!
+    
     var alertFields : AcceptAlert?
     var presenter: ChurchDetailPresenterProtocol?
     var showTutorial = true
@@ -137,7 +141,6 @@ class MiIglesia_InfoIglesia: BaseViewController {
     var scheduleDay: [AttentionEditChurch] = []
     var scheduleHour: [DayEditChurch] = []
     var commentList: [CommentsList] = []
-    
     var churcuPrincipalId: Int?
     var social: [String] = []
     var socialIdentifier: [String] = []
@@ -159,6 +162,7 @@ class MiIglesia_InfoIglesia: BaseViewController {
     let loadingAlert = UIAlertController(title: "", message: "\n \n \n \n \nCargando...", preferredStyle: .alert)
     var arrayNewObject = [NewMassesData]()
     var globalArray: [NewMassesData] = []
+    var globalArray2: [NewMassesData] = []
     var church: ChurchDetail?
     var churchId: Int?
     
@@ -170,6 +174,11 @@ class MiIglesia_InfoIglesia: BaseViewController {
     var hEndSer = String()
     var hStartAt = String()
     var hEndAt = String()
+    
+    @IBAction func viewAsFielClick(_ sender: Any) {
+        canEdit(b: false)
+        
+    }
     
     //MARK: - Life cycle
     override func viewDidLoad() {
@@ -387,10 +396,6 @@ class MiIglesia_InfoIglesia: BaseViewController {
     }
     
     @IBAction func addSocialButtonAction(_ sender: Any) {
-        goToAddSocial()
-    }
-    
-    func goToAddSocial() {
         let storyboard = UIStoryboard(name: "AddSocial", bundle: Bundle.local)
         if let nAS: NewAddSocialController = storyboard.instantiateViewController(withIdentifier: "NewAddSocial") as? NewAddSocialController {
             nAS.delegate = self
@@ -545,48 +550,37 @@ class MiIglesia_InfoIglesia: BaseViewController {
         if locationComponent != 0 {
             if locationComponent == churchId { //condicion locationId == churchId sobra
                 switch profileRole {
-                case UserProfileEnum.Sacerdoteadministrador.rawValue, UserProfileEnum.Sacerdotedecano.rawValue:
-                    formatYYY()
+                case UserProfileEnum.Sacerdoteadministrador.rawValue,
+                    UserProfileEnum.clergyVicarage.rawValue,
+                    UserProfileEnum.Sacerdotedecano.rawValue:
+                    canEdit(b:true)
                 case UserProfileEnum.fieladministrador.rawValue:
                     if ((locationcomponents?.contains("LOCATION_INFORMATION")) == true){
-                        formatYYY()
+                        canEdit(b:true)
                     }else {
-                        formatXXX()
+                        canEdit(b: false)
                     }
                 case UserProfileEnum.AdministradorComunidad.rawValue, UserProfileEnum.sacerdote.rawValue, UserProfileEnum.ResponsableComunidad.rawValue, UserProfileEnum.fiel.rawValue, UserProfileEnum.MiembroComunidad.rawValue:
-                    formatXXX()
+                    canEdit(b: false)
                 default:
-                    break
+                    canEdit(b: false)
                 }
             }else{
-                formatXXX()
+                canEdit(b: false)
             }
         }else {
-            formatXXX()
+            canEdit(b: false)
         }
     }
     
-    func formatXXX(){
-        print("formato XXX")
-        btnEdit.isHidden = true
-        imgFav.isHidden = false
-        addMassesButton.isHidden = true
-        addSocialButton.isHidden = true
-        addServicesButton.isHidden = true
-    }
-    
-    func formatYYY(){
-        btnEdit.isHidden = false
-        imgFav.isHidden = true
-        addMassesButton.isHidden = false
-        addSocialButton.isHidden = false
-        addServicesButton.isHidden = false
-        socialContainer.isHidden = false
-        churchMassContainer.isHidden = false
-        churchServicesContainer.isHidden = false
-        lblSectionComments.isHidden = true
-        commentsCard.isHidden = true
-        commentsTable.isHidden = true
+    func canEdit(b:Bool){
+        print("canEdit::"+String(b))
+        btnEdit.isHidden = !b
+        imgFav.isHidden = b
+        addMassesButton.isHidden = !b
+        addSocialButton.isHidden = !b
+        addServicesButton.isHidden = !b
+        btnGoComments.isHidden = b
     }
     
     private func initContent() {
@@ -1095,6 +1089,8 @@ class MiIglesia_InfoIglesia: BaseViewController {
         }
     }
     
+    
+    
     @objc func deleteMasses(sender: UIButton) {
         print("Se pretende a borrar misa elemento::") // nofunciona pq ya no van en el mismo formto las listas
         print(sender.tag)
@@ -1108,6 +1104,20 @@ class MiIglesia_InfoIglesia: BaseViewController {
         validateSameDaysChurch()
         
         newChurchMassCollection.reloadData()*/
+        deleteLastMasses()
+    }
+
+
+    func deleteLastMasses(){
+        print("Se pretende a borrar ultimo elemento::")
+        print(masesNuew.count)
+        masesNuew.removeLast()
+        church?.masses?.removeLast()
+        arrayNewObject.removeAll()
+        globalArray = []
+        actionSave()
+        //validateSameDaysChurch()
+        //newChurchMassCollection.reloadData()
     }
     
     @objc func deleteServices(sender: UIButton) {
@@ -1266,6 +1276,9 @@ extension MiIglesia_InfoIglesia: UICollectionViewDelegate, UICollectionViewDataS
                 churchMassContainer.isHidden = church?.masses?.count == 0
             }
             print(numberOfItems)
+            if numberOfItems==0{
+                hMasses.constant = CGFloat(1)
+            }
         case servicesCollectionView:
             print("c4r@::services")
             numberOfItems = church?.services?.count ?? 0
@@ -1405,7 +1418,6 @@ extension MiIglesia_InfoIglesia: ChurchDetailViewProtocol {
         
         DispatchQueue.main.async {
             [weak self] in
-           // self?.validateSameDaysChurch()
             self?.initView()
             self?.fillData()
         }
@@ -1414,23 +1426,27 @@ extension MiIglesia_InfoIglesia: ChurchDetailViewProtocol {
     func validateSameDaysChurch() {
         let mapDayInt:[String:String]=["Domingo":"0","Lunes":"1","Martes":"2","Miércoles":"3","Jueves":"4","Viernes":"5","Sábado":"6"]
         var mapDayhour:[String:[String]]=["0":[],"1":[],"2":[],"3":[],"4":[],"5":[],"6":[]]
-        // print(church?.masses)
+        // print(church?.masses)  //PARA TABLA EDIT
         print(masesNuew, "-----------------------------")
         var arrayOfDays = [NewMassesData]()
-        //var arry = [String]()
+        var arrayOfDays2 = [NewMassesData]()
+        var arry = [String]() //PARA TABLA EDIT
+        
         masesNuew.forEach { item in
-            //var days = [String]()
-            //var checked = [Bool]()
-            //arry.append("\(item)")
+            var days = [String]() //PARA TABLA EDIT
+            var checked = [Bool]() //PARA TABLA EDIT
+            arry.append("\(item)") //PARA TABLA EDIT
+            
             item.days?.forEach({ day in
-                //checked.append(day.checked ?? false)
+                checked.append(day.checked ?? false) //PARA TABLA EDIT
                 if day.checked == true {
                     mapDayhour[mapDayInt[day.name!]!]!.append(item.hourStart ?? "")
-                    //days.append(day.name ?? "")
+                    days.append(day.name ?? "") //PARA TABLA EDIT
                 }
             })
-      
-            /*var strOfDays = ""
+      //PARA TABLA EDIT
+            var strOfDays = ""
+            /*
             if days.count != 0 && days.count != 1{
                  strOfDays = "\(days.first ?? "") a \(days.last ?? "")"
                 
@@ -1442,8 +1458,12 @@ extension MiIglesia_InfoIglesia: ChurchDetailViewProtocol {
             }else if days.count == 1 {
                 strOfDays = "\(days.first ?? "")"
             }*/
-            //let newObject = NewMassesData(daysStr: strOfDays, hour: item.hourStart ?? "")
-            //arrayOfDays.append(newObject)
+            for day in days{
+                strOfDays += day+", "
+            }
+            let newObject = NewMassesData(daysStr: strOfDays, hour: item.hourStart ?? "")
+            arrayOfDays2.append(newObject)
+        //
         }
         
         for item in mapDayhour{
@@ -1454,12 +1474,14 @@ extension MiIglesia_InfoIglesia: ChurchDetailViewProtocol {
             }
         }
         globalArray=arrayOfDays
-        newChurchMassCollection.reloadData()
+       
+        
         //print(arrayOfDays)
-        //let group = Dictionary(grouping: arrayOfDays, by: {$0.daysStr})
-        //let arrayGrouped = Array(group.values)
+        let group = Dictionary(grouping: arrayOfDays, by: {$0.daysStr})//PARA TABLA EDIT
+        let arrayGrouped = Array(group.values)//PARA TABLA EDIT
         //print(arrayGrouped)
-        //globalArray = arrayGrouped
+        //globalArray2 = arrayGrouped//PARA TABLA EDIT
+        newChurchMassCollection.reloadData()
     }
     
 }
@@ -1704,68 +1726,40 @@ extension MiIglesia_InfoIglesia: AddServiceModalButtonDelegate {
 
 extension MiIglesia_InfoIglesia: AddMassesModalButtonDelegate{
 
-    func didPressReadyMassesButton(_ sender: UIButton, hourTxt: String, daysTxt: String) {
+    func didPressReadyMassesButton(_ sender: UIButton, hourTxt: String, daysTxt: [Bool]) {
+        
         let day = [1, 2, 3, 4, 5, 6, 7]
-        var daysActive: [Bool] {
-            returnBooleanWeekArray(s: daysTxt)
-        }
         massesDayNew.removeAll()
-   
-        let hoursStringArray = hourTxt.components(separatedBy: " ")
-    
-        if hourTxt.isEmpty == false &&  daysTxt.isEmpty == false {
-            for (days, daysActive) in zip(day, daysActive) {
-                guard let getDays = DaysInt.init(rawValue: days) else {return}
-                if massesDayNew.isEmpty {
-                    massesDayNew.insert(DayEditChurch.init(id: days, name: getDays.daysString, checked: daysActive), at: 0)
-                }else {
-                    massesDayNew.append(DayEditChurch.init(id: days, name: getDays.daysString, checked: daysActive))
-                }
-            }
-            if masesNuew.isEmpty {
-                masesNuew.insert(MassEditChurch.init(days: massesDayNew.unique(map: {$0.id}), hourStart: hoursStringArray[0], hourEnd: hoursStringArray[3]), at: 0)
-            }else {
-                masesNuew.append(MassEditChurch.init(days: massesDayNew.unique(map: {$0.id}), hourStart: hoursStringArray[0], hourEnd: hoursStringArray[3]))
+        for (days, daysTxt) in zip(day, daysTxt) {
+            guard let getDays = DaysInt.init(rawValue: days) else {return}
+            if massesDayNew.isEmpty {
+                massesDayNew.insert(DayEditChurch.init(id: days, name: getDays.daysString, checked: daysTxt), at: 0)
+            }else{
+                massesDayNew.append(DayEditChurch.init(id: days, name: getDays.daysString, checked: daysTxt))
             }
         }
+        if masesNuew.isEmpty {
+            masesNuew.insert(MassEditChurch.init(days: massesDayNew.unique(map: {$0.id}), hourStart: hourTxt, hourEnd: "00:00"), at: 0)
+        }else {
+            masesNuew.append(MassEditChurch.init(days: massesDayNew.unique(map: {$0.id}), hourStart: hourTxt, hourEnd: "00:00"))
+        }
+        
         view.isUserInteractionEnabled = true
         view.alpha = 1
         actionSave()
     }
     
     func didPressAdMassesButton(_ sender: UIButton, hourTxt: String, daysTxt: String) {
-        let day = [1, 2, 3, 4, 5, 6, 7]
-        var daysActive: [Bool] {
-            returnBooleanWeekArray(s: daysTxt)
-        }
-       
-        let hoursStringArray = hourTxt.components(separatedBy: " ")
-        massesDayNew.removeAll()
-        if hourTxt.isEmpty == false && daysTxt.isEmpty == false {
-            for (days, daysActive) in zip(day, daysActive) {
-                guard let getDays = DaysInt.init(rawValue: days) else {return}
-                if massesDayNew.isEmpty {
-                    massesDayNew.insert(DayEditChurch.init(id: days, name: getDays.daysString, checked: daysActive), at: 0)
-                }else {
-                    massesDayNew.append(DayEditChurch.init(id: days, name: getDays.daysString, checked: daysActive))
-                }
-            }
-            if masesNuew.isEmpty {
-                masesNuew.insert(MassEditChurch.init(days: massesDayNew.unique(map: {$0.id}), hourStart: hoursStringArray[0], hourEnd: hoursStringArray[3]), at: 0)
-            }else {
-                masesNuew.append(MassEditChurch.init(days: massesDayNew.unique(map: {$0.id}), hourStart: hoursStringArray[0], hourEnd: hoursStringArray[3]))
-            }
-            self.view.makeToast("Misa agregada correctamente", duration: 3.0, position: .top)
-        }
+        //inactivo, boton oculto. es exactamente lo mismo de arriba pero sin guardar
     }
     
     func returnBooleanWeekArray(s:String)  -> [Bool]{
         switch s{
         case "lunes  martes" : return [false, true, true, false, false, false, false]
         case "lunes  miércoles": return [false, true, true, true, false, false, false]
-        case "lunes  jueves": return [true, true, true, true, false, false, false]
+        case "lunes  jueves": return [false, true, true, true, true, false, false]
         case "lunes  viernes" : return [false, true, true, true, true, true, false]
-        case "lunes  sábado": return [true, true, true, true, true, true, false]
+        case "lunes  sábado": return [false, true, true, true, true, true, true]
         case "lunes  domingo": return [true, true, true, true, true, true, true]
         case "martes  miércoles": return [false, false, true, true, false, false, false]
         case "martes  jueves": return [false, false, true, true, true, false, false]
@@ -1855,7 +1849,6 @@ extension MiIglesia_InfoIglesia: AddSocialModalButtonDelegate {
         }
         view.isUserInteractionEnabled = true
         view.alpha = 1
-        //guardar Directamente
         actionSave()
     }
 }

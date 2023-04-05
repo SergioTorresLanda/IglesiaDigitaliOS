@@ -8,7 +8,7 @@
 import UIKit
 
 public protocol AddMassesModalButtonDelegate: AnyObject {
-    func didPressReadyMassesButton(_ sender: UIButton, hourTxt: String, daysTxt: String)
+    func didPressReadyMassesButton(_ sender: UIButton, hourTxt: String, daysTxt: [Bool])
     func didPressAdMassesButton(_ sender: UIButton, hourTxt: String, daysTxt: String)
 }
 
@@ -98,7 +98,7 @@ class AddMasses: UIView, UITextFieldDelegate {
         dyasTextfield.text = ""
     }
     @IBAction func readyButtonAction(_ sender: UIButton) {
-        delegate?.didPressReadyMassesButton(sender, hourTxt: "", daysTxt: "")
+        delegate?.didPressReadyMassesButton(sender, hourTxt: "", daysTxt: [])
         hourTextField.text = ""
         dyasTextfield.text = ""
         parentView.removeFromSuperview()
