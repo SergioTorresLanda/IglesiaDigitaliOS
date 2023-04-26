@@ -215,6 +215,7 @@ open class ImagePickerController: UINavigationController {
     ///
     /// - Parameter assets: Assets displayed as selected.
     public func updateSelectedAssets(with assets: [PHAsset]) {
+        print("::updateSelectedAssets:::")
         selectedAssets = assets
         galleryViewController?.collectionView.reloadData()
         doneBarButton.isEnabled = shouldEnableDoneBarButtonItem(with: selectedAssets)
@@ -230,17 +231,14 @@ extension ImagePickerController: UIImagePickerControllerDelegate, UINavigationCo
         defer {
             picker.dismiss(animated: true, completion: nil)
         }
-
         guard let originalImage = info[.originalImage] as? UIImage else {
             return
         }
-
         // Instead of using UIImagePickerControllerEditedImage, crop the original image for higher resolution if UIImagePickerControllerCropRect is specified.
         var croppedImage: UIImage?
         if let cropRect = info[.cropRect] as? CGRect, let cgImage = originalImage.cgImage?.cropping(to: cropRect) {
             croppedImage = UIImage(cgImage: cgImage, scale: originalImage.scale, orientation: originalImage.imageOrientation)
         }
-
         PHPhotoLibrary.shared().performChanges({
             PHAssetChangeRequest.creationRequestForAsset(from: croppedImage ?? originalImage)
         }, completionHandler: nil)
@@ -300,17 +298,22 @@ extension ImagePickerController: PhotoGalleryViewControllerDelegate {
     }
 
     internal func photoGalleryViewController(_ controller: PhotoGalleryViewController, didTogglePhoto asset: PHAsset) {
+        print("TOOGLE:::")
         if let selectedIndex = selectedAssets.firstIndex(of: asset) {
+            print("TOOGLE:::Remove")
             selectedAssets.remove(at: selectedIndex)
             imagePickerDelegate?.imagePickerController?(self, didDeselectImageAsset: asset)
         } else {
             switch allowedSelections {
             case .limit(to: let number) where 1 < number && selectedAssets.count < number:
+                print("TOOGLE:::Fall")
                 fallthrough // swiftlint:disable:this no_fallthrough_only
             case .unlimited:
+                print("TOOGLE:::Unlimited")
                 selectedAssets.append(asset)
                 imagePickerDelegate?.imagePickerController?(self, didSelectImageAsset: asset)
             case .limit(to: let number) where number == 1:
+                print("TOOGLE:::Limit 1")
                 // When selecting only 1 photo, replace the selected one on every tap.
                 selectedAssets = [asset]
                 imagePickerDelegate?.imagePickerController?(self, didSelectImageAsset: asset)

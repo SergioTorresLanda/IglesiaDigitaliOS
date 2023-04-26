@@ -115,7 +115,7 @@ class Actividades_CrearComedor: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         addTapGestures()
-        formatoDaysViews()
+        preFormatoDaysViews()
         formatoHeadView()
         addDoneButtonOnKeyboard()
         setFieldsText()
@@ -381,7 +381,6 @@ class Actividades_CrearComedor: UIViewController {
             putComedor(request: comedor)
         }else{
             postComedor(request: comedor)
-            
         }
     }
     
@@ -553,55 +552,23 @@ class Actividades_CrearComedor: UIViewController {
             view.layer.shadowColor = UIColor.gray.cgColor
         }
     }
+    func preFormatoDaysViews(){
+        formatoDaysViews(view:LuV)
+        formatoDaysViews(view:MaV)
+        formatoDaysViews(view:MiV)
+        formatoDaysViews(view:JuV)
+        formatoDaysViews(view:ViV)
+        formatoDaysViews(view:SaV)
+        formatoDaysViews(view:DoV)
+    }
     
-    func formatoDaysViews(){
-        LuV.layer.shadowOffset = CGSize(width: 0.0, height: 2.0)
-        MaV.layer.shadowOffset = CGSize(width: 0.0, height: 2.0)
-        MiV.layer.shadowOffset = CGSize(width: 0.0, height: 2.0)
-        JuV.layer.shadowOffset = CGSize(width: 0.0, height: 2.0)
-        ViV.layer.shadowOffset = CGSize(width: 0.0, height: 2.0)
-        SaV.layer.shadowOffset = CGSize(width: 0.0, height: 2.0)
-        DoV.layer.shadowOffset = CGSize(width: 0.0, height: 2.0)
-        
-        LuV.layer.cornerRadius = 5
-        MaV.layer.cornerRadius = 5
-        MiV.layer.cornerRadius = 5
-        JuV.layer.cornerRadius = 5
-        ViV.layer.cornerRadius = 5
-        SaV.layer.cornerRadius = 5
-        DoV.layer.cornerRadius = 5
-
-        LuV.layer.shadowRadius = 4
-        MaV.layer.shadowRadius = 4
-        MiV.layer.shadowRadius = 4
-        JuV.layer.shadowRadius = 4
-        ViV.layer.shadowRadius = 4
-        SaV.layer.shadowRadius = 4
-        DoV.layer.shadowRadius = 4
-        
-        LuV.layer.shadowOpacity = 0.5
-        MaV.layer.shadowOpacity = 0.5
-        MiV.layer.shadowOpacity = 0.5
-        JuV.layer.shadowOpacity = 0.5
-        ViV.layer.shadowOpacity = 0.5
-        SaV.layer.shadowOpacity = 0.5
-        DoV.layer.shadowOpacity = 0.5
-        
-        LuV.layer.shadowColor = UIColor.gray.cgColor
-        MaV.layer.shadowColor = UIColor.gray.cgColor
-        MiV.layer.shadowColor = UIColor.gray.cgColor
-        JuV.layer.shadowColor = UIColor.gray.cgColor
-        ViV.layer.shadowColor = UIColor.gray.cgColor
-        SaV.layer.shadowColor = UIColor.gray.cgColor
-        DoV.layer.shadowColor = UIColor.gray.cgColor
-        
-        LuV.layer.maskedCorners = [.layerMinXMaxYCorner, .layerMaxXMaxYCorner, .layerMinXMinYCorner, .layerMaxXMinYCorner]
-        MaV.layer.maskedCorners = [.layerMinXMaxYCorner, .layerMaxXMaxYCorner, .layerMinXMinYCorner, .layerMaxXMinYCorner]
-        MiV.layer.maskedCorners = [.layerMinXMaxYCorner, .layerMaxXMaxYCorner, .layerMinXMinYCorner, .layerMaxXMinYCorner]
-        JuV.layer.maskedCorners = [.layerMinXMaxYCorner, .layerMaxXMaxYCorner, .layerMinXMinYCorner, .layerMaxXMinYCorner]
-        ViV.layer.maskedCorners = [.layerMinXMaxYCorner, .layerMaxXMaxYCorner, .layerMinXMinYCorner, .layerMaxXMinYCorner]
-        SaV.layer.maskedCorners = [.layerMinXMaxYCorner, .layerMaxXMaxYCorner, .layerMinXMinYCorner, .layerMaxXMinYCorner]
-        DoV.layer.maskedCorners = [.layerMinXMaxYCorner, .layerMaxXMaxYCorner, .layerMinXMinYCorner, .layerMaxXMinYCorner]
+    func formatoDaysViews(view:UIView){
+        view.layer.shadowOffset = CGSize(width: 0.0, height: 2.0)
+        view.layer.cornerRadius = 5
+        view.layer.shadowRadius = 4
+        view.layer.shadowOpacity = 0.5
+        view.layer.shadowColor = UIColor.gray.cgColor
+        view.layer.maskedCorners = [.layerMinXMaxYCorner, .layerMaxXMaxYCorner, .layerMinXMinYCorner, .layerMaxXMinYCorner]
     }
     
     func formatoHeadView(){
@@ -647,7 +614,6 @@ class Actividades_CrearComedor: UIViewController {
         locationTV.resignFirstResponder()
     }
     
-
 }
 
 extension Actividades_CrearComedor: UIPickerViewDelegate, UIPickerViewDataSource {

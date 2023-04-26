@@ -364,7 +364,6 @@ public class RedSocial_CrearPost: UIViewController, CreatePostViewProtocol {
                 self.nameLabel.addMoreInfo(feeling.feeling, index: self.group?.name.count, image: image, text: "me siento")
             }
         }
-        
         if let nameLocation = self.location?.name{
             self.nameLabel.addMoreInfo(nameLocation)
         }
@@ -386,7 +385,30 @@ public class RedSocial_CrearPost: UIViewController, CreatePostViewProtocol {
     }
     
     @IBAction func showImages(_ sender: UIButton) {
-        guard let vc = ImagePickerViewController() as? ImagePickerController else { return }
+        print("::XXX Click OTRO 2")
+        goToImgGallery()
+    }
+    
+    @IBAction func btnActionAddImage(_ sender: UIButton) {
+        print("::XXX CLICK IMAGEN")
+        goToImgGallery()
+    }
+    
+    @IBAction func btnActionAddViewo(_ sender: UIButton) {
+        print("::XXX CLICK VIDEO")
+        goToVidGallery()
+    }
+    
+    func goToImgGallery(){
+        let vc = ImagePickerViewController()
+        vc.delegate = self
+        vc.modalPresentationStyle = .overFullScreen
+        vc.navigationBar.backgroundColor = .white
+        self.present(vc, animated: true)
+    }
+    
+    func goToVidGallery(){
+        let vc = ImagePickerViewControllerVideo()
         vc.delegate = self
         vc.modalPresentationStyle = .overFullScreen
         vc.navigationBar.backgroundColor = .white
@@ -394,10 +416,12 @@ public class RedSocial_CrearPost: UIViewController, CreatePostViewProtocol {
     }
     
     @IBAction func ready(_ sender: UIButton) {
-        
+        print("::::POSTTTT:::")
         if textView.hasText || !media.isEmpty || location != nil || feeling != nil {
              //CAMBIAR
-            guard let text =  textView.text, let organizationId = Int(self.accessibilityLabel ?? "-1") else { return }
+            guard let text =  textView.text//,
+                    //let organizationId = Int(self.accessibilityLabel ?? "-1")
+            else { return }
             textView.resignFirstResponder()
             loadingView.isHidden = false
             activityIndicator.startAnimating()
@@ -436,7 +460,6 @@ public class RedSocial_CrearPost: UIViewController, CreatePostViewProtocol {
     
     class public func showModalPost(type: String) -> RedSocial_CrearPost{
         let view = RedSocial_CrearPost(nibName: "CreatePostViewController", bundle: Bundle(identifier: "mx.arquidiocesis.EncuentroCatolicoNews"))
-        
         let interactor = CreatePostInteractor()
         let router = CreatePostRouter()
         let presenter = CreatePostPresenter(interface: view, interactor: interactor, router: router)
@@ -444,14 +467,14 @@ public class RedSocial_CrearPost: UIViewController, CreatePostViewProtocol {
         interactor.presenter = presenter
         router.viewController = view
         view.modalPresentationStyle = .overFullScreen
-        
         return view
     }
     
     @IBAction func btnActionPublicar(_ sender: UIButton) {
+        print("::::POSTTTT::: 2")
         if textView.hasText || !media.isEmpty || location != nil || feeling != nil {
              //CAMBIAR
-            guard let text =  textView.text, let organizationId = Int(self.accessibilityLabel ?? "-1") else { return }
+            guard let text = textView.text, let _ = Int(self.accessibilityLabel ?? "-1") else { return }
             textView.resignFirstResponder()
             loadingView.isHidden = false
             activityIndicator.startAnimating()
@@ -465,31 +488,17 @@ public class RedSocial_CrearPost: UIViewController, CreatePostViewProtocol {
                     presenter?.editComment(idComment: comm?.id ?? 0, commentString: text)
                 default:
                     break
-                    
                 }
                 
             }else{
                 presenter?.newmakePost(content: text, location: location, feeling: feeling, media: media, organizationId: orgId,   asParam: asPrm, editPost: editPost, scope: scope)
             }
-            
         }
     }
-    
     
     @IBAction func btnActionCancelar(_ sender: UIButton) {
         self.vwBackgroudSadow.alpha = 0
         self.dismiss(animated: true, completion: nil)
-    }
-    
-    
-    @IBAction func btnActionAddImage(_ sender: UIButton) {
-        print("CLICK IMAGEN")
-        guard let vc = ImagePickerViewController() as? ImagePickerController else { return }
-        vc.delegate = self
-        vc.modalPresentationStyle = .overFullScreen
-        vc.navigationBar.backgroundColor = .white
-        
-        self.present(vc, animated: true)
     }
     
     func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [UIImagePickerController.InfoKey : Any]) {
@@ -498,22 +507,10 @@ public class RedSocial_CrearPost: UIViewController, CreatePostViewProtocol {
 //        guard let image = info[.originalImage] as? UIImage else {
 //            fatalError("Expected a dictionary containing an image, but was provided the following: \(info)")
 //        }
-//        
 //        pickImageCallback?(image)
     }
     
-    
-    @IBAction func btnActionAddViewo(_ sender: UIButton) {
-        guard let vc = ImagePickerViewController() as? ImagePickerController else { return }
-        vc.delegate = self
-        vc.modalPresentationStyle = .overFullScreen
-        vc.navigationBar.backgroundColor = .white
-        self.present(vc, animated: true)
-    }
-    
-    
     @IBAction func btnAddArchivo(_ sender: UIButton) {
-        
     }
 }
 
@@ -594,7 +591,6 @@ extension RedSocial_CrearPost: UIPickerViewDelegate, UIPickerViewDataSource{
     
     public func pickerView(_ pickerView: UIPickerView, didSelectRow row: Int, inComponent component: Int) {
         //btnShowPicker.setTitle(arrayRelations[row].name, for: .normal)
-        
         if arrayRelations[row].id == nil {
             // Es la publicacion de usuario normal
             scope = 1
@@ -620,14 +616,6 @@ extension RedSocial_CrearPost {
         arrayRelations.append(addUser)
         pickerView.delegate = self
         pickerView.dataSource = self
-        
-        //if data.result?.count == 0 {
-            //btnShowPicker.isHidden = true
-            //nameLabel.isHidden = false
-        //}else{
-            //btnShowPicker.isHidden = false
-            //nameLabel.isHidden = true
-        //}
     }
     
     func failGetRelations(mesage: String) {

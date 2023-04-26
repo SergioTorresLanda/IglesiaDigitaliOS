@@ -20,14 +20,12 @@ public class VideoCVC: UICollectionViewCell {
     @IBOutlet public weak var playImage: UIImageView! = {
         let imageView = UIImageView()
         imageView.image = "play".getImage()
-        
         return imageView
     }()
     
     //MARK: - Properties
     public weak var delegate: VideosDelegate?
     private var player: AVPlayer?
-//    private var isVideoPlaying = false
     public var videoURL: String? {
         didSet {
             if let videoURL = videoURL, let url = URL(string: videoURL) {
@@ -43,7 +41,6 @@ public class VideoCVC: UICollectionViewCell {
     //MARK: - Life cycle
     override public func awakeFromNib() {
         super.awakeFromNib()
-        
     }
     
     public override func prepareForReuse() {
@@ -54,20 +51,6 @@ public class VideoCVC: UICollectionViewCell {
         videoURL = nil
         player = nil
     }
-    
-//    deinit {
-//        player?.pause()
-//    }
-    
-    //MARK: - Methods
-//    private func videoControls() {
-//        playImage.isHidden = isVideoPlaying
-//        if isVideoPlaying {
-//            player?.play()
-//        } else {
-//            player?.pause()
-//        }
-//    }
     
     //MARK: - Actions
     @IBAction func playVideo(_ sender: UIButton) {

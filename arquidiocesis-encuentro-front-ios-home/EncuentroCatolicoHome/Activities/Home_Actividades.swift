@@ -58,6 +58,7 @@ class Home_Actividades: UIViewController {
             vc.comedorId = Int(c.id) ?? 0
         }
     }
+    
     override func viewDidLoad() {
         super.viewDidLoad()
             
@@ -77,6 +78,7 @@ class Home_Actividades: UIViewController {
         addTapGestures()
         validateProfile()
     }
+    
     func validateProfile(){
         print("PERFIL :::: ")
         print(profile!)
@@ -150,7 +152,6 @@ class Home_Actividades: UIViewController {
                     DispatchQueue.main.async {
                         self.update=true
                         self.comedorId=object["FCCOMEDORID"] as? String ?? "0"
-                        //self.createBtn.isHidden=false al final del for
                         self.createLbl.text="Actualizar mi comedor "
                     }
                 }

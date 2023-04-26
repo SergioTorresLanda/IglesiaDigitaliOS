@@ -19,7 +19,6 @@ extension RedSocial_CrearPost: UITableViewDataSource {
         case 0:
             return location != nil && media.isEmpty == true ? 1 : 0
         default:
-
             return media.isEmpty != true ? 1 : 0
         }
     }
@@ -37,9 +36,8 @@ extension RedSocial_CrearPost: UITableViewDataSource {
             return cell
         default:
             guard let cell = tableView.dequeueReusableCell(withIdentifier: "ImagesTVC", for: indexPath) as? ImagesTVC else { return UITableViewCell() }
-            //Images
+            //Images/Videoa
             cell.media = media
-            //DeleteButton
             cell.selectButton.addTarget(self, action: #selector(editImages), for: .touchUpInside)
             
             return cell

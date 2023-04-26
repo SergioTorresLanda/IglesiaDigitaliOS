@@ -1,20 +1,19 @@
 //
-//  zeus-ios-sdk-new-social-network
+//  EncuentroCatolicoNews
 //
-//  Created by Miguel Angel Vicario Flores on 12/10/20.
-//  Copyright © 2020 Gabriel Briseño. All rights reserved.
+//  Created by Sergio Torres Landa González on 21/04/23.
 //
 
 import UIKit
 import Photos
 
-open class ImagePickerViewController: ImagePickerController {
+open class ImagePickerViewControllerVideo: ImagePickerController {
     
     //MARK: - Life cycle
     public init() {
         super.init(
             selectedAssets: [],
-            configuration: ImagePickerTheme(),
+            configuration: ImagePickerThemeVid(),
             camera: UIImagePickerController.init
         )
     }
@@ -24,7 +23,7 @@ open class ImagePickerViewController: ImagePickerController {
     }
 }
 
-private struct ImagePickerTheme: ImagePickerConfigurable {
+private struct ImagePickerThemeVid: ImagePickerConfigurable {
 
     let cancelBarButtonItem: UIBarButtonItem? = UIBarButtonItem(barButtonSystemItem: .stop, target: nil, action: nil)
     let doneBarButtonItem: UIBarButtonItem? = UIBarButtonItem(title: "Listo", style: .plain, target: nil, action: nil)
@@ -51,16 +50,15 @@ private struct ImagePickerTheme: ImagePickerConfigurable {
     let imageTagTextAttributes: [NSAttributedString.Key: Any]? = [.font : UIFont(name: "Avenir-Book", size: 15.0)!,
                                                                   .backgroundColor : UIColor(red: 0.10, green: 0.16, blue: 0.45, alpha: 1.00)]
     let selectedImageOverlayColor: UIColor? = UIColor.clear
-    let allowedSelections: ImagePickerSelection? = .limit(to: 10)
+    let allowedSelections: ImagePickerSelection? = .limit(to: 1)
 
     // MARK: - HintTextMargin
     let hintTextMargin: UIEdgeInsets? = .zero
 
     // MARK: Media Types
-    var mediaType: ImagePickerMediaType? = .image
+    var mediaType: ImagePickerMediaType? = .video
 
     // MARK: - Video Selections
     let videoSelectionBackgroundColor: UIColor? = nil
     let videoNormalBackgroundColor: UIColor? = nil
 }
-

@@ -29,7 +29,6 @@ public class APIType {
              API = "https://auth.arquidiocesis.mx"
         }
         return API
-        
     }
   
     func User()-> String{

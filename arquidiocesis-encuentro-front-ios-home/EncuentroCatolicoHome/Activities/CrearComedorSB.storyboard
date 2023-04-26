@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="20037" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="21507" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
     <device id="retina6_1" orientation="portrait" appearance="light"/>
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="20020"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="21505"/>
         <capability name="Named colors" minToolsVersion="9.0"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="Stack View standard spacing" minToolsVersion="9.0"/>
@@ -1103,7 +1103,7 @@
                                 <viewLayoutGuide key="frameLayoutGuide" id="8u4-lN-Q9c"/>
                             </scrollView>
                             <view hidden="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="1br-PW-BUC">
-                                <rect key="frame" x="0.0" y="44" width="414" height="818"/>
+                                <rect key="frame" x="0.0" y="48" width="414" height="814"/>
                                 <subviews>
                                     <activityIndicatorView opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" misplaced="YES" style="large" translatesAutoresizingMaskIntoConstraints="NO" id="hzh-3C-seV">
                                         <rect key="frame" x="197" y="399" width="20" height="20"/>
@@ -1190,7 +1190,7 @@
             <objects>
                 <viewController id="y13-QK-h3Q" customClass="CrearComedor_ListaDonadores" customModule="EncuentroCatolicoHome" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="v7p-xN-LVf">
-                        <rect key="frame" x="0.0" y="0.0" width="414" height="842"/>
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="838"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="P3c-bI-6DS" userLabel="ViewHead">
@@ -1244,11 +1244,11 @@
                                 </userDefinedRuntimeAttributes>
                             </view>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="none" rowHeight="216" estimatedRowHeight="-1" sectionHeaderHeight="-1" estimatedSectionHeaderHeight="-1" sectionFooterHeight="-1" estimatedSectionFooterHeight="-1" translatesAutoresizingMaskIntoConstraints="NO" id="SxP-g5-b8g">
-                                <rect key="frame" x="0.0" y="100" width="414" height="662"/>
+                                <rect key="frame" x="0.0" y="100" width="414" height="658"/>
                                 <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                                 <prototypes>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="DONCELL" rowHeight="216" id="rGf-xT-yqE" customClass="DonadorTVC" customModule="EncuentroCatolicoHome" customModuleProvider="target">
-                                        <rect key="frame" x="0.0" y="44.5" width="414" height="216"/>
+                                        <rect key="frame" x="0.0" y="50" width="414" height="216"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="rGf-xT-yqE" id="yWW-hJ-tJN">
                                             <rect key="frame" x="0.0" y="0.0" width="414" height="216"/>
@@ -1482,7 +1482,7 @@
             <objects>
                 <viewController id="sCb-iM-QdU" customClass="CrearComedor_ListaVoluntarios" customModule="EncuentroCatolicoHome" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="SVn-Nj-HJF">
-                        <rect key="frame" x="0.0" y="0.0" width="414" height="842"/>
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="838"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="jJD-c8-0VI" userLabel="ViewHead">
@@ -1536,11 +1536,11 @@
                                 </userDefinedRuntimeAttributes>
                             </view>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="none" rowHeight="216" estimatedRowHeight="-1" sectionHeaderHeight="-1" estimatedSectionHeaderHeight="-1" sectionFooterHeight="-1" estimatedSectionFooterHeight="-1" translatesAutoresizingMaskIntoConstraints="NO" id="mAt-aN-NZo">
-                                <rect key="frame" x="0.0" y="110" width="414" height="652"/>
+                                <rect key="frame" x="0.0" y="110" width="414" height="648"/>
                                 <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                                 <prototypes>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="VOLCELL" rowHeight="216" id="mp3-fa-aRq" customClass="VoluntariosCell" customModule="EncuentroCatolicoHome" customModuleProvider="target">
-                                        <rect key="frame" x="0.0" y="44.5" width="414" height="216"/>
+                                        <rect key="frame" x="0.0" y="50" width="414" height="216"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="mp3-fa-aRq" id="xrg-Oe-w0P">
                                             <rect key="frame" x="0.0" y="0.0" width="414" height="216"/>
@@ -1775,16 +1775,16 @@
         <!--Crear Comedor Mapa-->
         <scene sceneID="GP2-Hb-2d3">
             <objects>
-                <viewController id="hG5-NB-IuR" customClass="CrearComedor_Mapa" customModule="EncuentroCatolicoHome" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="mapaSB" id="hG5-NB-IuR" customClass="CrearComedor_Mapa" customModule="EncuentroCatolicoHome" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="cRH-gh-HQL">
-                        <rect key="frame" x="0.0" y="0.0" width="414" height="842"/>
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="838"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <mapView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" mapType="standard" translatesAutoresizingMaskIntoConstraints="NO" id="19J-hO-OJv">
-                                <rect key="frame" x="0.0" y="44" width="414" height="798"/>
+                                <rect key="frame" x="0.0" y="48" width="414" height="790"/>
                             </mapView>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Ubica el pin en donde estará ubicado tu comedor." textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="HZ8-MB-HQL">
-                                <rect key="frame" x="0.0" y="64" width="414" height="60"/>
+                                <rect key="frame" x="0.0" y="68" width="414" height="60"/>
                                 <color key="backgroundColor" name="eMainBlue"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="60" id="xh6-SR-3RE"/>
@@ -1796,10 +1796,10 @@
                                 <size key="shadowOffset" width="1" height="1"/>
                             </label>
                             <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="church-location-icon" translatesAutoresizingMaskIntoConstraints="NO" id="fCf-tr-a4Q">
-                                <rect key="frame" x="196" y="406.5" width="22" height="29"/>
+                                <rect key="frame" x="196" y="404.5" width="22" height="29"/>
                             </imageView>
                             <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="mappin.and.ellipse" catalog="system" translatesAutoresizingMaskIntoConstraints="NO" id="qlv-uR-evG">
-                                <rect key="frame" x="349" y="559.5" width="50" height="50.5"/>
+                                <rect key="frame" x="349" y="555.5" width="50" height="50.5"/>
                                 <color key="tintColor" name="eMainBlue"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="50" id="jyM-ic-DLC"/>
@@ -1807,7 +1807,7 @@
                                 </constraints>
                             </imageView>
                             <stackView opaque="NO" contentMode="scaleToFill" distribution="equalSpacing" translatesAutoresizingMaskIntoConstraints="NO" id="Xwb-pI-gFy" userLabel="btnsSV">
-                                <rect key="frame" x="70" y="660" width="274" height="52"/>
+                                <rect key="frame" x="70" y="656" width="274" height="52"/>
                                 <subviews>
                                     <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="equalSpacing" translatesAutoresizingMaskIntoConstraints="NO" id="29f-Rj-45P">
                                         <rect key="frame" x="0.0" y="0.0" width="274" height="52"/>
@@ -1846,7 +1846,7 @@
                                 </subviews>
                             </stackView>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Dirección:" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="3" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="sUt-gC-3jF">
-                                <rect key="frame" x="0.0" y="722" width="414" height="40"/>
+                                <rect key="frame" x="0.0" y="718" width="414" height="40"/>
                                 <color key="backgroundColor" name="eMainBlue"/>
                                 <constraints>
                                     <constraint firstAttribute="height" relation="greaterThanOrEqual" constant="40" id="qS0-NY-eGn"/>
@@ -1886,6 +1886,7 @@
                         <outlet property="btnEnviar" destination="0vc-7G-Ffz" id="gIx-dk-P1y"/>
                         <outlet property="locationImg" destination="qlv-uR-evG" id="jpj-29-ubS"/>
                         <outlet property="mapView" destination="19J-hO-OJv" id="tKh-aO-9BU"/>
+                        <outlet property="titleLbl" destination="HZ8-MB-HQL" id="IhW-I3-0fI"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="b7c-Zu-Opp" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
@@ -1899,7 +1900,7 @@
         <image name="church-location-icon" width="22" height="29"/>
         <image name="llamada-telefonica" width="48" height="48"/>
         <image name="mail.fill" catalog="system" width="128" height="93"/>
-        <image name="mappin.and.ellipse" catalog="system" width="118" height="128"/>
+        <image name="mappin.and.ellipse" catalog="system" width="117" height="128"/>
         <image name="newClock" width="24" height="24"/>
         <namedColor name="amber900">
             <color red="0.32899999618530273" green="0.32400000095367432" blue="0.4779999852180481" alpha="0.33000001311302185" colorSpace="custom" customColorSpace="sRGB"/>
@@ -1911,7 +1912,7 @@
             <color red="0.0040000001899898052" green="0.125" blue="0.40799999237060547" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </namedColor>
         <systemColor name="labelColor">
-            <color white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+            <color red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </systemColor>
         <systemColor name="opaqueSeparatorColor">
             <color red="0.77647058823529413" green="0.77647058823529413" blue="0.78431372549019607" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>

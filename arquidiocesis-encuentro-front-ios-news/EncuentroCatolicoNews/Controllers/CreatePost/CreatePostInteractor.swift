@@ -94,28 +94,27 @@ public class CreatePostInteractor: CreatePostInteractorProtocol {
     func newmakePost(content: String, location: LocationsResult?, feeling: FeelingsResult?, media: [MediaData], organizationId: Int?, asParam: Int, editPost: Bool, scope: Int){
         let SNId = UserDefaults.standard.integer(forKey: "SNId")
         let groupNotifier = DispatchGroup()
-        var mediaArray = [MediaResult]()
-        var newMediaArray = [NewMediaResult]()
+        //var mediaArray = [MediaResult]() //aparentemente no hace nada
+        //var newMediaArray = [NewMediaResult]() //muy comentable
         
-        var locationResult: LocationResult?
-        var mediaNewResult = [PrefirmadaResponse]()
+        //var locationResult: LocationResult? //aparentemente no hace nada
+        //var mediaNewResult = [PrefirmadaResponse]() // muy comentable
         
         groupNotifier.enter()
         getMedia(media: media) { (mediaResult) in
-            mediaArray = mediaResult
+            //mediaArray = mediaResult //aparentemente no hace nada
             groupNotifier.leave()
-            
         }
         
         if let location = location, let image = location.image {
             groupNotifier.enter()
             self.getLocationImage(image: image) { (locationURL) in
-                locationResult = LocationResult(idLocation: location.id,
+                /*locationResult = LocationResult(idLocation: location.id, //aparentemente no hace nada
                                                 nameLocation: location.name,
                                                 direction: location.direction,
                                                 lat: location.coordinates.latitude,
                                                 lng: location.coordinates.longitude,
-                                                imgLocation: locationURL)
+                                                imgLocation: locationURL)*/
                 groupNotifier.leave()
             }
         }
@@ -126,8 +125,6 @@ public class CreatePostInteractor: CreatePostInteractorProtocol {
             // Agregar scoop Cuando es un usuario normal se manda en 1 -->
             // Cuando es comunidad el scoop se manda en 2 -->
             // Cuado es una iglesia se manda en 3
-            
-            
             let newParams = NewMakePost(asParam: asParam, groupId: organizationId ?? 0, multimedia: self.arrMultimedia, content: content, userId: SNId, scope: scope, imageProfile: UserDefaults.standard.string(forKey: "imageUrl") ?? "")
             
             let strUrl = "\(APIType.shared.SN())/posts"
@@ -138,16 +135,14 @@ public class CreatePostInteractor: CreatePostInteractorProtocol {
                 if let error = error {
                     self.presenter?.didFinishMakingPostWithErrors(error: error)
                 }else{
-                    do {
-                        guard let allData = data else { return }
-                        let json = try? JSONSerialization.jsonObject(with: allData, options: .fragmentsAllowed) as? [String: Any]
-                        guard let message = json?["message"] as? String, message == "Post created Successfully" else { return }
-                        self.presenter?.didFinishMakingPost()
-                    }catch{
+                    guard let allData = data else {return}
+                    let json = try? JSONSerialization.jsonObject(with: allData, options: .fragmentsAllowed) as? [String: Any]
+                    guard let message = json?["message"] as? String, message == "Post created Successfully" else {
                         self.presenter?.didFinishMakingPostWithErrors(error: SocialNetworkErrors.ResponseError)
+                        return
                     }
+                    self.presenter?.didFinishMakingPost()
                 }
-
             }
         }
     }

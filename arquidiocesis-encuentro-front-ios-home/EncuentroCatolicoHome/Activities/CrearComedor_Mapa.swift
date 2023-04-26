@@ -18,11 +18,13 @@ class CrearComedor_Mapa: UIViewController {
     @IBOutlet weak var adressLabel: UILabel!
     @IBOutlet weak var btnEnviar: UIButton!
     @IBOutlet weak var locationImg: UIImageView!
- 
+    @IBOutlet weak var titleLbl: UILabel!
+    
     //let db = Firestore.firestore()
     let ds = DispatchGroup()
     let sm = DispatchSemaphore(value: 0)
     var mapaTipo:String = ""
+    var type:String = "comedor"
     let locationManager = CLLocationManager()
     let regionInMeters:Double = 500
     var adress:String="noAdressYet"
@@ -48,17 +50,37 @@ class CrearComedor_Mapa: UIViewController {
     }
     
     override func viewWillAppear(_ animated: Bool) {
+        print("El type ES:: ")
+        print(type)
+        switch type {
+        case "despensaRecepcion":
+            titleLbl.text="Ubica el pin en donde se realizará la recepción de despensas."
+        case "despensaEntrega":
+            titleLbl.text="Ubica el pin en donde se realizará la entrega de despensas."
+        default:
+            titleLbl.text="Ubica el pin en donde estará ubicado tu comedor."
+        }
     }
     
     @IBAction func enviarClick(_ sender: Any) {
         //db.collection("deliverys").document(deliveryId!).updateData(["direccion": adress,"lat":latitudeG!,"long":longitudeG!])
         print("continua")
-        defaults.set(adress, forKey: "lastAdress")
-        defaults.set(latitudeG, forKey: "latitude")
-        defaults.set(longitudeG, forKey: "longitude")
-        defaults.set(idZona,forKey: "idZona")
+        switch type {
+        case "despensaRecepcion":
+            defaults.set(adress, forKey: "lastAdressDespRec")
+            defaults.set(latitudeG, forKey: "latitudeRec")
+            defaults.set(longitudeG, forKey: "longitudeRec")
+        case "despensaEntrega":
+            defaults.set(adress, forKey: "lastAdressDespEnt")
+            defaults.set(latitudeG, forKey: "latitudeEnt")
+            defaults.set(longitudeG, forKey: "longitudeEnt")
+        default:
+            defaults.set(adress, forKey: "lastAdress")
+            defaults.set(latitudeG, forKey: "latitude")
+            defaults.set(longitudeG, forKey: "longitude")
+            defaults.set(idZona,forKey: "idZona")
+        }
         DispatchQueue.main.asyncAfter(deadline: .now() + 0.2, execute: {
-           print("accion")
             self.navigationController?.popViewController(animated: true)
         })
     }

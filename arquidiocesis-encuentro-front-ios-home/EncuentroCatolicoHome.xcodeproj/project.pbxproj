@@ -9,6 +9,7 @@
 /* Begin PBXBuildFile section */
 		3624761326095B3C00323160 /* PresentFrameworks.swift in Sources */ = {isa = PBXBuildFile; fileRef = 98BF4F7825E593DF00299001 /* PresentFrameworks.swift */; };
 		368A2040260BAB3700188539 /* newPrayer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 368A203F260BAB3700188539 /* newPrayer.swift */; };
+		441B8C1329F22DF500B39F7E /* DespensaCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 441B8C1229F22DF500B39F7E /* DespensaCell.swift */; };
 		443B5C4829BA987E00A52965 /* Actividades_CrearComedor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 443B5C4729BA987E00A52965 /* Actividades_CrearComedor.swift */; };
 		443B5C4A29BA989600A52965 /* CrearComedorSB.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 443B5C4929BA989600A52965 /* CrearComedorSB.storyboard */; };
 		443B5C4C29BAA7D500A52965 /* CrearComedor_Mapa.swift in Sources */ = {isa = PBXBuildFile; fileRef = 443B5C4B29BAA7D500A52965 /* CrearComedor_Mapa.swift */; };
@@ -106,6 +107,7 @@
 		27A1997AFDAC8D2971166D09 /* Pods-EncuentroCatolicoPromise.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-EncuentroCatolicoPromise.debug.xcconfig"; path = "Target Support Files/Pods-EncuentroCatolicoPromise/Pods-EncuentroCatolicoPromise.debug.xcconfig"; sourceTree = "<group>"; };
 		362475B52609587E00323160 /* EncuentroCatolicoUtils.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = EncuentroCatolicoUtils.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		368A203F260BAB3700188539 /* newPrayer.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = newPrayer.swift; sourceTree = "<group>"; };
+		441B8C1229F22DF500B39F7E /* DespensaCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DespensaCell.swift; sourceTree = "<group>"; };
 		443B5C4729BA987E00A52965 /* Actividades_CrearComedor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Actividades_CrearComedor.swift; sourceTree = "<group>"; };
 		443B5C4929BA989600A52965 /* CrearComedorSB.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = CrearComedorSB.storyboard; sourceTree = "<group>"; };
 		443B5C4B29BAA7D500A52965 /* CrearComedor_Mapa.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CrearComedor_Mapa.swift; sourceTree = "<group>"; };
@@ -288,6 +290,7 @@
 			children = (
 				44BBF60129CA757A0085CBA7 /* Actividades_Despensas.swift */,
 				44BBF60629CA918C0085CBA7 /* Actividades_CrearDespensa.swift */,
+				441B8C1229F22DF500B39F7E /* DespensaCell.swift */,
 			);
 			path = Despensas;
 			sourceTree = "<group>";
@@ -849,6 +852,7 @@
 				983D1CB9260A422D00455355 /* GlobalFunctions.swift in Sources */,
 				98F393D925E581A60077B623 /* HomeInteractor.swift in Sources */,
 				EEEAA378260D5EB500EBEF10 /* featuredEducationCVC.swift in Sources */,
+				441B8C1329F22DF500B39F7E /* DespensaCell.swift in Sources */,
 				443CA06629D4D6C100142618 /* VoluntariosCell.swift in Sources */,
 				9DB32457273B0820005841D4 /* ModalPrayController.swift in Sources */,
 				443CA05929D2101100142618 /* Actividades_CrearDonador.swift in Sources */,

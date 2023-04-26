@@ -204,9 +204,6 @@ extension Home_RedSocial: FeedTVCProtocol {
     }
     
     public func editPost(id: Int, snder: UIButton) {
-//        guard let post = posts?[id] else { return }
-//        guard let post = newPosts[id] else { return }
-//        showEditPost(snder, editPost: true, post: post)
         print("·$%&")
         guard let vc = CreatePostRouter.createModule() as? RedSocial_CrearPost else { return }
         vc.hasManyGroups = false
@@ -217,7 +214,6 @@ extension Home_RedSocial: FeedTVCProtocol {
         vc.modalPresentationStyle = .pageSheet
         self.present(vc, animated: true)
     }
-    
   
     public func actionSelected(idx: Int, typeAction: String) {
         var arrItems:[AnyObject]=[]

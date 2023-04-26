@@ -145,17 +145,14 @@ public class FeedTVC: UITableViewCell, CustomPopOverDelegate {
                 case "jpeg", "png", "image/jpeg":
                     if media.url != nil{
                         imagen = true
-                        video = false
                     }
-                    //arrItems.append(url)
-                case "video/mp4":
-                    video=true
-                    imagen=false
+                case "video/mp4", "mp4":
+                    if media.url != nil{
+                        video=true
+                    }
                 default:
                     print("no format xxe:;")
                     print(media.format)
-                    video=false
-                    imagen=false
                 }
             }
         }else{
@@ -275,7 +272,7 @@ extension FeedTVC: UICollectionViewDataSource {
     }
     
     public func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
-//        if let media = post?.mediaList[indexPath.row]
+        
         if let media = newPost?.multimedia?[indexPath.row]{
             switch media.format {
             case "jpeg", "png", "image/jpeg":
@@ -295,6 +292,13 @@ extension FeedTVC: UICollectionViewDataSource {
                     }
                 }
                 return cell
+            case "video/mp4", "mp4":
+                let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "VideoCVC", for: indexPath) as! VideoCVC
+                //let url = URL(string: media.url ?? "")
+                //cell.contentImage.sd_setImage(with: url, placeholderImage: nil, options: .refreshCached, context: nil)
+                cell.videoURL = media.url
+                cell.delegate = self
+                return cell
             case "image/location":
                 guard let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "LocationImageCVC", for: indexPath) as? LocationImageCVC else { return UICollectionViewCell() }
                 let url = URL(string: media.url ?? "")
@@ -305,12 +309,8 @@ extension FeedTVC: UICollectionViewDataSource {
                 
                 return cell
             default:
-                print("::SEGUN ESTO VIDEO FORMATO::::")
+                print("::NO FORMATO RECONOCIDO::")
                 print(media.format)
-                let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "VideoCVC", for: indexPath) as! VideoCVC
-                cell.videoURL = media.url
-                cell.delegate = self
-                return cell
             }
         }
         

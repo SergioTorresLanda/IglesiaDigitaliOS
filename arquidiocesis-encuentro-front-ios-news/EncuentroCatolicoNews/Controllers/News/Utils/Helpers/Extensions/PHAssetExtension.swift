@@ -8,6 +8,7 @@
 //
 
 import Photos
+import UIKit
 
 internal extension BidirectionalCollection where Iterator.Element == PHAsset {
     func getData(completion: @escaping ((_ mediaResult: [MediaData]) -> Void)) {
@@ -25,34 +26,41 @@ internal extension BidirectionalCollection where Iterator.Element == PHAsset {
         videoOptions.version = .original
         
         self.forEach { (asset) in
+            print("un asset")
             let size: CGSize = CGSize(width : 500, height : 500)
-            group.enter()
-            PHImageManager.default().requestImage(for: asset, targetSize: size, contentMode: .default, options: imageOptions,
-                                                  resultHandler: { (image, info) in
-                if let image = image {
-                    if asset.mediaType == .image {
+            //si es imagen
+            if asset.mediaType == .image {
+                group.enter()
+                PHImageManager.default().requestImage(for: asset, targetSize: size, contentMode: .default, options: imageOptions,
+                                                      resultHandler: { (image, info) in
+                    print("sale de PH IMAGE")
+                    if let image = image {
+                        print("sale de if let image")
                         image.accessibilityIdentifier = "Image"
                         let media = MediaData(image: image, videoURL: nil)
                         MediaTemp.shared.temp.append(media)
-                    } else if asset.mediaType == .video {
-                        image.accessibilityIdentifier = "Video"
-                        group.enter()
-                        PHImageManager.default().requestAVAsset(forVideo: asset, options: videoOptions) { (avAsset, avaudio, info) in
-                            if let urlAsset = avAsset as? AVURLAsset {
-                                let localVideoUrl: URL = urlAsset.url as URL
-                                url = localVideoUrl
-                                let media = MediaData(image: image, videoURL: url)
-                                MediaTemp.shared.temp.append(media)
-                            }
-                                                                
-                            group.leave()
-                        }
                     }
-                                                        
-                                                        
+                    group.leave()
+                })
+            }else if asset.mediaType == .video {
+                //Si es video...
+                print("sale de if let image .video")
+                //image.accessibilityIdentifier = "Video"
+                group.enter()
+                PHImageManager.default().requestAVAsset(forVideo: asset, options: videoOptions) { (avAsset, avaudio, info) in
+                    print("sale de if let image .video PHIMAGE")
+                    if let urlAsset = avAsset as? AVURLAsset {
+                        print("sale de if let image .image PHIMAGE urLASSET")
+                        let localVideoUrl: URL = urlAsset.url as URL
+                        url = localVideoUrl
+                        let media = MediaData(image: UIImage(named: "iconVideoGif", in: Bundle.local, compatibleWith: nil)!, videoURL: url)//"play"
+                        MediaTemp.shared.temp.append(media)
+                    }
+                    group.leave()
                 }
-                group.leave()
-            })
+            }else{
+                print("no es ni imagen ni video")
+            }
         }
         
         group.notify(queue: .main, execute: {

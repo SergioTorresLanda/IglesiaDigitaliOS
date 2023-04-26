@@ -16,8 +16,12 @@ extension RedSocial_CrearPost: ImagePickerControllerDelegate {
     }
     
     public func imagePickerController(_ picker: ImagePickerController, didFinishPickingImageAssets assets: [PHAsset]) {
+        for asset in assets{
+            print("RECIBIO MEDIA TYPE::::") //no trae videos :(
+            print(asset.mediaType)
+        }
         assets.getData { (media) in
-            print("RECIBIO MEDIA::::")//notrae videos :(
+            print("RECIBIO MEDIA::::") //no trae videos :(
             print(String(media.count))
             self.media.append(contentsOf: media)
             picker.dismiss(animated: true, completion: nil)

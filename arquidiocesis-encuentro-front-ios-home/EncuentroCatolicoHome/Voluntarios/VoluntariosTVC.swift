@@ -9,7 +9,7 @@ import UIKit
 protocol InvitadosCellDelegate: AnyObject{
     func delete(sender:Int)
 }
-class VoluntariosTVC: UITableViewCell {
+class VoluntariosTVC: UITableViewCell {//para la tabla de invitados (alta)
     weak var delegate:InvitadosCellDelegate?
     
     @IBOutlet weak var nombreLbl: UILabel!
