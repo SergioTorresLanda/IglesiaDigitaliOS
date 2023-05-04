@@ -2597,10 +2597,10 @@
                                 <rect key="frame" x="0.0" y="100" width="414" height="658"/>
                                 <subviews>
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="81j-Fs-bg6" userLabel="ViewInner">
-                                        <rect key="frame" x="0.0" y="0.0" width="414" height="2216"/>
+                                        <rect key="frame" x="0.0" y="0.0" width="414" height="1031.5"/>
                                         <subviews>
                                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="equalSpacing" spacing="15" translatesAutoresizingMaskIntoConstraints="NO" id="D7D-hr-NPL" userLabel="contentSV">
-                                                <rect key="frame" x="15" y="0.0" width="384" height="2216"/>
+                                                <rect key="frame" x="15" y="0.0" width="384" height="1031.5"/>
                                                 <subviews>
                                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Rcd-qp-X9e">
                                                         <rect key="frame" x="0.0" y="0.0" width="384" height="5"/>
@@ -2979,11 +2979,11 @@
                                                             </view>
                                                         </subviews>
                                                     </stackView>
-                                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="OkV-QJ-2z2">
-                                                        <rect key="frame" x="0.0" y="814.5" width="384" height="444.5"/>
+                                                    <view hidden="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="OkV-QJ-2z2">
+                                                        <rect key="frame" x="0.0" y="807" width="384" height="430"/>
                                                         <subviews>
-                                                            <stackView hidden="YES" opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="equalSpacing" spacing="10" translatesAutoresizingMaskIntoConstraints="NO" id="lJX-ky-jv5" userLabel="recepcionSV">
-                                                                <rect key="frame" x="10" y="0.0" width="364" height="444.5"/>
+                                                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="equalSpacing" spacing="10" translatesAutoresizingMaskIntoConstraints="NO" id="lJX-ky-jv5" userLabel="recepcionSV">
+                                                                <rect key="frame" x="10" y="0.0" width="364" height="430"/>
                                                                 <subviews>
                                                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="1000" text="Donativos requeridos" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="W95-uB-b9R">
                                                                         <rect key="frame" x="0.0" y="0.0" width="364" height="30"/>
@@ -3003,7 +3003,7 @@
                                                                         </userDefinedRuntimeAttributes>
                                                                     </label>
                                                                     <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" translatesAutoresizingMaskIntoConstraints="NO" id="wEn-XT-FuW">
-                                                                        <rect key="frame" x="0.0" y="40" width="364" height="114.5"/>
+                                                                        <rect key="frame" x="0.0" y="40" width="364" height="100"/>
                                                                         <subviews>
                                                                             <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" verticalCompressionResistancePriority="751" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="kQu-6O-cuw">
                                                                                 <rect key="frame" x="0.0" y="0.0" width="364" height="100"/>
@@ -3027,7 +3027,7 @@
                                                                                 </userDefinedRuntimeAttributes>
                                                                             </textView>
                                                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="0/250" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="DKg-nR-nD5">
-                                                                                <rect key="frame" x="0.0" y="100" width="364" height="14.5"/>
+                                                                                <rect key="frame" x="0.0" y="100" width="364" height="0.0"/>
                                                                                 <fontDescription key="fontDescription" type="system" weight="medium" pointSize="12"/>
                                                                                 <color key="textColor" name="eMainBlue"/>
                                                                                 <nil key="highlightedColor"/>
@@ -3035,7 +3035,7 @@
                                                                         </subviews>
                                                                     </stackView>
                                                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="1000" text="Recepción de donativos" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ybS-Xq-G1x">
-                                                                        <rect key="frame" x="0.0" y="164.5" width="364" height="25"/>
+                                                                        <rect key="frame" x="0.0" y="150" width="364" height="25"/>
                                                                         <constraints>
                                                                             <constraint firstAttribute="height" constant="25" id="cDt-D6-cuh"/>
                                                                         </constraints>
@@ -3052,7 +3052,7 @@
                                                                         </userDefinedRuntimeAttributes>
                                                                     </label>
                                                                     <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" translatesAutoresizingMaskIntoConstraints="NO" id="p8Y-aM-7iP">
-                                                                        <rect key="frame" x="0.0" y="199.5" width="364" height="80"/>
+                                                                        <rect key="frame" x="0.0" y="185" width="364" height="80"/>
                                                                         <subviews>
                                                                             <stackView opaque="NO" contentMode="scaleToFill" distribution="fillEqually" translatesAutoresizingMaskIntoConstraints="NO" id="IBO-cP-OFd">
                                                                                 <rect key="frame" x="0.0" y="0.0" width="364" height="40"/>
@@ -3166,7 +3166,7 @@
                                                                         </constraints>
                                                                     </stackView>
                                                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="1000" text="Días de recepción" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Ed6-ha-jra">
-                                                                        <rect key="frame" x="0.0" y="289.5" width="364" height="25"/>
+                                                                        <rect key="frame" x="0.0" y="275" width="364" height="25"/>
                                                                         <constraints>
                                                                             <constraint firstAttribute="height" constant="25" id="Onu-oq-mR2"/>
                                                                         </constraints>
@@ -3183,7 +3183,7 @@
                                                                         </userDefinedRuntimeAttributes>
                                                                     </label>
                                                                     <stackView opaque="NO" contentMode="scaleToFill" distribution="equalSpacing" spacingType="standard" translatesAutoresizingMaskIntoConstraints="NO" id="GA3-qV-0Rg" userLabel="daysSV">
-                                                                        <rect key="frame" x="0.0" y="324.5" width="364" height="30"/>
+                                                                        <rect key="frame" x="0.0" y="310" width="364" height="30"/>
                                                                         <subviews>
                                                                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="0qg-Lw-pfH">
                                                                                 <rect key="frame" x="0.0" y="0.0" width="1" height="30"/>
@@ -3478,7 +3478,7 @@
                                                                         </constraints>
                                                                     </stackView>
                                                                     <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" translatesAutoresizingMaskIntoConstraints="NO" id="Pfz-xr-ITV">
-                                                                        <rect key="frame" x="0.0" y="364.5" width="364" height="80"/>
+                                                                        <rect key="frame" x="0.0" y="350" width="364" height="80"/>
                                                                         <subviews>
                                                                             <stackView opaque="NO" contentMode="scaleToFill" distribution="fillEqually" translatesAutoresizingMaskIntoConstraints="NO" id="fcb-lw-S6G">
                                                                                 <rect key="frame" x="0.0" y="0.0" width="364" height="20"/>
@@ -3610,7 +3610,7 @@
                                                         </userDefinedRuntimeAttributes>
                                                     </view>
                                                     <stackView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="LoE-Ye-A81" userLabel="reqArmadoSV">
-                                                        <rect key="frame" x="0.0" y="1274" width="384" height="25"/>
+                                                        <rect key="frame" x="0.0" y="814.5" width="384" height="25"/>
                                                         <subviews>
                                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="1000" text="Solicitar ayuda para armado" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="qKR-pA-5HU">
                                                                 <rect key="frame" x="0.0" y="0.0" width="315" height="25"/>
@@ -3644,10 +3644,10 @@
                                                             </view>
                                                         </subviews>
                                                     </stackView>
-                                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="onh-TV-05v">
-                                                        <rect key="frame" x="0.0" y="1314" width="384" height="285"/>
+                                                    <view hidden="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="onh-TV-05v">
+                                                        <rect key="frame" x="0.0" y="847" width="384" height="285"/>
                                                         <subviews>
-                                                            <stackView hidden="YES" opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="equalSpacing" spacing="10" translatesAutoresizingMaskIntoConstraints="NO" id="1Td-yN-tRr" userLabel="armadoSV">
+                                                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="equalSpacing" spacing="10" translatesAutoresizingMaskIntoConstraints="NO" id="1Td-yN-tRr" userLabel="armadoSV">
                                                                 <rect key="frame" x="10" y="0.0" width="364" height="285"/>
                                                                 <subviews>
                                                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="1000" text="Armado de despensas" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="cZf-3w-z9D">
@@ -4226,7 +4226,7 @@
                                                         </userDefinedRuntimeAttributes>
                                                     </view>
                                                     <stackView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="oSf-o8-Ztd" userLabel="reqEntregaSV">
-                                                        <rect key="frame" x="0.0" y="1614" width="384" height="25"/>
+                                                        <rect key="frame" x="0.0" y="854.5" width="384" height="25"/>
                                                         <subviews>
                                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="1000" text="Solicitar apoyo para entrega" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Zlc-lg-UgN">
                                                                 <rect key="frame" x="0.0" y="0.0" width="315" height="25"/>
@@ -4260,10 +4260,10 @@
                                                             </view>
                                                         </subviews>
                                                     </stackView>
-                                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Tth-dF-IxT">
-                                                        <rect key="frame" x="0.0" y="1654" width="384" height="410"/>
+                                                    <view hidden="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Tth-dF-IxT">
+                                                        <rect key="frame" x="0.0" y="887" width="384" height="410"/>
                                                         <subviews>
-                                                            <stackView hidden="YES" opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="equalSpacing" spacing="10" translatesAutoresizingMaskIntoConstraints="NO" id="jCL-Op-wOs" userLabel="entregaSV">
+                                                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="equalSpacing" spacing="10" translatesAutoresizingMaskIntoConstraints="NO" id="jCL-Op-wOs" userLabel="entregaSV">
                                                                 <rect key="frame" x="10" y="0.0" width="364" height="410"/>
                                                                 <subviews>
                                                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="1000" text="Entrega de despensas" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="stJ-s0-5gj">
@@ -4913,12 +4913,12 @@
                                                         </userDefinedRuntimeAttributes>
                                                     </view>
                                                     <activityIndicatorView hidden="YES" opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" style="whiteLarge" translatesAutoresizingMaskIntoConstraints="NO" id="h0B-vT-YbG">
-                                                        <rect key="frame" x="0.0" y="2079" width="384" height="37"/>
+                                                        <rect key="frame" x="0.0" y="894.5" width="384" height="37"/>
                                                         <color key="tintColor" name="eMainBlue"/>
                                                         <color key="color" name="eMainBlue"/>
                                                     </activityIndicatorView>
                                                     <stackView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="tfu-Al-Ogh" userLabel="guardarSV">
-                                                        <rect key="frame" x="0.0" y="2131" width="384" height="50"/>
+                                                        <rect key="frame" x="0.0" y="946.5" width="384" height="50"/>
                                                         <subviews>
                                                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="zbx-Sl-JQo">
                                                                 <rect key="frame" x="0.0" y="0.0" width="70" height="50"/>
@@ -4959,7 +4959,7 @@
                                                         </subviews>
                                                     </stackView>
                                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="2Y0-CC-uc7">
-                                                        <rect key="frame" x="0.0" y="2196" width="384" height="20"/>
+                                                        <rect key="frame" x="0.0" y="1011.5" width="384" height="20"/>
                                                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                         <constraints>
                                                             <constraint firstAttribute="height" constant="20" id="A4F-Q1-Cco"/>

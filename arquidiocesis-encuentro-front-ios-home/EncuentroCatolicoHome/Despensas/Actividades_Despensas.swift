@@ -97,6 +97,11 @@ class Actividades_Despensas: UIViewController {
         default:
             print("buen perfil")
         }
+        
+        let autoLogin = UserDefaults.standard.bool(forKey: "autoLogin")
+        if autoLogin {
+            isCapable=false
+        }
     }
     
     func getDespensasList() {
@@ -367,7 +372,8 @@ func getDataForArr(object:[String: Any]){
     }
     
     @IBAction func backClick(_ sender: Any) {
-        self.navigationController?.popViewController(animated: true)
+        _ = navigationController?.popViewController(animated: false)
+        //_ = navigationController?.popViewController(animated: true)
     }
     
     func hideOrShowLbl(){

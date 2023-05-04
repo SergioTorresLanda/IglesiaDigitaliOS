@@ -434,9 +434,9 @@ class Actividades_CrearDespensa: UIViewController {
             self.recepcionSwitch.setOn(c.req_donador==1, animated: true)
             self.armadoSwitch.setOn(c.req_armado==1, animated: true)
             self.entregaSwitch.setOn(c.req_entrega==1, animated: true)
-            self.recepcionSV.isHidden = c.req_donador==0
-            self.armadoSV.isHidden = c.req_armado==0
-            self.entregaSV.isHidden = c.req_entrega==0
+            self.recView.isHidden = c.req_donador==0
+            self.armView.isHidden = c.req_armado==0
+            self.entView.isHidden = c.req_entrega==0
             self.donInt=c.req_donador
             self.armInt=c.req_armado
             self.entInt=c.req_entrega
@@ -611,6 +611,11 @@ class Actividades_CrearDespensa: UIViewController {
             defaults.set(direc1TV.text, forKey: "lastAdressDespRec")
         }
         
+        if !descTV.hasText{
+            showCanonAlert(title: "Datos faltantes", msg: "El campo \"Descripción\" no puede quedar vacío." )
+            return
+        }
+        
         if zonaId == 1 || zonaId==0{
             showCanonAlert(title: "Datos faltantes", msg: "Selecciona la zona (alcaldía) para la recepción/armado de despensas." )
             return
@@ -619,23 +624,23 @@ class Actividades_CrearDespensa: UIViewController {
         var horarioRec:HorarioX? = nil
         if donInt == 1 {
             if recFechaTF.text! == "dd/mm/aaaa"{
-                showCanonAlert(title: "Datos faltantes", msg: "Selecciona una fecha de inicio para recepción de despensas o desactiva la opción \"Requiere donador\"." )
+                showCanonAlert(title: "Datos faltantes", msg: "Selecciona una fecha de inicio para recepción de despensas o desactiva la opción \"Solicitar donativos\"." )
                 return
             }
             if recFechaFinTF.text! == "dd/mm/aaaa"{
-                showCanonAlert(title: "Datos faltantes", msg: "Selecciona una fecha de cierre para recepción de despensas o desactiva la opción \"Requiere donador\"." )
+                showCanonAlert(title: "Datos faltantes", msg: "Selecciona una fecha de cierre para recepción de despensas o desactiva la opción \"Solicitar donativos\"." )
                 return
             }
             if !luBoolRec && !maBoolRec && !miBoolRec && !juBoolRec && !viBoolRec && !saBoolRec && !doBoolRec{
-                showCanonAlert(title: "Datos faltantes", msg: "Activa por lo menos un día a la semana para recepción de despensas o desactiva la opción \"Requiere donador\"." )
+                showCanonAlert(title: "Datos faltantes", msg: "Activa por lo menos un día a la semana para recepción de despensas o desactiva la opción \"Solicitar donativos\"." )
                 return
             }
             if openHourRec==""{
-                showCanonAlert(title: "Datos faltantes", msg: "Selecciona un horario de apertura para recepción de despensas o desactiva la opción \"Requiere donador\"." )
+                showCanonAlert(title: "Datos faltantes", msg: "Selecciona un horario de apertura para recepción de despensas o desactiva la opción \"Solicitar donativos\"." )
                 return
             }
             if closeHourRec==""{
-                showCanonAlert(title: "Datos faltantes", msg: "Selecciona un horario de cierre para recepción de despensas o desactiva la opción \"Requiere donador\"." )
+                showCanonAlert(title: "Datos faltantes", msg: "Selecciona un horario de cierre para recepción de despensas o desactiva la opción \"Solicitar donativos\"." )
                 return
             }
        
@@ -653,23 +658,23 @@ class Actividades_CrearDespensa: UIViewController {
         var horarioArm:HorarioX? = nil
         if armInt == 1 {
             if armFechaTF.text! == "dd/mm/aaaa"{
-                showCanonAlert(title: "Datos faltantes", msg: "Selecciona una fecha de inicio para armado de despensas o desactiva la opción \"Requiere armado\"." )
+                showCanonAlert(title: "Datos faltantes", msg: "Selecciona una fecha de inicio para armado de despensas o desactiva la opción \"Solicitar ayuda para armado\"." )
                 return
             }
             if armFechaFinTF.text! == "dd/mm/aaaa"{
-                showCanonAlert(title: "Datos faltantes", msg: "Selecciona una fecha de cierre para armado de despensas o desactiva la opción \"Requiere armado\"." )
+                showCanonAlert(title: "Datos faltantes", msg: "Selecciona una fecha de cierre para armado de despensas o desactiva la opción \"Solicitar ayuda para armado\"." )
                 return
             }
             if !luBoolArm && !maBoolArm && !miBoolArm && !juBoolArm && !viBoolArm && !saBoolArm && !doBoolArm {
-                showCanonAlert(title: "Datos faltantes", msg: "Activa por lo menos un día a la semana para armado de despensas o desactiva la opción \"Requiere armado\"." )
+                showCanonAlert(title: "Datos faltantes", msg: "Activa por lo menos un día a la semana para armado de despensas o desactiva la opción \"Solicitar ayuda para armado\"." )
                 return
             }
             if openHourArm==""{
-                showCanonAlert(title: "Datos faltantes", msg: "Selecciona un horario de apertura para armado de despensas o desactiva la opción \"Requiere armado\"." )
+                showCanonAlert(title: "Datos faltantes", msg: "Selecciona un horario de apertura para armado de despensas o desactiva la opción \"Solicitar ayuda para armado\"." )
                 return
             }
             if closeHourArm==""{
-                showCanonAlert(title: "Datos faltantes", msg: "Selecciona un horario de cierre para armado de despensas o desactiva la opción \"Requiere armado\"." )
+                showCanonAlert(title: "Datos faltantes", msg: "Selecciona un horario de cierre para armado de despensas o desactiva la opción \"Solicitar ayuda para armado\"." )
                 return
             }
        
@@ -687,27 +692,27 @@ class Actividades_CrearDespensa: UIViewController {
         var horarioEnt:HorarioX? = nil
         if entInt == 1 {
             if entFechaTF.text! == "dd/mm/aaaa"{
-                showCanonAlert(title: "Datos faltantes", msg: "Selecciona una fecha de inicio para entrega de despensas o desactiva la opción \"Requiere entrega\"." )
+                showCanonAlert(title: "Datos faltantes", msg: "Selecciona una fecha de inicio para entrega de despensas o desactiva la opción \"Solicitar apoyo para entrega\"." )
                 return
             }
             if entFechaFinTF.text! == "dd/mm/aaaa"{
-                showCanonAlert(title: "Datos faltantes", msg: "Selecciona una fecha de cierre para entrega de despensas o desactiva la opción \"Requiere entrega\"." )
+                showCanonAlert(title: "Datos faltantes", msg: "Selecciona una fecha de cierre para entrega de despensas o desactiva la opción \"Solicitar apoyo para entrega\"." )
                 return
             }
             if !luBoolEnt && !maBoolEnt && !miBoolEnt && !juBoolEnt && !viBoolEnt && !saBoolEnt && !doBoolEnt {
-                showCanonAlert(title: "Datos faltantes", msg: "Activa por lo menos un día a la semana para entrega de despensas o desactiva la opción \"Requiere entrega\"." )
+                showCanonAlert(title: "Datos faltantes", msg: "Activa por lo menos un día a la semana para entrega de despensas o desactiva la opción \"Solicitar apoyo para entrega\"." )
                 return
             }
             if openHourEnt==""{
-                showCanonAlert(title: "Datos faltantes", msg: "Selecciona un horario de apertura para entrega de despensas o desactiva la opción \"Requiere entrega\"." )
+                showCanonAlert(title: "Datos faltantes", msg: "Selecciona un horario de apertura para entrega de despensas o desactiva la opción \"Solicitar apoyo para entrega\"." )
                 return
             }
             if closeHourEnt==""{
-                showCanonAlert(title: "Datos faltantes", msg: "Selecciona un horario de cierre para entrega de despensas o desactiva la opción \"Requiere entrega\"." )
+                showCanonAlert(title: "Datos faltantes", msg: "Selecciona un horario de cierre para entrega de despensas o desactiva la opción \"Solicitar apoyo para entrega\"." )
                 return
             }
             if !direcEntregaTV.hasText{
-                showCanonAlert(title: "Datos faltantes", msg: "Actualiza la ubicación de entrega de despensas o desactiva la opción \"Requiere entrega\"." )
+                showCanonAlert(title: "Datos faltantes", msg: "Actualiza la ubicación de entrega de despensas o desactiva la opción \"Solicitar apoyo para entrega\"." )
                 return
             }else{
                 defaults.set(direcEntregaTV.text, forKey: "lastAdressDespEnt")

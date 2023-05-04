@@ -65,10 +65,13 @@ class LoginRemoteDataManager:LoginRemoteDataManagerInputProtocol {
                 defaults.setValue(resp.UserAttributes.name, forKey: "OnlyName")
                 defaults.setValue(resp.UserAttributes.phone_number, forKey: "telefono")
                 defaults.setValue(resp.UserAttributes.email, forKey: "email")
-                defaults.setValue(resp.UserAttributes.email, forKey: "emailForBiometric")
                 defaults.setValue(resp.UserAttributes.role, forKey: "role")
                 defaults.setValue(resp.UserAttributes.profile, forKey: "profile")
                 
+                let autoLogin = UserDefaults.standard.bool(forKey: "autoLogin")
+                if !autoLogin {
+                    defaults.setValue(resp.UserAttributes.email, forKey: "emailForBiometric")
+                }
                 
                 let idUser = defaults.integer(forKey: "id")
                 

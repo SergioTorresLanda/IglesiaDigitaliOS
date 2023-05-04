@@ -303,20 +303,18 @@ class Login_Login: UIViewController {
         let drws = DAKeychain.shared["miIglesia"] ?? ""
     
         guard userValue != "",
-              drws != ""   else {
+              drws != "" else {
             print("CONDICION 1 ELSE")
             btnBiometric.isHidden = true
             btnRegistar.backgroundColor = UIColor.init(red: 17/255, green: 33/255, blue: 129/255, alpha: 1)
             btnRegistar.setTitleColor(UIColor.white, for: UIControl.State())
             //btnAutoLogin.backgroundColor = UIColor.init(red: 17/255, green: 33/255, blue: 129/255, alpha: 1)
             //btnAutoLogin.setTitleColor(UIColor.white, for: UIControl.State())
-           
             btnLogIn.backgroundColor = UIColor.clear
             btnLogIn.setTitleColor(UIColor.init(red: 17/255, green: 33/255, blue: 129/255, alpha: 1), for: UIControl.State())
             btnLogIn.layer.borderWidth = 1
             btnLogIn.layer.borderColor = UIColor(red: 25/255, green: 42/255, blue: 115/255, alpha: 1).cgColor
             return
-           
         }
         
         biometric.canEvaluate { (canEvaluate, typeBio, canEvaluateError) in
@@ -326,7 +324,6 @@ class Login_Login: UIViewController {
                 btnBiometric.isHidden = true
                 btnRegistar.backgroundColor = UIColor.init(red: 17/255, green: 33/255, blue: 129/255, alpha: 1)
                 btnRegistar.setTitleColor(UIColor.white, for: UIControl.State())
-               
                 btnLogIn.backgroundColor = UIColor.clear
                 btnLogIn.setTitleColor(UIColor.init(red: 17/255, green: 33/255, blue: 129/255, alpha: 1), for: UIControl.State())
                 btnLogIn.layer.borderWidth = 1
@@ -340,7 +337,7 @@ class Login_Login: UIViewController {
             if canEvaluate {
                 btnBiometric.isHidden = false
             }else {
-                print("CONDICION 2 ELSE")
+                print("CONDICION 2 ELSE x")
                 btnBiometric.isHidden = true
             }
         

@@ -68,11 +68,11 @@ class ComedorCell: UITableViewCell {
         
         switch type {
         case "Donante":
-            btnAction.isHidden=false
-            btnAction.setTitle("    Donar    ", for: .normal)
+                btnAction.isHidden=false
+                btnAction.setTitle("    Donar    ", for: .normal)
         case "Voluntario":
-            btnAction.isHidden=false
-            btnAction.setTitle("    Participar    ", for: .normal)
+                btnAction.isHidden=false
+                btnAction.setTitle("    Participar    ", for: .normal)
         default://solicitante
             btnAction.isHidden=true
         }

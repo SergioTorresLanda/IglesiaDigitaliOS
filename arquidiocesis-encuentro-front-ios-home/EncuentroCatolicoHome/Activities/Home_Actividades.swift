@@ -9,6 +9,7 @@ import UIKit
 import EncuentroCatolicoVirtualLibrary
 import RealmSwift
 import Alamofire
+import EncuentroCatolicoVirtualLibrary
 
 class Home_Actividades: UIViewController {
 
@@ -44,6 +45,8 @@ class Home_Actividades: UIViewController {
     var update = false
     var comedorId = "00"
     var isCapable=true
+    var alertFields : AcceptAlert?
+
     //let shimmer = Shimmer()
     // MARK: - Navigation
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
@@ -88,6 +91,11 @@ class Home_Actividades: UIViewController {
             print("will never show create")
         default:
             print("buen perfil")
+        }
+        
+        let autoLogin = UserDefaults.standard.bool(forKey: "autoLogin")
+        if autoLogin {
+            isCapable=false
         }
     }
     
@@ -282,6 +290,16 @@ class Home_Actividades: UIViewController {
             nothingLbl.isHidden=false
         }
     }
+    
+    func showCanonAlert(title:String, msg:String){
+        DispatchQueue.main.async {
+            self.progress.stopAnimating()
+            self.progress.isHidden=true
+            self.alertFields = AcceptAlert.showAlert(titulo: title, mensaje: msg)
+            self.alertFields!.view.backgroundColor = .clear
+            self.present(self.alertFields!, animated: true)
+        }
+    }
 }
 
 extension Home_Actividades:ComedorCellDelegate{
@@ -289,10 +307,18 @@ extension Home_Actividades:ComedorCellDelegate{
         print("recibio accion")
         switch tipoSelect{
         case "Donante":
-            self.performSegue(withIdentifier: "donar", sender: sender)
+            if isCapable {
+                self.performSegue(withIdentifier: "donar", sender: sender)
+            }else{
+                self.showCanonAlert(title: "Atención", msg: "Regístrate o inicia sesión para realizar una donación." )
+            }
         case "Voluntario":
             print("accion voluntario")
+            if isCapable {
             self.performSegue(withIdentifier: "participar", sender: sender)
+            }else{
+                self.showCanonAlert(title: "Atención", msg: "Regístrate o inicia sesión para ser voluntario." )
+            }
         default:
             print("accion ninguno, no pasa")
         }
