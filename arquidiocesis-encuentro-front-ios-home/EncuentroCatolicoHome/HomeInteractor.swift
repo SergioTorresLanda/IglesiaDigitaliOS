@@ -14,6 +14,7 @@ import EncuentroCatolicoNews
 class HomeInteractor: HomeInteractorProtocol {
     
     weak var presenter: HomePresenterProtocol?
+    
     let  tksession = UserDefaults.standard.string(forKey: "idToken") ?? ""
     
     func cargarDatosPersona() {

@@ -317,7 +317,8 @@ class Login_Registro: BaseVC {
     
     @IBAction func onClickContinue(_ sender: Any) {
         guard self.validateForm() else {
-            mostrarMSG(dtcAlerta: ["titulo": "Alerta", "cuerpo": "Verifique sus datos"])
+            showCanonAlert(title: "Atención", msg: "Hay uno o más errores en el formulario. Verifique los campos para continuar con el registro.")
+            //mostrarMSG(dtcAlerta: ["titulo": "Alerta", "cuerpo": "Verifique sus datos"])
             return
         }
         

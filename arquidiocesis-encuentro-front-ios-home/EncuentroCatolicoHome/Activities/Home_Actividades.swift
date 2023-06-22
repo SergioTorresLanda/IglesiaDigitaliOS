@@ -28,7 +28,9 @@ class Home_Actividades: UIViewController {
     @IBOutlet weak var createLbl: UILabel!
     @IBOutlet weak var comedoresSV: UIStackView!
     
+    @IBOutlet weak var construccionSV: UIStackView!
     @IBOutlet weak var despensasSV: UIStackView!
+    
     var arrZona = ["Todas","Álvaro Obregón","Azcapotzalco","Benito Juárez",
                    "Coyoacán","Cuajimalpa de Morelos","Cuauhtémoc","Gustavo A. Madero",
                    "Iztacalco","Iztapalapa", "La Magdalena Contreras", "Miguel Hidalgo", "Milpa Alta", "Tláhuac","Tlalpan","Venustiano Carranza","Xochimilco"]
@@ -45,8 +47,8 @@ class Home_Actividades: UIViewController {
     var update = false
     var comedorId = "00"
     var isCapable=true
-    var alertFields : AcceptAlert?
-
+    var alertFields : AcceptAlertLogin?
+    let defaults=UserDefaults.standard
     //let shimmer = Shimmer()
     // MARK: - Navigation
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
@@ -64,7 +66,7 @@ class Home_Actividades: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-            
+        
         zonaPV.delegate=self
         zonaPV.dataSource=self
         mesesPV.delegate=self
@@ -100,6 +102,13 @@ class Home_Actividades: UIViewController {
     }
     
     override func viewWillAppear(_ animated: Bool) {
+        var x = defaults.integer(forKey: "clickBack")
+        var num = defaults.integer(forKey: "shouldGoBackAuto")
+        if num > 0 && x==1 {
+            num -= 1
+            defaults.set(num, forKey: "shouldGoBackAuto")
+            self.navigationController?.popViewController(animated: false)
+        }
         comedores=[]
         comedoresFiltro=[]
         comedoresFiltroParti=[]
@@ -262,6 +271,10 @@ class Home_Actividades: UIViewController {
         
         let tapG2 = UITapGestureRecognizer(target: self, action: #selector(Home_Actividades.TF2))
         despensasSV.addGestureRecognizer(tapG2)
+        
+        
+        let tapG3 = UITapGestureRecognizer(target: self, action: #selector(Home_Actividades.TF3))
+        construccionSV.addGestureRecognizer(tapG3)
   
     }
     
@@ -276,11 +289,25 @@ class Home_Actividades: UIViewController {
     
     @objc func TF2(gesture: UIGestureRecognizer) {
         print("desp click")
+        upgradeCount()
         performSegue(withIdentifier: "despensas", sender: self)
     }
     
+    @objc func TF3(gesture: UIGestureRecognizer) {
+        print("generico click")
+        upgradeCount()
+        performSegue(withIdentifier: "generico", sender: self)
+    }
+    
+    func upgradeCount(){
+        var num = defaults.integer(forKey: "shouldGoBackAuto")
+        num+=1
+        defaults.set(num, forKey: "shouldGoBackAuto")
+    }
+    
     @IBAction func backClick(_ sender: Any) {
-        self.navigationController?.popViewController(animated: true)
+        defaults.set(1, forKey: "clickBack")
+        self.navigationController?.popViewController(animated: false)
     }
     
     func hideOrShowLbl(){
@@ -295,11 +322,12 @@ class Home_Actividades: UIViewController {
         DispatchQueue.main.async {
             self.progress.stopAnimating()
             self.progress.isHidden=true
-            self.alertFields = AcceptAlert.showAlert(titulo: title, mensaje: msg)
+            self.alertFields = AcceptAlertLogin.showAlert(titulo: title, mensaje: msg)
             self.alertFields!.view.backgroundColor = .clear
             self.present(self.alertFields!, animated: true)
         }
     }
+    
 }
 
 extension Home_Actividades:ComedorCellDelegate{

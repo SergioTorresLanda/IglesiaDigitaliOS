@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="20037" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="Y6W-OH-hqX">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="21507" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="Y6W-OH-hqX">
     <device id="retina6_1" orientation="portrait" appearance="light"/>
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="20020"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="21505"/>
         <capability name="Named colors" minToolsVersion="9.0"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="System colors in document resources" minToolsVersion="11.0"/>
@@ -50,7 +50,7 @@
                                 <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                                 <prototypes>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="CELLHOMESERVICE" rowHeight="83" id="rcR-SQ-QKU" customClass="HomeServiceTableCell" customModule="EncuentroCatolicoServices" customModuleProvider="target">
-                                        <rect key="frame" x="0.0" y="44.5" width="414" height="83"/>
+                                        <rect key="frame" x="0.0" y="50" width="414" height="83"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="rcR-SQ-QKU" id="8DG-6x-IXm">
                                             <rect key="frame" x="0.0" y="0.0" width="414" height="83"/>
@@ -131,8 +131,8 @@
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Información de servicios solicitados" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ad2-6r-aoV">
-                                <rect key="frame" x="15" y="118" width="319" height="19.5"/>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Información de servicios solicitados" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ad2-6r-aoV">
+                                <rect key="frame" x="15" y="118" width="384" height="19.5"/>
                                 <fontDescription key="fontDescription" type="boldSystem" pointSize="16"/>
                                 <color key="textColor" name="eBlack"/>
                                 <nil key="highlightedColor"/>
@@ -174,7 +174,7 @@
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <prototypes>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="CELLDETAIL" rowHeight="114" id="qVL-Wr-Ktq" customClass="ListDetailCell" customModule="EncuentroCatolicoServices" customModuleProvider="target">
-                                        <rect key="frame" x="0.0" y="44.5" width="414" height="114"/>
+                                        <rect key="frame" x="0.0" y="50" width="414" height="114"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="qVL-Wr-Ktq" id="xh2-mu-PRg">
                                             <rect key="frame" x="0.0" y="0.0" width="414" height="114"/>
@@ -254,7 +254,7 @@
                                         </connections>
                                     </tableViewCell>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="DATEHISTORYCELL" rowHeight="53" id="n5N-nt-ZEF" customClass="dateHistoryCell" customModule="EncuentroCatolicoServices" customModuleProvider="target">
-                                        <rect key="frame" x="0.0" y="158.5" width="414" height="53"/>
+                                        <rect key="frame" x="0.0" y="164" width="414" height="53"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="n5N-nt-ZEF" id="4KU-It-rq2">
                                             <rect key="frame" x="0.0" y="0.0" width="414" height="53"/>
@@ -383,7 +383,7 @@
                             <constraint firstItem="ad2-6r-aoV" firstAttribute="leading" secondItem="T0j-ca-j65" secondAttribute="leading" constant="15" id="IHR-lr-f9c"/>
                             <constraint firstItem="eAk-3F-J87" firstAttribute="trailing" secondItem="T0j-ca-j65" secondAttribute="trailing" id="Jxb-ZF-Y7h"/>
                             <constraint firstItem="ad2-6r-aoV" firstAttribute="top" secondItem="eZI-93-aEz" secondAttribute="bottom" constant="18" id="PaY-Yx-mY1"/>
-                            <constraint firstItem="T0j-ca-j65" firstAttribute="trailing" secondItem="ad2-6r-aoV" secondAttribute="trailing" constant="80" id="QCL-z9-hhw"/>
+                            <constraint firstItem="T0j-ca-j65" firstAttribute="trailing" secondItem="ad2-6r-aoV" secondAttribute="trailing" constant="15" id="QCL-z9-hhw"/>
                             <constraint firstItem="7Nr-Jb-eDB" firstAttribute="top" secondItem="ZP3-Bw-dyI" secondAttribute="bottom" id="TDa-sX-YE8"/>
                             <constraint firstItem="eZI-93-aEz" firstAttribute="leading" secondItem="T0j-ca-j65" secondAttribute="leading" id="YCX-bz-Uvj"/>
                             <constraint firstItem="eAk-3F-J87" firstAttribute="leading" secondItem="T0j-ca-j65" secondAttribute="leading" id="ZZb-xp-Vu8"/>
@@ -876,7 +876,7 @@
                                 <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                                 <prototypes>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="CELLDATEI" rowHeight="100" id="Clr-2A-RdZ" customClass="CellIntentionDate" customModule="EncuentroCatolicoServices" customModuleProvider="target">
-                                        <rect key="frame" x="0.0" y="44.5" width="414" height="100"/>
+                                        <rect key="frame" x="0.0" y="50" width="414" height="100"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="Clr-2A-RdZ" id="4Y7-1Y-pGI">
                                             <rect key="frame" x="0.0" y="0.0" width="414" height="100"/>
@@ -935,7 +935,7 @@
                                         </connections>
                                     </tableViewCell>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="CELLDATAI" rowHeight="109" id="wzJ-VD-0c0" customClass="CellIntentionData" customModule="EncuentroCatolicoServices" customModuleProvider="target">
-                                        <rect key="frame" x="0.0" y="144.5" width="414" height="109"/>
+                                        <rect key="frame" x="0.0" y="150" width="414" height="109"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="wzJ-VD-0c0" id="Yd3-6l-0ld">
                                             <rect key="frame" x="0.0" y="0.0" width="414" height="109"/>
@@ -1379,7 +1379,7 @@
                                                         </constraints>
                                                         <prototypes>
                                                             <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="CELLINTENTION" rowHeight="93" id="MWt-tM-3O1" customClass="IntentionCellDetail" customModule="EncuentroCatolicoServices" customModuleProvider="target">
-                                                                <rect key="frame" x="0.0" y="44.5" width="369" height="93"/>
+                                                                <rect key="frame" x="0.0" y="50" width="369" height="93"/>
                                                                 <autoresizingMask key="autoresizingMask"/>
                                                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="MWt-tM-3O1" id="Npr-rQ-CLb">
                                                                     <rect key="frame" x="0.0" y="0.0" width="369" height="93"/>
@@ -1745,11 +1745,11 @@
         <image name="Icono_encuentro" width="23" height="30"/>
         <image name="arrow_drop_down_24px" width="24" height="24"/>
         <image name="back" width="125" height="202"/>
-        <image name="calendar" catalog="system" width="128" height="106"/>
-        <image name="chevron.right.2" catalog="system" width="128" height="105"/>
-        <image name="paperplane.fill" catalog="system" width="128" height="118"/>
+        <image name="calendar" catalog="system" width="128" height="107"/>
+        <image name="chevron.right.2" catalog="system" width="128" height="108"/>
+        <image name="paperplane.fill" catalog="system" width="128" height="119"/>
         <image name="square.and.arrow.up" catalog="system" width="115" height="128"/>
-        <image name="xmark.circle.fill" catalog="system" width="128" height="121"/>
+        <image name="xmark.circle.fill" catalog="system" width="128" height="123"/>
         <namedColor name="AccentColor">
             <color red="0.0" green="0.46000000000000002" blue="0.89000000000000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </namedColor>

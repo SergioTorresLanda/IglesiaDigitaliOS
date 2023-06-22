@@ -33,7 +33,7 @@ class Home_MiIglesia: BaseViewController {
     var currentUser: Int?
     var locations: [Assigned] = []
     var comesFromSearch: Bool = false
-    var alertFields : AcceptAlert?
+    var alertFields : AcceptAlertLogin?
     let loadingAlert = UIAlertController(title: "", message: "\n \n \n \n \nCargando...", preferredStyle: .alert)
     let newUser = UserDefaults.standard.bool(forKey: "isNewUser")
     
@@ -165,7 +165,7 @@ class Home_MiIglesia: BaseViewController {
     }
     
     func showCanonAlert(title:String, msg:String){
-        alertFields = AcceptAlert.showAlert(titulo: title, mensaje: msg)
+        alertFields = AcceptAlertLogin.showAlert(titulo: title, mensaje: msg)
         alertFields!.view.backgroundColor = .clear
         self.present(alertFields!, animated: true)
     }

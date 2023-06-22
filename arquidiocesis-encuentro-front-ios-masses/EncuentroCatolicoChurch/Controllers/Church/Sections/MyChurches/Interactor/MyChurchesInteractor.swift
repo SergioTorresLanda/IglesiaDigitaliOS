@@ -43,32 +43,31 @@ class MyChurchesInteractor: MyChurchesInteractorInputProtocol {
 struct DoCallChurches: ResponseDispatcher {
     typealias ResponseType = PriestChurches
     var parameters: [String : Any]?
-     var urlOptional: String?
+    var urlOptional: String?
     var id: String = "1"
     
     var data: RequestType {
         return RequestType(path: "/users/" + id + "/locations?category=CHURCH", method: .get, params: nil, url:Endpoints.urlGlobalApp)
-          }
-       init(id: String) {
+    }
+    
+    init(id: String) {
         self.id = id
-       }
+    }
 }
-
-
 
 struct DoSearchBar: ResponseDispatcher {
     typealias ResponseType = [Assigned]
     var parameters: [String : Any]?
-     var urlOptional: String?
+    var urlOptional: String?
     var name: String = ""
     
     var data: RequestType {
         return RequestType(path: "/locations?name=" + name + "&type_location=CHURCH", method: .get, params: nil, url:Endpoints.urlSeacrh)
-          }
+    }
           
     init(name: String) {
         self.name = name
-       }
+    }
 }
 
 

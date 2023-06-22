@@ -59,6 +59,8 @@ class ChurchDetailInteractor: ChurchDetailInteractorInputProtocol {
         doGetChourchMain.init(id: String(id)).execute { (result) in
             self.presenter?.responseDetail(result: result)
         } onError: { (error, msg) in
+            print("error ccc")
+            print(error.localizedDescription)
             self.presenter?.errorDetail(msg: msg)
         }
     }

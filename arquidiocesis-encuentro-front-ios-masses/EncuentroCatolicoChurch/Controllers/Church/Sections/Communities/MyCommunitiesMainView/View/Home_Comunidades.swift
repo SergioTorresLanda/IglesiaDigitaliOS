@@ -30,7 +30,7 @@ class Home_Comunidades: UIViewController, MyCommunitiesMainViewProtocol, CLLocat
     var longitude: CLLocationDegrees!
     let communityStatus = UserDefaults.standard.string(forKey: "communityStatus")
     let newUser = UserDefaults.standard.bool(forKey: "isNewUser")
-    var alertFields : AcceptAlert?
+    var alertFields : AcceptAlertLogin?
     
     @IBOutlet weak var searchBar: UISearchBar!
     @IBOutlet weak var mapButton: UIButton!
@@ -118,7 +118,7 @@ class Home_Comunidades: UIViewController, MyCommunitiesMainViewProtocol, CLLocat
     }
     
     func showCanonAlert(title:String, msg:String){
-        alertFields = AcceptAlert.showAlert(titulo: title, mensaje: msg)
+        alertFields = AcceptAlertLogin.showAlert(titulo: title, mensaje: msg)
         alertFields!.view.backgroundColor = .clear
         self.present(alertFields!, animated: true)
     }

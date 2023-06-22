@@ -552,6 +552,7 @@ class Actividades_CrearComedor: UIViewController {
             view.layer.shadowColor = UIColor.gray.cgColor
         }
     }
+    
     func preFormatoDaysViews(){
         formatoDaysViews(view:LuV)
         formatoDaysViews(view:MaV)

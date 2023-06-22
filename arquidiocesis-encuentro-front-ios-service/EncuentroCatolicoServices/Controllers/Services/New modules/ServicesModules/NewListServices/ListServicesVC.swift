@@ -34,7 +34,8 @@ class ListServicesView: UIViewController, ListServiceViewProtocol {
     var indexT = 0
     var deleteIndex = 0
     let locationcomponents = UserDefaults.standard.object(forKey: "locationModuleComponents") as? [String]
-    
+    var alertFields : AcceptAlert?
+
 // MARK: @IBOUTELTS -
     @IBOutlet weak var contentNavBar: UIView!
     @IBOutlet weak var customNavbar: UIView!
@@ -52,24 +53,20 @@ class ListServicesView: UIViewController, ListServiceViewProtocol {
 // MARK: LIFE CYCLE FUNCS -
     override func viewDidLoad() {
         super.viewDidLoad()
-        showLoading()
 //        let view = TutorialView.showTutorial()
 //        self.present(view, animated: true, completion: nil)
         setupUI()
         setupGestures()
         setupPickerField()
-
     }
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
-        
         print("VC ECServices - ListServicesVC ")
-
-        
         if state == "List" {
             presenter?.callInterGetList(isHistorial: "", role: "Priest")
         }else{
+            showLoading()
             presenter?.callInterGetList(isHistorial: "?record=true", role: "Priest")
         }
         
@@ -133,8 +130,9 @@ class ListServicesView: UIViewController, ListServiceViewProtocol {
     }
     
     func showGenericAcceptAlert(titleAlert: String) {
-        let alert = acceptAlertService.showAlert(textAlert: titleAlert)
-        self.present(alert, animated: true, completion: nil)
+        showCanonAlert(title: "Atención", msg: titleAlert)
+        //let alert = acceptAlertService.showAlert(textAlert: titleAlert)
+        //self.present(alert, animated: true, completion: nil)
     }
     
 // MARK: API SERVICES FUNCTIONS -
@@ -173,33 +171,38 @@ class ListServicesView: UIViewController, ListServiceViewProtocol {
             setupDelegates()
             alertLoader.dismiss(animated: true, completion: nil)
             DispatchQueue.main.asyncAfter(deadline: .now() + 0.3) {
-                let alertAccept = AcceptAlert.showAlert(titulo: "Atención", mensaje: "No tenemos registrado ningún servicion por el momento, consulta más tarde del módulo para dar seguimiento a los servicios")
-                self.present(alertAccept, animated: true, completion: nil)
+                self.showCanonAlert(title: "Atención", msg: "No tenemos registrado ningún servicio por el momento, consulta más tarde el módulo para dar seguimiento a los servicios.")
+                //let alertAccept = AcceptAlert.showAlert(titulo: "Atención", mensaje: "No tenemos registrado ningún servicio por el momento, consulta más tarde el módulo para dar seguimiento a los servicios")
+                //self.present(alertAccept, animated: true, completion: nil)
             }
         }
-      
+    }
+    
+    func showCanonAlert(title:String, msg:String){
+        alertFields = AcceptAlert.showAlert(titulo: title, mensaje: msg)
+        alertFields!.view.backgroundColor = .clear
+        self.present(alertFields!, animated: true)
     }
     
     func failRequestList() {
         alertLoader.dismiss(animated: true, completion: nil)
-
     }
     
     func succesDeleteRequest() {
         print("Deleted succesfully")
-        showGenericAcceptAlert(titleAlert: "Servicio eliminado correctamente")
+        showGenericAcceptAlert(titleAlert: "Servicio eliminado correctamente.")
         arrayList.remove(at: deleteIndex)
         self.mainTable.reloadData()
     }
     
     func failDeleteRequest() {
         print("Deleted unsuccessfully")
-        showGenericAcceptAlert(titleAlert: "No se pudo eliminar el servicio, por favor intente de nuevo")
+        showGenericAcceptAlert(titleAlert: "No se pudo eliminar el servicio, por favor intente de nuevo.")
         
     }
     
     func fatalErroDelteRequest() {
-        showGenericAcceptAlert(titleAlert: "Algo salio mal, intente más tarde")
+        showGenericAcceptAlert(titleAlert: "Algo salio mal, intente más tarde.")
         print("Fatal error")
     }
     

@@ -48,37 +48,27 @@ struct ChurchDetail: Codable {
         let checked: Bool?
     }
 
-    // MARK: - Parson
     struct Parson: Codable {
         let id: Int?
         let name: String?
-
-//        enum CodingKeys: String, CodingKey {
-//            case priest_id
-//            case name
-//        }
     }
 
-    // MARK: - Service
     struct Service: Codable {
         let type: TypeClass?
         let schedules: [Horary]?
         let geared_toward, description: String?
     }
     
-    //// MARK: - TypeClass
     struct TypeClass: Codable {
         let id: Int?
         let name: String?
         let image_url: String?
     }
     
-    // MARK: - Horary
     struct Horary: Codable {
         let days: [Day]?
         let hour_start, hour_end: String?
     }
-
 
     let id: Int?
     let name: String?
@@ -90,12 +80,14 @@ struct ChurchDetail: Codable {
     var priests: [Parson]?
     var horary, attention, masses: [Attention]?
     var services: [Service]?
+    //var clerics: [String:Any]?
     
     enum CodingKeys: String, CodingKey {
         case horary = "schedules"
         case latitude, longitude, distance, rating
         case email, phone, stream, bank_account, website, facebook, twitter, instagram
         case attention, masses, services, parson, principal, image_url, name, id, priests, description, address
+      //  case clerics
     }
 
 }

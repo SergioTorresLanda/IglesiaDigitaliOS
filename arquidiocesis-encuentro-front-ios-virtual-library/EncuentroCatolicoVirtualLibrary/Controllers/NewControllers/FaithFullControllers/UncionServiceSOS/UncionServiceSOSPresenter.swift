@@ -34,6 +34,10 @@ class UncionServiceSOSPresenter: UncionServicePresenterProtocol {
        
     }
     
+    func trasportResponseFail() {
+        self.view?.failResponse()
+    }
+    
 // MARK: UPDATE PATCH SERVICES -
     
     func patchUpdateCancel(status: String, flowID: Int, idService: Int) {

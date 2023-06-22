@@ -29,7 +29,8 @@ class ListServicePresenter: ListServicePresenterProtocol {
             if codeResponse.statusCode == 200 {
                 self.view?.successRequestList(data: responseData)
             }else{
-                self.view?.failRequestList()
+                self.view?.successRequestList(data: responseData)
+                //self.view?.failRequestList()
             }
         }
         

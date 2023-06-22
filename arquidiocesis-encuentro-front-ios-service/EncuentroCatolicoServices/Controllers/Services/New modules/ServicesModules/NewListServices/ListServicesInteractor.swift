@@ -24,22 +24,22 @@ class ListServiceInteractor: ListServiceInteractorProtocol {
         request.setValue(xrole, forHTTPHeaderField: "X-Role")
         
         let work = URLSession.shared.dataTask(with: request) { (data, response, error) in
-            
             //print("->  respuesta Status Code: ", response as Any)
             //print("->  error: ", error as Any)
             do{
                 if data != nil {
+                    let rD = String(data: data!, encoding: String.Encoding.utf8)
+                    print("RESPONSEEE:::SERVICESS")
+                    print(rD)
                     let responseData: [ListServicesStandard] = try JSONDecoder().decode([ListServicesStandard].self, from: data!)
-                
                     self.presenter?.passResponseRequestList(responseData: responseData, codeResponse: response as! HTTPURLResponse)
-                    
                 }
-                
             }catch{
-                APIType.shared.refreshToken()
+                //APIType.shared.refreshToken()
+                let arrListSS:[ListServicesStandard]=[]
+                self.presenter?.passResponseRequestList(responseData: arrListSS, codeResponse: response as! HTTPURLResponse)
                 print("Error try download services list", error.localizedDescription, error)
             }
-            
         }
         
         work.resume()

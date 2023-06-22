@@ -37,14 +37,16 @@ class LoginRemoteDataManager:LoginRemoteDataManagerInputProtocol {
             
             print("->  respuesta Status Code LOGIN: ", response as Any)
             print("->  error: ", error as Any)
-            guard let allData = data else { return }
-            let outputStr  = String(data: allData, encoding: String.Encoding.utf8) as String?
-            print("-->✅  LOGIN Response ->  ", outputStr as Any)
-            
+
             if error != nil {
                 self.remoteRequestHandler?.callbackResponse(respuesta: nil, error: ErroresServidorLogin.ErrorServidor, user: user)
                 return
             }
+            guard let allData = data else { return }
+            let outputStr  = String(data: allData, encoding: String.Encoding.utf8) as String?
+            print("-->✅  LOGIN Response ->  ", outputStr as Any)
+            
+          
             
             if (response as! HTTPURLResponse).statusCode == 200 {
                 UserDefaults.standard.synchronize()

@@ -215,7 +215,8 @@ open class Home_ModalWeb: UIViewController {
             return
         }
         var downloadTask:URLSessionDownloadTask
-        downloadTask = URLSession.shared.downloadTask(with: url, completionHandler: { [weak self](URL, response, error) -> Void in
+        downloadTask = URLSession.shared.downloadTask(with: url, completionHandler: {
+            [weak self](URL, response, error) -> Void in
             print("todo bien al 100")
            // self?.play(URL)
         })

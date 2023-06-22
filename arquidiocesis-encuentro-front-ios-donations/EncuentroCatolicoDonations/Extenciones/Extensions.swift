@@ -2,8 +2,7 @@
 //  Extensions.swift
 //  EncuentroCatolicoDonations
 //
-//  Created by Pablo Luis Velazquez Zamudio on 22/02/22.
-//
+//Sergio Torres Landa
 
 import Foundation
 import UIKit

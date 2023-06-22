@@ -38,14 +38,12 @@ public class APIType {
         }else if staged == "Prod" {
             API = "https://api.iglesia-digital.com.mx/arquidiocesis/encuentro/v1"
         }else {
-             API = "https://api-develop.arquidiocesis.mx"
+            API = "https://api-develop.arquidiocesis.mx"
         }
         return API
-        
     }
     
     func SN()-> String{
-        
         if staged == "Qa" {
             API = "https://l67w9jsvo4.execute-api.us-east-1.amazonaws.com/v1"
         }else if staged == "Prod" {

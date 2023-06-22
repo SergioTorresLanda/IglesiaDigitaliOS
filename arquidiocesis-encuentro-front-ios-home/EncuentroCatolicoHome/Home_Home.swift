@@ -63,6 +63,8 @@ class Home_Home: UIViewController, HomeViewProtocol, UITextFieldDelegate, UNUser
     
     
     @IBAction func actysBtn(_ sender: Any) {
+        defaults.set(0, forKey: "shouldGoBackAuto")
+        defaults.set(0, forKey: "clickBack")
         let storyboard = UIStoryboard(name: "activitiesView2", bundle: Bundle(for: Home_Actividades.self))
         let view = storyboard.instantiateViewController(withIdentifier: "activitiesView") as! Home_Actividades
         self.navigationController?.pushViewController(view, animated: true)
@@ -95,7 +97,8 @@ class Home_Home: UIViewController, HomeViewProtocol, UITextFieldDelegate, UNUser
     let monitor = NWPathMonitor()
     var isInternet=false
     var alertFields : AcceptAlert?
-    
+    var alertFields2 : AcceptAlertLogin?
+
     var noticias:[HomePosts] = []
     var espiritualidad:[HomeSuggestions]=[]
     var isOpening = true
@@ -124,43 +127,29 @@ class Home_Home: UIViewController, HomeViewProtocol, UITextFieldDelegate, UNUser
         NotificationCenter.default.addObserver(self, selector: #selector(showSOSNotification), name: NSNotification.Name(rawValue: "SOSCreated"), object: nil)
         NotificationCenter.default.addObserver(self, selector: #selector(returnFromBack), name: NSNotification.Name(rawValue: "appBecomeActive"), object: nil)//no activada
         NotificationCenter.default.addObserver(self, selector: #selector(showCanonAlertO), name: NSNotification.Name(rawValue: "RequestLogin"), object: nil)
+        NotificationCenter.default.addObserver(self, selector: #selector(poptoroot), name: NSNotification.Name(rawValue: "poptoroot"), object: nil)
         //check onboardings
         if isWillAppear == false {
-            //DispatchQueue.main.asyncAfter(deadline: .now() + 0.5) {
-                self.validateProfileOnboarding()
-                self.isWillAppear = true
-            //}
+            validateProfileOnboarding()
+            isWillAppear = true
         }
         //RequestLogin
         setupInternetObserver()
         setupView()
         formatoScrollView()
         setupTableView()
-        
-        let newUser = defaults.bool(forKey: "isNewUser")
-        //let wantToLogin = defaults.bool(forKey: "wantToLogin")
-        if newUser {
-            print("Qwerty se carga la userDetail")
-            presenter?.requestUserDetail()
-        }else{
-            print("Qwerty no se carga la userDetail")
-        }
         lblMessage.text = setMessageHour()
-        self.hideKeyboardWhenTappedAround()
+        hideKeyboardWhenTappedAround()
         collectionRegister()
         setupBarra()
         setupNewUI()
-        //addTapGestures()
-        //validateUserColors()
+      
         gearIcon.addGestureRecognizer(UITapGestureRecognizer(target: self, action: #selector(notifyTap(_:))))
         let loginTap = UITapGestureRecognizer(target: self, action: #selector(loginX))
         loginSV.addGestureRecognizer(loginTap)
         let registerTap = UITapGestureRecognizer(target: self, action: #selector(registerX))
         registerSV.addGestureRecognizer(registerTap)
         
-        if let imageData = UserDefaults.standard.data(forKey: "userImage"), let image = UIImage(data: imageData) {
-            userImage.image = image
-        }
     }
     
     @objc func loginX(){
@@ -197,7 +186,6 @@ class Home_Home: UIViewController, HomeViewProtocol, UITextFieldDelegate, UNUser
         print("VC ECHome - HomeVC ")
         setNeedsStatusBarAppearanceUpdate()
         resetListsAndTable()
-        //isOpening=false
         DispatchQueue.main.asyncAfter(deadline: .now() + 0.5) {
             self.actionsViewWillAppear()
         }
@@ -225,7 +213,6 @@ class Home_Home: UIViewController, HomeViewProtocol, UITextFieldDelegate, UNUser
         espiritualidad=[]
         mainTable.reloadData()
         formatoScrollView()
-        //array Sections=[]
     }
     
     func actionsViewWillAppear(){
@@ -274,10 +261,22 @@ class Home_Home: UIViewController, HomeViewProtocol, UITextFieldDelegate, UNUser
         self.present(alertFields!, animated: true)
     }
     
+    func showCanonAlertLogin(title:String, msg:String){
+        alertFields2 = AcceptAlertLogin.showAlert(titulo: title, mensaje: msg)
+        alertFields2!.view.backgroundColor = .clear
+        self.present(alertFields2!, animated: true)
+    }
+    
     @objc func showCanonAlertO(){
-        alertFields = AcceptAlert.showAlert(titulo: "Atención", mensaje: "Regístrate o inicia sesión para poder acceder a este módulo.")
-        alertFields!.view.backgroundColor = .clear
-        self.present(alertFields!, animated: true)
+        alertFields2 = AcceptAlertLogin.showAlert(titulo: "Atención", mensaje: "Regístrate o inicia sesión para poder acceder a este módulo.")
+        alertFields2!.view.backgroundColor = .clear
+        self.present(alertFields2!, animated: true)
+    }
+    
+    @objc func poptoroot(){
+        print("poptoRoot")
+        self.dismiss(animated: true)
+        self.navigationController!.dismiss(animated: true)
     }
     
     override func viewDidAppear(_ animated: Bool) {
@@ -285,15 +284,6 @@ class Home_Home: UIViewController, HomeViewProtocol, UITextFieldDelegate, UNUser
         let tabBar = self.tabBarController as? SocialNetworkController
         tabBar?.tabBar.isHidden = true
         tabBar?.customTabBar.isHidden = false
-       /* if(EditionPromisseDataManager.shareInstance.findByEmail(profileID: UserDefaults.standard.value(forKey: "email") as? String ?? "").count > 0){
-            let user = EditionPromisseDataManager.shareInstance.findByEmail(profileID: UserDefaults.standard.value(forKey: "email") as? String ?? "")
-            userImage.image = HttpRequestSingleton.shareManager.convertBase64StringToImage(imageBase64String: user[0].image ?? "")
-        }*/
-        /*Analytics.logEvent(AnalyticsEventScreenView,
-                           parameters: [AnalyticsParameterScreenName: screenName,
-                                        AnalyticsParameterScreenClass: screenClass
-                              //MyAppAnalyticsParameterFitnessCategory: category!
-                                       ])*/
         print("HOME DID APPEAR")
     }
     
@@ -337,11 +327,12 @@ class Home_Home: UIViewController, HomeViewProtocol, UITextFieldDelegate, UNUser
                 self.present(alertaView, animated: true, completion: nil)
             } else {
                 vistaConNombre.isHidden = false
-                guard let nombre = user?.UserAttributes.name, let role = user?.UserAttributes.role, let profile = user?.UserAttributes.profile
+                guard let nombre = user?.UserAttributes.name,
+                        let _ = user?.UserAttributes.role,
+                        let profile = user?.UserAttributes.profile
                 else {
                     return
                 }
-                
                 //UserDefaults.standard.set(user?.UserAttributes.id, forKey: "fiel_id")
                 DispatchQueue.main.async {
                     let defaults = UserDefaults.standard
@@ -362,9 +353,9 @@ class Home_Home: UIViewController, HomeViewProtocol, UITextFieldDelegate, UNUser
                     }
                 }
                 
-                DispatchQueue.main.asyncAfter(deadline: .now() + 1, execute: {
-                    self.hideLoading()
-                })
+                //DispatchQueue.main.asyncAfter(deadline: .now() + 1, execute: {
+                  //  self.hideLoading()
+                //})
             }
         })
     }
@@ -375,7 +366,8 @@ class Home_Home: UIViewController, HomeViewProtocol, UITextFieldDelegate, UNUser
     
     // MARK: NEW FUCNTIONS -
     func successLoadImg(dataResponse: ProfileDetailImgH) {
-        guard let nombre = dataResponse.data?.User?.name, let apellido1 = dataResponse.data?.User?.first_surname
+        guard let nombre = dataResponse.data?.User?.name,
+                let apellido1 = dataResponse.data?.User?.first_surname
         else {
             return
         }
@@ -637,14 +629,17 @@ class Home_Home: UIViewController, HomeViewProtocol, UITextFieldDelegate, UNUser
     
     // NEW HOME FUNCTIONS
     func succesGetHome(data: [HomePosts]) {
-        DispatchQueue.main.asyncAfter(deadline: .now() + 3, execute: {
-            print("::::::succesGetHome Saint::;;;")
-         })
+     
         saintOfDay = data
         let formatter = DateFormatter()
         formatter.dateFormat = "yyyy-MM-dd"
         let now = Date()
         let dateString = formatter.string(from: now)
+       // DispatchQueue.main.asyncAfter(deadline: .now() + 3, execute: {
+            print("::::::succesGetHome Saint::;;;")
+            print(dateString)
+            print(self.saintOfDay)
+        // })
         self.presenter?.requestHomeData(type: "RELEASE", date: "\(dateString)")
     }
     
@@ -652,14 +647,16 @@ class Home_Home: UIViewController, HomeViewProtocol, UITextFieldDelegate, UNUser
         noticias=[]
         allSections=[]
         realesesPost = data
-        DispatchQueue.main.asyncAfter(deadline: .now() + 3, execute: {
+        //DispatchQueue.main.asyncAfter(deadline: .now() + 3, execute: {
             print("::::::succesGetPost News::;;;")
             print(String(self.realesesPost.count))
-         })
+         //})
         for post in realesesPost {
+            print("::: APPEND POST")
             noticias.append(post)
         }
         if saintOfDay.count != 0 {
+            print("::: APPEND SAINT")
             noticias.append(saintOfDay[0])
         }
         allSections.append(noticias)
@@ -670,10 +667,10 @@ class Home_Home: UIViewController, HomeViewProtocol, UITextFieldDelegate, UNUser
     func onSuccessGetSuggestions(data: [HomeSuggestions]) {
         espiritualidad=[]
         suggestions = data
-        DispatchQueue.main.asyncAfter(deadline: .now() + 3, execute: {
+        //DispatchQueue.main.asyncAfter(deadline: .now() + 3, execute: {
             print("::::::onSuccessGetSuggestions::;;;")
             print(String(self.suggestions.count))
-         })
+         //})
         
         for sug in suggestions {
             espiritualidad.append(sug)
@@ -859,7 +856,7 @@ class Home_Home: UIViewController, HomeViewProtocol, UITextFieldDelegate, UNUser
             let view = NewDonationsRouter.createModule()
             self.navigationController?.pushViewController(view, animated: true)
         }else{
-            showCanonAlert(title: "Atención", msg: "Regístrate o inicia sesión para poder acceder a este módulo.")
+            showCanonAlertLogin(title: "Atención", msg: "Regístrate o inicia sesión para poder acceder a este módulo.")
         }
         //self.present(view, animated: true, completion: nil)
     }
@@ -871,7 +868,7 @@ class Home_Home: UIViewController, HomeViewProtocol, UITextFieldDelegate, UNUser
             let view = ProfileInfoRouter.createModule()
             self.navigationController?.pushViewController(view, animated: true)
         }else{
-            showCanonAlert(title: "Atención", msg: "Regístrate o inicia sesión para poder acceder a este módulo.")
+            showCanonAlertLogin(title: "Atención", msg: "Regístrate o inicia sesión para poder acceder a este módulo.")
         }
     }
     

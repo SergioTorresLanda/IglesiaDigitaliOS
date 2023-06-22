@@ -91,7 +91,6 @@ class LocationUserPerm: NSObject {
         tarea.resume()
     }
     
-    
     func successLoadImg(dataResponse: ProfileDetailImgH){
             let locationComponentsModules = dataResponse.data?.User?.location_modules?.first?.modules
             

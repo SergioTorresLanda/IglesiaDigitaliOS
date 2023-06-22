@@ -2,7 +2,7 @@
 //  AcceptAlertDonations.swift
 //  EncuentroCatolicoDonations
 //
-//  Created by Pablo Luis Velazquez Zamudio on 16/03/22.
+//  Created by Sergio Torres Landa on 16/03/22.
 //
 
 import UIKit

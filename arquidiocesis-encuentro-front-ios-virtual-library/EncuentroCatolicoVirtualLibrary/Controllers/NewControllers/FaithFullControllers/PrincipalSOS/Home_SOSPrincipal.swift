@@ -31,6 +31,7 @@ class Home_SOSPrincipal: UIViewController, PrincipalViewProtocol, UIViewControll
     var nameService = ""
     let newUser = UserDefaults.standard.bool(forKey: "isNewUser")
     var alertFields : AcceptAlert?
+    var alertFields2 : AcceptAlertLogin?
         
 //MARK: @IBOUTLETS -
     @IBOutlet weak var contentNavBar: UIView!
@@ -87,7 +88,7 @@ class Home_SOSPrincipal: UIViewController, PrincipalViewProtocol, UIViewControll
     }
     
     func successGetLastSOS(data: LastSosModel) {
-        print("Vamoh directo al service")
+        print("Vamos directo al service")
         DispatchQueue.main.asyncAfter(deadline: .now() + 0.2) {
             self.alertLoader.dismiss(animated: true, completion: nil)
         }
@@ -108,9 +109,7 @@ class Home_SOSPrincipal: UIViewController, PrincipalViewProtocol, UIViewControll
             DispatchQueue.main.asyncAfter(deadline: .now() + 0.3) {
                 self.navigationController?.pushViewController(module, animated: true)
             }
-
         }
-        
     }
     
     func failGetLastSOS(message: String) {
@@ -147,7 +146,7 @@ class Home_SOSPrincipal: UIViewController, PrincipalViewProtocol, UIViewControll
                 showCanonAlert(title: "Atención", msg: "Debes seleccionar un servicio para poder continuar.")
             }
         }else{
-            showCanonAlert(title: "Atención", msg: "Regístrate o inicia sesión para solicitar un servicio de emergencia.")
+            showCanonAlertLogin(title: "Atención", msg: "Regístrate o inicia sesión para solicitar un servicio de emergencia.")
         }
     }
     
@@ -155,6 +154,12 @@ class Home_SOSPrincipal: UIViewController, PrincipalViewProtocol, UIViewControll
         alertFields = AcceptAlert.showAlert(titulo: title, mensaje: msg)
         alertFields!.view.backgroundColor = .clear
         self.present(alertFields!, animated: true)
+    }
+    
+    func showCanonAlertLogin(title:String, msg:String){
+        alertFields2 = AcceptAlertLogin.showAlert(titulo: title, mensaje: msg)
+        alertFields2!.view.backgroundColor = .clear
+        self.present(alertFields2!, animated: true)
     }
 }
 
@@ -178,31 +183,23 @@ class SlideTransition: NSObject, UIViewControllerAnimatedTransitioning {
         let finalHeight = toInfoView.view.bounds.height
         
         if isPresenting {
-            
             // add menu view controller to container
             containerView.addSubview(toInfoView.view)
-            
             // init frame off the screen
            // toInfoView.view.frame = CGRect(x: fromInfoView.view.frame.width, y: 0, width: finalWidth, height: finalHeight)
             toInfoView.view.frame = CGRect(x: 0, y: fromInfoView.view.frame.height, width: finalWidth, height: finalHeight)
             //toInfoView.view.frame = CGRect(x: -finalWidth, y: 0, width: finalWidth, height: finalHeight)
-            
         }
         
         // Animate on screen
         let transform = {
-            
            // toInfoView.view.transform = CGAffineTransform(translationX: -finalWidth, y: 0)
             toInfoView.view.transform = CGAffineTransform(translationX: 0, y: -finalHeight)
-            
         }
        // Animate off screen
-            
-            let identity = {
-                fromInfoView.view.transform = .identity
-                
-            }
-            
+        let identity = {
+            fromInfoView.view.transform = .identity
+        }
          // Animation of the transition
             let duration = self.transitionDuration(using: transitionContext)
             let isCancelled = transitionContext.transitionWasCancelled

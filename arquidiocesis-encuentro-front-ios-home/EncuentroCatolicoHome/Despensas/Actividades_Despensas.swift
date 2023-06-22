@@ -27,6 +27,7 @@ class Actividades_Despensas: UIViewController {
     @IBOutlet weak var createLbl: UILabel!
     @IBOutlet weak var comedoresSV: UIStackView!
     
+    @IBOutlet weak var otrosSV: UIStackView!
     var arrZona = ["Todas","Álvaro Obregón","Azcapotzalco","Benito Juárez",
                    "Coyoacán","Cuajimalpa de Morelos","Cuauhtémoc","Gustavo A. Madero",
                    "Iztacalco","Iztapalapa", "La Magdalena Contreras", "Miguel Hidalgo", "Milpa Alta", "Tláhuac","Tlalpan","Venustiano Carranza","Xochimilco"]
@@ -41,7 +42,7 @@ class Actividades_Despensas: UIViewController {
     var update = false
     var despensaId = 123456
     var isCapable=true
-
+    let defaults=UserDefaults.standard
     //let shimmer = Shimmer()
     
     // MARK: - Navigation
@@ -74,6 +75,13 @@ class Actividades_Despensas: UIViewController {
     }
     
     override func viewWillAppear(_ animated: Bool) {
+        var x = defaults.integer(forKey: "clickBack")
+        var num = defaults.integer(forKey: "shouldGoBackAuto")
+        if num > 0 && x==1 {
+            num -= 1
+            defaults.set(num, forKey: "shouldGoBackAuto")
+            self.navigationController?.popViewController(animated: false)
+        }
         despensas=[]
         despensasFiltro=[]
         tableView.reloadData()
@@ -360,6 +368,9 @@ func getDataForArr(object:[String: Any]){
         
         let tapG2 = UITapGestureRecognizer(target: self, action: #selector(Actividades_Despensas.TF2))
         comedoresSV.addGestureRecognizer(tapG2)
+        
+        let tapG3 = UITapGestureRecognizer(target: self, action: #selector(Actividades_Despensas.TF3))
+        otrosSV.addGestureRecognizer(tapG3)
     }
     @objc func TF1(gesture: UIGestureRecognizer) {
         print("crear despensa click")
@@ -368,10 +379,25 @@ func getDataForArr(object:[String: Any]){
     
     @objc func TF2(gesture: UIGestureRecognizer) {
         print("comedoresClick")
-        self.navigationController?.popViewController(animated: false)
+        upgradeCount()
+        performSegue(withIdentifier: "comedores", sender: self)
+        //self.navigationController?.popViewController(animated: false)
+    }
+    @objc func TF3(gesture: UIGestureRecognizer) {
+        print("otrosClick")
+        upgradeCount()
+        performSegue(withIdentifier: "otros", sender: self)
+        //self.navigationController?.popViewController(animated: false)
+    }
+    
+    func upgradeCount(){
+        var num = defaults.integer(forKey: "shouldGoBackAuto")
+        num+=1
+        defaults.set(num, forKey: "shouldGoBackAuto")
     }
     
     @IBAction func backClick(_ sender: Any) {
+        defaults.set(1, forKey: "clickBack")
         _ = navigationController?.popViewController(animated: false)
         //_ = navigationController?.popViewController(animated: true)
     }

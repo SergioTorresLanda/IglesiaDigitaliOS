@@ -6,6 +6,7 @@
 //
 
 import UIKit
+import Pods_EncuentroCatolicoVirtualLibrary
 
 class UncionServiceSOSView: UIViewController, UncionServiceViewProtocol {
     
@@ -18,7 +19,8 @@ class UncionServiceSOSView: UIViewController, UncionServiceViewProtocol {
     let defaults = UserDefaults.standard
     var timesRun = 0
     var check = UIImage(named: "Trazado 6704", in: Bundle.local, compatibleWith: nil)
-        
+    var alertFields : AcceptAlert?
+
     @IBOutlet weak var contentNavBar: UIView!
     @IBOutlet weak var customNavBar: UIView!
     @IBOutlet weak var mainTitle: UILabel!
@@ -77,6 +79,15 @@ class UncionServiceSOSView: UIViewController, UncionServiceViewProtocol {
         imageView.image = UIImage(named: "iconoIglesia3", in: Bundle.local, compatibleWith: nil)
         alertLoader.view.addSubview(imageView)
         self.present(alertLoader, animated: false, completion: nil)
+    }
+    
+    func showCanonAlert(title:String, msg:String){
+        DispatchQueue.main.async {
+            self.alertLoader.dismiss(animated: true, completion: nil)
+            self.alertFields = AcceptAlert.showAlert(titulo: title, mensaje: msg)
+            self.alertFields!.view.backgroundColor = .clear
+            self.present(self.alertFields!, animated: true)
+        }
     }
     
     func stopTimer() {
@@ -145,8 +156,7 @@ class UncionServiceSOSView: UIViewController, UncionServiceViewProtocol {
             if data.progress_history?.last?.sub_status == "PENDING_CONFIRMATION" {
                 fiirstStackStatus[1].text = "Por aceptar"
             }
-            
-           
+        
             self.alertLoader.dismiss(animated: true, completion: nil)
             
             DispatchQueue.main.asyncAfter(deadline: .now() + 0.4) {
@@ -158,7 +168,6 @@ class UncionServiceSOSView: UIViewController, UncionServiceViewProtocol {
             requestTimer = Timer.scheduledTimer(timeInterval: 10, target: self, selector: #selector(reloadDetails), userInfo: nil, repeats: true)
             
         }else{
-            
             switch data.progress_history?.last?.sub_status {
             case "PENDING_CONFIRMATION":
                 fiirstStackStatus[1].text = "Por aceptar"
@@ -328,7 +337,7 @@ class UncionServiceSOSView: UIViewController, UncionServiceViewProtocol {
     }
     
     func failResponse() {
-        self.alertLoader.dismiss(animated: true, completion: nil)
+        showCanonAlert(title: "Error", msg: "El recurso solicitado no fue encontrado")
         print("Fallo el detail")
     }
     

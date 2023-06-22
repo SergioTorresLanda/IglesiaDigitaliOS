@@ -50,13 +50,14 @@ class CrearComedor_Mapa: UIViewController {
     }
     
     override func viewWillAppear(_ animated: Bool) {
-        print("El type ES:: ")
-        print(type)
+        print("El type ES:: "+type)
         switch type {
         case "despensaRecepcion":
             titleLbl.text="Ubica el pin en donde se realizará la recepción de despensas."
         case "despensaEntrega":
             titleLbl.text="Ubica el pin en donde se realizará la entrega de despensas."
+        case "otro":
+            titleLbl.text="Ubica el pin en donde se realizará la actividad."
         default:
             titleLbl.text="Ubica el pin en donde estará ubicado tu comedor."
         }
@@ -74,7 +75,11 @@ class CrearComedor_Mapa: UIViewController {
             defaults.set(adress, forKey: "lastAdressDespEnt")
             defaults.set(latitudeG, forKey: "latitudeEnt")
             defaults.set(longitudeG, forKey: "longitudeEnt")
-        default:
+        case "otro":
+            defaults.set(adress, forKey: "lastAdressOther")
+            defaults.set(latitudeG, forKey: "latitudeOther")
+            defaults.set(longitudeG, forKey: "longitudeOther")
+        default://comedor
             defaults.set(adress, forKey: "lastAdress")
             defaults.set(latitudeG, forKey: "latitude")
             defaults.set(longitudeG, forKey: "longitude")
@@ -101,7 +106,6 @@ class CrearComedor_Mapa: UIViewController {
     
     override func viewDidLayoutSubviews() {
         btnEnviar.layer.cornerRadius = 25
-    //    btnEnviar.layer.borderWidth = 2
     }
     
     func checkLocationServices(){
@@ -110,7 +114,6 @@ class CrearComedor_Mapa: UIViewController {
             checkLocationAuthorization()
         }else{
             showCanonAlert(title: "Atención", msg: "Habilita tus servicios de geolocalización.")
-            //showToast(message: "Habilita tu ubicación", font: .systemFont(ofSize: 12.0))
         }
     }
     
@@ -129,13 +132,11 @@ class CrearComedor_Mapa: UIViewController {
             break
         case .denied:
             showCanonAlert(title: "Atención", msg: "Habilita tus servicios de geolocalización.")
-            //showToast(message: "Habilita tu ubicación", font: .systemFont(ofSize: 12.0))
             break
         case .notDetermined:
             locationManager.requestWhenInUseAuthorization()
         case .restricted:
             showCanonAlert(title: "Atención", msg: "Habilita los permisos de ubicación de la app.")
-            //showToast(message: "Habilita los permisos de ubicación", font: .systemFont(ofSize: 12.0))
             break
         case .authorizedAlways:
             break

@@ -22,26 +22,27 @@ class UncionServiceSOSInteractor: UncionServiceInteractorProtocol {
         request.setValue("Bearer \( tksession ?? "")", forHTTPHeaderField: "Authorization")
         
         let tarea = URLSession.shared.dataTask(with: request) { (data, response, error) in
-            //print("->>  data: ", data)
-            //print("->>  response: ", response)
-            //print("->>  error: ", error)
+           
             if error != nil {
                 print("Hubo un error 015")
                 return
             }
-            
+            print("RESpONSE:::xx")
+            let responseData = String(data: data!, encoding: String.Encoding.utf8)
+            print(responseData)
             do {
-                
                 if data != nil {
                     var contResponse : ServiceDetailFaithful = try JSONDecoder().decode(ServiceDetailFaithful.self, from: data!)
                     self.preenter?.trasportResponse(responseCode: response as! HTTPURLResponse, data: contResponse)
                 }
                 
             }catch{
+               
+                self.preenter?.trasportResponseFail()
+                //EL RECURSO SOLICITADO NO FUE ENCONTRADO
                 APIType.shared.refreshToken()
                 print("Error al descargar services", error.localizedDescription, error)
             }
-            
         }
         tarea.resume()
         

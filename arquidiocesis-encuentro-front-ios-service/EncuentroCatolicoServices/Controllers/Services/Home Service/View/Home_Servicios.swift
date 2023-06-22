@@ -7,6 +7,7 @@
 
 import UIKit
 import EncuentroCatolicoVirtualLibrary
+import Foundation
 
 class Home_Servicios: BaseViewController,HomeServiceViewProtocol, UITableViewDelegate, UITableViewDataSource {
     
@@ -23,6 +24,7 @@ class Home_Servicios: BaseViewController,HomeServiceViewProtocol, UITableViewDel
     var presenter: HomeServicePresenterProtocol?
     let newUser = UserDefaults.standard.bool(forKey: "isNewUser")
     var alertFields : AcceptAlert?
+    var alertFields2 : AcceptAlertLogin?
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -48,6 +50,12 @@ class Home_Servicios: BaseViewController,HomeServiceViewProtocol, UITableViewDel
         alertFields!.view.backgroundColor = .clear
         self.present(alertFields!, animated: true)
     }
+    
+    func showCanonAlertLogin(title:String, msg:String){
+        alertFields2 = AcceptAlertLogin.showAlert(titulo: title, mensaje: msg)
+        alertFields2!.view.backgroundColor = .clear
+        self.present(alertFields2!, animated: true)
+    }
 
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         titleData.count
@@ -63,60 +71,34 @@ class Home_Servicios: BaseViewController,HomeServiceViewProtocol, UITableViewDel
     }
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        
+  
         switch profile {
-        case "PRIEST_ADMIN", "DEAN_PRIEST":
+        case "PRIEST_ADMIN",
+            "DEAN_PRIEST",
+            "DEVOTED_ADMIN",
+            "CLERGY_VICARAGE",
+            "PASTORAL_VICARAGE",
+            "CONSECRATED_LIFE_VICARAGE":
             switch indexPath.row {
             case 0:
                 if newUser {//esta logueado proceder
                     let view = NewListIntentionsRouter.createModule()
                     self.navigationController?.pushViewController(view, animated: true)
                 }else{
-                    showCanonAlert(title: "Atención", msg: "Regístrate o inicia sesión para solicitar una intención.")
+                    showCanonAlertLogin(title: "Atención", msg: "Regístrate o inicia sesión para solicitar una intención.")
                 }
             case 1:
                 if newUser {//esta logueado proceder
                     let view = ListServiceRouter.createModule()
                     self.navigationController?.pushViewController(view, animated: true)
                 }else{
-                    showCanonAlert(title: "Atención", msg: "Regístrate o inicia sesión para solicitar servicios.")
+                    showCanonAlertLogin(title: "Atención", msg: "Regístrate o inicia sesión para solicitar servicios.")
                 }
             case 2:
                 let view = SacramentsRouter.createModule()
                 self.navigationController?.pushViewController(view, animated: true)
             default:
                 break
-            }
-            
-        case  "DEVOTED_ADMIN":
-            if ((locationcomponents?.contains{ $0 == "SERVICES"}) == true){
-                switch indexPath.row {
-                case 0:
-                    let view = NewListIntentionsRouter.createModule()
-                    self.navigationController?.pushViewController(view, animated: true)
-                case 1:
-                    let view = ListServiceRouter.createModule()
-                    self.navigationController?.pushViewController(view, animated: true)
-                case 2:
-                    let view = SacramentsRouter.createModule()
-                    self.navigationController?.pushViewController(view, animated: true)
-                default:
-                    break
-                }
-            }else{
-                switch indexPath.row {
-                case 0:
-                    let view = IntentionsRouter.createModule()
-                    self.navigationController?.pushViewController(view, animated: true)
-                case 1:
-                    let view = OtherServicesRouter.createModule()
-                    self.navigationController?.pushViewController(view, animated: true)
-                case 2:
-                    let view = SacramentsRouter.createModule()
-                    self.navigationController?.pushViewController(view, animated: true)
-                default:
-                    break
-                }
             }
         default:
             switch indexPath.row {
@@ -125,14 +107,14 @@ class Home_Servicios: BaseViewController,HomeServiceViewProtocol, UITableViewDel
                     let view = IntentionsRouter.createModule()
                     self.navigationController?.pushViewController(view, animated: true)
                 }else{
-                    showCanonAlert(title: "Atención", msg: "Regístrate o inicia sesión para solicitar una intención.")
+                    showCanonAlertLogin(title: "Atención", msg: "Regístrate o inicia sesión para solicitar una intención.")
                 }
             case 1:
                 if newUser{
                     let view = OtherServicesRouter.createModule()
                     self.navigationController?.pushViewController(view, animated: true)
                 }else{
-                    showCanonAlert(title: "Atención", msg: "Regístrate o inicia sesión para solicitar otros servicios.")
+                    showCanonAlertLogin(title: "Atención", msg: "Regístrate o inicia sesión para solicitar otros servicios.")
                 }
             case 2:
                 let view = SacramentsRouter.createModule()

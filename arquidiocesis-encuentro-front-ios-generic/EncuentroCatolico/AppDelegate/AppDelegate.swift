@@ -58,4 +58,8 @@ class AppDelegate: UIResponder, UIApplicationDelegate, UNUserNotificationCenterD
     func applicationDidBecomeActive(_ application: UIApplication) {
         NotificationCenter.default.post(name: Notification.Name("appBecomeActive"), object: nil)
     }
+    
+    func popToRoot(_ application: UIApplication) {
+        NotificationCenter.default.post(name: Notification.Name("poptoroot"), object: nil)
+    }
 }

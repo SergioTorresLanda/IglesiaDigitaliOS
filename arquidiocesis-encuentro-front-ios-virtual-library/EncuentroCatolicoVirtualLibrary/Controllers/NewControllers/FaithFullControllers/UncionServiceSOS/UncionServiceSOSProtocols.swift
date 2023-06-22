@@ -2,33 +2,33 @@
 //  UncionServiceSOSProtocols.swift
 //  EncuentroCatolicoVirtualLibrary
 //
-//  Created by Pablo Luis Velazquez Zamudio on 16/06/21.
 //
 
 import UIKit
 
 // MARK: ROUTER -
-protocol UncionServiceRouterProtocol: class {
+protocol UncionServiceRouterProtocol: AnyObject {
     
 }
 
 // MARK: PRESENTER -
-protocol UncionServicePresenterProtocol: class {
+protocol UncionServicePresenterProtocol: AnyObject {
     func requestDetailService(serviceID : Int)
     func trasportResponse(responseCode: HTTPURLResponse, data: ServiceDetailFaithful)
     func patchUpdateCancel(status: String, flowID: Int, idService: Int)
     func responseCancelPatch(codeREsponse: HTTPURLResponse)
+    func trasportResponseFail()
 }
 
 // MARK: INTERACTOR -
-protocol UncionServiceInteractorProtocol: class {
+protocol UncionServiceInteractorProtocol: AnyObject {
     var preenter: UncionServicePresenterProtocol? { get set }
     func getServiceDetail(idService: Int)
     func patchUpdateServiceCancel(status: String, flowID: Int, idService: Int)
 }
 
 // MARK: VIEW -
-protocol UncionServiceViewProtocol: class {
+protocol UncionServiceViewProtocol: AnyObject {
     var presenter: UncionServicePresenterProtocol? { get set }
     func loadSuccessResponse(data: ServiceDetailFaithful)
     func failResponse()

@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="20037" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="21507" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
     <device id="retina6_1" orientation="portrait" appearance="light"/>
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="20020"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="21505"/>
         <capability name="Named colors" minToolsVersion="9.0"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="System colors in document resources" minToolsVersion="11.0"/>
@@ -991,7 +991,7 @@ de tu servicio/funeraria</string>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <prototypes>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="SOSCELLP" rowHeight="112" id="nKR-0h-tRS" customClass="PrincipalSOSCell" customModule="EncuentroCatolicoVirtualLibrary" customModuleProvider="target">
-                                        <rect key="frame" x="0.0" y="44.5" width="414" height="112"/>
+                                        <rect key="frame" x="0.0" y="50" width="414" height="112"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="nKR-0h-tRS" id="LDl-yX-eFQ">
                                             <rect key="frame" x="0.0" y="0.0" width="414" height="112"/>
@@ -1149,14 +1149,14 @@ de tu servicio/funeraria</string>
                                     <constraint firstItem="Ulr-bq-8gD" firstAttribute="top" secondItem="e8F-7g-pDl" secondAttribute="top" id="sFK-2h-DRR"/>
                                 </constraints>
                             </view>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Información de iglesias cercanas" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="N3o-y1-kQE">
-                                <rect key="frame" x="80" y="110" width="254" height="20"/>
-                                <fontDescription key="fontDescription" type="boldSystem" pointSize="16"/>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Emergencias cercanas" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="N3o-y1-kQE">
+                                <rect key="frame" x="20" y="120" width="374" height="21.5"/>
+                                <fontDescription key="fontDescription" type="boldSystem" pointSize="18"/>
                                 <color key="textColor" name="eBlack"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <segmentedControl opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="top" segmentControlStyle="bar" selectedSegmentIndex="0" translatesAutoresizingMaskIntoConstraints="NO" id="aUk-Lv-Gke">
-                                <rect key="frame" x="45" y="155" width="314" height="32"/>
+                                <rect key="frame" x="45" y="161.5" width="314" height="32"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="314" id="HcH-lM-A8F"/>
@@ -1181,18 +1181,18 @@ de tu servicio/funeraria</string>
                                 </connections>
                             </segmentedControl>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="ygk-Ju-ceb">
-                                <rect key="frame" x="0.0" y="186" width="414" height="2"/>
+                                <rect key="frame" x="0.0" y="192.5" width="414" height="2"/>
                                 <color key="backgroundColor" name="eLightGray"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="2" id="KAA-IK-IUv"/>
                                 </constraints>
                             </view>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="none" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="beV-1M-kQo">
-                                <rect key="frame" x="0.0" y="206" width="404" height="576"/>
+                                <rect key="frame" x="0.0" y="204.5" width="404" height="577.5"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <prototypes>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="CELLPRIEST" rowHeight="114" id="ZZ4-rE-ygH" customClass="PriestPTableCell" customModule="EncuentroCatolicoVirtualLibrary" customModuleProvider="target">
-                                        <rect key="frame" x="0.0" y="44.5" width="404" height="114"/>
+                                        <rect key="frame" x="0.0" y="50" width="404" height="114"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="ZZ4-rE-ygH" id="3hs-6A-N9A">
                                             <rect key="frame" x="0.0" y="0.0" width="404" height="114"/>
@@ -1278,15 +1278,15 @@ de tu servicio/funeraria</string>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                         <constraints>
                             <constraint firstItem="e8F-7g-pDl" firstAttribute="leading" secondItem="ciy-4H-wOw" secondAttribute="leading" id="5Dk-eF-jXF"/>
-                            <constraint firstItem="N3o-y1-kQE" firstAttribute="leading" secondItem="ciy-4H-wOw" secondAttribute="leading" constant="80" id="7rX-Ae-eOV"/>
+                            <constraint firstItem="N3o-y1-kQE" firstAttribute="leading" secondItem="ciy-4H-wOw" secondAttribute="leading" constant="20" id="7rX-Ae-eOV"/>
                             <constraint firstItem="e8F-7g-pDl" firstAttribute="top" secondItem="iuT-Km-5WZ" secondAttribute="top" constant="-20" id="Dci-LN-6cC"/>
                             <constraint firstItem="ygk-Ju-ceb" firstAttribute="top" secondItem="aUk-Lv-Gke" secondAttribute="bottom" id="EIR-bs-6ob"/>
-                            <constraint firstItem="beV-1M-kQo" firstAttribute="top" secondItem="ygk-Ju-ceb" secondAttribute="bottom" constant="18" id="GOA-Wi-arz"/>
-                            <constraint firstItem="N3o-y1-kQE" firstAttribute="top" secondItem="e8F-7g-pDl" secondAttribute="bottom" constant="10" id="HQo-n8-3j3"/>
-                            <constraint firstItem="ciy-4H-wOw" firstAttribute="trailing" secondItem="N3o-y1-kQE" secondAttribute="trailing" constant="80" id="Mmb-79-0t5"/>
+                            <constraint firstItem="beV-1M-kQo" firstAttribute="top" secondItem="ygk-Ju-ceb" secondAttribute="bottom" constant="10" id="GOA-Wi-arz"/>
+                            <constraint firstItem="N3o-y1-kQE" firstAttribute="top" secondItem="e8F-7g-pDl" secondAttribute="bottom" constant="20" id="HQo-n8-3j3"/>
+                            <constraint firstItem="ciy-4H-wOw" firstAttribute="trailing" secondItem="N3o-y1-kQE" secondAttribute="trailing" constant="20" id="Mmb-79-0t5"/>
                             <constraint firstItem="aUk-Lv-Gke" firstAttribute="centerX" secondItem="iuT-Km-5WZ" secondAttribute="centerX" constant="-5" id="TwH-V1-cK8"/>
                             <constraint firstItem="beV-1M-kQo" firstAttribute="trailing" secondItem="ciy-4H-wOw" secondAttribute="trailing" constant="-10" id="YGO-FV-4ln"/>
-                            <constraint firstItem="aUk-Lv-Gke" firstAttribute="top" secondItem="N3o-y1-kQE" secondAttribute="bottom" constant="25" id="ams-sY-V5k"/>
+                            <constraint firstItem="aUk-Lv-Gke" firstAttribute="top" secondItem="N3o-y1-kQE" secondAttribute="bottom" constant="20" id="ams-sY-V5k"/>
                             <constraint firstItem="ciy-4H-wOw" firstAttribute="bottom" secondItem="beV-1M-kQo" secondAttribute="bottom" constant="80" id="fRO-Ho-Ffk"/>
                             <constraint firstItem="ciy-4H-wOw" firstAttribute="trailing" secondItem="ygk-Ju-ceb" secondAttribute="trailing" id="heH-5H-Lea"/>
                             <constraint firstItem="beV-1M-kQo" firstAttribute="leading" secondItem="ciy-4H-wOw" secondAttribute="leading" id="sgg-Rg-6aj"/>
@@ -1390,7 +1390,7 @@ de tu servicio/funeraria</string>
                                 <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                                 <prototypes>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="CELLSOSMAIN" rowHeight="138" id="9Y2-pf-Yv1" customClass="MainTableCell" customModule="EncuentroCatolicoVirtualLibrary" customModuleProvider="target">
-                                        <rect key="frame" x="0.0" y="44.5" width="414" height="138"/>
+                                        <rect key="frame" x="0.0" y="50" width="414" height="138"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="9Y2-pf-Yv1" id="lPh-uE-Qay">
                                             <rect key="frame" x="0.0" y="0.0" width="414" height="138"/>
@@ -3150,6 +3150,116 @@ de tu servicio/funeraria</string>
             </objects>
             <point key="canvasLocation" x="711.59420289855075" y="-81.026785714285708"/>
         </scene>
+        <!--Accept Alert Login-->
+        <scene sceneID="sln-sB-ZWf">
+            <objects>
+                <viewController storyboardIdentifier="AcceptAlertLogin" useStoryboardIdentifierAsRestorationIdentifier="YES" id="giH-3z-lq4" customClass="AcceptAlertLogin" customModule="EncuentroCatolicoVirtualLibrary" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="WMh-y9-gCz">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <view alpha="0.0" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="g80-nd-6tu" userLabel="ShadowCard">
+                                <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                                <color key="backgroundColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                            </view>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="VSH-P4-pHC">
+                                <rect key="frame" x="50" y="331" width="314" height="234.5"/>
+                                <subviews>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Atención" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="3" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="46E-RL-vSe">
+                                        <rect key="frame" x="40" y="35" width="234" height="24"/>
+                                        <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="20"/>
+                                        <color key="textColor" name="eMainBlue"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Regístrate o inicia sesión para interactuar con el contenido." textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="4" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="OML-DS-TgH">
+                                        <rect key="frame" x="15" y="74" width="284" height="38.5"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="16"/>
+                                        <color key="textColor" name="eBlack"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="UvP-xq-KbE">
+                                        <rect key="frame" x="92" y="132.5" width="130" height="36"/>
+                                        <color key="backgroundColor" name="eMainBlue"/>
+                                        <constraints>
+                                            <constraint firstAttribute="width" constant="130" id="8hP-Jf-pM1"/>
+                                            <constraint firstAttribute="height" constant="36" id="S4U-SF-qXC"/>
+                                        </constraints>
+                                        <fontDescription key="fontDescription" type="system" weight="medium" pointSize="15"/>
+                                        <state key="normal" title="Ir al registro">
+                                            <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                        </state>
+                                        <connections>
+                                            <action selector="AcceptAction:" destination="giH-3z-lq4" eventType="touchUpInside" id="Xjo-aL-TAD"/>
+                                        </connections>
+                                    </button>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="MQn-iI-5Sa" userLabel="Denegar">
+                                        <rect key="frame" x="102" y="183.5" width="110" height="36"/>
+                                        <color key="backgroundColor" name="eMainBlue"/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="36" id="nbE-JL-mT1"/>
+                                            <constraint firstAttribute="width" constant="110" id="t3p-l5-kyE"/>
+                                        </constraints>
+                                        <fontDescription key="fontDescription" type="system" weight="medium" pointSize="15"/>
+                                        <state key="normal" title="Ahora no">
+                                            <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                        </state>
+                                        <connections>
+                                            <action selector="noClick:" destination="giH-3z-lq4" eventType="touchUpInside" id="B17-8g-xin"/>
+                                        </connections>
+                                    </button>
+                                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="iconoIglesia3" translatesAutoresizingMaskIntoConstraints="NO" id="ykX-xK-amK">
+                                        <rect key="frame" x="10" y="10" width="40" height="40"/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="40" id="Bi6-Dh-EKP"/>
+                                            <constraint firstAttribute="width" constant="40" id="PcN-Ya-4q7"/>
+                                        </constraints>
+                                    </imageView>
+                                </subviews>
+                                <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" priority="250" constant="240" id="11t-J4-Nc1"/>
+                                    <constraint firstAttribute="trailing" secondItem="46E-RL-vSe" secondAttribute="trailing" constant="40" id="3Nu-cV-ws4"/>
+                                    <constraint firstItem="UvP-xq-KbE" firstAttribute="centerX" secondItem="VSH-P4-pHC" secondAttribute="centerX" id="BS6-tC-GZ9"/>
+                                    <constraint firstItem="ykX-xK-amK" firstAttribute="top" secondItem="VSH-P4-pHC" secondAttribute="top" constant="10" id="BvD-u8-hzo"/>
+                                    <constraint firstItem="46E-RL-vSe" firstAttribute="leading" secondItem="VSH-P4-pHC" secondAttribute="leading" constant="40" id="IGB-sj-hqW"/>
+                                    <constraint firstItem="UvP-xq-KbE" firstAttribute="top" secondItem="OML-DS-TgH" secondAttribute="bottom" constant="20" id="NgP-tz-mdy"/>
+                                    <constraint firstItem="MQn-iI-5Sa" firstAttribute="centerX" secondItem="VSH-P4-pHC" secondAttribute="centerX" id="Ocj-d5-IqL"/>
+                                    <constraint firstItem="46E-RL-vSe" firstAttribute="top" secondItem="VSH-P4-pHC" secondAttribute="top" constant="35" id="RVh-Oc-0mC"/>
+                                    <constraint firstItem="MQn-iI-5Sa" firstAttribute="top" secondItem="UvP-xq-KbE" secondAttribute="bottom" constant="15" id="cpX-ly-imH"/>
+                                    <constraint firstItem="OML-DS-TgH" firstAttribute="leading" secondItem="VSH-P4-pHC" secondAttribute="leading" constant="15" id="da5-Ba-S8V"/>
+                                    <constraint firstItem="ykX-xK-amK" firstAttribute="leading" secondItem="VSH-P4-pHC" secondAttribute="leading" constant="10" id="fNe-zE-hcP"/>
+                                    <constraint firstAttribute="trailing" secondItem="OML-DS-TgH" secondAttribute="trailing" constant="15" id="qX8-uG-Wio"/>
+                                    <constraint firstAttribute="bottom" secondItem="MQn-iI-5Sa" secondAttribute="bottom" constant="15" id="rCb-s3-4Or"/>
+                                    <constraint firstItem="OML-DS-TgH" firstAttribute="top" secondItem="46E-RL-vSe" secondAttribute="bottom" constant="15" id="xQx-Je-lOo"/>
+                                </constraints>
+                            </view>
+                        </subviews>
+                        <viewLayoutGuide key="safeArea" id="VWT-AJ-arb"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <constraints>
+                            <constraint firstItem="VSH-P4-pHC" firstAttribute="centerY" secondItem="WMh-y9-gCz" secondAttribute="centerY" id="518-ru-ach"/>
+                            <constraint firstItem="g80-nd-6tu" firstAttribute="trailing" secondItem="VWT-AJ-arb" secondAttribute="trailing" id="EWD-qx-eAL"/>
+                            <constraint firstItem="g80-nd-6tu" firstAttribute="top" secondItem="WMh-y9-gCz" secondAttribute="top" id="FWB-WR-lKC"/>
+                            <constraint firstItem="g80-nd-6tu" firstAttribute="leading" secondItem="VWT-AJ-arb" secondAttribute="leading" id="N6F-od-AI4"/>
+                            <constraint firstItem="VSH-P4-pHC" firstAttribute="centerX" secondItem="WMh-y9-gCz" secondAttribute="centerX" id="RCf-RQ-1Mh"/>
+                            <constraint firstItem="VSH-P4-pHC" firstAttribute="leading" secondItem="VWT-AJ-arb" secondAttribute="leading" constant="50" id="X9l-zO-1kU"/>
+                            <constraint firstItem="VWT-AJ-arb" firstAttribute="trailing" secondItem="VSH-P4-pHC" secondAttribute="trailing" constant="50" id="rhw-K4-9mI"/>
+                            <constraint firstAttribute="bottom" secondItem="g80-nd-6tu" secondAttribute="bottom" id="xVp-Qw-Hpo"/>
+                        </constraints>
+                    </view>
+                    <connections>
+                        <outlet property="alertCard" destination="VSH-P4-pHC" id="GK6-aj-A9t"/>
+                        <outlet property="btnAccept" destination="UvP-xq-KbE" id="aCU-at-xTk"/>
+                        <outlet property="btnNo" destination="MQn-iI-5Sa" id="gyM-Tn-JE6"/>
+                        <outlet property="lblText" destination="OML-DS-TgH" id="1mm-dG-Dfb"/>
+                        <outlet property="lblTitle" destination="46E-RL-vSe" id="mOH-Mr-YfC"/>
+                        <outlet property="shadowCard" destination="g80-nd-6tu" id="UJv-Qr-8NB"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="dPv-mA-z2z" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-826" y="-827"/>
+        </scene>
     </scenes>
     <resources>
         <image name="EmptyStar" width="27" height="26"/>
@@ -3157,15 +3267,15 @@ de tu servicio/funeraria</string>
         <image name="Icono_encuentro" width="23" height="30"/>
         <image name="arrow_drop_down_24px" width="24" height="24"/>
         <image name="back" width="125" height="202"/>
-        <image name="circle" catalog="system" width="128" height="121"/>
-        <image name="circle.fill" catalog="system" width="128" height="121"/>
-        <image name="headphones.circle.fill" catalog="system" width="128" height="121"/>
+        <image name="circle" catalog="system" width="128" height="123"/>
+        <image name="circle.fill" catalog="system" width="128" height="123"/>
+        <image name="headphones.circle.fill" catalog="system" width="128" height="123"/>
         <image name="iconoIglesia3" width="728" height="728"/>
         <image name="logoIcon" width="185" height="185"/>
         <image name="logoIconNew" width="241" height="241"/>
-        <image name="magnifyingglass" catalog="system" width="128" height="115"/>
-        <image name="mappin.slash" catalog="system" width="102" height="128"/>
-        <image name="phone.circle.fill" catalog="system" width="128" height="121"/>
+        <image name="magnifyingglass" catalog="system" width="128" height="117"/>
+        <image name="mappin.slash" catalog="system" width="104" height="128"/>
+        <image name="phone.circle.fill" catalog="system" width="128" height="123"/>
         <image name="square.and.arrow.up" catalog="system" width="115" height="128"/>
         <image name="star" catalog="system" width="128" height="116"/>
         <namedColor name="eBackgroundGray">

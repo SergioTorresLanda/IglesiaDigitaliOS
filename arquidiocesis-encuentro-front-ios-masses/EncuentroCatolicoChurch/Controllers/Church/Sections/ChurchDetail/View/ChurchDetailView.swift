@@ -91,6 +91,7 @@ class MiIglesia_InfoIglesia: BaseViewController {
     @IBOutlet weak var viewAsFielBtn: UIButton!
     
     var alertFields : AcceptAlert?
+    var alertFields2 : AcceptAlertLogin?
     var presenter: ChurchDetailPresenterProtocol?
     var showTutorial = true
     let transition = SlideTransition()
@@ -316,7 +317,7 @@ class MiIglesia_InfoIglesia: BaseViewController {
             let view = CommentsRouter.createModule(param: "\(churchId ?? 1)/reviews?page=1&per_page=10", locationID: churchId ?? 1, churchName: churchNameLabel.text ?? "")
             self.navigationController?.pushViewController(view, animated: true)
         }else{
-            showCanonAlert(title: "Atención", msg: "Regístrate o inicia sesión para escribir una opinión.")
+            showCanonAlertLogin(title: "Atención", msg: "Regístrate o inicia sesión para escribir una opinión.")
         }
     }
     
@@ -385,7 +386,7 @@ class MiIglesia_InfoIglesia: BaseViewController {
                 self.addFavoriteFiel()
             }
         }else{
-            showCanonAlert(title: "Atención", msg: "Regístrate o inicia sesión para agregar esta iglesia como principal.")
+            showCanonAlertLogin(title: "Atención", msg: "Regístrate o inicia sesión para agregar esta iglesia como principal.")
         }
     }
     
@@ -393,6 +394,12 @@ class MiIglesia_InfoIglesia: BaseViewController {
         alertFields = AcceptAlert.showAlert(titulo: title, mensaje: msg)
         alertFields!.view.backgroundColor = .clear
         self.present(alertFields!, animated: true)
+    }
+    
+    func showCanonAlertLogin(title:String, msg:String){
+        alertFields2 = AcceptAlertLogin.showAlert(titulo: title, mensaje: msg)
+        alertFields2!.view.backgroundColor = .clear
+        self.present(alertFields2!, animated: true)
     }
     
     @IBAction func addSocialButtonAction(_ sender: Any) {
@@ -499,7 +506,7 @@ class MiIglesia_InfoIglesia: BaseViewController {
                 self.addFavoriteFiel()
             }
         }else{
-            showCanonAlert(title: "Atención", msg: "Regístrate o inicia sesión para agregar esta iglesia como favorita.")
+            showCanonAlertLogin(title: "Atención", msg: "Regístrate o inicia sesión para agregar esta iglesia como favorita.")
         }
     }
     
@@ -1314,24 +1321,21 @@ extension MiIglesia_InfoIglesia: UICollectionViewDelegate, UICollectionViewDataS
             }
         case servicesCollectionView:
             print("c4i@::02")
-            if let churchData = church {
+            //if let churchData = church {
                 cell.deleteBtn.tag = indexPath.item
                 cell.deleteBtn.addTarget(self, action: #selector(deleteServices), for: .touchUpInside)
                 showDeleteBtn(btn: cell.deleteBtn)
                 let dataCount = church?.services?.count ?? 0
-                hServices.constant = CGFloat(150 * dataCount)
-                cell.isHidden = true
-                if church?.services?.isEmpty == false {
-                    cell.isHidden = false
-                    cell.fillService(with: churchData, index: indexPath.row)
-                }
-            }
+                hServices.constant = CGFloat(170 * dataCount)
+                cell.isHidden = false
+                cell.fillService(with: church!.services![indexPath.row])
+            //}
         default:
             break
         }
         return cell
     }
-    
+   
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
         var height: CGFloat = 130
         let width: CGFloat = newChurchMassCollection.frame.width
@@ -1339,7 +1343,7 @@ extension MiIglesia_InfoIglesia: UICollectionViewDelegate, UICollectionViewDataS
         if collectionView == newChurchMassCollection {
             height = 100
         }else if collectionView == servicesCollectionView{
-            height = 150
+            height = 170
         }
         
         return CGSize(width: width, height: height)
@@ -1409,7 +1413,8 @@ extension MiIglesia_InfoIglesia: ChurchDetailViewProtocol {
         }
         DispatchQueue.main.asyncAfter(deadline: .now() + 0.5) {
             [weak self] in
-            self?.showMessage(error)
+            self?.showCanonAlert(title: "Atención", msg: error)
+            //self?.showMessage(error)
         }
     }
     

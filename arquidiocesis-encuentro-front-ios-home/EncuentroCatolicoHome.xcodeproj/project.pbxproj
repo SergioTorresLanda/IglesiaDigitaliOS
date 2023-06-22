@@ -22,6 +22,12 @@
 		443CA06629D4D6C100142618 /* VoluntariosCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 443CA06529D4D6C100142618 /* VoluntariosCell.swift */; };
 		4444BFB229B1EE2700FB0624 /* Home_Actividades.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4444BFB129B1EE2700FB0624 /* Home_Actividades.swift */; };
 		4444BFB429B1FD6800FB0624 /* activitiesView2.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 4444BFB329B1FD6800FB0624 /* activitiesView2.storyboard */; };
+		447FFCA52A1E85A8006E81EF /* Actividades_CrearModulo.swift in Sources */ = {isa = PBXBuildFile; fileRef = 447FFCA42A1E85A8006E81EF /* Actividades_CrearModulo.swift */; };
+		447FFCA72A1E8620006E81EF /* Actividades_Modulos.swift in Sources */ = {isa = PBXBuildFile; fileRef = 447FFCA62A1E8620006E81EF /* Actividades_Modulos.swift */; };
+		447FFCA92A1EC97C006E81EF /* CrearModulo_ListaParticipantes.swift in Sources */ = {isa = PBXBuildFile; fileRef = 447FFCA82A1EC97C006E81EF /* CrearModulo_ListaParticipantes.swift */; };
+		447FFCAE2A2E4BE2006E81EF /* GenericCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 447FFCAD2A2E4BE0006E81EF /* GenericCell.swift */; };
+		447FFCB02A3937A9006E81EF /* Actividades_CrearActor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 447FFCAF2A3937A8006E81EF /* Actividades_CrearActor.swift */; };
+		447FFCB22A3A7E15006E81EF /* ActorCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 447FFCB12A3A7E15006E81EF /* ActorCell.swift */; };
 		44BBF60229CA757B0085CBA7 /* Actividades_Despensas.swift in Sources */ = {isa = PBXBuildFile; fileRef = 44BBF60129CA757A0085CBA7 /* Actividades_Despensas.swift */; };
 		44BBF60729CA918C0085CBA7 /* Actividades_CrearDespensa.swift in Sources */ = {isa = PBXBuildFile; fileRef = 44BBF60629CA918C0085CBA7 /* Actividades_CrearDespensa.swift */; };
 		44C8AA5729C10FFD0063FD85 /* ComedorCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 44C8AA5629C10FFD0063FD85 /* ComedorCell.swift */; };
@@ -120,6 +126,12 @@
 		443CA06529D4D6C100142618 /* VoluntariosCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VoluntariosCell.swift; sourceTree = "<group>"; };
 		4444BFB129B1EE2700FB0624 /* Home_Actividades.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Home_Actividades.swift; sourceTree = "<group>"; };
 		4444BFB329B1FD6800FB0624 /* activitiesView2.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = activitiesView2.storyboard; sourceTree = "<group>"; };
+		447FFCA42A1E85A8006E81EF /* Actividades_CrearModulo.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Actividades_CrearModulo.swift; sourceTree = "<group>"; };
+		447FFCA62A1E8620006E81EF /* Actividades_Modulos.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Actividades_Modulos.swift; sourceTree = "<group>"; };
+		447FFCA82A1EC97C006E81EF /* CrearModulo_ListaParticipantes.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CrearModulo_ListaParticipantes.swift; sourceTree = "<group>"; };
+		447FFCAD2A2E4BE0006E81EF /* GenericCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GenericCell.swift; sourceTree = "<group>"; };
+		447FFCAF2A3937A8006E81EF /* Actividades_CrearActor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Actividades_CrearActor.swift; sourceTree = "<group>"; };
+		447FFCB12A3A7E15006E81EF /* ActorCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ActorCell.swift; sourceTree = "<group>"; };
 		44BBF60129CA757A0085CBA7 /* Actividades_Despensas.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Actividades_Despensas.swift; sourceTree = "<group>"; };
 		44BBF60629CA918C0085CBA7 /* Actividades_CrearDespensa.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Actividades_CrearDespensa.swift; sourceTree = "<group>"; };
 		44C8AA5629C10FFD0063FD85 /* ComedorCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ComedorCell.swift; sourceTree = "<group>"; };
@@ -283,6 +295,19 @@
 				443CA06529D4D6C100142618 /* VoluntariosCell.swift */,
 			);
 			path = Voluntarios;
+			sourceTree = "<group>";
+		};
+		447FFCAC2A200275006E81EF /* Generico */ = {
+			isa = PBXGroup;
+			children = (
+				447FFCA82A1EC97C006E81EF /* CrearModulo_ListaParticipantes.swift */,
+				447FFCA62A1E8620006E81EF /* Actividades_Modulos.swift */,
+				447FFCA42A1E85A8006E81EF /* Actividades_CrearModulo.swift */,
+				447FFCAD2A2E4BE0006E81EF /* GenericCell.swift */,
+				447FFCAF2A3937A8006E81EF /* Actividades_CrearActor.swift */,
+				447FFCB12A3A7E15006E81EF /* ActorCell.swift */,
+			);
+			path = Generico;
 			sourceTree = "<group>";
 		};
 		44BBF60329CA787A0085CBA7 /* Despensas */ = {
@@ -506,6 +531,7 @@
 		98F393CD25E580E80077B623 /* Controllers */ = {
 			isa = PBXGroup;
 			children = (
+				447FFCAC2A200275006E81EF /* Generico */,
 				443CA05A29D35A4900142618 /* Voluntarios */,
 				443CA05729D20FB500142618 /* Donadores */,
 				44BBF60329CA787A0085CBA7 /* Despensas */,
@@ -820,6 +846,7 @@
 				EEEAA389260D8DD800EBEF10 /* featuredCell.swift in Sources */,
 				44C8AA5729C10FFD0063FD85 /* ComedorCell.swift in Sources */,
 				EE13C0FD260E453000D72448 /* coursesCVC.swift in Sources */,
+				447FFCA52A1E85A8006E81EF /* Actividades_CrearModulo.swift in Sources */,
 				3624761326095B3C00323160 /* PresentFrameworks.swift in Sources */,
 				EED013052647054E0054F6AE /* DonationsWindow.swift in Sources */,
 				EEEAA380260D673C00EBEF10 /* alertView.swift in Sources */,
@@ -828,6 +855,7 @@
 				9DB3244F273B07DE005841D4 /* SliderCellView.swift in Sources */,
 				EEEAA39D260DA7B700EBEF10 /* mentorsViewCVC.swift in Sources */,
 				6F5AC06F26D001B8009ED389 /* HomeMainCell.swift in Sources */,
+				447FFCA72A1E8620006E81EF /* Actividades_Modulos.swift in Sources */,
 				443CA06229D3E32500142618 /* CrearComedor_ListaDonadores.swift in Sources */,
 				EEEAA398260DA15400EBEF10 /* mentorsCVC.swift in Sources */,
 				6DE2E35F279B6EB5000ED1F0 /* APIType.swift in Sources */,
@@ -843,9 +871,11 @@
 				989120D925E984B600D666F4 /* TabItem.swift in Sources */,
 				44BBF60729CA918C0085CBA7 /* Actividades_CrearDespensa.swift in Sources */,
 				983D1D16260A565300455355 /* newPrayerCell.swift in Sources */,
+				447FFCA92A1EC97C006E81EF /* CrearModulo_ListaParticipantes.swift in Sources */,
 				989120DA25E984B600D666F4 /* CustomTabBarTransition.swift in Sources */,
 				443CA05E29D35C6F00142618 /* VoluntariosTVC.swift in Sources */,
 				98A0960C26563CC400110BE8 /* Home_CadenaOracion.swift in Sources */,
+				447FFCAE2A2E4BE2006E81EF /* GenericCell.swift in Sources */,
 				443B5C4829BA987E00A52965 /* Actividades_CrearComedor.swift in Sources */,
 				98F393D625E581A60077B623 /* HomeRouter.swift in Sources */,
 				44BBF60229CA757B0085CBA7 /* Actividades_Despensas.swift in Sources */,
@@ -861,6 +891,7 @@
 				98F393D725E581A60077B623 /* Home_Home.swift in Sources */,
 				6F5AC07626D01741009ED389 /* HomeSliderCell.swift in Sources */,
 				98A0960A26563CB000110BE8 /* prayerChainModel.swift in Sources */,
+				447FFCB22A3A7E15006E81EF /* ActorCell.swift in Sources */,
 				9DB32455273B0811005841D4 /* ModalAlert.swift in Sources */,
 				443CA06429D4A99F00142618 /* CrearComedor_ListaVoluntarios.swift in Sources */,
 				82E729A425F80239009BAA3A /* HomeEntity.swift in Sources */,
@@ -868,6 +899,7 @@
 				9DB32452273B07F7005841D4 /* MyPrayerCell.swift in Sources */,
 				EEEAA373260D5A0200EBEF10 /* educationHome.swift in Sources */,
 				4444BFB229B1EE2700FB0624 /* Home_Actividades.swift in Sources */,
+				447FFCB02A3937A9006E81EF /* Actividades_CrearActor.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

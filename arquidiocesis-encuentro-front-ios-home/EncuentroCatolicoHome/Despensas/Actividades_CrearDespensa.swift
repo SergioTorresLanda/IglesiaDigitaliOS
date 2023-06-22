@@ -652,7 +652,7 @@ class Actividades_CrearDespensa: UIViewController {
             arrDias.append(Dia(id: 5, name: "Jueves", checked: juBoolRec))
             arrDias.append(Dia(id: 6, name: "Viernes", checked: viBoolRec))
             arrDias.append(Dia(id: 7, name: "Sábado", checked: saBoolRec))
-            horarioRec = HorarioX(days: arrDias)//, hour_start: openHourRec, hour_end: closeHourRec)
+            horarioRec = HorarioX(days: arrDias)
         }
         
         var horarioArm:HorarioX? = nil

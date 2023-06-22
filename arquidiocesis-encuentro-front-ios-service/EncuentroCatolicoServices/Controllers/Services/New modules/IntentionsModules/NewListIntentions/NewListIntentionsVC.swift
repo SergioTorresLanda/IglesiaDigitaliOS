@@ -6,6 +6,7 @@
 //
 
 import UIKit
+import EncuentroCatolicoVirtualLibrary
 
 class NewListIntentionsView: UIViewController, NewListIntentionsViewProtocol {
 
@@ -22,7 +23,7 @@ class NewListIntentionsView: UIViewController, NewListIntentionsViewProtocol {
     let locationcomponents = UserDefaults.standard.object(forKey: "locationModuleComponents") as? [String]
     let locationID = UserDefaults.standard.integer(forKey: "locationId")
     var usableLocationID = 2
-    
+    var alertFields : AcceptAlert?
 // MARK: @IBOUTLETS -
     @IBOutlet weak var contentNavBar: UIView!
     @IBOutlet weak var customNavBar: UIView!
@@ -36,13 +37,11 @@ class NewListIntentionsView: UIViewController, NewListIntentionsViewProtocol {
         usableLocationID = locationID
         setupUI()
         setupGestures()
-        showLoading()
-        validateUserProfile()
     }
     
     override func viewWillAppear(_ animated: Bool) {
         print("VC ECServices - NewListIntentionsVC ")
-
+        validateUserProfile()
     }
     
 // MARK: SETUP FUNCS -
@@ -69,11 +68,21 @@ class NewListIntentionsView: UIViewController, NewListIntentionsViewProtocol {
         dateFormatter.locale = .init(identifier: "Es_MX")
         dateFormatter.dateFormat = "yyyy-MM-dd" //EEEE, MMM d, yyyy / EEEE, d MMMM
         
-        if ((locationcomponents?.contains{ $0 == "SERVICES"}) == true){
-            presenter?.callRequestList(locationID: "\(deafults.integer(forKey: "locationModule"))", dateStr: dateFormatter.string(from: currentDate))
-        }else {
+        if deafults.integer(forKey: "locationModule") == 0 {//locationcomponents?.contains{ $0 == "SERVICES"} {
+            print("locationModule == 0")
+            showCanonAlert(title: "Atención",msg: "No tienes una comunidad o iglesia asignada para este usuario.")
+            //presenter?.callRequestList(locationID: "\(deafults.integer(forKey: "locationModule"))", dateStr: dateFormatter.string(from: currentDate))
+        }else{
+            print("locationModule != 0")
+            showLoading()
             presenter?.callRequestList(locationID: "\(deafults.integer(forKey: "locationModule"))", dateStr: dateFormatter.string(from: currentDate))
         }
+    }
+    
+    func showCanonAlert(title:String, msg:String){
+        alertFields = AcceptAlert.showAlert(titulo: title, mensaje: msg)
+        alertFields!.view.backgroundColor = .clear
+        self.present(alertFields!, animated: true)
     }
     
     func showLoading() {
@@ -96,16 +105,14 @@ class NewListIntentionsView: UIViewController, NewListIntentionsViewProtocol {
             arrayIntentions.insert(arrayIntentions[0], at: 1)
             alertLoader.dismiss(animated: true, completion: nil)
         }else{
-            let acceptAlert = acceptAlertService.showAlert(textAlert: "No hay intenciones disponibles por el momento, intente con otra fecha")
-            alertLoader.dismiss(animated: true, completion: nil)
             DispatchQueue.main.asyncAfter(deadline: .now() + 0.5) {
-                self.present(acceptAlert, animated: true, completion: nil)
+                self.alertLoader.dismiss(animated: true, completion: nil)
+                self.showCanonAlert(title: "Atención", msg: "No hay intenciones disponibles por el momento, intente con otra fecha.")
+            //let acceptAlert = acceptAlertService.showAlert(textAlert: "No hay intenciones disponibles por el momento, intente con otra fecha")
+                //self.present(acceptAlert, animated: true, completion: nil)
             }
-            
         }
-        
         setupDelegates()
-        
     }
     
     func failrequestList() {

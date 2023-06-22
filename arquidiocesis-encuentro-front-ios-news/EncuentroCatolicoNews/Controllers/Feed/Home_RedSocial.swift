@@ -54,6 +54,8 @@ public class Home_RedSocial: UIViewController, FeedViewProtocol, FeedViewControl
     let sm = DispatchSemaphore(value: 0)
     let newUser = UserDefaults.standard.bool(forKey: "isNewUser")
     var alertFields : AcceptAlert?
+    var alertFields2 : AcceptAlertLogin?
+
 
     //MARK: - Life cycle
     override public func viewDidLoad() {
@@ -99,7 +101,7 @@ public class Home_RedSocial: UIViewController, FeedViewProtocol, FeedViewControl
         if newUser{
             self.navigationController?.pushViewController(FollowersWireFrame.createFollowersModule(user: UserBasic(id:SNId, name: name, image: "self")), animated: false)
         }else{
-            showCanonAlert(title: "Atención", msg: "Regístrate o inicia sesión para tener un perfil en nuestra red social.")
+            showCanonAlertLogin(title: "Atención", msg: "Regístrate o inicia sesión para tener un perfil en nuestra red social.")
         }
     }
     
@@ -107,6 +109,12 @@ public class Home_RedSocial: UIViewController, FeedViewProtocol, FeedViewControl
         alertFields = AcceptAlert.showAlert(titulo: title, mensaje: msg)
         alertFields!.view.backgroundColor = .clear
         self.present(alertFields!, animated: true)
+    }
+    
+    func showCanonAlertLogin(title:String, msg:String){
+        alertFields2 = AcceptAlertLogin.showAlert(titulo: title, mensaje: msg)
+        alertFields2!.view.backgroundColor = .clear
+        self.present(alertFields2!, animated: true)
     }
     
     //MARK: - Methods
@@ -252,8 +260,6 @@ public class Home_RedSocial: UIViewController, FeedViewProtocol, FeedViewControl
         print("Click en foto")
         if newUser{
             self.navigationController?.pushViewController(FollowersWireFrame.createFollowersModule(user: UserBasic(id:SNId, name: name, image: "self")), animated: true)
-        }else{
-            //showCanonAlert(title: "Atención", msg: "Regístrate o inicia sesión para solicitar una intención.")
         }
     }
     
@@ -270,7 +276,7 @@ public class Home_RedSocial: UIViewController, FeedViewProtocol, FeedViewControl
             let view = SocialSearchRouter.createModule()
             self.navigationController?.pushViewController(view, animated: true)
         }else{
-            showCanonAlert(title: "Atención", msg: "Regístrate o inicia sesión para buscar y seguir a otros usuarios.")
+            showCanonAlertLogin(title: "Atención", msg: "Regístrate o inicia sesión para buscar y seguir a otros usuarios.")
         }
     }
     
@@ -281,7 +287,7 @@ public class Home_RedSocial: UIViewController, FeedViewProtocol, FeedViewControl
             view.delegateTbl = self
             self.present(view, animated: true, completion: nil)
         }else{
-            showCanonAlert(title: "Atención", msg: "Regístrate o inicia sesión para publicar en nuestra red social.")
+            showCanonAlertLogin(title: "Atención", msg: "Regístrate o inicia sesión para publicar en nuestra red social.")
         }
     }
     

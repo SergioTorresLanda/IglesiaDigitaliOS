@@ -30,7 +30,7 @@ class Home_CadenaOracion: UIViewController {
     let transition = SlideTransition()
     let imageURLDeafult = URL(string: "")
     var statePray: [Bool] = []
-    var alertFields : AcceptAlert?
+    var alertFields : AcceptAlertLogin?
     
     static let singleton = Home_CadenaOracion()
     
@@ -427,7 +427,7 @@ class Home_CadenaOracion: UIViewController {
     }
     
     func showCanonAlert(title:String, msg:String){
-        alertFields = AcceptAlert.showAlert(titulo: title, mensaje: msg)
+        alertFields = AcceptAlertLogin.showAlert(titulo: title, mensaje: msg)
         alertFields!.view.backgroundColor = .clear
         self.present(alertFields!, animated: true)
     }

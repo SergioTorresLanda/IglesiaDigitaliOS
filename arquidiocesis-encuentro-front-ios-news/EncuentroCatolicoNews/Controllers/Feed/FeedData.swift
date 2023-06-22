@@ -225,7 +225,7 @@ extension Home_RedSocial: FeedTVCProtocol {
         case "Seguir":
             self.navigationController?.pushViewController(FollowersWireFrame.createFollowersModule(user: UserBasic(id:SNId, name: name, image: "self")), animated: true)
         case "Alert":
-            self.showCanonAlert(title: "Atención", msg: "Regístrate o inicia sesión para interactuar con el contenido de la red social.")
+            self.showCanonAlertLogin(title: "Atención", msg: "Regístrate o inicia sesión para interactuar con el contenido de la red social.")
         case "CompartirT": //compartir texto
             arrItems=[]
             print("Compartir YYY:: texto")

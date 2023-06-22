@@ -52,7 +52,7 @@ public enum ECUFieldGenericValidation {
         case .isValidRfc:
             return  { ($0?.evaluateRegEx(for: ECURegexValidation.rfc.rawValue) ?? false) ? nil :  "@error_msg_invalid_rfc".getLocalizedString(bundle: .local) }
         case .minimunCharecters(let comparation):
-            return { $0?.count ?? 0 > comparation ? nil : String(format: "@error_msg_minimum_characters".getLocalizedString(bundle: .local), String(comparation))}
+            return { $0?.count ?? 0 >= comparation ? nil : String(format: "@error_msg_minimum_characters".getLocalizedString(bundle: .local), String(comparation))}
         }
     }
     

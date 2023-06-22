@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="20037" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="21507" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
     <device id="retina6_1" orientation="portrait" appearance="light"/>
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="20020"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="21505"/>
         <capability name="Named colors" minToolsVersion="9.0"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="System colors in document resources" minToolsVersion="11.0"/>
@@ -20,10 +20,10 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="hAn-BZ-PvA">
-                                <rect key="frame" x="0.0" y="0.0" width="434" height="80"/>
+                                <rect key="frame" x="0.0" y="0.0" width="414" height="80"/>
                                 <subviews>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Agendar" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="7ZA-Ae-whU">
-                                        <rect key="frame" x="177" y="41" width="80.5" height="24"/>
+                                        <rect key="frame" x="167" y="41" width="80.5" height="24"/>
                                         <fontDescription key="fontDescription" type="boldSystem" pointSize="20"/>
                                         <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         <nil key="highlightedColor"/>
@@ -207,11 +207,11 @@
                                                 </constraints>
                                             </stackView>
                                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="RPH-sD-Qu6">
-                                                <rect key="frame" x="20" y="190" width="370" height="342"/>
+                                                <rect key="frame" x="10" y="190" width="390" height="462"/>
                                                 <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                                             </view>
                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="fDN-9a-D2s">
-                                                <rect key="frame" x="137" y="500" width="100" height="38"/>
+                                                <rect key="frame" x="155" y="657" width="100" height="38"/>
                                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                 <constraints>
                                                     <constraint firstAttribute="height" constant="38" id="X1i-Bm-WcM"/>
@@ -227,15 +227,15 @@
                                         </subviews>
                                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                                         <constraints>
-                                            <constraint firstItem="fDN-9a-D2s" firstAttribute="leading" secondItem="eBm-9s-wTf" secondAttribute="leading" constant="137" id="8pf-8K-Aje"/>
                                             <constraint firstAttribute="trailing" secondItem="ram-56-s5c" secondAttribute="trailing" id="F9G-M6-hLp"/>
-                                            <constraint firstAttribute="trailing" secondItem="RPH-sD-Qu6" secondAttribute="trailing" constant="20" id="JyG-wx-JTW"/>
+                                            <constraint firstAttribute="trailing" secondItem="RPH-sD-Qu6" secondAttribute="trailing" constant="10" id="JyG-wx-JTW"/>
                                             <constraint firstItem="ram-56-s5c" firstAttribute="top" secondItem="eBm-9s-wTf" secondAttribute="top" id="KjP-1U-sCB"/>
                                             <constraint firstItem="ram-56-s5c" firstAttribute="leading" secondItem="eBm-9s-wTf" secondAttribute="leading" id="LKg-Ro-N4g"/>
-                                            <constraint firstItem="RPH-sD-Qu6" firstAttribute="leading" secondItem="eBm-9s-wTf" secondAttribute="leading" constant="20" id="mPW-CD-Dfs"/>
-                                            <constraint firstItem="fDN-9a-D2s" firstAttribute="top" secondItem="eBm-9s-wTf" secondAttribute="top" constant="500" id="nin-5T-nbl"/>
+                                            <constraint firstItem="RPH-sD-Qu6" firstAttribute="leading" secondItem="eBm-9s-wTf" secondAttribute="leading" constant="10" id="mPW-CD-Dfs"/>
+                                            <constraint firstItem="fDN-9a-D2s" firstAttribute="top" secondItem="RPH-sD-Qu6" secondAttribute="bottom" constant="5" id="nin-5T-nbl"/>
+                                            <constraint firstItem="fDN-9a-D2s" firstAttribute="centerX" secondItem="eBm-9s-wTf" secondAttribute="centerX" id="q29-cp-3eQ"/>
                                             <constraint firstItem="RPH-sD-Qu6" firstAttribute="top" secondItem="eBm-9s-wTf" secondAttribute="top" constant="190" id="sun-9J-7PH"/>
-                                            <constraint firstAttribute="bottom" secondItem="RPH-sD-Qu6" secondAttribute="bottom" constant="170" id="tm6-QS-auY"/>
+                                            <constraint firstAttribute="bottom" secondItem="RPH-sD-Qu6" secondAttribute="bottom" constant="50" id="tm6-QS-auY"/>
                                         </constraints>
                                     </view>
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="L7f-uA-zgY">
@@ -503,7 +503,7 @@
                             <constraint firstItem="6A3-oF-SLN" firstAttribute="trailing" secondItem="O8N-ot-ulj" secondAttribute="trailing" constant="4" id="9ih-xc-I8W"/>
                             <constraint firstItem="hAn-BZ-PvA" firstAttribute="leading" secondItem="6A3-oF-SLN" secondAttribute="leading" id="BnO-RK-pMT"/>
                             <constraint firstItem="hAn-BZ-PvA" firstAttribute="bottom" secondItem="jOQ-Ol-IvD" secondAttribute="bottom" id="QhI-AJ-Bdd"/>
-                            <constraint firstAttribute="trailing" secondItem="hAn-BZ-PvA" secondAttribute="trailing" constant="-20" id="R2t-Kc-r2n"/>
+                            <constraint firstItem="6A3-oF-SLN" firstAttribute="trailing" secondItem="hAn-BZ-PvA" secondAttribute="trailing" id="R2t-Kc-r2n"/>
                             <constraint firstItem="O8N-ot-ulj" firstAttribute="leading" secondItem="6A3-oF-SLN" secondAttribute="leading" id="RTD-rH-hXK"/>
                             <constraint firstItem="hAn-BZ-PvA" firstAttribute="top" secondItem="uBI-Fz-LTZ" secondAttribute="top" id="YhX-C4-ju1"/>
                             <constraint firstItem="O8N-ot-ulj" firstAttribute="top" secondItem="hAn-BZ-PvA" secondAttribute="bottom" id="ijG-wv-FtC"/>
@@ -533,6 +533,7 @@
                         <outlet property="txtIntention" destination="I2v-zu-ndg" id="Hz9-ge-RFa"/>
                         <outlet property="txtName" destination="HgK-Ix-7fk" id="oSV-mn-lhj"/>
                         <outlet property="txtSendTo" destination="8Ul-mZ-Ea6" id="OM7-dE-1bq"/>
+                        <outlet property="viewG" destination="hAn-BZ-PvA" id="zql-4o-Yqd"/>
                         <outlet property="webViewContainer" destination="RPH-sD-Qu6" id="7al-nt-T1K"/>
                     </connections>
                 </viewController>

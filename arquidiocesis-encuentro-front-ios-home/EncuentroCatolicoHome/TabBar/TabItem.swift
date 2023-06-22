@@ -34,15 +34,22 @@ public enum TabItem: String, CaseIterable {
             return navigationController
             
         case .feed:
-            let sosType = UserDefaults.standard.bool(forKey: "isComm")
+            let rol = UserDefaults.standard.string(forKey: "profile") ?? "DEVOTED"
+            let arrAdmins=["PRIEST_ADMIN",
+                           "DEAN_PRIEST",
+                           "DEVOTED_ADMIN",
+                           "CLERGY_VICARAGE",
+                           "PASTORAL_VICARAGE",
+                           "CONSECRATED_LIFE_VICARAGE"]
+            //let sosType = UserDefaults.standard.bool(forKey: "isComm")
             let navigationController = UINavigationController()
-            switch sosType {
-            case true:
+            if arrAdmins.contains(rol){
                 let profile  = PriestPSOSRouter.createModule()
                 navigationController.navigationBar.isHidden = true
                 navigationController.pushViewController(profile, animated: true)
                 return navigationController
-            case false:
+                
+            }else{//case false:
                 let profile = PrincipalRouterSOS.createModue()
                 navigationController.navigationBar.isHidden = true
                 navigationController.pushViewController(profile, animated: false)

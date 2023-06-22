@@ -169,7 +169,7 @@ class Home_MiOfrenda: BaseVC, NewDontaionsViewProtocol {
     var menuIcons = ["", "heart.fill", "", "doc.plaintext.fill", ""]
     var itemsRadioBtn = ["Si", "No"]
     var conceptType = ["Selecciona concepto", "Ofrenda", "Diezmo", "Limosna", "Pago de una intención", "Pago de un servicio", "Otro"]
-    var amountList = ["50", "100", "200", "300", "400", "500", "1000", "Otra"]
+    var amountList = ["Selecciona monto","50", "100", "200", "300", "400", "500", "1000", "Otra"]
     var isActive = [false, true]
     var withBill: Bool {
         isActive[safe: 0] ?? false
@@ -227,6 +227,7 @@ class Home_MiOfrenda: BaseVC, NewDontaionsViewProtocol {
         setupFieldsDelegate()
         setupGestures()
         setupFields()
+        addDoneButtonOnKeyboard()
     }
  
     override func viewWillAppear(_ animated: Bool) {
@@ -236,9 +237,7 @@ class Home_MiOfrenda: BaseVC, NewDontaionsViewProtocol {
             presenter?.requestChurchList(category: "CHURCH")
             presenter?.requestSuggestedList()
         } else {
-            self.alertFields = AcceptAlert.showAlert(titulo: "Atención", mensaje: "No tienes conexión a internet.")
-            self.alertFields!.view.backgroundColor = .clear
-            self.present(self.alertFields!, animated: true)
+            showCanonAlert(title: "Atención", msg: "No tienes conexión a internet.")
         }
     }
     
@@ -283,6 +282,7 @@ class Home_MiOfrenda: BaseVC, NewDontaionsViewProtocol {
     }
     
     private func setupWebView() {
+        print("setupWebView👹")
         let contentController = WKUserContentController()
         contentController.add(self, name: "sumbitToiOS")
         let config = WKWebViewConfiguration()
@@ -291,13 +291,12 @@ class Home_MiOfrenda: BaseVC, NewDontaionsViewProtocol {
         myWebView = WKWebView(frame: webViewContainer.frame, configuration: config)
         webViewContainer.addSubview(myWebView)
         myWebView.translatesAutoresizingMaskIntoConstraints = false
-        
         let leading = myWebView.leadingAnchor.constraint(equalTo: webViewContainer.leadingAnchor)
         let trailing = myWebView.trailingAnchor.constraint(equalTo: webViewContainer.trailingAnchor)
         let top = myWebView.topAnchor.constraint(equalTo: webViewContainer.topAnchor)
         let bottom = myWebView.bottomAnchor.constraint(equalTo: webViewContainer.bottomAnchor)
-        
         webViewContainer.addConstraints([leading, top, trailing, bottom])
+        
         guard let url = URL(string: setSecureURL() ?? "") else { return }
         print("URLWEBPAY👹",url)
         myWebView.load(URLRequest(url: url))
@@ -310,7 +309,6 @@ class Home_MiOfrenda: BaseVC, NewDontaionsViewProtocol {
     }
     
     private func setSecureURL() -> String? {
-        var amount = amountField.text?.replacingOccurrences(of: "$", with: "") ?? ""
         let name = defaults.string(forKey: "OnlyName") ?? ""
         let surname = defaults.string(forKey: "LastName2") ?? ""
         let phone = defaults.string(forKey: "phone2") ?? ""
@@ -321,42 +319,22 @@ class Home_MiOfrenda: BaseVC, NewDontaionsViewProtocol {
         let zipCode = taxCPField.text
         let municipality = taxTownHallField.text
         let businessName = taxSocialReasonField.text
-        
+        var amount = amountField.text?.replacingOccurrences(of: "$", with: "") ?? ""
+
         if amount == "Otra" {
             amount = otherAmountField.text ?? ""
         }
-        let valuleAmount = Int(amount ) ?? 0
-        
-        if  valuleAmount   < 9 {
-            let alert = UIAlertController(title: "Aviso", message: "¡Gracias! Desafortunadamente no podemos recibir ofrendas menores a $10 pesos.", preferredStyle: .alert)
-            let cancelAction = UIAlertAction(title: "Aceptar", style: .cancel){
-                [weak self] _ in
-                guard let self = self else {return}
-                self.navigationController?.popViewController(animated: true)
-            }
-            alert.addAction(cancelAction)
             
-            self.present(alert, animated: true)
-        } else if valuleAmount >= 10000 {
-            let alert = UIAlertController(title: "Aviso", message: "No es posible recibir ofrendas superiores a $10,000 pesos. Cualquier duda favor de comunicarte a contacto@miofrenda.mx", preferredStyle: .alert)
-            let cancelAction = UIAlertAction(title: "Aceptar", style: .cancel){
-                [weak self] _ in
-                guard let self = self else {return}
-                self.navigationController?.popViewController(animated: true)
-            }
-            alert.addAction(cancelAction)
-            
-            self.present(alert, animated: true)
-        }
         let donationRequest = withBill ? DonationRequest(amount: amount, email: email, locationId: String(churchSelecrtedId), name: name, operationId: "68844", phoneNumber: phone, surnames: surname, rfc: rfc, businessName: businessName, address: address, neighborhood: neighborhood, municipality: municipality, zipcode: zipCode) : DonationRequest(amount: amount, email: email, locationId: String(churchSelecrtedId), name: name, operationId: "68844", phoneNumber: phone, surnames: surname)
         print("DONACION👹",donationRequest)
+        
         guard let jsonData = try? JSONEncoder().encode(donationRequest),
               let json = String(data: jsonData, encoding: String.Encoding.utf8),
               let resultString = SecurityUtils.encryptForWebView(json)?.base64EncodedString() else {
             print("DONACION 2💀",donationRequest)
             return nil
         }
-        
+            
         print("RESULT😵‍💫",resultString)
         if conceptField.text == "Otro"{
             lblCOffering.text = specifyField.text ?? ""
@@ -370,10 +348,7 @@ class Home_MiOfrenda: BaseVC, NewDontaionsViewProtocol {
             lblAOffering.text = (amountField.text ?? "") + ".00 M. N."
         }
         
-        
         return "\(APIType.shared.myOffer())/pagos/data/v2?data=\(resultString.addingPercentEncoding(withAllowedCharacters: .afURLQueryAllowed)?.replacingOccurrences(of: "/", with: "%2F") ?? "")"
-        
-        
     }
 
     private func setupTables() {
@@ -507,12 +482,10 @@ class Home_MiOfrenda: BaseVC, NewDontaionsViewProtocol {
     }
     
     @IBAction func searchAction(_ sender: Any) {
-        //let view = MapDonationsRouter.createModule()
         let view = ProfileMapWireFrame.createModuleMap(mapType: "Donations")
         view.modalPresentationStyle = .overFullScreen
         view.transitioningDelegate = self
         self.present(view, animated: true, completion: nil)
-        // self.navigationController?.pushViewController(view, animated: true)
     }
     
     @IBAction func cancelAction(_ sender: Any) {
@@ -522,11 +495,30 @@ class Home_MiOfrenda: BaseVC, NewDontaionsViewProtocol {
         churchListStack.isHidden = false
     }
     
+    func showCanonAlert(title:String, msg:String){
+        alertFields = AcceptAlert.showAlert(titulo: title, mensaje: msg)
+        alertFields!.view.backgroundColor = .clear
+        self.present(alertFields!, animated: true)
+    }
+    
     @IBAction func continueAction(_ sender: Any) {
-        self.setupWebView()
+        //self.setupWebView()
         if isActive[1] == true {
-            if conceptField.text != "" && amountField.text != "" {
-                self.setupWebView()
+            if conceptField.text != "" && amountField.text != "" && amountField.text != "$Selecciona monto" {
+             
+                var amount = amountField.text?.replacingOccurrences(of: "$", with: "") ?? ""
+                if amount == "Otra" {
+                    amount = otherAmountField.text ?? ""
+                }
+                let valueAmount = Int(amount) ?? 0
+                if  valueAmount < 50 {
+                    showCanonAlert(title: "¡Gracias!", msg: "Desafortunadamente no podemos recibir ofrendas menores a $50 pesos.")
+                    return
+                } else if valueAmount >= 10000 {
+                    showCanonAlert(title: "¡Gracias!", msg: "No es posible recibir ofrendas superiores a $10,000 pesos. Cualquier duda favor de comunicarte a contacto@miofrenda.mx")
+                    return
+                }
+                setupWebView()
                 flowId = 3
                 menuContentView.isHidden = true
                 lblContainerView.isHidden = true
@@ -537,35 +529,26 @@ class Home_MiOfrenda: BaseVC, NewDontaionsViewProtocol {
                 // loaderTimerView.isHidden = false
                 startTimer()
                 webViewContainer.isHidden = false
-                //                    self.myWebView.evaluateJavaScript("function showToast() { document.getElementById('tarjeta').value='12342565768976' }") { value, error in
-                //                    }
-                self.myWebView.evaluateJavaScript("function showToast() { webkit.messageHandlers.callbackHandler.postMessage('Algo de texto') }") { value, error in
+                myWebView.evaluateJavaScript("function showToast() { webkit.messageHandlers.callbackHandler.postMessage('Algo de texto') }") { value, error in
                 }
-                
-                self.myWebView.evaluateJavaScript("document.getElementsByTagName('button')[0].style.color='black'") { value, error in
+                myWebView.evaluateJavaScript("document.getElementsByTagName('button')[0].style.color='black'") { value, error in
                 }
-                
-                self.myWebView.evaluateJavaScript("document.getElementsByTagName('button')[0].onclick=showToast") { value, error in
+                myWebView.evaluateJavaScript("document.getElementsByTagName('button')[0].onclick=showToast") { value, error in
                 }
-                
-                
             }else{
-                let alert = AcceptAlertDonations.showAlert(message: "Por favor llena todos los campos", btnTitle: "Ok")
-                alert.modalPresentationStyle = .overFullScreen
-                self.present(alert, animated: true, completion: nil)
+                showCanonAlert(title: "Atención", msg: "Por favor llena todos los campos.")
             }
             
         }else if isActive[0] == true{
-            self.setupWebView()
+            setupWebView()
             if billingData.count == 0 {
                 guard self.validateForm() else {
                     return
                 }
-                
                 presenter?.saveBillingData(method: "POST", taxId: 0, businessName: taxSocialReasonField.text, rfc: taxRFCField.text, address: taxAddressField.text, neighborhood: taxColonyField.text, zipCode: taxCPField.text, municipality: taxTownHallField.text, email: taxEmailField.text, automaticBilling: automaticBilling)
             }else{
-                if amountField.text != "" && conceptField.text != "" {
-                    self.setupWebView()
+                if amountField.text != "" && conceptField.text != "" && amountField.text != "$Selecciona monto"{
+                    setupWebView()
                     flowId = 3
                     menuContentView.isHidden = true
                     lblContainerView.isHidden = true
@@ -576,30 +559,20 @@ class Home_MiOfrenda: BaseVC, NewDontaionsViewProtocol {
                     // loaderTimerView.isHidden = false
                     webViewContainer.isHidden = false
                     startTimer()
-                    self.myWebView.evaluateJavaScript("function showToast() { webkit.messageHandlers.callbackHandler.postMessage('Algo de texto') }") { value, error in
+                    myWebView.evaluateJavaScript("function showToast() { webkit.messageHandlers.callbackHandler.postMessage('Algo de texto') }") { value, error in
                     }
-                    self.myWebView.evaluateJavaScript("document.getElementsByTagName('button')[0].style.color='black'") { value, error in
+                    myWebView.evaluateJavaScript("document.getElementsByTagName('button')[0].style.color='black'") { value, error in
                     }
-                    
-                    self.myWebView.evaluateJavaScript("document.getElementsByTagName('button')[0].onclick=showToast") { value, error in
+                    myWebView.evaluateJavaScript("document.getElementsByTagName('button')[0].onclick=showToast") { value, error in
                     }
-                    
-                    
                 }else{
-                    let alert = AcceptAlertDonations.showAlert(message: "Por favor llena todos los campos", btnTitle: "Ok")
-                    alert.modalPresentationStyle = .overFullScreen
-                    self.present(alert, animated: true, completion: nil)
+                    showCanonAlert(title: "Atención", msg: "Por favor llena todos los campos")
                 }
             }
-        }else if amountField.text != "" && conceptField.text != "" {
-            let alert = AcceptAlertDonations.showAlert(message: "Por favor selecciona una opción de facturación", btnTitle: "Ok")
-            alert.modalPresentationStyle = .overFullScreen
-            self.present(alert, animated: true, completion: nil)
-            
+        }else if amountField.text != "" && conceptField.text != "" && amountField.text != "$Selecciona monto"{
+            showCanonAlert(title: "Atención", msg: "Por favor selecciona una opción de facturación")
         }else{
-            let alert = AcceptAlertDonations.showAlert(message: "Por favor llena todos los campos", btnTitle: "Ok")
-            alert.modalPresentationStyle = .overFullScreen
-            self.present(alert, animated: true, completion: nil)
+            showCanonAlert(title: "Atención", msg: "Por favor llena todos los campos")
         }
         
     }
@@ -875,6 +848,22 @@ class Home_MiOfrenda: BaseVC, NewDontaionsViewProtocol {
         customNavbar.layer.mask = maskLayer
     }
     
+    func addDoneButtonOnKeyboard(){
+        let doneToolbar: UIToolbar = UIToolbar(frame: CGRect.init(x: 0, y: 0, width: UIScreen.main.bounds.width, height: 50))
+             doneToolbar.barStyle = .default
+        let flexSpace = UIBarButtonItem(barButtonSystemItem: .flexibleSpace, target: nil, action: nil)
+        let done: UIBarButtonItem = UIBarButtonItem(title: "Listo", style: .done, target: self, action: #selector(self.doneButtonAction))
+        let items = [flexSpace, done]
+        doneToolbar.items = items
+        doneToolbar.sizeToFit()
+        otherAmountField.inputAccessoryView = doneToolbar
+
+    }
+
+    @objc func doneButtonAction(){
+        otherAmountField.resignFirstResponder()
+    }
+    
 }
 
 // MARK: API SERVICES CHURCH LIST -
@@ -1097,12 +1086,8 @@ extension Home_MiOfrenda: WKScriptMessageHandler{
                         //self.dismiss(animated: true, completion: nil)
                     }
                     alert.addAction(cancelAction)
-                    
                     self.present(alert, animated: true)
-                    /*let alert = AcceptAlertDonations.showAlert(message: "¡Muchas gracias! Tu ofrenda ha sido procesada exitosamente y tu intención ha sido enviada.", btnTitle: "Entendido")
-                    alert.delegate = self
-                    alert.modalPresentationStyle = .overFullScreen
-                    self.present(alert, animated: true, completion: nil)*/
+                  
                 }else {
                     let alert = AcceptAlertDonations.showAlert(message: objResponse?.responseDescription?.folding(options: .diacriticInsensitive, locale: .current) ?? "Ocurrio un error, Intente mas tarde", btnTitle: "Entendido")
                     alert.delegate = self

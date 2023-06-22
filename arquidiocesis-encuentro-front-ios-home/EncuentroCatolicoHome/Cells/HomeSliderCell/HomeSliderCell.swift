@@ -115,12 +115,7 @@ class HomeSliderCell: UITableViewCell, UICollectionViewDataSource, UICollectionV
                     cell.imgCustom.contentMode = .scaleAspectFit
                 default :
                     let imgS = allData[indexPath.item].image_url
-                    if imgS == "https://arquidiocesis-app-mx.s3.amazonaws.com/ICONOS/BIBLIOTECA/icon_link.png"{
-                        cell.imgCustom.image=UIImage(named: "arqui",in: Bundle(for: HomeSliderCell.self), compatibleWith: nil)
-                        cell.imgCustom.contentMode = .scaleAspectFit
-                    }else{
                         cell.imgCustom.loadS(urlS: imgS ?? imgDef)
-                    }
                 }
             cell.lblCustom.text = allData[indexPath.item].title ?? ""
             cell.btnCell.addTarget(self, action: #selector(suggestionAction), for: .touchUpInside)
@@ -131,17 +126,11 @@ class HomeSliderCell: UITableViewCell, UICollectionViewDataSource, UICollectionV
             print(String(allData2.count))
             if indexPath.row >= allData2.startIndex && indexPath.row < allData2.endIndex {
                 print("IMAGE URLL")
-            let imgS = allData2[indexPath.item].image_url
-                if imgS == "https://arquidiocesis-app-mx.s3.amazonaws.com/ICONOS/BIBLIOTECA/icon_link.png"{
-                    cell.imgCustom.image=UIImage(named: "arqui",in: Bundle(for: HomeSliderCell.self), compatibleWith: nil)
-                    cell.imgCustom.contentMode = .scaleAspectFit
-                }else{
-                    cell.imgCustom.loadS(urlS: imgS ?? imgDef)
-                }
-            cell.lblCustom.text = allData2[indexPath.item].title ?? ""
-            cell.btnCell.addTarget(self, action: #selector(postAction), for: .touchUpInside)
+                let imgS = allData2[indexPath.item].image_url
+                cell.imgCustom.loadS(urlS: imgS ?? imgDef)
+                cell.lblCustom.text = allData2[indexPath.item].title ?? ""
+                cell.btnCell.addTarget(self, action: #selector(postAction), for: .touchUpInside)
                 cell.btnCell.tag = indexPath.item
-                
             }
         default:
                 print("IMPOSIBLE")

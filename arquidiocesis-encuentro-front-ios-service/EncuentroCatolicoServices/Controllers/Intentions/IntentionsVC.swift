@@ -78,8 +78,6 @@ class IntentionsViewController: UIViewController {
         DispatchQueue.main.asyncAfter(deadline: .now() + 0.5, execute: {
             self.alert.dismiss(animated: true, completion: nil)
         })
-//        let tap = UITapGestureRecognizer(target: self, action: #selector(hideKeyBoard))
-//        view.addGestureRecognizer(tap)
         presenter?.requestlocations()
     }
     
@@ -90,7 +88,6 @@ class IntentionsViewController: UIViewController {
     
     private func setNavAndSearch() {
         self.view.addSubview(self.searchBarF)
-        //  self.tableSearchBar.register(UITableViewCell.self, forCellReuseIdentifier: cellTable)
     }
     
     private func isSuccesSearch() {
@@ -175,10 +172,7 @@ extension IntentionsViewController: UITableViewDelegate, UITableViewDataSource{
     }
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        //        self.searchBarF.text = self.dataSourceSearch[indexPath.row].name
-        //               let id = self.dataSourceSearch[indexPath.row].id
-        //               let view = LibraryAndResourcesRouter.createModule(contentID: id)
-        //               self.navigationController?.pushViewController(view, animated: true)
+     
     }
 }
 
@@ -241,16 +235,7 @@ extension IntentionsViewController: IntentionsViewProtocol {
             self.locations = locations
             collection.reloadData()
             hideLoading()
-            //            func mostrarMSG(dtcAlerta: [String : String]) {
-            //                alert.dismiss(animated: false, completion: {
-            //                    DispatchQueue.main.asyncAfter(deadline: .now(), execute: {
-            //                        self.alert.dismiss(animated: true, completion: nil)
-            //                    })
-            //                    let alerta = UIAlertController(title: dtcAlerta["titulo"], message: dtcAlerta["cuerpo"], preferredStyle: .alert)
-            //                    alerta.addAction(UIAlertAction(title: "Aceptar", style: .default, handler: nil))
-            //                    self.present(alerta, animated: true, completion: nil)
-            //                })
-            //            }
+   
         }
     }
 }

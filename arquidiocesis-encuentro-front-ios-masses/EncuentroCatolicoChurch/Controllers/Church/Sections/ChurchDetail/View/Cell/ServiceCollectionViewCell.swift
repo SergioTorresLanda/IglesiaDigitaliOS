@@ -1,9 +1,5 @@
 //
 //  ServiceCollectionViewCell.swift
-//  encuentro
-//
-//  Created by Edgar Hernandez Solis on 04/10/20.
-//  Copyright © 2020 Linko. All rights reserved.
 //
 
 import UIKit
@@ -27,8 +23,6 @@ class ServiceCollectionViewCell: UICollectionViewCell {
     
     @IBOutlet weak var lblTo: UILabel!
     @IBOutlet weak var lblDescription: UILabel!
-    
-    
 //    @IBOutlet weak var btnClose: UIButton!
 //    @IBOutlet weak var btnFirstEdit: UIButton!
 //    @IBOutlet weak var btnSecondEdit: UIButton!
@@ -85,41 +79,39 @@ class ServiceCollectionViewCell: UICollectionViewCell {
         deleteBtn.isHidden=false
     }
     
-    func fillService(with service: ChurchDetail, index: Int) {
+    func fillService(with service: ChurchDetail.Service) {
         self.cardView.layer.cornerRadius = 10
         self.cardView.ShadowCard()
         lblTo.adjustsFontSizeToFitWidth = true
         lblDescription.adjustsFontSizeToFitWidth = true
-        lblTo.text = service.services?[index].geared_toward 
+        lblTo.text = "Dirigido a: " + service.geared_toward!
         lblTo.isHidden = false
-        lblDescription.text = service.services?[index].description
+        lblDescription.text = service.description
+        serviceNameLabel.text = service.type?.name ?? ""
         lblDescription.isHidden = false
-
-        var arrayDays: [String] = []
-        
-        service.services?[index].schedules?.forEach({ element in
-            print(element, "*******")
+        availableHoursLabel.isHidden=true
+        availableDaysLabel.numberOfLines=4
+        availableDaysLabel.text! = ""
+        var array: [XX] = []
+        service.schedules?.forEach({ element in
             element.days?.forEach({ day in
-                if day.checked == true {
-                    arrayDays.append(day.name ?? "")
-                }
+                array.append(XX(day: day, start: element.hour_start ?? "00:00", end: element.hour_end ?? "00:00"))
+                
             })
-            
         })
         
-        if arrayDays.count == 7 {
-            availableDaysLabel.text = "Lunes a Domingo"
-        }else{
-            availableDaysLabel.text = "\(arrayDays.first ?? "") a \(arrayDays.last ?? "")"
-        }
-        
-        let horaS = service.services?[index].schedules?.first?.hour_start//service.services?.first?.schedules?.first?.hour_start
-        //let horaE = service.services?.first?.schedules?.first?.hour_end
-        serviceNameLabel.text = service.services?[index].type?.name ?? ""
-        availableHoursLabel.text = "\(horaS ?? "") hrs."
-        deleteBtn.setTitle("", for: .normal)
-        
-//        validateRole()
+        array.forEach({item in
+            if item.day.checked == true {
+                print("CHEKED:::")
+                print(item.day.name)
+                if item.start=="00:00" && item.end=="00:00"{
+                    availableDaysLabel.text! += item.day.name! + ": Horario flexible \n"
+                }else{
+                    availableDaysLabel.text! += item.day.name! + ": " + item.start + " a " + item.end + "\n"
+                }
+            }
+        })
+        //validateRole()
     }
     
 //    func validateRole() {
@@ -144,6 +136,11 @@ protocol ServiceCellDelegate: AnyObject {
     func delete(collectionView: UICollectionView, at indexPath: IndexPath)
 }
 
+struct XX: Codable {
+    let day: ChurchDetail.Day
+    let start: String
+    let end: String
+}
 //MARK: - Picker controller delegates
 extension ServiceCollectionViewCell: PickerControllerDelegate {
     

@@ -27,7 +27,7 @@ class ChurchDetailPresenter: ChurchDetailPresenterProtocol, ChurchDetailInteract
     }
     
     func errorDetail(msg: String) {
-        view?.showError("Error al cargar detalle de iglesia.")
+        view?.showError("Error al cargar detalle de iglesia: "+msg)
     }
     
     
